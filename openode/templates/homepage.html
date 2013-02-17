@@ -41,7 +41,7 @@
 {% block content %}
 
     {% if not request.user.is_authenticated() %}
-        {{ _render_homepage_content_fx(request) }}
+        {{ _render_content_fx(request, "homepage") }}
     {% endif %}
 
     <div class="row">

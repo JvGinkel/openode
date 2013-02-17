@@ -5,7 +5,7 @@ import openode.conf.email
 import openode.conf.forum_data_rules
 import openode.conf.flatpages
 import openode.conf.site_settings
-import openode.conf.license
+#import openode.conf.license # DEPRECATED - use custom templates /templates/custom_templates/footer/footer_content_[lang].html
 import openode.conf.external_keys
 import openode.conf.skin_general_settings
 import openode.conf.sidebar_main

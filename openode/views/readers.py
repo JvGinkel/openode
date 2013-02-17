@@ -88,16 +88,16 @@ DISPLAY_MODE_ACTIVE_AND_CLOSED = 2
 # from openode.search.state_manager import SearchState
 
 
-def _render_homepage_content_fx(request):
+def _render_content_fx(request, page_type):
     """
-        return content - loaded from template - for homepage
+        return content - loaded from template
     """
     env = Environment(loader=FileSystemLoader([
         os.path.join(settings.PROJECT_ROOT, "templates"),
         os.path.join(settings.OPENODE_ROOT, "templates"),
     ]))
 
-    template = env.get_template("homepage_content_%s.html" % request.LANGUAGE_CODE)
+    template = env.get_template("custom_templates/%s/%s_content_%s.html" % (page_type, page_type, request.LANGUAGE_CODE))
     return template.render(**{
         "request": request
     })
@@ -155,7 +155,7 @@ def index(request):  # generates front page - shows listing of questions sorted 
         "nodes": root_nodes_qs,
         "with_closed": with_closed,
         "display_mode": mode,
-        "_render_homepage_content_fx": _render_homepage_content_fx,
+        "_render_content_fx": _render_content_fx,
 
         "latest_actuality": latest_actuality,
         "opened_nodes": simplejson.dumps(opened_nodes),

@@ -322,14 +322,10 @@
         </div>
 
         {# === FOOTER === #}
+        
+        {{ _render_content_fx(request, "footer") }}
 
-        {% if settings.FOOTER_MODE == 'default' %}
-            {% include "widgets/footer.html" %}
-        {% elif settings.FOOTER_MODE == 'customize' %}
-            {{ settings.CUSTOM_FOOTER }}
-        {% endif %}
-
-        {% include "custom_footer.html" ignore missing %}
+        
         {% include "meta/bottom_scripts.html" %}
         {% block endjs %}{% endblock %}
 
