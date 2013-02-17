@@ -87,9 +87,9 @@ class SearchState(object):
 
     @classmethod
     def get_empty(cls):
-        return cls(node=None, module=None, scope=None, sort=None, query=None, tags=None, author=None, page=None, user_logged_in=None)
+        return cls(node=None, module=None, scope=None, sort=None, query=None, tags=None, author=None, page=None, user_logged_in=None, request=None)
 
-    def __init__(self, node, module, scope, sort, query, tags, author, page, user_logged_in):
+    def __init__(self, node, module, scope, sort, query, tags, author, page, user_logged_in, request):
 
         if (scope not in const.THREAD_SCOPE_LIST) or (scope == const.THREAD_SCOPE_FOLLOWED and not user_logged_in):
             self.scope = const.DEFAULT_THREAD_SCOPE
@@ -122,11 +122,18 @@ class SearchState(object):
                 self.sort_method = const.DEFAULT_THREAD_SORT_METHOD
                 self.sort_dir = const.DEFAULT_THREAD_SORT_DIR
             else:
+                if request:
+                    request.session['question_list_sort_method'] = sort_method
+                    request.session['question_list_sort_dir'] = sort_dir
                 self.sort_method = sort_method
                 self.sort_dir = sort_dir
         else:
-            self.sort_method = const.DEFAULT_THREAD_SORT_METHOD
-            self.sort_dir = const.DEFAULT_THREAD_SORT_DIR
+            if request:
+                self.sort_method = request.session.get('question_list_sort_method', const.DEFAULT_THREAD_SORT_METHOD)
+                self.sort_dir = request.session.get('question_list_sort_dir', const.DEFAULT_THREAD_SORT_DIR)
+            else:
+                self.sort_method = const.DEFAULT_THREAD_SORT_METHOD
+                self.sort_dir = const.DEFAULT_THREAD_SORT_DIR
 
         self.tags = []
         if tags:
