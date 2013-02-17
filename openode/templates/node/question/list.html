@@ -9,7 +9,7 @@
 {% block module_content %}
     <h2>{% trans %}Questions{% endtrans %}</h2>
     {% include "node/snippets/thread_sort.html" %}{# sorting #}
-
+    {% include "node/snippets/paginator.html" %}
     {% if threads.object_list|length == 0 %}
         <p>{% trans %}There are no questions in this Node.{% endtrans %}</p>
     {% else %}
