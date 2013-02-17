@@ -5,6 +5,7 @@ import pytz
 import re
 import time
 import unicodedata
+import os
 import urllib
 
 from coffin import template as coffin_template
@@ -31,6 +32,9 @@ from openode.skins import utils as skin_utils
 from openode.models.post import Post
 
 from django.conf import settings as django_settings
+
+from jinja2 import Environment, FileSystemLoader
+from django.conf import settings
 
 ################################################################################
 
@@ -566,3 +570,21 @@ def parse_reply_to(html, posts_per_pages, answer, request):
         html = html.replace(match.group(), new_string)
 
     return html
+
+@register.filter
+def custom_template(target, request):
+    """
+        return content - loaded from template - returns empty string if template does not exists
+    """
+    try:
+        env = Environment(loader=FileSystemLoader([
+            os.path.join(settings.PROJECT_ROOT, "templates"),
+            os.path.join(settings.OPENODE_ROOT, "templates"),
+        ]))
+    
+        template = env.get_template("custom_templates/%s/%s_content_%s.html" % (target, target, request.LANGUAGE_CODE))
+        return template.render(**{
+            "request": request
+        })
+    except:
+        return ""

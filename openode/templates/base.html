@@ -322,8 +322,7 @@
         </div>
 
         {# === FOOTER === #}
-        
-        {{ _render_content_fx(request, "footer") }}
+        {{ "footer"|custom_template(request) }}
 
         
         {% include "meta/bottom_scripts.html" %}

@@ -91,6 +91,10 @@ def tag_font_size(max_size, min_size, current_size):
     return int(MIN_FONTSIZE + round((MAX_FONTSIZE - MIN_FONTSIZE) * weight))
 
 
+def test(context, test):
+    return test + "asdasdasd as das d"
+register.simple_tag(takes_context=True)(test)
+
 class IncludeJinja(template.Node):
     """http://www.mellowmorning.com/2010/08/24/"""
     def __init__(self, filename, request_var):
