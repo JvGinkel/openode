@@ -24,4 +24,6 @@
 	 ALTER TABLE pluto_thread_tags                    RENAME TO openode_thread_tags;
 	 ALTER TABLE pluto_threadcategory                 RENAME TO openode_threadcategory;
 	 ALTER TABLE pluto_threadview                     RENAME TO openode_threadview;
+	 UPDATE django_content_type SET app_label = 'openode' WHERE app_label = 'pluto';
 COMMIT;
+
