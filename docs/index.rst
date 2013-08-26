@@ -54,7 +54,7 @@ Contributing
 ------------
 https://github.com/openode/openode
 
-Lincense
+License
 --------
 Project OPENode is published under license AGPLv3 <http://www.gnu.org/licenses/agpl-3.0.html>
-Content on this site is licensed under a CC-BY-SA license
+Documentation is licensed under a CC-BY-SA license <http://creativecommons.org/licenses/by-sa/2.0/>

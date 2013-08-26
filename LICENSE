@@ -1,7 +1,11 @@
-Openode - Django Q&A forum application.
-Copyright (C) 2009. Chen Gang and Sailing Cai.
+OPENode - Django Q&A forum and EDMS application.
+
+Copyright
+=========
+
+2009. Chen Gang and Sailing Cai.
 2009-2011 Evgeny Fadeev and individual contributors of Askbot project.
-2012-2013 individual contributors of Openode project.
+2012-2013 COEX CZ s.r.o <http://www.coex.cz> and individual contributors of OPENode project.
 All rights reserved.
 
 LICENSE
