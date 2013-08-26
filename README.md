@@ -1,6 +1,8 @@
 OPENode
 =======
 
+Django Q&A forum and EDMS application.
+
 For more information and demo visit http://openode.net/
 
 Documentation
