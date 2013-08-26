@@ -1,0 +1,72 @@
+
+{# {% set document = thread.get_document() %} #}
+<div class="row">
+    <div class="nine columns">
+        {% if document %}
+            <span class="ico-type" style="background-image: url({{ document.get_icon() }});">
+                <a href="{% url thread node.pk, node.slug, "library", thread.pk, thread.slug %}" title="{{ thread.get_title() }}">
+                    {{ thread.get_title('html') }}
+                </a>
+                {# {{ document.get_file_name() }} #}
+            </span>
+
+        {% else %}
+            <span class="ico-type" style="background-image: url({{ '/images/fileicons/file.png'|media }});">
+                <a href="{% url thread node.pk, node.slug, "library", thread.pk, thread.slug %}" title="{{ thread.get_title() }}">
+                    {{ thread.get_title('html') }}
+                </a>
+            </span>
+        {% endif %}
+    </div>
+
+    <div class="one columns t-right">
+        <span class="views" title="{% trans %}number of views{% endtrans %}">{{ thread.view_count }}&times;</span>
+    </div>
+
+    <div class="two columns t-right">
+        {# {% set unread = thread.has_unread_main_post_for_user(request.user) %} #}
+        <small class="{% if unread %}unread{% endif %}">{{ thread.last_activity_at|humanize_datetime }}</small>
+    </div>
+</div>
+ {# | #}
+{# <a href="{% url edit_thread thread.pk %}">edit thread</a> #}
+
+
+{#
+<div class="panel">
+
+    <div class="row">
+
+        <div class="ten columns">
+
+            <strong>
+                <a href="{% url thread node.pk, node.slug, "library", thread.pk, thread.slug %}">
+                    {{ thread.title }}
+                </a>
+            </strong>
+
+            {% if document %}
+                <br />
+                <img src="{{ document.get_icon() }}" alt="" />
+
+                {{ document.get_file_name() }}
+                <br />
+
+                <small>
+                    last change: {{ document.latest_revision.revised_at|humanize_datetime }} |
+                    {{ document.latest_revision.author }} |
+                    <a href="{% url edit_thread thread.pk %}">edit thread</a>
+                    <a href="{% url document_edit node.pk, node.slug, document.pk %}">edit</a>
+                </small>
+            {% endif %}
+        </div>
+
+        <div class="two columns">
+            {% if document %}
+                <a href="{{ document.get_file_url() }}" class="button tiny">DOWNLOAD</a>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+ #}

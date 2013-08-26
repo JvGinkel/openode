@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html> <html> <head> <title>Forum - Pluto: Open Source Q&amp;A Forum</title> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> <meta name="keywords" content=",Pluto,CNPROG,forum,community" /> <!-- Set the viewport width to device width for mobile --> <meta name="viewport" content="width=device-width" /> <meta name="description" content="Open source question and answer forum written in Python and Django" /> <link rel="shortcut icon" href="/m/default/media/images/favicon.gif?v=52" />
+<script
+    type="text/javascript"
+
+        src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"
+
+></script>
+
+<link href="colorbox/colorbox.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="colorbox/jquery.colorbox.min.js"></script>
+
+<link href="qtip/jquery.qtip.min.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="qtip/jquery.qtip.min.js"></script>
+
+<link href="css/screen.css" rel="stylesheet" type="text/css" /> <script type="text/javascript" src="/m/default/media/js/modernizr.custom.js?v=52"></script> <script type="text/javascript" src="/jsi18n/"></script> <script type="text/javascript">
+    var pluto = {};
+    pluto['data'] = {};
+
+        pluto['data']['userIsAuthenticated'] = true;
+        pluto['data']['userId'] = 1;
+        pluto['data']['userName'] = 'admin@coex.cz';
+        pluto['data']['userIsAdminOrMod'] = true;
+        pluto['data']['userIsAdmin'] = true;
+
+    pluto['urls'] = {};
+    pluto['settings'] = {};
+
+        pluto['settings']['allowedUploadFileTypes'] = [
+            "jpg", "jpeg", "gif", "bmp", "png", "tiff", "doc", "odt", "rtf", "pdf", "xls", "docx", "xlsx", "ppt", "pptx", "txt"
+        ];
+
+    pluto['messages'] = {};
+</script> <style type="text/css">
+
+            .vote-notification {
+                z-index: 1;
+                cursor: pointer;
+                display: none;
+                position: absolute;
+                font-family: Arial;
+                font-size: 14px;
+                font-weight: normal;
+                color: white;
+                background-color: #8e0000;
+                text-align: center;
+                padding-bottom: 10px;
+                -webkit-box-shadow: 0px 2px 4px #370000;
+                -moz-box-shadow: 0px 2px 4px #370000;
+                box-shadow: 0px 2px 4px #370000;
+                border-radius: 4px;
+                -ms-border-radius: 4px;
+                -moz-border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -khtml-border-radius: 4px;
+                width: 200px;
+            }
+            .vote-notification h3 {
+                /*background: url(../images/notification.png) repeat-x top;*/
+                padding: 10px 10px 10px 10px;
+                font-size: 13px;
+                margin-bottom: 5px;
+                border-top: #8e0000 1px solid;
+                color: #fff;
+                font-weight: normal;
+                border-top-right-radius: 4px;
+                border-top-left-radius: 4px;
+                -moz-border-radius-topright: 4px;
+                -moz-border-radius-topleft: 4px;
+                -webkit-border-top-left-radius: 4px;
+                -webkit-border-top-right-radius: 4px;
+            }
+            .vote-notification a {
+                color: #fb7321;
+                text-decoration: underline;
+                font-weight: bold;
+            }
+
+        </style>
+
+        <script>
+
+            $(document).ready(function() {
+                $('.show-more').on('click', function() {
+                    var _self = $(this);
+                    var content = $('#' + _self.data('content'));
+
+                    $.colorbox({
+                        html: content.html(),
+                        width: '600px'
+                    });
+
+                    return false;
+                });
+
+                $('.reply-preview').qtip({
+                    overwrite: false,
+                    content: {
+                        text: function() {
+                            var reply_id = $(this).data('reply');
+
+                            return $('#reply-preview-' + reply_id).clone();
+                        }
+                    },
+                    position: {
+                        target: 'mouse',
+                        viewport: $(window),
+                        adjust: {
+                            method: 'shift shift',
+                            x: 10,
+                            y: 10
+                        }
+                    },
+                    show: {
+                        delay: 500,
+                        effect: false
+                    },
+                    hide: {
+                        fixed: true,
+                        delay: 0,
+                        effect: false
+                    },
+                    style: {
+                        classes: 'ui-tooltip-reply-preview',
+                        // height: 300,
+                        tip: {
+                            width: 10,
+                            height: 5,
+                            mimic: 'center',
+                            offset: 15
+                        }
+                    }
+                });
+
+            });
+
+        </script>
+
+
+    </head> <body class="one-col anon lang-en"> <div class="row"> <div class="column twelve"> <div class="header row"> <div class="column three"> <a class="logo-title" href="/">Pluto <small>smarter Q&amp;A</small></a> </div> <div class="column nine t-right"> <ul class="menu inline-list inline v-centered"> </ul> <ul class="inline-list inline v-centered"> <a href="/set_lang/?language=cs">cs</a> <a href="/set_lang/?language=en">en</a> </ul> </div> </div> <div class="user-info row"> <div class="column six"> <ul class="inline-list inline v-centered"> <li class=""><a href="/">Home</a></li> <li> <a href="/tags/">
+                                        Tags
+                                    </a> </li> <li> <a href="/organizations/" >
+                                        Organizations
+                                    </a> </li> <li class=""> <a href="/admin">Admin</a> </li> <li> <a href="/settings/">Settings</a> </li> <li> <a href="/users/1/">My profile</a> </li> <li> <a href="/help/">Help</a> </li> </ul> </div> <div class="column six t-right"> <ul class="inline-list inline v-centered"><li> <a href="/users/1/">Logged as: admin</a> </li> <li> <a href="/account/signout/?next=/account/logout/">Sign out</a> </li> </ul> </div> </div> <div class="nav-container row"> <div class="column seven"><ul class="nav-bar"> <li> <a href="/users/1/followed_clubs/"><small>Followed </small>Clubs</a> </li> <li> <a href="/users/1/followed_questions/"><small>Followed </small>Questions</a> </li> <li> <a href="/users/1/followed_discussions/"><small>Followed </small>Discussions</a> </li> <li> <a href="/users/1/activity/">Activity</a> </li> <li> <a id='ab-responses' href="/users/1/inbox/?section=forum"> <img
+                                                alt="responses for admin"
+
+                                                    src="/m/default/media/images/mail-envelope-empty.png?v=52"
+                                                    title="no new responses yet"
+
+                                            /> </a> </li> <li> <a id="ab-responses" href="/users/1/inbox/?section=flags">Moderation
+
+                                        </a> </li> </ul> </div> <div class="search-box column five"> <input type="text" name="search" placeholder="Search" class="v-centered input-search" /> </div> </div> <div class="notify" style="display:none"> <a id="closeNotify" onclick="notify.close(true)"></a> </div> <div class="row content question-list"> <ul class="breadcrumbs"> <li><a href="/">All clubs</a></li> <li> <a href="/club/3/op-lzz-verejne/">OP LZZ - VEŘEJNÉ</a> </li> <li> <a href="/club/10/implementacni-subjekty/">IMPLEMENTAČNÍ SUBJEKTY</a> </li> <li> <span>Discussions</span> </li> </ul> <div class="nine columns"> <div class="group"> <h1>IMPLEMENTAČNÍ SUBJEKTY – informacím, které vidět neměl, a to naprosto jednoduchým informacím, které vidět neměl, a to naprosto jednoduchým informacím, které vidět neměl, a to naprosto jednoduchým informacím, které vidět neměl, a to naprosto jednoduchým</h1> <div class="group perex important"> <p>posledních dnech, týdnech a měsících jsem několikrát slyšel a četl o tom, že velkým hráčům unikla nějaká data, případně se někdo dostal k informacím, které vidět neměl, a to naprosto jednoduchým způsobem. „Útočník“ pouze změnil nějaké číslo v adrese stránky a</p> </div> <dl class="tabs"> <dd > <a href="/club/10/implementacni-subjekty/annotation/"> <div class="tab-title">
+
+                            Annotation
+
+                        </div> </a> </dd> <dd > <a href="/club/10/implementacni-subjekty/qa/"> <div class="tab-title">
+
+                            Questions
+
+
+
+
+
+
+                                    <div class="total">0 items</div> </div> </a> </dd> <dd class="active"> <a href="/club/10/implementacni-subjekty/forum/"> <div class="tab-title">
+
+                            Discussions
+
+
+
+
+
+
+                                    <div class="total">1 items</div> </div> </a> </dd> <dd > <a href="/club/10/implementacni-subjekty/library/"> <div class="tab-title">
+
+                            Documents
+
+
+
+
+
+
+                                    <div class="total">1 items</div> </div> </a> </dd> </dl> <div class="group"> <a class="button f-right" href="/club/10/implementacni-subjekty/forum/add/">
+            Start new discussion
+        </a> <h2 class="tab-content-title">Club's Discussions</h2> </div> <div class="sort group"> <dl class="sub-nav f-right" id="sort_tabs"> <dd> <a id="by_age"
+               href="/club/10/implementacni-subjekty/forum/scope:all/sort:age-desc/page:1/"
+               class="off"
+               title="click to see the newest questions"> <span>by date</span> </a> <script type="text/javascript">
+            var sortButtonData = sortButtonData || {};
+            sortButtonData["age"] = {
+                label: "by date",
+                asc_tooltip: "click to see the oldest questions",
+                desc_tooltip: "click to see the newest questions"
+            };
+        </script> </dd> <dd> <a id="by_answers"
+               href="/club/10/implementacni-subjekty/forum/scope:all/sort:answers-desc/page:1/"
+               class="off"
+               title="click to see the most posted discussions"> <span>by posts</span> </a> <script type="text/javascript">
+            var sortButtonData = sortButtonData || {};
+            sortButtonData["answers"] = {
+                label: "by posts",
+                asc_tooltip: "click to see the least posted discussions",
+                desc_tooltip: "click to see the most posted discussions"
+            };
+        </script> </dd> </dl> </div> <div class="club-box"> <div class="club-box-content group"> <div class="report-wrap"> <div class="report-boxes"> <div class="report-box"> <a title="fgnhgfrgbgfbgfrefgb
+ ..." href="/club/10/implementacni-subjekty/forum/thread/45/sdfghgfredfghgfrghngt/">
+<div id="reply-preview-10" class="hidden">
+dfsfad
+</div>
+
+ <span class="unread">&nbsp;</span> <span class="new left"></span> <span class="count">0</span> <span class="title">Posts</span> </a> </div> <div class="report-box"> <a title="fgnhgfrgbgfbgfrefgb
+ ..." href="/club/10/implementacni-subjekty/forum/thread/45/sdfghgfredfghgfrghngt/"> <span class="unread">&nbsp;</span> <span class="count">0</span> <span class="title">Views</span> </a> </div> </div> <div class="changedate"> <span class="timeago" title="24.&nbsp;1.&nbsp;2013&nbsp;14:22">24.&nbsp;1.&nbsp;2013&nbsp;14:22</span> <strong>
+                    admin@coex.cz
+                </strong> </div> </div> <h3> <a title="fgnhgfrgbgfbgfrefgb
+ ..." href="/club/10/implementacni-subjekty/forum/thread/45/sdfghgfredfghgfrghngt/" class="reply-preview" data-reply="10">
+                sdfghgfredfghgfrghngt
+            </a> </h3> <ul id="question-tags" class="tags post-tags tags group"> </ul> </div> </div> </div> </div> <div class="three columns aside"> <div class="block"> <div class="title">Club</div> <div class="block-content"> <p>help_club_detail_short</p> <p><a href="#" title="More help" class="show-more" data-content="more-help">More help</a></p>
+
+            <div id="more-help" class="hidden">
+                <h3>hellopfadkf kasdjfl jsda lf jkasdf kladsj fklsdjf akldfj askdf j</h3>
+                <p>faskdfj lasdjfdasf</p>
+                <p>dskafj lasdjf lasdf</p>
+                <p>sdafk jfalsdf j</p>
+            </div>
+
+
+             </div> </div> <div class="block"> <div class="title">Club tools</div> <div class="block-content"> <p> <button class="button success" id="id_club_follow" title="click to follow this club" style="display: none">Follow</button> <button class="button secondary" id="id_club_unfollow" title="click to unfollow this club" >Unfollow</button> </p> <p> <label for="id_club_subscribe"> <input type="checkbox" id="id_club_subscribe"  />
+                        email the updates
+                    </label> </p> <p> <a href="/club/10/implementacni-subjekty/settings/" title="Edit club">Edit club settings</a><br /> <a href="/edit-club-perexes-10">Edit perexes</a><br /> <a href="/club/10/implementacni-subjekty/followers/" title="">Show followers (1)</a><br /> </p> </div> </div> <div class="block"> <div class="title">Sub-Clubs</div> <div class="block-content"> <ul> <li><a href="/club/11/esf-pracovni-skupina-pro-evaluace/" title="ESF Pracovní skupina pro evaluace – sekretariát ">ESF Pracovní skupina pro evaluace</a></li> <li><a href="/club/12/oddeleni-811/" title="Oddělení 811">Oddělení 811</a></li> <li><a href="/club/13/oddeleni-817/" title="Oddělení 817 – regiony">Oddělení 817</a></li> </ul> </div> </div> <div class="block stats"> <div class="title">Stats</div> <div class="block-content"> <table> <tr> <th>Last activity:</th> <td>
+
+                            Never
+
+                    </td> </tr> <tr> <th>Number of followers:</th> <td>1</td> </tr> <tr> <th>Visibility:</th> <td>Public</td> </tr> <tr> <th>Readonly:</th> <td>No</td> </tr> <tr> <th>Closed:</th> <td>No</td> </tr> </table> </div> </div> </div> </div> <!-- template footer.html --> <div class="row footer"> <div class="column four"> <ul class="footer-menu group"> </ul> <p class="powered-link"> <a href="http://pluto.org" target="_blank">Powered by Pluto version 0.7.43</a> </p> </div> <div class="column eight"> <p class="copyright"> <a class="license-logo" href="http://creativecommons.org/licenses/by-sa/3.0/legalcode"> <img src="/m/default/media/images/cc-by-sa.png?v=52" title="cc-by-sa" alt="cc-by-sa" /> </a>
+
+                    Copyright Pluto, 2010-2011. Content on this site is licensed under <br />a <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">Creative Commons Attribution Share Alike 3.0</a> license.
+                </p> </div> </div> <!-- end template footer.html --> <div id="no-javascript"> <noscript class="noscript">
+        Please note: Pluto requires javascript to work properly, please enable javascript in your browser, <a href="https://www.google.com/support/bin/answer.py?answer=23852">here is how</a> </noscript> <script type="text/javascript">
+        //IE fix to hide the red margin
+        var noscript = document.getElementsByTagName('noscript')[0];
+        noscript.style.padding = '0px';
+        noscript.style.backgroundColor = 'transparent';
+    </script> </div> <script type="text/javascript">
+    var i18nLang = 'en';
+    var scriptUrl = '/'
+    var plutoSkin = 'default';
+    pluto['urls']['mark_read_message'] = '/messages/markread/';
+    pluto['urls']['get_tags_by_wildcard'] = '/get-tags-by-wildcard/';
+    pluto['urls']['get_tag_list'] = '/get-tag-list/';
+    pluto['urls']['follow_user'] = '/followit/follow/user/{{userId}}/';
+    pluto['urls']['unfollow_user'] = '/followit/unfollow/user/{{userId}}/';
+    pluto['urls']['user_signin'] = '/account/signin/';
+    pluto['settings']['static_url'] = '/m/';
+    pluto['urls']['getEditor'] = '/get-editor/';
+</script>  <!-- History.js --> <script type='text/javascript' src="/m/default/media/js/jquery.history.js?v=52"></script> <script type='text/javascript' src="/m/default/media/js/utils.js?v=52"></script> <script type="text/javascript">
+    /*<![CDATA[*/
+    $(document).ready(function(){
+        // focus input on the search bar endcomment
+
+            $('#keywords').focus();
+
+        if (pluto['data']['userIsAdminOrMod']) {
+            $('body').addClass('admin');
+        }
+
+
+    });
+
+    $('abbr.timeago').timeago();
+    /*]]>*/
+</script> <script type="text/javascript">
+        /*<![CDATA[*/
+        var sortMethod = 'activity-desc';
+        var showSortByRelevance = true;
+        var minSearchWordLength = 4;
+
+        $(document).ready(function(){
+            /*var on_tab = '#nav_questions';
+            $(on_tab).attr('className','on');*/
+            liveSearch('scope:all/sort:activity\u002Ddesc/page:1/');
+            Hilite.exact = false;
+            Hilite.elementid = "question-list";
+            Hilite.debug_referrer = location.href;
+
+        });
+
+        pluto['urls']['mark_interesting_tag'] = '/mark-tag/interesting/';
+        pluto['urls']['mark_ignored_tag'] = '/mark-tag/ignored/';
+        pluto['urls']['mark_subscribed_tag'] = '/mark-tag/subscribed/';
+        pluto['urls']['unmark_tag'] = '/unmark-tag/';
+        pluto['urls']['set_tag_filter_strategy'] = '/set-tag-filter-strategy/';
+
+    //     pluto['urls']['question_url_template'] = scriptUrl + 'question/{{QuestionID}}/';
+
+        if (Modernizr.history) {
+            // history management works!
+        } else {
+            // no history support :(
+            //hash = unescape(window.location.hash).replace('#','').split("?")[0]
+
+            var hash = History.unescapeHash(window.location.hash).replace('#','').split("?")[0];
+            var questions_url = pluto['urls']['questions'];
+            if (hash.substring(0, questions_url.length) === questions_url) {
+                var url = hash;
+            } else {
+                var url = questions_url + hash;
+            }
+            if (hash !== '' && hash !== undefined && url !== undefined){
+
+                window.location = 'http://' + window.location.host + url;
+            }
+        }
+        /*]]>*/
+
+
+        $(document).ready(function() {
+            $('#id_club_follow').click(function(e) {
+                $.get('/club/10/implementacni-subjekty/follow/', function() {$('#id_club_follow').hide(); $('#id_club_unfollow').show()});
+            });
+            $('#id_club_unfollow').click(function(e) {
+                $.get('/club/10/implementacni-subjekty/unfollow/', function() {$('#id_club_unfollow').hide(); $('#id_club_follow').show()});
+            });
+
+            $('#id_club_subscribe').click(function(e) {
+                if ($(e.target).attr('checked')) {
+                    url = '/club/10/implementacni-subjekty/subscribe/'
+                } else {
+                    url = '/club/10/implementacni-subjekty/unsubscribe/'
+                }
+                $.get(url);
+            });
+
+        });
+
+    </script> <script type='text/javascript' src='/m/default/media/js/editor.js?v=52'></script> <script type='text/javascript' src='/m/default/media/js/tag_selector.js?v=52'></script> <script type="text/javascript" src='/m/default/media/js/live_search.js?v=52'></script> <script type="text/javascript">
+                    for (url_name in pluto['urls']){
+                        pluto['urls'][url_name] = cleanUrl(pluto['urls'][url_name]);
+                    }
+                </script> </div> </div> </body> </html>

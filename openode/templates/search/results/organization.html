@@ -1,0 +1,32 @@
+{% from "macros.html" import render_gravatar %}
+
+ <div class="node-box">
+    <div class="node-box-content group">
+
+        <div class="row">
+            <div class="columns six">
+                <small>
+                    {% trans %}Organization{% endtrans %}:
+                </small>
+            </div>
+        </div>
+
+        <h3>
+            <a href="{{ result.url }}" title="{{ result.title }}">
+                {% set logo = result.object.get_logo_url(24) %}
+                {% if logo %}
+                    <img src="{{ logo }}" alt="{{ result.object.title|escape }}" />
+                {% endif %}
+                {{ result.title }}
+            </a>
+        </h3>
+
+        <p>
+            {{ result.text|highlight_search_result(query) }}
+        </p>
+
+    </div>
+</div>
+
+{# #}
+

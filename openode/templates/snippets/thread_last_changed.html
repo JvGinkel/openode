@@ -1,0 +1,2 @@
+{% from "macros.html" import render_last_changed %}
+{{ render_last_changed(thread.last_activity_by, thread.last_activity_at, thread._main_post().author, thread.added_at) }}

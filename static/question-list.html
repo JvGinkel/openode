@@ -1,0 +1,311 @@
+<html>
+    <head>
+        <title>Questions - Pluto: Open Source Q&A Forum</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="keywords" content=",Pluto,CNPROG,forum,community">
+        <meta name="description" content="Open source question and answer forum written in Python and Django">
+
+        <link rel="shortcut icon" href="">
+
+        <link href="../pluto/media/style/screen.css?v=2" rel="stylesheet" type="text/css">
+
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&amp;subset=latin-ext" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&amp;subset=cyrillic-ext" rel="stylesheet" type="text/css">
+
+        <script type="text/javascript" src="../pluto/media/js/modernizr.custom.js?v=2" style="color: rgb(0, 0, 0);"></script>
+        <script type="text/javascript" src="/jsi18n/"></script>
+        <script type="text/javascript">
+            var pluto = {};
+            pluto['data'] = {};
+
+                pluto['data']['userIsAuthenticated'] = false;
+
+            pluto['urls'] = {};
+            pluto['settings'] = {};
+
+                pluto['settings']['allowedUploadFileTypes'] = [
+                    "jpg", "jpeg", "gif", "bmp", "png", "tiff", "doc", "odt", "rtf", "pdf", "xls", "docx", "xlsx", "ppt", "pptx", "txt"
+                ];
+
+            pluto['messages'] = {};
+        </script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="column twelve">
+
+                <div class="header row">
+                    <div class="column three">
+                        <a class="logo-title" href="/">Pluto <small>smarter Q&amp;A</small></a>
+                    </div>
+                    <div class="column nine t-right">
+                        <ul class="menu inline-list inline v-centered"> </ul>
+                        <ul class="inline-list inline v-centered">
+                            <li><a href="/set_lang/?language=cs">cs</a></li>
+                            <li><a href="/set_lang/?language=en">en</a></li>
+                            <li><a href="/set_lang/?language=de">de</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="user-info row">
+                    <div class="column six">
+                        <ul class="login-info inline-list inline v-centered">
+                            <li><a href="/account/signin/?next=/">Hi there! Please sign in</a></li>
+                            <li><a href="/help/" title="help">help</a></li>
+                        </ul>
+                    </div>
+                    <div class="column six t-right">
+                        <ul class="inline-list inline v-centered">
+                            <li><a id="navTags" href="/tags/">tags</a></li>
+                            <li><span class="dropdown"><a id="navOrganizations" class="" href="/organizations/" data-target="#">people &amp; organizations</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="nav-container row">
+                    <div class="column seven">
+                        <ul class="nav-bar">
+                            <li class=""><a href="/">Home</a></li>
+                            <li class=""><a href="/admin">Admin</a></li>
+                        </ul>
+                    </div>
+                    <div class="search-box column five">
+                        <input type="text" name="search" placeholder="Search" class="v-centered input-search" />
+                    </div>
+                </div>
+
+                <div class="row content question-list">
+                    <ul class="breadcrumbs">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/club/1/test/">test</a></li>
+                        <li><a href="/club/1/test/qa/thread/2/cxzczxcxzczxczxczx-cxz-czxc/">cxzczxcxzczxczxczx cxz czxc</a></li>
+                    </ul>
+                    <div class="nine columns">
+                        <div class="group">
+                            <h1>Consectetur adipiscing elit</h1>
+                            <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet nulla et massa ullamcorper rutrum at in mi.</p>
+                            <dl class="tabs">
+                                <dd><a href="">Annotation</a></dd>
+                                <dd class="active"><a href=""> Q&amp;A&nbsp;&nbsp;&nbsp;<span class="unread">9</span> <span class="total">12</span></a></dd>
+                                <dd><a href="">Forum 0</a></dd>
+                                <dd><a href="">Library 0</a></dd>
+                            </dl>
+                            <div class="group">
+                                <a class="button f-right" title="" href="">Ask Your Question</a>
+                                <h2 class="tab-content-title">Club's Questions and Answers</h2>
+                            </div>
+                            <div class="group perex important">Aenean nulla turpis, semper nec bibendum quis, convallis sit amet eros. Ut vitae sem orci, eu placerat nisl. Praesent tincidunt posuere sodales. Cras placerat arcu eu enim fermentum vitae mattis lorem aliquet. Nullam id urna eget ante congue adipiscing vel nec ligula. Morbi in nunc non eros tincidunt adipiscing.</div>
+                            <div class="sort group">
+                                <dl class="sub-nav f-right">
+                                    <dd class="active"><a title="" href="">by date ▼▲</a></dd>
+                                    <dd><a title="" href="">by activity</a></dd>
+                                    <dd><a title="" href="">by answer</a></dd>
+                                    <dd><a title="" href="">by votes</a></dd>
+                                </dl>
+                            </div>
+                            <div class="club-box group">
+                                <div class="club-box-content group">
+                                    <div class="report-wrap">
+                                        <div class="report-box">
+                                            <a href="/club/1/vyzva-c-94/forum/" title="forum">
+                                                <span class="unread">&nbsp;</span>
+                                                <span class="count">0</span>
+                                                <span class="title">Views</span>
+                                            </a>
+                                        </div>
+                                        <div class="report-box new">
+                                            <a href="/club/1/vyzva-c-94/qa/" title="qa">
+                                                <span class="unread">&nbsp;</span>
+                                                <span class="new left">10+</span>
+                                                <span class="new right">9</span>
+                                                <span class="accept">accepted</span>
+                                                <span class="count">0</span>
+                                                <span class="title">Answers</span>
+                                            </a>
+                                        </div>
+                                        <div class="changedate">Jun 11 2012 by <strong>Joe Black</strong></div>
+                                    </div>
+                                    <h3><a href="">Proin eget tortor libero. Aenean viverra?</a></h3>
+                                    <ul class="tags">
+                                        <li><a class="tag" href="" title="">Translation</a></li>
+                                        <li><a class="tag" href="" title="">tag name</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="club-box group">
+                                <div class="club-box-content group">
+                                    <div class="report-wrap">
+                                        <div class="report-box">
+                                            <a href="/club/1/vyzva-c-94/forum/" title="forum">
+                                                <span class="unread">&nbsp;</span>
+                                                <span class="count">0</span>
+                                                <span class="title">Views</span>
+                                            </a>
+                                        </div>
+                                        <div class="report-box">
+                                            <a href="/club/1/vyzva-c-94/qa/" title="qa">
+                                                <span class="unread">&nbsp;</span>
+                                                <span class="count">0</span>
+                                                <span class="title">Answers</span>
+                                            </a>
+                                        </div>
+                                        <div class="changedate">Jun 11 2012 by <strong>Joe Black</strong></div>
+                                    </div>
+                                    <h3><a href="">Proin eget tortor libero. Aenean viverra?</a></h3>
+                                    <ul class="tags">
+                                        <li><a class="tag" href="" title="">Translation</a></li>
+                                        <li><a class="tag" href="" title="">tag name</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="club-box group">
+                                <div class="club-box-content group">
+                                    <div class="report-wrap">
+                                        <div class="report-box">
+                                            <a href="/club/1/vyzva-c-94/forum/" title="forum">
+                                                <span class="unread">&nbsp;</span>
+                                                <span class="count">0</span>
+                                                <span class="title">Views</span>
+                                            </a>
+                                        </div>
+                                        <div class="report-box">
+                                            <a href="/club/1/vyzva-c-94/qa/" title="qa">
+                                                <span class="unread">&nbsp;</span>
+                                                <span class="count">0</span>
+                                                <span class="title">Answers</span>
+                                            </a>
+                                        </div>
+                                        <div class="changedate">Jun 11 2012 by <strong>Joe Black</strong></div>
+                                    </div>
+                                    <h3><a href="">Proin eget tortor libero. Aenean viverra?</a></h3>
+                                    <ul class="tags">
+                                        <li><a class="tag" href="" title="">Translation</a></li>
+                                        <li><a class="tag" href="" title="">tag name</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="club-box group">
+                                <div class="club-box-content group">
+                                    <div class="report-wrap">
+                                        <div class="report-box">
+                                            <a href="/club/1/vyzva-c-94/forum/" title="forum">
+                                                <span class="unread">&nbsp;</span>
+                                                <span class="count">0</span>
+                                                <span class="title">Views</span>
+                                            </a>
+                                        </div>
+                                        <div class="report-box">
+                                            <a href="/club/1/vyzva-c-94/qa/" title="qa">
+                                                <span class="unread">&nbsp;</span>
+                                                <span class="count">0</span>
+                                                <span class="title">Answers</span>
+                                            </a>
+                                        </div>
+                                        <div class="changedate">Jun 11 2012 by <strong>Joe Black</strong></div>
+                                    </div>
+                                    <h3><a href="">Proin eget tortor libero. Aenean viverra?</a></h3>
+                                    <ul class="tags">
+                                        <li><a class="tag" href="" title="">Translation</a></li>
+                                        <li><a class="tag" href="" title="">tag name</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <br />
+                            <p>Did not find what you were looking for? <a title="" href="">Please, post your question!</a></p>
+                            <div class="pagination-wrap">
+                                <ul class="pagination">
+                                    <li class="arrow unavailable"><a href="">&laquo;</a></li>
+                                    <li class="current"><a href="">1</a></li>
+                                    <li><a href="">2</a></li>
+                                    <li><a href="">3</a></li>
+                                    <li><a href="">4</a></li>
+                                    <li class="unavailable"><a href="">&hellip;</a></li>
+                                    <li><a href="">12</a></li>
+                                    <li><a href="">13</a></li>
+                                    <li class="arrow"><a href="">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="three columns aside">
+                        <div class="block">
+                            <div class="title">Help</div>
+                            <div class="block-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat ultrices interdum. Morbi euismod eros vitae ligula mattis ac pretium libero vulputate. Nullam pellentesque, arcu eu interdum eleifend, nisi enim malesuada risus, et tempus tortor est blandit nunc. Nunc gravida convallis felis.</p>
+                                <p><a href="" title="">More details</a></p>
+                            </div>
+                        </div>
+                        <div class="block q-tools">
+                            <div class="title">Subclubs</div>
+                            <div class="block-content">
+                                <p>
+                                    <a href="" title="">Proin eget tortor aneano</a><br />
+                                    <a href="" title="">massa ullamcorper </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <div class="title">Club tools</div>
+                            <div class="block-content">
+                                <p>
+                                    <a href="" title="">Proin eget tortor aneano</a>
+                                </p>
+                                <p class="t-center"><button class="button">Follow</button></p>
+                                <p>
+                                    <a href="" title="">Proin eget tortor aneano</a><br />
+                                    <a href="" title="">massa ullamcorper </a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block stats">
+                            <div class="title">Club stats</div>
+                            <div class="block-content">
+                                <table>
+                                    <tr>
+                                        <th>Asked:</th>
+                                        <td>1. 1. 2013</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Seen:</th>
+                                        <td>36 &#215;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last updated:</th>
+                                        <td>3. 1. 2013</td>
+                                    </tr>
+                                </table>
+                                <p>
+                                    <a href="" title="">show followers</a><br />
+                                    <a href="" title="">show last views</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <div class="title">Club managers</div>
+                            <div class="block-content">
+                                <dl>
+                                    <dd><a href=""><img src="http://lorempixel.com/16/16/abstract/2/" alt="" />MPSVCR</a></dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row footer">
+                    <div class="column four">
+                        <ul class="footer-menu group"></ul>
+                        <p class="powered-link">
+                            <a href="http://pluto.org" target="_blank">Powered by Pluto version 0.7.43</a>
+                        </p>
+                    </div>
+                    <div class="column eight">
+                        <p class="copyright">
+                            <a class="license-logo" href="http://creativecommons.org/licenses/by-sa/3.0/legalcode"><img src="http://pluto.coex.cz/m/default/media/images/cc-by-sa.png?v=2" title="cc-by-sa" alt="cc-by-sa"></a> Copyright Pluto, 2010-2011. Content on this site is licensed under <br>a <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">Creative Commons Attribution Share Alike 3.0</a> license.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

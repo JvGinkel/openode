@@ -1,0 +1,150 @@
+{% from "macros.html" import render_last_changed %}
+<div class="row {% if node.parent_id %}js-subelement js-subelement-of-{{ node.parent_id }}{% else %}js-top-node{% endif %} {% if root_id==node.parent_id %}js-force-open{% endif %}" id="element-{{ node.pk }}">
+    <div class="column twelve">
+        <div class="node-box{% if NODE_TREE_DISPLAY and node.is_category() %} category{% endif %} level-{{ node.level }} group">
+
+            {% if node.is_leaf_node_for_user(nodes_of_user, with_closed) %}
+                {% if not (NODE_TREE_DISPLAY and node.is_category()) %}
+                    <a href="{% url node node_id=node.pk, node_slug=node.slug %}" class="node-link-wrap"></a>
+                {% endif %}
+            {% endif%}
+
+            <div class="node-box-content group">
+
+                {# REPORT BOXES #}
+                {% if NODE_TREE_DISPLAY and node.is_category() %}
+                    {# NODE STYLE CATEGORY #}
+                    <div class="report-wrap">
+                        <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
+                    </div>
+                {% else %}
+                    {# NODE STYLE REGULAR #}
+                    <div class="report-wrap">
+                        <div class="report-boxes">
+
+
+                        {% if node.module_qa %}
+                            {% url node_module node.pk, node.slug, NODE_MODULE_QA as url %}
+                            {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_QA) %}
+                            <div class="report-box{% if unread > 0 %} unread-background{% endif %}">
+                                <a href="{{ url }}" title="{% trans %}Open Node's questions{% endtrans %}">
+                                    <div class="group unread-mark-container">
+                                    {% if unread > 0 %}
+                                        <span class="unread-mark">{{ unread }}</span>
+                                    {% endif %}
+                                    </div>
+
+                                    <span class="count">
+                                    {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_QA)  %}
+                                        {{ threads_count_for_module }}
+                                    {% endwith %}
+                                    </span>
+
+                                    <span class="title">{% trans %}Q&As{% endtrans %}</span>
+                                </a>
+                            </div>
+                        {% endif %}
+
+
+                        {% if node.module_forum %}
+                            {% url node_module node.pk, node.slug, NODE_MODULE_FORUM as url %}
+                            {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_FORUM) %}
+                            <div class="report-box{% if unread > 0 %} unread-background{% endif %}">
+                                <a href="{{ url }}" title="{% trans %}Open Node's discussion{% endtrans %}">
+                                    <div class="group unread-mark-container">
+                                    {% if unread > 0 %}
+                                        <span class="unread-mark">{{ unread }}</span>
+                                    {% endif %}
+                                    </div>
+
+                                    <span class="count">
+                                    {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_FORUM)  %}
+                                        {{ threads_count_for_module }}
+                                    {% endwith %}
+                                    </span>
+
+                                    <span class="title">{% trans %}Discu.{% endtrans %}</span>
+                                </a>
+                            </div>
+                        {% endif %}
+
+
+                        {% if node.module_library %}
+                            {% url node_module node.pk, node.slug, NODE_MODULE_LIBRARY as url %}
+                            {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_LIBRARY) %}
+                            <div class="report-box{% if unread > 0 %} unread-background{% endif %}">
+                                <a href="{{ url }}" title="{% trans %}Open Node's documents{% endtrans %}">
+                                    <div class="group unread-mark-container">
+                                    {% if unread > 0 %}
+                                        <span class="unread-mark">{{ unread }}</span>
+                                    {% endif %}
+                                    </div>
+
+                                    <span class="count">
+                                    {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_LIBRARY)  %}
+                                        {{ threads_count_for_module }}
+                                    {% endwith %}
+                                    </span>
+
+                                    <span class="title">{% trans %}Docs.{% endtrans %}</span>
+                                </a>
+                            </div>
+                        {% endif %}
+
+                        </div>
+                    </div>
+
+                {% endif %}
+
+                {# TITLE RENDER #}
+                {% if NODE_TREE_DISPLAY and not node.is_leaf_node_for_user(nodes_of_user, with_closed) %}
+                    {# NODE IS TREE NODE - show/hide on click #}
+                    <a class="no-outline js-expander js-closed {% if USE_AJAX %}js-use-ajax{% endif %}" href="{% url toggle_node %}?node_id={{ node.pk }}" data-element_id="{{ node.pk }}" data-close="▾" data-open="▸">
+                        {% if not node.long_title %}
+                            <h3 class="node-title no-longtitle">
+                                <span class="expander-sign">▸</span> <span class="title">{{ node.title_with_status('html') }}</span>
+                            </h3>
+                        {% else %}
+                            <h3 class="node-title">
+                                <span class="expander-sign">▸</span> <span class="title">{{ node.title_with_status('html') }}</span>
+                            </h3>
+                            <div class="longtitle">
+                                <span class="title">{{ node.long_title|truncate(100) }}</span>
+                            </div>
+                        {% endif %}
+                    </a>
+                {% else %}
+
+                    {% if NODE_TREE_DISPLAY and node.is_category() %}
+                        {# NODE IS CATEGORY AND LEAF will not be clickable - use about button #}
+                        <h3 class="node-title ">
+                            {{ node.title_with_status('html') }}
+                        </h3>
+                        <div class="longtitle">
+                            {{ node.long_title|truncate(200) }}
+                        </div>
+
+                    {% else %}
+                        {# NODE IS REGULAR LEAF #}
+                        <a href="{% url node node_id=node.pk, node_slug=node.slug %}">
+                            <h3>
+                                <span class="title">{{ node.title_with_status('html') }}</span>
+                            </h3>
+                        </a>
+                        <div class="longtitle">
+                            <a href="{% url node node_id=node.pk, node_slug=node.slug %}">
+                                {{ node.long_title|truncate(200) }}
+                            </a>
+                        </div>
+
+                    {% endif %}
+                {% endif %}
+
+                {# render last changed footer #}
+                {% if not (NODE_TREE_DISPLAY and node.is_category()) %}
+                    {{ render_last_changed(node.get_last_activity_by(), node.get_last_activity_at())}}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

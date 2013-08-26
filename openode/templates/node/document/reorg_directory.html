@@ -1,0 +1,32 @@
+{% extends "two_column_body.html" %}
+{% load i18n %}
+
+{# {% from "macros.html" import node_breadcrumb, node_module_breadcrumb, sidebar_help, sidebar_back_button %} #}
+
+{% block title %}{% spaceless %}{% trans %}Questions{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block sidebar %}
+
+    <a href="{% url node_module node_id=node.pk, node_slug=node.slug, module="library" %}">back to library</a>
+
+{% endblock %}
+
+{% block content %}
+
+    <h1>MOVE</h1>
+
+    {% for category in categories recursive %}
+    {% if loop.first %}<ul>{% endif %}
+        <li id="element-{{ category.pk }}">
+            <span>
+                {{ category.name }}
+                <a href="{% url category_move node.pk, node.slug, category.pk %}">přesunout</a>
+            </span>
+            {% if not category.is_leaf_node() %}
+                {{ loop(category.get_children()) }}
+            {% endif %}
+        </li>
+    {% if loop.last %}</ul>{% endif %}
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends "two_column_body.html" %}
+{% from "macros.html" import render_formfield_row, tag_autocomplete_js %}
+
+<!-- template ask.html -->
+{% block title %}{% spaceless %}
+    {% if thread_type == THREAD_TYPE_QUESTION %}
+        {% trans %}Ask Your Question{% endtrans %}
+    {% elif thread_type == THREAD_TYPE_DISCUSSION %}
+        {% trans %}Start new discussion{% endtrans %}
+    {% elif thread_type == THREAD_TYPE_DOCUMENT %}
+        {% trans %}Add new document{% endtrans %}
+    {% endif %}
+{% endspaceless %}{% endblock %}
+
+{# main contents of ask form is in the template input_bar #}
+{% block sidebar %}
+    {% include "widgets/question_edit_tips.html" %}
+{% endblock %}
+
+{% block forestyle %}
+    {{ form.media }}
+{% endblock %}
+
+{% block content %}
+<div class="group">
+
+    {% spaceless %}
+    <h1>
+        {% if thread_type == THREAD_TYPE_QUESTION %}
+            {% trans %}Add question{% endtrans %}
+        {% elif thread_type == THREAD_TYPE_DISCUSSION %}
+            {% trans %}Add discussion{% endtrans %}
+        {% elif thread_type == THREAD_TYPE_DOCUMENT %}
+            {% trans %}Add document{% endtrans %}
+        {% endif %}
+    </h1>
+    {% endspaceless %}
+
+    <div class="twelve columns tabular-form">
+
+        {% if form.errors %}
+            <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
+        {% endif %}
+
+        <form id="fmask" action="" method="post"{% if thread_type == THREAD_TYPE_DOCUMENT %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
+            {% if thread_type == THREAD_TYPE_QUESTION %}
+                {% set helptext=_("please enter a descriptive title for your question") %}
+                {% set title_labeltext=_("Title") %}
+                {% set text_labeltext=_("Text") %}
+            {% elif thread_type == THREAD_TYPE_DISCUSSION %}
+                {% set helptext=_("please enter a descriptive title for your discussion") %}
+                {% set title_labeltext=_("Theme") %}
+                {% set text_labeltext=_("Description") %}
+            {% elif thread_type == THREAD_TYPE_DOCUMENT %}
+                {% set helptext=_("please enter a descriptive title for your document") %}
+                {% set title_labeltext=_("Title") %}
+                {% set text_labeltext=_("Text") %}
+            {% endif %}
+            {{ render_formfield_row(form.title, labeltext=title_labeltext, helptext=helptext) }}
+            {{ render_formfield_row(form.text, labeltext=text_labeltext) }}
+
+            {# TODO: use Thread.can_retag method #}
+            {% if ("tags" in form.fields) and request.user.has_perm('openode.change_tag') %}
+                {{ render_formfield_row(form.tags, labeltext=_("Tags")) }}
+            {% endif %}
+
+            {% if thread_type == THREAD_TYPE_DOCUMENT %}
+                {{ render_formfield_row(form.file_data, labeltext=_("Document file")) }}
+                {{ render_formfield_row(form.thread_category, labeltext=_("Category")) }}
+                {{ render_formfield_row(form.allow_external_access, labeltext=form.allow_external_access.label) }}
+            {% endif %}
+            <div class="row separator-01"></div>
+
+            <div class="row">
+                <div class="three columns"></div>
+                <div class="nine columns t-left">
+                    <button class="large button success" type="submit" name="post">{% spaceless %}
+                        {% if thread_type == THREAD_TYPE_QUESTION %}
+                            {% trans %}Ask Your Question{% endtrans %}
+                        {% elif thread_type == THREAD_TYPE_DISCUSSION %}
+                            {% trans %}Start new discussion{% endtrans %}
+                        {% elif thread_type == THREAD_TYPE_DOCUMENT %}
+                            {% trans %}Add new document{% endtrans %}
+                        {% endif %}
+                    {% endspaceless %}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block endjs %}
+
+    {% if mandatory_tags %}
+        {% include "meta/mandatory_tags_js.html" %}
+    {% endif %}
+    <script type='text/javascript' src='{{"/js/jquery.validate.min.js"|media}}'></script>
+    <script type='text/javascript' src='{{"/js/post.js"|media}}'></script>
+
+    <script type="text/javascript">
+        //todo move javascript out
+        $().ready(function(){
+            {{ tag_autocomplete_js(id = '#id_tags') }}
+
+            $('#id_revision').unbind().change(function(){
+                $("#select_revision").val('true');
+                $('#edit_post_form_submit_button').click();
+            });
+        });
+    </script>
+
+{% endblock %}
+
+<!-- end template ask.html -->

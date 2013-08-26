@@ -1,0 +1,21 @@
+<div class="node-box">
+    <div class="node-box-content group">
+
+        <div class="row">
+            <div class="columns three">
+                <small>{% trans %}Node{% endtrans %}</small>
+            </div>
+        </div>
+
+        <h3>
+            <a href="{{ result.url }}" title="{{ result.title }}">
+                {{ result.full_title }}
+            </a>
+        </h3>
+
+        <p>
+            {{ result.text|highlight_search_result(query) }}
+        </p>
+
+    </div>
+</div>

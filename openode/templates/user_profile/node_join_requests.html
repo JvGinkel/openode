@@ -1,0 +1,57 @@
+{% extends "user_profile/user.html" %}
+
+{% block profile_breadcrumbs %}
+    <li><span>{% trans %}Unresolved Node join requests{% endtrans %}</span></li>
+{% endblock %}
+
+{% block profilesection %}
+    {% trans %}Unresolved Node join requests{% endtrans %}
+{% endblock %}
+
+{% block usercontent %}
+    {% if node_join_requests %}
+        <table>
+        {% for node_join_request in node_join_requests %}
+            <tr>
+                {% url user_profile node_join_request.user.pk as user_url %}
+                {% url node node_id=node_join_request.content_object.pk, node_slug=node_join_request.content_object.slug as node_url %}
+                <td style="width: 100%">{% trans user=node_join_request.user.screen_name, node=node_join_request.content_object.title %}<a href="{{ user_url }}">{{ user }}</a> wants to join Node <a href="{{ node_url }}">{{ node }}</a>{% endtrans %}
+                </td>
+                <td>{# forms with accept and reject buttons #}
+                    <form action="{% url resolve_node_join_request %}" method="post">{% csrf_token %}
+                        <input
+                            type="hidden"
+                            name="request_id"
+                            value="{{node_join_request.pk}}"
+                        />
+                        <input type="hidden" name="action" value="approve"/>
+                        <input
+                            class="btn button success"
+                            type="submit"
+                            value="{% trans %}Approve{% endtrans %}"
+                        />
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url resolve_node_join_request %}" method="post">
+                        {% csrf_token %}
+                        <input
+                            type="hidden"
+                            name="request_id"
+                            value="{{node_join_request.pk}}"
+                        />
+                        <input type="hidden" name="action" value="deny"/>
+                        <input
+                            class="btn button alert"
+                            type="submit"
+                            value="{% trans %}Deny{% endtrans %}"
+                        />
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <p>{% trans %}You have no unresolved requests.{% endtrans %}</p>
+    {% endif %}
+{% endblock %}

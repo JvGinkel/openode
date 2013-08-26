@@ -1,0 +1,52 @@
+{% extends "two_column_body.html" %}
+{% from "macros.html" import sidebar_back_button, sidebar_help %}
+{% block title %}{% spaceless %}{% trans %}Confirm your registration{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Homepage')) -%} {# spaceless is neccessary because content is included into href #}
+        {% url 'index' %}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Confirm registration page'), _('help_confirm_registration_page_short'), _('More help'), _('help_confirm_registration_page_html'), 'help_confirm_registration_page_html') }}
+
+{% endblock %}
+
+{% block content %}
+<div class="group">
+    <div class="twelve columns tabular-form">
+        <div class="row">
+            <div class="twelve columns">
+                <h1 class="section-title">{% trans %}Confirm your registration{% endtrans %}</h1>
+                <p>
+                    {% trans %}Validation email has been sent to your mailbox. Please find it and follow the enclosed link.<br/>
+                    If the link doesn't work - enter the code below:{% endtrans %}
+                </p>
+            </div>
+        </div>
+
+        <div class="row separator-01"></div>
+
+        <form method="post">{% csrf_token %}
+
+        <div class="row">
+            <div class="three columns">
+                <label class="label-tabular" for="validation-code">{% trans %}Validation code{% endtrans %}</label>
+            </div>
+            <div class="nine columns">
+                <input id="validation-code" type="text" name="validation_code" />
+                <div class="form-field-separator"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="three columns">
+            </div>
+            <div class="nine columns t-right">
+                <button class="button success" type="submit">{% trans %}Validate{% endtrans %}</button>
+                {# <a href="{% url 'index' %}" class="button secondary">{% trans %}Cancel{% endtrans %}</a> #}
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+<!-- end changeemail.html -->

@@ -1,0 +1,125 @@
+{% extends "node/base_node.html" %}
+
+{% block title %}{% spaceless %}{% trans %}Documents{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block content_class %} library{% endblock %}
+
+{% block h1 %}{% trans %}Documents{% endtrans %} – {{ node.full_title() }}{% endblock %}
+
+{% block endjs %}
+    {{ super() }}
+    <script type='text/javascript' src="{{"/js/unfolding.js"|media }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            // open 'in session opened' nodes
+            jQuery.each({{ opened_categories }}, function(index, value){
+                open_element(jQuery("#element-" + value).find(".js-expander").first(), false, false);
+            })
+        });
+    </script>
+{% endblock %}
+
+{% block module_content %}
+    <h2>{% trans %}Documents{% endtrans %}</h2>
+    {% if categories or free_threads %}
+        <div id="question-list" class="files-list">
+
+            {% for category in categories recursive %}
+                {% with cat_documents = category.threads.all().order_by("title") %}
+                    {% if loop.first %}<ul>{% endif %}
+                    <li id="element-{{ category.pk }}">
+                        {# <div class="row"> #}
+                            {% if not category.is_leaf_node() or cat_documents %}
+                                <span
+                                        class="ico-type js-expander js-use-ajax js-closed"
+                                        data-url="{% url toggle_category %}?category_id={{ category.pk }}"
+                                        data-element_id="{{ category.pk }}"
+                                        data-close="▾"
+                                        data-open="▸"
+                                        style="background-image: url({{ '/images/fileicons/folder.png'|media }});"
+                                    >
+                                    <span class="expander-sign">▸</span>
+                                    {{ category.name }}
+                                </span>
+                            {% else %}
+                                <span class="ico-type" style="background-image: url({{ '/images/fileicons/folder.png'|media }});">
+                                    {{ category.name }}
+                                </span>
+                            {% endif %}
+
+                            {% if category.has_update_perm(request.user) %}
+                                <small><a href="{% url category_edit node.pk, node.slug, category.pk %}">{% trans %}edit{% endtrans %}</a></small>
+                            {% endif %}
+
+                            {% if category.pk in categories_ids_witn_unread_thread %}
+                                <span class="unread right"><small>[{% trans %}NEW{% endtrans %}]</small></span>
+                            {% endif %}
+
+                        {# </div> #}
+
+                        <div class="js-subelement-of-{{ category.pk }} js-subelement">
+
+                            {# recursively rendered category tree - is called all in 'for' tag #}
+                            {% if not category.is_leaf_node() %}
+                                {{ loop(category.get_children()) }}
+                            {% endif %}
+
+                            {# flat document list #}
+                            <ul>
+                                {% for thread in cat_documents %}
+                                    {% if not thread.is_deleted %}
+                                        {% set unread = thread.has_unread_main_post_for_user(request.user) %}
+                                        {% set document = thread.get_document() %}
+                                        <li>{% include "node/snippets/document_box.html" %}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                    {% if loop.last %}</ul>{% endif %}
+                {% endwith %}
+            {% endfor %}
+
+            <dl>
+                {% for thread in free_threads %}
+                    <dd>{% include "node/snippets/document_box.html" %}</dd>
+                {% endfor %}
+            </dl>
+        </div>
+    {% else %}
+        <p>{% trans %}There are no Documents in this Node.{% endtrans %}</p>
+    {% endif %}
+
+    <div class="group separated-buttons">
+        {% if request.user.has_openode_perm("node_library_create", node) %}
+            <a href="{% url thread_add node_id=node.pk, node_slug=node.slug, module='library' %}" class="button large success">{% trans %}Add new document{% endtrans %}</a>
+        {% endif %}
+
+        {% if request.user.has_openode_perm("document_directory_create", node) %}
+            <a href="{% url category_add node.pk, node.slug %}" class="">{% trans %}Add New Directory{% endtrans %}</a>
+        {% endif %}
+
+        {% if request.user.has_openode_perm("document_directory_create", node) %}
+            <a href="{% url category_reorg node.pk, node.slug %}" class="">{% trans %}Change order{% endtrans %}</a>
+        {% endif %}
+    </div>
+
+    {# {% include "node/snippets/paginator.html" %} #}
+
+{% endblock %}
+
+
+
+{% from "macros.html" import sidebar_help %}
+{% block sidebar %}
+
+    <!-- {% trans %}help_document_list_short{% endtrans %} -->
+    {# BUG ? - theese translationstrings are not recognized by make messages#}
+    {{ sidebar_help(_('Documents'), _('help_document_list_short'), _('More help'), _('help_document_list_html'), 'help_document_list_html') }}
+
+    {# ============================= #}
+
+    {% set responsible_persons = node.get_responsible_persons() %}
+    {% include "node/snippets/responsible_persons.html" %}
+
+{% endblock %}

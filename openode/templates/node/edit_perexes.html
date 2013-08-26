@@ -1,0 +1,157 @@
+{% extends "two_column_body.html" %}
+{% from "macros.html" import node_breadcrumb, sidebar_back_button, sidebar_help, render_formfield_errors %}
+
+{% block forejs %}
+    {{ super() }}
+    {{ form.media }}
+{% endblock %}
+
+{# ========================================================================== #}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(node) }}
+    <li>
+        <span>{% trans %}Edit Node Perexes{% endtrans %}</span>
+    </li>
+{% endblock %}
+
+{# ========================================================================== #}
+
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Node')) -%} {# spaceless is neccessary because content is included into href #}
+        {{ node.get_absolute_url()}}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Node perexes'), _('help_node_perexes_short'), _('More help'), _('help_node_perexes_html'), 'help_node_perexes_html') }}
+
+{% endblock %}
+
+{# ========================================================================== #}
+
+
+{% block content %}
+    <div class="group">
+        <h1>Edit perexes</h1>
+
+        <div class="twelve columns tabular-form">
+            {% if form.errors %}
+                <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
+            {% endif %}
+
+            <form action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="twelve columns">
+                        <h2>Node perex</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns twelve">
+                        <label class="label-inline" for="id_perex_node_important">{{ form.perex_node_important }} {% trans %}hilight perex as important{% endtrans %}</label>
+                        {{ render_formfield_errors(form.perex_node_important) }}
+                        <div class="form-field-separator"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <span class="helptext">{% trans %}Will be always displayed under the node title.{% endtrans %}</span>
+                        {{ form.perex_node }}
+                        {{ render_formfield_errors(form.perex_node) }}
+                    </div>
+                </div>
+
+                {% if "annotation" in modules %}
+                <div class="row separator-01"></div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <h2>{% trans %}Annotation perex{% endtrans %}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <label class="label-inline" for="id_perex_annotation_important">{{ form.perex_annotation_important }} {% trans %}hilight perex as important{% endtrans %}</label>
+                        {{ render_formfield_errors(form.perex_annotation_important) }}
+                        <div class="form-field-separator"></div>
+                    </div>
+                    <div class="twelve columns">
+                        {{ form.perex_annotation }}
+                        {{ render_formfield_errors(form.perex_annotation) }}
+                    </div>
+                </div>
+                {% endif %}
+
+
+                {% if "qa" in modules %}
+                <div class="row separator-01"></div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <h2>{% trans %}Questions perex{% endtrans %}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <label class="label-inline" for="id_perex_qa_important">{{ form.perex_qa_important }} {% trans %}hilight perex as important{% endtrans %}</label>
+                        {{ render_formfield_errors(form.perex_qa_important) }}
+                        <div class="form-field-separator"></div>
+                    </div>
+                    <div class="twelve columns">
+                        {{ form.perex_qa }}
+                        {{ render_formfield_errors(form.perex_qa) }}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if "forum" in modules %}
+                <div class="row separator-01"></div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <h2>{% trans %}Discussions perex{% endtrans %}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <label class="label-inline" for="id_perex_forum_important">{{ form.perex_forum_important }} {% trans %}hilight perex as important{% endtrans %}</label>
+                        {{ render_formfield_errors(form.perex_forum_important) }}
+                        <div class="form-field-separator"></div>
+                    </div>
+                    <div class="twelve columns">
+                        {{ form.perex_forum }}
+                        {{ render_formfield_errors(form.perex_forum) }}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if "library" in modules %}
+                <div class="row separator-01"></div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <h2>{% trans %}Documents perex{% endtrans %}</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <label class="label-inline" for="id_perex_library_important">{{ form.perex_library_important }} {% trans %}hilight perex as important{% endtrans %}</label>
+                        {{ render_formfield_errors(form.perex_library_important) }}
+                        <div class="form-field-separator"></div>
+                    </div>
+                    <div class="twelve columns">
+                        {{ form.perex_library }}
+                        {{ render_formfield_errors(form.perex_library) }}
+                    </div>
+                </div>
+                {% endif %}
+
+               <div class="row separator-01"></div>
+
+                <div class="row">
+                    <div class="three columns"></div>
+                    <div class="nine columns t-right">
+                        <button class="large button success" type="submit">{% trans %}Save{% endtrans %}</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

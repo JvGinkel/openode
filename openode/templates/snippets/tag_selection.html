@@ -1,0 +1,21 @@
+{% from "macros.html" import tag_list %}
+<a name="{{selection_type}}-tags"></a>
+{% spaceless %}
+<h2>{%
+        trans counter=tag_names|length, type=_(selection_type)|capitalize
+    %}<span class="count">{{counter}}</span> {{type}} Tag{%
+        pluralize
+    %}<span class="count">{{counter}}</span> {{type}} Tags{%
+        endtrans
+    %}
+</h2>
+{% endspaceless %}
+<div class="user-stats-table">
+    <table class="tags">
+        <tr>
+            <td valign="top">
+                {{ tag_list(tag_names) }}
+            </td>
+        </tr>
+    </table>
+</div>

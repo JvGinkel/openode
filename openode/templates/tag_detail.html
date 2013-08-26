@@ -1,0 +1,21 @@
+{% extends "two_column_body.html" %}
+{% import "macros.html" as macros %}
+
+{% block title %}{% spaceless %}{% trans %}Tag{% endtrans %}{{ tag }}{% endspaceless %}{% endblock %}
+
+{% block content %}
+    
+    {% for thread in threads %}
+    {% with %}
+        {% set extra_class='narrow' %}
+        {% set visitor = request.user %}
+        {% set main_post = thread._main_post() %}
+        {% if thread.thread_type == 'question' %}
+            {% include "widgets/thread_summary_question.html" %}
+        {% elif thread.thread_type == 'discussion' %}
+            {% include "widgets/thread_summary_discussion.html" %}
+        {% endif %}
+    {% endwith %}
+    {% endfor %}
+
+{% endblock %}

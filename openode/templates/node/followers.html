@@ -1,0 +1,58 @@
+{% extends "two_column_body.html" %}
+{% from "macros.html" import node_breadcrumb, sidebar_help, sidebar_back_button %}
+
+{% block title %}{% spaceless %}{% trans %}Followers{% endtrans %} - {{ node.title }}{% endspaceless %}{% endblock %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(node) }}
+    <li>
+        <span>{% trans %}Show Node Followers{% endtrans %}</span>
+    </li>
+{% endblock %}
+
+{% block content %}
+
+
+    <h1>{% trans node_title=node.title %}Followers for {{ node_title }}{% endtrans %}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>{% trans %}User{% endtrans %}</th>
+                <th>{% trans %}Added at{% endtrans %}</th>
+                <th>{% trans %}Last visit{% endtrans %}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for follow in follows %}
+            <tr>
+                <td>
+                    {{ follow.user.screen_name|escape }}
+                </td>
+                <td>
+                    {{ follow.added_at|humanize_datetime }}
+                </td>
+                <td>
+                    {{ follow.last_visit|humanize_datetime }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if is_limit_overflow %}
+        <p>{% trans %}Here are only latest records of visitors for this thread. Older are hidden.{% endtrans %}</p>
+    {% endif %}
+{% endblock %}
+
+{# ========================================================================== #}
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Node')) -%} {# spaceless is neccessary because content is included into href #}
+        {{ node.get_absolute_url()}}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Node followers'), _('help_node_followers_short'), _('More help'), _('help_node_followers_html'), 'help_node_followers_html') }}
+
+{% endblock %}

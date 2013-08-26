@@ -1,0 +1,25 @@
+{% extends "two_column_node_body.html" %}
+{% from "macros.html" import node_breadcrumb, node_module_breadcrumb_last %}
+
+
+{# ========================================================================== #}
+
+{% block content %}
+    <div class="group">
+        {# === NODE PEREX TEXT === #}
+        {% set perex_text, perex_important = node.get_perex_data(module) %}
+        {% if perex_text %}
+            <div class="group rtc panel-perex{% if perex_important %} important{% endif %}">
+                {{ perex_text }}
+            </div>
+        {% endif %}
+
+        {# === NODE CONTENT === #}
+        {% block module_content %}<em>{% trans %}No content (no module active).{% endtrans %}</em>{% endblock %}
+    </div>
+{% endblock %}
+
+{# ========================================================================== #}
+{# ========================================================================== #}
+
+

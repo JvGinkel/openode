@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="alert-box notify" style="display:none">
+        {% if user_messages %}
+            {% for message in user_messages %}
+                  <div class="notification">{{ message|escape }}</div>
+            {% endfor %}
+        {% endif %}
+        <a id="closeNotify" onclick="notify.close(true)"></a>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{% from "macros.html" import render_gravatar %}
+
+ <div class="node-box">
+    <div class="node-box-content group">
+
+        <div class="row">
+            <div class="columns six">
+                <small>
+                    {% trans %}User{% endtrans %}:
+                </small>
+            </div>
+        </div>
+
+        <h3>
+            <a href="{{ result.url }}" title="{{ result.title }}">
+                {{ render_gravatar(result.object, 16, show_link=False) }}
+                {{ result.title|highlight_search_result(query) }}
+            </a>
+        </h3>
+
+        <p>
+            {% if result.title != result.main_post_text %}
+                {{ result.text_for_highlighting|highlight_search_result(query) }}
+            {% endif %}
+        </p>
+
+    </div>
+</div>

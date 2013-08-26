@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+{% from "macros.html" import render_closed_by_at %}
+
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(node) }}
+    {% if module %}
+        {{ node_module_breadcrumb_last(node, module) }}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+    <h1 class="node">{% block h1 %}{{ node.full_title() }}{% endblock %}</h1>
+
+    <div class="row">
+        <div class="twelve columns">
+            {% if not node and thread %}
+                {% set node = thread.node %}
+            {% endif %}
+            {# === NODE HEADER === #}
+
+
+            <div class="group f-right section-header-control">
+                {% if request.user.is_admin('openode.change_node') or request.user.has_openode_perm('node_settings', node) %}
+                    <a class="control-link" href="{% url node_settings node.pk, node.slug %}" title="{% trans %}Edit node settings{% endtrans %}">{% trans %}Node settings{% endtrans %}</a>
+                {% endif %}
+                {% if request.user.is_admin('openode.change_node') or request.user.has_openode_perm('node_settings', node) and request.user.is_authenticated() %}
+                    &nbsp;&nbsp;
+                {% endif %}
+                {% if request.user.is_authenticated() %}
+                    <button class="button small success" id="id_node_follow" title="{% trans %}click to follow this node{% endtrans %}" {% if node.is_followed_by(user) %}style="display: none"{% endif %}>
+                        {% trans %}Follow node{% endtrans %}
+                    </button>
+                    <button class="button small secondary{% if node.user_is_manager(request.user) %} disabled{% endif %}" id="id_node_unfollow" title="{% if node.user_is_manager(request.user) %}{% trans %}You cannot unfollow this club, because you are manager{% endtrans %}{% else %}{% trans %}click to unfollow this node{% endtrans %}{% endif %}" {% if not node.is_followed_by(user) %}style="display: none"{% endif %}>
+                        {% trans %}Unfollow node{% endtrans %}
+                    </button>
+                {% endif %}
+            </div>
+
+            <h2 class="node">{% trans %}Node{% endtrans %}{% trans %}:{% endtrans %} {{ node.full_title_with_status('html') }}</h2>
+
+            {% if node.closed %}
+            <div class="panel-closed">
+                {% if node.close_reason %}
+                    <p><small>{% trans %}This node has been closed for the following reason:{% endtrans %}</small></p>
+                    <p>{{ node.close_reason|escape }}</p>
+                {% else %}
+                    <p><small>{% trans %}This node has been closed.{% endtrans %}</small></p>
+                {% endif %}
+                <p class="t-right"><small>{{ render_closed_by_at(node.closed_by, node.closed_at) }}</small></p>
+            </div>
+            {% endif %}
+
+            {# === NODE'S PEREX TEXT === #}
+            {% set perex_text, perex_important = node.get_perex_data('node') %}
+            {% if perex_text %}
+                <div class="group panel-perex{% if perex_important %} important{% endif %}">
+                    {{ perex_text|white_strip }}
+                    {# {% escape_html perex_text "a, p, img" "href, src, style" "width"%} #}
+                </div>
+            {% endif %}
+
+            {# === NODE PAGE TABS === #}
+            <dl class="tabs">
+
+                <dd class="about-node{% if module == NODE_MODULE_ANNOTATION %} active{% endif %}">
+                    <a href="{% url node_module node_id=node.pk, node_slug=node.slug, module=NODE_MODULE_ANNOTATION %}">
+                        <div class="tab-title">
+                            {% trans %}Node{% endtrans %}
+                            {% if node.readonly %}
+                                <img src="{{ '/style/i/ico-lock.png'|media }}" title="{% trans %}This Node is read-only.{% endtrans %}" />
+                            {% endif %}
+                        </div>
+                    </a>
+                </dd>
+
+                {% if node.module_qa %}
+                    <dd {% if module == NODE_MODULE_QA %}class="active"{% endif %}>
+                        <a href="{% url node_module node_id=node.pk, node_slug=node.slug, module=NODE_MODULE_QA %}">
+                            <div class="tab-title">
+                                {% trans %}Questions{% endtrans %}
+                                {% if node.readonly %}
+                                    <img src="{{ '/style/i/ico-lock.png'|media }}" title="{% trans %}This Node is read-only{% endtrans %}" />
+                                {% elif node.module_qa_readonly %}
+                                    <img src="{{ '/style/i/ico-lock.png'|media }}" title="{% trans %}Questions are read-only{% endtrans %}" />
+                                {% endif %}
+                                {% if total_count != None %}
+                                    {# show count of unread threads #}
+                                    {% set unread=node.get_unread_count(request.user, NODE_MODULE_QA) %}
+                                    {% if user and user.is_authenticated() and (unread > 0) %}
+                                        <span class="unread-mark">{{ unread }}</span>
+                                    {% endif %}
+                                    {# show threads total count #}
+                                    {% if total_count != None %}
+                                        <div class="total">
+                                            {% trans count = node.get_threads_count_for_module(NODE_MODULE_QA) %}{{ count }} item{% pluralize %}{{ count }} items{% endtrans %}
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </a>
+                    </dd>
+                {% endif %}
+
+                {% if node.module_forum %}
+                    <dd {% if module == NODE_MODULE_FORUM %}class="active"{% endif %}>
+                        <a href="{% url node_module node_id=node.pk, node_slug=node.slug, module=NODE_MODULE_FORUM %}">
+                            <div class="tab-title">
+                                {% trans %}Discussion{% endtrans %}
+                                {% if node.readonly %}
+                                    <img src="{{ '/style/i/ico-lock.png'|media }}" title="{% trans %}This Node is read-only{% endtrans %}" />
+                                {% elif node.module_forum_readonly %}
+                                    <img src="{{ '/style/i/ico-lock.png'|media }}" title="{% trans %}Discussion is read-only{% endtrans %}" />
+                                {% endif %}
+                                {% if total_count != None %}
+                                    {# show count of unread threads #}
+                                    {% set unread=node.get_unread_count(request.user, NODE_MODULE_FORUM) %}
+                                    {% if user and user.is_authenticated() and (unread > 0) %}
+                                        <span class="unread-mark">{{ unread }}</span>
+                                    {% endif %}
+                                    {# show threads total count #}
+                                    {% if total_count != None %}
+                                        <div class="total">
+                                            {% trans count = node.get_discussions_posts_count() %}{{ count }} item{% pluralize %}{{ count }} items{% endtrans %}
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </a>
+                    </dd>
+                {% endif %}
+
+                {% if node.module_library %}
+                    <dd {% if module == NODE_MODULE_LIBRARY %}class="active"{% endif %}>
+                        <a href="{% url node_module node_id=node.pk, node_slug=node.slug, module=NODE_MODULE_LIBRARY %}">
+                            <div class="tab-title">
+                                {% trans %}Documents{% endtrans %}
+                                {% if node.readonly %}
+                                    <img src="{{ '/style/i/ico-lock.png'|media }}" title="{% trans %}This Node is read-only{% endtrans %}" />
+                                {% elif node.module_library_readonly %}
+                                    <img src="{{ '/style/i/ico-lock.png'|media }}" title="{% trans %}Documents are read-only{% endtrans %}" />
+                                {% endif %}
+                                {% if total_count != None %}
+                                    {# show count of unread threads #}
+                                    {% set unread=node.get_unread_count(request.user, NODE_MODULE_LIBRARY) %}
+                                    {% if user and user.is_authenticated() and (unread > 0) %}
+                                        <span class="unread-mark">{{ unread }}</span>
+                                    {% endif %}
+                                    {# show threads total count #}
+                                    {% if total_count != None %}
+                                        <div class="total">
+                                            {% trans count = node.get_threads_count_for_module(NODE_MODULE_LIBRARY) %}{{ count }} item{% pluralize %}{{ count }} items{% endtrans %}
+                                        </div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </a>
+                    </dd>
+                {% endif %}
+
+                {% if request.user.is_authenticated() and node.is_new_for_user(request.user) %}
+                    <dd class="mark-read">
+                        <div class="tab-title">
+                            <a href="{% url "node_mark_read" node.pk %}" title="{% trans %}Mark all read in this node.{% endtrans %}">{% trans %}Mark all read{% endtrans %}</a>
+                        </div>
+                    </dd>
+                {% endif %}
+
+            </dl>
+
+
+
+        </div>
+    </div>
+
+    <div class="row tab-content">
+        <div class="nine columns">
+            {# === CONTENT === #}
+            {% block content %}{% endblock %}
+        </div>
+        <div class="three columns aside">
+            {# === SIDEBAR === #}
+            {% block sidebar %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block endjs %}
+    {{ super() }}
+    <script type="text/javascript">
+        /*<![CDATA[*/
+        var sortMethod = '{{sort}}';
+        var minSearchWordLength = {{settings.MIN_SEARCH_WORD_LENGTH}};
+        {% if search_state %}
+        $(document).ready(function(){
+            /*var on_tab = '#nav_questions';
+            $(on_tab).attr('className','on');*/
+            liveSearch('{{ search_state.query_string()|escapejs }}');
+            Hilite.exact = false;
+            Hilite.elementid = "question-list";
+            Hilite.debug_referrer = location.href;
+            {% if update_avatar_data == True %}
+                var today = new Date();{#add timestamp to prevent browser caching #}
+                $.getJSON('{% url user_update_has_custom_avatar %}?t=' + today.getTime());
+            {% endif %}
+        });
+        {% endif %}
+        openode['urls']['mark_interesting_tag'] = '{% url mark_interesting_tag %}';
+        openode['urls']['mark_ignored_tag'] = '{% url mark_ignored_tag %}';
+        openode['urls']['mark_subscribed_tag'] = '{% url mark_subscribed_tag %}';
+        openode['urls']['unmark_tag'] = '{% url unmark_tag %}';
+        openode['urls']['set_tag_filter_strategy'] = '{% url "set_tag_filter_strategy" %}';
+        // {# openode['urls']['questions'] = '{% url "questions" %}';  DEPRECATED #}
+
+        // {# bind follow/subscribe buttons #}
+
+        {% if not node and thread %}
+            {% set node = thread.node %}
+        {% endif %}
+
+        jQuery(document).ready(function() {
+
+            jQuery('#id_node_follow').on("click", function(e) {
+                jQuery.get(
+                    '{% url node_follow node_id=node.pk, node_slug=node.slug %}',
+                    function(data) {
+                        if (data["success"]) {
+                            jQuery('#id_node_follow').hide();
+                            jQuery('#id_node_unfollow').show();
+
+                            // force reload
+                            window.location = window.location.pathname;
+                        };
+                    }
+                );
+            });
+
+            jQuery('#id_node_unfollow').on("click", function(e) {
+                jQuery.get(
+                    '{% url node_unfollow node_id=node.pk, node_slug=node.slug %}',
+                    function(data) {
+                        if (data["success"]) {
+                            jQuery('#id_node_unfollow').hide();
+                            jQuery('#id_node_follow').show()
+
+                            // force reload
+                            window.location = window.location.pathname;
+                        };
+                    }
+                );
+            });
+
+            $('#id_node_subscribe').click(function(e) {
+                if ($(e.target).attr('checked')) {
+                    url = '{% url node_subscribe node_id=node.pk, node_slug=node.slug %}'
+                } else {
+                    url = '{% url node_unsubscribe node_id=node.pk, node_slug=node.slug %}'
+                }
+                $.get(url);
+            });
+
+        });
+
+    </script>
+
+    {% if request.user.is_authenticated() %}
+        <script type='text/javascript' src='{{"/js/tag_selector.js"|media}}'></script>
+    {% endif %}
+
+    <script type="text/javascript" src='{{"/js/live_search.js"|media}}'></script>
+
+{% endblock %}

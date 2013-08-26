@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% from "macros.html" import render_gravatar %}
+
+
+{% block body %}
+    <div class="row">
+        <div class="three columns aside">
+            {% block profile_menu %}
+            {% endblock %}
+        </div>
+        <div class="nine columns">
+            {# === CONTENT === #}
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}

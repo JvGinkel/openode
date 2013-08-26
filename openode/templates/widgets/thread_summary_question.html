@@ -1,0 +1,63 @@
+{% from "macros.html" import render_last_changed, tag_list %}
+
+<div class="node-box{% if has_unread_main_post %} unread-background{% endif %}">
+
+    <a href="{{ thread.get_absolute_url() }}" class="node-link-wrap"></a>
+
+    <div class="node-box-content group">
+        <div class="report-wrap">
+            <div class="report-boxes">
+            {# === ANSWERS COUNT BOX === #}
+
+                {% set answer_count = thread.get_answer_count(visitor) %}
+
+                <div class="report-box{% if thread_view and thread_view.not_view_sum_count() %} unread-background{% endif %}">
+                    <a title="{% trans %}Show question{% endtrans %}" href="{{ thread.get_absolute_url() }}">
+                        {# <span>&nbsp;</span> #}
+
+                        <div class="group unread-mark-container">
+                        {% if thread_view and thread_view.not_view_sum_count() %}
+                            <span class="unread-mark" title="{% trans %}Unread posts{% endtrans %}">{{ thread_view.not_view_sum_count()|default("") }}</span>
+                            {# <span class="new left" title="{% trans %}Not viewed post{% endtrans %}">{{ thread_view.not_view_post_count|default("") }}</span> #}
+                            {# <span class="new right" title="{% trans %}New comments{% endtrans %}">{{ thread_view.not_view_comment_count|default("") }}</span> #}
+                        {% endif %}
+                        </div>
+
+                        {% if thread.accepted_answer_id %}
+                            <span class="accept">accepted</span>
+                        {% endif %}
+
+                        <span class="count">{{ answer_count }}</span>
+                        <span class="title">{% trans cnt = answer_count %}Answer{% pluralize %}Answers{% endtrans %}</span>
+                    </a>
+                </div>
+
+                {# === VIEWS COUNT BOX === #}
+                <div class="report-box">
+                    <a title="{% trans %}Show question{% endtrans %}" href="{{ thread.get_absolute_url() }}">
+                        <div class="group unread-mark-container"></div>
+                        <span class="count">{{ thread.view_count }}</span>
+                        <span class="title">{% trans cnt = thread.view_count %}View{% pluralize %}Views{% endtrans %}</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        {% if thread_header %}
+            <small>{{ thread.node.title }}</small>
+        {% endif %}
+
+        <h3>
+            <a title="{% trans %}Show question{% endtrans %}" href="{{ thread.get_absolute_url() }}">
+                <span class="title">{{ thread.get_title('html') }}</span>
+            </a>
+        </h3>
+
+        {{ tag_list(thread.get_tags()) }}
+
+        {{ render_last_changed(thread.last_activity_by, thread.last_activity_at, thread._main_post().author, thread.added_at) }}
+
+    </div>
+
+</div>

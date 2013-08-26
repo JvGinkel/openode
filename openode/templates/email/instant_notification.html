@@ -1,0 +1,9 @@
+{% extends "email/base_mail.html" %}
+{% block title %}{% trans %}Notification{% endtrans %}{%endblock%}
+{% block headline %}{% trans %}Notification{% endtrans %}{%endblock%}
+{% block content %}
+{{ text }}
+{% endblock %}
+{% block footer %}
+{% include "email/footer.html" %}
+{% endblock %}

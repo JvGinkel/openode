@@ -1,0 +1,32 @@
+{% from "macros.html" import render_last_changed %}
+
+<div class="node-box">
+    <div class="node-box-content group">
+
+        <div class="row">
+            <div class="columns six">
+                <small>
+                    {% trans %}Document{% endtrans %}: {{ result.node_title }}
+                </small>
+            </div>
+        </div>
+
+        <h3>
+            <a href="{{ result.url }}" title="{{ result.title }}">
+                {% if result.icon %}<img src="{{ result.icon }}" />{% endif %}
+                {{ result.title }}
+            </a>
+        </h3>
+
+        <p>
+            {# {% if result.title != result.text %} #}
+            {{ result.text|highlight_search_result(query) }}
+            {# {% endif %} #}
+        </p>
+
+        <div class="group">
+            {{ result.last_changed }}
+        </div>
+
+    </div>
+</div>

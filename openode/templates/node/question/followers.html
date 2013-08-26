@@ -1,0 +1,20 @@
+{% extends "node/base_thread_followers.html" %}
+{% from "macros.html" import node_breadcrumb, node_module_breadcrumb, sidebar_help, sidebar_back_button %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(thread.node) }}
+    {{ node_module_breadcrumb(thread.node, NODE_MODULE_QA) }}
+    <li><a href="{{ thread.get_absolute_url() }}">{{ thread.title }}</a></li>
+    <li><span>{% trans %}Followers{% endtrans %}</span></li>
+{% endblock %}
+
+
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Question')) -%} {# spaceless is neccessary because content is included into href #}
+        {{ thread.get_absolute_url() }}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Question followers'), _('help_node_question_followers_short'), _('More help'), _('help_node_question_followers_html'), 'help_node_question_followers_html') }}
+
+{% endblock %}

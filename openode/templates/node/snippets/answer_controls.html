@@ -1,0 +1,93 @@
+{#<span class="action-link swap-qa">
+    <a id="swap-question-with-answer-{{answer.id}}">{% trans %}swap with question{% endtrans %}</a>
+</span>uncomment if needed#}
+
+
+<ul class="post-controls group">
+
+    {# <li><a class="ico link" title="" href="">link</a></li> #}
+    {# <li><a class="ico delete" title="" href="">delete</a></li> #}
+    {# <li><a class="ico flag" title="" href="">flag offensive</a></li> #}
+    {# <li><a class="ico edit" title="" href="">edit</a></li> #}
+{# </ul> #}
+
+    {# === LINK === #}
+    <li>
+        <a class="permant-link ico link" href="{{ answer.get_absolute_url(question_post=question) }}" title="{% trans %}permanent link{% endtrans %}">
+            {% trans %}link{% endtrans %}
+        </a>
+    </li>
+
+    {# === UN/DELETE === #}
+    {% if answer.has_delete_perm(request.user) %}
+        <li id='post-{{ answer.id }}-delete' class="action-link delete-post">
+            <a class="question-delete ico delete">
+                {% if answer.deleted %}
+                    {% trans %}undelete{% endtrans %}
+                {% else %}
+                    {% trans %}delete{% endtrans %}
+                {% endif %}
+            </a>
+        </li>
+    {% endif %}
+
+    {# === FLAG OFFENSIVE === #}
+    {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS %}
+    {% if answer.offensive_flag_count > 0 %}
+        <li>
+            <span id="answer-offensive-remove-flag-{{ answer.id }}" class="action-link offensive-flag" title="{% trans %}remove offensive flag{% endtrans %}">
+                <a class="question-flag ico flag">{% trans %}remove flag{% endtrans %}</a>
+            </span>
+        </li>
+        <li>
+            <span id="answer-offensive-flag-{{ answer.id }}" class="action-link offensive-flag" title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}">
+                <a class="question-flag ico flag">{% trans %}flag offensive{% endtrans %} ({{ answer.offensive_flag_count }})</a>
+            </span>
+        </li>
+    {% else %}
+        <li>
+            <span id="answer-offensive-flag-{{ answer.id }}" class="action-link offensive-flag" title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}">
+                <a class="question-flag ico flag">{% trans %}flag offensive{% endtrans %}</a>
+            </span>
+        </li>
+    {% endif %}
+    {% endif %}
+
+    {# === DISCUSSION reaction === #}
+    {% if thread.has_response_perm(request.user) and answer.thread.is_discussion() %}
+    <li>
+        <span>
+            <a href="#" class="ico chat js-discussion-reaction" data-html="<p>replyto:#{{ answer.pk }}</p>">{% trans %}reply{% endtrans %}</a>
+        </span>
+    </li>
+    {% endif %}
+
+    {# === EDIT === #}
+    {% if answer.has_edit_perm(request.user) %}
+        <li>
+            <span id='post-{{answer.id}}-edit' class="action-link">
+                <a class="question-edit ico edit" href="{% url edit_answer answer.id %}">{% trans %}edit{% endtrans %}</a>
+            </span>
+        </li>
+    {% endif %}
+
+    {# === CONVERT === #}
+    {#
+    {% if enable_comments %}
+        <li>
+            <span id='post-{{ answer.id }}-convert' class="action-link">
+                <form class="answer-convert" action="{% url answer_to_comment %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="answer_id" id="id_answer_id" value="{{ answer.id }}"/>
+                    <input type="submit" name="" value="{% trans %}convert to comment{% endtrans %}"/>
+                </form>
+            </span>
+        </li>
+    {% endif %}
+    #}
+
+</ul>
+
+<script type="text/javascript">
+    openode['functions']['renderPostControls']('{{ answer.id }}');
+</script>

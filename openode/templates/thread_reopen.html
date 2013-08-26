@@ -1,0 +1,85 @@
+{% extends "two_column_body.html" %}
+{% from "macros.html" import render_formfield_row, node_breadcrumb, node_module_breadcrumb, sidebar_back_button %}
+{% block title %}{% spaceless %}{% if thread.thread_type == THREAD_TYPE_QUESTION %}
+        {% trans %}Reopen question{% endtrans %}
+        {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+        {% trans %}Reopen discussion{% endtrans %}
+        {% endif %}{% endspaceless %}{% endblock %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(thread.node) }}
+    {{ node_module_breadcrumb(thread.node, NODE_MODULE_QA) }}
+    <li><a href="{{ thread.get_absolute_url() }}">{{ thread.title }}</a></li>
+    <li><span>{% spaceless %}{% if thread.thread_type == THREAD_TYPE_QUESTION %}
+        {% trans %}Reopen question{% endtrans %}
+        {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+        {% trans %}Reopen discussion{% endtrans %}
+        {% endif %}{% endspaceless %}</span></li>
+{% endblock %}
+
+{% block sidebar %}
+    {% if thread.thread_type == THREAD_TYPE_QUESTION %}
+        {% call sidebar_back_button(_('Back to question')) -%}
+        {{ thread.get_absolute_url() }}
+        {%- endcall %}
+    {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+        {% call sidebar_back_button(_('Back to discussion')) -%}
+        {{ thread.get_absolute_url() }}
+        {%- endcall %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="group">
+    <h1>{% spaceless %}{% if thread.thread_type == THREAD_TYPE_QUESTION %}
+        {% trans %}Reopen question{% endtrans %}
+        {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+        {% trans %}Reopen discussion{% endtrans %}
+        {% endif %} <a href="{{ thread.get_absolute_url() }}">{{ thread.title|escape }}</a>{% endspaceless %}</h1>
+    <div class="twelve columns tabular-form">
+        <form id="fmclose" action="{% url thread_reopen thread.id %}" method="post" >
+        {% csrf_token %}
+        <div class="row">
+            <div class="three columns">
+                {% trans %}Close reason{% endtrans %}
+            </div>
+            <div class="nine columns">
+                <strong>{{ thread.close_reason }}</strong>
+            </div>
+        </div>
+        <div class="row separator-01"></div>
+        <div class="row">
+            <div class="three columns">
+                {% trans %}Closed by{% endtrans %}
+            </div>
+            <div class="nine columns">
+                <a href="{{ closed_by_profile_url }}">{{ thread.closed_by.screen_name|escape }}</a>
+            </div>
+        </div>
+        <div class="row separator-01"></div>
+        <div class="row">
+            <div class="three columns">
+                {% trans %}When{% endtrans %}
+            </div>
+            <div class="nine columns">
+                {{ thread.closed_at|humanize_datetime }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="three columns"></div>
+            <div class="nine columns t-right">
+                <button class="large button success" type="submit" name="post">{% spaceless %}
+                    {% if thread.thread_type == THREAD_TYPE_QUESTION %}
+                    {% trans %}Reopen question{% endtrans %}
+                    {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+                    {% trans %}Reopen discussion{% endtrans %}
+                    {% endif %}
+                    {% endspaceless %}</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+<!-- end reopen.html -->

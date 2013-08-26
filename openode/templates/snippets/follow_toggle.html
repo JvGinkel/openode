@@ -1,0 +1,10 @@
+<div class="follow-toggle follow-user-toggle" id="follow-{{ name|escape }}-{{ id }}">
+    {% if follow %}
+    <div class="follow">{% trans %}follow {{alias}}{% endtrans %}</div>
+    {% else %}
+    <div class="unfollow">
+      <div class="unfollow-red">{% trans %}unfollow {{alias}}{% endtrans %}</div>
+      <div class="unfollow-green">{% trans %}following {{alias}}{% endtrans %}</div>
+    </div>
+    {% endif %}
+</div>

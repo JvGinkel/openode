@@ -1,0 +1,334 @@
+{% extends "node/base_thread_detail.html" %}
+{% from "macros.html" import add_or_show_comments_button, render_user_infobox, sidebar_help, render_closed_by_at, tag_list, render_comments_module %}
+
+{##############################################################################}
+
+
+{% block forestyle %}
+    {{ super() }}
+    <link href="{{ "qtip/jquery.qtip.min.css"|media }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+{##############################################################################}
+
+
+{% block endjs %}
+    <script type="text/javascript" src="{{ "ckeditor/ckeditor.js"|media }}"></script>
+    <script type="text/javascript">
+        CKEDITOR.disableAutoInline = true;
+        function init_wysiwyg(selector){
+            CKEDITOR.inline(selector, {
+                entities: false,
+                forcePasteAsPlainText: true,
+                toolbar: {{ settings.WYSIWYG_SETTING_COMMENT }}
+            });
+        }
+    </script>
+    <script type="text/javascript" src="{{"/js/edit_comments.js"|media }}"></script>
+    <script type="text/javascript" src="{{ "qtip/jquery.qtip.min.js"|media }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.reply-preview').qtip({
+                overwrite: false,
+                content: {
+                    text: function() {
+                        var reply_id = $(this).data('reply');
+
+                        return $('#reply-preview-' + reply_id).clone();
+                    }
+                },
+                position: {
+                    target: 'mouse',
+                    viewport: $(window),
+                    adjust: {
+                        method: 'shift shift',
+                        x: 10,
+                        y: 10
+                    }
+                },
+                show: {
+                    delay: 500,
+                    effect: false
+                },
+                hide: {
+                    fixed: true,
+                    delay: 0,
+                    effect: false
+                },
+                style: {
+                    classes: 'ui-tooltip-reply-preview',
+                    // height: 300,
+                    tip: {
+                        width: 10,
+                        height: 5,
+                        mimic: 'center',
+                        offset: 15
+                    }
+                }
+            });
+        });
+    </script>
+    {{ super() }}
+{% endblock %}
+
+
+{##############################################################################}
+
+
+{% block content_class %} thread-detail{% endblock%}
+
+
+{##############################################################################}
+
+
+{% block thread_content %}
+
+<div id="post-id-{{ main_post.id }}" class="{% if main_post.deleted %} deleted{% endif %}">
+
+    {# === CLOSED THREAD INFO === #}
+    {% if thread.closed %}
+        <div class="panel-closed">
+            <p><small>{% trans %}This question has been closed for the following reason:{% endtrans %}</small></p>
+            <p>{{ thread.close_reason }}</p>
+            <p class="t-right"><small>{{ render_closed_by_at(thread.closed_by, thread.closed_at)}}</small></p>
+        </div>
+    {% endif %}
+
+    <div class="group question-content-wrap{% if not request.user.is_anonymous() and not thread_view or thread_view_last_visit < main_post.get_time_of_last_edit() %} unread{% endif %}">
+
+
+        <h2>{% trans %}Question{% endtrans %}{% trans %}:{% endtrans %} {{ thread.get_title('html') }}</h2>
+
+        {# main post tags #}
+        {{ tag_list(thread.get_tags()) }}
+
+        {# === CREATOR/UPDATER INFOBOX === #}
+        <div class="infobox-wrap">
+            {# CREATOR #}
+            {{ render_user_infobox(main_post.author, request.user, _('asked'), main_post.added_at) }}
+            {# UPDATER #}
+            {% if main_post.last_edited_by %}
+                {{ render_user_infobox(main_post.last_edited_by, request.user, _('updated'), main_post.last_edited_at) }}
+            {% endif %}
+        </div>
+
+        <div class="q-content question-content rtc" id="question-table">
+            {{ main_post.html }}
+        </div>
+
+        {# === POST CONTROLS LINKS === #}
+        {% include "node/snippets/post_controls.html" %}
+
+
+        {# === QUESTION'S COMMENTS ====================================== #}
+
+        {% with %}
+            {% set post = main_post %}
+            {% set show_post = show_post %}
+            {% set show_comment = show_comment %}
+            {% set show_comment_position = show_comment_position %}
+            {% set user = request.user %}
+            {% set max_comments = settings.MAX_COMMENTS_TO_SHOW %}
+
+            {#
+            {% if show_post == post and show_comment and show_comment_position > max_comments %}
+                {% set comments = post.get_cached_comments()[:show_comment_position] %}
+            {% else %}
+                {% set comments = post.get_cached_comments()[:max_comments] %}
+            {% endif %}
+            #}
+
+            {% set comments = post.get_cached_comments() %}
+            {{ render_comments_module(main_post, comments, request.user, thread, thread_view_last_visit) }}
+        {% endwith %}
+
+        {# ================================================================== #}
+
+    </div>
+</div>
+
+{# ====================================================================== #}
+{# ============ ANSWERS ================================================= #}
+{# ====================================================================== #}
+
+<div class="answers">
+    <h2>
+        {% trans counter=answer_count %}{{ counter }} Answer{% pluralize %}{{ counter }} Answers{% endtrans %}
+    </h2>
+
+    {% for answer in answers %}
+        <a name="{{ answer.id }}"></a>
+{#      TODO nefunguje, thread_view se mezitim zaktualizovalo
+        last visit: {{ thread_view_last_visit|humanize_datetime  }}<br />
+        post time: {{ answer.get_time_of_last_edit()|humanize_datetime }} #}
+        <div class="answer group{% if not request.user.is_anonymous() and not thread_view or thread_view_last_visit < answer.get_time_of_last_edit() %} unread{% endif %}" id="post-id-{{ answer.pk }}">
+
+            {# ========================================================== #}
+
+            <div class="columns one vote-buttons">
+
+                {# === VOTE BUTTTONS === #}
+                <div class="vote vote-buttons">
+                    {% with post=answer %}
+
+                        <a id="{{ post.post_type }}-img-upvote-{{ post.id }}" class="{{ post.post_type }}-img-upvote post-vote up" href="javascript:void(0);" title="{% trans %}vote up{% endtrans %}"></a>
+                        <div id="{{ post.post_type }}-vote-number-{{ post.id }}" class="vote-number" title="{% trans %}current number of votes{% endtrans %}">{{ post.score }}</div>
+                        <a id="{{ post.post_type }}-img-downvote-{{ post.id }}" class="{{ post.post_type }}-img-downvote post-vote down" href="javascript:void(0);" title="{% trans %}vote down{% endtrans %}"></a>
+
+                        <script type="text/javascript">
+                            openode['functions']['renderPostVoteButtons']('{{ post.post_type }}', '{{ post.id }}');
+                        </script>
+                    {% endwith %}
+                </div>
+
+                {# === ANSWER ACCEPTED === #}
+                {% if request.user.is_authenticated() %}
+                    {% if answer.accepted() %}
+                        <div id="answer-img-accept-{{ answer.id }}" class="answer-img-accept answer-accept accepted" title="{% trans %}this answer has been selected as correct{% endtrans %}"></div>
+                    {% else %}
+                        <div id="answer-img-accept-{{ answer.id }}" class="answer-img-accept answer-accept" title="{% trans %}mark this answer as correct (click again to undo){% endtrans %}"></div>
+                    {% endif %}
+                {% else %}
+                    {% if answer.accepted() %}
+                        <div class="answer-img-accept answer-accept accepted"></div>
+                    {% else %}
+                        <div class="answer-img-accept answer-accept"></div>
+                    {% endif %}
+                {% endif %}
+
+            </div>
+
+            {# ========================================================== #}
+
+            <div class="columns eleven answer-body rtc">
+
+                {# <pre>{{ answer.pk }}</pre> #}
+
+                {# === CREATOR/UPDATER INFOBOX === #}
+                <div class="infobox-wrap">
+                    {# CREATOR #}
+                    {% set user_infobox_label = _('answered') %}
+                    {% if answer.author == answer.last_edited_by %}
+                        {% set user_infobox_label = _('updated') %}
+                    {% endif %}
+                    {{ render_user_infobox(answer.author, request.user, user_infobox_label, answer.added_at) }}
+                    {# UPDATER #}
+                    {% if answer.last_edited_by and answer.author != answer.last_edited_by %}
+                        {{ render_user_infobox(answer.last_edited_by, request.user, _('updated'), answer.last_edited_at) }}
+                    {% endif %}
+                </div>
+
+                {# === TEXT === #}
+                {{ answer.html }}
+
+                {# === EDIT/DELETE/LINK ... === #}
+                {% include "node/snippets/answer_controls.html" %}
+
+                {# === ANSWER'S COMMENTS === #}
+                {% with %}
+                    {% set post = answer %}
+                    {% set show_post = show_post %}
+                    {% set show_comment = show_comment %}
+                    {% set show_comment_position = show_comment_position %}
+                    {% set user = request.user %}
+                    {% set max_comments = settings.MAX_COMMENTS_TO_SHOW %}
+
+                    {#
+                    {% if show_post == post and show_comment and show_comment_position > max_comments %}
+                        {% set comments = post.get_cached_comments()[:show_comment_position] %}
+                    {% else %}
+                        {% set comments = post.get_cached_comments()[:max_comments] %}
+                    {% endif %}
+                    #}
+                    {% set comments = post.get_cached_comments() %}
+
+                    {% if enable_comments %}
+                        {{ render_comments_module(post, comments, request.user, thread, thread_view_last_visit) }}
+                    {% endif %}
+
+                {% endwith %}
+
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{# === FOOTER === #}
+{% if thread.has_response_perm(request.user) %}
+    <div class="panel group">
+        {% if user_already_gave_answer %}
+            <a class="submit" href="{% url "edit_answer" previous_answer.id %}">{% trans %}Edit Your Previous Answer{% endtrans %}</a>
+            <span>{% trans %}(only one answer per question is allowed){% endtrans %}</span>
+        {% else %}
+
+            {% from "macros.html" import render_formfield_errors, render_formfield_helptext %}
+
+            {% spaceless %}
+                <h4>
+                    {% if answers %}
+                        {% trans %}Your answer{% endtrans %}
+                    {% else %}
+                        {% trans %}Be the first one to answer this question!{% endtrans %}
+                    {% endif %}
+                </h4>
+            {% endspaceless %}
+
+            {% if request.user.is_anonymous() %}
+                <a class="submit" href="{{settings.LOGIN_URL}}?next={{ thread.get_absolute_url() }}">
+                    {% trans %}Login/Signup to Answer{% endtrans %}
+                </a>
+            {% else %}
+                {{ answer_form.media }}
+                {% if answer_form.errors %}
+                    <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
+                {% endif %}
+                <form id="fmanswer" action="" method="post" >
+                    {% csrf_token %}
+                    <div class="twelve columns tabular-form">
+
+                        <div class="row">
+                            <div class="twelve columns{% if answer_form.text.errors %} cke-error{% endif %}">
+                                {{ answer_form.text }}
+                                {{ render_formfield_errors(answer_form.text) }}
+                                {{ render_formfield_helptext(answer_form.text) }}
+                                <div class="form-field-separator"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="twelve columns t-left">
+                                <button class="large button success" type="submit" name="post">{% spaceless %}
+                                    {% trans %}Post answer{% endtrans %}
+                                {% endspaceless %}</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            {% endif %}
+
+        {% endif %}
+    </div>
+{% endif %}
+
+{% if main_post.closed == False and request.user == main_post.author %}
+    {# this is outside the form on purpose #}
+    <input type="button" class="submit after-editor answer-own-question" id="fmanswer_button" value="{% trans %}Answer Your Own Question{% endtrans %}" />
+{% endif %}
+
+
+{% endblock thread_content %}
+
+
+{% block sidebar_backbutton %}
+    {% call sidebar_back_button(_('Back to Questions')) -%} {# spaceless is neccessary because content is included into href #}
+        {% url node_module node_id=thread.node.pk, node_slug=thread.node.slug, module=module %}
+    {%- endcall %}
+{% endblock %}
+
+{% set sidebar_help_include = sidebar_help(_('Question'), _('help_question_detail_short'), _('More help'), _('help_question_detail_html'), 'help_question_detail_html') %}
+{% set sidebar_tools_title = _('Question tools') %}
+
+
+
+

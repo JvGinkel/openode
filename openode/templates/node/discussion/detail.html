@@ -1,0 +1,240 @@
+{% extends "node/base_thread_detail.html" %}
+{% from "macros.html" import node_module_breadcrumb_last, render_user_infobox, answer_classes, sidebar_help, render_closed_by_at, tag_list %}
+
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(thread.node) }}
+    {% if module %}
+        {{ node_module_breadcrumb_last(thread.node, module) }}
+    {% endif %}
+    {# <li><span>{{ thread.title }}</span></li> #}
+{% endblock %}
+
+{##############################################################################}
+
+{% block content_class %} thread-detail{% endblock%}
+
+{##############################################################################}
+
+{% block thread_content %}
+
+{# === NODE PEREX TEXT === #}
+{% set perex_text, perex_important = thread.node.get_perex_data(module) %}
+{% if perex_text %}
+    <div class="group rtc panel-perex{% if perex_important %} important{% endif %}">
+        {{ perex_text }}
+    </div>
+{% endif %}
+
+{# === CLOSED THREAD INFO === #}
+{% if thread.closed %}
+    <div class="group panel-closed">
+        <p><small>{% trans %}This discussion has been closed for the following reason:{% endtrans %}</small></p>
+        <p>{{ thread.close_reason }}</p>
+        <p class="t-right"><small>{{ render_closed_by_at(thread.closed_by, thread.closed_at)}}</small></p>
+    </div>
+{% endif %}
+
+{% if request.user.has_openode_perm('%s_close' % thread.thread_type, thread) %}
+    <div class="group f-right section-header-control">
+        {% if thread.closed %}
+            <a class="control-link" href="{% url thread_reopen thread.pk %}">{% trans %}Reopen this discussion{% endtrans %}</a>
+        {% else %}
+            <a class="control-link" href="{% url thread_close thread.pk %}">{% trans %}Close this discussion{% endtrans %}</a>
+        {% endif %}
+    </div>
+{% endif %}
+
+<h2>{% trans %}Discussion{% endtrans %}</h2>
+
+{# <div id="post-id-{{main_post.id}}" class="question-content{% if main_post.deleted %} deleted{% endif %}"> #}
+    {# <h3 class="thread"><a href="{{ main_post.get_absolute_url() }}">{% trans %}Discussion{% endtrans %}{% trans %}:{% endtrans %} {{ thread.title|escape }}</a></h3> #}
+
+    {# main post tags #}
+    {# {{ tag_list(thread.tags.all()) }} #}
+
+    {#
+    <div class="group">
+        <div class="q-content question-content" id="question-table">
+
+            <div>{{ main_post.html }}</div>
+
+            {% include "node/snippets/post_controls.html" %}
+
+            <script type="text/javascript">
+                (function(){
+                    if (openode['data']['userIsAuthenticated'] === false){
+                        var ctrl = document.getElementById('question-controls')
+                        ctrl.parentNode.removeChild(ctrl);
+                    }
+                })();
+            </script>
+
+        </div>
+        {% if enable_comments %}
+            <div class="panel">
+                {% with %}
+                    {% set post = main_post %}
+                    {% set show_post = show_post %}
+                    {% set show_comment = show_comment %}
+                    {% set show_comment_position = show_comment_position %}
+                    {% set user = request.user %}
+                    {% set max_comments = settings.MAX_COMMENTS_TO_SHOW %}
+                    {% include "snippets/post_comments_widget.html" %}
+                {% endwith %}
+            </div>
+        {% endif %}
+
+    </div>
+    #}
+{# </div> #}
+
+{# ==== START: thread/new_answer_form.html ==== #}
+{% if thread.has_response_perm(request.user) %}
+    <div class="panel group">
+
+        {% from "macros.html" import render_formfield_errors, render_formfield_helptext %}
+
+        {# <h4>{% trans %}Your post{% endtrans %}</h4> #}
+
+        {% if request.user.is_anonymous() %}
+            <a class="submit" href="{{settings.LOGIN_URL}}?next={{ thread.get_absolute_url() }}">
+                {% trans %}Login/Signup to Post{% endtrans %}
+            </a>
+        {% else %}
+            {{ answer_form.media }}
+            {% if answer_form.errors %}
+                <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
+            {% endif %}
+            <form id="fmanswer" action="" method="post" class="js-answer-form">
+                {% csrf_token %}
+                <div class="twelve columns tabular-form">
+
+                    <div class="row">
+                        <div class="twelve columns{% if answer_form.text.errors %} cke-error{% endif %}">
+                            {{ answer_form.text }}
+                            {{ render_formfield_errors(answer_form.text) }}
+                            {{ render_formfield_helptext(answer_form.text) }}
+                            <div class="form-field-separator"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="twelve columns t-left">
+                            <button class="large button success" type="submit" name="post">{% spaceless %}
+                                {% trans %}Send post{% endtrans %}
+                            {% endspaceless %}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        {% endif %}
+
+    {# this is what?!
+    this is outside the form on purpose
+    {% if main_post.closed == False and request.user == main_post.author %}
+        <input type="button" class="submit after-editor answer-own-question" id="fmanswer_button" value="{% trans %}Post Your Own Discussion{% endtrans %}" />
+    {% endif %}
+    #}
+    </div>
+{% endif %}
+
+
+
+{# ====================================================================== #}
+{# ============ REACTIONS =============================================== #}
+{# ====================================================================== #}
+
+<div class="answers">
+    {# <h2>{% trans counter=answer_count %}{{ counter }} Post{% pluralize %}{{ counter }} Posts{% endtrans %}</h2>
+    #}
+
+    {% if answers %}
+
+        <div class="clean"></div>
+
+        {% with %}
+            {% set p = paginator_context %}
+            {% set anchor = '#sort-top' %}
+            {% set position = 'left' %}
+            {% include "snippets/paginator.html" %}
+        {% endwith %}
+        <div class="clean"></div>
+
+
+        {% for answer in answers %}
+            <a name="{{ answer.id }}"></a>
+            {#
+                TODO nefunguje, thread_view se mezitim zaktualizovalo
+                last visit: {{ thread_view_last_visit|humanize_datetime  }}<br />
+                post time: {{ answer.get_time_of_last_edit()|humanize_datetime }}
+            #}
+            <div class="answer group{% if not request.user.is_anonymous() and not thread_view or thread_view_last_visit < answer.get_time_of_last_edit() %} unread{% endif %}" id="post-id-{{ answer.pk }}">
+            {# <div id="post-id-{{ answer.id }}" class="{{ answer_classes(answer, main_post) }} panel"> #}
+                <div class="answer-table">
+                    <div class="item-right">
+                        <div class="answer-body rtc">
+                            {# === CREATOR/UPDATER INFOBOX === #}
+                            <div class="infobox-wrap">
+                                {# CREATOR #}
+                                {{ render_user_infobox(answer.author, request.user, _('posted'), answer.added_at) }}
+                                {# UPDATER #}
+                                {% if answer.last_edited_by %}
+                                    {{ render_user_infobox(answer.last_edited_by, request.user, _('updated'), answer.last_edited_at) }}
+                                {% endif %}
+                            </div>
+                            {{ answer.html|parse_reply_to(posts_per_pages, answer, request) }}
+                        </div>
+                        <div class="answer-controls post-controls">
+                            {% include "node/snippets/answer_controls.html" %}
+                        </div>
+                        {# answer comments #}
+                        {% with %}
+                            {% set post = answer %}
+                            {% set show_post = show_post %}
+                            {% set show_comment = show_comment %}
+                            {% set show_comment_position = show_comment_position %}
+                            {% set user = request.user %}
+                            {% set max_comments = settings.MAX_COMMENTS_TO_SHOW %}
+                            {% include "snippets/post_comments_widget.html" %}
+                        {% endwith %}
+
+                    </div>
+                </div>
+                <div class="clean"></div>
+            </div>
+            <div class="clean"></div>
+        {% endfor %}
+
+        {% with %}
+            {% set p = paginator_context %}
+            {% set anchor = '#sort-top' %}
+            {% set position = 'left' %}
+            <div class="pagination-wrap">
+                {% include "snippets/paginator.html" %}
+            </div>
+        {% endwith %}
+
+        <div class="clean"></div>
+
+    {% else %}
+        <p>{% trans %}There are no discussion posts in this Node.{% endtrans %}</p>
+    {% endif %}
+</div>
+
+{% endblock thread_content %}
+
+{% set sidebar_help_include = sidebar_help(_('Discussion'), _('help_discussion_detail_short'), _('More help'), _('help_discussion_detail_html'), 'help_discussion_detail_html') %}
+{% set sidebar_tools_title = _('Discussion tools') %}
+
+{% block endjs %}
+    {{ super() }}
+    <script type="text/javascript" src="{{ "/qtip/jquery.qtip.min.js"|media }}"></script>
+    <script type='text/javascript' src="{{ "/js/discussions.js"|media }}"></script>
+{% endblock %}
+
+{% block forestyle %}
+    {{ super() }}
+    <link href="{{ "qtip/jquery.qtip.min.css"|media }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+

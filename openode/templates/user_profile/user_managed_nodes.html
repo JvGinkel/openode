@@ -1,0 +1,25 @@
+{% extends "user_profile/user.html" %}
+
+
+{% block profile_breadcrumbs %}
+    <li><span>{% trans %}Managed nodes{% endtrans %}</span></li>
+{% endblock %}
+
+
+{% block profilesection %}
+   {% trans %}Managed nodes{% endtrans %}
+{% endblock %}
+
+
+{% block usercontent %}
+    <div class="q-listing">
+        {% with nodes_of_user = view_user %}
+        {% for node in managed_nodes %}
+            {% include "node/snippets/node_box.html" %}
+        {% else %}
+            <p>{% trans %}No records.{% endtrans %}</p>
+        {% endfor %}
+        {% endwith %}
+    </div>
+    <p class="t-right"><a href="{% url "node_mark_read" "node" %}">{% trans %}Mark all managed node read{% endtrans %}</a></p>
+{% endblock %}

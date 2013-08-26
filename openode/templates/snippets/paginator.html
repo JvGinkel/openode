@@ -1,0 +1,47 @@
+{% spaceless %}
+    {% if p.is_paginated %}
+        <ul class="pagination" style="float:{{ position }}">
+
+            {% if p.has_previous %}
+                <li class="arrow">
+                    <a href="{{p.base_url}}page={{ p.previous }}{{ anchor }}" title="{% trans %}previous{% endtrans %}">
+                        &laquo; {% trans %}previous{% endtrans %}
+                    </a>
+                </li>
+            {% endif %}
+
+            {% if not p.in_leading_range %}
+                {% for num in p.pages_outside_trailing_range %}
+                    <li class="page">
+                        <a href="{{p.base_url}}page={{ num }}{{ anchor }}" >{{ num }}</a>
+                    </li>
+                {% endfor %}
+                <li class="unavailable">...</li>
+            {% endif %}
+
+            {% for num in p.page_numbers %}
+                {% if num == p.page and p.pages != 1 %}
+                    <li class="current" title="{% trans %}current page{% endtrans %}"><a href="#">{{ num }}</a></li>
+                {% else %}
+                    <li class="page"><a href="{{p.base_url}}page={{ num }}{{ anchor }}" title="{% trans %}page {{num}}{% endtrans %}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if not p.in_trailing_range %}
+                <li class="unavailable">...</li>
+                {% for num in p.pages_outside_leading_range|reverse %}
+                    <li class="page"><a href="{{p.base_url}}page={{ num }}{{ anchor }}" title="{% trans %}page {{ num }}{% endtrans %}">{{ num }}</a></li>
+                {% endfor %}
+            {% endif %}
+
+            {% if p.has_next %}
+                <li class="arrow">
+                    <a href="{{p.base_url}}page={{ p.next }}{{ anchor }}" title="{% trans %}next page{% endtrans %}">
+                        {% trans %}next page{% endtrans %} &raquo;
+                    </a>
+                </li>
+            {% endif %}
+
+        </ul>
+    {% endif %}
+{% endspaceless %}

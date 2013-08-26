@@ -1,0 +1,34 @@
+{% if acceptance_level in ('open', 'moderated') %}
+    <button
+        class="organization-join-btn follow-toggle {% if membership_level != 'none' %}on on-state{% endif %}"
+        data-organization-id="{{organization_id}}"
+        {% if acceptance_level == 'open' %}
+            data-off-prompt-text="{% trans %}Leave this organization{% endtrans %}"
+            data-on-prompt-text="{% trans %}Join this organization{% endtrans %}"
+            data-on-state-text="{% trans %}You are a member{% endtrans %}"
+            data-off-state-text="{% trans %}Join this organization{% endtrans %}"
+        {% else %}
+            {% if membership_level == 'full' %}
+                data-off-prompt-text="{% trans %}Leave this organization{% endtrans %}"
+                data-on-state-text="{% trans %}You are a member{% endtrans %}"
+            {% else %}
+                data-off-prompt-text="{% trans %}Cancel application{% endtrans %}"
+                data-on-state-text="{% trans %}Waiting approval{% endtrans %}"
+            {% endif %}
+            data-on-prompt-text="{% trans %}Ask to join{% endtrans %}"
+            data-off-state-text="{% trans %}Ask to join{% endtrans %}"
+        {% endif %}
+    >
+        {% if membership_level == 'full' %}
+            {% trans %}You are a member{% endtrans %}
+        {% elif membership_level == 'pending' %}
+            {% trans %}Waiting approval{% endtrans %}
+        {% else %}
+            {% if acceptance_level == 'open' %}
+                {% trans %}Join this organization{% endtrans %}
+            {% else %}
+                {% trans %}Ask to join{% endtrans %}
+            {% endif %}
+        {% endif %}
+    </button>
+{% endif %}

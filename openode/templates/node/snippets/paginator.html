@@ -1,0 +1,40 @@
+{% if questions_count > page_size %}
+    {% with %}
+        {% set p = context|setup_paginator %}
+        {% set position = 'left' %}
+        {% spaceless %}
+            {% if p.is_paginated %}
+                <ul class="pagination" style="float:{{position}}">
+                    {% if p.has_previous %}
+                        <li class="arrow"><a href="{{ search_state.change_page(p.previous).full_url() }}" title="{% trans %}previous{% endtrans %}">
+                            &laquo; {% trans %}previous{% endtrans %}</a></li>
+                    {% endif %}
+                    {% if not p.in_leading_range %}
+                        {% for num in p.pages_outside_trailing_range %}
+                            <li class="page"><a href="{{ search_state.change_page(num).full_url() }}" >{{ num }}</a></li>
+                        {% endfor %}
+                        ...
+                    {% endif %}
+
+                    {% for num in p.page_numbers %}
+                        {% if num == p.page and p.pages != 1%}
+                            <li class="current" title="{% trans %}current page{% endtrans %}"><a href="#">{{ num }}</a></li>
+                        {% else %}
+                            <li class="page"><a href="{{ search_state.change_page(num).full_url() }}" title="{% trans %}page {{num}}{% endtrans %}">{{ num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if not p.in_trailing_range %}
+                        ...
+                        {% for num in p.pages_outside_leading_range|reverse %}
+                            <li class="page"><a href="{{ search_state.change_page(num).full_url() }}" title="{% trans %}page {{ num }}{% endtrans %}">{{ num }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                    {% if p.has_next %}
+                        <li class="arrow"><a href="{{ search_state.change_page(p.next).full_url() }}" title="{% trans %}next page{% endtrans %}">{% trans %}next page{% endtrans %} &raquo;</a></li>
+                    {% endif %}
+                </ul>
+            {% endif %}
+        {% endspaceless %}
+    {% endwith %}
+{% endif %}

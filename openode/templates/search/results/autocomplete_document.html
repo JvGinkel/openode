@@ -1,0 +1,6 @@
+<p>
+    <small>{% trans %}Document{% endtrans %}: {{ result.node_title }}</small>
+    <br />
+    {% if result.icon %}<img src="{{ result.icon }}" />{% endif %}
+    {{ result.title|truncate(100, True) }}
+</p>

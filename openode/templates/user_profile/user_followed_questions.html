@@ -1,0 +1,33 @@
+{% extends "user_profile/user.html" %}
+
+{% block profile_breadcrumbs %}
+    <li><span>{% trans %}Followed questions{% endtrans %}</span></li>
+{% endblock %}
+
+{% block profilesection %}
+   {% trans %}Followed questions{% endtrans %}
+{% endblock %}
+
+{% block usercontent %}
+    <div class="q-listing">
+        {% for main_post in questions %}
+            {% with %}
+                {% set thread = main_post.thread %}
+                {% set has_unread_main_post = thread.has_unread_main_post_for_user(request.user) %}
+                {% set extra_class = 'narrow' %}
+                {% set search_state = search_state %}
+                {% set visitor = request.user %}
+                {% set thread_header = True %}
+                {% set thread_view = thread.get_thread_view(view_user) %}
+                {% set has_unread_posts = thread.has_unread_posts(thread_view, view_user) %}
+                {% include "widgets/thread_summary_question.html" %}
+            {% endwith %}
+        {% else %}
+            <p>{% trans %}No records.{% endtrans %}</p>
+        {% endfor %}
+    </div>
+
+    {% if view_user == request.user and request.user.get_unread_followed_questions_count() %}
+        <p class="t-right"><a href="{% url "node_mark_read" "question" %}">{% trans %}Mark all read{% endtrans %}</a></p>
+    {% endif %}
+{% endblock %}

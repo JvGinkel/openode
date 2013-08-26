@@ -1,0 +1,15 @@
+*.pyc
+*.log
+*~
+settings_local.py
+*.mo
+
+*.egg-info
+openode/upfiles/
+.sass-cache
+*.sublime-project
+*.sublime-workspace
+
+docs/_build/
+/env/
+

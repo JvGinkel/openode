@@ -1,0 +1,90 @@
+{% extends "node/base_thread_edit.html" %}
+{% from "macros.html" import node_breadcrumb, node_module_breadcrumb, sidebar_help, sidebar_back_button %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(main_post.thread.node) }}
+    {{ node_module_breadcrumb(main_post.thread.node, NODE_MODULE_LIBRARY) }}
+    <li><a href="{{ main_post.thread.get_absolute_url() }}">{{ main_post.thread.title }}</a></li>
+    <li><span>{% trans %}Edit Document{% endtrans %}</span></li>
+{% endblock %}
+
+
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Document')) -%} {# spaceless is neccessary because content is included into href #}
+        {{ main_post.thread.get_absolute_url() }}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Edit document'), _('help_node_document_edit_short'), _('More help'), _('help_node_document_edit_html'), 'help_node_document_edit_html') }}
+{% endblock %}
+
+
+
+{% block content %}
+
+    {{ super() }}
+
+    <hr />
+
+    <div class="group">
+        <div class="twelve columns tabular-form">
+            <form id="fmask" action="{{ request.path }}" method="post" enctype="multipart/form-data">{% csrf_token %}
+                <h1>{% trans %}Change file{% endtrans %}</h1>
+                {% if document %}
+                    {% trans %}Actual{% endtrans %}: {{ document.get_file_name() }}<br />
+                    {{ render_formfield_row(document_form.remove, labeltext=_("Remove")) }}
+                {% endif %}
+
+                {{ render_formfield_row(document_form.file_data, labeltext=_("Document file")) }}
+
+                <div class="row">
+                    <div class="three columns"></div>
+                    <div class="nine columns t-left">
+                        <button class="large button success" type="submit" name="post" id="edit_post_form_submit_button">{% trans %}Save{% endtrans %}</button>
+                    </div>
+                </div>
+            </form>
+
+            {% if document %}
+                <hr />
+
+                <h3>{% trans %}File revision history{% endtrans %}</h3>
+
+                {% set latest_revision_pk = document.latest_revision.pk %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{% trans %}Revision{% endtrans %}</th>
+                            <th>{% trans %}Type{% endtrans %}</th>
+                            <th>{% trans %}File{% endtrans %}</th>
+                            <th>{% trans %}Size{% endtrans %}</th>
+                            <th>{% trans %}Revised at{% endtrans %}</th>
+                            <th>{% trans %}Revised by{% endtrans %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for dr in document.revisions.order_by("-revision").iterator() %}
+                        <tr>
+                            <td>
+                                {% if latest_revision_pk == dr.pk %}
+                                    <span title="{% trans %}Actual{% endtrans %}">{{ dr.revision }} *</span>
+                                {% else %}
+                                    <span>{{ dr.revision }}</span>
+                                {% endif %}
+                            </td>
+                            <td><img src="{{ dr.get_icon() }}" alt="{{ dr.sufix }}" /></td>
+                            <td><a href="{{ dr.file_data.url }}">{{ dr.get_file_name() }}</a></td>
+                            <td>{{ dr.get_size() }}</td>
+                            <td>{{ dr.revised_at|humanize_datetime }}</td>
+                            <td>{{ dr.author.screen_name }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% endif %}
+
+        </div>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,9 @@
+{% extends "email/base_mail.html" %}
+{% block title %}{% trans %}Your registration is complete{% endtrans %}{%endblock%}
+{% block headline %}{% trans %}Thank you for your registration!{% endtrans %}{%endblock%}
+{% block content %}
+<p>{% trans %}Your registration is complete! To get desired content use our smart search field or simply browse around.{% endtrans %}</p>
+{% endblock %}
+{% block footer %}
+{% include "email/footer.html" %}
+{% endblock %}

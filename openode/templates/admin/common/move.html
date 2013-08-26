@@ -1,0 +1,42 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Move" %} {{ obj.name }}{% endblock %}
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+<a href="../../../../">{% trans 'Home' %}</a> &rsaquo;
+<a href="../../../">{{ app_label|capfirst|escape }}</a> &rsaquo;
+<a href="../../">{{ verbose_name_plural|capfirst|escape }}</a> &rsaquo;
+<a href="../">{{ obj.title }}</a> &rsaquo;
+{% trans "Move" %}
+</div>
+{% endblock %}
+{% block content %}
+    <h1>{% trans "Move" %}: {{ obj.title }}</h1>
+    <hr />
+    <form action={{ request.path }} method="post">{% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    {{ form.position.label_tag }}
+                </td>
+                <td>
+                    {{ form.position }}
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form.target.label_tag }}</td>
+                <td>
+                    {{ form.target }}
+                    {{ form.target.errors }}
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button>{% trans "Move" %}</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

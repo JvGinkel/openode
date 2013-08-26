@@ -1,0 +1,33 @@
+{# foundation.min.js countains jQuery 1.8.2 #}
+<script type='text/javascript' src="{{"/js/foundation/foundation.min.js"|media }}"></script>
+<script type="text/javascript" src="{{"/js/modernizr.custom.js"|media }}"></script>
+<script type="text/javascript" src="{% url django.views.i18n.javascript_catalog %}"></script>
+<script type="text/javascript">
+    var openode = {};
+    openode['data'] = {};
+    {% if request.user.is_authenticated() %}
+        openode['data']['userIsAuthenticated'] = true;
+        openode['data']['userId'] = {{request.user.id}};
+        openode['data']['userName'] = '{{ request.user.username }}';
+        openode['data']['userIsAdminOrMod'] = {% if
+                                                request.user.is_administrator()
+                                                or request.user.is_moderator()
+                                            %}true{% else %}false{% endif %};
+        openode['data']['userIsAdmin'] = {% if
+                                            request.user.is_administrator()
+                                        %}true{% else %}false{% endif %};
+    {% else %}
+        openode['data']['userIsAuthenticated'] = false;
+    {% endif %}
+    openode['urls'] = {};
+    openode['settings'] = {};
+    {% if settings.ALLOWED_UPLOAD_FILE_TYPES %}
+        openode['settings']['allowedUploadFileTypes'] = [
+            "{{ settings.ALLOWED_UPLOAD_FILE_TYPES|join('", "')|replace('.','') }}"
+        ];
+    {% else %}
+        openode['settings']['allowedUploadFileTypes'] = [];
+    {% endif %}
+    openode['messages'] = {};
+</script>
+{# avoid adding javascript here so that pages load faster #}

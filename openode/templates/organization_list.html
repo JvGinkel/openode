@@ -1,0 +1,96 @@
+{% import "macros.html" as macros %}
+{% extends 'one_column_body.html' %}
+
+{% block title %}{% trans %}Organizations{% endtrans %}{% endblock %}
+
+{% block breadcrumbs %}
+    <li><span>{% trans %}Organizations{% endtrans %}</span></li>
+{% endblock %}
+
+{% block forestyle %}
+    {{ super() }}
+    <style type="text/css">
+        .lh-50 {
+            line-height: 50px
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+<div class="group">
+
+    <div class="row">
+        <div class="columns twelve">
+            <h1 class="section-title f-left">{% trans %}Organizations{% endtrans %}</h1>
+            {% if request.user.is_admin('openode.add_organization') %}
+                <div class="f-right section-header-control">
+                    <a href="{% url admin:openode_organization_add %}" class="control-link">{% trans %}Add new organization{% endtrans %}</a>
+                </div>
+            {% endif %}
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="twelve columns">
+            {% if request.user.is_authenticated() %}
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="sort group">
+                            <dl class="sub-nav f-left">
+                                <dt>{% trans %}Show:{% endtrans %}</dt>
+                                <dd class="{% if tab_name=="all-organizations" %}active{% endif %}">
+                                    <a href="{% url organization_list %}?sort=all-organizations" title="{% trans %}Show all organizations{% endtrans %}">{% trans %}All organizations{% endtrans %}</a>
+                                </dd>
+                                <dd class="{% if tab_name=="my-organizations" %}active{% endif %}">
+                                    <a href="{% url organization_list %}?sort=my-organizations" title="{% trans %}Show my organizations{% endtrans %}">{% trans %}My organizations{% endtrans %}</a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="row separator-01"></div>
+            {% endif %}
+
+            {% for organization in organizations %}
+                {% set logo = organization.get_logo_url(50, True) %}
+
+                <div class="row">
+                    {% if request.user.is_authenticated() %}
+                        <div class="one columns">
+                            <a class="organization-name group-logo" href="{% url organization_detail organization.id, organization.title|replace('-', ' ')|slugify %}" title="{{ organization.full_title|escape }}">
+                            {% if logo %}
+                                <img src="{{ logo }}" class="organization-logo" alt="{{ organization.title|escape }}" />
+                            {% else %}
+                                {{ organization.title|escape }}
+                            {% endif %}
+                            </a>
+                        </div>
+                        <div class="eleven columns lh-50">
+                            <a class="organization-name group-logo" href="{% url organization_detail organization.id, organization.title|replace('-', ' ')|slugify %}" title="{{ organization.full_title|escape }}">
+                                {{ organization.title|escape }}
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="one columns">
+                            <span class="organization-name group-logo">
+                                {% if logo %}
+                                    <img src="{{ logo }}" class="organization-logo" alt="{{ organization.title|escape }}" />
+                                {% else %}
+                                    {{ organization.title|escape }}
+                                {% endif %}
+                            </span>
+                        </div>
+                        <div class="eleven columns lh-50">
+                            {{ organization.title|escape }}
+                        </div>
+                    {% endif %}
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+{% endblock %}

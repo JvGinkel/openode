@@ -1,0 +1,4 @@
+{% if user.country and user.show_country %}
+    {{ user.country.name }}
+    {%- include "snippets/user_country_flag.html" -%}
+{% endif %}

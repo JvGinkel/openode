@@ -1,0 +1,11 @@
+<p>
+    <small>
+        {% trans %}Page of Document{% endtrans %}: {{ result.node_title }}
+    </small>
+    <br />
+    <img src="{{ result.document_icon }}" />
+    {{ result.title|truncate(100, True) }}
+    <small>
+        ({% trans %}page{% endtrans %}: {{ result.page }})
+    </small>
+</p>

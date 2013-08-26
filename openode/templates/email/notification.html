@@ -1,0 +1,9 @@
+{% extends "email/base_mail.html" %}
+{% block title %}{% trans %}Updates overview{% endtrans %}{%endblock%}
+{% block headline %}{% trans %}Updates overview{% endtrans %}{%endblock%}
+{% block content %}
+{{ text }}
+{% endblock %}
+{% block footer %}
+{% include "email/footer.html" %}
+{% endblock %}

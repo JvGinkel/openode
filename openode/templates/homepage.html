@@ -1,0 +1,186 @@
+{% extends "one_column_body.html" %}
+{% from "macros.html" import render_user_infobox, tag_list %}
+
+{# for different search field on homepage #}
+{% set HOMEPAGE = True %}
+
+{# ================================= #}
+
+{% block title %}{% spaceless %}{% trans %}Nodes{% endtrans %}{% endspaceless %}{% endblock %}
+
+{# ================================= #}
+
+{% block endjs %}
+    {{ super() }}
+    <script type='text/javascript' src="{{"/js/unfolding.js"|media }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            // open 'in session opened' nodes
+            jQuery.each({{ opened_nodes }}, function(index, value){
+                open_element(jQuery("#element-" + value).find(".js-expander").first(), false, false);
+            })
+        });
+    </script>
+{% endblock %}
+
+{# ================================= #}
+
+{% block forestyle %}
+    {{ super() }}
+    <style type="text/css">
+        {% set step = 25 %}
+        {% set max_levels = 10 %}
+        {% for i in range(0, (max_levels * step) + step, step) %}
+            .level-{{ i // step }} .node-box-content {padding-left: {{ i }}px}
+        {% endfor %}
+    </style>
+{% endblock %}
+
+{# ========================================================================== #}
+
+{% block content %}
+
+    {% if not request.user.is_authenticated() %}
+        {{ _render_homepage_content_fx(request) }}
+    {% endif %}
+
+    <div class="row">
+
+        <div class="nine columns">
+            {% if latest_actuality %}
+                <div class="row hp-news">
+                    <div class="twelve columns">
+                        <div class="f-right section-header-control">
+                            {% if request.user.is_admin('openode.add_actuality') %}
+                                <a href="{% url admin:openode_actuality_add %}" class="control-link">{% trans %}Add news{% endtrans %}</a>
+                            {% endif %}
+                            <a href="{% url archive %}" class="control-link">{% trans %}News archive{% endtrans %}</a>
+                        </div>
+                        <h2>{% trans %}News{% endtrans %}</h2>
+                        <div class="actuality">
+                            <div class="infobox-wrap">
+                                {{ render_user_infobox(latest_actuality.author, request.user, _('added'), latest_actuality.created) }}
+                            </div>
+                            {{ latest_actuality.text }}
+                            {% if request.user.is_admin('openode.change_actuality') %}
+                                <ul class="post-controls group">
+                                    <li>
+                                        <a class="ico edit" href="{% url admin:openode_actuality_change latest_actuality.pk %}">
+                                            {% trans %}edit{% endtrans %}
+                                        </a>
+                                    </li>
+                                <ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <hr />
+            {% endif %}
+
+            <div class="row">
+                <div class="twelve columns">
+                    <div class="section-header no-top-margin">
+                        {% if request.user.is_admin('openode.add_node') or request.user.is_admin('openode.change_node')%}
+                            <div class="f-right section-header-control">
+                                {% if request.user.is_admin('openode.change_node') %}
+                                    <a href="{% url admin:openode_node_changelist %}" class="control-link">{% trans %}Edit node list{% endtrans %}</a>
+                                {% endif %}
+                                {% if request.user.is_admin('openode.add_node') %}
+                                    <a href="{% url admin:openode_node_add %}" class="control-link">{% trans %}Add new node{% endtrans %}</a>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+
+                        <h2>{% trans %}Nodes{% endtrans %}</h2>
+                    </div>
+
+                    <div class="sort group f-right">
+                        <dl class="sub-nav f-right">
+                            <dt>{% trans %}Show:{% endtrans %}</dt>
+                            <dd{% if display_mode==DISPLAY_MODE_ACTIVE %} class="active"{% endif %}>
+                                <a href="{{ request.path }}?dm={{ DISPLAY_MODE_ACTIVE }}">{% trans %}active only{% endtrans %}</a>
+                            </dd>
+                            <dd{% if display_mode==DISPLAY_MODE_ACTIVE_AND_CLOSED %} class="active"{% endif %}>
+                                <a href="{{ request.path }}?dm={{ DISPLAY_MODE_ACTIVE_AND_CLOSED }}">{% trans %}active and closed{% endtrans %}</a>
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <div class="nodes-container">
+                    {# must be called recursive - need filtering closed subnodes #}
+                    {% with nodes_of_user = request.user %}
+                    {% for node in nodes recursive %}
+                        {% if request.user.has_openode_perm("node_show", node) %}
+                            {% set NODE_TREE_DISPLAY = True %}
+                            {% set USE_AJAX = True %}
+
+                            {% include "node/snippets/node_box.html" %}
+                            {% if not node.is_leaf_node_for_user(request.user, with_closed) %}
+                                {{ loop(node.get_children_for_user(request.user, with_closed)) }}
+                            {% endif %}
+                         {% endif %}
+                    {% endfor %}
+                    {% endwith %}
+                    </div>
+
+                    {% if request.user.is_authenticated() %}
+                    {# TODO refactor - this is copypaste from main menu #}
+                        {% set unread_followed_nodes_count = request.user.get_unread_followed_nodes_count() %}
+                        {% set unread_followed_questions_count = request.user.get_unread_followed_questions_count() %}
+                        {% set unread_followed_discussions_count = request.user.get_unread_followed_discussions_count() %}
+
+                        {% set followed_count = unread_followed_nodes_count + unread_followed_questions_count + unread_followed_discussions_count %}
+
+                        {% if followed_count %}
+                            <p class="t-right">
+                                <a href="{% url "node_mark_read" "all" %}">{% trans %}Mark all read{% endtrans %}</a>
+                            </p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="column three aside">
+            {% include "widgets/contributors.html" %}
+
+            {# === tags === #}
+            <div class="block">
+                <h3 class="title">{% trans %}Tags{% endtrans %}</h3>
+                <div class="block-content">
+                    {{ tag_list(tags, show_numbers=True) }}
+                    <p class="t-right">
+                        <a href="{% url tags %}" class="control-link">{% trans %}All tags{% endtrans%}</a>
+                    </p>
+                </div>
+            </div>
+
+        {#
+                DO NOT DISPOSE - patri do stranky vysledku vyhledavani
+
+             {% if interesting_tag_names %}
+                {% with %}
+                    {% set tag_names = interesting_tag_names %}
+                    {% set selection_type = 'interesting' %}
+                    {% include "snippets/tag_selection.html" %}
+                {% endwith %}
+            {% endif %}
+            {% if ignored_tag_names %}
+                {% with %}
+                    {% set tag_names = ignored_tag_names %}
+                    {% set selection_type = 'ignored' %}
+                    {% include "snippets/tag_selection.html" %}
+                {% endwith %}
+            {% endif %}
+            {% if subscribed_tag_names %}
+                {% with %}
+                    {% set tag_names = subscribed_tag_names %}
+                    {% set selection_type = 'subscribed' %}
+                    {% include "snippets/tag_selection.html" %}
+                {% endwith %}
+            {% endif %} #}
+
+        </div>
+    </div>
+
+{% endblock %}

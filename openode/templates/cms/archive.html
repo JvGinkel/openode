@@ -1,0 +1,61 @@
+{% extends "two_column_body.html" %}
+{#
+    this template is split into several
+    blocks that are included here
+    the blocks are within directory templates/node
+    relative to the skin directory
+
+    there is no html markup in this file
+#}
+<!-- questions.html -->
+
+{% from "macros.html" import render_user_infobox, sidebar_help, sidebar_back_button %}
+
+{% block title %}{% spaceless %}{% trans %}Actuality archive{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block content %}
+
+    <h1>{% trans %}News archive{% endtrans %}</h1>
+    {% for actuality in actualities.object_list %}
+        <div class="item">
+            <div class="infobox-wrap">
+                {{ render_user_infobox(actuality.author, request.user, _('added'), actuality.created) }}
+            </div>
+            {{ actuality.text }}
+            {% if request.user.is_admin('openode.change_actuality') %}
+                <div class="f-right">
+                    <a href="{% url admin:openode_actuality_change actuality.pk %}" class="control-link">{% trans %}edit{% endtrans %}</a>
+                </div>
+            {% endif %}
+        </div>
+        <hr />
+    {% endfor %}
+
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if actualities.has_previous() %}
+                <a href="?page={{ actualities.previous_page_number() }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ actualities.number }} of {{ actualities.paginator.num_pages }}.
+            </span>
+
+            {% if actualities.has_next() %}
+                <a href="?page={{ actualities.next_page_number() }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+
+{% endblock %}
+
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Homepage')) -%} {# spaceless is neccessary because content is included into href #}
+        {% url 'index' %}
+    {%- endcall %}
+
+    {{ sidebar_help(_('News archive'), _('help_news_archive_short'), _('More help'), _('help_news_archive_html'), 'help_news_archive_html') }}
+
+{% endblock %}

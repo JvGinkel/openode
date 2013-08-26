@@ -1,0 +1,37 @@
+{% from "macros.html" import render_last_changed %}
+
+<div class="node-box">
+    <div class="node-box-content group">
+
+        <div class="row">
+            <div class="columns six">
+                <small>
+                    {% trans %}Discussion post in Node{% endtrans %}:
+                    {# {{ result.title }} #}
+                    {# {{ result.thread_type|capitalize }}: {{ result.node_title }} #}
+                </small>
+            </div>
+        </div>
+
+        <h3>
+            {# {% if result.thread_type == "document" and result.icon %} #}
+            {# {% endif %} #}
+            <a href="{{ result.url }}" title="{{ result.title }}">
+                {# <img src="{{ result.icon }}" /> #}
+                {{ result.title }}
+            </a>
+        </h3>
+
+        <p>
+            {# {% if result.title != result.main_post_text %} #}
+                {{ result.text|highlight_search_result(query) }}
+            {# {% endif %} #}
+        </p>
+
+
+        <div class="group">
+            {{ result.last_changed }}
+        </div>
+
+    </div>
+</div>

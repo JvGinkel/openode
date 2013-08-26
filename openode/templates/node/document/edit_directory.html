@@ -1,0 +1,119 @@
+{% extends "two_column_body.html" %}
+{% load i18n %}
+
+{% from "macros.html" import node_breadcrumb, node_module_breadcrumb, sidebar_help, sidebar_back_button %}
+
+{% block title %}{% spaceless %}{% trans %}Questions{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(node) }}
+    {{ node_module_breadcrumb(node, NODE_MODULE_LIBRARY) }}
+    {% if directory %}
+        <li><span>{% trans %}Edit Directory{% endtrans %} {{ directory.name }}</span></li>
+    {% else %}
+        <li><span>{% trans %}Add New Directory{% endtrans %}</span></li>
+    {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Documents')) -%} {# spaceless is neccessary because content is included into href #}
+        {% url node_module node_id=node.pk, node_slug=node.slug, module=NODE_MODULE_LIBRARY %}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Add/edit directory'), _('help_node_directory_add_edit_short'), _('More help'), _('help_node_directory_add_edit_html'), 'help_node_directory_add_edit_html') }}
+
+{% endblock %}
+
+{# ================================= #}
+
+{% block content %}
+
+    Back to node: <a href="{% url node_module node.pk, node.slug, "library" %}">{{ node.title }}</a>
+
+    <h1>{% if directory %}Edit {{ directory.name }}{% else %}Add directory{% endif %}</h1>
+
+    <div class="tabular-form">
+        <form action="{{ request.path }}" method="post">{% csrf_token %}
+            {{ form.node }}
+
+            <div class="row">
+                <div class="three columns">
+                    {{ form.name.label_tag() }}
+                </div>
+                <div class="nine columns">
+                    {{ form.name }}
+                    <div class="form-field-separator"></div>
+                </div>
+            </div>
+
+            {% if directory %}
+                <div class="row">
+                    <div class="three columns">
+                        {{ form.position.label_tag() }}
+                    </div>
+                    <div class="nine columns">
+                        {{ form.position }}
+                        <div class="form-field-separator"></div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="three columns">
+                        {{ form.target.label_tag() }}
+                    </div>
+                    <div class="nine columns">
+                        {{ form.target }}
+                        <div class="form-field-separator"></div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row">
+                    <div class="three columns">
+                        {{ form.parent.label_tag() }}
+                    </div>
+                    <div class="nine columns">
+                        {{ form.parent }}
+                        <div class="form-field-separator"></div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="row">
+                <div class="three columns"></div>
+                <div class="nine columns t-right">
+                    <button class="large button success">save</button></td>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <hr />
+
+    {% if directory and directory.has_delete_perm(request.user) %}
+
+        <div class="panel">
+            <div class="row">
+                <div class="columns six">
+                    <h4>{% trans %}Delete directory{% endtrans %}</h4>
+                    {% with count=directory.threads.count() %}
+                        {% if count>0 %}
+                            <div class="label alert">
+                                {% trans %}Directory contains {{ count }} files! Will be deleted!{% endtrans %}
+                            </div>
+                        {% else %}
+                            <div class="label success">
+                                {% trans %}Directory is empty.{% endtrans %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="columns six t-right">
+                    <a href="{% url category_delete node.pk, node.slug, directory.pk %}" class="button alert js-confirm" data-confirm="{% trans %}Are you sure?{% endtrans %}">{% trans %}Delete{% endtrans %}</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+{% endblock %}

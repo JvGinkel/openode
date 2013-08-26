@@ -1,0 +1,9 @@
+python manage.py test pluto.SeeOffensiveFlagsPermissionAssertionTests \
+ pluto.DeleteAnswerPermissionAssertionTests \
+ pluto.DeleteQuestionPermissionAssertionTests \
+ pluto.CloseQuestionPermissionAssertionTests \
+ pluto.ReopenQuestionPermissionAssertionTests \
+ pluto.FlagOffensivePermissionAssertionTests \
+ pluto.CommentPermissionAssertionTests \
+ pluto.VotePermissionAssertionTests \
+ pluto.UploadPermissionAssertionTests

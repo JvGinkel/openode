@@ -1,0 +1,202 @@
+{% extends "two_column_body.html" %}
+{% from "macros.html" import node_breadcrumb, sidebar_help, sidebar_back_button, render_formfield_row, user_profile_link, organization_link %}
+
+<!-- question_edit.html -->
+{% block title %}{% spaceless %}{% trans %}Edit node{% endtrans %}{% endspaceless %}{% endblock %}
+
+{# ========================================================================== #}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(node) }}
+    <li>
+        <span>{% trans %}Edit Node Settings{% endtrans %}</span>
+    </li>
+{% endblock %}
+
+{# ========================================================================== #}
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Node')) -%} {# spaceless is neccessary because content is included into href #}
+        {{ node.get_absolute_url()}}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Node settings'), _('help_node_settings_short'), _('More help'), _('help_node_settings_html'), 'help_node_settings_html') }}
+
+    {% if request.user.is_admin('openode.change_node') %}
+        <div class="block">
+            <div class="title">{% trans %}Node tools{% endtrans %}</div>
+            <div class="block-content">
+                <p>
+                    <a href="{% url admin:openode_node_change node.pk %}">{% trans %}Edit in admin{% endtrans %}</a><br />
+                </p>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="group">
+        <h1>{% trans node_title=node.title %}Node settings for {{ node_title }}{% endtrans %}</h1>
+        <div class="twelve columns tabular-form">
+            {% if form.errors %}
+                <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
+            {% endif %}
+            <form id="fmedit" action="." method="post">{% csrf_token %}
+                {{ render_formfield_row(form.title, labeltext=_("Title")) }}
+                {{ render_formfield_row(form.long_title, labeltext=_("Long title")) }}
+                {{ render_formfield_row(form.visibility, labeltext=_("Node visibility")) }}
+
+                <div class="row">
+                    <div class="columns twelve"><h2>{% trans %}Node modules{% endtrans %}</h2></div>
+                </div>
+
+{#                 {{ render_formfield_row(form.module_annotation, labeltext=_("Enable Annotation module")) }}
+ #}
+                {{ render_formfield_row(form.module_qa, labeltext=_("Enable module Questions")) }}
+                {{ render_formfield_row(form.module_qa_readonly, labeltext=_("Module Questions is readonly")) }}
+                <div class="row separator-01"></div>
+                {{ render_formfield_row(form.module_forum, labeltext=_("Enable module Discussions")) }}
+                {{ render_formfield_row(form.module_forum_readonly, labeltext=_("Module Discussions is readonly")) }}
+                <div class="row separator-01"></div>
+                {{ render_formfield_row(form.module_library, labeltext=_("Enable module Documents")) }}
+                {{ render_formfield_row(form.module_library_readonly, labeltext=_("Module Documents is readonly")) }}
+                <div class="row separator-01"></div>
+
+                {{ render_formfield_row(form.default_module, labeltext=_("Default module"), helptext=_("Default tab to show when visiting node. Please choose among enabled modules, otherwise built-in order will be used.")) }}
+
+
+{#                 <div class="row">
+                    <div class="columns twelve"><h2>{% trans %}Read-only{% endtrans %}</h2></div>
+                </div>
+ #}                {# has been merged with node.is_closed #}
+                {# {{ render_formfield_row(form.readonly, labeltext=_("Node is readonly")) }}  #}
+                {# <div class="row separator-01"></div> #}
+
+                <div class="row separator-01"></div>
+
+                <div class="row">
+                    <div class="columns twelve"><h2>{% trans %}Close Node{% endtrans %}</h2></div>
+                </div>
+
+                {{ render_formfield_row(form.closed, labeltext=_("Node is closed"), helptext=_("Node will not be displayed by default and will be read only, content is archived.")) }}
+
+                {{ render_formfield_row(form.close_reason, labeltext=_("Close reason"), helptext=_("If node is not closed, value will not be displayed.")) }}
+
+                <div class="row">
+                    <div class="three columns"></div>
+                    <div class="nine columns t-left">
+                        <button class="large button success" type="submit">{% trans %}Save{% endtrans %}</button>
+                    </div>
+                </div>
+                <div class="row separator-01"></div>
+
+                <div class="row">
+                    <div class="columns twelve">
+                        <h2>{% trans %}Node members{% endtrans %}</h2>
+                        <p>{% trans %}Use last field to add new member. Items marked as deleted will vanish after clicking on the save button.{% endtrans %}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columns twelve">
+                        {{ formset.management_form }}
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>{% trans %}Screen name{% endtrans %}</th>
+                                    <th>{% trans %}Email{% endtrans %}</th>
+                                    <th>{% trans %}Role{% endtrans %}</th>
+                                    <th title="{% trans %}Is responsible{% endtrans %}">{% trans %}Resp.{% endtrans %}</th>
+                                    <th title="{% trans %}Delete{% endtrans %}">{% trans %}Del.{% endtrans %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for form in formset %}
+                                    <tr>
+                                        <td class="">{% if form.instance.pk %}
+{#                                             {{ form.instance.user.screen_name|escape }} #}
+                                            {% with user = form.instance.user %}
+                                                <div class="group node-settings-infobox">
+                                                    <a class="avatar" href="{{ user.get_profile_url() }}" title="{{ user.screen_name|escape }}">
+                                                        <img src="{{ user.get_gravatar_url(32) }}" alt="" />
+                                                    </a>
+                                                    <div class="text">
+                                                        {{ user_profile_link(user) }}
+                                                        {% for organization in user.get_organizations() %}
+                                                            {{ organization_link(organization, request.user, 16, logo_crop=True) }}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            {% endwith %}
+                                        {% endif %}</td>
+                                        <td>{{ form.id }}
+                                            {% if form.instance.pk %}
+                                                <div class="group node-settings-email">
+                                                    {{ form.user }}
+                                                </div>
+                                            {% else %}
+                                                {{ form.user }}
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ form.role }}</td>
+                                        <td class="t-center">{{ form.is_responsible }}</td>
+                                        <td class="t-center">{% if form.empty_permitted %}&nbsp;{% else %}{{ form.DELETE }}{% endif %}</td>
+                                    </tr>
+                                    {% if form.errors %}<tr><td colspan="5"> <small class="error">{% for error in form.errors.__all__ %}{{ error }}{% if not loop.last %}, {% endif %}{% endfor %}</small></td></tr>{% endif %}
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="three columns"></div>
+                    <div class="nine columns t-left">
+                        <button class="large button success" type="submit">{% trans %}Save{% endtrans %}</button>
+                    </div>
+                </div>
+                <div class="row separator-01"></div>
+
+                <div class="row">
+                    <div class="columns twelve">
+                        <h2>{% trans %}Node members email dump{% endtrans %}</h2>
+                        <p>{% trans %}List of semicolon separated email addresses to be used for batch add users in another node.{% endtrans %}</p>
+                    </div>
+                </div>
+                {% for role, users in user_emails_by_role.iteritems() %}
+                <div class="row">
+                    <div class="columns three">
+                        <label class="label-tabular">
+                        {{ role }}
+                        </label>
+                    </div>
+                    <div class="nine columns">
+                        <input type="text" readonly="readonly" value="{{ users|join(';') }}" />
+                        <div class="form-field-separator"></div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="row separator-01"></div>
+
+                <div class="row">
+                    <div class="columns twelve">
+                        <h2>{% trans %}Batch add users{% endtrans %}</h2>
+                    </div>
+                </div>
+
+                {{ render_formfield_row(form.batch_add_users_role, labeltext=_("Assign role")) }}
+
+                {{ render_formfield_row(form.batch_add_users_emails, labeltext=_("Emails"), helptext=_("List of semicolon separated email addresses.")) }}
+
+                <div class="row">
+                    <div class="three columns"></div>
+                    <div class="nine columns t-left">
+                        <button class="large button success" type="submit">{% trans %}Save{% endtrans %}</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

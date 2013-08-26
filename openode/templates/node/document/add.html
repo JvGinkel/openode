@@ -1,0 +1,19 @@
+{% extends "node/base_thread_add.html" %}
+{% from "macros.html" import node_breadcrumb, node_module_breadcrumb, sidebar_help, sidebar_back_button %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(node) }}
+    {{ node_module_breadcrumb(node, NODE_MODULE_LIBRARY) }}
+    <li><span>{% trans %}Add New Document{% endtrans %}</span></li>
+{% endblock %}
+
+
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Documents')) -%} {# spaceless is neccessary because content is included into href #}
+        {% url node_module node_id=node.pk, node_slug=node.slug, module=NODE_MODULE_LIBRARY %}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Add new document'), _('help_node_document_add_short'), _('More help'), _('help_node_document_add_html'), 'help_node_document_add_html') }}
+
+{% endblock %}

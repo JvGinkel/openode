@@ -1,0 +1,141 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Documents state" %}
+{% endblock %}
+
+{% block content %}
+
+    <h1>{% trans "Status" %}</h1>
+    <h2>{% trans "Documents state" %}</h2>
+    <table>
+        <tbody>
+            <tr>
+                <th>{% trans "Documents total" %}:</th>
+                <td>
+                    <cite>{{ documents_total }}</cite>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    {% trans "All document with error during OCR process" %}:
+                </th>
+                <td>
+                    <cite>{{ documents_with_error_count }}</cite>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    {% trans "All document with error during OCR process and contains valid file" %}:
+                </th>
+                <td>
+                    <cite>{{ documents_with_error_with_file_count }}</cite>
+                </td>
+                <td>
+                    <p>
+                        <a href="{% url admin:document_joachim %}?limit=10" class="button">
+                            {% trans "complete reprocess - 10" %}
+                        </a>
+                        <a href="{% url admin:document_joachim %}" class="button">
+                            {% trans "complete reprocess - all" %}
+                        </a>
+                        <a href="{% url admin:document_retrive_text %}?limit=50" class="button">
+                            {% trans "only retrive texts - 50" %}
+                        </a>
+
+                        <a href="{% url admin:document_retrive_text %}" class="button">
+                            {% trans "only retrive texts - all" %}
+                        </a>
+                    </p>
+                    <ul>
+                    {% for document in documents_with_error_with_file %}
+                        <li>
+                            <a href="{{ document.get_absolute_url }}">
+                                {{ document.thread.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>{% trans "Mayan state" %}</h2>
+    {% if mayan_state %}
+        {% for queue in mayan_state %}
+            <table>
+                <tr>
+                    <th>{% trans "Queue name" %}</th>
+                    <td>{{ queue.name }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans "Clean" %}</th>
+                    <td>
+                        <a href="{% url admin:clean_queue queue.pk %}">clean</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{% trans "State" %}</th>
+                    <td>{{ queue.state }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans "Documents in queue" %}</th>
+                    <td>
+                        <table>
+                            <tr>
+                                <th>{% trans "State" %}</th>
+                                <th>{% trans "Count" %}</th>
+                            </tr>
+                            {% for k, v in queue.queue.items %}
+                                <tr>
+                                    <td>{{ k }}</td>
+                                    <td>{{ v }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{% trans "Files" %}</th>
+                    <td>
+                        <table>
+                            <tr>
+                                <th>{% trans "Mimetype" %}</th>
+                                <th>{% trans "State" %}</th>
+                                <th>{% trans "Timestamp" %}</th>
+                                <th>{% trans "Size" %}</th>
+                                <th>{% trans "Reprocess" %}</th>
+                            </tr>
+                            {% for data in queue.files %}
+                                <tr>
+                                    <td>{{ data.mimetype }}</td>
+                                    <td>{{ data.state }}</td>
+                                    <td>{{ data.timestamp }}</td>
+                                    <td>{{ data.filesize|filesizeformat }}</td>
+                                    <td>
+                                        <a href="{% url admin:re_queue data.pk %}">{% trans "Reprocess in Mayan" %}</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        {% endfor %}
+    {% else %}
+        <table>
+            <tr>
+                <td>
+                    <span class="errornote">
+                        Mayan communication error: {{ mayan_communication_error }}
+                    </span>
+                </td>
+            </tr>
+        </table>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% if user.website and (not user.is_blocked()) %}
+    <a
+        href="{{user.website}}"
+        title="{% trans screen_name=user.screen_name|escape, url=user.website %}{{ screen_name }}'s website is {{url}}{% endtrans %}"
+        {% if user.can_have_strong_url() == False %}
+        rel="nofollow"
+        {% endif %}
+    >
+    {{user.website|truncate(length=max_display_length, killwords=True, end='...')}}
+    </a>
+{% endif %}

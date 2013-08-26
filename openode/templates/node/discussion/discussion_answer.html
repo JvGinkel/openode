@@ -1,0 +1,16 @@
+{% from "macros.html" import render_user_infobox %}
+
+<div class="answer-body rtc">
+    {# === CREATOR/UPDATER INFOBOX === #}
+    <div class="infobox-wrap">
+        {# CREATOR #}
+        {{ render_user_infobox(answer.author, request.user, _('posted'), answer.added_at) }}
+        {# UPDATER #}
+        {% if answer.last_edited_by %}
+            {{ render_user_infobox(answer.last_edited_by, request.user, _('updated'), answer.last_edited_at) }}
+        {% endif %}
+    </div>
+
+    {{ answer.html|parse_reply_to(posts_per_pages, answer, request) }}
+
+</div>

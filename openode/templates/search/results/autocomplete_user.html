@@ -1,0 +1,7 @@
+{% from "macros.html" import render_gravatar %}
+<p>
+    <small>{% trans %}User{% endtrans %}:</small>
+    <br />
+    {{ render_gravatar(result.object, 16, show_link=False) }}
+    {{ result.title|truncate(100, True) }}
+</p>

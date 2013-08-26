@@ -1,0 +1,51 @@
+{% extends "node/base_node.html" %}
+
+{% block title %}{% spaceless %}{% trans %}Forum{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block content_class %} thread-list{% endblock %}
+
+{% block h1 %}{% trans %}Discussions{% endtrans %} – {{ node.full_title() }}{% endblock %}
+
+{% block module_content %}
+    {% include "node/snippets/thread_sort.html" %}
+
+    {% if threads.object_list|length == 0 %}
+
+        {% with %}
+            {% set module='forum' %}
+            {# TODO adjust to question/discussion #}
+            {% include "node/snippets/nothing_found.html" %}
+        {% endwith %}
+
+    {% else %}
+        <div class="group">
+            {% for thread in threads.object_list %}
+                {{ thread.get_summary_html(search_state=search_state, visitor = request.user) }}
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if request.user.has_openode_perm("node_forum_create", node) %}
+        <div class="group">
+            <a class="button success f-right" href="{% url thread_add node_id=node.pk, node_slug=node.slug, module='forum' %}">
+                {% trans %}Start new discussion{% endtrans %}
+            </a>
+        </div>
+    {% endif %}
+
+    {% include "node/snippets/paginator.html" %}
+{% endblock %}
+
+
+{% from "macros.html" import sidebar_help %}
+{% block sidebar %}
+
+    <!-- {% trans %}help_discussion_list_short{% endtrans %} -->
+    {{ sidebar_help(_('Discussion list'), _('help_discussion_list_short'), _('More help'), _('help_discussion_list_html'), 'help_discussion_list_html') }}
+
+    {# ============================= #}
+
+    {% set responsible_persons = node.get_responsible_persons() %}
+    {% include "node/snippets/responsible_persons.html" %}
+
+{% endblock %}

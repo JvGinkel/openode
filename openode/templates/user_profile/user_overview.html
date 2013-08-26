@@ -1,0 +1,192 @@
+{% extends "user_profile/user.html" %}
+{% from "macros.html" import render_formfield_row %}
+
+
+
+{% block profile_breadcrumbs_base %}
+    <li><span>{{ view_user.screen_name|escape }}</span></li>
+{% endblock %}
+
+{% block userheader %}
+    <div class="row profile-title">
+        <div class="twelve columns">
+            <h1>{{ view_user.screen_name|escape }}</h1>
+            {% if request.user.is_authenticated() %}
+                {% for organization in view_user.get_organizations() %}
+                    <a class="organization-logo" href="{{ organization.get_absolute_url() }}" title="{% trans %}Organization{% endtrans %}: {{ organization.full_title|escape }}">
+                        {% if organization.logo %}
+                            <img src="{{ organization.get_logo_url(48, crop=True) }}" alt="{{ organization.title|escape }}" />{#  {{ organization.title|escape }} #}
+                        {% else %}
+                            {% trans %}Organization{% endtrans %}: {{ organization.title|escape }}
+                        {% endif %}
+                    </a>
+                {% else %}
+                    {% if request.user == view_user %}
+                        <a class="organization-add" href="{% url organization_list %}" title="{% trans %}Choose an organization and join in{% endtrans %}">{% trans %}Choose organization{% endtrans %}</a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block usercontent %}
+<div class="group user-profile">
+    <div class="twelve columns">
+
+        {% if request.user.is_authenticated() %}
+
+            {# === LOGGED USER === #}
+
+            <div class="row">
+                <div class="twelve columns">
+                    <table>
+                        <tr>
+                            <th class="t-left">{% trans %}First name{% endtrans %}:</th>
+                            <td>{{ view_user.first_name|escape }}</td>
+                        </tr>
+                        <tr>
+                            <th class="t-left">{% trans %}Last name{% endtrans %}:</th>
+                            <td>{{ view_user.last_name|escape }}</td>
+                        </tr>
+                        {% if request.user == view_user or request.user.is_admin('auth.change_proxyuser') %}
+                            <tr>
+                                <th class="t-left">{% trans %}Email{% endtrans %}:</th>
+                                <td><a href="mailto:{{ view_user.email }}">{{ view_user.email }}</a></td>
+                            </tr>
+                        {% endif %}
+
+{#                         <tr>
+                            <th class="t-left">{% trans %}Organizations{% endtrans %}:</th>
+                            <td>
+                                <dl style="margin:0">
+                                {% for organization in view_user.get_organizations() %}
+                                    <dd>
+                                        <a href="{{ organization.get_absolute_url() }}" title="{{ organization.full_title|escape }}">
+                                            {% if organization.logo %}
+                                                <img src="{{ organization.get_logo_url(16, crop=True) }}" alt="{{ organization.title|escape }}" /> {{ organization.title|escape }}
+                                            {% else %}
+                                                {{ organization.title|escape }}
+                                            {% endif %}
+                                        </a>
+                                    </dd>
+                                {% endfor %}
+                                </dl>
+                            </td>
+                        </tr>
+ #}                        <tr>
+                            <th class="t-left">{% trans %}Member since{% endtrans %}:</th>
+                            <td>{{ view_user.date_joined|humanize_datetime }}</td>
+                        </tr>
+                        <tr>
+                            <th class="t-left">{% trans %}Last seen{% endtrans %}:</th>
+                            <td>{% if view_user.last_seen %}{{ view_user.last_seen|humanize_datetime }}{% else %}{% trans %}Never{% endtrans %}{% endif %}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+           {% if view_user.description and view_user.description.text|striptags|trim %}
+                <div class="row">
+                    <div class="twelve columns">
+                        <h2>{% trans %}Description{% endtrans %}</h2>
+                        <div class="group rtc">
+                            {{ view_user.description.text }}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if view_user.privacy_show_followed %}
+                <div class="row">
+                    <div class="twelve columns">
+                        <h2>{% trans %}Following items{% endtrans %}</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="four columns">
+                        {% if request.user.has_user_perm('can_see_followed_nodes', view_user) %}<a class="follow-box" href="{% url user_profile view_user.id, 'followed_nodes' %}" title="{% trans %}nodes that user is following{% endtrans %}">{% endif %}
+                        <span class="count">{{ view_user.followed_nodes.count() }}</span>
+                        <span class="follow-box-title">{% trans %}Nodes{% endtrans %}</span>
+                        {% if request.user.has_user_perm('can_see_followed_nodes', view_user) %}</a>{% endif %}
+                    </div>
+                    <div class="four columns">
+                        {% if request.user.has_user_perm('can_see_followed_threads', view_user) %}<a class="follow-box" href="{% url user_profile view_user.id, 'followed_questions' %}" title="{% trans %}questions that user is following{% endtrans %}">{% endif %}
+                        <span class="count">{{ view_user.followed_threads.filter(thread_type=THREAD_TYPE_QUESTION).count() }}</span>
+                        <span class="follow-box-title">{% trans %}Questions{% endtrans %}</span>
+                        {% if request.user.has_user_perm('can_see_followed_threads', view_user) %}</a>{% endif %}
+                    </div>
+                    <div class="four columns">
+                        {% if request.user.has_user_perm('can_see_followed_threads', view_user) %}<a class="follow-box" href="{% url user_profile view_user.id, 'followed_discussions' %}" title="{% trans %}discussions that user is following{% endtrans %}">{% endif %}
+                        <span class="count">{{ view_user.followed_threads.filter(thread_type=THREAD_TYPE_DISCUSSION).count() }}</span>
+                        <span class="follow-box-title">{% trans %}Discussions{% endtrans %}</span>
+                        {% if request.user.has_user_perm('can_see_followed_threads', view_user) %}</a>{% endif %}
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if request.user != view_user and view_user.privacy_email_form %}
+                <div class="row separator-01"></div>
+                <div class="row">
+                    <div class="twelve columns">
+                        <div class="group">
+                            <h2 class="section-title">
+                                {% trans %}Send email to this user{% endtrans %}
+                            </h2>
+                            <p>{% trans %}You can contact this user by sending him/her an e-mail message using this form, your email address will not be compromised, message will be signed with your screen name and a link to your profile.{% endtrans %}</p>
+                            {% if not request.user.privacy_email_form %}
+                                <p>{% trans %}Please note, that you don't have enabled receiving such messages in your profile, so this user won't be able to respond you back.{% endtrans %} <a href="{% url edit_user request.user.id %}">{% trans %}Update your profile{% endtrans %}</a></p>
+                            {% endif %}
+
+                            <div class="twelve columns tabular-form">
+                                {% if email_form.errors %}
+                                    <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
+                                {% endif %}
+                                <form name="" action="" method="post">{% csrf_token %}
+                                    {{ render_formfield_row(email_form.subject, labeltext=_('Subject')) }}
+                                    {{ render_formfield_row(email_form.text, labeltext=_('Text')) }}
+                                    <div class="row">
+                                        <div class="three columns"></div>
+                                        <div class="nine columns">
+                                            <button class="button large success" type="submit">{% trans %}Send{% endtrans %}</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+        {% else %}
+
+            {# === ANONYMOUS === #}
+
+            <div class="row">
+                <div class="twelve columns">
+                    <table>
+                        <tr>
+                            <th class="t-left">{% trans %}First name{% endtrans %}:</th>
+                            <td>{{ view_user.first_name|escape }}</td>
+                        </tr>
+                        <tr>
+                            <th class="t-left">{% trans %}Last name{% endtrans %}:</th>
+                            <td>{{ view_user.last_name|escape }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <p>{% trans %}Do you want to see more?{% endtrans %}</p>
+                    <a href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next={{ request.get_full_path()|clean_login_url }}" class="button success">{% trans %}Register now!{% endtrans %}</a>
+                </div>
+            </div>
+
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
+

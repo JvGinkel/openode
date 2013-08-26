@@ -1,0 +1,11 @@
+{% extends "email/base_mail.html" %}
+{% block title %}{% trans %}Confirm your registration{% endtrans %}{%endblock%}
+{% block headline %}{% trans %}Welcome to OPENode!{% endtrans %}{%endblock%}
+{% block content %}
+<p>{% trans %}We are glad you joined us. Please confirm your registration by clicking on this link:{% endtrans %}</p>
+<p><a href="{{validation_link}}" >{{validation_link}}</a></p>
+<p>{% trans %}or use this key in the web form:{% endtrans %} <b>{{ key }}</b></p>
+{% endblock %}
+{% block footer %}
+{% include "email/footer.html" %}
+{% endblock %}

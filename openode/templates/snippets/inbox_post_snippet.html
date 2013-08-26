@@ -1,0 +1,21 @@
+{% from "macros.html" import render_gravatar %}
+<div id="re_{{response.id}}" class="re{% if response.is_new %} new highlight{% else %} seen{% endif %}">
+    <input type="checkbox" />
+    <div class="face">
+        {{ render_gravatar(response.user, 48) }}
+    </div>
+    <a style="font-size:12px" href="{{ response.user.get_absolute_url() }}">{{ response.user.screen_name|escape }}</a>
+    <a style="text-decoration:none;" href="{{ response.response_url }}">
+         {{ response.response_type }}
+         ({{ response.timestamp|humanize_datetime }}):<br/>
+         {% if inbox_section != 'flags' %}
+             {{ response.response_snippet }}
+         {% endif %}
+    </a>
+    {% if inbox_section == 'flags' %}
+         <a class="re_expand" href="{{ response.response_url }}">
+              <!--div class="re_snippet">{{ response.response_snippet|escape }}</div-->
+              <div class="re_content">{{ response.response_content }}</div>
+         </a>
+    {% endif %}
+</div>

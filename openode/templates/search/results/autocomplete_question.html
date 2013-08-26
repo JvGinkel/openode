@@ -1,0 +1,9 @@
+<p>
+    {# TODO i18n on thread type #}
+    <small>{{ result.thread_type|capitalize }}: {{ result.node_title }}</small>
+    <br />
+    {% if result.thread_type == "document" and result.icon %}
+        <img src="{{ result.icon }}" />
+    {% endif %}
+    {{ result.title|truncate(100, True) }}
+</p>

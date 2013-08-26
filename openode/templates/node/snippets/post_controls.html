@@ -1,0 +1,81 @@
+
+{# <ul class="post-controls group" id="question-table"></ul> #}
+
+<ul class="post-controls group" id="question-controls"> {# TODO rename to main-post-controls #}
+
+    {# === LINK ============================================================= #}
+    <li>
+        <a class="ico link" title="" href="">link</a>
+    </li>
+
+    {# === CLOSE/OPEN ======================================================= #}
+    {% if thread.thread_type == THREAD_TYPE_QUESTION and request.user.has_openode_perm('%s_close' % thread.thread_type, thread) %}
+    <li>
+        {% if thread.closed %}
+            <a  class="ico close" href="{% url thread_reopen thread.pk %}">{% trans %}reopen question{% endtrans %}</a>
+        {% else %}
+            <a class="ico close" href="{% url thread_close thread.pk %}">{% trans %}close question{% endtrans %}</a>
+        {% endif %}
+    </li>
+    {% endif %}
+
+    {# === UN/DELETE ======================================================== #}
+    {% if thread.has_delete_perm(request.user) %}
+        <li>
+            {# <a id="post-{{ main_post.pk }}-delete" class="question-delete ico delete"> #}
+            <a href="{% url delete_thread thread.pk %}" class="ico delete js-confirm" data-confirm="{% trans %}Are you sure?{% endtrans %}">
+                {% if main_post.deleted %}
+                    {% trans %}undelete{% endtrans %}
+                {% else %}
+                    {% trans %}delete{% endtrans %}
+                {% endif %}
+            </a>
+        </li>
+    {% endif %}
+
+    {# === FLAG OFFENSIVE =================================================== #}
+    {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS %}
+    <li>
+        {% if main_post.offensive_flag_count > 0 %}
+            <span id="question-offensive-remove-flag-{{ main_post.id }}" class="offensive-flag" title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}">
+                <a class="question-flag ico flag" href="#">{% trans %}remove flag{% endtrans %}</a>
+            </span>
+            <span id="question-offensive-flag-{{ main_post.id }}" class="offensive-flag" title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}">
+                <a class="question-flag ico flag" href="#">{% trans %}flag offensive{% endtrans %} ({{ main_post.offensive_flag_count }})</a>
+            </span>
+        {% else %}
+            <span id="question-offensive-flag-{{ main_post.id }}" class="offensive-flag" title="{% trans %}report as offensive (i.e containing spam, advertising, malicious text, etc.){% endtrans %}">
+                <a class="question-flag ico flag" href="#">{% trans %}flag offensive{% endtrans %}</a>
+            </span>
+        {% endif %}
+    </li>
+    {% endif %}
+
+    {# === RETAG ============================================================ #}
+
+    {% if thread.can_retag(request.user) %}
+        <script type="text/javascript">
+            var retagUrl = "{% url retag_question main_post.id %}";
+        </script>
+        <li>
+            <a id="retag" class="question-retag ico retag" href="{% url retag_question main_post.id %}">
+                {% trans %}retag{% endtrans %}
+            </a>
+        </li>
+    {% endif %}
+
+    {# === EDIT QUESTION ==================================================== #}
+    {% if thread.has_edit_perm(request.user) %}
+    <li>
+        <a id="post-{{ main_post.id }}-edit" class="question-edit ico edit" href="{% url edit_thread thread.id %}">
+            {% trans %}edit{% endtrans %}
+        </a>
+    </li>
+    {% endif %}
+
+
+    <script type="text/javascript">
+        openode['functions']['renderPostControls']('{{ main_post.pk }}');
+    </script>
+
+</ul>

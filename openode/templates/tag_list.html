@@ -1,0 +1,44 @@
+{% extends "one_column_body.html" %}
+{% from "macros.html" import tag_cloud, tag_list %}
+
+{% block title %}{% spaceless %}{% trans %}Tags{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block breadcrumbs %}
+    <li><span>{% trans %}Tags{% endtrans %}</span></li>
+{% endblock %}
+
+{% block content %}
+    {% include "tags/header.html" %}
+
+    {% if tag_list_type == 'list' %}
+
+        {% if not tags.object_list %}
+            <span>{% trans %}Nothing found{% endtrans %}</span>
+        {% endif %}
+
+        {% if tags.object_list %}
+
+            <ul class='tags'>
+               {{ tag_list(tags.object_list, show_numbers=True) }}
+            </ul>
+
+            <hr />
+
+            <div class="pager">
+                {% with %}
+                    {% set p = paginator_context %}
+                    {% set position = 'left' %}
+                    {% include "snippets/paginator.html" %}
+                {% endwith %}
+            </div>
+
+        {% endif %}
+    {% else %}
+        <div class="clearfix"></div>
+        {% if not tags %}
+            <span>{% trans %}Nothing found{% endtrans %}</span>
+        {% endif %}
+        {{ tag_cloud(tags = tags, font_sizes = font_size, search_state = search_state) }}
+    {% endif %}
+
+{% endblock %}

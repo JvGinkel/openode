@@ -1,0 +1,112 @@
+{% extends "two_column_body.html" %}
+{% from "macros.html" import render_formfield_row, tag_autocomplete_js %}
+
+{% block title %}{% spaceless %}{% trans %}Edit{% endtrans %}{% endspaceless %}{% endblock %}
+
+{# ========================================================================== #}
+
+{% block forestyle %}
+    {# wysiwyg editor, ... #}
+    {{ form.media }}
+{% endblock %}
+
+{# ========================================================================== #}
+
+{% block content %}
+
+<div class="group">
+
+    {% spaceless %}
+    <h1>
+        {% if thread_type == THREAD_TYPE_QUESTION %}
+            {% trans %}Edit question{% endtrans %}
+        {% elif thread_type == THREAD_TYPE_DISCUSSION %}
+            {% trans %}Edit discussion{% endtrans %}
+        {% elif thread_type == THREAD_TYPE_DOCUMENT %}
+            {% trans %}Edit document{% endtrans %}
+        {% endif %}
+    </h1>
+    {% endspaceless %}
+
+    <div class="twelve columns tabular-form">
+        {% if form.errors or revision_form.errors %}
+            <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
+        {% endif %}
+
+        <form id="fmedit" action="" method="post" >{% csrf_token %}
+
+            {% if thread_type == THREAD_TYPE_DOCUMENT %}
+                {{ render_formfield_row(form.category, labeltext=_("Directory")) }}
+                {{ render_formfield_row(form.allow_external_access, labeltext=form.allow_external_access.label) }}
+            {% endif %}
+
+            {{ render_formfield_row(revision_form.revision) }}
+            <input type="hidden" id="select_revision" name="select_revision" value="false">
+
+            {% if thread_type == THREAD_TYPE_QUESTION %}
+                {% set helptext=_("please enter a descriptive title for your question") %}
+            {% elif thread_type == THREAD_TYPE_DISCUSSION %}
+                {% set helptext=_("please enter a descriptive title for your discussion") %}
+            {% elif thread_type == THREAD_TYPE_DOCUMENT %}
+                {% set helptext=_("please enter a descriptive title for your document") %}
+            {% endif %}
+
+            {{ render_formfield_row(form.title, labeltext=_("Title"), helptext=helptext) }}
+            {{ render_formfield_row(form.text, labeltext=_("Text")) }}
+
+            {% if main_post.post_type == 'question' %}
+                {# TODO: use Thread.can_retag method #}
+                {% if request.user.has_perm('openode.change_tag') %}
+                    {{ render_formfield_row(form.tags, labeltext=_("Tags")) }}
+                {% endif %}
+            {% endif %}
+
+            {{ render_formfield_row(form.summary, labeltext=_("Summary"), helptext=form.summary.help_text) }}
+
+            <div class="row">
+                <div class="three columns"></div>
+                <div class="nine columns t-left">
+                    <button class="large button success" type="submit" name="post" id="edit_post_form_submit_button">{% trans %}Save{% endtrans %}</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
+
+{# ========================================================================== #}
+
+{% block sidebar %}
+    {% include "widgets/question_edit_tips.html" %}
+{% endblock %}
+
+{# ========================================================================== #}
+
+{% block endjs %}
+
+    {% if mandatory_tags %}
+        {% include "meta/mandatory_tags_js.html" %}
+    {% endif %}
+
+    <script type='text/javascript' src='{{"/js/jquery.validate.min.js"|media}}'></script>
+    <script type='text/javascript' src='{{"/js/post.js"|media}}'></script>
+
+    <script type="text/javascript">
+        //todo move javascript out
+        $().ready(function(){
+            {{ tag_autocomplete_js(id = '#id_tags') }}
+
+            $('#id_revision').unbind().change(function(){
+                $("#select_revision").val('true');
+                $('#edit_post_form_submit_button').click();
+            });
+        });
+    </script>
+
+    {% if settings.TAG_SOURCE == 'category-tree' %}
+        {% include "meta/category_tree_js.html" %}
+    {% endif %}
+
+{% endblock %}
+<!-- end question_edit.html -->

@@ -1,0 +1,187 @@
+{% extends "one_column_body.html" %}
+{% from "macros.html" import tag_list %}
+
+{% block title %}
+    {% trans %}Search results{% endtrans %}
+    {% if query %} - {{ query }}{% endif %}
+    {% if tags %}| {% trans %}tags{% endtrans %} - {{ tags|join(" ") }}{% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+    <li><span>{% trans %}Search{% endtrans %}</span></li>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="nine columns search-results-content">
+        <h1>{% trans %}Search{% endtrans %}</h1>
+        <form class="search-form tabular-form" method="get" action="./">
+            <div class="row">
+                <div class="twelve columns">
+                    <div class="group">
+                        {{ form.search_in }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <div class="group">
+                        {{ form.q }}<button class="button postfix button-search secondary f-left" type="submit">{% trans %}Search{% endtrans %}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <h2>{% trans %}Search results{% endtrans %}</h2>
+
+        {% if show_results %}
+            {% for result in page.object_list %}
+
+                {% if not result %}
+                    {# TODO: index error #}
+
+                {#
+                {% elif result.content_type() == "openode.thread" %}
+                    {% include "search/results/thread.html" %}
+                #}
+
+                {% elif result.content_type() == "openode.answerproxy" %}
+                    {% include "search/results/answer.html" %}
+
+                {% elif result.content_type() == "openode.discussionpostproxy" %}
+                    {% include "search/results/discussion_post.html" %}
+
+                {% elif result.content_type() == "openode.questionproxy" %}
+                    {% include "search/results/question.html" %}
+
+                {% elif result.content_type() == "document.document" %}
+                    {% include "search/results/document.html" %}
+
+                {% elif result.content_type() == "document.page" %}
+                    {% include "search/results/page.html" %}
+
+                {% elif result.content_type() == "openode.node" %}
+                    {% include "search/results/node.html" %}
+
+                {% elif result.content_type() == "auth.user" %}
+                    {% include "search/results/user.html" %}
+
+                {% elif result.content_type() == "auth.user" %}
+                    {% include "search/results/user.html" %}
+
+                {% elif result.content_type() == "openode.organization" %}
+                    {% include "search/results/organization.html" %}
+
+                {% else %}
+                    <div class="node-box">
+                        <div class="node-box-content group">
+
+                            <div class="row">
+                                <div class="columns six">
+                                    <small>
+                                        {{ result.thread_type|capitalize }}:
+                                    </small>
+                                </div>
+                            </div>
+
+                            <h3>
+                                {{ result.id }}
+                                <a href="{{ result.url }}" title="{{ result.title }}">
+                                    {{ result.title|highlight_search_result(query) }}
+                                </a>
+                            </h3>
+
+                            <p>
+                                {% if result.title != result.main_post_text %}
+                                    {{ result.text|highlight_search_result(query) }}
+                                {% endif %}
+                            </p>
+
+                        </div>
+                    </div>
+
+
+                {% endif %}
+            {% else %}
+                <p>{% trans %}No results found. Please note, that some result may be hidden in private Nodes.{% endtrans %}</p>
+                {% if request.user.is_anonymous() %}
+                    <p>{% trans %}Do you want to see more?{% endtrans %}</p>
+                    <a href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next={{ request.get_full_path()|clean_login_url }}" class="button success">{% trans %}Register now!{% endtrans %}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <div class="column ten pagination">
+            {% if page.has_previous() or page.has_next() %}
+                <p>
+                    {% if page.has_previous() %}
+                        <a href="?q={{ query }}&amp;page={{ page.previous_page_number() }}">&laquo; Previous</a>
+                    {% else %}
+                        &laquo; Previous
+                    {% endif %}
+
+                    {{ page.number }} / {{ paginator.num_pages }}
+
+                    {% if page.has_next() %}
+                        <a href="?q={{ query }}&amp;page={{ page.next_page_number() }}">Next &raquo;</a>
+                    {% else %}
+                        Next &raquo;
+                    {% endif %}
+
+                </p>
+            {% endif %}
+        </div>
+
+    </div>
+
+    <div class="three columns aside">
+
+        {% if selected_tags %}
+        <div class="block">
+            <div class="block-content">
+                <h3 class="title">{% trans %}Selected tags{% endtrans %}</h3>
+                    <ul class="tags">
+                        {% for tag in selected_tags %}
+                            <li>
+                                <a class="tag tag-right" href="{% url "search" tags=tag.pk %}?q={{ query }}">{{ tag.name }}</a>
+                                {# === remove tag from list === #}
+                                {% with _tags_pks = tags_reduce_fx(tags_pks, tag.pk) %}
+                                    {% if _tags_pks %}
+                                        <a class="tag-remove" href="{% url "search" tags=_tags_pks %}?q={{ query }}">&#215;</a>
+                                    {% else %}
+                                        <a class="tag-remove" href="{% url "search" %}?q={{ query }}">&#215;</a>
+                                    {% endif %}
+                                {% endwith %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+            </div>
+        </div>
+        {% endif %}
+        <div class="block">
+            <div class="block-content">
+                <h3 class="title">{% trans %}Tags{% endtrans %}</h3>
+                <ul class="tags" id="js-tags-list">
+                    {% if other_tags %}
+                        {% for tag in other_tags %}
+                        <li>
+                            {% with %}
+                                {% if tags_query %}
+                                    {% set tags_query_clean=tag.pk ~ "+" ~ tags_query %}
+                                {% else %}
+                                    {% set tags_query_clean=tag.pk %}
+                                {% endif %}
+
+                                <a class="tag tag-right" href="{% url "search" tags=tags_query_clean %}?q={{ query }}">{{ tag.name|replace("_", " ") }}</a>
+                                <span class='tag-number'>&#215; {{ tag.used_count }}</span>
+                            {% endwith %}
+                        </li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% if user.country and user.show_country %}
+    <img class="flag"
+        src="{{ ('/images/flags/' ~ user.country.code|lower ~ '.gif')|media }}"
+        alt="{% trans
+                country=user.country.name
+                %}flag of {{country}}{%
+            endtrans %}"
+        title="{% trans
+                country=user.country.name,
+                person=user.screen_name|escape %}{{ person }} is from {{ country }}{%
+             endtrans %}"
+    />
+{% endif %}

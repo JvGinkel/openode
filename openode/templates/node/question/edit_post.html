@@ -1,0 +1,20 @@
+{% extends "node/base_post_edit.html" %}
+{% from "macros.html" import node_breadcrumb, node_module_breadcrumb, sidebar_help, sidebar_back_button %}
+
+# TODO rename answer to post (also in writers.py)
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(answer.thread.node) }}
+    {{ node_module_breadcrumb(answer.thread.node, NODE_MODULE_QA) }}
+    <li><a href="{{ answer.thread.get_absolute_url() }}">{{ answer.thread.title }}</a></li>
+    <li><span>{% trans %}Edit Answer{% endtrans %}</span></li>
+{% endblock %}
+
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Question')) -%} {# spaceless is neccessary because content is included into href #}
+        {{ answer.thread.get_absolute_url() }}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Edit answer'), _('help_node_question_edit_answer_short'), _('More help'), _('help_node_question_edit_answer_html'), 'help_node_question_edit_answer_html') }}
+{% endblock %}

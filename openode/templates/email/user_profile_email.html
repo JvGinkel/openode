@@ -1,0 +1,16 @@
+{% extends "email/base_mail.html"%}
+{% block title %}{% trans %}Email from your Openode profile{% endtrans %},{%endblock%}
+{% block headline%}{% trans %}Email from your Openode profile{% endtrans %},{%endblock%}
+
+{%block content%}
+{% set link_title = _("user's profile") %}
+<p>{% trans user_str = '<a href="'~from_user_url~'" title="'~link_title~'">'~from_user_screen_name~'</a>' %}User {{ user_str }} has send you this message:{% endtrans %}</p>
+<pre>
+{{ text|escape }}
+</pre>
+<p>{% trans %}If you want to reply back, you may use the form in his/her profile (if it's allowed).{% endtrans %} <a href="{{ from_user_url }}" title="{{ link_title }}">{{ from_user_url }}</a></p>
+{%endblock%}
+
+{%block footer %}
+{% include "email/footer.html" %}
+{% endblock %}

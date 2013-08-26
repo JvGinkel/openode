@@ -1,0 +1,20 @@
+{% extends "node/base_thread_add.html" %}
+{% from "macros.html" import node_breadcrumb, node_module_breadcrumb, sidebar_help, sidebar_back_button %}
+
+{% block header_title %}Add discusion{% endblock %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(node) }}
+    {{ node_module_breadcrumb(node, NODE_MODULE_FORUM) }}
+    <li><span>{% trans %}Add New Discussion{% endtrans %}</span></li>
+{% endblock %}
+
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Discussions')) -%} {# spaceless is neccessary because content is included into href #}
+        {% url node_module node_id=node.pk, node_slug=node.slug, module=NODE_MODULE_FORUM %}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Start new discussion'), _('help_node_discussion_add_short'), _('More help'), _('help_node_discussion_add_html'), 'help_node_discussion_add_html') }}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "two_column_body.html" %}
+
+{% block title %}{% spaceless %}{% trans %}Followers{% endtrans %} - {{ thread.title|escape }}{% endspaceless %}{% endblock %}
+
+{% block content %}
+
+    <h1>{% trans thread_title = thread.title|escape %}Followers for {{ thread_title }}{% endtrans %}</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>{% trans %}User{% endtrans %}</th>
+                <th>{% trans %}Unread{% endtrans %}</th>
+                <th>{% trans %}Added at{% endtrans %}</th>
+                <th>{% trans %}Last visit{% endtrans %}</th>
+                {% if can_make_remove_from_followers %}
+                    <th>{% trans %}Remove{% endtrans %}</th>
+                {% endif %}
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for follow in follows %}
+            <tr>
+                <td>
+                    {{ follow.user.screen_name|escape }}
+                </td>
+                <td>
+                    {# TODO refactor with thread.get_unread(user) function #}
+                    {% set nv = thread.viewed.filter(user=follow.user) %}
+                    {% if nv.count() == 1 %}
+                        {{ nv[0].not_view_count}}
+                    {% else %}
+                        {{ thread.get_answer_count(follow.user) }}
+                    {% endif %}
+                </td>
+                <td>
+                    {{ follow.added_at|humanize_datetime }}
+                </td>
+                <td>
+                    {{ follow.last_visit|humanize_datetime }}
+                </td>
+
+                {% if can_make_remove_from_followers %}
+                    <td>
+                        <a href="{% url "remove_from_followers" follow.pk %}">
+                            {% trans %}Remove{% endtrans %}
+                        </a>
+                    </td>
+                {% endif %}
+
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

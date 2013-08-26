@@ -1,0 +1,54 @@
+{% from "macros.html" import render_last_changed %}
+
+<div class="node-box">
+    <div class="node-box-content group">
+
+        <div class="row">
+            <div class="columns six">
+                <small>
+                    {% trans %}Question{% endtrans %}: {{ result.node_title }}
+                </small>
+            </div>
+        </div>
+
+        <h3>
+            <a href="{{ result.url }}" title="{{ result.title }}">
+                {{ result.display_title }}
+            </a>
+        </h3>
+
+        <p>
+            {% if result.title != result.main_post_text %}
+                {{ result.text_for_highlighting|highlight_search_result(query) }}
+            {% endif %}
+        </p>
+
+        {% if result.tags %}
+            <ul class="tags">
+                {% for tag_pk, tag_name in result.tags_data %}
+                    <li>
+                        {% with %}
+                            {# === prepare data for url === #}
+                            {% if tags_query %}
+                                {% if tag_pk in tags_pks %}
+                                    {% set tags_query_clean=tags_query %}
+                                {% else %}
+                                    {% set tags_query_clean=tag_pk ~ "+" ~ tags_query %}
+                                {% endif %}
+                            {% else %}
+                                {% set tags_query_clean=tag_pk %}
+                            {% endif %}
+                            <a class="tag tag-right" href="{% url "search" tags=tags_query_clean %}?q={{ query }}">{{ tag_name }}</a>
+                        {% endwith %}
+
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <div class="group">
+            {{ result.last_changed }}
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,18 @@
+{% extends "node/base_thread_edit.html" %}
+{% from "macros.html" import node_breadcrumb, node_module_breadcrumb, sidebar_help, sidebar_back_button %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(main_post.thread.node) }}
+    {{ node_module_breadcrumb(main_post.thread.node, NODE_MODULE_FORUM) }}
+    <li><a href="{{ main_post.thread.get_absolute_url() }}">{{ main_post.thread.title }}</a></li>
+    <li><span>{% trans %}Edit Discussion{% endtrans %}</span></li>
+{% endblock %}
+
+{% block sidebar %}
+    {% call sidebar_back_button(_('Back to Discussion')) -%} {# spaceless is neccessary because content is included into href #}
+        {{ main_post.thread.get_absolute_url() }}
+    {%- endcall %}
+
+    {{ sidebar_help(_('Edit discussion'), _('help_node_discussion_edit_short'), _('More help'), _('help_node_discussion_edit_html'), 'help_node_discussion_edit_html') }}
+{% endblock %}
+

@@ -1,0 +1,43 @@
+{% extends "one_column_body.html" %}
+{% from "macros.html" import node_breadcrumb %}
+
+
+{% block title %}{% trans %}Ask to join node{% endtrans %}{% endblock %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(node) }}
+    <li><span>{% trans %}Ask to join node{% endtrans %}</span></li>
+{% endblock %}
+
+
+{% block content %}
+
+    <h1 class="node">{{ node.full_title() }}</h1>
+
+    <div class="group f-right section-header-control">
+        {% if request.user.is_admin('openode.change_node') or request.user.has_openode_perm('node_settings', node) %}
+            <a class="control-link" href="{% url node_settings node.pk, node.slug %}" title="{% trans %}Edit node settings{% endtrans %}">{% trans %}Node settings{% endtrans %}</a>
+        {% endif %}
+    </div>
+
+    <h2 class="node">{% trans %}Node{% endtrans %}{% trans %}:{% endtrans %} {{ node.full_title_with_status('html') }}</h2>
+
+    {% if join_request %}
+        <p>{% trans %}Your request has been sent and is being processed. Please wait.{% endtrans %}</p>
+        <a href="{% url node_ask_to_join node_id=node.pk, node_slug=node.slug %}?request=cancel" class="button alert">
+            {% trans %}Cancel request ask to join node{% endtrans %}
+        </a>
+    {% elif request.user.is_authenticated() %}
+        <p>{% trans %}You may ask Node manager to gain access using button below.{% endtrans %}</p>
+        <a href="{% url node_ask_to_join node_id=node.pk, node_slug=node.slug %}?request=join" class="button success">
+            {% trans %}Ask to join node{% endtrans %}
+        </a>
+    {% else %}
+        <p>
+            {% trans %}This node is accessible only on request by registered users.{% endtrans %}
+            <a href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next={{ request.get_full_path()|clean_login_url }}" class="small button success button-registration">
+                {% trans %}Register now!{% endtrans %}
+            </a>
+        </p>
+    {% endif %}
+{% endblock %}

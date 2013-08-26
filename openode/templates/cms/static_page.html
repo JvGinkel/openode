@@ -1,0 +1,21 @@
+{% extends "one_column_body.html" %}
+
+{% block title %}{% spaceless %}{{ static_page.title }}{% endspaceless %}{% endblock %}
+
+{% block meta_description %}
+    {{ super() }}
+{% endblock %}
+
+{% set SUPPRESS_NEXT_LANG_SWITCH = True %}
+
+{% block content %}
+    {% if request.user.is_admin('openode.change_staticpage') %}
+        <div class="f-right">
+            <a href="{% url admin:openode_staticpage_change static_page.pk %}">{% trans %}edit{% endtrans %}</a>
+        </div>
+    {% endif %}
+    <div class="content rtc">
+        <h1 class="section-title">{{ static_page.title }}</h1>
+        {{ static_page.text }}
+    </div>
+{% endblock %}

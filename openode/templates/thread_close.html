@@ -1,0 +1,66 @@
+{% extends "two_column_body.html" %}
+{% from "macros.html" import render_formfield_row, node_breadcrumb, node_module_breadcrumb, sidebar_back_button %}
+{% block title %}{% spaceless %}{% spaceless %}{% if thread.thread_type == THREAD_TYPE_QUESTION %}
+        {% trans %}Close question{% endtrans %}
+        {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+        {% trans %}Close discussion{% endtrans %}
+        {% endif %}{% endspaceless %}{% endspaceless %}{% endblock %}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(thread.node) }}
+    {{ node_module_breadcrumb(thread.node, NODE_MODULE_QA) }}
+    <li><a href="{{ thread.get_absolute_url() }}">{{ thread.title }}</a></li>
+    <li><span>{% spaceless %}{% if thread.thread_type == THREAD_TYPE_QUESTION %}
+        {% trans %}Close question{% endtrans %}
+        {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+        {% trans %}Close discussion{% endtrans %}
+        {% endif %}{% endspaceless %}</span></li>
+{% endblock %}
+
+{% block sidebar %}
+    {% if thread.thread_type == THREAD_TYPE_QUESTION %}
+        {% call sidebar_back_button(_('Back to question')) -%}
+        {{ thread.get_absolute_url() }}
+        {%- endcall %}
+    {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+        {% call sidebar_back_button(_('Back to discussion')) -%}
+        {{ thread.get_absolute_url() }}
+        {%- endcall %}
+    {% endif %}
+
+
+{% endblock %}
+
+
+{% block content %}
+<div class="group">
+    <h1>
+        {% if thread.thread_type == THREAD_TYPE_QUESTION %}
+        {% trans %}Close question{% endtrans %}
+        {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+        {% trans %}Close discussion{% endtrans %}
+        {% endif %}
+        <a href="{{ thread.get_absolute_url() }}">
+            <strong>{{ thread.title|escape }}</strong>
+        </a>
+    </h1>
+    <div class="twelve columns tabular-form">
+        <form action="{% url thread_close thread.id %}" method="post">
+            {% csrf_token %}
+            {{ render_formfield_row(form.reason, labeltext=_("Reason")) }}
+            <div class="row">
+                <div class="three columns"></div>
+                <div class="nine columns t-right">
+                    <button class="large button success" type="submit" name="post">{% spaceless %}
+                        {% if thread.thread_type == THREAD_TYPE_QUESTION %}
+                        {% trans %}Close question{% endtrans %}
+                        {% elif thread.thread_type == THREAD_TYPE_DISCUSSION %}
+                        {% trans %}Close discussion{% endtrans %}
+                        {% endif %}
+                        {% endspaceless %}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

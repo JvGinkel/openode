@@ -1,0 +1,28 @@
+{% extends "user_profile/user.html" %}
+
+
+{% block profile_breadcrumbs %}
+    <li><span>{% trans %}Followed nodes{% endtrans %}</span></li>
+{% endblock %}
+
+
+{% block profilesection %}
+   {% trans %}Followed nodes{% endtrans %}
+{% endblock %}
+
+
+{% block usercontent %}
+    <div class="q-listing">
+        {% with nodes_of_user = view_user %}
+            {% for f_node in followed_nodes %}
+                {% set node = f_node.node %}
+                {% include "node/snippets/node_box.html" %}
+            {% else %}
+                <p>{% trans %}No records.{% endtrans %}</p>
+            {% endfor %}
+        {% endwith %}
+    </div>
+    {% if view_user == request.user and request.user.get_unread_followed_nodes_count() %}
+        <p class="t-right"><a href="{% url "node_mark_read" "node" %}">{% trans %}Mark all followed node read{% endtrans %}</a></p>
+    {% endif %}
+{% endblock %}

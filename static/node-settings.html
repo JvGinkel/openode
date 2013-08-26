@@ -1,0 +1,338 @@
+<html>
+    <head>
+        <title>Questions - Pluto: Open Source Q&A Forum</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="keywords" content=",Pluto,CNPROG,forum,community">
+        <meta name="description" content="Open source question and answer forum written in Python and Django">
+
+        <link rel="shortcut icon" href="">
+
+        <link href="../pluto/media/style/screen.css?v=2" rel="stylesheet" type="text/css">
+
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&amp;subset=latin-ext" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&amp;subset=cyrillic-ext" rel="stylesheet" type="text/css">
+
+        <script type="text/javascript" src="../pluto/media/js/modernizr.custom.js?v=2" style="color: rgb(0, 0, 0);"></script>
+        <script type="text/javascript" src="/jsi18n/"></script>
+        <script type="text/javascript">
+            var pluto = {};
+            pluto['data'] = {};
+
+                pluto['data']['userIsAuthenticated'] = false;
+
+            pluto['urls'] = {};
+            pluto['settings'] = {};
+
+                pluto['settings']['allowedUploadFileTypes'] = [
+                    "jpg", "jpeg", "gif", "bmp", "png", "tiff", "doc", "odt", "rtf", "pdf", "xls", "docx", "xlsx", "ppt", "pptx", "txt"
+                ];
+
+            pluto['messages'] = {};
+        </script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="column twelve">
+
+                <div class="header row">
+                    <div class="column three">
+                        <a class="logo-title" href="/">Pluto <small>smarter Q&amp;A</small></a>
+                    </div>
+                    <div class="column nine t-right">
+                        <ul class="menu inline-list inline v-centered"> </ul>
+                        <ul class="inline-list inline v-centered">
+                            <li><a href="/set_lang/?language=cs">cs</a></li>
+                            <li><a href="/set_lang/?language=en">en</a></li>
+                            <li><a href="/set_lang/?language=de">de</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="user-info row">
+                    <div class="column six">
+                        <ul class="login-info inline-list inline v-centered">
+                            <li><a href="/account/signin/?next=/">Hi there! Please sign in</a></li>
+                            <li><a href="/help/" title="help">help</a></li>
+                        </ul>
+                    </div>
+                    <div class="column six t-right">
+                        <ul class="inline-list inline v-centered">
+                            <li><a id="navTags" href="/tags/">tags</a></li>
+                            <li><span class="dropdown"><a id="navOrganizations" class="" href="/organizations/" data-target="#">people &amp; organizations</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="nav-container row">
+                    <div class="column seven">
+                        <ul class="nav-bar">
+                            <li class=""><a href="/">Home</a></li>
+                            <li class=""><a href="/admin">Admin</a></li>
+                        </ul>
+                    </div>
+                    <div class="search-box column five">
+                        <input type="text" name="search" placeholder="Search" class="v-centered input-search" />
+                    </div>
+                </div>
+
+                <div class="row content club-settings">
+                    <ul class="breadcrumbs">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/club/1/test/">test</a></li>
+                        <li><a href="/club/1/test/qa/thread/2/cxzczxcxzczxczxczx-cxz-czxc/">cxzczxcxzczxczxczx cxz czxc</a></li>
+                    </ul>
+                    <div class="nine columns">
+                        <div class="group">
+                            <h1>Club settings</h1>
+                            <div id="ContentLeft" class="twelve columns">
+                                <div class="row">
+                                    <div class="columns three"><label for="id_title">Title</label></div>
+                                    <div class="columns nine error">
+                                        <input id="id_title" type="text" name="title" value="Výzva č. 92" maxlength="300">
+                                        <small class="error has-helptext">!!! Error !!!</small>
+                                        <span class="helptext">if club is not closed, value will not be displayed</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"><label for="id_long_title">Long title</label></div>
+                                    <div class="columns nine"><input id="id_long_title" type="text" name="long_title" value="EDUCA" maxlength="1000"></div>
+                                </div>
+
+                                <div class="row separator-01"></div>
+
+                                <div class="row">
+                                    <div class="columns three">Club visibility</div>
+                                    <div class="columns nine"><label class="label-inline" for="id_visibility_0"><input checked="checked" type="radio" id="id_visibility_0" value="public" name="visibility"> Public</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><label class="label-inline" for="id_visibility_1"><input type="radio" id="id_visibility_1" value="semi-public" name="visibility"> Semi-public</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><label class="label-inline" for="id_visibility_2"><input type="radio" id="id_visibility_2" value="private" name="visibility"> Private</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><label class="label-inline" for="id_visibility_3"><input type="radio" id="id_visibility_3" value="semi-private" name="visibility"> Semi-private</label></div>
+                                </div>
+
+                                <div class="row separator-01"></div>
+
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><label class="label-inline" for="id_readonly"><input type="checkbox" name="readonly" id="id_readonly"> club is readonly (may be overriden by a specific role)</label></div>
+                                </div>
+
+                                <div class="row separator-01"></div>
+
+                                <div class="row">
+                                    <div class="columns three">Closed</div>
+                                    <div class="columns nine">Yes, by Admin on 12.12.2012 17:30 with reason: "Klub již nemá přispěvatele" <a href="" title="">change</a></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><label><input type="checkbox" name="closed" id="id_closed"> club is closed</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"><label>Closing reason</label></div>
+                                    <div class="columns nine">
+                                        <input class="has-helptext" type="text" name="close_reason" id="id_close_reason">
+                                        <span class="helptext">if club is not closed, value will not be displayed</span>
+                                    </div>
+                                </div>
+
+                                <div class="row separator-01"></div>
+
+                                <div class="row">
+                                    <div class="columns twelve"><h2>Club tools</h2></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><label class="label-inline"><input checked="checked" type="checkbox" name="" id=""> Annotation tool</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><label class="label-inline"><input checked="checked" type="checkbox" name="" id=""> Q&As tool</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><label class="label-inline"><input checked="checked" type="checkbox" name="" id=""> Forum tool</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><label class="label-inline"><input checked="checked" type="checkbox" name="" id=""> Library tool</label></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"><label>Default tool</label></div>
+                                    <div class="columns nine">
+                                        <select>
+                                            <option>Annotation</option>
+                                            <option>Q&As tool</option>
+                                            <option>Forum tool</option>
+                                            <option>Library tool</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row separator-01"></div>
+
+                                <div class="row">
+                                    <div class="columns twelve"><h2>Club users</h2></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns twelve">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>E-mail</th>
+                                                    <th>Role</th>
+                                                    <th>Action</th>
+                                                    <th class="t-center">Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Petr Vonásek</td>
+                                                    <td>pvonasek@via.cz</td>
+                                                    <td>manager</td>
+                                                    <td>
+                                                        <select>
+                                                            <option>--- no change ---</option>
+                                                            <option>manager</option>
+                                                            <option>editor</option>
+                                                            <option>member</option>
+                                                        </select>
+                                                    </td>
+                                                    <td class="t-center"><input type="checkbox" name="" id=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Petr Vonásek</td>
+                                                    <td>pvonasek@via.cz</td>
+                                                    <td>manager</td>
+                                                    <td>
+                                                        <select>
+                                                            <option>--- no change ---</option>
+                                                            <option>manager</option>
+                                                            <option>editor</option>
+                                                            <option>member</option>
+                                                        </select>
+                                                    </td>
+                                                    <td class="t-center"><input type="checkbox" name="" id=""></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Petr Vonásek</td>
+                                                    <td>pvonasek@via.cz</td>
+                                                    <td>manager</td>
+                                                    <td>
+                                                        <select>
+                                                            <option>--- no change ---</option>
+                                                            <option>manager</option>
+                                                            <option>editor</option>
+                                                            <option>member</option>
+                                                        </select>
+                                                    </td>
+                                                    <td class="t-center"><input type="checkbox" name="" id=""></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><button class="button">Save</button></div>
+                                </div>
+
+                                <div class="row separator-01"></div>
+
+                                <div class="row">
+                                    <div class="columns three"><label>E-mail dump</label></div>
+                                    <div class="columns nine">
+                                        <textarea></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="columns twelve"><h2>Add individual user</h2></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"><label>Assign role</label></div>
+                                    <div class="columns nine">
+                                        <select>
+                                            <option>--- please select ---</option>
+                                            <option>manager</option>
+                                            <option>editor</option>
+                                            <option>member</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"><label>Search user</label></div>
+                                    <div class="columns nine"><input type="text" /></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><button class="button">Add to list</button></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="columns twelve"><h2>Batch add users</h2></div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"><label>Assign role</label></div>
+                                    <div class="columns nine">
+                                        <select>
+                                            <option>--- please select ---</option>
+                                            <option>manager</option>
+                                            <option>editor</option>
+                                            <option>member</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"><label>E-mails</label></div>
+                                    <div class="columns nine">
+                                        <textarea></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="columns three"></div>
+                                    <div class="columns nine"><button class="button">Add to list</button></div>
+                                </div>
+
+                                <div class="row separator-01"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="three columns aside">
+                        <div class="block">
+                            Back to club <a href="/club/6/vyzva-c-92/" title="Back to club">Výzva č. 92</a>
+                        </div>
+                        <div class="block">
+                            <div class="title">Help</div>
+                            <div class="block-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat ultrices interdum. Morbi euismod eros vitae ligula mattis ac pretium libero vulputate. Nullam pellentesque, arcu eu interdum eleifend, nisi enim malesuada risus, et tempus tortor est blandit nunc. Nunc gravida convallis felis.</p>
+                                <p><a href="" title="">More details</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row footer">
+                    <div class="column four">
+                        <ul class="footer-menu group"></ul>
+                        <p class="powered-link">
+                            <a href="http://pluto.org" target="_blank">Powered by Pluto version 0.7.43</a>
+                        </p>
+                    </div>
+                    <div class="column eight">
+                        <p class="copyright">
+                            <a class="license-logo" href="http://creativecommons.org/licenses/by-sa/3.0/legalcode"><img src="http://pluto.coex.cz/m/default/media/images/cc-by-sa.png?v=2" title="cc-by-sa" alt="cc-by-sa"></a> Copyright Pluto, 2010-2011. Content on this site is licensed under <br>a <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">Creative Commons Attribution Share Alike 3.0</a> license.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+{% from "macros.html" import render_gravatar %}
+<div class="twelve columns">
+
+    <div class="row">
+        <div class="columns twelve">
+            <h1 class="section-title">{% trans %}Users{% endtrans %}</h1>
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="twelve columns">
+            <div class="sort group">
+                <dl class="sub-nav f-left">
+                    <dt>{% trans %}Sort by:{% endtrans %}</dt>
+                    <dd class="{% if tab_id == 'newest' %}active{% endif %}">
+                        <a href="{{ request.path }}?sort=newest" title="{% trans %}see people who joined most recently{% endtrans %}">{% trans %}recent{% endtrans %}</a>
+                    </dd>
+                    <dd class="{% if tab_id == 'last' %}active{% endif %}">
+                        <a href="{{ request.path }}?sort=last" title="{% trans %}see people who joined the site first{% endtrans %}">{% trans %}oldest{% endtrans %}</a>
+                    </dd>
+                    <dd class="{% if tab_id == 'last_name' %}active{% endif %}">
+                        <a href="{{ request.path }}?sort=last_name" title="{% trans %}see people sorted by name{% endtrans %}">{% trans %}by last name{% endtrans %}</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    {% for user in users.object_list %}
+        <div class="row users-list">
+            <div class="one columns">
+                {{ render_gravatar(user, 32) }}
+            </div>
+            <div class="eleven columns">
+                <a href="{% url user_profile user.id %}" class="users-name">{{user.screen_name|escape}}</a>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="row">
+        <hr />
+        {% with %}
+            {% set p = paginator_context %}
+            {% set position = 'left' %}
+            {% include "snippets/paginator.html" %}
+        {% endwith %}
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+{% if visitor.is_anonymous() %}
+    {% with %}
+        {% set follow = True %}
+        {% set name = 'user' %}
+        {% set alias = subject.screen_name|escape %}
+        {% set id = subject.id %}
+        {% include "snippets/follow_toggle.html" %}
+    {% endwith %}
+{% else %}
+    {% if visitor != subject %}
+        {% if visitor.is_following(subject) %}
+            {% with %}
+                {% set follow = False %}
+                {% set name = 'user' %}
+                {% set alias = subject.screen_name|escape %}
+                {% set id = subject.id %}
+                {% include "snippets/follow_toggle.html" %}
+            {% endwith %}
+        {% else %}
+            {% with %}
+                {% set follow = True %}
+                {% set name = 'user' %}
+                {% set alias = subject.screen_name|escape %}
+                {% set id = subject.id %}
+                {% include "snippets/follow_toggle.html" %}
+            {% endwith %}
+        {% endif %}
+    {% endif %}
+{% endif %}

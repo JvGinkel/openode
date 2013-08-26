@@ -1,0 +1,62 @@
+{% extends "two_column_profile.html" %}
+{% from "macros.html" import render_gravatar %}
+
+<!-- users.html -->
+{% block title %}{% spaceless %}{% trans %}Users{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url organization_list %}">{% trans %}Organizations{% endtrans %}</a></li>
+    <li><span>{{ organization.title }}</span></li>
+{% endblock %}
+
+{% block profile_menu %}
+    {% if organization.logo %}
+        {% with %}
+            {% set logo = organization.get_logo_url(200) %}
+            {% if logo %}
+                <img src="{{ logo }}" class="organization-logo" />
+            {% endif %}
+        {% endwith %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="group">
+    <h1 class="title">{{ organization.full_title }}</h1>
+    <div class="row">
+        <div class="twelve columns">
+            {% if request.user.is_admin('openode.change_organization') %}
+            <div class="row">
+                <div class="twelve columns">
+                    <a href="{% url admin:openode_organization_change organization.pk %}" class="control-link">{% trans %}edit{% endtrans %}</a>
+                </div>
+            </div>
+            {% endif %}
+            <div class="row">
+                <div class="twelve columns">
+                {% if organization.description %}
+                    {{ organization.description.html }}
+                {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                {% if user_membership_level == 'none' and user_acceptance_level == 'open' %}
+                    <a href="{% url organization_membership organization.pk, organization.slug %}?request=join" class="button success">{% trans %}Join organization{% endtrans %}</a>
+                {% elif user_membership_level == 'none' and user_acceptance_level == 'moderated' %}
+                    <a href="{% url organization_membership organization.pk, organization.slug %}?request=join" class="button success">{% trans %}Ask to join organization{% endtrans %}</a>
+                {% elif user_membership_level == 'full' %}
+                    <a href="{% url organization_membership organization.pk, organization.slug %}?request=leave" class="button">{% trans %}Leave organization{% endtrans %}</a>
+                {% elif user_membership_level == 'pending' %}
+                    <a href="{% url organization_membership organization.pk, organization.slug %}?request=cancel" class="button alert">{% trans %}Cancel request ask to join organization{% endtrans %}</a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        {% include 'snippets/user_list.html' %}
+    </div>
+</div>
+{% endblock %}

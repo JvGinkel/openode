@@ -1,0 +1,139 @@
+{% extends "two_column_body.html" %}
+{% from "macros.html" import render_formfield_row %}
+<!-- template answer_edit.html -->
+{% block title %}{% spaceless %}{% trans %}Edit answer{% endtrans %}{% endspaceless %}{% endblock %}
+{% block content %}
+<div class="group">
+    <h1 class="section-title">
+        {% trans %}Edit answer{% endtrans %} [<a href="{{ answer.thread._main_post().get_absolute_url() }}#{{ answer.id }}">{% trans %}back{% endtrans %}</a>]
+    </h1>
+    <div class="twelve columns tabular-form">
+        <form id="fmedit" action="{% url edit_answer answer.id %}" method="post" >{% csrf_token %}
+            {{ render_formfield_row(revision_form.revision, labeltext=_("Revision")) }}
+            <input type="hidden" id="select_revision" name="select_revision" value="false" />
+            {#
+            <label for="id_revision" >{% trans %}revision{% endtrans %}:</label> <br/>
+            {% if revision_form.revision.errors %}{{ revision_form.revision.errors.as_ul() }}{% endif %}
+            <div style="vertical-align:middle">
+            {{ revision_form.revision }} <input type="hidden"
+                                        id="select_revision"
+                                        name="select_revision"
+                                        value="false">
+            </div>
+            #}
+            {% if edit_title %}
+                {{ render_formfield_row(form.title, labeltext=_("Title")) }}
+                {#
+                <div class="row">
+                    <div class="three columns">
+                        {{ form.title.label_tag() }}
+                    </div>
+                    <div class="nine columns">
+                        {{ form.title }}
+                        {{ form.title.errors }}
+                        <small>{{ form.title.help_text }}</small>
+                    </div>
+                </div>
+                #}
+            {% endif %}
+            {{ form.media }}
+            {{ render_formfield_row(form.text, labeltext=_("Text")) }}
+            {#
+            <div class="row">
+                <div class="twelve columns">
+                    {{ form.media }}
+                    {{ form.text }}
+                </div>
+            </div>
+            #}
+
+            <script type="text/javascript">
+                {% if revision.text %}
+                    openode['data']['editorContent'] = '{{ revision.text|escapejs }}';
+                {% endif %}
+            </script>
+
+            {# need label element for resizable input, b/c form validation won't find span #}
+            {% if post_type == 'question' %}
+                <div class="row">
+                    {% if use_category_selector %}
+                        {% include "widgets/three_column_category_selector.html" %}
+                        <div class="tags-desc">{% trans %}Tags{% endtrans %}</div>
+                        {% include "widgets/tag_editor.html" %}
+                    {% else %}
+                        {% if tags_are_required %}
+                            <label for="id_tags">
+                            {% if mandatory_tags %}
+                                <strong>{% trans %}tags{% endtrans %}</strong>
+                                {% trans %}, one of these is required{% endtrans %}
+                                {% with %}
+                                    TODO FIXME
+                                {% endwith %}
+                            {% else %}
+                                <strong>{% trans %}tags:{% endtrans %}</strong>
+                                {% trans %}(required){% endtrans %}
+                            {% endif %}
+                            </label>
+                        {% else %}
+                            <strong>{% trans %}tags:{% endtrans %}</strong>
+                        {% endif %}
+                        <span class="form-error">{{ form.tags.errors }}</span><br/>
+                        {{ form.tags }}
+                        <div class="title-desc">
+                            {{ form.tags.help_text }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if 'summary' in form['fields'] %}
+                {{ render_formfield_row(form.summary, labeltext=_("Summary"), helptext=form.summary.help_text) }}
+                {#
+                <div class="row">
+                    <strong>{{ form.summary.label_tag() }}</strong> <br/>
+                    {{ form.summary }}
+                    <div class="title-desc">
+                        {{ form.summary.help_text }}
+                    </div>
+                    <div class="form-error" >{{ form.summary.errors }}</div>
+                </div>
+                #}
+            {% endif %}
+            <div class="row separator-01"></div>
+
+            <div class="row">
+                <div class="three columns"></div>
+                <div class="nine columns t-right">
+                    <button class="large button success" type="submit" name="post" id="edit_form_submit_button">{% spaceless %}
+                        {% trans %}Save edit{% endtrans %}
+                        {% endspaceless %}</button>
+                </div>
+            </div>
+            {#
+            <div class="after-editor">
+                <input id="edit_form_submit_button" type="submit" value="{% trans %}Save edit{% endtrans %}" class="submit" />&nbsp;
+                <input type="button" value="{% trans %}Cancel{% endtrans %}" class="submit" onclick="history.back(-1);" />
+            </div>
+            #}
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "widgets/answer_edit_tips.html" %}
+{% endblock %}
+
+{% block endjs %}
+    <script type='text/javascript' src='{{"/js/post.js"|media}}'></script>
+    <script type="text/javascript">
+        $().ready(function(){
+            $('#id_revision').unbind().change(function(){
+                $("#select_revision").val('true');
+                $('#edit_form_submit_button').click();
+            });
+        });
+    </script>
+
+{% endblock %}
+<!-- end template answer_edit.html -->

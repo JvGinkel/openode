@@ -1,0 +1,165 @@
+{% extends "node/base_thread_detail.html" %}
+{% from "macros.html" import node_module_breadcrumb, node_breadcrumb, sidebar_help %}
+
+{# ========================================================================== #}
+
+{% block title %}{% spaceless %}{% trans %}Document{% endtrans %}{% endspaceless %}{% endblock %}
+
+{# ========================================================================== #}
+
+{% block breadcrumbs %}
+    {{ node_breadcrumb(node) }}
+    {{ node_module_breadcrumb(node, NODE_MODULE_LIBRARY) }}
+    <li><span>{{ thread.title }}</span></li>
+{% endblock %}
+
+{% block endjs %}
+    {{ super() }}
+    <script type='text/javascript' src="{{"/js/infinite-ajax-scroll/jquery-ias.min.js"|media }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery.ias({
+                container : '#js-pages',
+                trigger: '{% trans %}Load more items{% endtrans %}',
+                item: '.img-box',
+                pagination: '.paginator',
+                triggerPageThreshold: 100,
+                next: '.next:last',
+                loader: '<img src="{{"/js/infinite-ajax-scroll/images/loader.gif"|media }}"/>',
+                history: false,
+                onRenderComplete: function(items) {
+                    jQuery(".next").hide();
+                    jQuery(items).find(".next").show();
+                }
+            });
+        });
+    </script>
+{% endblock endjs %}
+
+{% block before_css %}
+    {{ super() }}
+    <link href="{{"/js/infinite-ajax-scroll/css/jquery.ias.css"|media }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+
+{# ========================================================================== #}
+
+{% block thread_content %}
+<div id="post-id-{{ main_post.id }}" class="{% if main_post.deleted %}deleted {% endif %}">
+
+    <h2>{{ thread.title|escape }}</h2>
+
+    {% with html=main_post.html %}
+        {% if html %}
+            <div class="group rtc">{{ main_post.html }}</div>
+        {% endif %}
+    {% endwith%}
+
+    {% if document %}
+        {% if file_size %}
+            <div class="group panel">
+                <div class="columns eight">
+                    <p class="t-right">{{ document.get_file_name() }}</p>
+                    <div class="t-right">{{ file_size }}</div>
+                </div>
+                <div class="columns four t-right">
+                    <p><a href="{{ document.get_file_url() }}" class="button large"> {% trans %}Download file{% endtrans %}</a></p>
+                </div>
+            </div>
+        {% else %}
+            <div class="panel">{% trans %}Document file not found.{% endtrans %}</div>
+        {% endif %}
+    {% endif %}
+
+    {% if request.user.has_openode_perm('delete', thread) or thread.has_edit_perm(request.user) %}
+        <ul class="post-controls group" id="question-controls">
+
+            {# === UN/DELETE ======================================================== #}
+            {% if request.user.has_openode_perm('delete', thread) %}
+                <li>
+                    <a href="{% url delete_thread thread.pk %}" class="js-confirm ico delete" data-confirm="{% trans %}Are you sure?{% endtrans %}">
+                        {% if thread.is_deleted %}
+                            {% trans %}undelete{% endtrans %}
+                        {% else %}
+                            {% trans %}delete{% endtrans %}
+                        {% endif %}
+                    </a>
+                </li>
+            {% endif %}
+
+            {% if thread.has_edit_perm(request.user) %}
+                <li>
+                    <a href="{% url edit_thread thread.id %}" class="ico edit" >
+                        {% trans %}edit{% endtrans %}
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+        <script type="text/javascript">
+            openode['functions']['renderPostControls']('{{ main_post.pk }}');
+        </script>
+    {% endif %}
+
+    {# ================================================================== #}
+
+    {% if document %}
+        {% if file_size %}
+            <h3>{% trans %}Document preview{% endtrans %}
+                {% if not page %}
+                    <img src="{{"/js/infinite-ajax-scroll/images/loader.gif"|media }}"/>
+                {% endif %}
+            </h3>
+
+            {% if not page %}
+                <p>{% trans %}Preview and search index is being prepared. This action may take up to 10 minutes.{% endtrans %}</p>
+            {% else %}
+                {% with pages_count=document.get_pages().count() %}
+                    <p>
+                        {% trans %}number of pages:{% endtrans %} {{ pages_count }}
+                    </p>
+                {% endwith %}
+                <div id="js-pages">
+                    <div class="img-box">
+
+                        {% with img_url=page.get_thumbnail_url() %}
+                            {% if img_url %}
+                                <img src="{{ img_url }}" width="700px" alt="" />
+                            {% else %}
+                                <div class="panel">Image for page {{ page.number }} not found.</div>
+                            {% endif %}
+                        {% endwith %}
+
+                        {# === links === #}
+                        {% for link in page.links.iterator() %}
+                            {% if loop.first %}<blockquote><dl>{% endif %}
+                                <dt></dt>
+                                <dl><a href="{{ link.url }}">{{ link.url }}</a></dl>
+                            {% if loop.last %}</dl></blockquote>{% endif %}
+                        {% endfor %}
+                        <div style="display:none" class="panel">{{ page.plaintext }}</div>
+                        <hr />
+                    </div>
+                </div>
+                <div class="paginator">
+                        <a class="next" href="{{ request.path }}?page={{ page.number + 1 }}">NEXT PAGE</a>
+                    {% for page_n in pages_numbers %}
+                        <a href="{{ request.path }}?page={{ page_n }}">{{ page_n }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+</div>
+{% endblock %}
+
+{# ========================================================================== #}
+
+{% block sidebar_backbutton %}
+    {% call sidebar_back_button(_('Back to Documents')) -%} {# spaceless is neccessary because content is included into href #}
+        {% url node_module node_id=thread.node.pk, node_slug=thread.node.slug, module=module %}
+    {%- endcall %}
+{% endblock %}
+
+{% set sidebar_help_include = sidebar_help(_('Document'), _('help_document_detail_short'), _('More help'), _('help_document_detail_html'), 'help_document_detail_html') %}
+{% set sidebar_tools_title = _('Document tools') %}

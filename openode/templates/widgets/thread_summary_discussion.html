@@ -1,0 +1,58 @@
+{% from "macros.html" import render_last_changed, tag_list %}
+
+<div class="node-box {% if has_unread_main_post %}unread{% endif %}">
+    <div class="node-box-content group">
+        <div class="report-wrap">
+            <div class="report-boxes">
+            {# === POSTS COUNT BOX === #}
+
+
+                {% set answer_count = thread.get_answer_count(visitor) %}
+
+                <div class="report-box{% if has_unread_posts %} unread-background{% endif %}">
+                    <a title="{{ thread.get_title() }}" href="{{ thread.get_absolute_url() }}">
+                        {# <span>&nbsp;</span> #}
+
+                        <div class="group unread-mark-container">
+                        {% if thread_view and thread_view.not_view_sum_count() %}
+                            <span class="unread-mark" title="{% trans %}Unread posts{% endtrans %}">{{ thread_view.not_view_sum_count()|default("") }}</span>
+                        {# {% if thread_view %} #}
+                            {# <span class="new left">{{ thread_view.not_view_post_count|default("") }}</span> #}
+                            {# <span class="new right">{{ thread_view.not_view_comment_count }}</span> #}
+                        {% endif %}
+                        </div>
+
+                        {# <span class="accept">accepted</span> #}
+                        <span class="count">{{ answer_count }}</span>
+                        <span class="title">{% trans cnt = answer_count %}Post{% pluralize %}Posts{% endtrans %}</span>
+                    </a>
+                </div>
+
+                {# === VIEWS COUNT BOX === #}
+                <div class="report-box">
+                    <a title="{{ thread.get_title() }}" href="{{ thread.get_absolute_url() }}">
+                        <span>&nbsp;</span>
+                        <span class="count">{{ thread.view_count }}</span>
+                        <span class="title">{% trans cnt = thread.view_count %}View{% pluralize %}Views{% endtrans %}</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        {% if thread_header %}
+            <small>{{ thread.node.title }}</small>
+        {% endif %}
+
+        <h3>
+            <a title="{{ thread.get_title() }}" href="{{ thread.get_absolute_url() }}">
+                {{ thread.get_title('html') }}
+            </a>
+        </h3>
+
+        {{ tag_list(thread.get_tags()) }}
+
+        {{ render_last_changed(thread.last_activity_by, thread.last_activity_at, thread._main_post().author, thread.added_at) }}
+
+    </div>
+</div>

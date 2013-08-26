@@ -1,0 +1,363 @@
+<html>
+    <head>
+        <title>Questions - Pluto: Open Source Q&A Forum</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="keywords" content=",Pluto,CNPROG,forum,community">
+        <meta name="description" content="Open source question and answer forum written in Python and Django">
+
+        <link rel="shortcut icon" href="">
+
+        <link href="../pluto/media/style/screen.css?v=2" rel="stylesheet" type="text/css">
+
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&amp;subset=latin-ext" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700&amp;subset=cyrillic-ext" rel="stylesheet" type="text/css">
+
+        <script type="text/javascript" src="../pluto/media/js/modernizr.custom.js?v=2" style="color: rgb(0, 0, 0);"></script>
+        <script type="text/javascript" src="/jsi18n/"></script>
+        <script type="text/javascript">
+            var pluto = {};
+            pluto['data'] = {};
+
+                pluto['data']['userIsAuthenticated'] = false;
+
+            pluto['urls'] = {};
+            pluto['settings'] = {};
+
+                pluto['settings']['allowedUploadFileTypes'] = [
+                    "jpg", "jpeg", "gif", "bmp", "png", "tiff", "doc", "odt", "rtf", "pdf", "xls", "docx", "xlsx", "ppt", "pptx", "txt"
+                ];
+
+            pluto['messages'] = {};
+        </script>
+    </head>
+    <body>
+        <div class="row">
+            <div class="column twelve">
+
+                <div class="header row">
+                    <div class="column three">
+                        <a class="logo-title" href="/">Pluto <small>smarter Q&amp;A</small></a>
+                    </div>
+                    <div class="column nine t-right">
+                        <ul class="menu inline-list inline v-centered"> </ul>
+                        <ul class="inline-list inline v-centered">
+                            <li><a href="/set_lang/?language=cs">cs</a></li>
+                            <li><a href="/set_lang/?language=en">en</a></li>
+                            <li><a href="/set_lang/?language=de">de</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="user-info row">
+                    <div class="column six">
+                        <ul class="login-info inline-list inline v-centered">
+                            <li><a href="/account/signin/?next=/">Hi there! Please sign in</a></li>
+                            <li><a href="/help/" title="help">help</a></li>
+                        </ul>
+                    </div>
+                    <div class="column six t-right">
+                        <ul class="inline-list inline v-centered">
+                            <li><a id="navTags" href="/tags/">tags</a></li>
+                            <li><span class="dropdown"><a id="navOrganizations" class="" href="/organizations/" data-target="#">people &amp; organizations</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="nav-container row">
+                    <div class="column seven">
+                        <ul class="nav-bar">
+                            <li class=""><a href="/">Home</a></li>
+                            <li class=""><a href="/admin">Admin</a></li>
+                        </ul>
+                    </div>
+                    <div class="search-box column five">
+                        <input type="text" name="search" placeholder="Search" class="v-centered input-search" />
+                    </div>
+                </div>
+
+                <div class="row content question-detail">
+                    <ul class="breadcrumbs">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/club/1/test/">test</a></li>
+                        <li><a href="/club/1/test/qa/thread/2/cxzczxcxzczxczxczx-cxz-czxc/">cxzczxcxzczxczxczx cxz czxc</a></li>
+                    </ul>
+                    <div class="nine columns">
+                        <h1>Consectetur adipiscing elit</h1>
+                        <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet nulla et massa ullamcorper rutrum at in mi.</p>
+                        <div class="group perex important">Aenean nulla turpis, semper nec bibendum quis, convallis sit amet eros. Ut vitae sem orci, eu placerat nisl. Praesent tincidunt posuere sodales. Cras placerat arcu eu enim fermentum vitae mattis lorem aliquet. Nullam id urna eget ante congue adipiscing vel nec ligula. Morbi in nunc non eros tincidunt adipiscing.</div>
+                        <h1 class="q-title"><a href="/club/1/test/qa/thread/2/cxzczxcxzczxczxczx-cxz-czxc/">cxzczxcxzczxczxczx cxz czxc</a></h1>
+                        <ul class="tags group">
+                            <li><a class="tag" href="" title="">Translation</a></li>
+                            <li><a class="tag" href="" title="">tag name</a></li>
+                        </ul>
+                        <div class="group">
+                            <div class="infobox-wrap">
+                                <div class="infobox">
+                                    <div class="top">asked <strong>28. 12. 2012</strong></div>
+                                    <div class="group">
+                                        <a class="avatar" title="Vašek Chalupníček" href=""><img src="http://lorempixel.com/32/32/abstract/1/" alt="" /></a>
+                                        <div class="text">
+                                            <a class="username" title="Vašek Chalupníček" href="">Vašek Chalupníček</a>
+                                            <a href="" class="group-logo"><img src="http://lorempixel.com/16/16/abstract/2/" alt="" />MPSVCR</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="infobox">
+                                    <div class="top">updated <strong>31. 12. 2012</strong></div>
+                                    <div class="group">
+                                        <a class="avatar" title="Vašek Chalupníček" href=""><img src="http://lorempixel.com/32/32/abstract/3/" alt="" /></a>
+                                        <div class="text">
+                                            <a class="username" title="Vašek Chalupníček" href="">Šámot Amílk</a>
+                                            <a href="" class="group-logo"><img src="http://lorempixel.com/16/16/abstract/4/" alt="" />MPSVCR</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="q-content">
+                                <p>Hi, I'm project manager of an AskBot fork which will include some of the <a href="http://www.mayan-edms.com/">http://www.mayan-edms.com/</a> features (we'll go public soon, stay tuned).</p>
+                                <p>We'd like to contribute at least Czech translations back to AskBot, so please is it possible to approve it on transifex.com? There will be more contributors soon.</p>
+                                <p>Note: We also decided to remove url translations, because it's not native django (since 1.4) and because we switch languages dynamically in runtime (per user). Present implementation takes in when python starts, so it's unusable in multiple requests (different languages) per web server process/thread environment. Porting askbot to django 1.4 would be nice, but is out of our scope :( We would like to contribute back more, but we do lot of code cleaning/refactor/feature disabling, so it's merely impossible. Feel free to contact me if intrested.</p>
+                                <ul class="post-controls group">
+                                    <li><a class="ico link" title="" href="">link</a></li>
+                                    <li><a class="ico delete" title="" href="">delete</a></li>
+                                    <li><a class="ico flag" title="" href="">flag offensive</a></li>
+                                    <li><a class="ico edit" title="" href="">edit</a></li>
+                                </ul>
+                            </div>
+                            <div class="comments">
+                                <h2>Comments</h2>
+                                <div class="comment">
+                                    <div class="group">Hello, I have been just translating Askbot into Czech. I am not sure how to translate the string "real time Markdown editor". Could you please help me to find this feature here in Askbot so that I can see a correct translation context? Many thanks.</div>
+                                    <div><a class="" title="" href="">Kettner</a> (2. 1. 2012) <a class="" title="" href="">edit</a> | <a class="" title="" href="">delete</a></div>
+                                </div>
+                                <div class="comment">
+                                    <div class="group">Hello, I have been just translating Askbot into Czech. I am not sure how to translate the string "real time Markdown editor". Could you please help me to find this feature here in Askbot so that I can see a correct translation context? Many thanks.</div>
+                                    <div><a class="" title="" href="">Kettner</a> (2. 1. 2012) <a class="" title="" href="">edit</a> | <a class="" title="" href="">delete</a></div>
+                                </div>
+                                <div class="comment">
+                                    <div class="group">Hello, I have been just translating Askbot into Czech. I am not sure how to translate the string "real time Markdown editor". Could you please help me to find this feature here in Askbot so that I can see a correct translation context? Many thanks.</div>
+                                    <div><a class="" title="" href="">Kettner</a> (2. 1. 2012) <a class="" title="" href="">edit</a> | <a class="" title="" href="">delete</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="answers">
+                            <h2>96 Answer</h2>
+                            <div class="answer unread group">
+                                <div class="columns one">
+                                    <div class="vote">
+                                        <a class="up" title="" href="">UP</a>
+                                        <div class="vote-number" title="">99</div>
+                                        <a class="down" title="" href="">DOWN</a>
+                                    </div>
+                                    <div class="answer-accept accepted"></div>
+                                </div>
+                                <div class="columns eleven">
+                                    <div class="infobox-wrap">
+                                        <div class="infobox">
+                                            <div class="top">asked <strong>28. 12. 2012</strong></div>
+                                            <div class="group">
+                                                <a class="avatar" title="Vašek Chalupníček" href=""><img src="http://lorempixel.com/32/32/abstract/1/" alt="" /></a>
+                                                <div class="text">
+                                                    <a class="username" title="Vašek Chalupníček" href="">Vašek Chalupníček</a>
+                                                    <a href="" class="group-logo"><img src="http://lorempixel.com/16/16/abstract/2/" alt="" />MPSVCR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="infobox">
+                                            <div class="top">updated <strong>31. 12. 2012</strong></div>
+                                            <div class="group">
+                                                <a class="avatar" title="Vašek Chalupníček" href=""><img src="http://lorempixel.com/32/32/abstract/3/" alt="" /></a>
+                                                <div class="text">
+                                                    <a class="username" title="Vašek Chalupníček" href="">Šámot Amílk</a>
+                                                    <a href="" class="group-logo"><img src="http://lorempixel.com/16/16/abstract/4/" alt="" />MPSVCR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>This could be caused by several things:</p>
+                                    <p>
+                                        models out of date - run python manage.py syncdb and python manage.py migrate<br />
+                                        missing 'django.core.context_processors.request', in the TEMPLATE_CONTEXT_PROCESSORS<br />
+                                        urlpatterns tuple is empty, urls.py - in the django project root.
+                                    </p>
+                                    <p>Askbot provides a sample urls.py in the directory askbot/setup_templates, you can take it there, or run askbot-setup. askbot-setup will make a copy, but will not overwrite an existing file though.</p>
+
+                                    <ul class="post-controls group">
+                                        <li><a class="ico link" title="" href="">link</a></li>
+                                        <li><a class="ico delete" title="" href="">delete</a></li>
+                                        <li><a class="ico flag" title="" href="">flag offensive</a></li>
+                                        <li><a class="ico edit" title="" href="">edit</a></li>
+                                    </ul>
+
+                                    <div class="comments">
+                                        <h2>Comments</h2>
+                                        <div class="comment">
+                                            <div class="group">Hello, I have been just translating Askbot into Czech. I am not sure how to translate the string "real time Markdown editor". Could you please help me to find this feature here in Askbot so that I can see a correct translation context? Many thanks.</div>
+                                            <div><a class="" title="" href="">Kettner</a> (2. 1. 2012) <a class="" title="" href="">edit</a> | <a class="" title="" href="">delete</a></div>
+                                        </div>
+                                        <div class="comment new">
+                                            <div class="group">Hello, I have been just translating Askbot into Czech. I am not sure how to translate the string "real time Markdown editor". Could you please help me to find this feature here in Askbot so that I can see a correct translation context? Many thanks.</div>
+                                            <div><a class="" title="" href="">Kettner</a> (2. 1. 2012) <a class="" title="" href="">edit</a> | <a class="" title="" href="">delete</a></div>
+                                        </div>
+                                        <div class="comment">
+                                            <div class="group">Hello, I have been just translating Askbot into Czech. I am not sure how to translate the string "real time Markdown editor". Could you please help me to find this feature here in Askbot so that I can see a correct translation context? Many thanks.</div>
+                                            <div><a class="" title="" href="">Kettner</a> (2. 1. 2012) <a class="" title="" href="">edit</a> | <a class="" title="" href="">delete</a></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="answer group">
+                                <div class="columns one">
+                                    <div class="vote">
+                                        <a class="up" title="" href="">UP</a>
+                                        <div class="vote-number" title="">1</div>
+                                        <a class="down" title="" href="">DOWN</a>
+                                    </div>
+                                    <div class="answer-accept accepted"></div>
+                                </div>
+                                <div class="columns eleven">
+                                    <div class="infobox-wrap">
+                                        <div class="infobox">
+                                            <div class="top">asked <strong>28. 12. 2012</strong></div>
+                                            <div class="group">
+                                                <a class="avatar" title="Vašek Chalupníček" href=""><img src="http://lorempixel.com/32/32/abstract/1/" alt="" /></a>
+                                                <div class="text">
+                                                    <a class="username" title="Vašek Chalupníček" href="">Vašek Chalupníček</a>
+                                                    <a href="" class="group-logo"><img src="http://lorempixel.com/16/16/abstract/2/" alt="" />MPSVCR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>This could be caused by several things:</p>
+                                    <p>
+                                        models out of date - run python manage.py syncdb and python manage.py migrate<br />
+                                        missing 'django.core.context_processors.request', in the TEMPLATE_CONTEXT_PROCESSORS<br />
+                                        urlpatterns tuple is empty, urls.py - in the django project root.
+                                    </p>
+                                    <p>Askbot provides a sample urls.py in the directory askbot/setup_templates, you can take it there, or run askbot-setup. askbot-setup will make a copy, but will not overwrite an existing file though.</p>
+                                </div>
+                            </div>
+                            <div class="answer group">
+                                <div class="columns one">
+                                    <div class="vote">
+                                        <a class="up" title="" href="">UP</a>
+                                        <div class="vote-number" title="">88</div>
+                                        <a class="down" title="" href="">DOWN</a>
+                                    </div>
+                                    <div class="answer-accept"></div>
+                                </div>
+                                <div class="columns eleven">
+                                    <div class="infobox-wrap">
+                                        <div class="infobox">
+                                            <div class="top">asked <strong>28. 12. 2012</strong></div>
+                                            <div class="group">
+                                                <a class="avatar" title="Vašek Chalupníček" href=""><img src="http://lorempixel.com/32/32/abstract/1/" alt="" /></a>
+                                                <div class="text">
+                                                    <a class="username" title="Vašek Chalupníček" href="">Vašek Chalupníček</a>
+                                                    <a href="" class="group-logo"><img src="http://lorempixel.com/16/16/abstract/2/" alt="" />MPSVCR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="infobox">
+                                            <div class="top">updated <strong>31. 12. 2012</strong></div>
+                                            <div class="group">
+                                                <a class="avatar" title="Vašek Chalupníček" href=""><img src="http://lorempixel.com/32/32/abstract/3/" alt="" /></a>
+                                                <div class="text">
+                                                    <a class="username" title="Vašek Chalupníček" href="">Šámot Amílk</a>
+                                                    <a href="" class="group-logo"><img src="http://lorempixel.com/16/16/abstract/4/" alt="" />MPSVCR</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>This could be caused by several things:</p>
+                                    <p>
+                                        models out of date - run python manage.py syncdb and python manage.py migrate<br />
+                                        missing 'django.core.context_processors.request', in the TEMPLATE_CONTEXT_PROCESSORS<br />
+                                        urlpatterns tuple is empty, urls.py - in the django project root.
+                                    </p>
+                                    <p>Askbot provides a sample urls.py in the directory askbot/setup_templates, you can take it there, or run askbot-setup. askbot-setup will make a copy, but will not overwrite an existing file though.</p>
+                                </div>
+                            </div>
+                            <div class="answer-form">
+                                <h2>Your answer</h2>
+                                <p><strong>Please start posting your answer anonymously</strong> - your answer will be saved within the current session and published after you log in or create a new account. Please try to give a <strong>substantial answer</strong>, for discussions, <strong>please use comments</strong> and <strong>please do remember to vote</strong> (after you log in)!</p>
+                                <textarea>TinyMCE</textarea>
+                                <button class="btn">Post answer</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="three columns aside">
+                        <div class="block">
+                            <div class="title">Help</div>
+                            <div class="block-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat ultrices interdum. Morbi euismod eros vitae ligula mattis ac pretium libero vulputate. Nullam pellentesque, arcu eu interdum eleifend, nisi enim malesuada risus, et tempus tortor est blandit nunc. Nunc gravida convallis felis.</p>
+                                <p><a href="" title="">More details</a></p>
+                            </div>
+                        </div>
+                        <div class="block q-tools">
+                            <div class="title">Question tools</div>
+                            <div class="block-content t-center">
+                                <button class="button">Follow</button>
+                            </div>
+                        </div>
+                        <div class="block stats">
+                            <div class="title">Stats</div>
+                            <div class="block-content">
+                                <table>
+                                    <tr>
+                                        <th>Asked:</th>
+                                        <td>1. 1. 2013</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Seen:</th>
+                                        <td>36 &#215;</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last updated:</th>
+                                        <td>3. 1. 2013</td>
+                                    </tr>
+                                </table>
+                                <p>
+                                    <a href="" title="">show followers</a><br />
+                                    <a href="" title="">show last views</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <div class="title">Related questions</div>
+                            <div class="block-content">
+                                <ul>
+                                    <li><a href="">How to translate django applications?</a></li>
+                                    <li><a href="">What language translations are available in Askbot?</a></li>
+                                    <li><a href="">Как перевести слово "аccount" на русский - how to translate word "account" to Russian?</a></li>
+                                    <li><a href="">Could you help translate Askbot?</a></li>
+                                    <li><a href="">German translation</a></li>
+                                    <li><a href="">Urls - translate or not?</a></li>
+                                    <li><a href="">How can I get hold of a translation for a local install?</a></li>
+                                    <li><a href="">Translation - how to proceed when all words are translated?</a></li>
+                                    <li><a href="">Translation clarifications</a></li>
+                                    <li><a href="">Small HTML tool that checks JavaScript i18n for completeness</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row footer">
+                    <div class="column four">
+                        <ul class="footer-menu group"></ul>
+                        <p class="powered-link">
+                            <a href="http://pluto.org" target="_blank">Powered by Pluto version 0.7.43</a>
+                        </p>
+                    </div>
+                    <div class="column eight">
+                        <p class="copyright">
+                            <a class="license-logo" href="http://creativecommons.org/licenses/by-sa/3.0/legalcode"><img src="http://pluto.coex.cz/m/default/media/images/cc-by-sa.png?v=2" title="cc-by-sa" alt="cc-by-sa"></a> Copyright Pluto, 2010-2011. Content on this site is licensed under <br>a <a href="http://creativecommons.org/licenses/by-sa/3.0/legalcode">Creative Commons Attribution Share Alike 3.0</a> license.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

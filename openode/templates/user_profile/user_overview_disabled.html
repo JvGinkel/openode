@@ -1,0 +1,35 @@
+{% extends "user_profile/user.html" %}
+
+{% block profilesection %}{% endblock %}
+
+{% block profile_breadcrumbs_base %}
+    <li><span>{{ view_user.screen_name|escape }}</span></li>
+{% endblock %}
+
+{% block profile_menu %}
+{% endblock %}
+
+{% block usercontent %}
+<div class="group user-profile">
+    <div class="twelve columns">
+
+        <div class="row user-header">
+            <div class="twelve columns">
+                {% if request.user.is_admin('auth.change_proxyuser') %}
+                    <div class="f-right section-header-control">
+                        <a class="control-link" href="{% url admin:auth_proxyuser_change view_user.pk %}">{% trans %}Admin edit{% endtrans %}</a>
+                    </div>
+                {% endif %}
+                <h1 class="f-left">{{ view_user.screen_name }}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+                <p>{% trans %}This user account has been deactivated by administrator.{% endtrans %}</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+

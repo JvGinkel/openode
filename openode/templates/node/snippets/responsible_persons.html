@@ -1,0 +1,11 @@
+{% if responsible_persons %}
+{% from "macros.html" import render_gravatar %}
+<div class="block">
+    <div class="title">{% trans %}Responsible persons{% endtrans %}</div>
+    <div class="block-content group">
+        {% for person in responsible_persons %}
+            {{ render_gravatar(person, 48) }}
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

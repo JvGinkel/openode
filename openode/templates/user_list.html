@@ -1,0 +1,15 @@
+{% extends "one_column_body.html" %}
+
+<!-- users.html -->
+{% block title %}{% spaceless %}{% trans %}Users{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block breadcrumbs %}
+    <li><span>{% trans %}Users{% endtrans %}</span></li>
+{% endblock %}
+
+{% block content %}
+<div class="group">
+    {% include 'snippets/user_list.html' %}
+</div>
+{% endblock %}
+

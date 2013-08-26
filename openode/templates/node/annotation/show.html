@@ -1,0 +1,172 @@
+{% extends "node/base_node.html" %}
+{% from "macros.html" import sidebar_help %}
+
+{% block title %}{% spaceless %}{% trans %}About Node{% endtrans %} – {{ node.full_title() }}{% endspaceless %}{% endblock %}
+
+{# ================================= #}
+
+{% block endjs %}
+    {{ super() }}
+    <script type='text/javascript' src="{{"/js/unfolding.js"|media }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            // open top nodes
+            jQuery(".js-force-open").show();
+        });
+    </script>
+{% endblock %}
+
+{# ================================= #}
+
+{% block forestyle %}
+    {{ super() }}
+    <style type="text/css">
+        {% set step = 25 %}
+        {% set max_levels = 10 %}
+        {% for i in range(0, (max_levels * step) + step, step) %}
+            .level-{{ i // step }} .node-box-content {padding-left: {{ i }}px}
+        {% endfor %}
+    </style>
+{% endblock %}
+
+{# ========================================================================== #}
+
+{% block module_content %}
+    <div class="row">
+        <div class="twelve columns">
+            <h2>{% trans %}Annotation{% endtrans %}</h2>
+
+            {% if request.user.has_openode_perm('node_edit_annotation', node) %}
+            <p class="f-right">
+                <a href="{% url node_annotation_edit node_id=node.id, node_slug=node.slug %}">{% trans %}Edit annotation{% endtrans %}</a>
+            </p>
+            {% endif %}
+
+            <div class="content rtc">
+                {% if node.description %}
+                    {{ node.description.html }}
+                {% else %}
+                    <p>{% trans %}This Node has no annotation yet.{% endtrans %}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row separator-01"></div>
+
+    <div class="row">
+        <div class="twelve columns">
+            {# === SUBNODES === #}
+            {% with subnodes=node.get_children(), root_id=node.pk %}
+                {% if subnodes %}
+                    <h2>{% trans %}Sub-Nodes{% endtrans %}</h2>
+                    {% with nodes_of_user = request.user %}
+                    {% for node in subnodes recursive %}
+                        {% if request.user.has_openode_perm("node_show", node) %}
+                            {% set NODE_TREE_DISPLAY = True %}
+                            {% set USE_AJAX = False %}
+                            {% include "node/snippets/node_box.html" %}
+                            {% if not node.is_leaf_node_for_user(request.user, with_closed) %}
+                                {{ loop(node.get_children_for_user(request.user, with_closed)) }}
+                            {% endif %}
+                         {% endif %}
+                    {% endfor %}
+                    {% endwith %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{# ================================= #}
+
+{% block sidebar %}
+
+    {{ sidebar_help(_('Node'), _('help_node_detail_short'), _('More help'), _('help_node_detail_html'), 'help_node_detail_html') }}
+
+    {% if request.user.is_authenticated() %}
+        <div class="block">
+            <div class="title">{% trans %}Node tools{% endtrans %}</div>
+            <div class="block-content">
+
+{#                 {% if request.user.is_authenticated() %}
+                    <p>
+                        <button class="button small success" id="id_node_follow" title="{% trans %}click to follow this node{% endtrans %}" {% if node.is_followed_by(user) %}style="display: none"{% endif %}>
+                            {% trans %}Follow node{% endtrans %}
+                        </button>
+                        <button class="button small secondary{% if node.user_is_manager(request.user) %} disabled{% endif %}" id="id_node_unfollow" title="{% if node.user_is_manager(request.user) %}{% trans %}You cannot unfollow this club, because you are manager{% endtrans %}{% else %}{% trans %}click to unfollow this node{% endtrans %}{% endif %}" {% if not node.is_followed_by(user) %}style="display: none"{% endif %}>
+                            {% trans %}Unfollow node{% endtrans %}
+                        </button>
+                    </p>
+                {% endif %}
+ #}
+                {% if request.user.is_admin('openode.change_node') or request.user.has_openode_perm('node_settings', node) %}
+                    <p>
+                        <a href="{% url node_perexes_edit node.pk, node.slug %}">{% trans %}Edit perexes{% endtrans %}</a>
+                    </p>
+                {% endif %}
+
+                <p>
+                    <a href="{% url node_followers node.pk, node.slug %}" title="">{% trans %}Show followers{% endtrans %} ({{ node.followed_count }})</a>
+                </p>
+
+                {% if request.user.is_admin('openode.change_node') %}
+                    <p>
+                        <a href="{% url admin:openode_node_change node.pk %}">{% trans %}Edit in admin{% endtrans %}</a>
+                    </p>
+                {% endif %}
+
+            </div>
+        </div>
+    {% endif %}
+
+
+    {# ============================= #}
+
+    {% set responsible_persons = node.get_responsible_persons() %}
+    {% include "node/snippets/responsible_persons.html" %}
+
+    {# ============================= #}
+
+    <div class="block stats">
+        <div class="title">{% trans %}Stats{% endtrans %}</div>
+        <div class="block-content">
+            <table>
+                <tr>
+                    <th>{% trans %}Activity{% endtrans %}:</th>
+                    <td>
+                        {% if node.get_last_activity_at() %}
+                            {{ node.get_last_activity_at()|humanize_datetime }}
+                        {% else %}
+                            {% trans %}Never{% endtrans %}
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>{% trans %}Number of followers{% endtrans %}:</th>
+                    <td>{{ node.followed_count }}</td>
+                </tr>
+{#                 <tr>
+                    <th>{% trans %}Readonly{% endtrans %}:</th>
+                    <td>{{ node.readonly|yesno|capfirst }}</td>
+                </tr>
+ #}
+                <tr>
+                    <th>{% trans %}Closed{% endtrans %}:</th>
+                    <td>{{ node.closed|yesno|capfirst }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}Visibility{% endtrans %}:</th>
+                    <td>{{ node.get_visibility_display() }}</td>
+                </tr>
+                <tr>
+                    <th>{% trans %}Your role{% endtrans %}:</th>
+                    <td>{{ node.get_role_for_user(request.user)|default(_('Visitor')) }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+{% endblock %}

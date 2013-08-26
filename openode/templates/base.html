@@ -1,0 +1,343 @@
+<!DOCTYPE html>{% from "macros.html" import render_gravatar %}
+<html lang="{{ request.LANGUAGE_CODE }}">
+
+    <head>
+        <title>{% block title %}{% endblock %} | {{ settings.APP_TITLE|escape }}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="{%block keywords%}{%endblock%},{{ settings.APP_KEYWORDS|escape }}" />
+        <meta name="viewport" content="width=device-width" /><!-- Set the viewport width to device width for mobile -->
+
+        {% block meta_description %}
+            <meta name="description" content="{{settings.APP_DESCRIPTION|escape}}" />
+        {% endblock %}
+
+        {% if settings.GOOGLE_SITEMAP_CODE %}
+            <meta name="google-site-verification" content="{{ settings.GOOGLE_SITEMAP_CODE }}" />
+        {% endif %}
+
+        <link rel="shortcut icon" href="{{ settings.SITE_FAVICON|media }}" />
+
+        {% block before_css %}{% endblock %}
+        {% block forestyle %}{% endblock %}
+        {% include "meta/html_head_stylesheets.html" %}
+        {% include "meta/html_head_javascript.html" %}
+        {% block forejs %}{% endblock %}
+        {% if settings.USE_CUSTOM_HTML_HEAD %}
+            {{ settings.CUSTOM_HTML_HEAD }}
+        {% endif %}
+
+        {% if settings.GOOGLE_ANALYTICS_KEY %}
+            <script type="text/javascript">
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', '{{ settings.GOOGLE_ANALYTICS_KEY }}']);
+              _gaq.push(['_trackPageview']);
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+            </script>
+        {% endif %}
+    </head>
+<!--[if lt IE 8]>
+    <div style='border: 1px solid #F7941D; background: #FEEFDA; text-align: center; clear: both; height: 75px; position: relative;'>
+        <div style='width: 640px; margin: 0 auto; text-align: left; padding: 0; overflow: hidden; color: black;'>
+            <div style='width: 75px; float: left;'><img src='{{ '/style/i/old-ie-warning.jpg'|media }}' alt='Warning!'/>
+            </div>
+            <div style='width: 275px; float: left; font-family: Arial, sans-serif;'>
+                <div style='font-size: 14px; font-weight: bold; margin-top: 12px;'>{% trans %}You are using an outdated browser{% endtrans %}
+                </div>
+                <div style='font-size: 12px; margin-top: 6px; line-height: 12px;'>{% trans %}For a better experience using this site, please upgrade to a modern web browser.{% endtrans %}
+                </div>
+            </div>
+        </div>
+    </div>
+<![endif]-->
+    {# <body class="{% block body_class %}{% endblock %}{% if user_messages %} user-messages{% endif %}{% if page_class %} {{page_class}}{% endif %}{% if request.user.is_anonymous() %} anon{% endif %} lang-{{settings.LANGUAGE_CODE}}"> #}
+    <body class="one-col">
+        <div class="root">
+
+            {% include "debug_header.html" %}
+            {# ================= #}
+
+            {% block header %}
+            <div class="header">
+                <div class="row">
+                    <div class="column twelve">
+                        <div class="f-right t-right top-list">
+                            {%- if not request.user.is_authenticated() -%}
+                            <ul class="inline-list inline v-centered">
+                                {% if settings.SIGNIN_OPENID_ENABLED %}
+                                    <li><a class="social-login openid" href=""></a></li>
+                                {% endif %}
+                                {% if settings.SIGNIN_GOOGLE_ENABLED %}
+                                    <li><a class="social-login google" href=""></a></li>
+                                {% endif %}
+                                {% if settings.SIGNIN_FACEBOOK_ENABLED and settings.FACEBOOK_KEY and settings.FACEBOOK_SECRET %}
+                                    <li><a class="social-login facebook" href=""></a></li>
+                                {% endif %}
+                                <li><a href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next={{ request.get_full_path()|clean_login_url }}" class="small button success button-registration">{% trans %}Register now!{% endtrans %}</a></li>
+                            </ul>
+                            {% endif %}
+                            {% if settings.LANGUAGES|length > 1 %}
+                            <ul class="inline-list inline v-centered langs-wrap">
+                                {% for lang in settings.LANGUAGES %}
+                                    <li><a class="lang" href="{% url set_lang %}?language={{ lang.0 }}{% if not SUPPRESS_NEXT_LANG_SWITCH %}&amp;next={{ request.get_full_path()|clean_url }}{% endif %}">{{ lang.0 }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                        <a class="logo-title" href="/"><img src="{{ '/style/i/logo.png'|media }}" class="v-centered" /><span class="title">{{ settings.APP_TITLE }}</span> <small>{{ settings.APP_SUBTITLE }}</small></a>
+                        <ul class="inline-list top-menu">
+                            {# <li class=""><a href="/">{% trans %}Home{% endtrans %}</a></li> #}
+                            <li>
+                                <a href="{% url tags %}">
+                                    {% trans %}Tags{% endtrans %}
+                                </a>
+                            </li>
+                            {% if request.user.is_authenticated() %}
+                            <li>
+                                <a href="{% url users %}">
+                                    {% trans %}Users{% endtrans %}
+                                </a>
+                            </li>
+                            {% endif %}
+                            <li>
+                                <a href="{% url organization_list %}" >
+                                    {% trans %}Organizations{% endtrans %}
+                                </a>
+                            </li>
+                            {% for menu_item in menu_items_upper %}
+                                <li><a href="{{ menu_item.url }}">{{ menu_item.title }}</a>{% if not loop.last %}{% endif %}</li>
+                            {% endfor%}
+                         </ul>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+
+            {# === USER HEADER === #}
+
+            {% block header_user %}
+            <div class="user-info">
+
+                {# ======== USER MENU ========= #}
+
+                <div class="row">
+                    <div class="twelve columns t-right">
+                        <div class="search group left">
+                            <form id="js-search-form" action="{% url search %}">
+                                <input type="text" class="input-search ui-autocomplete-input default f-left" placeholder="{% trans %}Search{% endtrans %}..." id="search" name="q" autocomplete="off" />
+                                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                <button class="button postfix button-search secondary f-left">{% trans %}Search{% endtrans %}</button>
+                            </form>
+                            {# <input type="text" name="search" placeholder="Search" class="v-centered eleven default input-search" /> #}
+                        </div>
+
+                    {# ======== USER MENU LEFT ========= #}
+                    {#
+                    <div class="six columns">
+                        <ul class="inline-list">
+                            <li>
+                                <a href="{% url user_profile request.user.id, 'followed_nodes' %}" class="button button-menu ico"><img src="{{ '/style/i/nodes.png'|media }}" />
+                                    {% trans %}My Nodes{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url user_profile request.user.id, 'followed_questions' %}" class="button button-menu ico"><img src="{{ '/style/i/questions.png'|media }}" />
+                                    {% trans %}My Questions{% endtrans %}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{% url user_profile request.user.id, 'followed_discussions' %}" class="button button-menu ico"><img src="{{ '/style/i/discussions.png'|media }}" />
+                                    {% trans %}My Discussions{% endtrans %}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    #}
+                        {# ======== USER MENU RIGHT ========= #}
+                        {%- if request.user.is_authenticated() -%}
+                            {% if request.user.is_admin() %}
+                                <a class="button button-menu" href="/admin">{% trans %}Admin{% endtrans %}</a>
+                            {% endif %}
+                            <div href="#" class="button button-menu dropdown followed">
+                                <div class="followed-title">
+                                    {% trans %}Followed{% endtrans %}
+                                    {% set unread_followed_nodes_count = request.user.get_unread_followed_nodes_count() %}
+                                    {% set unread_followed_questions_count = request.user.get_unread_followed_questions_count() %}
+                                    {% set unread_followed_discussions_count = request.user.get_unread_followed_discussions_count() %}
+
+                                    {% set followed_count = unread_followed_nodes_count + unread_followed_questions_count + unread_followed_discussions_count %}
+                                    {% if followed_count %}
+                                        <span class="unread-mark">{{ followed_count }}</span>
+                                    {% endif %}
+                                </div>
+                                <span></span>
+                                <ul>
+                                    <li>
+                                        <a href="{% url user_profile request.user.id, 'followed_nodes' %}">
+                                            {% trans %}Followed Nodes{% endtrans %}
+                                            {% if unread_followed_nodes_count %}
+                                                <span class="unread-mark">{{ unread_followed_nodes_count }}</span>
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url user_profile request.user.id, 'followed_questions' %}">
+                                            {% trans %}My Questions{% endtrans %}
+                                            {% if unread_followed_questions_count %}
+                                                <span class="unread-mark">{{ unread_followed_questions_count }}</span>
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url user_profile request.user.id, 'followed_discussions' %}">
+                                            {% trans %}My Discussions{% endtrans %}
+                                            {% if unread_followed_discussions_count %}
+                                                <span class="unread-mark">{{ unread_followed_discussions_count }}</span>
+                                            {% endif %}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {% if user_has_perm_resolve_node_joining or request.user.has_perm('openode.resolve_organization_joining') or (settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive')) %}
+                            <div href="#" class="button button-menu dropdown messages">
+                              <div class="messages-title">
+                                    {% trans %}Requests{% endtrans %}
+                                    {% set messages_count = 0 %}
+                                    {% if user_has_perm_resolve_node_joining %}
+                                        {% set messages_count = messages_count + node_join_requests_count %}
+                                    {% endif %}
+                                    {% if request.user.has_perm('openode.resolve_organization_joining') %}
+                                        {% set messages_count = messages_count + organization_pending_memberships_count %}
+                                    {% endif %}
+                                    {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
+                                        {% set messages_count = messages_count + flags_count %}
+                                    {% endif %}
+                                    {% if messages_count %}
+                                        <span class="unread-mark">{{ messages_count }}</span>
+                                    {% endif %}
+                              </div>
+                              <span></span>
+                              <ul>
+                                {% if user_has_perm_resolve_node_joining %}
+                                <li>
+                                    <a href="{% url user_profile request.user.id, 'node_joins' %}" title="{% trans %}node joins requests{% endtrans %}">
+                                        {% trans %}Node joins{% endtrans %}
+                                        {% if node_join_requests_count %}
+                                            <span class="unread-mark">{{ node_join_requests_count }}</span>
+                                        {% endif %}
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% if request.user.has_perm('openode.resolve_organization_joining') %}
+                                <li>
+                                    <a href="{% url user_profile request.user.id, 'organization_joins' %}" title="{% trans %}organization joins requests{% endtrans %}">
+                                        {% trans %}Organization joins{% endtrans %}
+                                        {% if organization_pending_memberships_count %}
+                                            <span class="unread-mark">{{ organization_pending_memberships_count }}</span>
+                                        {% endif %}
+                                    </a>
+                                </li>
+                                {% endif %}
+                                {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
+                                <li>
+                                    <a href="{% url user_profile request.user.id, 'offensive_flags' %}" title="{% trans %}offensive flag reports{% endtrans %}">
+                                        {% trans %}Offensive flags{% endtrans %}</span>
+                                        {% if flags_count %}
+                                            <span class="unread-mark">{{ flags_count }}
+                                        {% endif %}
+                                    </a>
+                                </li>
+                                {% endif %}
+                              </ul>
+                            </div>
+                            {% endif %}
+                            <div href="#" class="button button-menu dropdown split user">
+                                <a class="user-title" href="{{ request.user.get_absolute_url() }}"><div class="avatar-wrap">{{ render_gravatar(request.user, 20, False) }}</div>{{ request.user.screen_name|escape }}</a>
+                                <span></span>
+                                <ul>
+                                    <li><a href="{{ request.user.get_absolute_url() }}">{% trans %}Update profile{% endtrans %}</a></li>
+                                    <li><a href="{{ settings.LOGOUT_URL }}?next={{ settings.LOGOUT_REDIRECT_URL }}">{% trans %}Logout{% endtrans %}</a></li>
+                                </ul>
+                            </div>
+                        {% else %}
+                            <form id="signin-form" class="login" method="post" action="{{ settings.LOGIN_URL }}">
+                                {% csrf_token %}
+                                <div class="inputs">
+                                    {{ header_login_form.login_provider_name }}
+                                    {{ header_login_form.next }}
+                                    {{ header_login_form.password_action }}
+                                    <span>{% trans %}E-mail{% endtrans %}:</span>
+                                    {{ header_login_form.username }}
+                                    <span>{% trans %}Password{% endtrans %}:</span>
+                                    {{ header_login_form.password }}
+                                </div>
+                                <button type="submit" class="small button login v-top">{% trans %}Log in{% endtrans %}</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+
+            {# === BREADCRUMBS === #}
+            {% if not HOMEPAGE %}
+                <div class="nav-container">
+                    <div class="row">
+                        <div class="twelve columns">
+                            <ul class="breadcrumbs">
+                                {# first breadcrumb element #}
+                                <li><a href="/">{% trans %}Home{% endtrans %}</a></li>
+                                {% block breadcrumbs %}{% endblock %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {# ================= #}
+
+            {% include "custom_header.html" ignore missing %}
+
+            {% if settings.CUSTOM_HEADER|trim != '' %}
+                <div id="custom-header">
+                    {{ settings.CUSTOM_HEADER }}
+                </div>
+            {% endif %}
+
+            {# {% include "widgets/secondary_header.html" %} #}{# Scope selector, search input and ask button #}
+            {% if settings.ENABLE_LEADING_SIDEBAR %}
+                <div id="leading-sidebar">
+                    {{ settings.LEADING_SIDEBAR }}
+                </div>
+            {% endif %}
+
+            {% include "widgets/system_messages.html" %}
+            <div class="content-body {% block content_class %}{% endblock%}">
+                {% block body %}{% endblock %}
+            </div>
+            <div class="root-footer"></div>
+        </div>
+
+        {# === FOOTER === #}
+
+        {% if settings.FOOTER_MODE == 'default' %}
+            {% include "widgets/footer.html" %}
+        {% elif settings.FOOTER_MODE == 'customize' %}
+            {{ settings.CUSTOM_FOOTER }}
+        {% endif %}
+
+        {% include "custom_footer.html" ignore missing %}
+        {% include "meta/bottom_scripts.html" %}
+        {% block endjs %}{% endblock %}
+
+        <script type="text/javascript">
+            for (url_name in openode['urls']){
+                openode['urls'][url_name] = cleanUrl(openode['urls'][url_name]);
+            }
+        </script>
+
+    </body>
+</html>

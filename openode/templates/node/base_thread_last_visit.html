@@ -1,0 +1,36 @@
+{% extends "two_column_body.html" %}
+
+{% block title %}{% spaceless %}{% trans %}Last visits{% endtrans %} - {{ thread.title|escape }}{% endspaceless %}{% endblock %}
+
+{% block content %}
+    <h1>{% trans thread_title = thread.title|escape %}Last visit for {{ thread_title }}{% endtrans %}</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>{% trans %}User{% endtrans %}</th>
+                <th>{% trans %}Not viewed{% endtrans %}</th>
+                <th>{% trans %}Last visit{% endtrans %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for thread_view in thread_viewed %}
+            <tr>
+                <td>
+                    <a href="{{ thread_view.user.get_profile_url() }}">{{ thread_view.user.screen_name|escape }}</a>
+                </td>
+                <td>
+                    {{ thread_view.not_view_count }}
+                </td>
+                <td>
+                    {{ thread_view.last_visit|humanize_datetime }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if is_limit_overflow %}
+        <p>Here are only latest records of visitors for this thread. Older are hidden.</p>
+    {% endif %}
+
+{% endblock %}

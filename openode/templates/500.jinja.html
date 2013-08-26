@@ -1,0 +1,32 @@
+{# {% extends "two_column_body.html" %}
+
+{% block title %}{% spaceless %}{% trans %}Internal server error{% endtrans %}{% endspaceless %}{% endblock %}
+ #}
+{% block content %}
+
+    <h1>{% trans %}Internal server error{% endtrans %}</h1>
+
+    <div id="main-body">
+        <div class="rtc">
+            <p>
+                {% trans %}system error log is recorded, error will be fixed as soon as possible{% endtrans %}<br/>
+                {% trans %}please report the error to the site administrators if you wish{% endtrans %}
+            </p>
+            <p>
+                <a class="js-back button secondary" href="javascript:void(0)">
+                    ↰ {% trans %}back to previous page{% endtrans %}
+                </a>
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block endjs %}
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery(".js-back").on("click", function(){
+                history.go(-1);
+            })
+        });
+    </script>
+{% endblock %}
