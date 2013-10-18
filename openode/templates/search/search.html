@@ -33,7 +33,7 @@
         </form>
 
         <h2>{% trans %}Search results{% endtrans %}</h2>
-
+        {% include "search/_pagination.html" %}
         {% if show_results %}
             {% for result in page.object_list %}
 
@@ -111,27 +111,7 @@
             {% endfor %}
         {% endif %}
 
-        <div class="column ten pagination">
-            {% if page.has_previous() or page.has_next() %}
-                <p>
-                    {% if page.has_previous() %}
-                        <a href="?q={{ query }}&amp;page={{ page.previous_page_number() }}">&laquo; Previous</a>
-                    {% else %}
-                        &laquo; Previous
-                    {% endif %}
-
-                    {{ page.number }} / {{ paginator.num_pages }}
-
-                    {% if page.has_next() %}
-                        <a href="?q={{ query }}&amp;page={{ page.next_page_number() }}">Next &raquo;</a>
-                    {% else %}
-                        Next &raquo;
-                    {% endif %}
-
-                </p>
-            {% endif %}
-        </div>
-
+        {% include "search/_pagination.html" %}
     </div>
 
     <div class="three columns aside">
