@@ -279,6 +279,7 @@ def node_module_thread(request, node, module, **kwargs):
         user_logged_in=request.user.is_authenticated(),
         node=node,
         module=module,
+        request=request,
         **kwargs
         )
     page_size = int(openode_settings.DEFAULT_QUESTIONS_PAGE_SIZE)
