@@ -659,11 +659,11 @@ if 'django_select2' in settings.INSTALLED_APPS:
         url(r'^ext/', include('django_select2.urls')),
     )
 
-if settings.DEBUG:
-    urlpatterns += patterns('',
-        url(
-            r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:],
-            'django.views.static.serve',
-            {'document_root': settings.MEDIA_ROOT.replace('\\', '/')},
-        ),
-    )
+# if settings.DEBUG:
+urlpatterns += patterns('',
+    url(
+        r'^%s(?P<path>.*)$' % settings.MEDIA_URL[1:],
+        'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT.replace('\\', '/')},
+    ),
+)
