@@ -571,6 +571,7 @@ def parse_reply_to(html, posts_per_pages, answer, request):
 
     return html
 
+
 @register.filter
 def custom_template(target, request):
     """
@@ -581,7 +582,7 @@ def custom_template(target, request):
             os.path.join(settings.PROJECT_ROOT, "templates"),
             os.path.join(settings.OPENODE_ROOT, "templates"),
         ]))
-    
+
         template = env.get_template("custom_templates/%s/%s_content_%s.html" % (target, target, request.LANGUAGE_CODE))
         return template.render(**{
             "request": request
