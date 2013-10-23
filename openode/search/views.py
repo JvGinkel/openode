@@ -193,7 +193,12 @@ class SearchView(BaseSearchView, views.SearchView):
 
         ###############################
 
+        search_in_query = ""
+        if self.form["search_in"].data:
+            search_in_query = "&".join(["search_in=%s" % i for i in self.form["search_in"].data])
+
         context = {
+            "search_in_query": search_in_query,
             'query': self.query,
             'form': self.form,
             'page': page,

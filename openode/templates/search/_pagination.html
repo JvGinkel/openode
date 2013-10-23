@@ -1,8 +1,9 @@
 <div class="ten pagination">
     {% if page.has_previous() or page.has_next() %}
         <p>
+
             {% if page.has_previous() %}
-                <a href="?q={{ query }}&amp;page={{ page.previous_page_number() }}">&laquo; Previous</a>
+                <a href="?q={{ query }}&amp;page={{ page.previous_page_number() }}&amp;{{ search_in_query }}">&laquo; Previous</a>
             {% else %}
                 &laquo; Previous
             {% endif %}
@@ -10,7 +11,7 @@
             {{ page.number }} / {{ paginator.num_pages }}
 
             {% if page.has_next() %}
-                <a href="?q={{ query }}&amp;page={{ page.next_page_number() }}">Next &raquo;</a>
+                <a href="?q={{ query }}&amp;page={{ page.next_page_number() }}&amp;{{ search_in_query }}">Next &raquo;</a>
             {% else %}
                 Next &raquo;
             {% endif %}
