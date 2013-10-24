@@ -3,17 +3,17 @@
         <p>
 
             {% if page.has_previous() %}
-                <a href="?q={{ query }}&amp;page={{ page.previous_page_number() }}&amp;{{ search_in_query }}">&laquo; Previous</a>
+                <a href="?q={{ query }}&amp;page={{ page.previous_page_number() }}&amp;{{ search_in_query }}">&laquo; {% trans %}previous{% endtrans %}</a>
             {% else %}
-                &laquo; Previous
+                &laquo; {% trans %}previous{% endtrans %}
             {% endif %}
 
             {{ page.number }} / {{ paginator.num_pages }}
 
             {% if page.has_next() %}
-                <a href="?q={{ query }}&amp;page={{ page.next_page_number() }}&amp;{{ search_in_query }}">Next &raquo;</a>
+                <a href="?q={{ query }}&amp;page={{ page.next_page_number() }}&amp;{{ search_in_query }}">{% trans %}next{% endtrans %} &raquo;</a>
             {% else %}
-                Next &raquo;
+                {% trans %}next{% endtrans %} &raquo;
             {% endif %}
 
         </p>
