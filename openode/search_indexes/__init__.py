@@ -124,6 +124,7 @@ class QuestionIndex(SearchIndex, Indexable):
         data = []
         data.append(obj.title)
         if main_post:
+            data.append(obj.node.title)
             data.append(main_post.text)
             for text in main_post.comments.all().values_list("text", flat=True):
                 data.append(text)
@@ -245,8 +246,8 @@ class AnswerIndex(SearchIndex, Indexable):
     def prepare_text(self, obj):
         # TODO
         data = []
+        data.append(obj.thread.node.title)
         data.append(obj.text)
-
         for c in obj.comments.all():
             data.append(c.text)
 
@@ -322,8 +323,8 @@ class DiscussionPostIndex(SearchIndex, Indexable):
 
     def prepare_text(self, obj):
         data = []
+        data.append(obj.thread.node.title)
         data.append(obj.text)
-
         return " ".join([
             strip_tags(ch).strip() for ch in data
         ])
@@ -391,6 +392,7 @@ class DocumentIndex(SearchIndex, Indexable):
         main_post = thread._main_post()
 
         data = []
+        data.append(thread.node.title)
         data.append(thread.title)
         data.append(main_post.text)
 
