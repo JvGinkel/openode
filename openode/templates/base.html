@@ -322,8 +322,26 @@
         </div>
 
         {# === FOOTER === #}
-        {{ "footer"|custom_template(request) }}
+        <div class="footer">
+            <div class="row">
+                <div class="columns twelve">
+                    <ul class="footer-menu group">
+                            <li><a href="#">Odkaz 1</a></li>
+                            <li><a href="#">Odkaz 2</a></li>
+                            <li><a href="#">Odkaz 3</a></li>
+                            <li><a href="#">Odkaz 4</a></li>
+                    </ul>
+                </div>
+            </div>
 
+            {{ "footer"|custom_template(request) }}
+            
+            <div class="row">
+                <div class="six columns">
+                    <p><a href="http://www.openode.net" target="_blank">{% trans version=settings.OPENODE_VERSION %}Powered by OPENode {{ version }}{% endtrans %}</a></p>
+                </div>
+            </div>
+        </div>
         
         {% include "meta/bottom_scripts.html" %}
         {% block endjs %}{% endblock %}
