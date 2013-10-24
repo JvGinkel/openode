@@ -323,22 +323,29 @@
 
         {# === FOOTER === #}
         <div class="footer">
+            {% if menu_items_footer %}
             <div class="row">
                 <div class="columns twelve">
                     <ul class="footer-menu group">
-                            <li><a href="#">Odkaz 1</a></li>
-                            <li><a href="#">Odkaz 2</a></li>
-                            <li><a href="#">Odkaz 3</a></li>
-                            <li><a href="#">Odkaz 4</a></li>
+                        {# footer menu - MenuItem #}
+                        {% for menu_item in menu_items_footer %}
+                            <li><a href="{{ menu_item.url }}">{{ menu_item.title }}</a></li>
+                        {% endfor%}
                     </ul>
                 </div>
             </div>
+            {% endif %}
 
             {{ "footer"|custom_template(request) }}
-            
+
             <div class="row">
-                <div class="six columns">
-                    <p><a href="http://www.openode.net" target="_blank">{% trans version=settings.OPENODE_VERSION %}Powered by OPENode {{ version }}{% endtrans %}</a></p>
+                <div class="twelve columns">
+                    <p class="license">
+                        <br />
+                        <a href="http://www.openode.net" target="_blank">{% trans version=settings.OPENODE_VERSION %}Powered by OPENode {{ version }}{% endtrans %}</a> 
+                        |
+                        {% trans coex_url="http://www.coex.cz", python_url="http://www.python.org", django_url="http://www.djangoproject.com" %}Open source written by <a href="{{coex_url}}">COEX</a> in <a href="{{python_url}}">Python</a> and <a href="{{django_url}}">Django</a>{% endtrans %}
+                    </p>
                 </div>
             </div>
         </div>
