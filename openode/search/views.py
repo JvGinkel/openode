@@ -104,7 +104,7 @@ class SearchView(BaseSearchView, views.SearchView):
         # Tag objects, from url
         self.selected_tags = []
         if tags:
-            self.selected_tags = Tag.objects.filter(pk__in=[int(_id) for _id in tags.split("+")])
+            self.selected_tags = Tag.objects.valid_tags().filter(pk__in=[int(_id) for _id in tags.split("+")])
 
         return super(SearchView, self).__call__(request)
 
@@ -187,9 +187,9 @@ class SearchView(BaseSearchView, views.SearchView):
 
         tags_pks = set([tag.pk for tag in self.selected_tags])
         if tags_pks:
-            other_tags = Tag.objects.filter(pk__in=set(others_tags_ids - tags_pks))
+            other_tags = Tag.objects.valid_tags().filter(pk__in=set(others_tags_ids - tags_pks))
         else:
-            other_tags = Tag.objects.all().order_by("-used_count")
+            other_tags = Tag.objects.valid_tags().order_by("-used_count")
 
         ###############################
 
