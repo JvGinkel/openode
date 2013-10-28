@@ -154,7 +154,7 @@ User.add_to_class(
 # User.add_to_class('silver', models.SmallIntegerField(default=0))
 # User.add_to_class('bronze', models.SmallIntegerField(default=0))
 User.add_to_class(
-    'questions_per_page',  # TODO: remove me and const.QUESTIONS_PER_PAGE_USER_CHOICES, we're no longer used!
+    'questions_per_page', # TODO: remove me and const.QUESTIONS_PER_PAGE_USER_CHOICES, we're no longer used!
     models.SmallIntegerField(
         choices=const.QUESTIONS_PER_PAGE_USER_CHOICES,
         default=10
@@ -454,7 +454,7 @@ def user_get_notifications(self, notification_types=None, **kwargs):
 
 def _assert_user_can(
                         user=None,
-                        post=None,  # related post (may be parent)
+                        post=None, # related post (may be parent)
                         admin_or_moderator_required=False,
                         owner_can=False,
                         suspended_owner_cannot=False,
@@ -1513,7 +1513,7 @@ def user_edit_thread(
                 revision_comment=None,
                 tags=None,
                 timestamp=None,
-                force=False,  # if True - bypass the assert
+                force=False, # if True - bypass the assert
                 by_email=False
             ):
     if force == False:
@@ -1541,7 +1541,7 @@ def user_edit_answer(
                     body_text=None,
                     revision_comment=None,
                     timestamp=None,
-                    force=False,  # if True - bypass the assert
+                    force=False, # if True - bypass the assert
                     by_email=False
                 ):
     if force == False:
@@ -2489,7 +2489,7 @@ def user_has_openode_perm(self, perm, obj):
         if not perm.startswith('%s_' % thread.thread_type) and not perm.startswith('node_'):
             perm = '%s_%s' % (thread.thread_type, perm)
     elif node:
-        for start in zip(('node', ), *const.THREAD_TYPES)[0]:  # is this really necessary? same as: [tt[0] for tt in const.THREAD_TYPES] + ['node', ]
+        for start in zip(('node',), *const.THREAD_TYPES)[0]:  # is this really necessary? same as: [tt[0] for tt in const.THREAD_TYPES] + ['node', ]
             if perm.startswith('%s_' % start):
                 break
         else:
@@ -2915,7 +2915,7 @@ def format_instant_notification_email(
         'update_author_name': from_user.username,
         'receiving_user_name': to_user.username,
         'can_reply': can_reply,
-        'content_preview': content_preview,  # post.get_snippet()
+        'content_preview': content_preview, # post.get_snippet()
         'update_type': update_type,
         'post_url': post_url,
         'origin_post_title': origin_post.thread.title,
@@ -3506,3 +3506,18 @@ __all__ = [
         'get_organization_names',
         'get_organizations'
 ]
+
+
+class ProxyUserManagerStatusManager(models.Manager):
+    def get_query_set(self):
+        return super(ProxyUserManagerStatusManager, self).get_query_set().filter(nodeuser__role='manager').distinct()
+
+
+class ProxyUserManagerStatus(ProxyUser):
+    objects = ProxyUserManagerStatusManager()
+
+    class Meta:
+        proxy = True
+        app_label = 'auth'
+        verbose_name = "Proxy users - managers only"
+        verbose_name_plural = "Proxy users - managers only"
