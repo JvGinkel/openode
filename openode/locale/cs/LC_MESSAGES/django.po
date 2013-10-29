@@ -1,25 +1,29 @@
 # English translation for CNPROG package.
 # Copyright (C) 2009 Gang Chen, 2010 Askbot
 # This file is distributed under the same license as the CNPROG package.
-# 
+#
 # Translators:
 #   <vit.usela@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-19 18:49+0200\n"
-"PO-Revision-Date: 2013-07-08 12:16\n"
+"POT-Creation-Date: 2013-10-29 10:15+0100\n"
+"PO-Revision-Date: 2013-10-29 10:08\n"
 "Last-Translator: Vaclav Chalupnicek <admin@coex.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/askbot/language/cs_CZ/)\n"
+"Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs_CZ\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Translated-Using: django-rosetta 0.6.8\n"
+"X-Translated-Using: django-rosetta 0.7.1\n"
 
-#: admin.py:47 templates/authopenid/signin.html:65 templates/authopenid/signin.html:257 templates/authopenid/signup_with_password.html:68 templates/node/edit_settings.html:107 templates/user_profile/user_overview.html:54
+#: admin.py:47 templates/authopenid/signin.html:65
+#: templates/authopenid/signin.html:257
+#: templates/authopenid/signup_with_password.html:68
+#: templates/node/edit_settings.html:107
+#: templates/user_profile/user_overview.html:54
 msgid "Email"
 msgstr "E-mail"
 
@@ -27,40 +31,50 @@ msgstr "E-mail"
 msgid "Please enter a correct email and password. Note that both fields are case-sensitive."
 msgstr "Zadejte prosím platný email a heslo. Pozor, obě pole zohledňují malá či velká písmena. "
 
-#: admin.py:165 admin.py:168 templates/admin/common/move.html:4 templates/admin/common/move.html:11 templates/admin/common/move.html:15 templates/admin/common/move.html:37
+#: admin.py:169 admin.py:172 templates/admin/common/move.html:4
+#: templates/admin/common/move.html:11 templates/admin/common/move.html:15
+#: templates/admin/common/move.html:37
 msgid "Move"
 msgstr "Přemístit"
 
-#: admin.py:231 models/cms.py:41 templates/node/base_post_edit.html:40 templates/node/base_thread_add.html:49 templates/node/base_thread_add.html:57 templates/node/base_thread_edit.html:55 templates/user_profile/user_overview.html:148
+#: admin.py:235 models/cms.py:41 templates/node/base_post_edit.html:40
+#: templates/node/base_thread_add.html:49
+#: templates/node/base_thread_add.html:57
+#: templates/node/base_thread_edit.html:55
+#: templates/user_profile/user_overview.html:148
 msgid "Text"
 msgstr "Text"
 
-#: admin.py:309 admin.py:345
+#: admin.py:313 admin.py:349
 msgid "description"
 msgstr "popis"
 
-#: admin.py:346 templates/base.html:274 templates/authopenid/signin.html:74 templates/authopenid/signin.html:261 templates/authopenid/signup_with_password.html:70 templates/authopenid/widget_signin.html:114 utils/forms.py:279
+#: admin.py:350 templates/base.html:274 templates/authopenid/signin.html:74
+#: templates/authopenid/signin.html:261
+#: templates/authopenid/signup_with_password.html:70
+#: templates/authopenid/widget_signin.html:114 utils/forms.py:279
 msgid "Password"
 msgstr "Heslo"
 
-#: admin.py:347
+#: admin.py:351
 msgid "Password retyped"
 msgstr "Zopakovat heslo"
 
-#: admin.py:354
+#: admin.py:358
 msgid "Don't forget to activate Staff status field."
 msgstr "Nezapomeňte aktivovat pole \"Status členství\""
 
-#: admin.py:371
+#: admin.py:375
 msgid "Account with this email already exists."
 msgstr "Účet na tento email již existuje."
 
-#: admin.py:375 deps/django_authopenid/forms.py:299
+#: admin.py:379 deps/django_authopenid/forms.py:299
 msgid "Passwords did not match"
 msgstr "Hesla se neshodovala"
 
 #: dashboard.py:27
-msgid "Pluto low level administration"
+#, fuzzy
+msgid "Openode low level administration"
 msgstr "Pluto nízkoúrovňová administrace"
 
 #: dashboard.py:35 templates/node/snippets/thread_sort.html:10
@@ -71,7 +85,7 @@ msgstr "vše"
 msgid "users"
 msgstr "uživatelé"
 
-#: dashboard.py:48 menu.py:39 forms/__init__.py:266
+#: dashboard.py:48 menu.py:39 forms/__init__.py:275
 msgid "content"
 msgstr "obsah"
 
@@ -564,53 +578,13 @@ msgstr "HTML pro levý postranní panel"
 msgid "Use this area to enter content at the LEFT sidebarin HTML format.  When using this option, please use the HTML validation service to make sure that your input is valid and works well in all browsers."
 msgstr "Použijte toto pole pro zadání obsahu LEVÉHO panelu v HTML formátu. Při využití této volby, prosím použijte HTML validátor k ujištění, že váš vstup je validní a funguje ve všech prohlížečích."
 
-#: conf/license.py:13
-msgid "Content License"
-msgstr "Licence na obsah"
-
-#: conf/license.py:21
-msgid "Show license clause in the site footer"
-msgstr "Zobrazit licenční ujednání v patičce stránek"
-
-#: conf/license.py:30
-msgid "Short name for the license"
-msgstr "Zkrácený název licence"
-
-#: conf/license.py:39
-msgid "Full name of the license"
-msgstr "Úplný název licence"
-
-#: conf/license.py:40
-msgid "Creative Commons Attribution Share Alike 3.0"
-msgstr "Creative Commons Uveďte autora 3.0"
-
-#: conf/license.py:48
-msgid "Add link to the license page"
-msgstr "Vložit odkaz na stránku s licencí"
-
-#: conf/license.py:57
-msgid "License homepage"
-msgstr "Stránka licence"
-
-#: conf/license.py:59
-msgid "URL of the official page with all the license legal clauses"
-msgstr "URL oficiální stránky s právními ujednáními licence"
-
-#: conf/license.py:69
-msgid "Use license logo"
-msgstr "Použít logo licence"
-
-#: conf/license.py:78
-msgid "License logo image"
-msgstr "Obrázek loga licence"
-
 #: conf/login_providers.py:13
 msgid "Login provider setings"
 msgstr "Nastavení poskytovatele přihlášení"
 
 #: conf/login_providers.py:31
 #, fuzzy
-msgid "Always display local login form and hide \"Pluto\" button."
+msgid "Always display local login form and hide \"Openode\" button."
 msgstr "Vždy zobrazit lokální přihlašovací formulář a skrýt \"Askbot\" tlačítko"
 
 #: conf/login_providers.py:40
@@ -1080,7 +1054,7 @@ msgstr "Použít automatické avatary z gravatar.com"
 
 #: conf/user_settings.py:103
 #, fuzzy
-msgid "Check this option if you want to allow the use of gravatar.com for avatars. Please, note that this feature might take about 10 minutes to become fully effective. You will have to enable uploaded avatars as well. For more information, please visit <a href=\"http://pluto.org/doc/optional-modules.html#uploaded-avatars\">this page</a>."
+msgid "Check this option if you want to allow the use of gravatar.com for avatars. Please, note that this feature might take about 10 minutes to become fully effective. You will have to enable uploaded avatars as well. For more information, please visit <a href=\"http://openode.org/doc/optional-modules.html#uploaded-avatars\">this page</a>."
 msgstr "Zaškrtněte tuto volbu chcete-li povolit použití gravatar.com pro ikonky. Mějte prosím na paměti, že tato funkce si může vyžádat až 10 minut než bude zcela aktivní. Budete také muset povoli nahrané obrázky. Pro více informací prosím navštivte <a href=\"http://askbot.org/doc/optional-modules.html#uploaded-avatars\">tuto stránku</a>."
 
 #: conf/user_settings.py:115
@@ -1135,7 +1109,9 @@ msgstr "Minimum dní pro odsouhlasení odpovědi, pokud nebyla odsouhlasena odes
 msgid "Enable mark offensive flags"
 msgstr "Prohlížet urážlivé značky"
 
-#: const/__init__.py:59 templates/node/base_thread_detail.html:130 templates/node/annotation/show.html:142 templates/user_profile/user_overview.html:83
+#: const/__init__.py:59 templates/node/base_thread_detail.html:130
+#: templates/node/annotation/show.html:142
+#: templates/user_profile/user_overview.html:83
 msgid "Never"
 msgstr "Nikdy"
 
@@ -1276,15 +1252,15 @@ msgstr "odsouhlasená odpověď"
 msgid "SOLVED"
 msgstr "VYŘEŠENO"
 
-#: const/__init__.py:298 models/node.py:144
+#: const/__init__.py:298 models/node.py:153
 msgid "CLOSED"
 msgstr "UZAVŘENO"
 
-#: const/__init__.py:299 models/node.py:143
+#: const/__init__.py:299 models/node.py:152
 msgid "DELETED"
 msgstr "SMAZÁNO"
 
-#: const/__init__.py:300 views/readers.py:532
+#: const/__init__.py:300 views/readers.py:541
 msgid "initial version"
 msgstr "původní verze"
 
@@ -1440,7 +1416,14 @@ msgstr "Anotace"
 msgid "Annot."
 msgstr "Anotace"
 
-#: const/__init__.py:447 search/forms.py:21 templates/two_column_node_body.html:82 templates/node/document/edit_directory.html:6 templates/node/document/move_directory.html:6 templates/node/document/reorg_directory.html:6 templates/node/question/list.html:3 templates/node/question/list.html:7 templates/node/question/list.html:10 templates/user_profile/user_overview.html:117
+#: const/__init__.py:447 search/forms.py:21
+#: templates/two_column_node_body.html:82
+#: templates/node/document/edit_directory.html:6
+#: templates/node/document/move_directory.html:6
+#: templates/node/document/reorg_directory.html:6
+#: templates/node/question/list.html:3 templates/node/question/list.html:7
+#: templates/node/question/list.html:10
+#: templates/user_profile/user_overview.html:117
 msgid "Questions"
 msgstr "Otázky"
 
@@ -1448,7 +1431,9 @@ msgstr "Otázky"
 msgid "Q&As"
 msgstr "Otázky"
 
-#: const/__init__.py:448 search/forms.py:22 templates/node/discussion/list.html:7 templates/user_profile/user_overview.html:123
+#: const/__init__.py:448 search/forms.py:22
+#: templates/node/discussion/list.html:7
+#: templates/user_profile/user_overview.html:123
 msgid "Discussions"
 msgstr "Diskuze"
 
@@ -1456,7 +1441,10 @@ msgstr "Diskuze"
 msgid "Discu."
 msgstr "Diskuze"
 
-#: const/__init__.py:449 document/models.py:80 search/forms.py:20 templates/two_column_node_body.html:138 templates/node/document/list.html:3 templates/node/document/list.html:7 templates/node/document/list.html:23 templates/node/document/list.html:110
+#: const/__init__.py:449 document/models.py:83 search/forms.py:20
+#: templates/two_column_node_body.html:138 templates/node/document/list.html:3
+#: templates/node/document/list.html:7 templates/node/document/list.html:23
+#: templates/node/document/list.html:118
 msgid "Documents"
 msgstr "Dokumenty"
 
@@ -1468,7 +1456,7 @@ msgstr "Dokum."
 msgid "Regular"
 msgstr "Běžný"
 
-#: const/__init__.py:466 templates/node/base_thread_add.html:69 templates/node/base_thread_edit.html:39
+#: const/__init__.py:466 templates/node/base_thread_add.html:69
 msgid "Category"
 msgstr "Kategorie"
 
@@ -1859,7 +1847,9 @@ msgstr "promiňte, takové uživatelské jméno neexistuje"
 msgid "%(site)s user name and password"
 msgstr "%(site)s uživatelské jméno a heslo"
 
-#: deps/django_authopenid/util.py:397 templates/authopenid/signin.html:103 templates/authopenid/signin.html:272 templates/authopenid/widget_signin.html:121
+#: deps/django_authopenid/util.py:397 templates/authopenid/signin.html:103
+#: templates/authopenid/signin.html:272
+#: templates/authopenid/widget_signin.html:121
 msgid "Create a password-protected account"
 msgstr "Vytvořit účet chráněný heslem"
 
@@ -1906,7 +1896,8 @@ msgstr "Přihlásit se s %(provider)s účtem"
 msgid "OpenID %(openid_url)s is invalid"
 msgstr "OpenID %(openid_url)s je neplatné"
 
-#: deps/django_authopenid/views.py:340 deps/django_authopenid/views.py:467 deps/django_authopenid/views.py:495
+#: deps/django_authopenid/views.py:340 deps/django_authopenid/views.py:467
+#: deps/django_authopenid/views.py:495
 #, python-format
 msgid "Unfortunately, there was some problem when connecting to %(provider)s, please try again or use another provider"
 msgstr "Bohužel vznikl nějaký problém při spojení s %(provider)s, zkuste prosím znovu nebo zvolte jiného poskytovatele"
@@ -1981,7 +1972,10 @@ msgstr "Ujistěte se prosím, že jste ve stejném prohlížeči, ve kterém jst
 msgid "You have been successfully logged out."
 msgstr "Právě jste se úspěšně odhlásil/a."
 
-#: deps/django_authopenid/views.py:1222 templates/authopenid/email_validation.html:2 templates/authopenid/verify_email.html:3 templates/authopenid/verify_email.html:19
+#: deps/django_authopenid/views.py:1222
+#: templates/authopenid/email_validation.html:2
+#: templates/authopenid/verify_email.html:3
+#: templates/authopenid/verify_email.html:19
 msgid "Confirm your registration"
 msgstr "Potvrďte vaši registraci"
 
@@ -2019,7 +2013,9 @@ msgstr "Povolené typy obrázkových souborů jsou %(types)s"
 msgid "Sites"
 msgstr "Stránky"
 
-#: deps/livesettings/templates/livesettings/group_settings.html:19 deps/livesettings/templates/livesettings/site_settings.html:33 templates/base.html:292 templates/admin/common/move.html:7
+#: deps/livesettings/templates/livesettings/group_settings.html:19
+#: deps/livesettings/templates/livesettings/site_settings.html:33
+#: templates/base.html:292 templates/admin/common/move.html:7
 msgid "Home"
 msgstr "Domů"
 
@@ -2027,7 +2023,9 @@ msgstr "Domů"
 msgid "Edit Group Settings"
 msgstr "Upravit nastavení skupin"
 
-#: deps/livesettings/templates/livesettings/group_settings.html:27 deps/livesettings/templates/livesettings/site_settings.html:57 templates/admin/common/login.html:17
+#: deps/livesettings/templates/livesettings/group_settings.html:27
+#: deps/livesettings/templates/livesettings/site_settings.html:57
+#: templates/admin/common/login.html:17
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] "Opravte prosím chybu vypsanou níže."
@@ -2039,7 +2037,8 @@ msgstr[2] "Opravte prosím chyby vypsané níže."
 msgid "Settings included in %(name)s."
 msgstr "Nastavení zahrnuto v %(name)s."
 
-#: deps/livesettings/templates/livesettings/group_settings.html:67 deps/livesettings/templates/livesettings/site_settings.html:105
+#: deps/livesettings/templates/livesettings/group_settings.html:67
+#: deps/livesettings/templates/livesettings/site_settings.html:105
 msgid "You don't have permission to edit values."
 msgstr "Nemáte oprávnění upravovat hodnoty."
 
@@ -2047,7 +2046,10 @@ msgstr "Nemáte oprávnění upravovat hodnoty."
 msgid "Documentation"
 msgstr "Dokumentace"
 
-#: deps/livesettings/templates/livesettings/site_settings.html:30 templates/authopenid/signin.html:151 templates/authopenid/signin.html:302 templates/authopenid/widget_signin.html:149 templates/user_profile/user.html:64
+#: deps/livesettings/templates/livesettings/site_settings.html:30
+#: templates/authopenid/signin.html:151 templates/authopenid/signin.html:302
+#: templates/authopenid/widget_signin.html:149
+#: templates/user_profile/user.html:64
 msgid "Change password"
 msgstr "Změnit heslo"
 
@@ -2108,35 +2110,38 @@ msgstr "poslední potomek"
 msgid "Position of this item is"
 msgstr "Umístění této položky má být:"
 
-#: document/models.py:73
+#: document/models.py:76
 msgid "Is deleted"
 msgstr "Smazaný"
 
-#: document/models.py:79 templates/node/document/detail.html:6 templates/node/document/detail.html:164 templates/search/results/autocomplete_document.html:2 templates/search/results/document.html:9 utils/notify_users.py:29
+#: document/models.py:82 templates/node/document/detail.html:6
+#: templates/node/document/detail.html:164
+#: templates/search/results/autocomplete_document.html:2
+#: templates/search/results/document.html:9 utils/notify_users.py:30
 msgid "Document"
 msgstr "Dokument"
 
-#: document/models.py:175
+#: document/models.py:173
 msgid "Document revision"
 msgstr "Revize dokumentu"
 
-#: document/models.py:176
+#: document/models.py:174
 msgid "Documents revisions"
 msgstr "Revize dokumentů"
 
-#: document/models.py:319 templates/search/results/page.html:22
+#: document/models.py:323 templates/search/results/page.html:22
 msgid "Page"
 msgstr "Stránka"
 
-#: document/models.py:320
+#: document/models.py:324
 msgid "Pages"
 msgstr "Stránky"
 
-#: document/models.py:505
+#: document/models.py:509
 msgid "Page link"
 msgstr "Odkaz na stránce"
 
-#: document/models.py:506
+#: document/models.py:510
 msgid "Pages links"
 msgstr "Odkazy na stránkách"
 
@@ -2176,15 +2181,17 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: forms/__init__.py:217 templates/widgets/markdown_help.html:5 templates/widgets/markdown_help.html:9
+#: forms/__init__.py:226 templates/widgets/markdown_help.html:5
+#: templates/widgets/markdown_help.html:9
 msgid "title"
 msgstr "Název"
 
-#: forms/__init__.py:219 templates/node/base_thread_add.html:47 templates/node/base_thread_edit.html:47
+#: forms/__init__.py:228 templates/node/base_thread_add.html:47
+#: templates/node/base_thread_edit.html:47
 msgid "please enter a descriptive title for your question"
 msgstr "Prosím zadejte popisek pro vaši otázku"
 
-#: forms/__init__.py:230
+#: forms/__init__.py:239
 #, python-format
 msgid "title must be > %d character"
 msgid_plural "title must be > %d characters"
@@ -2192,55 +2199,56 @@ msgstr[0] "nadpis musí být > %d znak"
 msgstr[1] "nadpis musí být > %d znaků"
 msgstr[2] "nadpis musí být > %d znaků"
 
-#: forms/__init__.py:240
+#: forms/__init__.py:249
 #, python-format
 msgid "The title is too long, maximum allowed size is %d characters"
 msgstr "Nadpis je moc dlouhý, maximální povolená délka je %d znaků"
 
-#: forms/__init__.py:247
+#: forms/__init__.py:256
 #, python-format
 msgid "The title is too long, maximum allowed size is %d bytes"
 msgstr "Nadpis je moc dlouhý, maximální povolená velikost je %d bytů"
 
-#: forms/__init__.py:289
+#: forms/__init__.py:299
 #, python-format
 msgid "Question body must be > %d character"
 msgstr "Otázka musí mít více než %d znak"
 
-#: forms/__init__.py:291
+#: forms/__init__.py:300
 #, python-format
 msgid "Question body must be > %d characters"
 msgstr "Otázka musí mít více než %d znaků"
 
-#: forms/__init__.py:300
+#: forms/__init__.py:309
 #, python-format
 msgid "Text must be at least %d character long."
 msgstr "Text musí mít nejméňě %d znak."
 
-#: forms/__init__.py:301 forms/fields.py:82
+#: forms/__init__.py:310 forms/fields.py:90
 #, python-format
 msgid "Text must be at least %d characters long."
 msgstr "Text musí mít nejméňě %d znaků."
 
-#: forms/__init__.py:313
+#: forms/__init__.py:322
 #, python-format
 msgid "Each tag must be shorter than %(max_chars)d character."
 msgstr "Každý štítek musí být kratší než %(max_chars)d znaků."
 
-#: forms/__init__.py:314
+#: forms/__init__.py:323
 #, python-format
 msgid "Each tag must be shorter than %(max_chars)d characters."
 msgstr "Každý štítek musí být kratší než %(max_chars)d znaků"
 
-#: forms/__init__.py:354
+#: forms/__init__.py:363
 msgid "We ran out of space for recording the tags. Please shorten or delete some of them."
 msgstr ""
 
-#: forms/__init__.py:357 templates/node/base_post_edit.html:67 templates/search/search.html:7
+#: forms/__init__.py:366 templates/node/base_post_edit.html:67
+#: templates/search/search.html:7
 msgid "tags"
 msgstr "štítky"
 
-#: forms/__init__.py:359
+#: forms/__init__.py:368
 #, python-format
 msgid "Tags are short keywords, with no spaces within. Up to %(max_tags)d tag can be used."
 msgid_plural "Tags are short keywords, with no spaces within. Up to %(max_tags)d tags can be used."
@@ -2248,7 +2256,7 @@ msgstr[0] "Štítky jsou krátká slova bez mezer. Může být použito nanejvý
 msgstr[1] "Štítky jsou krátká slova bez mezer. Může být použito nanejvýš %(max_tags)d štítků."
 msgstr[2] "Štítky jsou krátká slova bez mezer. Může být použito nanejvýš %(max_tags)d štítků."
 
-#: forms/__init__.py:378
+#: forms/__init__.py:387
 #, python-format
 msgid "please use %(tag_count)d tag or less"
 msgid_plural "please use %(tag_count)d tags or less"
@@ -2256,96 +2264,103 @@ msgstr[0] "prosím použijte %(tag_count)d štítků nebo méně"
 msgstr[1] "prosím použijte %(tag_count)d štítků nebo méně"
 msgstr[2] "prosím použijte %(tag_count)d štítků nebo méně"
 
-#: forms/__init__.py:415
+#: forms/__init__.py:424
 msgid "update summary:"
 msgstr "upravit shrnutí:"
 
-#: forms/__init__.py:417
+#: forms/__init__.py:426
 msgid "enter a brief summary of your revision (e.g. fixed spelling, grammar, improved style, this field is optional)"
 msgstr "zadejte stručné shrnutí vaší opravy (např. opravené hláskování, gramatika, vylepšený styl, toto pole je nepovinné)"
 
-#: forms/__init__.py:504
+#: forms/__init__.py:513
 msgid "Subject line"
 msgstr "Řádka pro předmět"
 
-#: forms/__init__.py:509
+#: forms/__init__.py:518
 msgid "Message text"
 msgstr "Text zprávy"
 
-#: forms/__init__.py:523
+#: forms/__init__.py:532
 msgid "Your name (optional):"
 msgstr "Vaše jméno (nepovinné):"
 
-#: forms/__init__.py:524 templates/admin/common/login.html:33
+#: forms/__init__.py:533 templates/admin/common/login.html:33
 msgid "Email:"
 msgstr "Email:"
 
-#: forms/__init__.py:526
+#: forms/__init__.py:535
 msgid "Your message:"
 msgstr "Vaše zpráva:"
 
-#: forms/__init__.py:531
+#: forms/__init__.py:540
 msgid "I don't want to give my email or receive a response:"
 msgstr "Nechci poskytnout svůj email ani dostávat odpovědi:"
 
-#: forms/__init__.py:554
+#: forms/__init__.py:563
 msgid "Please mark \"I dont want to give my mail\" field."
 msgstr "Prosím zaškrtněte políčko \"Nechci poskytnout svůj email\"."
 
-#: forms/__init__.py:646
+#: forms/__init__.py:657
 msgid "Subject line is expected in the format: [tag1, tag2, tag3,...] question title"
 msgstr "Řádka pro předmět je požadována ve formátu: [štítek1, štítek2, štítek3,...] nadpis otázky"
 
-#: forms/__init__.py:773 templates/thread_close.html:50
+#: forms/__init__.py:785 templates/thread_close.html:50
 msgid "Reason"
 msgstr "Důvod"
 
-#: forms/__init__.py:845
+#: forms/__init__.py:857
 msgid "Allow external access"
 msgstr "Povolit externí přístup"
 
-#: forms/__init__.py:891
+#: forms/__init__.py:903
 msgid "Choose email tag filter"
 msgstr "Zvolte filtr štítků"
 
-#: forms/__init__.py:944
+#: forms/__init__.py:956
 msgid "Asked by me"
 msgstr "Mnou položené otázky"
 
-#: forms/__init__.py:947
+#: forms/__init__.py:959
 msgid "Answered by me"
 msgstr "Moje odpovědi"
 
-#: forms/__init__.py:950
+#: forms/__init__.py:962
 msgid "Individually selected"
 msgstr "Zasílat upozornění: "
 
-#: forms/__init__.py:953
+#: forms/__init__.py:965
 msgid "Entire forum (tag filtered)"
 msgstr "Celé fórum (štítky filtrovány)"
 
-#: forms/__init__.py:957
+#: forms/__init__.py:969
 msgid "Comments and posts mentioning me"
 msgstr "Komentáře a příspěvky, které mě zmiňují"
 
-#: forms/__init__.py:1041
+#: forms/__init__.py:1053
 msgid "please choose one of the options above"
 msgstr "prosím zvolte jednu z možností výše"
 
-#: forms/__init__.py:1044
+#: forms/__init__.py:1056
 msgid "okay, let's try!"
 msgstr "dobře, zkusme to!"
 
-#: forms/__init__.py:1047
+#: forms/__init__.py:1059
 #, python-format
 msgid "no %(sitename)s email please, thanks"
 msgstr "žádné %(sitename)s emaily, děkuji "
 
-#: forms/__init__.py:1095 models/cms.py:33 models/cms.py:72 templates/node/base_post_edit.html:25 templates/node/base_thread_add.html:48 templates/node/base_thread_add.html:56 templates/node/base_thread_edit.html:54 templates/node/edit_settings.html:46
+#: forms/__init__.py:1107 models/cms.py:33 models/cms.py:72
+#: templates/node/base_post_edit.html:25
+#: templates/node/base_thread_add.html:48
+#: templates/node/base_thread_add.html:56
+#: templates/node/base_thread_edit.html:54
+#: templates/node/edit_settings.html:46
 msgid "Title"
 msgstr "Nadpis"
 
-#: forms/__init__.py:1098 templates/node/base_thread_add.html:53 templates/user_profile/user_edit.html:83 templates/user_profile/user_overview.html:92
+#: forms/__init__.py:1110 templates/node/base_thread_add.html:53
+#: templates/user_profile/user_edit.html:83
+#: templates/user_profile/user_overview.html:92
 msgid "Description"
 msgstr "Popis"
 
@@ -2357,7 +2372,7 @@ msgstr "Neprve musí být smazáni všechny vnořené kluby."
 msgid "All ancestors of this node must not deleted."
 msgstr "Žádný z nadřazených klubů nesmí být smazaný."
 
-#: forms/fields.py:86
+#: forms/fields.py:94
 #, python-format
 msgid "Text must be shorter than %d characters."
 msgstr "Text musí být kratší než %d znaků."
@@ -2391,97 +2406,6 @@ msgstr "%s již je uživatel s rolí v klubu"
 #, python-format
 msgid "%s are already users with role in node."
 msgstr "%s jsou již uživatelé s rolí v klubu"
-
-#: libs/coex/utils.py:437
-#, python-format
-msgid "yesterday %(hours)d:%(minutes)02d"
-msgstr ""
-
-#: libs/coex/utils.py:439
-#, python-format
-msgid "%(hours)d hours ago"
-msgstr "před %(hours)d hodinami"
-
-#: libs/coex/utils.py:441
-msgid "an hour ago"
-msgstr "před hodinou"
-
-#: libs/coex/utils.py:443
-#, python-format
-msgid "%(minutes)d minutes ago"
-msgstr "před %(minutes)d minutami"
-
-#: libs/coex/utils.py:445
-msgid "1 minute ago"
-msgstr "před minutou"
-
-#: libs/coex/utils.py:447
-msgid "less then minute ago"
-msgstr "před méně než minutou"
-
-#: libs/templatetags/mptt_tags.py:30
-#, python-format
-msgid "full_tree_for_model tag was given an invalid model: %s"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:54
-#, python-format
-msgid "drilldown_tree_for_node tag was given an invalid model: %s"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:61
-#, python-format
-msgid "drilldown_tree_for_node tag was given an invalid model field: %s"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:88
-#, python-format
-msgid "%s tag requires three arguments"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:90 libs/templatetags/mptt_tags.py:145
-#, python-format
-msgid "second argument to %s tag must be 'as'"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:142
-#, python-format
-msgid "%s tag requires either three, seven or eight arguments"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:149
-#, python-format
-msgid "if seven arguments are given, fourth argument to %s tag must be 'with'"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:152
-#, python-format
-msgid "if seven arguments are given, sixth argument to %s tag must be 'in'"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:157
-#, python-format
-msgid "if eight arguments are given, fourth argument to %s tag must be 'cumulative'"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:160
-#, python-format
-msgid "if eight arguments are given, fifth argument to %s tag must be 'count'"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:163
-#, python-format
-msgid "if eight arguments are given, seventh argument to %s tag must be 'in'"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:253
-msgid "cache_tree_children was passed nodes in the wrong order!"
-msgstr ""
-
-#: libs/templatetags/mptt_tags.py:351
-#, python-format
-msgid "%s tag requires a queryset"
-msgstr ""
 
 #: mail/__init__.py:183
 msgid "<p>To ask by email, please:</p>"
@@ -2574,7 +2498,8 @@ msgstr[0] "<p>Vážený/á %(name)s,</p><p>Následující otázka byla aktualizo
 msgstr[1] "<p>Vážený/á %(name)s,</p><p>Následující %(num)d otázky byly aktualizovány na %(sitename)s:</p>"
 msgstr[2] "<p>Vážený/á %(name)s,</p><p>Následujících %(num)d otázek bylo aktualizováno na %(sitename)s:</p>"
 
-#: management/commands/send_email_alerts.py:454 management/commands/send_email_notifications.py:368
+#: management/commands/send_email_alerts.py:454
+#: management/commands/send_email_notifications.py:368
 msgid "new question"
 msgstr "nová otázka"
 
@@ -2583,7 +2508,8 @@ msgstr "nová otázka"
 msgid "<p>Please remember that you can always <a href=\"%(email_settings_link)s\">adjust</a> frequency of the email updates or turn them off entirely.<br/>If you believe that this message was sent in an error, please email about it the forum administrator at %(admin_email)s.</p><p>Sincerely,</p><p>Your friendly %(sitename)s server.</p>"
 msgstr "<p>Prosím nezapomeňte, že můžete vždy <a hrefl\"%(email_settings_link)s\">přizpůsobit</a> frekvenci emailových oznámení nebo je zcela vypnout.<br/>Pokud jste přesvědčeni, že tato zpráva byla zaslána omylem, napište o tom prosím administrátorovi fóra na %(admin_email)s.</p><p>S pozdravy</p><p>Váš server %(sitename)s server.</p>"
 
-#: management/commands/send_email_notifications.py:349 templates/email/notification.html:2 templates/email/notification.html:3
+#: management/commands/send_email_notifications.py:349
+#: templates/email/notification.html:2 templates/email/notification.html:3
 msgid "Updates overview"
 msgstr "Přehled novinek"
 
@@ -2627,11 +2553,13 @@ msgstr "%(num)d upravených odpovědí"
 msgid "%(num)d changed posts"
 msgstr "%(num)d změněných příspěvků"
 
-#: management/commands/send_email_notifications.py:417 utils/notify_users.py:112
+#: management/commands/send_email_notifications.py:417
+#: utils/notify_users.py:113
 msgid "Please remember that you can always adjust frequency of the email updates or turn them off entirely in your profile."
 msgstr "Nezapomeňte prosím, že si frekvenci zasílání novinek můžete kdykoliv nastavit ve svém profilu, případně je můžete úplně vypnout."
 
-#: management/commands/send_email_notifications.py:420 utils/notify_users.py:115
+#: management/commands/send_email_notifications.py:420
+#: utils/notify_users.py:116
 msgid "If you believe that this message was sent in an error, please contact us."
 msgstr "Pokud se domníváte, že vám tato zpráva byla zaslána nedopatřením, kontaktujte nás prosím."
 
@@ -3018,95 +2946,95 @@ msgstr "Položka menu"
 msgid "Menu items"
 msgstr "Položky menu"
 
-#: models/node.py:24 models/post.py:282 models/thread.py:484
+#: models/node.py:33 models/post.py:282 models/thread.py:484
 msgid "Create date"
 msgstr "Datum vytvoření"
 
-#: models/node.py:25 models/post.py:283 models/thread.py:485
+#: models/node.py:34 models/post.py:283 models/thread.py:485
 msgid "Change date"
 msgstr "Datum změny"
 
-#: models/node.py:47
+#: models/node.py:56
 msgid "Display node opened"
 msgstr "Zobrazovat kluby otevřený"
 
-#: models/node.py:48
+#: models/node.py:57
 msgid "Show node openen on homepage."
 msgstr "Zobrazí klub otevřený (rozkliknutý) na homepage"
 
-#: models/node.py:69
+#: models/node.py:78
 msgid "Node perex"
 msgstr "Perex klubu"
 
-#: models/node.py:70
+#: models/node.py:79
 msgid "Q&A perex"
 msgstr "Perex otázek"
 
-#: models/node.py:71
+#: models/node.py:80
 msgid "Forum perex"
 msgstr "Perex diskuzí"
 
-#: models/node.py:72 templates/node/edit_perexes.html:68
+#: models/node.py:81 templates/node/edit_perexes.html:68
 msgid "Annotation perex"
 msgstr "Perex anotace"
 
-#: models/node.py:73
+#: models/node.py:82
 msgid "Library perex"
 msgstr "Perex knihovny"
 
-#: models/node.py:75
+#: models/node.py:84
 msgid "Node perex important"
 msgstr "Důležitý perex klubu"
 
-#: models/node.py:76
+#: models/node.py:85
 msgid "Q&A perex important"
 msgstr "Důležitý perex Otázek"
 
-#: models/node.py:77
+#: models/node.py:86
 msgid "Forum perex important"
 msgstr "Důležitý perex diskuze"
 
-#: models/node.py:78
+#: models/node.py:87
 msgid "Annotation perex important"
 msgstr "Zvýraznění perexu anotace"
 
-#: models/node.py:79
+#: models/node.py:88
 msgid "Library perex important"
 msgstr "Zvýraznění perexu knihovny"
 
-#: models/node.py:145
+#: models/node.py:154
 msgid "PRIVATE"
 msgstr "PRIVÁTNÍ"
 
-#: models/node.py:146
+#: models/node.py:155
 msgid "PUBLIC"
 msgstr "VEŘEJNÝ"
 
-#: models/node.py:147
+#: models/node.py:156
 msgid "REGISTERED ONLY"
 msgstr "POUZE PRO REGISTROVANÉ"
 
-#: models/post.py:1412
+#: models/post.py:1400
 msgid "Sorry, this question has been deleted and is no longer accessible"
 msgstr "Promiňte, tato otázka byla smazána a již není přístupná"
 
-#: models/post.py:1428
+#: models/post.py:1416
 msgid "Sorry, the answer you are looking for is no longer available, because the parent question has been removed"
 msgstr "Promiňte, odpověď, kterou hledáte již není dostupná, protože nadřazená otázka byla odstraněna"
 
-#: models/post.py:1435
+#: models/post.py:1423
 msgid "Sorry, this answer has been removed and is no longer accessible"
 msgstr "Promiňte, tato odpověď byla odstraněna a již není přístupná"
 
-#: models/post.py:1451
+#: models/post.py:1439
 msgid "Sorry, the comment you are looking for is no longer accessible, because the parent question has been removed"
 msgstr "Promiňte, hledaný komentář již není přístupný, protože nadřazená otázka byla odstraněna"
 
-#: models/post.py:1458
+#: models/post.py:1446
 msgid "Sorry, the comment you are looking for is no longer accessible, because the parent answer has been removed"
 msgstr "Promiňte, hledaný komentář již není přístupný, protože nadřazená odpověď byla odstraněna"
 
-#: models/post.py:1478
+#: models/post.py:1466
 msgid "This post is temporarily not available"
 msgstr "Tento příspěvek je dočasně nedostupný"
 
@@ -3147,16 +3075,22 @@ msgstr "upraveno přes e-mail"
 msgid "New tags added to %s"
 msgstr "Nové štítky přidány k %s"
 
-#: models/tag.py:195 models/thread.py:1222
+#: models/tag.py:195 models/thread.py:1232
 #, python-format
 msgid "Tags %s are new and will be submitted for the moderators approval"
 msgstr ""
 
-#: models/tag.py:285 templates/list_suggested_tags.html:11 templates/tag_detail.html:4
+#: models/tag.py:285 templates/list_suggested_tags.html:11
+#: templates/tag_detail.html:4
 msgid "Tag"
 msgstr "Štítky"
 
-#: models/tag.py:286 templates/base.html:95 templates/homepage.html:149 templates/tag_list.html:4 templates/tag_list.html.py:7 templates/node/base_post_edit.html:61 templates/node/base_thread_add.html:64 templates/node/base_thread_edit.html:60 templates/search/search.html:163 templates/tags/header.html:9 templates/widgets/tag_category_selector.html:2
+#: models/tag.py:286 templates/base.html:95 templates/homepage.html:149
+#: templates/tag_list.html:4 templates/tag_list.html.py:7
+#: templates/node/base_post_edit.html:61
+#: templates/node/base_thread_add.html:64
+#: templates/node/base_thread_edit.html:60 templates/search/search.html:143
+#: templates/tags/header.html:9 templates/widgets/tag_category_selector.html:2
 msgid "Tags"
 msgstr "Štítky"
 
@@ -3177,7 +3111,7 @@ msgstr "Platné pouze pro dokument"
 msgid "Valid only for question"
 msgstr "Platné pouze pro otázku"
 
-#: models/thread.py:862
+#: models/thread.py:872
 #, python-format
 msgid "%(count)d answer:"
 msgid_plural "%(count)d answers:"
@@ -3185,7 +3119,7 @@ msgstr[0] "%(count)d odpověď:"
 msgstr[1] "%(count)d odpovědi:"
 msgstr[2] "%(count)d odpovědí:"
 
-#: models/thread.py:1217
+#: models/thread.py:1227
 #, python-format
 msgid "Tag %s is new and will be submitted for the moderators approval"
 msgstr ""
@@ -3242,39 +3176,44 @@ msgstr "Manažer přidal uživatele"
 msgid "Please give a list of valid email addresses."
 msgstr "prosím zadejte platné e-mailové adresy"
 
-#: models/user.py:509
-msgid "Please give a list of valid email domain names."
-msgstr "prosím zadejte platné e-mailové domény"
-
-#: models/user.py:584
+#: models/user.py:582
 msgid "action time"
 msgstr ""
 
-#: models/user.py:587
+#: models/user.py:585
 msgid "object id"
 msgstr "id objektu"
 
-#: models/user.py:588
+#: models/user.py:586
 msgid "object repr"
 msgstr "reprezentace objektu"
 
-#: models/user.py:590
+#: models/user.py:588
 msgid "action flag"
 msgstr ""
 
-#: models/user.py:591
+#: models/user.py:589
 msgid "change message"
 msgstr "Upravit zprávu"
 
-#: search/forms.py:19 templates/homepage.html:9 templates/homepage.html.py:94 templates/user_profile/user_overview.html:111
+#: search/forms.py:19 templates/homepage.html:9 templates/homepage.html.py:94
+#: templates/user_profile/user_overview.html:111
 msgid "Nodes"
 msgstr "Kluby"
 
-#: search/forms.py:23 templates/base.html:107 templates/organization_detail.html:8 templates/organization_list.html:4 templates/organization_list.html.py:7 templates/organization_list.html:25 templates/user_profile/user_overview.html:60
+#: search/forms.py:23 templates/base.html:107
+#: templates/organization_detail.html:8 templates/organization_list.html:4
+#: templates/organization_list.html.py:7 templates/organization_list.html:25
+#: templates/user_profile/user_overview.html:60
 msgid "Organizations"
 msgstr "Organizace"
 
-#: search/forms.py:24 templates/base.html:101 templates/organization_detail.html:5 templates/user_list.html:4 templates/user_list.html.py:7 templates/snippets/user_list.html:6 templates/user_profile/user.html:9 templates/user_profile/user.html:11 templates/user_profile/user_edit.html:22 templates/user_profile/user_edit.html:24
+#: search/forms.py:24 templates/base.html:101
+#: templates/organization_detail.html:5 templates/user_list.html:4
+#: templates/user_list.html.py:7 templates/snippets/user_list.html:6
+#: templates/user_profile/user.html:9 templates/user_profile/user.html:11
+#: templates/user_profile/user_edit.html:22
+#: templates/user_profile/user_edit.html:24
 msgid "Users"
 msgstr "Lidé"
 
@@ -3282,7 +3221,7 @@ msgstr "Lidé"
 msgid "Search in"
 msgstr "Hledat v"
 
-#: search/views.py:265
+#: search/views.py:270
 msgid "more results"
 msgstr "více výsledků"
 
@@ -3318,11 +3257,13 @@ msgstr "pokud si myslíte, že chyba 404 by se neměla objevit, prosím"
 msgid "report this problem"
 msgstr "ohlašte tento problém"
 
-#: templates/404.jinja.html:39 templates/404.jinja.html.py:48 templates/500.jinja.html:17
+#: templates/404.jinja.html:39 templates/404.jinja.html.py:48
+#: templates/500.jinja.html:17
 msgid "back to previous page"
 msgstr "zpět na předchozí stránku"
 
-#: templates/404.jinja.html:40 templates/node/snippets/thread_sort.html:10 templates/widgets/scope_nav.html:6
+#: templates/404.jinja.html:40 templates/node/snippets/thread_sort.html:10
+#: templates/widgets/scope_nav.html:6
 msgid "see all questions"
 msgstr "zobrazit všechny otázky"
 
@@ -3350,11 +3291,15 @@ msgstr "Používáte nepodporovaný prohlížeč."
 msgid "For a better experience using this site, please upgrade to a modern web browser."
 msgstr "Pro lepší využití těchto stránek prosím upgradujte na modernější webový prohlížeč."
 
-#: templates/base.html:79 templates/node/ask_to_join.html:39 templates/search/search.html:109 templates/user_profile/user_overview.html:183
+#: templates/base.html:79 templates/node/ask_to_join.html:39
+#: templates/search/search.html:109
+#: templates/user_profile/user_overview.html:183
 msgid "Register now!"
 msgstr "Zaregistrujte se!"
 
-#: templates/base.html:130 templates/base.html.py:132 templates/search/search.html:11 templates/search/search.html.py:17 templates/search/search.html:29
+#: templates/base.html:130 templates/base.html.py:132
+#: templates/search/search.html:11 templates/search/search.html.py:17
+#: templates/search/search.html:29
 msgid "Search"
 msgstr "Hledat"
 
@@ -3411,7 +3356,8 @@ msgstr "Prohlížet urážlivé značky"
 msgid "Offensive flags"
 msgstr "Označené za nevhodné"
 
-#: templates/base.html:261 templates/user_profile/user.html:53 templates/user_profile/user_edit.html:14
+#: templates/base.html:261 templates/user_profile/user.html:53
+#: templates/user_profile/user_edit.html:14
 msgid "Update profile"
 msgstr "Upravit profil"
 
@@ -3616,7 +3562,14 @@ msgstr "(Prosím zadejte captcha)"
 msgid "Send Feedback"
 msgstr "Odeslat zpětnou vazbu"
 
-#: templates/feedback.html:64 templates/subscribe_for_tags.html:14 templates/thread_retag.html:22 templates/authopenid/changeemail.html:50 templates/node/base_post_edit.html:115 templates/node/annotation/edit.html:37 templates/node/annotation/edit.html:43 templates/user_profile/reject_post_dialog.html:36 templates/user_profile/reject_post_dialog.html:74 templates/user_profile/reject_post_dialog.html:104
+#: templates/feedback.html:64 templates/subscribe_for_tags.html:14
+#: templates/thread_retag.html:22 templates/authopenid/changeemail.html:50
+#: templates/node/base_post_edit.html:115
+#: templates/node/annotation/edit.html:37
+#: templates/node/annotation/edit.html:43
+#: templates/user_profile/reject_post_dialog.html:36
+#: templates/user_profile/reject_post_dialog.html:74
+#: templates/user_profile/reject_post_dialog.html:104
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -3624,7 +3577,8 @@ msgstr "Zrušit"
 msgid "Add news"
 msgstr "Přidat novinku"
 
-#: templates/homepage.html:57 templates/cms/archive.html:18 templates/cms/archive.html.py:59
+#: templates/homepage.html:57 templates/cms/archive.html:18
+#: templates/cms/archive.html.py:59
 msgid "News archive"
 msgstr "Archiv novinek"
 
@@ -3636,7 +3590,15 @@ msgstr "Novinky"
 msgid "added"
 msgstr "přidáno"
 
-#: templates/homepage.html:69 templates/macros.html:334 templates/organization_detail.html:31 templates/revisions.html:38 templates/revisions.html.py:41 templates/cms/archive.html:27 templates/cms/static_page.html:14 templates/node/document/detail.html:93 templates/node/document/list.html:51 templates/node/snippets/answer_controls.html:69 templates/node/snippets/post_controls.html:71 templates/snippets/post_comments_widget.html:48 templates/widgets/organization_info.html:15
+#: templates/homepage.html:69 templates/macros.html:334
+#: templates/organization_detail.html:31 templates/revisions.html:38
+#: templates/revisions.html.py:41 templates/cms/archive.html:27
+#: templates/cms/static_page.html:14 templates/node/document/detail.html:93
+#: templates/node/document/list.html:51
+#: templates/node/snippets/answer_controls.html:69
+#: templates/node/snippets/post_controls.html:71
+#: templates/snippets/post_comments_widget.html:48
+#: templates/widgets/organization_info.html:15
 msgid "edit"
 msgstr "Upravit "
 
@@ -3648,7 +3610,8 @@ msgstr "Upravit seznam klubů"
 msgid "Add new node"
 msgstr "Přidat nový klub"
 
-#: templates/homepage.html:99 templates/organization_list.html:42 templates/node/snippets/thread_sort.html:8
+#: templates/homepage.html:99 templates/organization_list.html:42
+#: templates/node/snippets/thread_sort.html:8
 msgid "Show:"
 msgstr "Zobrazit:"
 
@@ -3660,7 +3623,9 @@ msgstr "pouze aktivní"
 msgid "active and closed"
 msgstr "aktivní i uzavřené"
 
-#: templates/homepage.html:136 templates/two_column_node_body.html:165 templates/user_profile/user_followed_discussions.html:30 templates/user_profile/user_followed_questions.html:30
+#: templates/homepage.html:136 templates/two_column_node_body.html:165
+#: templates/user_profile/user_followed_discussions.html:30
+#: templates/user_profile/user_followed_questions.html:31
 msgid "Mark all read"
 msgstr "Označit vše jako přečtené"
 
@@ -3732,31 +3697,51 @@ msgstr "Použít štítek \"%(name)s\" na všechny výše uvedené otázky."
 msgid "Reject tag"
 msgstr "znovunastavit štítky"
 
-#: templates/list_suggested_tags.html:58 templates/tag_list.html:16 templates/tag_list.html.py:39
+#: templates/list_suggested_tags.html:58 templates/tag_list.html:16
+#: templates/tag_list.html.py:39
 msgid "Nothing found"
 msgstr "Nic nenalezeno"
 
-#: templates/macros.html:229 templates/macros.html.py:269 templates/node/discussion/detail.html:183 templates/node/discussion/discussion_answer.html:10 templates/node/question/detail.html:112 templates/node/question/detail.html:213 templates/node/question/detail.html:218 templates/snippets/post_contributor_info.html:51
+#: templates/macros.html:229 templates/macros.html.py:269
+#: templates/node/discussion/detail.html:183
+#: templates/node/discussion/discussion_answer.html:10
+#: templates/node/question/detail.html:112
+#: templates/node/question/detail.html:213
+#: templates/node/question/detail.html:218
+#: templates/snippets/post_contributor_info.html:51
 msgid "updated"
 msgstr "aktualizováno"
 
-#: templates/macros.html:231 templates/macros.html.py:271 templates/node/question/detail.html:109 templates/snippets/post_contributor_info.html:10
+#: templates/macros.html:231 templates/macros.html.py:271
+#: templates/node/question/detail.html:109
+#: templates/snippets/post_contributor_info.html:10
 msgid "asked"
 msgstr "dotázáno"
 
-#: templates/macros.html:233 templates/macros.html.py:273 templates/node/question/detail.html:211 templates/snippets/post_contributor_info.html:12
+#: templates/macros.html:233 templates/macros.html.py:273
+#: templates/node/question/detail.html:211
+#: templates/snippets/post_contributor_info.html:12
 msgid "answered"
 msgstr "odpovězeno"
 
-#: templates/macros.html:235 templates/macros.html.py:275 templates/node/discussion/detail.html:180 templates/node/discussion/discussion_answer.html:7 templates/snippets/post_contributor_info.html:14
+#: templates/macros.html:235 templates/macros.html.py:275
+#: templates/node/discussion/detail.html:180
+#: templates/node/discussion/discussion_answer.html:7
+#: templates/snippets/post_contributor_info.html:14
 msgid "posted"
 msgstr "napsáno"
 
-#: templates/macros.html:326 templates/node/document/detail.html:80 templates/node/document/edit_directory.html:112 templates/node/snippets/post_controls.html:26
+#: templates/macros.html:326 templates/node/document/detail.html:80
+#: templates/node/document/edit_directory.html:112
+#: templates/node/snippets/post_controls.html:26
 msgid "Are you sure?"
 msgstr "Jste si jist/a?"
 
-#: templates/macros.html:327 templates/authopenid/signin.html:338 templates/authopenid/widget_signin.html:183 templates/node/document/detail.html:84 templates/node/snippets/answer_controls.html:28 templates/node/snippets/post_controls.html:30
+#: templates/macros.html:327 templates/authopenid/signin.html:338
+#: templates/authopenid/widget_signin.html:183
+#: templates/node/document/detail.html:84
+#: templates/node/snippets/answer_controls.html:28
+#: templates/node/snippets/post_controls.html:30
 msgid "delete"
 msgstr "Smazat"
 
@@ -3780,12 +3765,12 @@ msgstr[2] "%(count)s komentářů"
 msgid "Add comment"
 msgstr "Přidat komentář"
 
-#: templates/macros.html:520
+#: templates/macros.html:520 utils/notify_users.py:90
 #, python-format
 msgid "%(datetime)s created by <strong>%(user)s</strong>"
 msgstr "%(datetime)s vytvořeno uživatelem <strong>%(user)s</strong>"
 
-#: templates/macros.html:525
+#: templates/macros.html:525 utils/notify_users.py:87
 #, python-format
 msgid "%(datetime)s changed by <strong>%(user)s</strong>"
 msgstr "%(datetime)s změněno uživatelem <strong>%(user)s</strong>"
@@ -3805,19 +3790,23 @@ msgstr "uživatel <a href=\"%(url)s\">%(user)s</a>"
 msgid "closed at %(datetime)s"
 msgstr "uzavřeno %(datetime)s"
 
-#: templates/organization_detail.html:45 templates/widgets/organization_info.html:26
+#: templates/organization_detail.html:45
+#: templates/widgets/organization_info.html:26
 msgid "Join organization"
 msgstr "Vstoupit do organizace"
 
-#: templates/organization_detail.html:47 templates/widgets/organization_info.html:28
+#: templates/organization_detail.html:47
+#: templates/widgets/organization_info.html:28
 msgid "Ask to join organization"
 msgstr "Požádat o vstup do organizace"
 
-#: templates/organization_detail.html:49 templates/widgets/organization_info.html:30
+#: templates/organization_detail.html:49
+#: templates/widgets/organization_info.html:30
 msgid "Leave organization"
 msgstr "Opustit organizaci"
 
-#: templates/organization_detail.html:51 templates/widgets/organization_info.html:32
+#: templates/organization_detail.html:51
+#: templates/widgets/organization_info.html:32
 msgid "Cancel request ask to join organization"
 msgstr "Zrušit žádost o vstup do organizace"
 
@@ -3845,7 +3834,8 @@ msgstr "Moje organizace"
 msgid "Revision history"
 msgstr "Přehled úprav"
 
-#: templates/revisions.html:7 templates/thread_retag.html:5 templates/node/base_post_edit.html:8
+#: templates/revisions.html:7 templates/thread_retag.html:5
+#: templates/node/base_post_edit.html:8
 msgid "back"
 msgstr "zpět"
 
@@ -3870,11 +3860,13 @@ msgstr "Zapište se prosím pro následující štítky:"
 msgid "Subscribe"
 msgstr "Zapsat se"
 
-#: templates/thread_close.html:4 templates/thread_close.html.py:14 templates/thread_close.html:39 templates/thread_close.html.py:56
+#: templates/thread_close.html:4 templates/thread_close.html.py:14
+#: templates/thread_close.html:39 templates/thread_close.html.py:56
 msgid "Close question"
 msgstr "Uzavřít otázku"
 
-#: templates/thread_close.html:6 templates/thread_close.html.py:16 templates/thread_close.html:41 templates/thread_close.html.py:58
+#: templates/thread_close.html:6 templates/thread_close.html.py:16
+#: templates/thread_close.html:41 templates/thread_close.html.py:58
 msgid "Close discussion"
 msgstr "Uzavřít diskuzi"
 
@@ -3886,11 +3878,13 @@ msgstr "Zpět na otázku"
 msgid "Back to discussion"
 msgstr "Zpět do diskuze"
 
-#: templates/thread_reopen.html:4 templates/thread_reopen.html.py:14 templates/thread_reopen.html:35 templates/thread_reopen.html.py:74
+#: templates/thread_reopen.html:4 templates/thread_reopen.html.py:14
+#: templates/thread_reopen.html:35 templates/thread_reopen.html.py:74
 msgid "Reopen question"
 msgstr "Znovu otevřít otázku"
 
-#: templates/thread_reopen.html:6 templates/thread_reopen.html.py:16 templates/thread_reopen.html:37 templates/thread_reopen.html.py:76
+#: templates/thread_reopen.html:6 templates/thread_reopen.html.py:16
+#: templates/thread_reopen.html:37 templates/thread_reopen.html.py:76
 msgid "Reopen discussion"
 msgstr "Znovu otevřít diskuzi"
 
@@ -3938,35 +3932,47 @@ msgstr "nanejvýš 5 štítků, méně než 20 znaků pro každý"
 msgid "Edit node settings"
 msgstr "Upravit nastavení klubu"
 
-#: templates/two_column_node_body.html:26 templates/node/ask_to_join.html:19 templates/node/edit_settings.html:23
+#: templates/two_column_node_body.html:26 templates/node/ask_to_join.html:19
+#: templates/node/edit_settings.html:23
 msgid "Node settings"
 msgstr "Nastavení klubu"
 
-#: templates/two_column_node_body.html:32 templates/node/annotation/show.html:95
+#: templates/two_column_node_body.html:32
+#: templates/node/annotation/show.html:95
 msgid "click to follow this node"
 msgstr "klepněte pro sledování této otázky"
 
-#: templates/two_column_node_body.html:33 templates/node/annotation/show.html:96
+#: templates/two_column_node_body.html:33
+#: templates/node/annotation/show.html:96
 msgid "Follow node"
 msgstr "Sledovat klub"
 
-#: templates/two_column_node_body.html:35 templates/node/annotation/show.html:98
+#: templates/two_column_node_body.html:35
+#: templates/node/annotation/show.html:98
 msgid "You cannot unfollow this club, because you are manager"
 msgstr "Nemůžete přestat sledovat klub, protože jste jeho manažer"
 
-#: templates/two_column_node_body.html:35 templates/node/annotation/show.html:98
+#: templates/two_column_node_body.html:35
+#: templates/node/annotation/show.html:98
 msgid "click to unfollow this node"
 msgstr "klikněte pro nesledování tohoto klubu"
 
-#: templates/two_column_node_body.html:36 templates/node/annotation/show.html:99
+#: templates/two_column_node_body.html:36
+#: templates/node/annotation/show.html:99
 msgid "Unfollow node"
 msgstr "Nesledovat klub"
 
-#: templates/two_column_node_body.html:41 templates/two_column_node_body.html:70 templates/node/ask_to_join.html:23 templates/node/annotation/show.html:86 templates/search/results/autocomplete_node.html:2 templates/search/results/node.html:6 utils/notify_users.py:48
+#: templates/two_column_node_body.html:41
+#: templates/two_column_node_body.html:70 templates/node/ask_to_join.html:23
+#: templates/node/annotation/show.html:86
+#: templates/search/results/autocomplete_node.html:2
+#: templates/search/results/node.html:6 utils/notify_users.py:49
 msgid "Node"
 msgstr "Klub"
 
-#: templates/two_column_node_body.html:41 templates/node/ask_to_join.html:23 templates/node/base_thread_detail.html:25 templates/node/question/detail.html:101
+#: templates/two_column_node_body.html:41 templates/node/ask_to_join.html:23
+#: templates/node/base_thread_detail.html:25
+#: templates/node/question/detail.html:101
 msgid ":"
 msgstr ":"
 
@@ -3982,7 +3988,9 @@ msgstr "Tento klub byl uzavřen."
 msgid "This Node is read-only."
 msgstr "Tento Klub je pouze pro čtení."
 
-#: templates/two_column_node_body.html:84 templates/two_column_node_body.html:112 templates/two_column_node_body.html:140
+#: templates/two_column_node_body.html:84
+#: templates/two_column_node_body.html:112
+#: templates/two_column_node_body.html:140
 msgid "This Node is read-only"
 msgstr "Tento Klub je pouze pro čtení"
 
@@ -3990,7 +3998,9 @@ msgstr "Tento Klub je pouze pro čtení"
 msgid "Questions are read-only"
 msgstr "Otázky jsou pouze pro čtení."
 
-#: templates/two_column_node_body.html:97 templates/two_column_node_body.html:125 templates/two_column_node_body.html:153
+#: templates/two_column_node_body.html:97
+#: templates/two_column_node_body.html:125
+#: templates/two_column_node_body.html:153
 #, python-format
 msgid "%(count)s item"
 msgid_plural "%(count)s items"
@@ -3998,7 +4008,9 @@ msgstr[0] "%(count)s položka"
 msgstr[1] "%(count)s položky"
 msgstr[2] "%(count)s položek"
 
-#: templates/two_column_node_body.html:110 templates/node/discussion/detail.html:48 templates/node/discussion/detail.html:228
+#: templates/two_column_node_body.html:110
+#: templates/node/discussion/detail.html:48
+#: templates/node/discussion/detail.html:227
 msgid "Discussion"
 msgstr "Diskuze"
 
@@ -4018,7 +4030,8 @@ msgstr "Označit v tomto klubu vše jako přečtené."
 msgid "Password:"
 msgstr "Heslo:"
 
-#: templates/admin/document/state.html:5 templates/admin/document/state.html:11
+#: templates/admin/document/state.html:5
+#: templates/admin/document/state.html:11
 msgid "Documents state"
 msgstr "Stav dokumentu"
 
@@ -4038,69 +4051,72 @@ msgstr "Všechny dokumenty s chybou v průběhu OCR procesu"
 msgid "All document with error during OCR process and contains valid file"
 msgstr "Všechny dokumenty s chybou při OCR procesu obsahující validní soubor"
 
-#: templates/admin/document/state.html:38
+#: templates/admin/document/state.html:40
 #, fuzzy
 msgid "complete reprocess - 10"
 msgstr "Znovu zpracovat 10"
 
-#: templates/admin/document/state.html:39
+#: templates/admin/document/state.html:43
 #, fuzzy
 msgid "complete reprocess - all"
 msgstr "Znovu zpracovat vše"
 
-#: templates/admin/document/state.html:40
+#: templates/admin/document/state.html:46
 msgid "only retrive texts - 50"
 msgstr ""
 
-#: templates/admin/document/state.html:41
+#: templates/admin/document/state.html:50
 msgid "only retrive texts - all"
 msgstr ""
 
-#: templates/admin/document/state.html:47
+#: templates/admin/document/state.html:67
 msgid "Mayan state"
 msgstr ""
 
-#: templates/admin/document/state.html:52
+#: templates/admin/document/state.html:72
 msgid "Queue name"
 msgstr "Název fronty"
 
-#: templates/admin/document/state.html:56
+#: templates/admin/document/state.html:76
 msgid "Clean"
 msgstr "Vyčistit"
 
-#: templates/admin/document/state.html:62 templates/admin/document/state.html:70 templates/admin/document/state.html:88
+#: templates/admin/document/state.html:82
+#: templates/admin/document/state.html:90
+#: templates/admin/document/state.html:108
 msgid "State"
 msgstr "Stav"
 
-#: templates/admin/document/state.html:66
+#: templates/admin/document/state.html:86
 msgid "Documents in queue"
 msgstr "Dokumentů ve frontě"
 
-#: templates/admin/document/state.html:71
+#: templates/admin/document/state.html:91
 msgid "Count"
 msgstr "Počet"
 
-#: templates/admin/document/state.html:83
+#: templates/admin/document/state.html:103
 msgid "Files"
 msgstr ""
 
-#: templates/admin/document/state.html:87
+#: templates/admin/document/state.html:107
 msgid "Mimetype"
 msgstr ""
 
-#: templates/admin/document/state.html:89
+#: templates/admin/document/state.html:109
 msgid "Timestamp"
 msgstr ""
 
-#: templates/admin/document/state.html:90
+#: templates/admin/document/state.html:110
+#: templates/node/document/edit.html:60
 msgid "Size"
 msgstr ""
 
-#: templates/admin/document/state.html:91
+#: templates/admin/document/state.html:111
 msgid "Reprocess"
 msgstr "Znovu zpracovat"
 
-#: templates/admin/document/state.html:100
+#: templates/admin/document/state.html:120
 msgid "Reprocess in Mayan"
 msgstr "Znovu zpracovat v Mayanu"
 
@@ -4108,15 +4124,22 @@ msgstr "Znovu zpracovat v Mayanu"
 msgid "Please enter your <span>user name</span>, then sign in"
 msgstr "Prosím zadejte své span>uživatelské jméno</span>, pak se přihlašte"
 
-#: templates/authopenid/authopenid_macros.html:64 templates/authopenid/signin.html:244 templates/authopenid/widget_signin.html:103
+#: templates/authopenid/authopenid_macros.html:64
+#: templates/authopenid/signin.html:244
+#: templates/authopenid/widget_signin.html:103
 msgid "(or select another login method above)"
 msgstr "(nebo zvolte jiný způsob přihlášení výše)"
 
-#: templates/authopenid/authopenid_macros.html:66 templates/authopenid/signin.html:57 templates/authopenid/signin.html:85 templates/authopenid/signin.html:269 templates/authopenid/widget_signin.html:119
+#: templates/authopenid/authopenid_macros.html:66
+#: templates/authopenid/signin.html:57 templates/authopenid/signin.html:85
+#: templates/authopenid/signin.html:269
+#: templates/authopenid/widget_signin.html:119
 msgid "Sign in"
 msgstr "Přihlásit se"
 
-#: templates/authopenid/changeemail.html:2 templates/authopenid/changeemail.html:8 templates/authopenid/changeemail.html:48
+#: templates/authopenid/changeemail.html:2
+#: templates/authopenid/changeemail.html:8
+#: templates/authopenid/changeemail.html:48
 msgid "Change Email"
 msgstr "Změnit Email"
 
@@ -4289,7 +4312,9 @@ msgstr ""
 msgid "<strong>User description</strong>"
 msgstr "Registrace uživatelů"
 
-#: templates/authopenid/complete.html:71 templates/authopenid/signup_with_password.html:5 templates/authopenid/signup_with_password.html:106
+#: templates/authopenid/complete.html:71
+#: templates/authopenid/signup_with_password.html:5
+#: templates/authopenid/signup_with_password.html:106
 msgid "Signup"
 msgstr "Zaregistrovat se"
 
@@ -4317,11 +4342,14 @@ msgstr "Nicméně stále můžete být přihlášení ke svému OpenID poskytova
 msgid "account/"
 msgstr "účet/"
 
-#: templates/authopenid/signin.html:5 templates/authopenid/widget_signin.html:4
+#: templates/authopenid/signin.html:5
+#: templates/authopenid/widget_signin.html:4
 msgid "User login"
 msgstr "Přihlášení uživatele"
 
-#: templates/authopenid/signin.html:13 templates/authopenid/signup_with_password.html:16 templates/authopenid/verify_email.html:6 templates/cms/archive.html:55
+#: templates/authopenid/signin.html:13
+#: templates/authopenid/signup_with_password.html:16
+#: templates/authopenid/verify_email.html:6 templates/cms/archive.html:55
 msgid "Back to Homepage"
 msgstr "Zpět na úvodní stránku"
 
@@ -4333,7 +4361,32 @@ msgstr "Stránka přihlášení"
 msgid "help_login_page_short"
 msgstr "Na této stránce se můžete přihlásit, pokud již máte registrovaný účet."
 
-#: templates/authopenid/signin.html:16 templates/authopenid/signin.html:21 templates/authopenid/signup_with_password.html:20 templates/authopenid/verify_email.html:10 templates/cms/archive.html:59 templates/node/edit_perexes.html:26 templates/node/edit_settings.html:23 templates/node/followers.html:56 templates/node/annotation/edit.html:57 templates/node/annotation/show.html:86 templates/node/discussion/add.html:18 templates/node/discussion/detail.html:228 templates/node/discussion/edit.html:16 templates/node/discussion/edit_post.html:19 templates/node/discussion/followers.html:17 templates/node/discussion/last_visit.html:17 templates/node/discussion/list.html:44 templates/node/document/add.html:17 templates/node/document/detail.html:164 templates/node/document/edit.html:18 templates/node/document/edit_directory.html:23 templates/node/document/followers.html:17 templates/node/document/last_visit.html:17 templates/node/document/list.html:110 templates/node/question/add.html:17 templates/node/question/detail.html:329 templates/node/question/edit.html:16 templates/node/question/edit_post.html:19 templates/node/question/followers.html:18 templates/node/question/last_visit.html:17 templates/node/question/list.html:38 templates/user_profile/user_edit.html:14
+#: templates/authopenid/signin.html:16 templates/authopenid/signin.html:21
+#: templates/authopenid/signup_with_password.html:20
+#: templates/authopenid/verify_email.html:10 templates/cms/archive.html:59
+#: templates/node/edit_perexes.html:26 templates/node/edit_settings.html:23
+#: templates/node/followers.html:56 templates/node/annotation/edit.html:57
+#: templates/node/annotation/show.html:86
+#: templates/node/discussion/add.html:18
+#: templates/node/discussion/detail.html:227
+#: templates/node/discussion/edit.html:16
+#: templates/node/discussion/edit_post.html:19
+#: templates/node/discussion/followers.html:17
+#: templates/node/discussion/last_visit.html:17
+#: templates/node/discussion/list.html:44 templates/node/document/add.html:17
+#: templates/node/document/detail.html:164
+#: templates/node/document/edit.html:18
+#: templates/node/document/edit_directory.html:23
+#: templates/node/document/followers.html:17
+#: templates/node/document/last_visit.html:17
+#: templates/node/document/list.html:118 templates/node/question/add.html:17
+#: templates/node/question/detail.html:329
+#: templates/node/question/edit.html:16
+#: templates/node/question/edit_post.html:19
+#: templates/node/question/followers.html:18
+#: templates/node/question/last_visit.html:17
+#: templates/node/question/list.html:39
+#: templates/user_profile/user_edit.html:14
 msgid "More help"
 msgstr "Více nápovědy"
 
@@ -4342,7 +4395,8 @@ msgstr "Více nápovědy"
 msgid "help_login_page_html"
 msgstr "změnit nastavení klubu"
 
-#: templates/authopenid/signin.html:18 templates/user_profile/user_edit.html:10
+#: templates/authopenid/signin.html:18
+#: templates/user_profile/user_edit.html:10
 msgid "Back to Profile"
 msgstr "Zpět do Profilu"
 
@@ -4359,7 +4413,8 @@ msgstr "Na této stránce si můžete změnit své heslo. Prosíme, dvakrát opi
 msgid "help_change_password_page_html"
 msgstr "změnit nastavení klubu"
 
-#: templates/authopenid/signin.html:31 templates/authopenid/widget_signin.html:19
+#: templates/authopenid/signin.html:31
+#: templates/authopenid/widget_signin.html:19
 #, python-format
 msgid ""
 "\n"
@@ -4369,7 +4424,8 @@ msgstr ""
 "\n"
 "<span class=\"strong big\">Vaše odpověď na</span> <i>\"<strong>%(title)s</strong> %(summary)s...\"</i> <span class=\"strong big\">je uložena a bude odeslána jakmile se přihlásíte.</span>"
 
-#: templates/authopenid/signin.html:38 templates/authopenid/widget_signin.html:26
+#: templates/authopenid/signin.html:38
+#: templates/authopenid/widget_signin.html:26
 #, python-format
 msgid ""
 "Your question\n"
@@ -4377,11 +4433,13 @@ msgid ""
 "        "
 msgstr "<span class=\"strong big\">Vaše otázky</span> <i>\"<strong>%(title)s</strong> %(summary)s...\"</i> <span class=\"strong big\">byla uložena a bude odeslána ihned po vašem přihlášení.</span>"
 
-#: templates/authopenid/signin.html:61 templates/authopenid/signin.html:252 templates/authopenid/widget_signin.html:106
+#: templates/authopenid/signin.html:61 templates/authopenid/signin.html:252
+#: templates/authopenid/widget_signin.html:106
 msgid "Login failed, please try again"
 msgstr "Přihlášení selhalo, prosím zkuste to znovu"
 
-#: templates/authopenid/signin.html:86 templates/authopenid/signin.html:95 templates/authopenid/signup_with_password.html:31
+#: templates/authopenid/signin.html:86 templates/authopenid/signin.html:95
+#: templates/authopenid/signup_with_password.html:31
 msgid "Create new user account"
 msgstr "Vytvořit nový uživatelský účet"
 
@@ -4394,91 +4452,120 @@ msgstr "Nemáte oprávnění upravovat hodnoty."
 msgid "I have forgotten my password."
 msgstr "Zapomněl jsem své heslo"
 
-#: templates/authopenid/signin.html:125 templates/authopenid/signup_with_password.html:55 templates/node/base_thread_add.html:42 templates/node/base_thread_edit.html:33 templates/node/edit_perexes.html:39 templates/node/edit_settings.html:43 templates/node/discussion/detail.html:107 templates/node/question/detail.html:284 templates/user_profile/user_edit.html:40 templates/user_profile/user_overview.html:144
+#: templates/authopenid/signin.html:125
+#: templates/authopenid/signup_with_password.html:55
+#: templates/node/base_thread_add.html:42
+#: templates/node/base_thread_edit.html:33 templates/node/edit_perexes.html:39
+#: templates/node/edit_settings.html:43
+#: templates/node/discussion/detail.html:107
+#: templates/node/question/detail.html:284
+#: templates/user_profile/user_edit.html:40
+#: templates/user_profile/user_overview.html:144
 msgid "Cannot submit, form has errors."
 msgstr "Nelze odeslat, formulář obsahuje chyby."
 
-#: templates/authopenid/signin.html:129 templates/authopenid/signin.html:283 templates/authopenid/widget_signin.html:130
+#: templates/authopenid/signin.html:129 templates/authopenid/signin.html:283
+#: templates/authopenid/widget_signin.html:130
 msgid "New password"
 msgstr "Nové heslo"
 
-#: templates/authopenid/signin.html:139 templates/authopenid/signin.html:292 templates/authopenid/widget_signin.html:139
+#: templates/authopenid/signin.html:139 templates/authopenid/signin.html:292
+#: templates/authopenid/widget_signin.html:139
 msgid "Please, retype"
 msgstr "Znovu opište, prosím"
 
-#: templates/authopenid/signin.html:176 templates/authopenid/widget_signin.html:37
+#: templates/authopenid/signin.html:176
+#: templates/authopenid/widget_signin.html:37
 msgid "It's a good idea to make sure that your existing login methods still work, or add a new one. Please click any of the icons below to check/change or add new login methods."
 msgstr "Je dobré ověřit, že vaše stávající způsob přihlášení stále funguje nebo přidat nový způsob. Klepněte prosím na některou z ikonek níže pro kontrolu/změnu nebo přidání nového způsobu přihlášení."
 
-#: templates/authopenid/signin.html:178 templates/authopenid/widget_signin.html:39
+#: templates/authopenid/signin.html:178
+#: templates/authopenid/widget_signin.html:39
 msgid "Please add a more permanent login method by clicking one of the icons below, to avoid logging in via email each time."
 msgstr "Přidejte prosím trvalejší způsob přihlášení klepnutím na některou z ikonek níže k omezení nutnosti pokaždé se přihlašovat přes email. "
 
-#: templates/authopenid/signin.html:182 templates/authopenid/widget_signin.html:43
+#: templates/authopenid/signin.html:182
+#: templates/authopenid/widget_signin.html:43
 msgid "Click on one of the icons below to add a new login method or re-validate an existing one."
 msgstr "Klepněte na jednu z ikonek níže pro přidání nového způsobu přihlášení nebo znovuověření existujícího přihlášení."
 
-#: templates/authopenid/signin.html:184 templates/authopenid/widget_signin.html:45
+#: templates/authopenid/signin.html:184
+#: templates/authopenid/widget_signin.html:45
 msgid "You don't have a method to log in right now, please add one or more by clicking any of the icons below."
 msgstr "Nyní nemáte žádný způsob přihlášení, prosím přidejte jeden či více klepnutím na kteroukoliv ikonku níže."
 
-#: templates/authopenid/signin.html:187 templates/authopenid/widget_signin.html:48
+#: templates/authopenid/signin.html:187
+#: templates/authopenid/widget_signin.html:48
 msgid "Please check your email and visit the enclosed link to re-connect to your account"
 msgstr "Zkontrolujte prosím svůj email a přejděte na přiložený odkaz pro znovupřihlášení se k svému účtu"
 
-#: templates/authopenid/signin.html:236 templates/authopenid/widget_signin.html:95
+#: templates/authopenid/signin.html:236
+#: templates/authopenid/widget_signin.html:95
 msgid "or enter your <span>user name and password</span>, then sign in"
 msgstr "anebo zadejte své <span>uživatelské jméno a heslo</span> a pak se zaregistrujte"
 
-#: templates/authopenid/signin.html:240 templates/authopenid/widget_signin.html:99
+#: templates/authopenid/signin.html:240
+#: templates/authopenid/widget_signin.html:99
 msgid "Please, sign in"
 msgstr "Přihlašte se, prosím"
 
-#: templates/authopenid/signin.html:279 templates/authopenid/widget_signin.html:126
+#: templates/authopenid/signin.html:279
+#: templates/authopenid/widget_signin.html:126
 msgid "To change your password - please enter the new one twice, then submit"
 msgstr "Pro změnu vlastního hesla - zadejte prosím dvakrát nové heslo a pak odešlete"
 
-#: templates/authopenid/signin.html:318 templates/authopenid/widget_signin.html:163
+#: templates/authopenid/signin.html:318
+#: templates/authopenid/widget_signin.html:163
 msgid "Here are your current login methods"
 msgstr "Zde jsou vaše současné způsoby přihlašování"
 
-#: templates/authopenid/signin.html:322 templates/authopenid/widget_signin.html:167
+#: templates/authopenid/signin.html:322
+#: templates/authopenid/widget_signin.html:167
 msgid "provider"
 msgstr "poskytovatel"
 
-#: templates/authopenid/signin.html:323 templates/authopenid/widget_signin.html:168
+#: templates/authopenid/signin.html:323
+#: templates/authopenid/widget_signin.html:168
 msgid "last used"
 msgstr "naposledy použité"
 
-#: templates/authopenid/signin.html:324 templates/authopenid/widget_signin.html:169
+#: templates/authopenid/signin.html:324
+#: templates/authopenid/widget_signin.html:169
 msgid "delete, if you like"
 msgstr "smažte, chcete-li"
 
-#: templates/authopenid/signin.html:340 templates/authopenid/widget_signin.html:185
+#: templates/authopenid/signin.html:340
+#: templates/authopenid/widget_signin.html:185
 msgid "cannot be deleted"
 msgstr "nemůže být smazáno"
 
-#: templates/authopenid/signin.html:353 templates/authopenid/widget_signin.html:198
+#: templates/authopenid/signin.html:353
+#: templates/authopenid/widget_signin.html:198
 msgid "Still have trouble signing in?"
 msgstr "Přetrvávají potíže s přihlášením?"
 
-#: templates/authopenid/signin.html:358 templates/authopenid/widget_signin.html:203
+#: templates/authopenid/signin.html:358
+#: templates/authopenid/widget_signin.html:203
 msgid "Please, enter your email address below and obtain a new key"
 msgstr "Prosím, zadejte svou emailovou adresu níže a získejte nový klíč"
 
-#: templates/authopenid/signin.html:360 templates/authopenid/widget_signin.html:205
+#: templates/authopenid/signin.html:360
+#: templates/authopenid/widget_signin.html:205
 msgid "Please, enter your email address below to recover your account"
 msgstr "Prosím, zadejte svou emailovou adresu níže k obnovení vašeho účtu"
 
-#: templates/authopenid/signin.html:363 templates/authopenid/widget_signin.html:208
+#: templates/authopenid/signin.html:363
+#: templates/authopenid/widget_signin.html:208
 msgid "recover your account via email"
 msgstr "obnovit svůj účet přes email"
 
-#: templates/authopenid/signin.html:374 templates/authopenid/widget_signin.html:219
+#: templates/authopenid/signin.html:374
+#: templates/authopenid/widget_signin.html:219
 msgid "Send a new recovery key"
 msgstr "Zaslat nový obnovující klíč"
 
-#: templates/authopenid/signin.html:376 templates/authopenid/widget_signin.html:221
+#: templates/authopenid/signin.html:376
+#: templates/authopenid/widget_signin.html:221
 msgid "Recover your account via email"
 msgstr "Obnovte svůj účet přes e-mail"
 
@@ -4517,7 +4604,8 @@ msgstr ""
 "jednoduše znovupoužít svůj externí login (např. Gmail nebo AOL), aniž byste kdy\n"
 "sdílel své přihlašovací údaje s kýmkoliv a aniž byste si musel pamatovat další heslo."
 
-#: templates/authopenid/signup_with_password.html:65 templates/user_profile/user_edit.html:65
+#: templates/authopenid/signup_with_password.html:65
+#: templates/user_profile/user_edit.html:65
 msgid "Required information"
 msgstr "Povinné údaje"
 
@@ -4537,7 +4625,10 @@ msgstr "Heslo znovu"
 msgid "Retype your password for confirmation"
 msgstr "Opište své heslo pro kontrolu"
 
-#: templates/authopenid/signup_with_password.html:73 templates/user_profile/user_edit.html:68 templates/user_profile/user_overview.html:45 templates/user_profile/user_overview.html:170
+#: templates/authopenid/signup_with_password.html:73
+#: templates/user_profile/user_edit.html:68
+#: templates/user_profile/user_overview.html:45
+#: templates/user_profile/user_overview.html:170
 msgid "First name"
 msgstr "Jméno"
 
@@ -4545,7 +4636,10 @@ msgstr "Jméno"
 msgid "For example: \"John Allan\"."
 msgstr "Například: \"Anna-Marie\"."
 
-#: templates/authopenid/signup_with_password.html:74 templates/user_profile/user_edit.html:69 templates/user_profile/user_overview.html:49 templates/user_profile/user_overview.html:174
+#: templates/authopenid/signup_with_password.html:74
+#: templates/user_profile/user_edit.html:69
+#: templates/user_profile/user_overview.html:49
+#: templates/user_profile/user_overview.html:174
 msgid "Last name"
 msgstr "Příjmení"
 
@@ -4553,15 +4647,19 @@ msgstr "Příjmení"
 msgid "For example: \"Smith\"."
 msgstr "Například: \"Nováková\"."
 
-#: templates/authopenid/signup_with_password.html:78 templates/user_profile/user_edit.html:74
+#: templates/authopenid/signup_with_password.html:78
+#: templates/user_profile/user_edit.html:74
 msgid "Optional information"
 msgstr "Nepovinné údaje"
 
-#: templates/authopenid/signup_with_password.html:83 templates/user_profile/user_edit.html:79
+#: templates/authopenid/signup_with_password.html:83
+#: templates/user_profile/user_edit.html:79
 msgid "If you want do change your sigature to something else than first name and last name, please fill up the Screen name."
 msgstr "Chcete-li opravdu změnit váš podpis na něco jiného než jméno a příjmení, pak vyplňte Zobrazované jméno."
 
-#: templates/authopenid/signup_with_password.html:86 templates/node/edit_settings.html:106 templates/user_profile/user_edit.html:82
+#: templates/authopenid/signup_with_password.html:86
+#: templates/node/edit_settings.html:106
+#: templates/user_profile/user_edit.html:82
 msgid "Screen name"
 msgstr "Zobrazované jméno"
 
@@ -4721,7 +4819,8 @@ msgstr ""
 "Tým administrátorů<br />\n"
 "<a href=\"%(site_url)s\" title=\"%(site_name)s\">%(site_url)s</a>"
 
-#: templates/email/instant_notification.html:2 templates/email/instant_notification.html:3 utils/notify_users.py:25
+#: templates/email/instant_notification.html:2
+#: templates/email/instant_notification.html:3 utils/notify_users.py:26
 msgid "Notification"
 msgstr "Oznámení"
 
@@ -4792,7 +4891,8 @@ msgstr "In reply to %(author)s's comment:"
 msgid "Below is a copy of your post:"
 msgstr ""
 
-#: templates/email/re_welcome_lamson_on.html:2 templates/email/re_welcome_lamson_on.html:3
+#: templates/email/re_welcome_lamson_on.html:2
+#: templates/email/re_welcome_lamson_on.html:3
 #, python-format
 msgid "Great, you are ready to use %(site_name)s!"
 msgstr "Výborně, nyní můžete používat web %(site_name)s!"
@@ -4831,8 +4931,10 @@ msgstr ""
 "\n"
 "<p>Systém nedokázal úspěšně zpracovat vaši zprávu, kvůli tomu, že:<p>\n"
 
-#: templates/email/user_profile_email.html:2 templates/email/user_profile_email.html:3
-msgid "Email from your Pluto profile"
+#: templates/email/user_profile_email.html:2
+#: templates/email/user_profile_email.html:3
+#, fuzzy
+msgid "Email from your Openode profile"
 msgstr "E-mail z Vašeho profilu z ESF Fóra."
 
 #: templates/email/user_profile_email.html:6
@@ -4852,7 +4954,10 @@ msgstr "Chcete-li odpovědět, využijte formulář v jeho/jejím profilu (pokud
 msgid "Thank you for your registration!"
 msgstr "Děkujeme za vaši registraci!"
 
-#: templates/email/welcome_lamson_off.html:6 templates/email/welcome_lamson_off.html:7 templates/email/welcome_lamson_on.html:3 templates/email/welcome_lamson_on.html:4
+#: templates/email/welcome_lamson_off.html:6
+#: templates/email/welcome_lamson_off.html:7
+#: templates/email/welcome_lamson_on.html:3
+#: templates/email/welcome_lamson_on.html:4
 #, python-format
 msgid "Welcome to %(site_name)s!"
 msgstr "Vítejte v %(site_name)s,"
@@ -4890,7 +4995,12 @@ msgstr ""
 msgid "%(action)s an %(widget_name)s widget"
 msgstr ""
 
-#: templates/embed/widget_form.html:14 templates/node/base_thread_edit.html:71 templates/node/edit_perexes.html:150 templates/node/edit_settings.html:89 templates/node/edit_settings.html:155 templates/node/edit_settings.html:195 templates/node/document/edit.html:43 templates/user_profile/user_edit.html:102 templates/user_profile/user_email_subscriptions.html:105
+#: templates/embed/widget_form.html:14 templates/node/base_thread_edit.html:69
+#: templates/node/edit_perexes.html:150 templates/node/edit_settings.html:89
+#: templates/node/edit_settings.html:155 templates/node/edit_settings.html:195
+#: templates/node/document/edit.html:43
+#: templates/user_profile/user_edit.html:102
+#: templates/user_profile/user_email_subscriptions.html:105
 msgid "Save"
 msgstr "Uložit"
 
@@ -4923,7 +5033,8 @@ msgstr "Seznam otázek"
 msgid "Please note: %(app_name)s requires javascript to work properly, please enable javascript in your browser, <a href=\"%(noscript_url)s\">here is how</a>"
 msgstr "Mějte prosím na paměti: %(app_name)s vyžaduje správně fungující javascript, povolte prosím javascript ve svém prohlížeči. <a href=\"%(noscript_url)s\">zde najdete jak</a> "
 
-#: templates/node/ask_to_join.html:5 templates/node/ask_to_join.html.py:9 templates/node/ask_to_join.html:33
+#: templates/node/ask_to_join.html:5 templates/node/ask_to_join.html.py:9
+#: templates/node/ask_to_join.html:33
 msgid "Ask to join node"
 msgstr "Požádat o vstup do klubu"
 
@@ -4947,11 +5058,12 @@ msgstr "Klub je přístupný pouze na žádost registrovaným uživatelům."
 msgid "No content (no module active)."
 msgstr "Žádný obsah (není zapnut žádný modul)."
 
-#: templates/node/base_post_edit.html:4 templates/node/base_post_edit.html:8 templates/node/question/edit_post.html:19
+#: templates/node/base_post_edit.html:4 templates/node/base_post_edit.html:8
+#: templates/node/question/edit_post.html:19
 msgid "Edit answer"
 msgstr "Upravit odpověď"
 
-#: templates/node/base_post_edit.html:12
+#: templates/node/base_post_edit.html:12 templates/node/document/edit.html:57
 msgid "Revision"
 msgstr "Revize"
 
@@ -4971,23 +5083,33 @@ msgstr "štítky:"
 msgid "(required)"
 msgstr "(povinné)"
 
-#: templates/node/base_post_edit.html:90 templates/node/base_thread_edit.html:64
+#: templates/node/base_post_edit.html:90
+#: templates/node/base_thread_edit.html:64
 msgid "Summary"
 msgstr "Shrnutí"
 
-#: templates/node/base_post_edit.html:108 templates/node/base_post_edit.html:114 templates/node/annotation/edit.html:38 templates/node/annotation/edit.html:42
+#: templates/node/base_post_edit.html:108
+#: templates/node/base_post_edit.html:114
+#: templates/node/annotation/edit.html:38
+#: templates/node/annotation/edit.html:42
 msgid "Save edit"
 msgstr "Uložit úpravu"
 
-#: templates/node/base_thread_add.html:7 templates/node/base_thread_add.html:79 templates/widgets/ask_button.html:8
+#: templates/node/base_thread_add.html:7
+#: templates/node/base_thread_add.html:79 templates/widgets/ask_button.html:8
 msgid "Ask Your Question"
 msgstr "Položit vlastní otázku"
 
-#: templates/node/base_thread_add.html:9 templates/node/base_thread_add.html:81 templates/node/discussion/add.html:18 templates/node/discussion/list.html:31
+#: templates/node/base_thread_add.html:9
+#: templates/node/base_thread_add.html:81
+#: templates/node/discussion/add.html:18
+#: templates/node/discussion/list.html:31
 msgid "Start new discussion"
 msgstr "Začít novou diskuzi"
 
-#: templates/node/base_thread_add.html:11 templates/node/base_thread_add.html:83 templates/node/document/add.html:17 templates/node/document/list.html:87
+#: templates/node/base_thread_add.html:11
+#: templates/node/base_thread_add.html:83 templates/node/document/add.html:17
+#: templates/node/document/list.html:95
 msgid "Add new document"
 msgstr "Přidat nový dokument"
 
@@ -5003,7 +5125,8 @@ msgstr "Přidat diskuzi"
 msgid "Add document"
 msgstr "Přidat dokument"
 
-#: templates/node/base_thread_add.html:51 templates/node/base_thread_edit.html:49
+#: templates/node/base_thread_add.html:51
+#: templates/node/base_thread_edit.html:49
 msgid "please enter a descriptive title for your discussion"
 msgstr "Prosím zadejte popisný název pro vaši diskuzi"
 
@@ -5011,7 +5134,8 @@ msgstr "Prosím zadejte popisný název pro vaši diskuzi"
 msgid "Theme"
 msgstr ""
 
-#: templates/node/base_thread_add.html:55 templates/node/base_thread_edit.html:51
+#: templates/node/base_thread_add.html:55
+#: templates/node/base_thread_edit.html:51
 msgid "please enter a descriptive title for your document"
 msgstr "Prosím zadejte popisek vystihující dokument"
 
@@ -5047,15 +5171,19 @@ msgstr "Nesledovat tuto otázku"
 msgid "email the updates"
 msgstr "odesílat aktualizace mailem"
 
-#: templates/node/base_thread_detail.html:72 templates/node/annotation/show.html:111
+#: templates/node/base_thread_detail.html:72
+#: templates/node/annotation/show.html:111
 msgid "Show followers"
 msgstr "Zobrazit sledující"
 
-#: templates/node/base_thread_detail.html:75 templates/node/base_thread_detail.html:84
+#: templates/node/base_thread_detail.html:75
+#: templates/node/base_thread_detail.html:84
 msgid "Show last visits"
 msgstr "Zobrazit poslední návštěvy"
 
-#: templates/node/base_thread_detail.html:89 templates/node/edit_settings.html:30 templates/node/annotation/show.html:116
+#: templates/node/base_thread_detail.html:89
+#: templates/node/edit_settings.html:30
+#: templates/node/annotation/show.html:116
 msgid "Edit in admin"
 msgstr "Upravit ve správě systému"
 
@@ -5063,15 +5191,22 @@ msgstr "Upravit ve správě systému"
 msgid "Related content"
 msgstr "Související obsah"
 
-#: templates/node/base_thread_detail.html:121 templates/node/annotation/show.html:133 templates/node/question/list.html:47
+#: templates/node/base_thread_detail.html:121
+#: templates/node/annotation/show.html:133
+#: templates/node/question/list.html:48
 msgid "Stats"
 msgstr "Statistiky"
 
-#: templates/node/base_thread_detail.html:125 templates/node/annotation/show.html:137
+#: templates/node/base_thread_detail.html:125
+#: templates/node/annotation/show.html:137
 msgid "Activity"
 msgstr "Aktivita"
 
-#: templates/node/base_thread_detail.html:135 templates/node/base_thread_followers.html:3 templates/node/followers.html:4 templates/node/discussion/followers.html:8 templates/node/document/followers.html:8 templates/node/question/followers.html:8
+#: templates/node/base_thread_detail.html:135
+#: templates/node/base_thread_followers.html:3 templates/node/followers.html:4
+#: templates/node/discussion/followers.html:8
+#: templates/node/document/followers.html:8
+#: templates/node/question/followers.html:8
 msgid "Followers"
 msgstr "Sledující"
 
@@ -5079,15 +5214,20 @@ msgstr "Sledující"
 msgid "Viewed"
 msgstr "Zobrazeno"
 
-#: templates/node/base_thread_detail.html:143 templates/node/annotation/show.html:156
+#: templates/node/base_thread_detail.html:143
+#: templates/node/annotation/show.html:156
 msgid "Closed"
 msgstr "Uzavřeno"
 
-#: templates/node/base_thread_detail.html:147 templates/node/annotation/show.html:164 templates/node/question/list.html:55
+#: templates/node/base_thread_detail.html:147
+#: templates/node/annotation/show.html:164
+#: templates/node/question/list.html:56
 msgid "Your role"
 msgstr "Vaše role"
 
-#: templates/node/base_thread_detail.html:148 templates/node/annotation/show.html:165 templates/node/question/list.html:56
+#: templates/node/base_thread_detail.html:148
+#: templates/node/annotation/show.html:165
+#: templates/node/question/list.html:57
 msgid "Visitor"
 msgstr "Návštěvník"
 
@@ -5120,11 +5260,13 @@ msgstr "odeslat komentář / <strong>nějaké</strong> další"
 msgid "see <strong>some</strong> more"
 msgstr "prohlédnout <strong>nějaké</strong> další"
 
-#: templates/node/base_thread_detail.html:283 templates/node/base_thread_detail.html:351
+#: templates/node/base_thread_detail.html:283
+#: templates/node/base_thread_detail.html:351
 msgid "post a comment"
 msgstr "odeslat komentář"
 
-#: templates/node/base_thread_detail.html:422 templates/node/base_thread_detail.html:425
+#: templates/node/base_thread_detail.html:422
+#: templates/node/base_thread_detail.html:425
 msgid "hide preview"
 msgstr "skrýt náhled"
 
@@ -5136,24 +5278,36 @@ msgstr "zobrazit náhled"
 msgid "Edit"
 msgstr "Upravit"
 
-#: templates/node/base_thread_edit.html:22 templates/node/question/edit.html:16
+#: templates/node/base_thread_edit.html:22
+#: templates/node/question/edit.html:16
 msgid "Edit question"
 msgstr "Upravit otázku"
 
-#: templates/node/base_thread_edit.html:24 templates/node/discussion/edit.html:16
+#: templates/node/base_thread_edit.html:24
+#: templates/node/discussion/edit.html:16
 msgid "Edit discussion"
 msgstr "Upravit diskuzi"
 
-#: templates/node/base_thread_edit.html:26 templates/node/document/edit.html:18
+#: templates/node/base_thread_edit.html:26
+#: templates/node/document/edit.html:18
 msgid "Edit document"
 msgstr "Upravit dokument"
+
+#: templates/node/base_thread_edit.html:39
+#, fuzzy
+msgid "Directory"
+msgstr "Upravit Adresář"
 
 #: templates/node/base_thread_followers.html:7
 #, python-format
 msgid "Followers for %(thread_title)s"
 msgstr "Sledující %(thread_title)s"
 
-#: templates/node/base_thread_followers.html:12 templates/node/base_thread_last_visit.html:10 templates/node/followers.html:21 templates/search/results/autocomplete_user.html:3 templates/search/results/user.html:9
+#: templates/node/base_thread_followers.html:12
+#: templates/node/base_thread_last_visit.html:10
+#: templates/node/followers.html:21
+#: templates/search/results/autocomplete_user.html:3
+#: templates/search/results/user.html:9
 msgid "User"
 msgstr "Uživatel"
 
@@ -5161,15 +5315,20 @@ msgstr "Uživatel"
 msgid "Unread"
 msgstr "Nepřečteno"
 
-#: templates/node/base_thread_followers.html:14 templates/node/followers.html:22
+#: templates/node/base_thread_followers.html:14
+#: templates/node/followers.html:22
 msgid "Added at"
 msgstr "Přidáno v"
 
-#: templates/node/base_thread_followers.html:15 templates/node/base_thread_last_visit.html:12 templates/node/followers.html:23
+#: templates/node/base_thread_followers.html:15
+#: templates/node/base_thread_last_visit.html:12
+#: templates/node/followers.html:23
 msgid "Last visit"
 msgstr "Poslední návštěva"
 
-#: templates/node/base_thread_followers.html:17 templates/node/base_thread_followers.html:47 templates/node/document/edit.html:35
+#: templates/node/base_thread_followers.html:17
+#: templates/node/base_thread_followers.html:47
+#: templates/node/document/edit.html:35
 msgid "Remove"
 msgstr "Odstranit"
 
@@ -5190,7 +5349,8 @@ msgstr "Nezobrazeno"
 msgid "Edit Node Perexes"
 msgstr "Upravit perexy klubu"
 
-#: templates/node/edit_perexes.html:22 templates/node/edit_settings.html:19 templates/node/followers.html:52
+#: templates/node/edit_perexes.html:22 templates/node/edit_settings.html:19
+#: templates/node/followers.html:52
 msgid "Back to Node"
 msgstr "Zpět do klubu"
 
@@ -5226,7 +5386,9 @@ msgstr ""
 "<p>Pokud chcete přidat nový příspěvek do diskuze, vložte text do hlavního editačního pole (máte možnost vložit odkazy, použít formátování textu atp.). V případě, že chcete ke zprávě přiložit jeden nebo více souborů, použijte tlačítko 'Procházet' (nebo 'Browse' v závislosti na nastavení Vašeho počítače) k nalezení souboru a soubor nahrajte tlačítkem 'Připojit soubor'. Tato operace může trvat i několik minut v závislosti na velikosti souboru a rychlosti Vašeho připojení. Další soubory připojíte stejným postupem.\n"
 "Připojené soubory se zobrazí v náhledu zprávy pod textem. Pokud chcete nekterý z nich ze zprávy odstranit, zrušte zaškrtnutí u jeho jména.</p>"
 
-#: templates/node/edit_perexes.html:51 templates/node/edit_perexes.html:73 templates/node/edit_perexes.html:94 templates/node/edit_perexes.html:114 templates/node/edit_perexes.html:134
+#: templates/node/edit_perexes.html:51 templates/node/edit_perexes.html:73
+#: templates/node/edit_perexes.html:94 templates/node/edit_perexes.html:114
+#: templates/node/edit_perexes.html:134
 msgid "hilight perex as important"
 msgstr "zvýraznit perex jako důležitý"
 
@@ -5379,7 +5541,8 @@ msgstr "Je zodpovědný"
 msgid "Resp."
 msgstr "Zodp."
 
-#: templates/node/edit_settings.html:110 templates/node/document/edit_directory.html:112
+#: templates/node/edit_settings.html:110
+#: templates/node/document/edit_directory.html:112
 msgid "Delete"
 msgstr "Smazat"
 
@@ -5437,7 +5600,8 @@ msgstr "Na této stránce se zobrazuje přehled všech uživatelů, kteří sled
 msgid "help_node_followers_html"
 msgstr "změnit nastavení klubu"
 
-#: templates/node/annotation/edit.html:5 templates/node/annotation/show.html:41
+#: templates/node/annotation/edit.html:5
+#: templates/node/annotation/show.html:41
 msgid "Edit annotation"
 msgstr "Upravit anotaci"
 
@@ -5507,7 +5671,8 @@ msgstr "Počet sledujících"
 msgid "Readonly"
 msgstr "Jen pro čtení"
 
-#: templates/node/annotation/show.html:160 templates/node/question/list.html:51
+#: templates/node/annotation/show.html:160
+#: templates/node/question/list.html:52
 msgid "Visibility"
 msgstr "Viditelnost klubu"
 
@@ -5561,19 +5726,19 @@ msgstr[0] "%(counter)s Příspěvek"
 msgstr[1] "%(counter)s Příspěvků"
 msgstr[2] "%(counter)s Příspěvků"
 
-#: templates/node/discussion/detail.html:222
+#: templates/node/discussion/detail.html:221
 msgid "There are no discussion posts in this Node."
 msgstr "Tento klub neobsahuje žádné příspěvky v diskuzi."
 
-#: templates/node/discussion/detail.html:228
+#: templates/node/discussion/detail.html:227
 msgid "help_discussion_detail_short"
 msgstr "Na této stránce je přehled diskuzních příspěvků uživatelů. Téma diskuze je shodné s předmětem (názvem) klubu. Chcete-li sledovat nové příspěvky pouze z diskuze (nikoliv z celého klubu) klepněte na tlačítko \"Sledovat\""
 
-#: templates/node/discussion/detail.html:228
+#: templates/node/discussion/detail.html:227
 msgid "help_discussion_detail_html"
 msgstr ""
 
-#: templates/node/discussion/detail.html:229
+#: templates/node/discussion/detail.html:228
 msgid "Discussion tools"
 msgstr "Nástroje diskuze"
 
@@ -5581,7 +5746,10 @@ msgstr "Nástroje diskuze"
 msgid "Edit Discussion"
 msgstr "Upravit diskuzi"
 
-#: templates/node/discussion/edit.html:12 templates/node/discussion/edit_post.html:15 templates/node/discussion/followers.html:13 templates/node/discussion/last_visit.html:13
+#: templates/node/discussion/edit.html:12
+#: templates/node/discussion/edit_post.html:15
+#: templates/node/discussion/followers.html:13
+#: templates/node/discussion/last_visit.html:13
 msgid "Back to Discussion"
 msgstr "Zpět do diskuze"
 
@@ -5621,7 +5789,9 @@ msgstr "Na této stránce lze vidět přehled všech uživatelů sledujících k
 msgid "help_node_discussion_followers_html"
 msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, otázky a odpovědi, diskuzi a dokumenty..."
 
-#: templates/node/discussion/last_visit.html:8 templates/node/document/last_visit.html:8 templates/node/question/last_visit.html:8
+#: templates/node/discussion/last_visit.html:8
+#: templates/node/document/last_visit.html:8
+#: templates/node/question/last_visit.html:8
 msgid "Last Visits"
 msgstr "Poslední návštěvy"
 
@@ -5642,7 +5812,8 @@ msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat a
 msgid "Forum"
 msgstr "Fórum"
 
-#: templates/node/discussion/list.html:43 templates/node/discussion/list.html:44
+#: templates/node/discussion/list.html:43
+#: templates/node/discussion/list.html:44
 #, fuzzy
 msgid "help_discussion_list_short"
 msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, otázky a odpovědi, diskuzi a dokumenty..."
@@ -5660,7 +5831,8 @@ msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat a
 msgid "Add New Document"
 msgstr "Přidat nový dokument"
 
-#: templates/node/document/add.html:13 templates/node/document/detail.html:159 templates/node/document/edit_directory.html:19
+#: templates/node/document/add.html:13 templates/node/document/detail.html:159
+#: templates/node/document/edit_directory.html:19
 msgid "Back to Documents"
 msgstr "Zpět na dokumenty"
 
@@ -5685,7 +5857,9 @@ msgstr "Stáhnout soubor"
 msgid "Document file not found."
 msgstr "Soubor dokumentu nebyl nalezen."
 
-#: templates/node/document/detail.html:82 templates/node/snippets/answer_controls.html:26 templates/node/snippets/post_controls.html:28
+#: templates/node/document/detail.html:82
+#: templates/node/snippets/answer_controls.html:26
+#: templates/node/snippets/post_controls.html:28
 msgid "undelete"
 msgstr "obnovit"
 
@@ -5717,7 +5891,9 @@ msgstr "Nástroje dokumentu"
 msgid "Edit Document"
 msgstr "Upravit dokument"
 
-#: templates/node/document/edit.html:14 templates/node/document/followers.html:13 templates/node/document/last_visit.html:13
+#: templates/node/document/edit.html:14
+#: templates/node/document/followers.html:13
+#: templates/node/document/last_visit.html:13
 msgid "Back to Document"
 msgstr "Zpět na dokument"
 
@@ -5734,15 +5910,38 @@ msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat a
 msgid "Change file"
 msgstr "Změnit soubor"
 
-#: templates/node/document/edit.html:34
+#: templates/node/document/edit.html:34 templates/node/document/edit.html:70
 msgid "Actual"
 msgstr "Současný"
+
+#: templates/node/document/edit.html:51
+#, fuzzy
+msgid "File revision history"
+msgstr "Přehled úprav"
+
+#: templates/node/document/edit.html:58
+msgid "Type"
+msgstr ""
+
+#: templates/node/document/edit.html:59
+msgid "File"
+msgstr ""
+
+#: templates/node/document/edit.html:61
+msgid "Revised at"
+msgstr ""
+
+#: templates/node/document/edit.html:62
+#, fuzzy
+msgid "Revised by"
+msgstr "Navrženo kým"
 
 #: templates/node/document/edit_directory.html:12
 msgid "Edit Directory"
 msgstr "Upravit Adresář"
 
-#: templates/node/document/edit_directory.html:14 templates/node/document/list.html:91
+#: templates/node/document/edit_directory.html:14
+#: templates/node/document/list.html:99
 msgid "Add New Directory"
 msgstr "Přidat nový adresář"
 
@@ -5801,19 +6000,23 @@ msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat a
 msgid "help_node_document_visits_html"
 msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, otázky a odpovědi, diskuzi a dokumenty..."
 
-#: templates/node/document/list.html:82
+#: templates/node/document/list.html:55
+msgid "NEW"
+msgstr ""
+
+#: templates/node/document/list.html:90
 msgid "There are no Documents in this Node."
 msgstr "Tento klub neobsahuje žádné dokumenty."
 
-#: templates/node/document/list.html:95
+#: templates/node/document/list.html:103
 msgid "Change order"
 msgstr "Změnit pořadí"
 
-#: templates/node/document/list.html:108 templates/node/document/list.html:110
+#: templates/node/document/list.html:116 templates/node/document/list.html:118
 msgid "help_document_list_short"
 msgstr "Na této stránce je zobrazen přehled dokumentů. Přehled dokumentů může být zobrazen v klasické stromové struktuře. Strom složek si pamatuje Vaše poslední nastavení - tj. rozbalení či sbalení složek."
 
-#: templates/node/document/list.html:110
+#: templates/node/document/list.html:118
 #, fuzzy
 msgid "help_document_list_html"
 msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, otázky a odpovědi, diskuzi a dokumenty..."
@@ -5826,7 +6029,7 @@ msgstr "Položit vlastní otázku"
 msgid "Back to Questions"
 msgstr "Zpět na otázky"
 
-#: templates/node/question/add.html:17 templates/node/question/list.html:26
+#: templates/node/question/add.html:17 templates/node/question/list.html:28
 msgid "Ask your question"
 msgstr "Položit vlastní otázku"
 
@@ -5843,7 +6046,10 @@ msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat a
 msgid "This question has been closed for the following reason:"
 msgstr "Otázka byla uzavřena z následujícího důvodu:"
 
-#: templates/node/question/detail.html:101 templates/node/question/detail.html:329 templates/search/results/question.html:9 utils/notify_users.py:27 utils/notify_users.py:98
+#: templates/node/question/detail.html:101
+#: templates/node/question/detail.html:329
+#: templates/search/results/question.html:9 utils/notify_users.py:28
+#: utils/notify_users.py:99
 msgid "Question"
 msgstr "Otázka"
 
@@ -5855,7 +6061,8 @@ msgstr[0] "%(counter)s Odpověď"
 msgstr[1] "%(counter)s Odpovědi"
 msgstr[2] "%(counter)s odpovědí"
 
-#: templates/node/question/detail.html:176 templates/snippets/post_vote_buttons.html:3
+#: templates/node/question/detail.html:176
+#: templates/snippets/post_vote_buttons.html:3
 msgid "current number of votes"
 msgstr "současný počet hlasů"
 
@@ -5911,7 +6118,10 @@ msgstr "Nástroje otázky"
 msgid "Edit Question"
 msgstr "Upravit otázku"
 
-#: templates/node/question/edit.html:12 templates/node/question/edit_post.html:15 templates/node/question/followers.html:14 templates/node/question/last_visit.html:13
+#: templates/node/question/edit.html:12
+#: templates/node/question/edit_post.html:15
+#: templates/node/question/followers.html:14
+#: templates/node/question/last_visit.html:13
 msgid "Back to Question"
 msgstr "Zpět na otázku"
 
@@ -5970,15 +6180,15 @@ msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat a
 msgid "There are no questions in this Node."
 msgstr "Tento klub neobsahuje žádné otázky."
 
-#: templates/node/question/list.html:38
+#: templates/node/question/list.html:39
 msgid "Question list"
 msgstr "Seznam otázek"
 
-#: templates/node/question/list.html:38
+#: templates/node/question/list.html:39
 msgid "help_question_list_short"
 msgstr "Nacházíte se na stránce s přehledem otázek v rámci daného klubu. Pod otázkami mohou být uvedeny štítky (klíčová slova), ke kterým se otázky vztahují. Otázky lze  filtrovat dle typů (např. jen nezodpovězené nebo se správnou odpovědí). U každé otázky lze vidět počet odpovědí a počet zobrazení otázky. Položka \"Zodpovědné osoby\" zobrazuje ikonu a odkaz na profil uživatele, který je zodpověný za obsah klubu. Pokud nenaleznete odpověď na svůj dotaz mezi položenými či zodpovězenými otázkami, kliknutím na tlačítko \"Položit vlastní otázku\" budete moci přidat nový dotaz."
 
-#: templates/node/question/list.html:38
+#: templates/node/question/list.html:39
 #, fuzzy
 msgid "help_question_list_html"
 msgstr "Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, otázky a odpovědi, diskuzi a dokumenty..."
@@ -5991,7 +6201,8 @@ msgstr "zaměnit za otázku"
 msgid "permanent link"
 msgstr "trvalý odkaz"
 
-#: templates/node/snippets/answer_controls.html:17 templates/widgets/markdown_help.html:5
+#: templates/node/snippets/answer_controls.html:17
+#: templates/widgets/markdown_help.html:5
 msgid "link"
 msgstr "Odkaz"
 
@@ -5999,15 +6210,23 @@ msgstr "Odkaz"
 msgid "remove offensive flag"
 msgstr "odstranit označení jako nevhodné"
 
-#: templates/node/snippets/answer_controls.html:39 templates/node/snippets/post_controls.html:41
+#: templates/node/snippets/answer_controls.html:39
+#: templates/node/snippets/post_controls.html:41
 msgid "remove flag"
 msgstr "odebrat značku"
 
-#: templates/node/snippets/answer_controls.html:43 templates/node/snippets/answer_controls.html:49 templates/node/snippets/post_controls.html:40 templates/node/snippets/post_controls.html:43 templates/node/snippets/post_controls.html:47
+#: templates/node/snippets/answer_controls.html:43
+#: templates/node/snippets/answer_controls.html:49
+#: templates/node/snippets/post_controls.html:40
+#: templates/node/snippets/post_controls.html:43
+#: templates/node/snippets/post_controls.html:47
 msgid "report as offensive (i.e containing spam, advertising, malicious text, etc.)"
 msgstr "nahlásit jako nevhodné (tj. obsahující spam, reklamu, škodlivý text apod.)"
 
-#: templates/node/snippets/answer_controls.html:44 templates/node/snippets/answer_controls.html:50 templates/node/snippets/post_controls.html:44 templates/node/snippets/post_controls.html:48
+#: templates/node/snippets/answer_controls.html:44
+#: templates/node/snippets/answer_controls.html:50
+#: templates/node/snippets/post_controls.html:44
+#: templates/node/snippets/post_controls.html:48
 msgid "flag offensive"
 msgstr "označit za nevhodné"
 
@@ -6059,7 +6278,8 @@ msgstr "Můžete rozšířit své hledání tím, že"
 msgid "resetting author"
 msgstr "znovunastavením autora"
 
-#: templates/node/snippets/nothing_found.html:18 templates/node/snippets/nothing_found.html:21
+#: templates/node/snippets/nothing_found.html:18
+#: templates/node/snippets/nothing_found.html:21
 msgid " or "
 msgstr "nebo"
 
@@ -6067,9 +6287,34 @@ msgstr "nebo"
 msgid "resetting tags"
 msgstr "znovunastavením štítků"
 
-#: templates/node/snippets/nothing_found.html:22 templates/node/snippets/nothing_found.html:25
+#: templates/node/snippets/nothing_found.html:22
+#: templates/node/snippets/nothing_found.html:25
 msgid "starting over"
 msgstr "začnutím znovu"
+
+#: templates/node/snippets/paginator.html:9
+#: templates/node/snippets/paginator.html:10
+#: templates/search/_pagination.html:6 templates/search/_pagination.html:8
+#: templates/snippets/paginator.html:7 templates/snippets/paginator.html:8
+msgid "previous"
+msgstr "předchozí"
+
+#: templates/node/snippets/paginator.html:21
+#: templates/snippets/paginator.html:24
+msgid "current page"
+msgstr "tato stránka"
+
+#: templates/node/snippets/paginator.html:23
+#: templates/node/snippets/paginator.html:30
+#: templates/snippets/paginator.html:26 templates/snippets/paginator.html:33
+#, python-format
+msgid "page %(num)s"
+msgstr "stránka %(num)s"
+
+#: templates/node/snippets/paginator.html:34
+#: templates/snippets/paginator.html:39 templates/snippets/paginator.html:40
+msgid "next page"
+msgstr "následující stránka"
 
 #: templates/node/snippets/post_controls.html:15
 msgid "reopen question"
@@ -6095,7 +6340,9 @@ msgstr "Zaslat email, když se objeví nějaká nová odpověď"
 msgid "<span class='strong'>Here</span> (once you log in) you will be able to sign up for the periodic email updates about this question."
 msgstr "<span class='strong'>Zde</span>(jakmile se přihlásíte) se budete moci zapsat pro pravidelné emailové aktualizace o této otázce."
 
-#: templates/node/snippets/thread_sort.html:14 templates/node/snippets/thread_sort.html:21 templates/widgets/scope_nav.html:8
+#: templates/node/snippets/thread_sort.html:14
+#: templates/node/snippets/thread_sort.html:21
+#: templates/widgets/scope_nav.html:8
 msgid "see unanswered questions"
 msgstr "zobrazit nezodpovězené otázky"
 
@@ -6119,7 +6366,8 @@ msgstr "zobrazit diskuze bez příspěvků"
 msgid "no posts"
 msgstr "bez příspěvků"
 
-#: templates/node/snippets/thread_sort.html:31 templates/widgets/scope_nav.html:11
+#: templates/node/snippets/thread_sort.html:31
+#: templates/widgets/scope_nav.html:11
 msgid "see your followed questions"
 msgstr "zobrazit své sledované otázky"
 
@@ -6127,7 +6375,8 @@ msgstr "zobrazit své sledované otázky"
 msgid "followed"
 msgstr "sledované"
 
-#: templates/node/snippets/thread_sort.html:39 templates/snippets/user_list.html:15
+#: templates/node/snippets/thread_sort.html:39
+#: templates/snippets/user_list.html:15
 msgid "Sort by:"
 msgstr "Řadit dle:"
 
@@ -6155,6 +6404,10 @@ msgstr "klikněte pro zobrazení diskuzí s nejmenším počtem příspěvků"
 msgid "click to see the most posted discussions"
 msgstr "klikněte pro zobrazení diskuzí s nejvyšším počtem příspěvků"
 
+#: templates/search/_pagination.html:14 templates/search/_pagination.html:16
+msgid "next"
+msgstr "další"
+
 #: templates/search/search.html:5 templates/search/search.html.py:35
 msgid "Search results"
 msgstr "Výsledky vyhledávání"
@@ -6163,23 +6416,27 @@ msgstr "Výsledky vyhledávání"
 msgid "No results found. Please note, that some result may be hidden in private Nodes."
 msgstr "Nic nenalezeno. Berte prosím na vědomí, že některé výsledky mohou být skryté v privátních klubech."
 
-#: templates/search/search.html:108 templates/user_profile/user_overview.html:182
+#: templates/search/search.html:108
+#: templates/user_profile/user_overview.html:182
 msgid "Do you want to see more?"
 msgstr "Chcete vidět více?"
 
-#: templates/search/search.html:142
+#: templates/search/search.html:122
 msgid "Selected tags"
 msgstr "Vybrané štítky"
 
-#: templates/search/results/answer.html:9 templates/search/results/autocomplete_answer.html:2
+#: templates/search/results/answer.html:9
+#: templates/search/results/autocomplete_answer.html:2
 msgid "Answer to Question"
 msgstr "Odpověď na otázku"
 
-#: templates/search/results/autocomplete_discussion_post.html:2 templates/search/results/discussion_post.html:9
+#: templates/search/results/autocomplete_discussion_post.html:2
+#: templates/search/results/discussion_post.html:9
 msgid "Discussion post in Node"
 msgstr "Diskuzní příspěvek v Klubu"
 
-#: templates/search/results/autocomplete_page.html:3 templates/search/results/page.html:9
+#: templates/search/results/autocomplete_page.html:3
+#: templates/search/results/page.html:9
 msgid "Page of Document"
 msgstr "Stránka dokumentu"
 
@@ -6187,7 +6444,9 @@ msgstr "Stránka dokumentu"
 msgid "page"
 msgstr "stránka"
 
-#: templates/search/results/organization.html:9 templates/user_profile/user_overview.html:16 templates/user_profile/user_overview.html:20
+#: templates/search/results/organization.html:9
+#: templates/user_profile/user_overview.html:16
+#: templates/user_profile/user_overview.html:20
 msgid "Organization"
 msgstr "Organizace"
 
@@ -6206,15 +6465,20 @@ msgstr "nesledovat %(alias)s"
 msgid "following %(alias)s"
 msgstr "sledovaní %(alias)s"
 
-#: templates/snippets/organization_join_button.html:6 templates/snippets/organization_join_button.html:12
+#: templates/snippets/organization_join_button.html:6
+#: templates/snippets/organization_join_button.html:12
 msgid "Leave this organization"
 msgstr "Opustit tuto organizaci"
 
-#: templates/snippets/organization_join_button.html:7 templates/snippets/organization_join_button.html:9 templates/snippets/organization_join_button.html:28
+#: templates/snippets/organization_join_button.html:7
+#: templates/snippets/organization_join_button.html:9
+#: templates/snippets/organization_join_button.html:28
 msgid "Join this organization"
 msgstr "Vstoupit do této organizace"
 
-#: templates/snippets/organization_join_button.html:8 templates/snippets/organization_join_button.html:13 templates/snippets/organization_join_button.html:23
+#: templates/snippets/organization_join_button.html:8
+#: templates/snippets/organization_join_button.html:13
+#: templates/snippets/organization_join_button.html:23
 msgid "You are a member"
 msgstr "Jste členem"
 
@@ -6222,30 +6486,16 @@ msgstr "Jste členem"
 msgid "Cancel application"
 msgstr "Zrušit požadavek"
 
-#: templates/snippets/organization_join_button.html:16 templates/snippets/organization_join_button.html:25
+#: templates/snippets/organization_join_button.html:16
+#: templates/snippets/organization_join_button.html:25
 msgid "Waiting approval"
 msgstr "Čeká na schválení"
 
-#: templates/snippets/organization_join_button.html:18 templates/snippets/organization_join_button.html:19 templates/snippets/organization_join_button.html:30
+#: templates/snippets/organization_join_button.html:18
+#: templates/snippets/organization_join_button.html:19
+#: templates/snippets/organization_join_button.html:30
 msgid "Ask to join"
 msgstr "Požádat o vstup"
-
-#: templates/snippets/paginator.html:7 templates/snippets/paginator.html:8 templates/snippets/paginator_node.html:5 templates/snippets/paginator_node.html:6
-msgid "previous"
-msgstr "předchozí"
-
-#: templates/snippets/paginator.html:24 templates/snippets/paginator_node.html:17
-msgid "current page"
-msgstr "tato stránka"
-
-#: templates/snippets/paginator.html:26 templates/snippets/paginator.html:33 templates/snippets/paginator_node.html:19 templates/snippets/paginator_node.html:26
-#, python-format
-msgid "page %(num)s"
-msgstr "stránka %(num)s"
-
-#: templates/snippets/paginator.html:39 templates/snippets/paginator.html:40 templates/snippets/paginator_node.html:30
-msgid "next page"
-msgstr "následující stránka"
 
 #: templates/snippets/post_comments_widget.html:42
 msgid "delete this comment"
@@ -6318,7 +6568,9 @@ msgstr "dle popularity"
 msgid "suggested"
 msgstr "navrženo"
 
-#: templates/user_profile/node_join_requests.html:4 templates/user_profile/node_join_requests.html:8 templates/user_profile/user.html:162
+#: templates/user_profile/node_join_requests.html:4
+#: templates/user_profile/node_join_requests.html:8
+#: templates/user_profile/user.html:162
 msgid "Unresolved Node join requests"
 msgstr "Nevyřešené žádosti o vstup do klubu"
 
@@ -6327,19 +6579,24 @@ msgstr "Nevyřešené žádosti o vstup do klubu"
 msgid "<a href=\"%(user_url)s\">%(user)s</a> wants to join Node <a href=\"%(node_url)s\">%(node)s</a>"
 msgstr "<a href=\"%(user_url)s\">%(user)s</a> žádá o vstup do klubu <a href=\"%(node_url)s\">%(node)s</a>"
 
-#: templates/user_profile/node_join_requests.html:31 templates/user_profile/organization_pending_memberships.html:31
+#: templates/user_profile/node_join_requests.html:31
+#: templates/user_profile/organization_pending_memberships.html:31
 msgid "Approve"
 msgstr "Schválit"
 
-#: templates/user_profile/node_join_requests.html:47 templates/user_profile/organization_pending_memberships.html:47
+#: templates/user_profile/node_join_requests.html:47
+#: templates/user_profile/organization_pending_memberships.html:47
 msgid "Deny"
 msgstr "Odmítnout"
 
-#: templates/user_profile/node_join_requests.html:55 templates/user_profile/organization_pending_memberships.html:55
+#: templates/user_profile/node_join_requests.html:55
+#: templates/user_profile/organization_pending_memberships.html:55
 msgid "You have no unresolved requests."
 msgstr "Nemáte žádné nevyřešené žádosti."
 
-#: templates/user_profile/organization_pending_memberships.html:4 templates/user_profile/organization_pending_memberships.html:8 templates/user_profile/user.html:176
+#: templates/user_profile/organization_pending_memberships.html:4
+#: templates/user_profile/organization_pending_memberships.html:8
+#: templates/user_profile/user.html:176
 msgid "Unresolved Organization join requests"
 msgstr "Nevyřešené žádosti o vstup do organizace"
 
@@ -6360,11 +6617,13 @@ msgstr "1) Vložte stručný popis proč zamítáte tento příspěvek."
 msgid "2) Please enter details here. This text will be sent to the user."
 msgstr "2) Prosím sem vložte podrobnosti. Tento text bude zaslán uživateli."
 
-#: templates/user_profile/reject_post_dialog.html:20 templates/user_profile/reject_post_dialog.html:88
+#: templates/user_profile/reject_post_dialog.html:20
+#: templates/user_profile/reject_post_dialog.html:88
 msgid "Use this reason &amp; reject"
 msgstr ""
 
-#: templates/user_profile/reject_post_dialog.html:27 templates/user_profile/reject_post_dialog.html:95
+#: templates/user_profile/reject_post_dialog.html:27
+#: templates/user_profile/reject_post_dialog.html:95
 msgid "Use other reason"
 msgstr "Použít jiný důvod"
 
@@ -6396,7 +6655,8 @@ msgstr ""
 msgid "Edit this reason"
 msgstr "Upravit tento důvod"
 
-#: templates/user_profile/responses_and_flags.html:5 templates/user_profile/responses_and_flags.html:9
+#: templates/user_profile/responses_and_flags.html:5
+#: templates/user_profile/responses_and_flags.html:9
 msgid "Offensive flags reports"
 msgstr "Oznámení o nevhodných příspěvcích"
 
@@ -6408,7 +6668,8 @@ msgstr "odebrat značky"
 msgid "delete post"
 msgstr "Smazat příspěvek"
 
-#: templates/user_profile/user.html:39 templates/user_profile/user.html:50 templates/user_profile/user.html:61
+#: templates/user_profile/user.html:39 templates/user_profile/user.html:50
+#: templates/user_profile/user.html:61
 msgid "User profile"
 msgstr "Uživatelský profil"
 
@@ -6416,11 +6677,13 @@ msgstr "Uživatelský profil"
 msgid "Overview"
 msgstr "Přehled"
 
-#: templates/user_profile/user.html:72 views/users.py:884
+#: templates/user_profile/user.html:72 views/users.py:890
 msgid "email subscription settings"
 msgstr "nastavení přihlášení přes email"
 
-#: templates/user_profile/user.html:75 templates/user_profile/user_email_subscriptions.html:4 templates/user_profile/user_email_subscriptions.html:8
+#: templates/user_profile/user.html:75
+#: templates/user_profile/user_email_subscriptions.html:4
+#: templates/user_profile/user_email_subscriptions.html:8
 msgid "Email subscriptions"
 msgstr "E-mailová oznámení"
 
@@ -6428,35 +6691,47 @@ msgstr "E-mailová oznámení"
 msgid "user logs record"
 msgstr "záznam uživatelova hlasování"
 
-#: templates/user_profile/user.html:87 templates/user_profile/user_logs.html:6 templates/user_profile/user_logs.html:10
+#: templates/user_profile/user.html:87 templates/user_profile/user_logs.html:6
+#: templates/user_profile/user_logs.html:10
 msgid "Action history"
 msgstr "Historie akcí"
 
-#: templates/user_profile/user.html:99 templates/user_profile/user.html:125 templates/user_profile/user_overview.html:115
+#: templates/user_profile/user.html:99 templates/user_profile/user.html:125
+#: templates/user_profile/user_overview.html:115
 msgid "questions that user is following"
 msgstr "otázky tohoto uživatele jsou následující"
 
-#: templates/user_profile/user.html:102 templates/user_profile/user_managed_nodes.html:5 templates/user_profile/user_managed_nodes.html:10
+#: templates/user_profile/user.html:102
+#: templates/user_profile/user_managed_nodes.html:5
+#: templates/user_profile/user_managed_nodes.html:10
 msgid "Managed nodes"
 msgstr "Spravované kluby"
 
-#: templates/user_profile/user.html:110 templates/user_profile/user_overview.html:109
+#: templates/user_profile/user.html:110
+#: templates/user_profile/user_overview.html:109
 msgid "nodes that user is following"
 msgstr "kluby, které uživatel sleduje"
 
-#: templates/user_profile/user.html:117 templates/user_profile/user_followed_nodes.html:5 templates/user_profile/user_followed_nodes.html:10
+#: templates/user_profile/user.html:117
+#: templates/user_profile/user_followed_nodes.html:5
+#: templates/user_profile/user_followed_nodes.html:10
 msgid "Followed nodes"
 msgstr "Sledované kluby"
 
-#: templates/user_profile/user.html:132 templates/user_profile/user_followed_questions.html:4 templates/user_profile/user_followed_questions.html:8
+#: templates/user_profile/user.html:132
+#: templates/user_profile/user_followed_questions.html:4
+#: templates/user_profile/user_followed_questions.html:8
 msgid "Followed questions"
 msgstr "Sledované otázky"
 
-#: templates/user_profile/user.html:137 templates/user_profile/user_overview.html:121
+#: templates/user_profile/user.html:137
+#: templates/user_profile/user_overview.html:121
 msgid "discussions that user is following"
 msgstr "diskuze, které uživatel sleduje"
 
-#: templates/user_profile/user.html:144 templates/user_profile/user_followed_discussions.html:4 templates/user_profile/user_followed_discussions.html:8
+#: templates/user_profile/user.html:144
+#: templates/user_profile/user_followed_discussions.html:4
+#: templates/user_profile/user_followed_discussions.html:8
 msgid "Followed discussions"
 msgstr "Sledované diskuze"
 
@@ -6464,7 +6739,8 @@ msgstr "Sledované diskuze"
 msgid "Unresolved Offensive flag reports"
 msgstr "Nevyřešená oznámení o nevhodných příspěvcích"
 
-#: templates/user_profile/user.html:198 templates/user_profile/user_overview_disabled.html:20
+#: templates/user_profile/user.html:198
+#: templates/user_profile/user_overview_disabled.html:20
 msgid "Admin edit"
 msgstr "Upravit správcem systému"
 
@@ -6546,7 +6822,10 @@ msgstr ""
 msgid "Stop Email"
 msgstr "Ukončit zasílání"
 
-#: templates/user_profile/user_followed_discussions.html:25 templates/user_profile/user_followed_nodes.html:21 templates/user_profile/user_followed_questions.html:25 templates/user_profile/user_managed_nodes.html:20
+#: templates/user_profile/user_followed_discussions.html:25
+#: templates/user_profile/user_followed_nodes.html:21
+#: templates/user_profile/user_followed_questions.html:26
+#: templates/user_profile/user_managed_nodes.html:20
 msgid "No records."
 msgstr "Žádné záznamy."
 
@@ -6634,7 +6913,8 @@ msgstr "Tento účet byl deaktivován správcem systému."
 msgid "votes"
 msgstr "hlasy"
 
-#: templates/widgets/answer_edit_tips.html:3 templates/widgets/question_edit_tips.html:3
+#: templates/widgets/answer_edit_tips.html:3
+#: templates/widgets/question_edit_tips.html:3
 msgid "Tips"
 msgstr "Tipy"
 
@@ -6646,11 +6926,13 @@ msgstr "poskytněte odpověď zajímavou pro tuto komunitu"
 msgid "try to give an answer, rather than engage into a discussion"
 msgstr "zkuste dát odpověď spíše než se zapojit do debaty"
 
-#: templates/widgets/answer_edit_tips.html:12 templates/widgets/question_edit_tips.html:8
+#: templates/widgets/answer_edit_tips.html:12
+#: templates/widgets/question_edit_tips.html:8
 msgid "provide enough details"
 msgstr "poskytněte dostatek detailů"
 
-#: templates/widgets/answer_edit_tips.html:15 templates/widgets/question_edit_tips.html:11
+#: templates/widgets/answer_edit_tips.html:15
+#: templates/widgets/question_edit_tips.html:11
 msgid "be clear and concise"
 msgstr "buďte struční a jasní"
 
@@ -6661,25 +6943,6 @@ msgstr "Požádat o vstup do organizace"
 #: templates/widgets/contributors.html:4
 msgid "Contributors"
 msgstr "Přispěvatelé"
-
-#: templates/widgets/footer.html:22
-#, python-format
-msgid "Powered by OPENode %(version)s"
-msgstr "Provozováno na systému OPENode %(version)s"
-
-#: templates/widgets/footer.html:25
-#, python-format
-msgid "Open source written by <a href=\"%(coex_url)s\">COEX</a> in <a href=\"%(python_url)s\">Python</a> and <a href=\"%(django_url)s\">Django</a>"
-msgstr "Open source aplikaci vytvořil <a href=\"%(coex_url)s\">COEX</a> v jazyce <a href=\"%(python_url)s\">Python</a> a frameworku <a href=\"%(django_url)s\">Django</a>"
-
-#: templates/widgets/footer.html:27
-msgid "Anything wrong with the system? Please report it to our <a href=\"https://github.com/openode/openode/issues\">issues</a>."
-msgstr "Něco v systému nefunguje? Prosím obraťte se na <a href=\"mailto:esf@mpsv.cz\">esf@mpsv.cz</a>."
-
-#: templates/widgets/footer.html:48
-#, python-format
-msgid "This project has been funded by EU under the project %(eu_project)s."
-msgstr "Tento projekt byl financován EU v rámci projektu %(eu_project)s."
 
 #: templates/widgets/logo.html:3
 msgid "back to home page"
@@ -6694,7 +6957,8 @@ msgstr "%(site)s logo"
 msgid "Markdown basics"
 msgstr "Základy Markdown"
 
-#: templates/widgets/markdown_help.html:5 templates/widgets/markdown_help.html:9
+#: templates/widgets/markdown_help.html:5
+#: templates/widgets/markdown_help.html:9
 msgid "text"
 msgstr "text"
 
@@ -6738,7 +7002,8 @@ msgstr "SLEDOVANÉ"
 msgid "Please ask your question here"
 msgstr "Prosím, zeptejte se zde"
 
-#: templates/widgets/thread_summary_discussion.html:18 templates/widgets/thread_summary_question.html:20
+#: templates/widgets/thread_summary_discussion.html:18
+#: templates/widgets/thread_summary_question.html:20
 msgid "Unread posts"
 msgstr "Nepřečtených položek"
 
@@ -6749,18 +7014,21 @@ msgstr[0] "Příspěvek"
 msgstr[1] "Příspěvky"
 msgstr[2] "Příspěvků"
 
-#: templates/widgets/thread_summary_discussion.html:36 templates/widgets/thread_summary_question.html:40
+#: templates/widgets/thread_summary_discussion.html:36
+#: templates/widgets/thread_summary_question.html:40
 msgid "View"
 msgid_plural "Views"
 msgstr[0] "Zobrazení"
 msgstr[1] "Zobrazení"
 msgstr[2] "Zobrazení"
 
-#: templates/widgets/thread_summary_question.html:15 templates/widgets/thread_summary_question.html:37 templates/widgets/thread_summary_question.html:52
+#: templates/widgets/thread_summary_question.html:15
+#: templates/widgets/thread_summary_question.html:37
+#: templates/widgets/thread_summary_question.html:52
 msgid "Show question"
 msgstr "Zobrazit otázku"
 
-#: templates/widgets/thread_summary_question.html:31 utils/notify_users.py:34
+#: templates/widgets/thread_summary_question.html:31 utils/notify_users.py:35
 msgid "Answer"
 msgid_plural "Answers"
 msgstr[0] "Odpověď"
@@ -6771,24 +7039,27 @@ msgstr[2] "Odpovědí"
 msgid "Categorize your question using this tag selector or entering text in tag box."
 msgstr "Zatřiďte vaši otázku pomocí volby štítku nebo vložením textu do pole pro štítek."
 
-#: templates/widgets/three_column_category_selector.html:7 templates/widgets/three_column_category_selector.html:10
+#: templates/widgets/three_column_category_selector.html:7
+#: templates/widgets/three_column_category_selector.html:10
 msgid "(done editing)"
 msgstr "(úpravy ukončeny)"
 
-#: templates/widgets/three_column_category_selector.html:8 templates/widgets/three_column_category_selector.html:9 templates/widgets/three_column_category_selector.html:11
+#: templates/widgets/three_column_category_selector.html:8
+#: templates/widgets/three_column_category_selector.html:9
+#: templates/widgets/three_column_category_selector.html:11
 msgid "(edit categories)"
 msgstr "(upravit kategorii)"
 
-#: templatetags/extra_filters_jinja.py:460
+#: templatetags/extra_filters_jinja.py:464
 msgid "no"
 msgstr "ne"
 
-#: templatetags/extra_filters_jinja.py:554
+#: templatetags/extra_filters_jinja.py:558
 #, python-format
 msgid "Reply to the post by %(author)s &ndash; %(datetime_str)s"
 msgstr "Odpověď na příspěvek od %(author)s &ndash; %(datetime_str)s"
 
-#: templatetags/extra_filters_jinja.py:563
+#: templatetags/extra_filters_jinja.py:567
 msgid "Quoted post was deleted or does not exist in this discussion."
 msgstr "Citovaný příspěvek byl smazán nebo neexistuje v této diskuzi."
 
@@ -6796,6 +7067,97 @@ msgstr "Citovaný příspěvek byl smazán nebo neexistuje v této diskuzi."
 #, python-format
 msgid "%(username)s gravatar image"
 msgstr "%(username)s gravatar obrázek"
+
+#: templatetags/mptt_tags.py:30
+#, python-format
+msgid "full_tree_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: templatetags/mptt_tags.py:54
+#, python-format
+msgid "drilldown_tree_for_node tag was given an invalid model: %s"
+msgstr ""
+
+#: templatetags/mptt_tags.py:61
+#, python-format
+msgid "drilldown_tree_for_node tag was given an invalid model field: %s"
+msgstr ""
+
+#: templatetags/mptt_tags.py:88
+#, python-format
+msgid "%s tag requires three arguments"
+msgstr ""
+
+#: templatetags/mptt_tags.py:90 templatetags/mptt_tags.py:145
+#, python-format
+msgid "second argument to %s tag must be 'as'"
+msgstr ""
+
+#: templatetags/mptt_tags.py:142
+#, python-format
+msgid "%s tag requires either three, seven or eight arguments"
+msgstr ""
+
+#: templatetags/mptt_tags.py:149
+#, python-format
+msgid "if seven arguments are given, fourth argument to %s tag must be 'with'"
+msgstr ""
+
+#: templatetags/mptt_tags.py:152
+#, python-format
+msgid "if seven arguments are given, sixth argument to %s tag must be 'in'"
+msgstr ""
+
+#: templatetags/mptt_tags.py:157
+#, python-format
+msgid "if eight arguments are given, fourth argument to %s tag must be 'cumulative'"
+msgstr ""
+
+#: templatetags/mptt_tags.py:160
+#, python-format
+msgid "if eight arguments are given, fifth argument to %s tag must be 'count'"
+msgstr ""
+
+#: templatetags/mptt_tags.py:163
+#, python-format
+msgid "if eight arguments are given, seventh argument to %s tag must be 'in'"
+msgstr ""
+
+#: templatetags/mptt_tags.py:253
+msgid "cache_tree_children was passed nodes in the wrong order!"
+msgstr ""
+
+#: templatetags/mptt_tags.py:351
+#, python-format
+msgid "%s tag requires a queryset"
+msgstr ""
+
+#: utils/__init__.py:473
+#, python-format
+msgid "yesterday %(hours)d:%(minutes)02d"
+msgstr ""
+
+#: utils/__init__.py:475
+#, python-format
+msgid "%(hours)d hours ago"
+msgstr "před %(hours)d hodinami"
+
+#: utils/__init__.py:477
+msgid "an hour ago"
+msgstr "před hodinou"
+
+#: utils/__init__.py:479
+#, python-format
+msgid "%(minutes)d minutes ago"
+msgstr "před %(minutes)d minutami"
+
+#: utils/__init__.py:481
+msgid "1 minute ago"
+msgstr "před minutou"
+
+#: utils/__init__.py:483
+msgid "less then minute ago"
+msgstr "před méně než minutou"
 
 #: utils/decorators.py:105 views/commands.py:132
 msgid "Oops, apologies - there was some error"
@@ -6913,55 +7275,55 @@ msgstr[0] "před %(min)d minutou"
 msgstr[1] "před %(min)d minutami"
 msgstr[2] "před %(min)d minutami"
 
-#: utils/notify_users.py:31
+#: utils/notify_users.py:32
 msgid "Comment"
 msgstr "Komentář"
 
-#: utils/notify_users.py:36
+#: utils/notify_users.py:37
 msgid "Discussion post"
 msgstr "Diskuzní příspěvek"
 
-#: utils/notify_users.py:54
+#: utils/notify_users.py:55
 msgid "Updated question"
 msgstr "Upravená otázka"
 
-#: utils/notify_users.py:56
+#: utils/notify_users.py:57
 msgid "Updated document"
 msgstr "Upravený dokument"
 
-#: utils/notify_users.py:58
+#: utils/notify_users.py:59
 msgid "Updated comment"
 msgstr "Upravený komentář"
 
-#: utils/notify_users.py:61
+#: utils/notify_users.py:62
 msgid "Updated answer"
 msgstr "Upravená odpověď"
 
-#: utils/notify_users.py:63
+#: utils/notify_users.py:64
 msgid "Updated discussion post"
 msgstr "Upravený diskuzní příspěvek"
 
-#: utils/notify_users.py:67
+#: utils/notify_users.py:68
 msgid "New question"
 msgstr "Nová otázka"
 
-#: utils/notify_users.py:69
+#: utils/notify_users.py:70
 msgid "New document"
 msgstr "Nový dokument"
 
-#: utils/notify_users.py:71
+#: utils/notify_users.py:72
 msgid "New comment"
 msgstr "Nový komentář"
 
-#: utils/notify_users.py:74
+#: utils/notify_users.py:75
 msgid "New answer"
 msgstr "Nová odpověď"
 
-#: utils/notify_users.py:76
+#: utils/notify_users.py:77
 msgid "New discussion post"
 msgstr "Nový příspěvek do diskuze"
 
-#: utils/notify_users.py:104
+#: utils/notify_users.py:105
 msgid "Commented post"
 msgstr "Komentovaný příspěvek"
 
@@ -7061,7 +7423,7 @@ msgstr "Váš požadavek na vstup do klubu %(node)s byl schválen!"
 msgid "Sorry, your request to join Node %(node)s has been denied."
 msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut."
 
-#: views/commands.py:1395
+#: views/commands.py:1362
 msgid "Sorry, only thread moderators can use this function"
 msgstr "Promiňte, pouze správci vlákna mohou využít tuto funkci."
 
@@ -7149,116 +7511,166 @@ msgstr "záznam uživatelova hlasování"
 msgid "profile - votes"
 msgstr "profil - hlasy"
 
-#: views/users.py:777
+#: views/users.py:784
 msgid "users followed questions"
 msgstr "sledované otázky uživatele"
 
-#: views/users.py:778
+#: views/users.py:785
 msgid "profile - followed questions"
 msgstr "profil - sledované otázky"
 
-#: views/users.py:797
+#: views/users.py:803
 msgid "users followed discussions"
 msgstr "sledované diskuze uživatele"
 
-#: views/users.py:798
+#: views/users.py:804
 msgid "profile - followed discussions"
 msgstr "profil - sledované diskuze"
 
-#: views/users.py:814
+#: views/users.py:820
 msgid "users followed nodes"
 msgstr "sledované kluby uživatele"
 
-#: views/users.py:815
+#: views/users.py:821
 msgid "profile - followed nodes"
 msgstr "profil - sledované kluby"
 
-#: views/users.py:833
+#: views/users.py:839
 msgid "users managed nodes"
 msgstr "spravované kluby uživatele"
 
-#: views/users.py:834
+#: views/users.py:840
 msgid "profile - managed nodes"
 msgstr "profil - spravované kluby"
 
-#: views/users.py:854 views/users.py:858
+#: views/users.py:860 views/users.py:864
 msgid "changes saved"
 msgstr "Změny uloženy"
 
-#: views/users.py:864
+#: views/users.py:870
 msgid "email updates canceled"
 msgstr "emailová aktualizace zrušena"
 
-#: views/users.py:885
+#: views/users.py:891
 msgid "profile - email subscriptions"
 msgstr "profil - emailová oznámení"
 
-#: views/writers.py:65
+#: views/writers.py:66
 msgid "Sorry, anonymous users cannot upload files"
 msgstr "Promiňte, anonymní uživatelé nemohou nahrávat soubory"
 
-#: views/writers.py:83
+#: views/writers.py:84
 #, python-format
 msgid "allowed file types are '%(file_types)s'"
 msgstr "povolené typy souborů jsou '%(file_types)s'"
 
-#: views/writers.py:120
+#: views/writers.py:121
 msgid "Error uploading file. Please contact the site administrator. Thank you."
 msgstr "Chyba při nahrávání souboru. Prosím kontaktujte spráce webu, děkujeme."
 
-#: views/writers.py:204
+#: views/writers.py:205
 msgid "Question has been successfully saved and added to your followed items."
 msgstr "Otázka byla úspěšně uložena a přidána mezi vaše sledované položky."
 
-#: views/writers.py:206
+#: views/writers.py:207
 msgid "Discussion has been successfully added."
 msgstr "Diskuze byla úspěšně přidána."
 
-#: views/writers.py:255
+#: views/writers.py:256
 msgid "PermissionDenied: you can not retag this object."
 msgstr "Odmítnuto: nemůžete přeštítkovat tuto položku."
 
-#: views/writers.py:356
+#: views/writers.py:357
 msgid "Document has been deleted."
 msgstr "Dokument byl smazán."
 
-#: views/writers.py:365 views/writers.py:462
+#: views/writers.py:366 views/writers.py:463
 msgid "Document has been successfully saved."
 msgstr "Dokument byl úspěšně uložen."
 
-#: views/writers.py:456
+#: views/writers.py:457
 msgid "Question has been successfully saved."
 msgstr "Otázka byla úspěšně uložena."
 
-#: views/writers.py:459
+#: views/writers.py:460
 msgid "Discussion has been successfully saved."
 msgstr "Diskuze byla úspěšně uložena."
 
-#: views/writers.py:703
+#: views/writers.py:710
 msgid "Comment is empty."
 msgstr "Komentář je prázdný."
 
-#: views/writers.py:709
+#: views/writers.py:716
+#, fuzzy, python-format
+msgid "Comment must be at least %d character long."
+msgstr "Text musí mít nejméňě %d znak."
+
+#: views/writers.py:723
 #, python-format
 msgid "Sorry, you appear to be logged out and cannot post comments. Please <a href=\"%(sign_in_url)s\">sign in</a>."
 msgstr "Promiňte, zdá se, že jste odhlášen a nemůžete odesílat komentáře. Prosím <a href=\"%(sign_in_url)s\">přihlašte se</a>. "
 
-#: views/writers.py:735
+#: views/writers.py:749
 msgid "Sorry, anonymous users cannot edit comments"
 msgstr "Promiňte, anonymní uživatelé nemohou upravovat komentáře"
 
-#: views/writers.py:788
+#: views/writers.py:802
 #, python-format
 msgid "Sorry, you appear to be logged out and cannot delete comments. Please <a href=\"%(sign_in_url)s\">sign in</a>."
 msgstr "Promiňte, zdá se, že jste odhlášen a nemůžete mazat komentáře. Prosím <a href=\"%(sign_in_url)s\">přihlašte se</a>."
 
-#: views/writers.py:814
+#: views/writers.py:828
 msgid "sorry, we seem to have some technical difficulties"
 msgstr "Omlouváme se, zdá se, že máme nějaké technické potíže"
 
-#: views/writers.py:882
+#: views/writers.py:896
 msgid "the selected answer cannot be a comment"
 msgstr "Vybraná odpověď nemůže být komentář."
+
+#~ msgid "Content License"
+#~ msgstr "Licence na obsah"
+
+#~ msgid "Show license clause in the site footer"
+#~ msgstr "Zobrazit licenční ujednání v patičce stránek"
+
+#~ msgid "Short name for the license"
+#~ msgstr "Zkrácený název licence"
+
+#~ msgid "Full name of the license"
+#~ msgstr "Úplný název licence"
+
+#~ msgid "Creative Commons Attribution Share Alike 3.0"
+#~ msgstr "Creative Commons Uveďte autora 3.0"
+
+#~ msgid "Add link to the license page"
+#~ msgstr "Vložit odkaz na stránku s licencí"
+
+#~ msgid "License homepage"
+#~ msgstr "Stránka licence"
+
+#~ msgid "URL of the official page with all the license legal clauses"
+#~ msgstr "URL oficiální stránky s právními ujednáními licence"
+
+#~ msgid "Use license logo"
+#~ msgstr "Použít logo licence"
+
+#~ msgid "License logo image"
+#~ msgstr "Obrázek loga licence"
+
+#~ msgid "Please give a list of valid email domain names."
+#~ msgstr "prosím zadejte platné e-mailové domény"
+
+#~ msgid "Powered by OPENode %(version)s"
+#~ msgstr "Provozováno na systému OPENode %(version)s"
+
+#~ msgid "Open source written by <a href=\"%(coex_url)s\">COEX</a> in <a href=\"%(python_url)s\">Python</a> and <a href=\"%(django_url)s\">Django</a>"
+#~ msgstr "Open source aplikaci vytvořil <a href=\"%(coex_url)s\">COEX</a> v jazyce <a href=\"%(python_url)s\">Python</a> a frameworku <a href=\"%(django_url)s\">Django</a>"
+
+#~ msgid "Anything wrong with the system? Please report it to our <a href=\"https://github.com/openode/openode/issues\">issues</a>."
+#~ msgstr "Něco v systému nefunguje? Prosím obraťte se na <a href=\"mailto:esf@mpsv.cz\">esf@mpsv.cz</a>."
+
+#~ msgid "This project has been funded by EU under the project %(eu_project)s."
+#~ msgstr "Tento projekt byl financován EU v rámci projektu %(eu_project)s."
 
 #~ msgid ""
 #~ "\n"
