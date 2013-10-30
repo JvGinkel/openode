@@ -257,7 +257,7 @@ class StaticPageAdmin(BaseAdmin):
     """
         StaticPage admin
     """
-    list_filter = ("language", )
+    list_filter = ("language",)
     list_display = (
         "title",
         "slug",
@@ -444,6 +444,20 @@ class ProxyUserAdmin(BaseAdmin):
             request.user.post_object_description(obj, body_text=description)
 
 
+class ProxyUserManagerStatusAdmin(ProxyUserAdmin):
+    def queryset(self, request):
+        """
+        Returns a QuerySet of all model instances that can be edited by the
+        admin site. This is used by changelist_view.
+        """
+        qs = models.ProxyUserManagerStatus._default_manager.get_query_set()
+
+        # TODO: this should be handled by some parameter to the ChangeList.
+        ordering = self.ordering or ()  # otherwise we might try to *None, which is bad ;)
+        if ordering:
+            qs = qs.order_by(*ordering)
+        return qs
+
 class ThreadAdmin(BaseAdmin):
     list_display = (
         'node', 'thread_type', 'title',
@@ -451,7 +465,7 @@ class ThreadAdmin(BaseAdmin):
         'added_at', 'last_activity_at',
         'closed', 'is_deleted',
     )
-    list_display_links = ('title', )
+    list_display_links = ('title',)
     fields = (
         'node', 'thread_type', 'title', 'slug',
         'approved', 'external_access', 'category',
@@ -499,5 +513,6 @@ admin.site.register(models.Node, NodeAdmin)
 admin.site.register(models.Post, PostAdmin)
 admin.site.register(models.Organization, OrganizationAdmin)
 admin.site.register(models.ProxyUser, ProxyUserAdmin)
+admin.site.register(models.ProxyUserManagerStatus, ProxyUserManagerStatusAdmin)
 admin.site.register(Thread, ThreadAdmin)
 admin.site.register(models.ThreadView, BaseAdmin)

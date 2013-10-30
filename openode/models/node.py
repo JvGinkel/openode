@@ -275,6 +275,9 @@ class Node(MPTTModel):
         #     return None
 
     ###################################
+    @property
+    def users_count(self):
+        return self.users.count()
 
     def is_category(self):
         return self.style == const.NODE_STYLE_CATEGORY

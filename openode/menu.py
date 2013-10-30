@@ -31,7 +31,7 @@ class CustomMenu(Menu):
 
         self.children.append(items.ModelList(
             capfirst(_('users')),
-            models=('openode.models.ProxyUser', 'openode.models.user.Organization', 'django.contrib.auth.models.User', 'django.contrib.auth.models.Group'),
+            models=('openode.models.ProxyUser', 'openode.models.ProxyUserManagerStatus', 'openode.models.user.Organization', 'django.contrib.auth.models.User', 'django.contrib.auth.models.Group'),
         ))
 
         # append an app list module for "Administration"

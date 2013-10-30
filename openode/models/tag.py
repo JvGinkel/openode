@@ -101,7 +101,7 @@ class TagQuerySet(models.query.QuerySet):
 
     def mark_undeleted(self):
         """removes deleted(+at/by) marks"""
-        self.update(  # undelete them
+        self.update(# undelete them
             deleted=False,
             deleted_by=None,
             deleted_at=None
@@ -150,6 +150,9 @@ class TagManager(BaseQuerySetManager):
     """
     def get_query_set(self):
         return TagQuerySet(self.model)
+
+    def valid_tags(self):
+        return super(TagManager, self).get_query_set().filter(threads__is_deleted=False).distinct()
 
     def get_content_tags(self):
         """temporary function that filters out the organization tags"""

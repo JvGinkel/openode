@@ -87,7 +87,7 @@
                             </ul>
                             {% endif %}
                         </div>
-                        <a class="logo-title" href="/"><img src="{{ '/style/i/logo.png'|media }}" class="v-centered" /><span class="title">{{ settings.APP_TITLE }}</span> <small>{{ settings.APP_SUBTITLE }}</small></a>
+                        {{ "header"|custom_template(request) }}
                         <ul class="inline-list top-menu">
                             {# <li class=""><a href="/">{% trans %}Home{% endtrans %}</a></li> #}
                             <li>
