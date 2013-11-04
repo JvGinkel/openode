@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+import logging
+import os
 import pytz
 import re
 import time
 import unicodedata
-import os
 import urllib
 
 from coffin import template as coffin_template
@@ -278,8 +279,7 @@ def get_age(birthday):
     return diff.days / 365
 
 
-@register.filter
-def media(url):
+def media_fx(url):
     """media filter - same as media tag, but
     to be used as a filter in jinja templates
     like so {{'/some/url.gif'|media}}
@@ -288,6 +288,11 @@ def media(url):
         return skin_utils.get_media_url(url)
     else:
         return ''
+
+
+@register.filter
+def media(url):
+    return media_fx(url)
 
 
 @register.filter
@@ -582,10 +587,17 @@ def custom_template(target, request):
             os.path.join(settings.PROJECT_ROOT, "templates"),
             os.path.join(settings.OPENODE_ROOT, "templates"),
         ]))
-
+        env.filters['media'] = media_fx
         template = env.get_template("custom_templates/%s/%s_content_%s.html" % (target, target, request.LANGUAGE_CODE))
         return template.render(**{
-            "request": request
+            "request": request,
+            "settings": settings,
         })
-    except:
+    except Exception, e:
+        logging.critical("Error: %s" % repr({
+            "error": e,
+            "target": target,
+            "LANGUAGE_CODE": request.LANGUAGE_CODE,
+            "path": request.path,
+        }))
         return ""

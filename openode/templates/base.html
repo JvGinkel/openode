@@ -342,14 +342,14 @@
                 <div class="twelve columns">
                     <p class="license">
                         <br />
-                        <a href="http://www.openode.net" target="_blank">{% trans version=settings.OPENODE_VERSION %}Powered by OPENode {{ version }}{% endtrans %}</a> 
+                        <a href="http://www.openode.net" target="_blank">{% trans version=settings.OPENODE_VERSION %}Powered by OPENode {{ version }}{% endtrans %}</a>
                         |
                         {% trans coex_url="http://www.coex.cz", python_url="http://www.python.org", django_url="http://www.djangoproject.com" %}Open source written by <a href="{{coex_url}}">COEX</a> in <a href="{{python_url}}">Python</a> and <a href="{{django_url}}">Django</a>{% endtrans %}
                     </p>
                 </div>
             </div>
         </div>
-        
+
         {% include "meta/bottom_scripts.html" %}
         {% block endjs %}{% endblock %}
 
