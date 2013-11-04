@@ -10,7 +10,7 @@ from django.core.urlresolvers import reverse
 from django.db import connections
 from django.contrib.admin.options import ModelAdmin
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from openode.document import tasks
 from openode.document.client import document_api_client
@@ -42,8 +42,13 @@ class DocumentAdmin(ModelAdmin):
         from django.conf.urls.defaults import patterns, url
         return patterns('',
             url(r'^state/$', self.admin_site.admin_view(self.state), name='document_state'),
+
             url(r'^joachim/$', self.admin_site.admin_view(self.joachim), name='document_joachim'),
+            url(r'^joachim/(?P<pk>\d+)/$', self.admin_site.admin_view(self.joachim_one), name='document_joachim_one'),
+
             url(r'^retrive-text/$', self.admin_site.admin_view(self.retrive_text), name='document_retrive_text'),
+            url(r'^retrive-text/(?P<pk>\d+)/$', self.admin_site.admin_view(self.retrive_text_one), name='document_retrive_text_one'),
+
             url(r'^re-queue/(?P<qd_pk>\d+)/$', self.admin_site.admin_view(self.re_queue), name='re_queue'),
             url(r'^clean-queue/(?P<pk>\d+)/$', self.admin_site.admin_view(self.clean_queue), name='clean_queue'),
         ) + super(DocumentAdmin, self).get_urls()
@@ -115,6 +120,34 @@ class DocumentAdmin(ModelAdmin):
 
         return HttpResponseRedirect(reverse("admin:document_state"))
 
+    def joachim_one(self, request, pk):
+        """
+            create celery tasks for retrive complete content of one document from Mayan
+        """
+
+        document = get_object_or_404(Document, pk=pk)
+
+        if os.path.exists(document.latest_revision.file_data.path):
+            document_revision = document.latest_revision
+            document.revisions.create(**{
+                "file_data": File(
+                    open(document_revision.file_data.path),
+                    name=document_revision.get_file_name()
+                    ),
+                'approved': document_revision.approved,
+                'revised_at': datetime.datetime.now(),
+                'summary': document_revision.summary,
+                'suffix': document_revision.suffix,
+                'original_filename': document_revision.original_filename,
+                'filename_slug': document_revision.filename_slug,
+                'author_id': document_revision.author_id,
+                'has_preview': document_revision.has_preview,
+            })
+
+            messages.info(request, u"Document (pk=%s) has added to reprocess queue." % document.pk)
+
+        return HttpResponseRedirect(reverse("admin:document_state"))
+
     def re_queue(self, request, qd_pk):
         res = document_api_client.proxy.requeue(qd_pk)
         if res["success"]:
@@ -146,6 +179,17 @@ class DocumentAdmin(ModelAdmin):
             pi += 1
 
         messages.info(request, u"%s documents (%s pages) has added to queue for retrive text." % (di, pi))
+        return HttpResponseRedirect(reverse("admin:document_state"))
+
+    def retrive_text_one(self, request, pk):
+        """
+            create celery tasks for retrive (only) text from Mayan
+        """
+        document = get_object_or_404(Document, pk=pk)
+        page_pks = Page.objects.filter(document_revision__document=document).values_list("pk", flat=True)
+        for page_pk in page_pks:
+            tasks.process_page.delay(page_pk)
+        messages.info(request, u"Documents (pk=%s) has added to queue for retrive text." % document.pk)
         return HttpResponseRedirect(reverse("admin:document_state"))
 
     def clean_queue(self, request, pk):

@@ -54,7 +54,9 @@
                     {% for document in documents_with_error_with_file %}
                         <li>
                             <a href="{{ document.get_absolute_url }}">
-                                {{ document.thread.title }}
+                                {{ document.thread.title }}:
+                                <a href="{% url admin:document_joachim_one document.pk %}">reprocess</a> |
+                                <a href="{% url admin:document_retrive_text_one document.pk %}">retrive text</a>
                             </a>
                         </li>
                     {% endfor %}

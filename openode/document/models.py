@@ -294,9 +294,10 @@ class DocumentRevision(BaseModel):
             else:
                 logger.error(u"Pyro connection fail")
 
-        except Exception, e:
-            if logger:
-                logger.error(u"api_process_document: %s: %s" % (type(e), unicode(e)))
+        # except Exception, e:
+        #     raise e
+        #     if logger:
+        #         logger.error(u"api_process_document: %s: %s" % (type(e), unicode(e)))
 
         finally:
             if logger:
