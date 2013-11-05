@@ -268,6 +268,7 @@ def retag_question(request, id):
                 if form.has_changed():
                     request.user.log(question, const.LOG_ACTION_UPDATE_TAGS)
                     request.user.retag_question(question=question, tags=form.cleaned_data['tags'])
+
                 if request.is_ajax():
                     response_data = {
                         'success': True,
@@ -362,6 +363,7 @@ def edit_thread(request, id):
                             document_form.cleaned_data,
                             request
                         )
+
                         request.user.log(document_revision.document, const.LOG_ACTION_UPDATE_DOCUMENT)
                         request.user.message_set.create(message=_('Document has been successfully saved.'))
                     return HttpResponseRedirect(thread.get_absolute_url())
@@ -444,6 +446,7 @@ def edit_thread(request, id):
                     if is_document and (thread.category != category):
                         thread.category = category
                         do_save = True
+                        request.user.log(thread, const.LOG_ACTION_DOCUMENT_MOVE)
 
                     if is_document and (thread.external_access != allow_external_access):
                         thread.external_access = allow_external_access

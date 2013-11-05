@@ -569,10 +569,22 @@ LOG_ACTION_SEND_EMAIL_TO_USER = 58
 LOG_ACTION_ASK_TO_JOIN_NODE = 60
 LOG_ACTION_DELETE_DOCUMENT = 61
 
+LOG_ACTION_CLOSE_QUESTION = 70
+LOG_ACTION_REOPEN_QUESTION = 71
+LOG_ACTION_CLOSE_DISCUSSION = 72
+LOG_ACTION_REOPEN_DISCUSSION = 73
+LOG_ACTION_ADD_THREAD_CATEGORY = 74
+LOG_ACTION_THREAD_CATEGORY_MOVE = 75
+LOG_ACTION_THREAD_CATEGORY_EDIT = 76
+LOG_ACTION_DOCUMENT_MOVE = 77
+
+
 LOG_ACTIONS = (
     (LOG_ACTION_ASK_QUESTION, _('asked question')),
     (LOG_ACTION_ANSWER, _('answer question')),
     (LOG_ACTION_COMMENT_QUESTION, _('comment question')),
+    (LOG_ACTION_CLOSE_QUESTION, _('close question')),
+    (LOG_ACTION_REOPEN_QUESTION, _('reopen question')),
     (LOG_ACTION_COMMENT_ANSWER, _('comment answer')),
     (LOG_ACTION_UPDATE_QUESTION, _('update question')),
     (LOG_ACTION_UPDATE_ANSWER, _('update answer')),
@@ -587,6 +599,9 @@ LOG_ACTIONS = (
     (LOG_ACTION_FOLLOW_QUESTION, _('follow question')),
     (LOG_ACTION_FOLLOW_DISCUSSION, _('follow discussion')),
     (LOG_ACTION_UPDATE_USER, _('update user')),
+
+    (LOG_ACTION_CLOSE_DISCUSSION, _('discussion close')),
+    (LOG_ACTION_REOPEN_DISCUSSION, _('discussion reopen')),
 
     (LOG_ACTION_CREATE_ORGANIZATION_DESCRIPTION, _('create organization description')),
     (LOG_ACTION_UPDATE_ORGANIZATION_DESCRIPTION, _('update organization description')),
@@ -603,6 +618,10 @@ LOG_ACTIONS = (
 
     (LOG_ACTION_CREATE_DOCUMENT, _('create document')),
     (LOG_ACTION_UPDATE_DOCUMENT, _('update document')),
+    (LOG_ACTION_ADD_THREAD_CATEGORY, _('add thread category')),
+    (LOG_ACTION_THREAD_CATEGORY_MOVE, _('thread category move')),
+    (LOG_ACTION_THREAD_CATEGORY_EDIT, _('thread category edit')),
+    (LOG_ACTION_DOCUMENT_MOVE, _('document move')),
 
     (LOG_ACTION_CHANGE_NODE_SETTINGS, _('change node settings')),
     (LOG_ACTION_CHANGE_NODE_MEMBER, _('change node member')),

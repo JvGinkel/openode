@@ -845,6 +845,7 @@ def delete_post(request):
             post_type__in=('question', 'answer', 'discussion', "document"),
             pk=form.cleaned_data['post_id']
         )
+
         if not post.has_delete_perm(request.user):
             raise exceptions.PermissionDenied(
                 _('Sorry, but you don\'t have permission to accept answer.')
@@ -854,6 +855,9 @@ def delete_post(request):
             request.user.restore_post(post)
         else:
             request.user.delete_post(post)
+
+            if post.is_answer():
+                request.user.log(post, const.LOG_ACTION_DELETE_ANSWER)
     else:
         raise ValueError
 
@@ -873,6 +877,10 @@ def delete_thread(request, thread_id):
         if not thread.has_delete_perm(request.user):
             return render_forbidden(request)
         thread.delete(soft=True)
+
+        if thread.is_question():
+            request.user.log(thread, const.LOG_ACTION_CLOSE_QUESTION)
+
         request.user.message_set.create(message=_('Thread has been succesfully deleted.'))
 
     return HttpResponseRedirect(

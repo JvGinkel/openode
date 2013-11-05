@@ -1312,12 +1312,20 @@ def user_delete_question(
 def user_close_thread(self, thread=None, reason=None, timestamp=None):
     self.assert_can_close_thread(thread)
     thread.set_closed_status(closed=True, closed_by=self, closed_at=timestamp, close_reason=reason)
+    if thread.is_question():
+        self.log(thread, const.LOG_ACTION_CLOSE_QUESTION)
+    elif thread.is_discussion():
+        self.log(thread, const.LOG_ACTION_CLOSE_DISCUSSION)
 
 
 @auto_now_timestamp
 def user_reopen_thread(self, thread=None, timestamp=None):
     self.assert_can_reopen_thread(thread)
     thread.set_closed_status(closed=False, closed_by=self, closed_at=timestamp, close_reason=None)
+    if thread.is_question():
+        self.log(thread, const.LOG_ACTION_REOPEN_QUESTION)
+    elif thread.is_discussion():
+        self.log(thread, const.LOG_ACTION_REOPEN_DISCUSSION)
 
 
 @auto_now_timestamp
@@ -1541,7 +1549,7 @@ def user_edit_answer(
                     body_text=None,
                     revision_comment=None,
                     timestamp=None,
-                    force=False, # if True - bypass the assert
+                    force=False,   # if True - bypass the assert
                     by_email=False
                 ):
     if force == False:
@@ -1557,6 +1565,7 @@ def user_edit_answer(
     if answer.thread:
         answer.thread.invalidate_cached_data()
     immediately_notify_users(answer)
+    self.log(answer, const.LOG_ACTION_UPDATE_ANSWER)
 
 
 @auto_now_timestamp
@@ -2273,8 +2282,8 @@ def user_approve_post_revision(user, post_revision, timestamp=None):
 
 @auto_now_timestamp
 def flag_post(
-    user, post, timestamp=None, cancel=False, cancel_all=False, force=False
-):
+        user, post, timestamp=None, cancel=False, cancel_all=False, force=False
+    ):
     if cancel_all:
         # remove all flags
         if force == False:
@@ -2303,9 +2312,9 @@ def user_get_flags(self):
     """return flag Activity query set
     for all flags set by te user"""
     return Activity.objects.filter(
-                        user=self,
-                        activity_type=const.TYPE_ACTIVITY_MARK_OFFENSIVE
-                    )
+        user=self,
+        activity_type=const.TYPE_ACTIVITY_MARK_OFFENSIVE
+    )
 
 
 def user_get_flag_count_posted_today(self):

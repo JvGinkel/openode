@@ -48,7 +48,8 @@ def category_add(request, node_id, node_slug):
     if request.method == "POST":
         form = AddThreadCategoryForm(request.POST, node=node)
         if form.is_valid():
-            form.save()
+            thread_category = form.save()
+            request.user.log(thread_category, const.LOG_ACTION_ADD_THREAD_CATEGORY)
             return HttpResponseRedirect(reverse("node_module", args=[node.pk, node.slug, "library"]))
     else:
         form = AddThreadCategoryForm(node=node, initial={"node": node})
@@ -86,6 +87,7 @@ def category_move(request, node_id, node_slug, category_id):
         form = CategoryMoveForm(request.POST, instance=category)
         if form.is_valid():
             form.save()
+            request.user.log(category, const.LOG_ACTION_THREAD_CATEGORY_MOVE)
             return HttpResponseRedirect(reverse("category_reorg", args=[node.pk, node.slug]))
     else:
         form = CategoryMoveForm(instance=category)
@@ -139,6 +141,8 @@ def category_edit(request, node_id, node_slug, category_id):
         form = EditThreadCategoryForm(request.POST, instance=category)
         if form.is_valid():
             form.save()
+            request.user.log(category, const.LOG_ACTION_THREAD_CATEGORY_EDIT)
+
             return HttpResponseRedirect(reverse("node_module", args=[node.pk, node.slug, "library"]))
     else:
         form = EditThreadCategoryForm(instance=category)
