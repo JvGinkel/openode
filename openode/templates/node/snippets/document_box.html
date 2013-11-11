@@ -24,7 +24,7 @@
     </div>
 
     <div class="two columns t-right">
-        {# {% set unread = thread.has_unread_main_post_for_user(request.user) %} #}
+        {% set unread = thread.has_unread_main_post_for_user(request.user) %}
         <small class="{% if unread %}unread{% endif %}">{{ thread.last_activity_at|humanize_datetime }}</small>
     </div>
 </div>
