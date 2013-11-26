@@ -1,3 +1,4 @@
+This manual page is deprecated! Follow installation server manual.
 
 .. _mayan-server-installation-instructions:
 

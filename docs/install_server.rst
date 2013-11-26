@@ -1,4 +1,3 @@
-
 .. _install-server:
 
 Install server
@@ -108,7 +107,7 @@ Get source of project OPENode and compile&install dependencies
     cd cgi-bin
     virtualenv env
     source env/bin/activate
-    python setup.py develop
+    python setup.py install
 
 Setup settings_local.py for OPENode
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,3 +1,4 @@
+This manual page is obsolete!
 
 .. _install-localhost:
 
