@@ -1,163 +1,326 @@
-This manual page is obsolete!
-
 .. _install-localhost:
 
 Install localhost
-=================
+===================
 
-version draft 9, Mar 2013
+*by Mgr. Martin Kubát (martin.kubat@coex.cz) and Jan Češpivo (jan.cespivo@coex.cz)*
 
-*by Jan Češpivo (jan.cespivo@coex.cz) and Ing. Václav Chalupníček (vasek.chalupnicek@coex.cz)*
+This system is based on the Askbot project - http://askbot.com/, some information may be useful, but almost everything has been changed. OPENode project is connected to Elasticsearch and Mayan EDMS project. Mayan and Elasticsearch customized instalation manuals are also included.
+This instructions are for installation on Ubuntu platform, but may be valid for various other Linux distributions if you follow mentioned versions of dependencies.
 
-This installation manual will help you to install developer’s environment of Pluto project (source code including all dependencies) for learning and contributing purposes. This manual is written for Ubuntu 12.04, but may still be valid for other Linux distributions.
+Begin installation as your user with sudo rights.
 
-Prerequisities are standard open source developers tools and skills. Including git, virtualenv, python, pip, PostgreSQL.
+Required packages
+-----------------
 
-Pluto is Askbot’s fork (https://github.com/ASKBOT/askbot-devel). It’s an application, that follows Q&A principles. Pluto adds Club structure, new Permissions and Document module to it.
-Document may be represented by either wiki Posts or uploaded files with ordinary office content (doc, pptx, odt, pdf, ...) that are automatically converted using Mayan EDMS (including OCR, JPEG preview and fulltext indexing features).
+Database engines
+^^^^^^^^^^^^^^^^
 
-
-Requirements
-------------
-
-Follow the “Pluto: :ref:`install-server`. instructions” manual to find all required dependencies, including Elastic Search
-
-Installation commands
----------------------
-
-create database in postgresql
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install PostgreSQL and Redis database servers
 ::
+    sudo apt-get install postgresql-9.1 redis-server
 
-    sudo su - postgres
-    psql
-    postgres# create database pluto;
-    manage access to db according to your security policy
-    postgres# \q
-    # exit
-
-get source code - Pluto
-^^^^^^^^^^^^^^^^^^^^^^^
-::
-
-    mkdir <your-pluto-dev-dir>
-    git clone git@git.coex.cz:pluto.git
-
-start virtual environment
+Web server and supervisor
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-::
 
-    virtualenv env --no-site-packages
+Elasticsearch prerequisities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install Java Development Kit
+::
+    sudo apt-get install openjdk-6-jre-headless
+
+
+Tweak for debian based systems according to  http://elasticsearch-users.115913.n3.nabble.com/Tiny-issues-with-the-deb-package-on-Ubuntu-12-04-LTS-td3961419.html
+::
+    sudo ln -s /usr/lib/jvm/java-6-openjdk-amd64/ /usr/lib/jvm/java-6-openjdk
+
+Project dependencies and libraries
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Install developer libraries
+::
+    sudo apt-get install python-virtualenv git postgresql-server-dev-9.1 python-dev libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms1-dev libwebp-dev gettext
+
+
+Mayan dependencies
+^^^^^^^^^^^^^^^^^^
+
+Install ocr software and converters, it also includes libreoffice-core
+::
+    sudo apt-get install unoconv
+    sudo apt-get install convertall imagemagick graphicsmagick unpaper pdftohtml
+    sudo apt-get install tesseract-ocr
+
+For support another language but english install proper tesseract-oct-* package (for example czech)
+::
+    sudo apt-get install tesseract-ocr-ces
+
+Environment
+-----------
+
+Database setup
+^^^^^^^^^^^^^^
+
+Change user to postgres
+::
+    sudo su postgres
+
+OPENode database setup - change 'openodepass' to custom password
+::
+    echo "CREATE ROLE openode with password 'openodepass';CREATE DATABASE openode;GRANT ALL PRIVILEGES ON DATABASE openode TO openode;ALTER DATABASE openode OWNER TO openode;ALTER ROLE openode LOGIN;" | psql
+    echo "ALTER SCHEMA public OWNER TO openode;" | psql -d openode
+
+Mayan database setup - change 'mayanpass' to custom password
+::
+    echo "CREATE ROLE mayan with password 'mayanpass';CREATE DATABASE mayan;GRANT ALL PRIVILEGES ON DATABASE mayan TO mayan;ALTER DATABASE mayan OWNER TO mayan;ALTER ROLE mayan LOGIN;" | psql
+    echo "ALTER SCHEMA public OWNER TO mayan;" | psql -d mayan
+
+Became a normal user again
+::
+    exit
+
+
+OPENode instalation
+-------------------
+
+OPENode projects directory
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Change directory to projects
+::
+    cd ~/projects/
+
+OPENode environment setup and installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get source of project OPENode and compile&install dependencies
+::
+    git clone https://github.com/openode/openode.git
+    cd openode
+    virtualenv env
     source env/bin/activate
+    python setup.py develop
 
-start develop setup (this installs all dependencies)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Setup settings_local.py for OPENode
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Setup project OPENode
 ::
-
-    cd pluto
-    # be sure to have installed pip==1.3.1
-    (env)# python setup.py develop
-    cd pluto
-
-database structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-::
-
+    cd openode
     cp settings_local.default.py settings_local.py
-    # edit and fill in settings_local.py. Be sure to override DATABASE settings and DOMAIN_NAME.
 
-    # when prompted, fill-in both username and email with your email address, to keep things consitent.
-    (env)# ./manage.py syncdb
+Edit settings_local.py and customize all necessary variables. Keep an eye especially on these: DATABASE_PASSWORD, SECRET_KEY, DOCUMENT_HMAC_KEY, DOCUMENT_URI_ID
 
-test it!
-^^^^^^^^
+Set DEBUG mode
 ::
-
-    (env)# ./manage.py runserver
-    open browser on http://localhost:8000
+    DEBUG = True
 
 
-Standard project start commands
--------------------------------
+OPENode initialization
+^^^^^^^^^^^^^^^^^^^^^^
+
+It asks you for admin username, email and password. It is recommended to set username same as email.
 ::
+    ./manage.py syncdb
 
-    # cd pluto-project
-    # source env/bin/activate
-    (env)# ./manage.py runserver
-    #open browser on http://localhost:8000
-
-Celery
-^^^^^^
+Compile translations
 ::
-
-    ./manage.py celeryd
-
-    # or
-    ./manage.py celeryd -E
-    # for monitoring queue ans tasks with
-    ./manage.py celeryev
-
-
-This run only one worker and requests do DocumentAPI will be in FIFO queue.
-For celery is required django-kombu in version 0.9.4 (0.9.2 contain bug)
-
-SASS - CSS compilator
-^^^^^^^^^^^^^^^^^^^^^
-
-If you want to change Pluto’s CSS, you need to write them in SASS located at ``pluto/pluto/media/style``
-
-install developer’s tools::
-
-    sudo apt-get install ruby1.9.1
-    sudo gem install sass
-    sudo gem install compass
-    sudo gem install zurb-foundation
-
-start on-the-fly compilator::
-
-    cd pluto/pluto/media/style
-    compass watch
-
-Sphinx documentation
-^^^^^^^^^^^^^^^^^^^^
-::
-
-    # install necessary tools
-    aptitude install sphinx-common
-    # enter documents directory
-    cd docs
-    # edit doc files i.e. index.rst
-    # build new doc
-    make html
-
-Managing translations
-^^^^^^^^^^^^^^^^^^^^^
-
-**Make messages (if source code has changed)**
-Whenever you change a translation string or create new, you need to step in the instance directory, in the virtualenv and run::
-
-    cd ../pluto/pluto
-    ../../pluto-project/manage.py jinja2_makemessages -a
-    cd deps/livesettings
-    ../../../../pluto-project/manage.py jinja2_makemessages -a
-
-where ``../pluto/pluto`` is relative path to your source codes
-
-**Translate**
-
-After this, you can translate new translation strings in rosetta, or elsewhere.
-
-**Compile**
-
-To see things changed you need to compile messages running::
-
-    cd ../pluto/pluto
-    ../../pluto-project/manage.py compilemessages
+    ./manage.py compilemessages
     cd deps/livesettings/
-    ../../../../pluto-project/manage.py compilemessages
+    ../../manage.py compilemessages
 
-You need to restart your server after each messages recompilation since they are loaded at server start (this is/should be automatic in production environment).
+Became a root again
+^^^^^^^^^^^^^^^^^^^
 
-Updating source code
+Logout openode user
+::
+    exit
+
+Elasticsearch instalation and setup
+-----------------------------------
+
+Instalation
+^^^^^^^^^^^
+
+Install Elasticsearch
+::
+    wget download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.20.5.deb -P /tmp/
+    dpkg -i /tmp/elasticsearch-0.20.5.deb
+
+Setup
+^^^^^
+
+Setup Elasticsearch
+::
+    nano /etc/elasticsearch/elasticsearch.yml
+
+Edit/append a line to enable only local IP
+::
+    network.host: 127.0.0.1
+
+Mayan instalation
+-------------------
+
+Mayan projects directory
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Change directory to projects
+::
+    cd ~/projects/
+
+Mayan environment setup and installation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Get source of project Mayan and compile&install dependencies
+::
+    git clone git://github.com/rosarior/mayan.git
+    git clone git@git.coex.cz:mayan_pyro_api.git
+    ln -s ./mayan_pyro_api/pyro_api/ ./mayan/modules/
+    cd mayan
+    virtualenv env
+    source env/bin/activate
+    pip install -r mayan/requirements/production.txt
+    pip install gunicorn==0.17.2
+    pip install psycopg2==2.4.6
+    pip install Pyro4==4.17
+
+
+Setup settings_local.py for Mayan
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Edit settings_local.py
+::
+    nano settings_local.py
+
+
+Paste into the file lines below and customize it (especially DATABASES - PASSWORD):
+::
+    import os
+
+    DEBUG = True
+
+    DOCUMENTS_DISPLAY_SIZE = "1600"
+    DOCUMENTS_PRINT_SIZE = "1600"
+
+    CONVERTER_GRAPHICS_BACKEND = "converter.backends.graphicsmagick"
+    CONVERTER_GM_SETTINGS = "-limit files 1 -limit memory 2GB -limit map 2GB -density 200"
+
+    OCR_QUEUE_PROCESSING_INTERVAL = 3
+    OCR_NODE_CONCURRENT_EXECUTION = 2
+
+    #######################################
+
+    TIME_ZONE = 'Europe/Prague'
+
+    #######################################
+
+    PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), './'))
+    LOG_ROOT = os.path.abspath(os.path.join(PROJECT_ROOT, "..", "..", "log"))
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+            'NAME': "mayan",     # Or path to database file if using sqlite3.
+            'USER': 'mayan',                      # Not used with sqlite3.
+            'PASSWORD': 'mayanpass',                  # Not used with sqlite3.
+            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        }
+    }
+
+
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+
+        'formatters': {
+            'verbose': {
+                'format': '%(levelname)s:[%(asctime)s] <%(name)s|%(filename)s:%(lineno)s> %(message)s'
+            },
+            'intermediate': {
+                'format': '%(name)s <%(process)d> [%(levelname)s] "%(funcName)s() %(message)s"'
+            },
+            'simple': {
+                'format': '%(levelname)s %(message)s'
+            },
+        },
+
+        'handlers': {
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+                'formatter': 'intermediate'
+            },
+            'api_handler': {
+                'level': 'DEBUG',
+                'class': 'logging.FileHandler',
+                'filename': os.path.join(LOG_ROOT, "api.log"),
+                'formatter': 'verbose',
+            },
+        },
+
+        'loggers': {
+            'documents': {
+                'handlers': ['console'],
+                'propagate': True,
+                'level': 'DEBUG',
+            },
+            "api": {
+                'handlers': ['api_handler'],
+                'level': 'INFO',
+                'propagate': False,
+            },
+        }
+    }
+
+For support for another languages add line (for example czech):
+::
+    OCR_TESSERACT_LANGUAGE = "ces"  # default language for ocr
+
+
+Enable Mayan remote API
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Add app "pyro_api" to INSTALLED_APPS in Mayan's settings.py
+::
+    nano settings.py
+
+Insert a line to INSTALLED_APPS
+::
+    INSTALLED_APPS = (
+    # ...
+    'pyro_api',
+    # …
+    )
+
+
+Setup settings_local.py for Mayan remote API
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Edit mayan_pyro_api/pyro_api/settings_local.py
+::
+    nano ../mayan_pyro_api/pyro_api/settings_local.py
+
+Paste into the file lines below and customize it according to OPENode's settings (DOCUMENT_HMAC_KEY <-> HMAC_KEY, DOCUMENT_URI_ID <-> URI_ID, etc.):
+::
+    # mayan server IP
+    SERVER_IP = "127.0.0.1"
+
+    # SECRET key, random hash
+    HMAC_KEY = "sd1fg86ds4f6sd8hg4sd6fg68sdf746g4"
+
+    # SECRET id, random hash
+    URI_ID = "1sadfasfg468h7j9g7j9h78gk6g54fg6f"
+
+    # mayan port, example.
+    URI_PORT = 33333
+
+Mayan initialization
 ^^^^^^^^^^^^^^^^^^^^
-Please follow instructions howto update running instance.
+
+It asks you for admin username, email and password.
+::
+    cd mayan
+    ./manage.py syncdb
+    ./manage.py migrate
