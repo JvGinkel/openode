@@ -107,6 +107,13 @@ Get source of project OPENode and compile&install dependencies
     cd cgi-bin
     virtualenv env
     source env/bin/activate
+    
+Fixed broken bdist_egg for zip_safe flag
+::
+    pip install django-mptt==0.5.4
+
+Install openode
+::
     python setup.py install
 
 Setup settings_local.py for OPENode
