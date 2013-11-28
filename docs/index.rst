@@ -13,6 +13,7 @@ Installation instructions
     :maxdepth: 2
 
     install_server
+    install_localhost
 
 What is OPENode?
 ----------------
