@@ -20,9 +20,6 @@ Install PostgreSQL and Redis database servers
 ::
     sudo apt-get install postgresql-9.1 redis-server
 
-Web server and supervisor
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Elasticsearch prerequisities
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
