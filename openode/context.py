@@ -36,6 +36,7 @@ def application_settings(request):
     my_settings['STATIC_URL'] = settings.STATIC_URL
     my_settings['OPENODE_CSS_DEVEL'] = getattr(settings, 'OPENODE_CSS_DEVEL', False)
     my_settings['DEBUG'] = settings.DEBUG
+    my_settings['FORCE_STATIC_SERVE_WITH_DJANGO'] = settings.FORCE_STATIC_SERVE_WITH_DJANGO
     my_settings['USING_RUNSERVER'] = 'runserver' in sys.argv
     my_settings['OPENODE_VERSION'] = openode.get_version()
     my_settings['LOGIN_URL'] = url_utils.get_login_url()

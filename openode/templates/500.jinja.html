@@ -1,32 +1,69 @@
-{# {% extends "two_column_body.html" %}
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <title>{% trans %}Internal server error{% endtrans %} | Fórum</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width" /><!-- Set the viewport width to device width for mobile -->
+        <meta name="description" content="" />
 
-{% block title %}{% spaceless %}{% trans %}Internal server error{% endtrans %}{% endspaceless %}{% endblock %}
- #}
-{% block content %}
+        <link rel="shortcut icon" href="/m/default/media/images/favicon.gif?v=17" />
+        <link href="/m/default/media/css/admin.css" type="text/css" media="all" rel="stylesheet" />
+        <link href="/m/default/media/colorbox/colorbox.css?v=17" rel="stylesheet" type="text/css" />
+        <link href="/m/default/media/jquery-ui/jquery-ui.min.css?v=17" rel="stylesheet" type="text/css" />
+        <link href="/m/default/media/style/screen.css?v=17" rel="stylesheet" type="text/css" />
 
-    <h1>{% trans %}Internal server error{% endtrans %}</h1>
+        <script type='text/javascript' src="/m/default/media/js/foundation/foundation.min.js?v=17"></script>
+        <script type="text/javascript" src="/m/default/media/js/modernizr.custom.js?v=17"></script>
 
-    <div id="main-body">
-        <div class="rtc">
-            <p>
-                {% trans %}system error log is recorded, error will be fixed as soon as possible{% endtrans %}<br/>
-                {% trans %}please report the error to the site administrators if you wish{% endtrans %}
-            </p>
-            <p>
-                <a class="js-back button secondary" href="javascript:void(0)">
-                    ↰ {% trans %}back to previous page{% endtrans %}
-                </a>
-            </p>
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-13196065-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript">
+            jQuery(document).ready(function(){
+                jQuery(".js-back").on("click", function(){
+                    history.go(-1);
+                })
+            });
+        </script>
+    </head>
+    <body class="one-col">
+        <div class="root">
+            <div class="header">
+                <div class="row">
+                    <div class="column twelve">
+                        <div class="f-right t-right top-list">
+                        </div>
+                        <a class="logo-title" href="/">
+                            <img src="/m/default/media/style/i/logo.png?v=17" class="v-centered" />
+                            <span class="title">OPENode</span>
+                            <small>Smarter Knowledgebase</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="main-body">
+                <div class="row">
+                    <div class="column twelve">
+                        <h1>{% trans %}Internal server error{% endtrans %}</h1>
+                        <p>
+                            {% trans %}system error log is recorded, error will be fixed as soon as possible{% endtrans %}<br/>
+                            {% trans %}please report the error to the site administrators if you wish{% endtrans %}
+                        </p>
+                        <p>
+                            <a class="js-back button secondary" href="javascript:void(0)">
+                                ↰ {% trans %}back to previous page{% endtrans %}
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-{% endblock %}
-
-{% block endjs %}
-    <script type="text/javascript">
-        jQuery(document).ready(function(){
-            jQuery(".js-back").on("click", function(){
-                history.go(-1);
-            })
-        });
-    </script>
-{% endblock %}
+    </body>
+</html>

@@ -3,15 +3,17 @@
     <div class="alert-box secondary">
         <p>
             You are seeing this message because you are using Django runserver
-            and DEBUG_MODE is False. Runserver should not be used in production.
+            and DEBUG is False. Runserver should not be used in production.
         </p>
         <p>
             To serve static media in production - please run:
             <pre>python manage.py collectstatic</pre>
         </p>
+        {% if not settings.FORCE_STATIC_SERVE_WITH_DJANGO %}
         <p>
-            If you do not see page styling - set DEBUG_MODE = True.
+            Set FORCE_STATIC_SERVE_WITH_DJANGO = True to turn on django static media serving.
         </p>
+        {% endif %}
     </div>
     {% endif %}
 {% else %}

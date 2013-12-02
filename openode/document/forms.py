@@ -6,7 +6,6 @@ import os
 from django import forms
 from django.utils.translation import ugettext as _
 
-from openode.conf import settings as openode_settings
 from openode.const import THREAD_TYPE_DOCUMENT
 from openode.document.models import Document, DocumentRevision  # , Page
 from openode.forms.admin import BaseMoveForm
@@ -32,10 +31,15 @@ class DocumentFileForm(forms.Form):
 
     def clean(self):
         cl_data = super(DocumentFileForm, self).clean()
-        if not (cl_data["remove"] or cl_data["file_data"]):
-            self._errors["file_data"] = self.error_class([_(u"You must add new document or remove old.")])
-            del cl_data["remove"]
-            del cl_data["file_data"]
+        try:
+            _file = cl_data["file_data"]
+        except KeyError:
+            raise forms.ValidationError(_("Selected file is empty. Please choose another one."))
+        else:
+            if not (cl_data["remove"] or _file):
+                self._errors["file_data"] = self.error_class([_(u"You must add new document or remove old.")])
+                del cl_data["remove"]
+                del cl_data["file_data"]
         return cl_data
 
 
@@ -45,8 +49,10 @@ class DocumentForm(AskForm):
     allow_external_access = forms.BooleanField(required=False)
 
     def clean(self):
-
-        _file = self.cleaned_data["file_data"]
+        try:
+            _file = self.cleaned_data["file_data"]
+        except KeyError:
+            raise forms.ValidationError(_("Selected file is empty. Please choose another one."))
         file_name = _file.name if _file else None
 
         if file_name:
