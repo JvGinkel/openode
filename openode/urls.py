@@ -11,6 +11,12 @@ from openode.sitemap import QuestionsSitemap
 from openode.skins.utils import update_media_revision
 from openode import const
 
+from slots import report_exception
+
+if not settings.DEBUG:
+    from django.core import signals as core_signals
+    core_signals.got_request_exception.connect(report_exception)
+
 admin.autodiscover()
 update_media_revision()  # needs to be run once, so put it here
 

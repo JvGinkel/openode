@@ -46,8 +46,3 @@ def report_exception(sender, **kwargs):
     )
     msg.attach_alternative(content, "text/html")
     msg.send()
-
-################################################################################
-if not settings.DEBUG:
-    from django.core import signals as core_signals
-    core_signals.got_request_exception.connect(report_exception)
