@@ -190,7 +190,7 @@ Get source of project Mayan and compile&install dependencies
 ::
     cd cgi-bin
     git clone git://github.com/rosarior/mayan.git
-    git clone git@git.coex.cz:mayan_pyro_api.git
+    git clone git@github.com:openode/mayan_pyro_api.git
     ln -s ~/cgi-bin/mayan_pyro_api/pyro_api/ ~/cgi-bin/mayan/modules/
     virtualenv env
     source env/bin/activate
@@ -312,7 +312,7 @@ Setup settings_local.py for Mayan remote API
 
 Edit ~/cgi-bin/mayan_pyro_api/pyro_api/settings_local.py
 ::
-    nano ~/cgi-bin/mayan_pyro_api/pyro_api/settings_local.py
+    nano ~/cgi-bin/mayan_pyro_api/coex_api/settings_local.py
 
 Paste into the file lines below and customize it according to OPENode's settings (DOCUMENT_HMAC_KEY <-> HMAC_KEY, DOCUMENT_URI_ID <-> URI_ID, etc.):
 ::
