@@ -42,6 +42,8 @@ from openode.utils.forms import NextUrlField, UserNameField, UserEmailField, Set
 from openode.forms import CleanCharField
 from openode.forms.widgets import Wysiwyg
 
+from openode.utils.rand import generate_random_string
+
 # needed for some linux distributions like debian
 try:
     from openid.yadis import xri
@@ -482,3 +484,28 @@ class EmailPasswordForm(forms.Form):
             except:
                 raise forms.ValidationError(_("sorry, there is no such user name"))
         return self.cleaned_data['username']
+
+
+class CustomerLostPasswordForm(forms.Form):
+    email = forms.CharField()
+
+    def clean_email(self):
+        email = self.cleaned_data["email"]
+        try:
+            user = User.objects.get(
+                email=self.cleaned_data['email'],
+                is_staff=False,
+                is_active=True
+            )
+
+            # vygenerovani unikatniho kodu pro zmenu hesla
+            change_password_key = generate_random_string(40)
+            while User.objects.filter(change_password_key=change_password_key).exists():
+                change_password_key = generate_random_string(40)
+
+            user.change_password_key = change_password_key
+            user.save()
+            self.user = user
+        except User.DoesNotExist:
+            raise forms.ValidationError(u'Uživatel s daným emailovým účtem neexistuje.')
+        return email

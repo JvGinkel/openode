@@ -179,6 +179,7 @@ User.add_to_class('interesting_tags', models.TextField(blank=True))
 User.add_to_class('ignored_tags', models.TextField(blank=True))
 User.add_to_class('subscribed_tags', models.TextField(blank=True))
 User.add_to_class('email_signature', models.TextField(blank=True))
+User.add_to_class('change_password_key', models.CharField(max_length=255, blank=True, default=''))
 
 User.add_to_class(
     'email_tag_filter_strategy',

@@ -41,6 +41,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.core.urlresolvers import reverse
 # from django.forms.util import ErrorList
+from django.template.loader import render_to_string
+from django.template import RequestContext
+from django.core.mail import EmailMultiAlternatives
+
 from django.views.decorators import csrf
 from django.utils.encoding import smart_unicode
 from django.utils.html import escape
@@ -48,7 +52,7 @@ from django.utils.translation import ugettext as _
 from django.utils.safestring import mark_safe
 from openode.mail import send_mail
 from recaptcha_works.decorators import fix_recaptcha_remote_ip
-from openode.skins.loaders import render_into_skin, get_template
+from openode.skins.loaders import render_into_skin, get_template, render_into_skin_as_string
 
 from urlparse import urlparse
 
@@ -1239,6 +1243,68 @@ def send_user_new_email_key(user):
     user.email_key = util.generate_random_key()
     user.save()
     send_email_key(user.email, user.email_key)
+
+################################################################################
+
+
+def lost_password(request):
+    """
+        lost password view
+    """
+    if request.method == 'POST':
+        form = forms.CustomerLostPasswordForm(request.POST)
+        if form.is_valid():
+            change_password_link = 'http://%s%s' % (
+                request.META['HTTP_HOST'],
+                reverse('change_password', args=[form.user.change_password_key])
+            )
+
+            to_email = {
+                'change_password_link': change_password_link
+            }
+            # html_content = render_to_string('email/lost_password.html', to_email, context_instance=RequestContext(request))
+            text_content = render_into_skin_as_string('authopenid/emails/lost_password.html', to_email, request)
+
+            # TODO dodat do modelu portalu
+            msg = EmailMultiAlternatives(
+                subject=_(u'Lost password'),
+                body=text_content,
+                from_email=django_settings.DEFAULT_FROM_EMAIL,
+                to=[form.user.email],
+            )
+            # msg.attach_alternative(html_content, "text/html")
+            msg.send()
+            return render_into_skin('authopenid/lost_password_sent.html', {}, request)
+    else:
+        form = forms.CustomerLostPasswordForm()
+
+    return render_into_skin('authopenid/lost_password.html', {'form': form}, request)
+
+
+def change_password(request, key):
+    try:
+        customer = User.objects.get(change_password_key=key)
+    except User.DoesNotExist:
+        return HttpResponseRedirect(reverse('customer:lost_password'))
+
+    # TODO
+
+    if request.method == 'POST':
+        form = CustomerChangePasswordForm(request.portal, request.POST)
+        if form.is_valid():
+            customer.user.set_password(form.cleaned_data['password_1'])
+            customer.change_password_key = None
+            customer.save()
+
+            return render_to_response(['%s/change_password_ok.html' % request.portal.name, 'change_password_ok.html'], context_instance=RequestContext(request))
+    else:
+        form = CustomerChangePasswordForm(request.portal)
+
+    return render_to_response(['%s/change_password.html' % request.portal.name, 'change_password.html'], {'form': form}, context_instance=RequestContext(request))
+
+
+
+################################################################################
 
 
 def account_recover(request):
