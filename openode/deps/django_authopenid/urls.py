@@ -13,6 +13,7 @@ urlpatterns = patterns('openode.deps.django_authopenid.views',
     url(r'^signin/complete-oauth/$', 'complete_oauth_signin', name='user_complete_oauth_signin'),
 
     url(r'^lost-password/$', 'lost_password', name="lost_password"),
+    url(r'^lost-password/done/$', 'lost_password_done', name="lost_password_done"),
     url(r'^change-password/(?P<key>\w+)/$', 'change_password', name="change_password"),
 
     url(r'^register/$', 'register', name='user_register'),

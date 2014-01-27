@@ -485,8 +485,12 @@ class EmailPasswordForm(forms.Form):
                 raise forms.ValidationError(_("sorry, there is no such user name"))
         return self.cleaned_data['username']
 
+################################################################################
+# LOST PASSWORD FORMS
+################################################################################
 
-class CustomerLostPasswordForm(forms.Form):
+
+class UserLostPasswordForm(forms.Form):
     email = forms.CharField()
 
     def clean_email(self):
@@ -498,7 +502,7 @@ class CustomerLostPasswordForm(forms.Form):
                 is_active=True
             )
 
-            # vygenerovani unikatniho kodu pro zmenu hesla
+            # generate uniq key for change password
             change_password_key = generate_random_string(40)
             while User.objects.filter(change_password_key=change_password_key).exists():
                 change_password_key = generate_random_string(40)
@@ -509,3 +513,21 @@ class CustomerLostPasswordForm(forms.Form):
         except User.DoesNotExist:
             raise forms.ValidationError(u'Uživatel s daným emailovým účtem neexistuje.')
         return email
+
+#######################################
+
+
+class UserChangePasswordForm(forms.Form):
+    password_1 = forms.CharField(widget=forms.PasswordInput, label=u'Nové heslo', min_length=6)
+    password_2 = forms.CharField(widget=forms.PasswordInput, label=u'Potvrzení hesla')
+
+    def clean(self, *args, **kwargs):
+        self.cleaned_data = super(UserChangePasswordForm, self).clean(*args, **kwargs)
+        if ('password_1' in self.cleaned_data) and ('password_2' in self.cleaned_data):
+            if self.cleaned_data.get('password_1') != self.cleaned_data.get('password_2'):
+                self.errors['password_1'] = self.error_class(forms.ValidationError(u'Přihlašovací hesla musejí být stejná.').messages)
+                self.errors['password_2'] = self.error_class(forms.ValidationError(u'Přihlašovací hesla musejí být stejná.').messages)
+        return self.cleaned_data
+
+################################################################################
+################################################################################

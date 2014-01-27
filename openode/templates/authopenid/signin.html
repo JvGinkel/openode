@@ -60,6 +60,7 @@
                     {% if login_form.password_login_failed %}
                         <div class="alert-box alert">{% if login_form.password_login_failed_msg %}{{ login_form.password_login_failed_msg }}{% else %}{% trans %}Login failed, please try again{% endtrans %}{% endif %}</div>
                     {% endif %}
+
                     <div class="row">
                         <div class="three columns">
                             <label class="label-tabular" for="id_username">{% trans %}Email{% endtrans %}</label>
@@ -69,6 +70,7 @@
                             <div class="form-field-separator"></div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="three columns">
                             <label class="label-tabular" for="id_password">{% trans %}Password{% endtrans %}</label>
@@ -78,14 +80,24 @@
                             <div class="form-field-separator"></div>
                         </div>
                     </div>
+
                     <div class="row">
-                        <div class="three columns">
-                        </div>
+                        <div class="three columns"></div>
                         <div class="nine columns">
                             <button class="button large success" type="submit" name="login_with_password" value="1">{% trans %}Sign in{% endtrans %}</button>
                             <a class="button large f-right" href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next=/" >{% trans %}Create new user account{% endtrans %}</a>
                         </div>
                     </div>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="three columns"></div>
+                        <div class="nine columns">
+                            <a href="{% url lost_password %}" class="right">{% trans %}Lost password{% endtrans %}</a>
+                        </div>
+                    </div>
+
 {#                     <div class="row separator-01">
                     </div>
                     <div class="row">

@@ -1252,7 +1252,7 @@ def lost_password(request):
         lost password view
     """
     if request.method == 'POST':
-        form = forms.CustomerLostPasswordForm(request.POST)
+        form = forms.UserLostPasswordForm(request.POST)
         if form.is_valid():
             change_password_link = 'http://%s%s' % (
                 request.META['HTTP_HOST'],
@@ -1262,47 +1262,58 @@ def lost_password(request):
             to_email = {
                 'change_password_link': change_password_link
             }
-            # html_content = render_to_string('email/lost_password.html', to_email, context_instance=RequestContext(request))
-            text_content = render_into_skin_as_string('authopenid/emails/lost_password.html', to_email, request)
+            html_content = render_into_skin_as_string('authopenid/emails/lost_password.html', to_email, request)
+            text_content = render_into_skin_as_string('authopenid/emails/lost_password.txt', to_email, request)
 
-            # TODO dodat do modelu portalu
             msg = EmailMultiAlternatives(
                 subject=_(u'Lost password'),
                 body=text_content,
                 from_email=django_settings.DEFAULT_FROM_EMAIL,
                 to=[form.user.email],
             )
-            # msg.attach_alternative(html_content, "text/html")
+            msg.attach_alternative(html_content, "text/html")
             msg.send()
-            return render_into_skin('authopenid/lost_password_sent.html', {}, request)
+            return HttpResponseRedirect(reverse("lost_password_done"))
     else:
-        form = forms.CustomerLostPasswordForm()
+        form = forms.UserLostPasswordForm()
 
     return render_into_skin('authopenid/lost_password.html', {'form': form}, request)
 
 
-def change_password(request, key):
-    try:
-        customer = User.objects.get(change_password_key=key)
-    except User.DoesNotExist:
-        return HttpResponseRedirect(reverse('customer:lost_password'))
+def lost_password_done(request):
+    """
+        lost password done view
+    """
+    return render_into_skin('authopenid/lost_password_sent.html', {}, request)
 
-    # TODO
+
+def change_password(request, key):
+    """
+        change password view
+    """
+
+    to_tmpl = {
+        "unknow_user": True,
+        "form": None
+    }
+
+    try:
+        user = User.objects.get(change_password_key=key)
+    except User.DoesNotExist:
+        return render_into_skin('authopenid/change_password.html', to_tmpl, request)
 
     if request.method == 'POST':
-        form = CustomerChangePasswordForm(request.portal, request.POST)
+        form = forms.UserChangePasswordForm(request.POST)
         if form.is_valid():
-            customer.user.set_password(form.cleaned_data['password_1'])
-            customer.change_password_key = None
-            customer.save()
-
-            return render_to_response(['%s/change_password_ok.html' % request.portal.name, 'change_password_ok.html'], context_instance=RequestContext(request))
+            user.set_password(form.cleaned_data['password_1'])
+            user.change_password_key = None
+            user.save()
+            return render_into_skin('authopenid/change_password_ok.html', {}, request)
     else:
-        form = CustomerChangePasswordForm(request.portal)
+        form = forms.UserChangePasswordForm()
 
-    return render_to_response(['%s/change_password.html' % request.portal.name, 'change_password.html'], {'form': form}, context_instance=RequestContext(request))
-
-
+    to_tmpl.update({'form': form, "unknow_user": False})
+    return render_into_skin('authopenid/change_password.html', to_tmpl, request)
 
 ################################################################################
 
