@@ -25,6 +25,7 @@ setup(
     url = 'http://openode.org',
     include_package_data = True,
     install_requires = openode.REQUIREMENTS.values(),
+    dependency_links = openode.DEPENDENCY_LINKS,
     classifiers = [
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',

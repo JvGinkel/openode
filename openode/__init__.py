@@ -56,12 +56,14 @@ REQUIREMENTS = {
     "haystack": "django-haystack==2.0.0",
     "pyelasticsearch": "pyelasticsearch==0.5",
     "psi": "PSI==0.3b2",
-    #"nagios_nsca": "-e git+https://github.com/COEXCZ/nagios-nsca.git@033eba5b9234375e11c8e06f559f2ceb10484848#egg=nagios_nsca-master"
+    "nagios_nsca": "nagios-nsca==1.0.0"
 }
 
 # TODO remove feature Ask/Answer by email
 if platform.system() != 'Windows':
     REQUIREMENTS['lamson'] = 'lamson==1.1'
+
+DEPENDENCY_LINKS = ['https://github.com/COEXCZ/nagios-nsca/tarball/master#egg=nagios_nsca-1.0.0']
 
 #necessary for interoperability of django and coffin
 try:
