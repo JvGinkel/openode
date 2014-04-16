@@ -21,12 +21,14 @@ from django.conf import settings as django_settings
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render as django_render
 from django.http import HttpResponse, HttpResponseForbidden
 from django.http import HttpResponseRedirect, Http404
 from django.utils.translation import ugettext as _
 from django.utils import simplejson
 from django.views.decorators import csrf
+
+from openode.const.perm_rules import RULES, MEMBERS_RULES
 
 from openode import const, forms, models  # , exceptions
 from openode.conf import settings as openode_settings
@@ -60,6 +62,17 @@ def owner_or_moderator_required(f):
             return HttpResponseRedirect(url_utils.get_login_url() + params)
         return f(request, profile_owner, context)
     return wrapped_func
+
+
+@login_required
+def show_perm_table(request):
+    if not request.user.is_staff:
+        return HttpResponseForbidden()
+    to_tmpl = {
+        "RULES": RULES,
+        "MEMBERS_RULES": MEMBERS_RULES
+    }
+    return django_render(request, 'admin/show_perm_table.html', to_tmpl)
 
 
 def show_users(request):

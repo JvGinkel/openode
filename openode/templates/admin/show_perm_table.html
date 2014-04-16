@@ -1,0 +1,53 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n %}
+
+{% block title %}
+    {% trans "Documents state" %}
+{% endblock %}
+
+{% block content %}
+
+    <table>
+        <tr>
+            <td>
+                <h2>Pravidla</h2>
+                {% for action, v in RULES.items %}
+                    <h3>{{ action }}</h3>
+                    <table>
+                        {% for perm, value in v.items %}
+                            <tr>
+                                <td>
+                                    {{ perm }}
+                                </td>
+                                <td>
+                                    {{ value|yesno }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endfor %}
+            </td>
+
+            <td>
+                <h2>Role</h2>
+                {% for role, rules in MEMBERS_RULES.items %}
+                    <h3>{{ role }}</h3>
+                    <table>
+                        {% for perm, value in rules.items %}
+                            <tr>
+                                <td>
+                                    {{ perm }}
+                                </td>
+                                <td>
+                                    {{ value|yesno }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endfor %}
+            </td>
+
+        </tr>
+    </table>
+
+{% endblock %}

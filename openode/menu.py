@@ -67,4 +67,8 @@ class CustomMenu(Menu):
             items.MenuItem(_('Document processing'), reverse('admin:document_state'))
         )
 
+        self.children.append(
+            items.MenuItem(_('Perms'), reverse('show_perm_table'))
+        )
+
         return super(CustomMenu, self).init_with_context(context)
