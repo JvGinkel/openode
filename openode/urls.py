@@ -204,6 +204,14 @@ urlpatterns = patterns('',
     ###################################
 
     url(
+        r'^admin/show-perm-table/',
+        views.users.show_perm_table,
+        name='show_perm_table'
+    ),
+
+    ###################################
+
+    url(
         r'^api/get_questions/',
         views.commands.api_get_questions,
         name='api_get_questions'
