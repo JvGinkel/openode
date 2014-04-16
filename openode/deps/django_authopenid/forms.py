@@ -30,6 +30,9 @@
 # THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import logging
+
+from time import sleep
+
 from django import forms
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext as _
@@ -511,7 +514,8 @@ class UserLostPasswordForm(forms.Form):
             user.save()
             self.user = user
         except User.DoesNotExist:
-            raise forms.ValidationError(u'Uživatel s daným emailovým účtem neexistuje.')
+            sleep(3)
+            raise forms.ValidationError(_(u'User with the email you specified does not exist.'))
         return email
 
 #######################################
@@ -525,8 +529,8 @@ class UserChangePasswordForm(forms.Form):
         self.cleaned_data = super(UserChangePasswordForm, self).clean(*args, **kwargs)
         if ('password_1' in self.cleaned_data) and ('password_2' in self.cleaned_data):
             if self.cleaned_data.get('password_1') != self.cleaned_data.get('password_2'):
-                self.errors['password_1'] = self.error_class(forms.ValidationError(u'Přihlašovací hesla musejí být stejná.').messages)
-                self.errors['password_2'] = self.error_class(forms.ValidationError(u'Přihlašovací hesla musejí být stejná.').messages)
+                self.errors['password_1'] = self.error_class(forms.ValidationError(_(u'Passwords must be the same.')).messages)
+                self.errors['password_2'] = self.error_class(forms.ValidationError(_(u'Passwords must be the same.')).messages)
         return self.cleaned_data
 
 ################################################################################

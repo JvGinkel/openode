@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-26 16:06+0100\n"
-"PO-Revision-Date: 2013-10-29 10:08\n"
+"POT-Creation-Date: 2014-04-16 13:10+0200\n"
+"PO-Revision-Date: 2014-04-16 13:12+0100\n"
 "Last-Translator: Vaclav Chalupnicek <admin@coex.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -19,9 +19,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Translated-Using: django-rosetta 0.7.1\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: admin.py:47 templates/authopenid/signin.html:65
-#: templates/authopenid/signin.html:257
+#: admin.py:47 templates/authopenid/signin.html:66
+#: templates/authopenid/signin.html:269
 #: templates/authopenid/signup_with_password.html:68
 #: templates/node/edit_settings.html:107
 #: templates/user_profile/user_overview.html:54
@@ -54,8 +55,9 @@ msgstr "Text"
 msgid "description"
 msgstr "popis"
 
-#: admin.py:350 templates/base.html:274 templates/authopenid/signin.html:74
-#: templates/authopenid/signin.html:261
+#: admin.py:350 templates/base.html:274
+#: templates/authopenid/change_password.html:35
+#: templates/authopenid/signin.html:76 templates/authopenid/signin.html:273
 #: templates/authopenid/signup_with_password.html:70
 #: templates/authopenid/widget_signin.html:114 utils/forms.py:279
 msgid "Password"
@@ -73,7 +75,7 @@ msgstr "Nezapomeňte aktivovat pole \"Status členství\""
 msgid "Account with this email already exists."
 msgstr "Účet na tento email již existuje."
 
-#: admin.py:379 deps/django_authopenid/forms.py:299
+#: admin.py:379 deps/django_authopenid/forms.py:304
 msgid "Passwords did not match"
 msgstr "Hesla se neshodovala"
 
@@ -2121,7 +2123,7 @@ msgstr ""
 "dokud se tato situace nevyřeší. Kontaktujte prosím správce fóra pro vyřešení "
 "této situace."
 
-#: const/message_keys.py:52 models/__init__.py:866
+#: const/message_keys.py:52 models/__init__.py:867
 msgid ""
 "Sorry, your account appears to be suspended and you cannot make new posts "
 "until this issue is resolved. You can, however edit your existing posts. "
@@ -2140,70 +2142,78 @@ msgstr ""
 "Vítejte! Prosím, nastavte emailovou adresu (důležité!) ve svém profilu a "
 "upravte zobrazené jméno, pokud je třeba"
 
-#: deps/django_authopenid/forms.py:123 deps/django_authopenid/views.py:218
+#: deps/django_authopenid/forms.py:128 deps/django_authopenid/views.py:222
 msgid "i-names are not supported"
 msgstr "i-names nejsou podporovány"
 
-#: deps/django_authopenid/forms.py:247
+#: deps/django_authopenid/forms.py:252
 #, python-format
 msgid "Please enter your %(username_token)s"
 msgstr "Prosím zadejte své %(username_token)s"
 
-#: deps/django_authopenid/forms.py:273
+#: deps/django_authopenid/forms.py:278
 msgid "Please, enter your user name"
 msgstr "Prosím zadejte své uživatelské jméno"
 
-#: deps/django_authopenid/forms.py:277
+#: deps/django_authopenid/forms.py:282
 msgid "Please, enter your password"
 msgstr "Prosím zadejte své heslo"
 
-#: deps/django_authopenid/forms.py:284 deps/django_authopenid/forms.py:288
+#: deps/django_authopenid/forms.py:289 deps/django_authopenid/forms.py:293
 msgid "Please, enter your new password"
 msgstr "Prosím zadejte své nové heslo"
 
-#: deps/django_authopenid/forms.py:311
+#: deps/django_authopenid/forms.py:316
 #, python-format
 msgid "Please choose password > %(len)s characters"
 msgstr "Prosím zvolte heslo > %(len)s znaků"
 
-#: deps/django_authopenid/forms.py:347
+#: deps/django_authopenid/forms.py:352
 msgid "Please, enable javascript in your browser."
 msgstr "Prosím povolte ve svém prohlížeči javascript."
 
-#: deps/django_authopenid/forms.py:363
+#: deps/django_authopenid/forms.py:368
 msgid "Current password"
 msgstr "Současné heslo"
 
-#: deps/django_authopenid/forms.py:374
+#: deps/django_authopenid/forms.py:379
 msgid ""
 "Old password is incorrect.                     Please enter the correct "
 "password."
 msgstr "Staré heslo je nesprávné. Prosím zadejte správné heslo."
 
-#: deps/django_authopenid/forms.py:429
+#: deps/django_authopenid/forms.py:434
 msgid "Sorry, we don't have this email address in the database"
 msgstr "Promiňte, tuto e-mailovou adresu nemáme v databázi"
 
-#: deps/django_authopenid/forms.py:467
+#: deps/django_authopenid/forms.py:472
 msgid "Your user name (<i>required</i>)"
 msgstr "Vaše uživatelské jméno (<i>povinné</i>)"
 
-#: deps/django_authopenid/forms.py:483
+#: deps/django_authopenid/forms.py:488
 msgid "sorry, there is no such user name"
 msgstr "promiňte, takové uživatelské jméno neexistuje"
+
+#: deps/django_authopenid/forms.py:518
+msgid "User with the email you specified does not exist."
+msgstr "Uživatel s uvedeným e-mailem neexistuje. "
+
+#: deps/django_authopenid/forms.py:532 deps/django_authopenid/forms.py:533
+msgid "Passwords must be the same."
+msgstr "Hesla se musejí shodovat."
 
 #: deps/django_authopenid/util.py:391
 #, python-format
 msgid "%(site)s user name and password"
 msgstr "%(site)s uživatelské jméno a heslo"
 
-#: deps/django_authopenid/util.py:397 templates/authopenid/signin.html:103
-#: templates/authopenid/signin.html:272
+#: deps/django_authopenid/util.py:397 templates/authopenid/signin.html:115
+#: templates/authopenid/signin.html:284
 #: templates/authopenid/widget_signin.html:121
 msgid "Create a password-protected account"
 msgstr "Vytvořit účet chráněný heslem"
 
-#: deps/django_authopenid/util.py:398 templates/authopenid/signin.html:121
+#: deps/django_authopenid/util.py:398 templates/authopenid/signin.html:133
 msgid "Change your password"
 msgstr "Změnit heslo"
 
@@ -2243,13 +2253,13 @@ msgstr "Přihlásit se s %(provider)s jménem a heslem"
 msgid "Sign in with your %(provider)s account"
 msgstr "Přihlásit se s %(provider)s účtem"
 
-#: deps/django_authopenid/views.py:225
+#: deps/django_authopenid/views.py:229
 #, python-format
 msgid "OpenID %(openid_url)s is invalid"
 msgstr "OpenID %(openid_url)s je neplatné"
 
-#: deps/django_authopenid/views.py:340 deps/django_authopenid/views.py:467
-#: deps/django_authopenid/views.py:495
+#: deps/django_authopenid/views.py:344 deps/django_authopenid/views.py:471
+#: deps/django_authopenid/views.py:499
 #, python-format
 msgid ""
 "Unfortunately, there was some problem when connecting to %(provider)s, "
@@ -2258,71 +2268,71 @@ msgstr ""
 "Bohužel vznikl nějaký problém při spojení s %(provider)s, zkuste prosím "
 "znovu nebo zvolte jiného poskytovatele"
 
-#: deps/django_authopenid/views.py:401
+#: deps/django_authopenid/views.py:405
 msgid "This account was blocked by administrator."
 msgstr "Tento účet byl zablokován správcem systému."
 
-#: deps/django_authopenid/views.py:417
+#: deps/django_authopenid/views.py:421
 msgid "Your new password saved"
 msgstr "Vaše nové heslo bylo uloženo"
 
-#: deps/django_authopenid/views.py:521
+#: deps/django_authopenid/views.py:525
 msgid "The login password combination was not correct"
 msgstr "Kombinace hesla pro přihlášení byla nesprávná"
 
-#: deps/django_authopenid/views.py:625
+#: deps/django_authopenid/views.py:629
 msgid "Please click any of the icons below to sign in"
 msgstr "Prosím klepněte na některou z ikonek níže pro přihlášení"
 
-#: deps/django_authopenid/views.py:627
+#: deps/django_authopenid/views.py:631
 msgid "Account recovery email sent"
 msgstr "Email k obnovení účtu byl odeslán"
 
-#: deps/django_authopenid/views.py:630
+#: deps/django_authopenid/views.py:634
 msgid "Please add one or more login methods."
 msgstr "Prosím doplňte jeden nebo více způsobů přihlášení."
 
-#: deps/django_authopenid/views.py:632
+#: deps/django_authopenid/views.py:636
 msgid "If you wish, please add, remove or re-validate your login methods"
 msgstr ""
 "Chcete-li, prosím doplňte, odeberte nebo znouzkontolujte svůj způsob "
 "přihlášení"
 
-#: deps/django_authopenid/views.py:634
+#: deps/django_authopenid/views.py:638
 msgid "Please wait a second! Your account is recovered, but ..."
 msgstr "Prosím vyčkejte! Váš účet je obnoven, avšak..."
 
-#: deps/django_authopenid/views.py:636
+#: deps/django_authopenid/views.py:640
 msgid "Sorry, this account recovery key has expired or is invalid"
 msgstr "Promiňte, tento klíč k obnově účtu vypršel nebo je nesprávný"
 
-#: deps/django_authopenid/views.py:711
+#: deps/django_authopenid/views.py:715
 #, python-format
 msgid "Login method %(provider_name)s does not exist"
 msgstr "Způsob přihlášení %(provider_name)s neexistuje"
 
-#: deps/django_authopenid/views.py:717
+#: deps/django_authopenid/views.py:721
 msgid "Oops, sorry - there was some error - please try again"
 msgstr "Jejda, promiňte - došlo k nějaké chybě - prosím zkuste znovu"
 
-#: deps/django_authopenid/views.py:795
+#: deps/django_authopenid/views.py:799
 msgid "If you are trying to sign in to another account, please sign out first."
 msgstr ""
 
-#: deps/django_authopenid/views.py:800
+#: deps/django_authopenid/views.py:804
 msgid "Otherwise, please report the incident to the site administrator."
 msgstr ""
 
-#: deps/django_authopenid/views.py:831
+#: deps/django_authopenid/views.py:835
 #, python-format
 msgid "Your %(provider)s login works fine"
 msgstr "Vaše %(provider)s přihlášení funguje správně"
 
-#: deps/django_authopenid/views.py:996
+#: deps/django_authopenid/views.py:1000
 msgid "Sorry, your validation code is not correct."
 msgstr "Promiňte, váš validační kód není správný."
 
-#: deps/django_authopenid/views.py:1000
+#: deps/django_authopenid/views.py:1004
 msgid ""
 "Please ensure that your are in the same browser as during the registration "
 "process."
@@ -2330,18 +2340,26 @@ msgstr ""
 "Ujistěte se prosím, že jste ve stejném prohlížeči, ve kterém jste vyplňovali "
 "registrační formulář."
 
-#: deps/django_authopenid/views.py:1187
+#: deps/django_authopenid/views.py:1191
 msgid "You have been successfully logged out."
 msgstr "Právě jste se úspěšně odhlásil/a."
 
-#: deps/django_authopenid/views.py:1222
+#: deps/django_authopenid/views.py:1226
 #: templates/authopenid/email_validation.html:2
 #: templates/authopenid/verify_email.html:3
 #: templates/authopenid/verify_email.html:19
 msgid "Confirm your registration"
 msgstr "Potvrďte vaši registraci"
 
-#: deps/django_authopenid/views.py:1262
+#: deps/django_authopenid/views.py:1269
+#: templates/authopenid/lost_password.html:3
+#: templates/authopenid/lost_password.html:16
+#: templates/authopenid/lost_password_sent.html:9
+#: templates/authopenid/signin.html:97
+msgid "Lost password"
+msgstr "Zapomenuté heslo"
+
+#: deps/django_authopenid/views.py:1339
 msgid "Please check your email and visit the enclosed link."
 msgstr "Prosím zkontrolujte e-mail a klepněte na přiložený odkaz."
 
@@ -2409,8 +2427,12 @@ msgid "Documentation"
 msgstr "Dokumentace"
 
 #: deps/livesettings/templates/livesettings/site_settings.html:30
-#: templates/authopenid/signin.html:151 templates/authopenid/signin.html:302
+#: templates/authopenid/change_password.html:3
+#: templates/authopenid/change_password.html:24
+#: templates/authopenid/signin.html:163 templates/authopenid/signin.html:314
 #: templates/authopenid/widget_signin.html:149
+#: templates/authopenid/emails/lost_password.html:3
+#: templates/authopenid/emails/lost_password.html:5
 #: templates/user_profile/user.html:64
 msgid "Change password"
 msgstr "Změnit heslo"
@@ -2441,35 +2463,39 @@ msgstr "Nastavení skupin: %(name)s"
 msgid "Uncollapse all"
 msgstr "Sbalit vše"
 
-#: document/forms.py:36
+#: document/forms.py:37 document/forms.py:55
+msgid "Selected file is empty. Please choose another one."
+msgstr ""
+
+#: document/forms.py:40
 msgid "You must add new document or remove old."
 msgstr "Musíte přidat nový dokument nebo odstranit starý."
 
-#: document/forms.py:174
+#: document/forms.py:180
 msgid "Fill only if you want to change current position"
 msgstr "Vyplňte pouze chcete-li změnit současnou pozici."
 
-#: document/forms.py:197
+#: document/forms.py:203
 msgid "For move in tree must be both fields filled."
 msgstr "Pro přemístění ve stromu musí být obě pole vyplněna."
 
-#: document/forms.py:262 forms/admin.py:64
+#: document/forms.py:268 forms/admin.py:64
 msgid "predecessor"
 msgstr "předchůdce"
 
-#: document/forms.py:263 forms/admin.py:65
+#: document/forms.py:269 forms/admin.py:65
 msgid "successor"
 msgstr "následník"
 
-#: document/forms.py:264 forms/admin.py:66
+#: document/forms.py:270 forms/admin.py:66
 msgid "first child"
 msgstr "první potomek"
 
-#: document/forms.py:265 forms/admin.py:67
+#: document/forms.py:271 forms/admin.py:67
 msgid "latest child"
 msgstr "poslední potomek"
 
-#: document/forms.py:267 forms/admin.py:69
+#: document/forms.py:273 forms/admin.py:69
 msgid "Position of this item is"
 msgstr "Umístění této položky má být:"
 
@@ -3008,32 +3034,32 @@ msgstr ""
 msgid "Please log in to use %s"
 msgstr "Prosím přihlašte se pro použití %s"
 
-#: models/__init__.py:513 views/commands.py:851
+#: models/__init__.py:514 views/commands.py:851
 msgid "Sorry, but you don't have permission to accept answer."
 msgstr "Promiňte, nemáte oprávnění označit odpověď za správnou."
 
-#: models/__init__.py:535
+#: models/__init__.py:536
 msgid "Sorry, you cannot vote for your own posts"
 msgstr "Promiňte, nemůžete hlasovat pro vlastní příspěvek"
 
-#: models/__init__.py:539
+#: models/__init__.py:540
 msgid "Sorry your account appears to be blocked "
 msgstr "Promiňte, váš účet je zřejmě zablokován"
 
-#: models/__init__.py:544
+#: models/__init__.py:545
 msgid "Sorry your account appears to be suspended "
 msgstr "Promiňte, váš účet je zřejmě pozastaven"
 
-#: models/__init__.py:561
+#: models/__init__.py:562
 msgid "Sorry, suspended users cannot upload files"
 msgstr "Promiňte, pozastavení uživatelé nemohou nahrávat soubory"
 
-#: models/__init__.py:590
+#: models/__init__.py:591
 msgid "Sorry, you already gave an answer, please edit it instead."
 msgstr ""
 "Promiňte, ale již jste zodpověděl(a), prosím upravte poskytnutou odpověď."
 
-#: models/__init__.py:614
+#: models/__init__.py:615
 #, python-format
 msgid ""
 "Sorry, comments (except the last one) are editable only within %(minutes)s "
@@ -3051,20 +3077,20 @@ msgstr[2] ""
 "Promiňte, komentáře (kromě toho posledního) lze upravit až za %(minutes)s "
 "minut od odeslání"
 
-#: models/__init__.py:626
+#: models/__init__.py:627
 msgid "Sorry, but only post owners or moderators can edit comments"
 msgstr ""
 "Promiňte, ale pouze vlastníci příspěvků nebo moderátoři mohou upravovat "
 "komentáře"
 
-#: models/__init__.py:648
+#: models/__init__.py:649
 msgid ""
 "Sorry, since your account is suspended you can comment only your own posts"
 msgstr ""
 "Promiňte, protože váš účet je pozastaven, můžete komentovat pouze své "
 "vlastní příspěvky"
 
-#: models/__init__.py:661
+#: models/__init__.py:662
 msgid ""
 "This post has been deleted and can be seen only by post owners, site "
 "administrators and moderators"
@@ -3072,7 +3098,7 @@ msgstr ""
 "Tento příspěvek byl smazán a může být zobrazen pouze vlastníkům příspěvků, "
 "administrátorům webu a moderátorům"
 
-#: models/__init__.py:679
+#: models/__init__.py:680
 msgid ""
 "Sorry, only moderators, site administrators and post owners can edit deleted "
 "posts"
@@ -3080,17 +3106,17 @@ msgstr ""
 "Promiňte, pouze moderátoři, administrátoři webu a vlastníci příspěvků mohou "
 "upravovat příspěvky"
 
-#: models/__init__.py:695
+#: models/__init__.py:696
 msgid "Sorry, since your account is blocked you cannot edit posts"
 msgstr "Promiňte, protože váš účet je zablokován, nemůžete upravovat příspěvky"
 
-#: models/__init__.py:699
+#: models/__init__.py:700
 msgid "Sorry, since your account is suspended you can edit only your own posts"
 msgstr ""
 "Promiňte, protože váš účet je pozastaven, můžete upravovat pouze své vlastní "
 "příspěvky"
 
-#: models/__init__.py:767
+#: models/__init__.py:768
 msgid ""
 "Sorry, cannot delete your question since it has an upvoted answer posted by "
 "someone else"
@@ -3107,53 +3133,53 @@ msgstr[2] ""
 "Promiňte, nelze smazat vaše otázky, protože obsahují kladně ohodnocenéu "
 "odpovědi zaslané někým jiným"
 
-#: models/__init__.py:782
+#: models/__init__.py:783
 msgid "Sorry, since your account is blocked you cannot delete posts"
 msgstr "Promiňte, protože váš účet je zablokován, nemůžete mazat příspěvky"
 
-#: models/__init__.py:786
+#: models/__init__.py:787
 msgid ""
 "Sorry, since your account is suspended you can delete only your own posts"
 msgstr ""
 "Promiňte, protože váš účet je pozastaven, můžete smazat pouze své vlastní "
 "příspěvky"
 
-#: models/__init__.py:801
+#: models/__init__.py:802
 msgid "Sorry, since your account is blocked you cannot close questions"
 msgstr ""
 "Promiňte, protože váš účet je zablokován, nemůžete uzavřít vlastní otázky"
 
-#: models/__init__.py:805
+#: models/__init__.py:806
 msgid "Sorry, since your account is suspended you cannot close questions"
 msgstr ""
 "Promiňte, protože váš účet je pozastaven, nemůžete uzavřít vlastní otázky"
 
-#: models/__init__.py:822
+#: models/__init__.py:823
 msgid ""
 "Sorry, only administrators, moderators or post ownerscan reopen questions."
 msgstr "Promiňte, pouze administrátoři a manažeři mohou znovu otevřít otázky."
 
-#: models/__init__.py:828
+#: models/__init__.py:829
 msgid "Sorry, you cannot reopen questions because your account is blocked"
 msgstr ""
 "Promiňte, nemůžete znovu otevřít otázky, protože váš účet je zablokován."
 
-#: models/__init__.py:833
+#: models/__init__.py:834
 msgid "Sorry, you cannot reopen questions because your account is suspended"
 msgstr ""
 "Promiňte, nemůžete znovu otevřít otázky, protože váš účet je pozastaven."
 
-#: models/__init__.py:853
+#: models/__init__.py:854
 msgid "You have flagged this question before and cannot do it more than once"
 msgstr "Již jste označil tuto otázku dříve a to nelze více než jednou"
 
-#: models/__init__.py:861
+#: models/__init__.py:862
 msgid "Sorry, since your account is blocked you cannot flag posts as offensive"
 msgstr ""
 "Promiňte, protože váš účet je zablokován, nemůlžete označit příspěvek jako "
 "nevhodný"
 
-#: models/__init__.py:884
+#: models/__init__.py:885
 #, python-format
 msgid ""
 "Sorry, you have exhausted the maximum number of %(max_flags_per_day)s "
@@ -3162,15 +3188,15 @@ msgstr ""
 "Promiňte, vyčerpal jste maximální počet %(max_flags_per_day)s označení jako "
 "nevhodné na den."
 
-#: models/__init__.py:897
+#: models/__init__.py:898
 msgid "cannot remove non-existing flag"
 msgstr "Nelze odebrat neexistující značku"
 
-#: models/__init__.py:903
+#: models/__init__.py:904
 msgid "Sorry, since your account is blocked you cannot remove flags"
 msgstr "Promiňte, protože je váš účet zablokován, nemůžete odstranit značky"
 
-#: models/__init__.py:907
+#: models/__init__.py:908
 msgid ""
 "Sorry, your account appears to be suspended and you cannot remove flags. "
 "Please contact the forum administrator to reach a resolution."
@@ -3178,19 +3204,19 @@ msgstr ""
 "Promiňte, váš účet je zřejmě pozastavený a nemůžete odebrat značky. "
 "Kontaktujte prosím administrátora fóra pro vyřešení situace."
 
-#: models/__init__.py:924
+#: models/__init__.py:925
 msgid "you don't have the permission to remove all flags"
 msgstr "nemáte oprávnění odstranit všechny značky"
 
-#: models/__init__.py:925
+#: models/__init__.py:926
 msgid "no flags for this entry"
 msgstr "žádné značky pro tento záznam"
 
-#: models/__init__.py:946
+#: models/__init__.py:947
 msgid "You don't have permission to retag anything."
 msgstr "Nemáte oprávnění upravovat žádné štítky."
 
-#: models/__init__.py:953
+#: models/__init__.py:954
 msgid ""
 "Sorry, only question owners, site administrators and moderators can retag "
 "deleted questions"
@@ -3198,46 +3224,46 @@ msgstr ""
 "Promiňte, pouze vlastníci otázek, administrátoři webu a moderátoři mohou "
 "přeštítkovat smazané otázky"
 
-#: models/__init__.py:960
+#: models/__init__.py:961
 msgid "Sorry, since your account is blocked you cannot retag questions"
 msgstr "Promiňte, protože váš účet je zablokován, nemůžete přeštítkovat otázky"
 
-#: models/__init__.py:964
+#: models/__init__.py:965
 msgid ""
 "Sorry, since your account is suspended you can retag only your own questions"
 msgstr ""
 "Promiňte, protože váš účet je pozastaven, můžete přeštítkovat pouze vlastní "
 "otázky"
 
-#: models/__init__.py:979
+#: models/__init__.py:980
 msgid "Sorry, since your account is blocked you cannot delete comment"
 msgstr "Promiňte, protože váš účet je zablokován, nemůžete mazat komentáře"
 
-#: models/__init__.py:983
+#: models/__init__.py:984
 msgid ""
 "Sorry, since your account is suspended you can delete only your own comments"
 msgstr ""
 "Promiňte, protože váš účet je pozastaven, můžete mazat pouze vlastní "
 "komentáře"
 
-#: models/__init__.py:1003
+#: models/__init__.py:1004
 msgid "sorry, but older votes cannot be revoked"
 msgstr "promiňte, ale starší hlasy nemohou být odvolány"
 
-#: models/__init__.py:1645 utils/functions.py:107
+#: models/__init__.py:1646 utils/functions.py:107
 #, python-format
 msgid "on %(date)s"
 msgstr "dne %(date)s"
 
-#: models/__init__.py:1647
+#: models/__init__.py:1648
 msgid "in two days"
 msgstr "za dva dny"
 
-#: models/__init__.py:1649
+#: models/__init__.py:1650
 msgid "tomorrow"
 msgstr "zítra"
 
-#: models/__init__.py:1651
+#: models/__init__.py:1652
 #, python-format
 msgid "in %(hr)d hour"
 msgid_plural "in %(hr)d hours"
@@ -3245,7 +3271,7 @@ msgstr[0] "za %(hr)d hodinu"
 msgstr[1] "za %(hr)d hodiny"
 msgstr[2] "za %(hr)d hodiny"
 
-#: models/__init__.py:1653
+#: models/__init__.py:1654
 #, python-format
 msgid "in %(min)d min"
 msgid_plural "in %(min)d mins"
@@ -3253,7 +3279,7 @@ msgstr[0] "za %(min)d minutu"
 msgstr[1] "za %(min)d minuty"
 msgstr[2] "za %(min)d minuty"
 
-#: models/__init__.py:1654
+#: models/__init__.py:1655
 #, python-format
 msgid "%(days)d day"
 msgid_plural "%(days)d days"
@@ -3261,7 +3287,7 @@ msgstr[0] "%(days)d den"
 msgstr[1] "%(days)d dní"
 msgstr[2] "%(days)d dní"
 
-#: models/__init__.py:1656
+#: models/__init__.py:1657
 #, python-format
 msgid ""
 "New users must wait %(days)s before answering their own question.  You can "
@@ -3270,78 +3296,78 @@ msgstr ""
 "Noví uživatelé musí vyčkat %(days)s před zodpovězením svých otázek. Můžete "
 "odeslat odpověď %(left)s"
 
-#: models/__init__.py:1846
+#: models/__init__.py:1847
 msgid "Anonymous"
 msgstr "Anonymní"
 
-#: models/__init__.py:1908
+#: models/__init__.py:1909
 msgid "Site Adminstrator"
 msgstr "Administrátor webu"
 
-#: models/__init__.py:1910
+#: models/__init__.py:1911
 msgid "Forum Moderator"
 msgstr "Moderátor fóra"
 
-#: models/__init__.py:1912
+#: models/__init__.py:1913
 msgid "Suspended User"
 msgstr "Vyloučený uživatel"
 
-#: models/__init__.py:1914
+#: models/__init__.py:1915
 msgid "Blocked User"
 msgstr "Zablokovaný uživatel"
 
-#: models/__init__.py:1916
+#: models/__init__.py:1917
 msgid "Registered User"
 msgstr "Registrovaný uživatel"
 
-#: models/__init__.py:1918
+#: models/__init__.py:1919
 msgid "Watched User"
 msgstr "Sledovaný uživatel"
 
-#: models/__init__.py:1920
+#: models/__init__.py:1921
 msgid "Approved User"
 msgstr "Schválený uživatel"
 
-#: models/__init__.py:2874
+#: models/__init__.py:2875
 #, fuzzy, python-format
 msgid "%(user)s shared a %(post_link)s."
 msgstr "%(user)s má %(badges)s"
 
-#: models/__init__.py:2877 models/__init__.py:2887
+#: models/__init__.py:2878 models/__init__.py:2888
 #, fuzzy, python-format
 msgid "%(user)s edited a %(post_link)s."
 msgstr "%(username)s stránky jsou %(url)s"
 
-#: models/__init__.py:2879
+#: models/__init__.py:2880
 #, python-format
 msgid "%(user)s posted a %(post_link)s"
 msgstr ""
 
-#: models/__init__.py:2882
+#: models/__init__.py:2883
 #, fuzzy, python-format
 msgid "%(user)s edited an %(post_link)s."
 msgstr "%(username)s stránky jsou %(url)s"
 
-#: models/__init__.py:2884
+#: models/__init__.py:2885
 #, python-format
 msgid "%(user)s posted an %(post_link)s."
 msgstr ""
 
-#: models/__init__.py:2889
+#: models/__init__.py:2890
 #, python-format
 msgid "%(user)s posted a %(post_link)s."
 msgstr ""
 
-#: models/__init__.py:2905
+#: models/__init__.py:2906
 msgid "To reply, PLEASE WRITE ABOVE THIS LINE."
 msgstr "Pro odpověď, PROSÍM PIŠTE NAD TOUTO ČÁROU."
 
-#: models/__init__.py:2935
+#: models/__init__.py:2936
 #, python-format
 msgid "\"%(title)s\""
 msgstr "\"%(title)s\""
 
-#: models/__init__.py:3311 templates/email/welcome.html:5
+#: models/__init__.py:3312 templates/email/welcome.html:5
 msgid ""
 "Your registration is complete! To get desired content use our smart search "
 "field or simply browse around."
@@ -3349,11 +3375,11 @@ msgstr ""
 "Vaše registrace proběhla úspěšně. Pro nalezení požadovaného obsahu použijte "
 "chytré vyhledávací pole, nebo jednoduše procházejte webem."
 
-#: models/__init__.py:3328 templates/email/welcome.html:2
+#: models/__init__.py:3329 templates/email/welcome.html:2
 msgid "Your registration is complete"
 msgstr "Vaše registrace proběhla úspěšně"
 
-#: models/__init__.py:3354 views/commands.py:658
+#: models/__init__.py:3355 views/commands.py:658
 msgid "Your tag subscription was saved, thanks!"
 msgstr "Vaše přidělení štítku bylo uloženo, děkujeme!"
 
@@ -3777,7 +3803,7 @@ msgid "report this problem"
 msgstr "ohlašte tento problém"
 
 #: templates/404.jinja.html:39 templates/404.jinja.html.py:48
-#: templates/500.jinja.html:17
+#: templates/500.jinja.html:61
 msgid "back to previous page"
 msgstr "zpět na předchozí stránku"
 
@@ -3790,15 +3816,15 @@ msgstr "zobrazit všechny otázky"
 msgid "see all tags"
 msgstr "prohlédnout všechny štítky"
 
-#: templates/500.jinja.html:3 templates/500.jinja.html.py:7
+#: templates/500.jinja.html:4 templates/500.jinja.html.py:54
 msgid "Internal server error"
 msgstr "Vnitřní chyba serveru"
 
-#: templates/500.jinja.html:12
+#: templates/500.jinja.html:56
 msgid "system error log is recorded, error will be fixed as soon as possible"
 msgstr "záznam chyb systému je monitorován, chyba bude opravena co nejdříve"
 
-#: templates/500.jinja.html:13
+#: templates/500.jinja.html:57
 msgid "please report the error to the site administrators if you wish"
 msgstr "oznamte prosím chybu administrátorům webu, chcete-li"
 
@@ -3888,7 +3914,7 @@ msgstr "Upravit profil"
 msgid "Logout"
 msgstr "Odhlásit se"
 
-#: templates/base.html:272
+#: templates/base.html:272 templates/authopenid/lost_password.html:27
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -4370,7 +4396,7 @@ msgstr "napsáno"
 msgid "Are you sure?"
 msgstr "Jste si jist/a?"
 
-#: templates/macros.html:327 templates/authopenid/signin.html:338
+#: templates/macros.html:327 templates/authopenid/signin.html:350
 #: templates/authopenid/widget_signin.html:183
 #: templates/node/document/detail.html:84
 #: templates/node/snippets/answer_controls.html:28
@@ -4758,17 +4784,65 @@ msgid "Please enter your <span>user name</span>, then sign in"
 msgstr "Prosím zadejte své span>uživatelské jméno</span>, pak se přihlašte"
 
 #: templates/authopenid/authopenid_macros.html:64
-#: templates/authopenid/signin.html:244
+#: templates/authopenid/signin.html:256
 #: templates/authopenid/widget_signin.html:103
 msgid "(or select another login method above)"
 msgstr "(nebo zvolte jiný způsob přihlášení výše)"
 
 #: templates/authopenid/authopenid_macros.html:66
-#: templates/authopenid/signin.html:57 templates/authopenid/signin.html:85
-#: templates/authopenid/signin.html:269
+#: templates/authopenid/signin.html:57 templates/authopenid/signin.html:87
+#: templates/authopenid/signin.html:281
 #: templates/authopenid/widget_signin.html:119
 msgid "Sign in"
 msgstr "Přihlásit se"
+
+#: templates/authopenid/change_password.html:11
+#, fuzzy
+msgid "User not found"
+msgstr "Stránka nenalezena"
+
+#: templates/authopenid/change_password.html:29
+#: templates/authopenid/lost_password.html:21
+#: templates/authopenid/signin.html:137
+#: templates/authopenid/signup_with_password.html:55
+#: templates/node/base_thread_add.html:42
+#: templates/node/base_thread_edit.html:33 templates/node/edit_perexes.html:39
+#: templates/node/edit_settings.html:43
+#: templates/node/discussion/detail.html:107
+#: templates/node/question/detail.html:284
+#: templates/user_profile/user_edit.html:40
+#: templates/user_profile/user_overview.html:144
+msgid "Cannot submit, form has errors."
+msgstr "Nelze odeslat, formulář obsahuje chyby."
+
+#: templates/authopenid/change_password.html:46
+msgid "Repeat password"
+msgstr "Nové heslo"
+
+#: templates/authopenid/change_password.html:59
+#: templates/embed/widget_form.html:14 templates/node/base_thread_edit.html:69
+#: templates/node/edit_perexes.html:150 templates/node/edit_settings.html:89
+#: templates/node/edit_settings.html:155 templates/node/edit_settings.html:195
+#: templates/node/document/edit.html:43
+#: templates/user_profile/user_edit.html:102
+#: templates/user_profile/user_email_subscriptions.html:105
+msgid "Save"
+msgstr "Uložit"
+
+#: templates/authopenid/change_password_ok.html:4
+#, fuzzy
+msgid "Change password success"
+msgstr "Stránka změny hesla"
+
+#: templates/authopenid/change_password_ok.html:9
+#, fuzzy
+msgid "Changing the password was successful"
+msgstr "Stránka změny hesla"
+
+#: templates/authopenid/change_password_ok.html:12
+#, fuzzy
+msgid "Login"
+msgstr "Stránka přihlášení"
 
 #: templates/authopenid/changeemail.html:2
 #: templates/authopenid/changeemail.html:8
@@ -5008,6 +5082,20 @@ msgstr ""
 "Nicméně stále můžete být přihlášení ke svému OpenID poskytovateli. Prosím "
 "odhlašte se od svého poskytovatele, pokud si tak přejete."
 
+#: templates/authopenid/lost_password.html:40
+#: templates/user_profile/user_overview.html:152
+msgid "Send"
+msgstr "Odeslat"
+
+#: templates/authopenid/lost_password_sent.html:3
+#, fuzzy
+msgid "Lost password sent"
+msgstr "Zapomenuté heslo"
+
+#: templates/authopenid/lost_password_sent.html:10
+msgid "To your e-mail account has been sent account recovery instructions."
+msgstr "Na váš účet byly odeslány instrukce pro obnovení účtu."
+
 #: templates/authopenid/providers_javascript.html:7
 msgid "account/"
 msgstr "účet/"
@@ -5110,48 +5198,37 @@ msgstr ""
 "strong> %(summary)s...\"</i> <span class=\"strong big\">byla uložena a bude "
 "odeslána ihned po vašem přihlášení.</span>"
 
-#: templates/authopenid/signin.html:61 templates/authopenid/signin.html:252
+#: templates/authopenid/signin.html:61 templates/authopenid/signin.html:264
 #: templates/authopenid/widget_signin.html:106
 msgid "Login failed, please try again"
 msgstr "Přihlášení selhalo, prosím zkuste to znovu"
 
-#: templates/authopenid/signin.html:86 templates/authopenid/signin.html:95
+#: templates/authopenid/signin.html:88 templates/authopenid/signin.html:107
 #: templates/authopenid/signup_with_password.html:31
 msgid "Create new user account"
 msgstr "Vytvořit nový uživatelský účet"
 
-#: templates/authopenid/signin.html:95
+#: templates/authopenid/signin.html:107
 #, fuzzy
 msgid "You don't have user account yet?"
 msgstr "Nemáte oprávnění upravovat hodnoty."
 
-#: templates/authopenid/signin.html:108
+#: templates/authopenid/signin.html:120
 msgid "I have forgotten my password."
 msgstr "Zapomněl jsem své heslo"
 
-#: templates/authopenid/signin.html:125
-#: templates/authopenid/signup_with_password.html:55
-#: templates/node/base_thread_add.html:42
-#: templates/node/base_thread_edit.html:33 templates/node/edit_perexes.html:39
-#: templates/node/edit_settings.html:43
-#: templates/node/discussion/detail.html:107
-#: templates/node/question/detail.html:284
-#: templates/user_profile/user_edit.html:40
-#: templates/user_profile/user_overview.html:144
-msgid "Cannot submit, form has errors."
-msgstr "Nelze odeslat, formulář obsahuje chyby."
-
-#: templates/authopenid/signin.html:129 templates/authopenid/signin.html:283
+#: templates/authopenid/signin.html:141 templates/authopenid/signin.html:295
 #: templates/authopenid/widget_signin.html:130
+#, fuzzy
 msgid "New password"
-msgstr "Nové heslo"
+msgstr "Změnit heslo"
 
-#: templates/authopenid/signin.html:139 templates/authopenid/signin.html:292
+#: templates/authopenid/signin.html:151 templates/authopenid/signin.html:304
 #: templates/authopenid/widget_signin.html:139
 msgid "Please, retype"
 msgstr "Znovu opište, prosím"
 
-#: templates/authopenid/signin.html:176
+#: templates/authopenid/signin.html:188
 #: templates/authopenid/widget_signin.html:37
 msgid ""
 "It's a good idea to make sure that your existing login methods still work, "
@@ -5162,7 +5239,7 @@ msgstr ""
 "přidat nový způsob. Klepněte prosím na některou z ikonek níže pro kontrolu/"
 "změnu nebo přidání nového způsobu přihlášení."
 
-#: templates/authopenid/signin.html:178
+#: templates/authopenid/signin.html:190
 #: templates/authopenid/widget_signin.html:39
 msgid ""
 "Please add a more permanent login method by clicking one of the icons below, "
@@ -5171,7 +5248,7 @@ msgstr ""
 "Přidejte prosím trvalejší způsob přihlášení klepnutím na některou z ikonek "
 "níže k omezení nutnosti pokaždé se přihlašovat přes email. "
 
-#: templates/authopenid/signin.html:182
+#: templates/authopenid/signin.html:194
 #: templates/authopenid/widget_signin.html:43
 msgid ""
 "Click on one of the icons below to add a new login method or re-validate an "
@@ -5180,7 +5257,7 @@ msgstr ""
 "Klepněte na jednu z ikonek níže pro přidání nového způsobu přihlášení nebo "
 "znovuověření existujícího přihlášení."
 
-#: templates/authopenid/signin.html:184
+#: templates/authopenid/signin.html:196
 #: templates/authopenid/widget_signin.html:45
 msgid ""
 "You don't have a method to log in right now, please add one or more by "
@@ -5189,7 +5266,7 @@ msgstr ""
 "Nyní nemáte žádný způsob přihlášení, prosím přidejte jeden či více klepnutím "
 "na kteroukoliv ikonku níže."
 
-#: templates/authopenid/signin.html:187
+#: templates/authopenid/signin.html:199
 #: templates/authopenid/widget_signin.html:48
 msgid ""
 "Please check your email and visit the enclosed link to re-connect to your "
@@ -5198,75 +5275,75 @@ msgstr ""
 "Zkontrolujte prosím svůj email a přejděte na přiložený odkaz pro "
 "znovupřihlášení se k svému účtu"
 
-#: templates/authopenid/signin.html:236
+#: templates/authopenid/signin.html:248
 #: templates/authopenid/widget_signin.html:95
 msgid "or enter your <span>user name and password</span>, then sign in"
 msgstr ""
 "anebo zadejte své <span>uživatelské jméno a heslo</span> a pak se "
 "zaregistrujte"
 
-#: templates/authopenid/signin.html:240
+#: templates/authopenid/signin.html:252
 #: templates/authopenid/widget_signin.html:99
 msgid "Please, sign in"
 msgstr "Přihlašte se, prosím"
 
-#: templates/authopenid/signin.html:279
+#: templates/authopenid/signin.html:291
 #: templates/authopenid/widget_signin.html:126
 msgid "To change your password - please enter the new one twice, then submit"
 msgstr ""
 "Pro změnu vlastního hesla - zadejte prosím dvakrát nové heslo a pak odešlete"
 
-#: templates/authopenid/signin.html:318
+#: templates/authopenid/signin.html:330
 #: templates/authopenid/widget_signin.html:163
 msgid "Here are your current login methods"
 msgstr "Zde jsou vaše současné způsoby přihlašování"
 
-#: templates/authopenid/signin.html:322
+#: templates/authopenid/signin.html:334
 #: templates/authopenid/widget_signin.html:167
 msgid "provider"
 msgstr "poskytovatel"
 
-#: templates/authopenid/signin.html:323
+#: templates/authopenid/signin.html:335
 #: templates/authopenid/widget_signin.html:168
 msgid "last used"
 msgstr "naposledy použité"
 
-#: templates/authopenid/signin.html:324
+#: templates/authopenid/signin.html:336
 #: templates/authopenid/widget_signin.html:169
 msgid "delete, if you like"
 msgstr "smažte, chcete-li"
 
-#: templates/authopenid/signin.html:340
+#: templates/authopenid/signin.html:352
 #: templates/authopenid/widget_signin.html:185
 msgid "cannot be deleted"
 msgstr "nemůže být smazáno"
 
-#: templates/authopenid/signin.html:353
+#: templates/authopenid/signin.html:365
 #: templates/authopenid/widget_signin.html:198
 msgid "Still have trouble signing in?"
 msgstr "Přetrvávají potíže s přihlášením?"
 
-#: templates/authopenid/signin.html:358
+#: templates/authopenid/signin.html:370
 #: templates/authopenid/widget_signin.html:203
 msgid "Please, enter your email address below and obtain a new key"
 msgstr "Prosím, zadejte svou emailovou adresu níže a získejte nový klíč"
 
-#: templates/authopenid/signin.html:360
+#: templates/authopenid/signin.html:372
 #: templates/authopenid/widget_signin.html:205
 msgid "Please, enter your email address below to recover your account"
 msgstr "Prosím, zadejte svou emailovou adresu níže k obnovení vašeho účtu"
 
-#: templates/authopenid/signin.html:363
+#: templates/authopenid/signin.html:375
 #: templates/authopenid/widget_signin.html:208
 msgid "recover your account via email"
 msgstr "obnovit svůj účet přes email"
 
-#: templates/authopenid/signin.html:374
+#: templates/authopenid/signin.html:386
 #: templates/authopenid/widget_signin.html:219
 msgid "Send a new recovery key"
 msgstr "Zaslat nový obnovující klíč"
 
-#: templates/authopenid/signin.html:376
+#: templates/authopenid/signin.html:388
 #: templates/authopenid/widget_signin.html:221
 msgid "Recover your account via email"
 msgstr "Obnovte svůj účet přes e-mail"
@@ -5477,6 +5554,11 @@ msgstr ""
 msgid "Login or email"
 msgstr "Přihlášení nebo email"
 
+#: templates/authopenid/emails/lost_password.html:8
+#, fuzzy
+msgid "Please continue to"
+msgstr "Prosím přihlašte se, abyste mohl/a přispívat"
+
 #: templates/avatar/add.html:3
 msgid "add avatar"
 msgstr "přidat ikonku"
@@ -5549,9 +5631,9 @@ msgstr ""
 "otázky a odpovědi, diskuzi a dokumenty..."
 
 #: templates/email/ask_for_signature.html:4
-#, python-format
+#, fuzzy, python-format
 msgid "%(user)s, please reply to this message."
-msgstr ""
+msgstr "Uživatel  %(user_str)s Vám zaslal následující zprávu:"
 
 #: templates/email/ask_for_signature.html:9
 msgid ""
@@ -5781,15 +5863,6 @@ msgstr ""
 #, python-format
 msgid "%(action)s an %(widget_name)s widget"
 msgstr ""
-
-#: templates/embed/widget_form.html:14 templates/node/base_thread_edit.html:69
-#: templates/node/edit_perexes.html:150 templates/node/edit_settings.html:89
-#: templates/node/edit_settings.html:155 templates/node/edit_settings.html:195
-#: templates/node/document/edit.html:43
-#: templates/user_profile/user_edit.html:102
-#: templates/user_profile/user_email_subscriptions.html:105
-msgid "Save"
-msgstr "Uložit"
 
 #: templates/embed/widgets.html:3 templates/embed/widgets.html.py:5
 msgid "Widgets"
@@ -6851,8 +6924,9 @@ msgid "File"
 msgstr ""
 
 #: templates/node/document/edit.html:61
+#, fuzzy
 msgid "Revised at"
-msgstr ""
+msgstr "Navrženo kým"
 
 #: templates/node/document/edit.html:62
 #, fuzzy
@@ -7747,8 +7821,11 @@ msgstr ""
 "otázky a odpovědi, diskuzi a dokumenty..."
 
 #: templates/user_profile/user_edit.html:14
+#, fuzzy
 msgid "help_update_profile_html"
 msgstr ""
+"Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, "
+"otázky a odpovědi, diskuzi a dokumenty..."
 
 #: templates/user_profile/user_edit.html:28
 msgid "Update Profile"
@@ -7924,10 +8001,6 @@ msgstr "Upravit svůj profil"
 msgid "Subject"
 msgstr "Předmět e-mailu"
 
-#: templates/user_profile/user_overview.html:152
-msgid "Send"
-msgstr "Odeslat"
-
 #: templates/user_profile/user_overview_disabled.html:28
 msgid "This user account has been deactivated by administrator."
 msgstr "Tento účet byl deaktivován správcem systému."
@@ -8052,11 +8125,12 @@ msgid "Show question"
 msgstr "Zobrazit otázku"
 
 #: templates/widgets/thread_summary_question.html:31 utils/notify_users.py:35
+#, fuzzy
 msgid "Answer"
 msgid_plural "Answers"
 msgstr[0] "Odpověď"
-msgstr[1] "Odpovědi"
-msgstr[2] "Odpovědí"
+msgstr[1] "Odpověď"
+msgstr[2] "Odpověď"
 
 #: templates/widgets/three_column_category_selector.html:4
 msgid ""
@@ -9079,9 +9153,6 @@ msgstr "Vybraná odpověď nemůže být komentář."
 
 #~ msgid "Your email"
 #~ msgstr "Váš email"
-
-#~ msgid "Repeat password"
-#~ msgstr "Nové heslo"
 
 #~ msgid "Found tags"
 #~ msgstr "Aktualizované štítky"
