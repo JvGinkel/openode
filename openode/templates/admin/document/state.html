@@ -9,6 +9,7 @@
 
     <h1>{% trans "Status" %}</h1>
     <h2>{% trans "Documents state" %}</h2>
+
     <table>
         <tbody>
             <tr>
@@ -18,6 +19,7 @@
                 </td>
                 <td></td>
             </tr>
+
             <tr>
                 <th>
                     {% trans "All document with error during OCR process" %}:
@@ -27,6 +29,7 @@
                 </td>
                 <td></td>
             </tr>
+
             <tr>
                 <th>
                     {% trans "All document with error during OCR process and contains valid file" %}:
@@ -35,34 +38,35 @@
                     <cite>{{ documents_with_error_with_file_count }}</cite>
                 </td>
                 <td>
-                    <p>
-                        <a href="{% url admin:document_joachim %}?limit=10" class="button">
-                            {% trans "complete reprocess - 10" %}
-                        </a>
-                        <a href="{% url admin:document_joachim %}" class="button">
-                            {% trans "complete reprocess - all" %}
-                        </a>
-                        <a href="{% url admin:document_retrive_text %}?limit=50" class="button">
-                            {% trans "only retrive texts - 50" %}
-                        </a>
-
-                        <a href="{% url admin:document_retrive_text %}" class="button">
-                            {% trans "only retrive texts - all" %}
-                        </a>
-                    </p>
-                    <ul>
-                    {% for document in documents_with_error_with_file %}
-                        <li>
-                            <a href="{{ document.get_absolute_url }}">
-                                {{ document.thread.title }}:
-                                <a href="{% url admin:document_joachim_one document.pk %}">reprocess</a> |
-                                <a href="{% url admin:document_retrive_text_one document.pk %}">retrive text</a>
-                            </a>
-                        </li>
-                    {% endfor %}
-                    </ul>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td><strong>Název</strong></td>
+                                <td><strong>Velikost</strong></td>
+                                <td>
+                                    <strong>Reprocess</strong>
+                                    (<a href="{% url admin:document_joachim %}?limit=10" title="{% trans "complete reprocess - 10" %}">{% trans "10" %}</a> | <a href="{% url admin:document_joachim %}" title="{% trans "complete reprocess - all" %}">{% trans "all" %}</a>)
+                                </td>
+                                <td>
+                                    <strong>Retrive text</strong>
+                                    (<a href="{% url admin:document_retrive_text %}?limit=50" title="{% trans "only retrive texts - 50" %}">50</a> | <a href="{% url admin:document_retrive_text %}" title="{% trans "only retrive texts - all" %}">{% trans "all" %}</a>)
+                                </td>
+                            </tr>
+                        </thead>
+                        {% for document in documents_with_error_with_file %}
+                            <tbody>
+                                <tr>
+                                    <td><a href="{{ document.get_absolute_url }}">{{ document.thread.title }}</a></td>
+                                    <td>{{ document.latest_revision.get_size }}</td>
+                                    <td><a href="{% url admin:document_joachim_one document.pk %}">reprocess</a></td>
+                                    <td><a href="{% url admin:document_retrive_text_one document.pk %}">retrive text</a></td>
+                                </tr>
+                            </tbody>
+                        {% endfor %}
+                    </table>
                 </td>
             </tr>
+
         </tbody>
     </table>
 
