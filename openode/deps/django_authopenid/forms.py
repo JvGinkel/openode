@@ -501,7 +501,6 @@ class UserLostPasswordForm(forms.Form):
         try:
             user = User.objects.get(
                 email=self.cleaned_data['email'],
-                is_staff=False,
                 is_active=True
             )
 
