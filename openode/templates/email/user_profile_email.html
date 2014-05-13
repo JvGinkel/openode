@@ -1,6 +1,6 @@
 {% extends "email/base_mail.html"%}
-{% block title %}{% trans %}Email from your Openode profile{% endtrans %},{%endblock%}
-{% block headline%}{% trans %}Email from your Openode profile{% endtrans %},{%endblock%}
+{% block title %}{{ "user_profile_email_title_headline"|custom_template(request) }}{%endblock%}
+{% block headline %}{{ "user_profile_email_title_headline"|custom_template(request) }}{%endblock%}
 
 {%block content%}
 {% set link_title = _("user's profile") %}

@@ -428,7 +428,8 @@ def user_overview(request, user, context):
                 data = {
                     'from_user_url': url.scheme + '://' + url.netloc + reverse('user_profile', args=[request.user.pk]),
                     'from_user_screen_name': request.user.screen_name,
-                    'text': text
+                    'text': text,
+                    "request": request
                 }
                 template = get_template('email/user_profile_email.html')
                 message = template.render(data)
