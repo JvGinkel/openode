@@ -28,7 +28,7 @@
 --     UPDATE django_content_type SET app_label = 'openode' WHERE app_label = 'pluto';
 -- COMMIT;
 
--- 2014-01-24
-BEGIN;
-    ALTER TABLE "auth_user" ADD COLUMN "change_password_key" varchar(255);
-COMMIT;
+-- -- 2014-01-24
+-- BEGIN;
+--     ALTER TABLE "auth_user" ADD COLUMN "change_password_key" varchar(255);
+-- COMMIT;
