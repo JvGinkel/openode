@@ -1,24 +1,32 @@
 # -*- coding: utf-8 -*-
 
+import codecs
 import datetime
 import os
+import shutil
+import tempfile
+import zipfile
 
 from django.contrib.auth.decorators import login_required
+from django.core import exceptions
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.files.base import File
+from django.core.files.base import ContentFile, File
+from django.core.files.storage import default_storage
+from django.core.files.uploadedfile import UploadedFile, SimpleUploadedFile
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, Http404, HttpResponse
 from django.shortcuts import get_object_or_404
-from django.views.decorators import csrf
+from django.utils.encoding import force_unicode, DjangoUnicodeDecodeError
 from django.utils.translation import ugettext as _
+from django.views.decorators import csrf
 
 from openode import const
 from openode import models
 from openode.document.forms import (
-    AddThreadCategoryForm,
-    DocumentForm,
-    EditThreadCategoryForm,
-    CategoryMoveForm
+        AddThreadCategoryForm,
+        DocumentForm,
+        EditThreadCategoryForm,
+        CategoryMoveForm
     )
 from openode.document.models import Document
 from openode.models.node import Node
@@ -29,8 +37,8 @@ from openode.utils.http import render_forbidden
 from openode.utils.path import sanitize_file_name
 from openode.views import context
 
+from django.conf import settings
 
-from django.core import exceptions
 
 ################################################################################
 
@@ -164,7 +172,33 @@ def add_document_view(request, node, thread_type):
     """
         create new document (and related Thread)
     """
-    # from pprint import pprint
+
+    def _create_doc(user, post, file_data):
+        document = Document.objects.create(
+            author=user,
+            thread=post.thread
+        )
+
+        parsed_file_name = os.path.splitext(
+            force_unicode(file_data.name, strings_only=True, errors="ignore")
+        )
+        file_name = parsed_file_name[0].lower()
+        suffix = parsed_file_name[1].replace(".", "").lower()
+
+        return document.revisions.create(
+            file_data=file_data,
+            original_filename=file_name,
+            suffix=suffix,
+            filename_slug=sanitize_file_name(file_name),
+            author=user,
+        )
+
+    def _is_zip_file_extended(name, path):
+        ZIP_FILES_EXT = ["zip"]
+        return (name.split(".")[-1].lower() in ZIP_FILES_EXT) and zipfile.is_zipfile(path)
+
+    ################################################################################
+
     if request.method == 'POST':
 
         form = DocumentForm(request.REQUEST, request.FILES, node=node, user=request.user)
@@ -172,7 +206,6 @@ def add_document_view(request, node, thread_type):
         if form.is_valid():
 
             timestamp = datetime.datetime.now()
-            title = form.cleaned_data['title']
             text = form.cleaned_data['text']
             category = form.cleaned_data['thread_category']
 
@@ -186,7 +219,7 @@ def add_document_view(request, node, thread_type):
                 try:
 
                     _data = {
-                        "title": title,
+                        "title": form.cleaned_data['title'],
                         "body_text": text,
                         "timestamp": timestamp,
                         "node": node,
@@ -200,22 +233,35 @@ def add_document_view(request, node, thread_type):
                     file_data = form.cleaned_data["file_data"]
 
                     if file_data:
-                        document = Document.objects.create(
-                            author=user,
-                            thread=post.thread
-                        )
-                        # create document revision
-                        parsed_file_name = os.path.splitext(file_data.name)
-                        file_name = parsed_file_name[0].lower()
-                        suffix = parsed_file_name[1].replace(".", "").lower()
 
-                        document.revisions.create(
-                            file_data=file_data,
-                            original_filename=file_name,
-                            suffix=suffix,
-                            filename_slug=sanitize_file_name(file_name),
-                            author=user,
-                        )
+                        dr = _create_doc(user, post, file_data)
+
+                        if _is_zip_file_extended(dr.file_data.name, dr.file_data.path):
+
+                            temp_dir = tempfile.mkdtemp()
+                            with zipfile.ZipFile(dr.file_data.path, "r") as zf:
+                                zf.extractall(temp_dir)
+
+                            for file_name in os.listdir(temp_dir):
+                                file_path = os.path.join(temp_dir, file_name)
+
+                                title = force_unicode(file_name, strings_only=True, errors="ignore")
+                                _data = {
+                                    "title": "%s: %s" % (form.cleaned_data['title'], title),
+                                    "body_text": "",
+                                    "timestamp": timestamp,
+                                    "node": node,
+                                    "thread_type": thread_type,
+                                    "category": category,
+                                    "external_access": form.cleaned_data["allow_external_access"],
+                                }
+                                _post = user.post_thread(**_data)
+                                del _data
+
+                                with codecs.open(file_path, "r", errors="ignore") as file_content:
+                                    _create_doc(user, _post, SimpleUploadedFile(title, file_content.read()))
+
+                            shutil.rmtree(temp_dir)
 
                     request.user.message_set.create(message=_('Document has been successfully added.'))
                     return HttpResponseRedirect(post.thread.get_absolute_url())
