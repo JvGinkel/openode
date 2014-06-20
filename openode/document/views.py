@@ -2,6 +2,7 @@
 
 import codecs
 import datetime
+import logging
 import os
 import shutil
 import tempfile
@@ -14,7 +15,7 @@ from django.core.files.base import ContentFile, File
 from django.core.files.storage import default_storage
 from django.core.files.uploadedfile import UploadedFile, SimpleUploadedFile
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect, Http404, HttpResponse
+from django.http import HttpResponseRedirect, Http404, HttpResponse, HttpResponseForbidden
 from django.shortcuts import get_object_or_404
 from django.utils.encoding import force_unicode, DjangoUnicodeDecodeError
 from django.utils.translation import ugettext as _
@@ -25,8 +26,9 @@ from openode import models
 from openode.document.forms import (
         AddThreadCategoryForm,
         DocumentForm,
+        DownloadZipForm,
+        CategoryMoveForm,
         EditThreadCategoryForm,
-        CategoryMoveForm
     )
 from openode.document.models import Document
 from openode.models.node import Node
@@ -258,8 +260,13 @@ def add_document_view(request, node, thread_type):
                                 _post = user.post_thread(**_data)
                                 del _data
 
-                                with codecs.open(file_path, "r", errors="ignore") as file_content:
-                                    _create_doc(user, _post, SimpleUploadedFile(title, file_content.read()))
+                                try:
+                                    with codecs.open(file_path, "r", errors="ignore") as file_content:
+                                        _create_doc(user, _post, SimpleUploadedFile(title, file_content.read()))
+                                except IOError, e:
+                                    # TODO
+                                    pass
+                                    # logging.info()
 
                             shutil.rmtree(temp_dir)
 
@@ -425,6 +432,61 @@ def retry_process_document(request, node_id, node_slug, thread_pk):
     #     document_pk=document.pk
     #     )
 
+#######################################
+
+def download_as_zip(request, node_id, node_slug):
+    form = DownloadZipForm(request.POST)
+    if form.is_valid():
+        documents_ids = form.cleaned_data["documents_ids"]
+        try:
+            documents_ids = [int(_id) for _id in documents_ids.split(",")]
+        except ValueError, e:
+            return HttpResponseForbidden("Invalid value")
+    else:
+        return HttpResponseForbidden("Invalid form")
+
+    documents = Document.objects.filter(
+        pk__in=documents_ids,
+        thread__node__id=node_id
+    )
+
+    if not documents.exists():
+        raise Http404
+
+    hash_base = [node_id]
+    hash_base.extend(documents.values_list("pk", flat=True))
+    _hash = abs(hash("".join([str(x) for x in hash_base])))
+
+    new_zip_name = '%s_%s.zip' % (node_slug, _hash)
+    new_zip_path = os.path.join(tempfile.mkdtemp(), new_zip_name)
+    new_zip = zipfile.ZipFile(new_zip_path, 'w')
+
+    for document in documents:
+        dr = document.latest_revision
+        if dr is None:
+            logging.error("DocumentRevision not found: %s" % repr({
+                "document": document.pk,
+                "node": node_id
+            }))
+            continue
+
+        abs_path = os.path.join(settings.MEDIA_ROOT, dr.file_data.path)
+        if not os.path.exists(abs_path):
+            logging.error("DocumentRevision file not found: %s" % repr({
+                "document": document.pk,
+                "document_revision": dr.pk,
+                "file_path": abs_path,
+                "node": node_id,
+            }))
+            continue
+
+        new_zip.write(abs_path, os.path.basename(abs_path))
+    new_zip.close()
+
+    with open(new_zip_path, 'rb') as _file:
+        response = HttpResponse(_file.read(), mimetype='application/zip')
+    response['Content-Disposition'] = 'attachment; filename=%s' % str(new_zip_name)
+    return response
 
 #######################################
 #######################################

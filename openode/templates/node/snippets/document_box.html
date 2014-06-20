@@ -2,6 +2,13 @@
 {# {% set document = thread.get_document() %} #}
 <div class="row">
     <div class="nine columns">
+
+        {% if thread.exists_document() %}
+            <input type="checkbox" class="js-document-to-zip" data-document-id="{{ thread.get_document().pk }}" />
+        {% else %}
+            <span>&nbsp;</span>
+        {% endif %}
+
         {% if document %}
             <span class="ico-type" style="background-image: url({{ document.get_icon() }});">
                 <a href="{% url thread node.pk, node.slug, "library", thread.pk, thread.slug %}" title="{{ thread.get_title() }}">
@@ -9,7 +16,6 @@
                 </a>
                 {# {{ document.get_file_name() }} #}
             </span>
-
         {% else %}
             <span class="ico-type" style="background-image: url({{ '/images/fileicons/file.png'|media }});">
                 <a href="{% url thread node.pk, node.slug, "library", thread.pk, thread.slug %}" title="{{ thread.get_title() }}">

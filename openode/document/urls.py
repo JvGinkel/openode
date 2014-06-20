@@ -8,6 +8,8 @@ urlpatterns = patterns('openode.document',
     # url(r'^document/(?P<document_id>\d+)/edit/', "views.document_edit", name='document_edit'),
     url(r'^retry-process-document/(?P<thread_pk>\d+)/', "views.retry_process_document", name='retry_process_document'),
 
+    url(r'^download-as-zip/', "views.download_as_zip", name='download_as_zip'),
+
     url(r'^category/add/', "views.category_add", name='category_add'),
 
     url(r'^category/reorg/', "views.category_reorg", name='category_reorg'),

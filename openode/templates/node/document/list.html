@@ -57,6 +57,7 @@
 
                         {# </div> #}
 
+
                         <div class="js-subelement-of-{{ category.pk }} js-subelement">
 
                             {# recursively rendered category tree - is called all in 'for' tag #}
@@ -89,6 +90,24 @@
     {% else %}
         <p>{% trans %}There are no Documents in this Node.{% endtrans %}</p>
     {% endif %}
+
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            var ids_holder = jQuery("#id_documents_ids");
+            jQuery(".js-document-to-zip").on("click", function(e){
+                var ids = [];
+                jQuery(".js-document-to-zip:checked").map(function(i, el){
+                    ids.push(jQuery(el).data("document-id"));
+                })
+                ids_holder.val(ids.join(","));
+            });
+        });
+    </script>
+
+    <form action="{% url download_as_zip node.pk, node.slug %}" method="post">{% csrf_token %}
+        {{ download_zip_form.documents_ids }}
+        <input type="submit" name="" value="Download">
+    </form>
 
     <div class="group separated-buttons">
         {% if request.user.has_openode_perm("node_library_create", node) %}
