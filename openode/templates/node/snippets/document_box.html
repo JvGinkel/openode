@@ -14,7 +14,6 @@
                 <a href="{% url thread node.pk, node.slug, "library", thread.pk, thread.slug %}" title="{{ thread.get_title() }}">
                     {{ thread.get_title('html') }}
                 </a>
-                {# {{ document.get_file_name() }} #}
             </span>
         {% else %}
             <span class="ico-type" style="background-image: url({{ '/images/fileicons/file.png'|media }});">

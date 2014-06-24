@@ -196,8 +196,38 @@ def add_document_view(request, node, thread_type):
         )
 
     def _is_zip_file_extended(name, path):
+        """
+            test if file on path is zip archive,
+            test for special extension is simple test for exclude zip like files (docx, xlsx, ...)
+        """
         ZIP_FILES_EXT = ["zip"]
         return (name.split(".")[-1].lower() in ZIP_FILES_EXT) and zipfile.is_zipfile(path)
+
+    def recursive_process_dir(directory):
+        """
+            recursive read directory content and create Documents from all files on any level of direcotry tree.
+            Final structure is flat.
+        """
+        for file_name in os.listdir(directory):
+            _path = os.path.join(directory, file_name)
+
+            if os.path.isdir(_path):
+                recursive_process_dir(_path)
+            else:
+                title = force_unicode(file_name, strings_only=True, errors="ignore")
+                _post = user.post_thread(**{
+                    "title": "%s: %s" % (form.cleaned_data['title'], title),
+                    "body_text": "",
+                    "timestamp": timestamp,
+                    "node": node,
+                    "thread_type": thread_type,
+                    "category": category,
+                    "external_access": form.cleaned_data["allow_external_access"],
+                })
+
+                with codecs.open(_path, "r", errors="ignore") as file_content:
+                    _create_doc(user, _post, SimpleUploadedFile(title, file_content.read()))
+
 
     ################################################################################
 
@@ -236,38 +266,22 @@ def add_document_view(request, node, thread_type):
 
                     if file_data:
 
+                        # create Document from uploaded file
                         dr = _create_doc(user, post, file_data)
 
+                        # if uploaded file is zip archive, create documents from all files in.
                         if _is_zip_file_extended(dr.file_data.name, dr.file_data.path):
 
+                            # extract zip to temp directory
                             temp_dir = tempfile.mkdtemp()
                             with zipfile.ZipFile(dr.file_data.path, "r") as zf:
                                 zf.extractall(temp_dir)
 
-                            for file_name in os.listdir(temp_dir):
-                                file_path = os.path.join(temp_dir, file_name)
+                            # recursive process all files in all directories of zip file
+                            # create flat structure from directory tree
+                            recursive_process_dir(temp_dir)
 
-                                title = force_unicode(file_name, strings_only=True, errors="ignore")
-                                _data = {
-                                    "title": "%s: %s" % (form.cleaned_data['title'], title),
-                                    "body_text": "",
-                                    "timestamp": timestamp,
-                                    "node": node,
-                                    "thread_type": thread_type,
-                                    "category": category,
-                                    "external_access": form.cleaned_data["allow_external_access"],
-                                }
-                                _post = user.post_thread(**_data)
-                                del _data
-
-                                try:
-                                    with codecs.open(file_path, "r", errors="ignore") as file_content:
-                                        _create_doc(user, _post, SimpleUploadedFile(title, file_content.read()))
-                                except IOError, e:
-                                    # TODO
-                                    pass
-                                    # logging.info()
-
+                            # clear
                             shutil.rmtree(temp_dir)
 
                     request.user.message_set.create(message=_('Document has been successfully added.'))
