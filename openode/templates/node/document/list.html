@@ -10,6 +10,13 @@
     {{ super() }}
     <script type='text/javascript' src="{{"/js/unfolding.js"|media }}"></script>
     <script type="text/javascript">
+    function submit_button_toggle() {
+        if (jQuery("#id_documents_ids").val() == "") {
+            jQuery("#download-button").attr('disabled','disabled');
+        } else {
+            jQuery("#download-button").removeAttr('disabled');
+        }
+    }
         jQuery(document).ready(function(){
 
             // open 'in session opened' nodes
@@ -25,6 +32,7 @@
                     ids.push(jQuery(el).data("document-id"));
                 })
                 ids_holder.val(ids.join(","));
+                submit_button_toggle();
             });
 
         });
@@ -42,6 +50,7 @@
                     <li id="element-{{ category.pk }}">
                         {# <div class="row"> #}
                             {% if not category.is_leaf_node() or cat_documents %}
+                                <input disabled="disabled" type="checkbox" class="js-document-to-zip">
                                 <span
                                         class="ico-type js-expander js-use-ajax js-closed"
                                         data-url="{% url toggle_category %}?category_id={{ category.pk }}"
@@ -106,8 +115,8 @@
     {% endif %}
 
     <form action="{% url download_as_zip node.pk, node.slug %}" method="post">{% csrf_token %}
-        {{ download_zip_form.documents_ids }}
-        <input type="submit" name="" value="Download">
+        <div class="hidden">{{ download_zip_form.documents_ids }}</div>
+        <input disabled="disabled" id="download-button" class="button small" type="submit" name="" value="{% trans %}Download selected{% endtrans %}">
     </form>
 
     <div class="group separated-buttons">

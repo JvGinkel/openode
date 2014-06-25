@@ -1046,6 +1046,7 @@ h3 {
 // =library
 // ==========================================================================
 
+
 .library {
     .files-list {
         margin: 20px 0;
@@ -1062,14 +1063,15 @@ h3 {
         }
         .ico-type {
             background-repeat: no-repeat;
-            background-position: 12px center;
-            padding-left: 33px;
+            background-position: -2px center;
+            padding-left: 19px;
 
             &.js-expander {
                 padding-left: 0;
+                background-position: 0px center;
             }
             .expander-sign {
-                margin-right: 20px;
+                padding-left: 17px;
             }
         }
         .js-expander:hover {
@@ -1078,6 +1080,12 @@ h3 {
         .views {
             font-size: 11px;
             margin-left: 10px;
+        }
+        .js-document-to-zip {
+            vertical-align: middle;
+            position: relative;
+            bottom: 1px;
+            cursor: pointer;
         }
     }
 }
@@ -1143,7 +1151,7 @@ h3 {
 // ==========================================================================
 
 .search-results-content {
-    
+
     .search-form {
         input[type="text"] {
             width: 500px;
@@ -1182,7 +1190,7 @@ h3 {
     }
     a:visited {
             color: #555;
-    }        
+    }
 }
 
 
@@ -2250,3 +2258,4 @@ ul.breadcrumbs {
         padding-left: 10px;
     }
 }
+
