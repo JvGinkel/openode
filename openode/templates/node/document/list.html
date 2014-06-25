@@ -52,7 +52,7 @@
                             {% if not category.is_leaf_node() or cat_documents %}
                                 <input disabled="disabled" type="checkbox" class="js-document-to-zip">
                                 <span
-                                        class="ico-type js-expander js-use-ajax js-closed"
+                                        class="ico-type js-expander js-use-ajax js-closed folder-ico"
                                         data-url="{% url toggle_category %}?category_id={{ category.pk }}"
                                         data-element_id="{{ category.pk }}"
                                         data-close="▾"
@@ -63,7 +63,8 @@
                                     {{ category.name }}
                                 </span>
                             {% else %}
-                                <span class="ico-type" style="background-image: url({{ '/images/fileicons/folder.png'|media }});">
+                                <input disabled="disabled" type="checkbox" class="js-document-to-zip">
+                                <span class="ico-type folder-ico" style="background-image: url({{ '/images/fileicons/folder.png'|media }});">
                                     {{ category.name }}
                                 </span>
                             {% endif %}

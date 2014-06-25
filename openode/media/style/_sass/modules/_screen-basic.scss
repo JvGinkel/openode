@@ -1065,14 +1065,11 @@ h3 {
             background-repeat: no-repeat;
             background-position: -2px center;
             padding-left: 19px;
-
-            &.js-expander {
-                padding-left: 0;
+            &.folder-ico {
+                padding-left: 22px;
                 background-position: 0px center;
             }
-            .expander-sign {
-                padding-left: 17px;
-            }
+
         }
         .js-expander:hover {
             cursor: pointer;
