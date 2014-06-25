@@ -68,9 +68,22 @@ def owner_or_moderator_required(f):
 def show_perm_table(request):
     if not request.user.is_staff:
         return HttpResponseForbidden()
+
+    rules = RULES.keys()
+    members_rules = MEMBERS_RULES.keys()
+
+    permissions = sorted(set(
+        RULES["node_visibility_public"].keys() + MEMBERS_RULES[const.NODE_USER_ROLE_MANAGER].keys()
+    ))
+
     to_tmpl = {
-        "RULES": RULES,
-        "MEMBERS_RULES": MEMBERS_RULES
+        "rules": rules,
+        "members_rules": members_rules,
+        "rules_set": [
+            [members_rules, MEMBERS_RULES],
+            [rules, RULES]
+        ],
+        "permissions": permissions,
     }
     return django_render(request, 'admin/show_perm_table.html', to_tmpl)
 
