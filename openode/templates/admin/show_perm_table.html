@@ -1,11 +1,72 @@
 {% extends 'admin/base_site.html' %}
-{% load i18n %}
+{% load i18n extra_tags %}
 
 {% block title %}
     {% trans "Documents state" %}
 {% endblock %}
 
 {% block content %}
+
+<style type="text/css" media="screen">
+    .table-rules td {
+        width: 50px;
+        text-align: left;
+    }
+    .table-rules td.val {
+        text-align: center
+    }
+    .table-rules td.none {
+        background-color: #eee
+    }
+    .table-rules td.yes {
+        background-color: #d9ead3
+    }
+    .table-rules td.no {
+        background-color: #fce5cd
+    }
+</style>
+
+    <h1>{% trans "Permissions" %}</h1>
+
+    <table class="table-rules">
+
+        <tr>
+            <td></td>
+            {% for rules, xxx in rules_set %}
+                {% for c in rules %}
+                    <td>{{ c }}</td>
+                {% endfor %}
+            {% endfor %}
+        </tr>
+
+        {% for permission in permissions %}
+            <tr>
+                <td>{{ permission }}</td>
+
+                {% for header, rules in rules_set %}
+                    {% for c in header %}
+                        {% with rules|key_value:c|key_value:permission as val %}
+
+                            {% if val == None %}
+                                <td class="val none"></td>
+                            {% else %}
+                                {% if val %}
+                                    <td class="val yes">Yes</td>
+                                {% else %}
+                                    <td class="val no">No</td>
+                                {% endif %}
+                            {% endif %}
+
+                        {% endwith %}
+                    {% endfor %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+
+    </table>
+
+
+{% comment %}
 
     <table>
         <tr>
@@ -50,4 +111,5 @@
         </tr>
     </table>
 
+{% endcomment %}
 {% endblock %}

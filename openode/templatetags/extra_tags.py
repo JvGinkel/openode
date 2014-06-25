@@ -51,6 +51,22 @@ def gravatar(user, size):
     })
 
 
+@register.filter
+def key_value(dict, key):
+    if dict is None:
+        return ""
+    return dict.get(key)
+
+@register.filter
+def yes_no_none_human(val):
+    if val is True:
+        return "Yes"
+    elif val is False:
+        return "No"
+    else:
+        return "-"
+
+
 @register.simple_tag
 def get_tag_font_size(tags):
     max_tag = 0
