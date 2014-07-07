@@ -1273,6 +1273,10 @@ def lost_password(request):
             )
             msg.attach_alternative(html_content, "text/html")
             msg.send()
+            logging.info("Send change password link %s" % repr({
+                "to_email": form.user.email,
+                "user": form.user.pk,
+            }))
             return HttpResponseRedirect(reverse("lost_password_done"))
     else:
         form = forms.UserLostPasswordForm()
@@ -1308,6 +1312,11 @@ def change_password(request, key):
             user.set_password(form.cleaned_data['password_1'])
             user.change_password_key = None
             user.save()
+            logging.info("Change password done %s" % repr({
+                "to_email": user.email,
+                "user": user.pk,
+            }))
+
             return render_into_skin('authopenid/change_password_ok.html', {}, request)
     else:
         form = forms.UserChangePasswordForm()
