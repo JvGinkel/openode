@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-13 13:01+0200\n"
+"POT-Creation-Date: 2014-07-09 16:29+0200\n"
 "PO-Revision-Date: 2013-01-31 13:56\n"
 "Last-Translator:   <info@coex.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1399,7 +1399,7 @@ msgstr ""
 msgid "DELETED"
 msgstr ""
 
-#: const/__init__.py:300 views/readers.py:541
+#: const/__init__.py:300 views/readers.py:542
 msgid "initial version"
 msgstr ""
 
@@ -1578,8 +1578,8 @@ msgstr ""
 
 #: const/__init__.py:449 document/models.py:83 search/forms.py:20
 #: templates/two_column_node_body.html:138 templates/node/document/list.html:3
-#: templates/node/document/list.html:7 templates/node/document/list.html:23
-#: templates/node/document/list.html:118
+#: templates/node/document/list.html:7 templates/node/document/list.html:43
+#: templates/node/document/list.html:148
 msgid "Documents"
 msgstr ""
 
@@ -2200,7 +2200,7 @@ msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: deps/django_authopenid/views.py:1339
+#: deps/django_authopenid/views.py:1348
 msgid "Please check your email and visit the enclosed link."
 msgstr ""
 
@@ -2373,11 +2373,11 @@ msgstr ""
 msgid "Pages links"
 msgstr ""
 
-#: document/views.py:220
+#: document/views.py:287
 msgid "Document has been successfully added."
 msgstr ""
 
-#: document/views.py:373
+#: document/views.py:440
 msgid "Document has been succesfully re-processed."
 msgstr ""
 
@@ -3381,7 +3381,7 @@ msgstr ""
 msgid "New tags added to %s"
 msgstr ""
 
-#: models/tag.py:198 models/thread.py:1232
+#: models/tag.py:198 models/thread.py:1235
 #, python-format
 msgid "Tags %s are new and will be submitted for the moderators approval"
 msgstr ""
@@ -3418,14 +3418,14 @@ msgstr ""
 msgid "Valid only for question"
 msgstr "Verification Email from Q&A forum"
 
-#: models/thread.py:872
+#: models/thread.py:875
 #, python-format
 msgid "%(count)d answer:"
 msgid_plural "%(count)d answers:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: models/thread.py:1227
+#: models/thread.py:1230
 #, python-format
 msgid "Tag %s is new and will be submitted for the moderators approval"
 msgstr ""
@@ -3991,7 +3991,7 @@ msgstr ""
 #: templates/organization_detail.html:31 templates/revisions.html:38
 #: templates/revisions.html.py:41 templates/cms/archive.html:27
 #: templates/cms/static_page.html:14 templates/node/document/detail.html:93
-#: templates/node/document/list.html:51
+#: templates/node/document/list.html:73
 #: templates/node/snippets/answer_controls.html:69
 #: templates/node/snippets/post_controls.html:71
 #: templates/snippets/post_comments_widget.html:48
@@ -4107,8 +4107,8 @@ msgstr ""
 #: templates/node/discussion/detail.html:183
 #: templates/node/discussion/discussion_answer.html:10
 #: templates/node/question/detail.html:112
-#: templates/node/question/detail.html:213
-#: templates/node/question/detail.html:218
+#: templates/node/question/detail.html:215
+#: templates/node/question/detail.html:221
 #: templates/snippets/post_contributor_info.html:51
 msgid "updated"
 msgstr ""
@@ -4120,7 +4120,8 @@ msgid "asked"
 msgstr ""
 
 #: templates/macros.html:233 templates/macros.html.py:273
-#: templates/node/question/detail.html:211
+#: templates/node/question/detail.html:213
+#: templates/node/question/detail.html:219
 #: templates/snippets/post_contributor_info.html:12
 msgid "answered"
 msgstr ""
@@ -4495,6 +4496,11 @@ msgstr "Verification Email from Q&A forum"
 msgid "Documents state"
 msgstr ""
 
+#: templates/admin/show_perm_table.html:29
+#, fuzzy
+msgid "Permissions"
+msgstr "Verification Email from Q&A forum"
+
 #: templates/admin/common/login.html:37
 msgid "Password:"
 msgstr ""
@@ -4621,7 +4627,7 @@ msgstr ""
 #: templates/node/base_thread_edit.html:33 templates/node/edit_perexes.html:39
 #: templates/node/edit_settings.html:43
 #: templates/node/discussion/detail.html:107
-#: templates/node/question/detail.html:284
+#: templates/node/question/detail.html:289
 #: templates/user_profile/user_edit.html:40
 #: templates/user_profile/user_overview.html:144
 msgid "Cannot submit, form has errors."
@@ -4899,8 +4905,8 @@ msgstr "Verification Email from Q&A forum"
 #: templates/node/document/edit_directory.html:23
 #: templates/node/document/followers.html:17
 #: templates/node/document/last_visit.html:17
-#: templates/node/document/list.html:118 templates/node/question/add.html:17
-#: templates/node/question/detail.html:329
+#: templates/node/document/list.html:148 templates/node/question/add.html:17
+#: templates/node/question/detail.html:334
 #: templates/node/question/edit.html:16
 #: templates/node/question/edit_post.html:19
 #: templates/node/question/followers.html:18
@@ -5509,11 +5515,6 @@ msgid ""
 "being:<p>\n"
 msgstr ""
 
-#: templates/email/user_profile_email.html:2
-#: templates/email/user_profile_email.html:3
-msgid "Email from your Openode profile"
-msgstr ""
-
 #: templates/email/user_profile_email.html:6
 #, fuzzy
 msgid "user's profile"
@@ -5709,7 +5710,7 @@ msgstr "Verification Email from Q&A forum"
 
 #: templates/node/base_thread_add.html:11
 #: templates/node/base_thread_add.html:83 templates/node/document/add.html:17
-#: templates/node/document/list.html:95
+#: templates/node/document/list.html:125
 #, fuzzy
 msgid "Add new document"
 msgstr ""
@@ -6656,7 +6657,7 @@ msgid "Edit Directory"
 msgstr "Verification Email from Q&A forum"
 
 #: templates/node/document/edit_directory.html:14
-#: templates/node/document/list.html:99
+#: templates/node/document/list.html:129
 #, fuzzy
 msgid "Add New Directory"
 msgstr "Verification Email from Q&A forum"
@@ -6724,25 +6725,32 @@ msgstr "Verification Email from Q&A forum"
 msgid "help_node_document_visits_html"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/list.html:55
+#: templates/node/document/list.html:77
 msgid "NEW"
 msgstr ""
 
-#: templates/node/document/list.html:90
+#: templates/node/document/list.html:115
 msgid "There are no Documents in this Node."
 msgstr ""
 
-#: templates/node/document/list.html:103
+#: templates/node/document/list.html:120
+#, fuzzy
+msgid "Download selected"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: templates/node/document/list.html:133
 #, fuzzy
 msgid "Change order"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/list.html:116 templates/node/document/list.html:118
+#: templates/node/document/list.html:146 templates/node/document/list.html:148
 #, fuzzy
 msgid "help_document_list_short"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/list.html:118
+#: templates/node/document/list.html:148
 #, fuzzy
 msgid "help_document_list_html"
 msgstr "Verification Email from Q&A forum"
@@ -6752,7 +6760,7 @@ msgstr "Verification Email from Q&A forum"
 msgid "Ask your Question"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/add.html:13 templates/node/question/detail.html:324
+#: templates/node/question/add.html:13 templates/node/question/detail.html:329
 msgid "Back to Questions"
 msgstr ""
 
@@ -6776,7 +6784,7 @@ msgid "This question has been closed for the following reason:"
 msgstr ""
 
 #: templates/node/question/detail.html:101
-#: templates/node/question/detail.html:329
+#: templates/node/question/detail.html:334
 #: templates/search/results/question.html:9 utils/notify_users.py:28
 #: utils/notify_users.py:99
 msgid "Question"
@@ -6809,55 +6817,55 @@ msgstr ""
 msgid "mark this answer as correct (click again to undo)"
 msgstr ""
 
-#: templates/node/question/detail.html:261
+#: templates/node/question/detail.html:266
 #, fuzzy
 msgid "Edit Your Previous Answer"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/detail.html:262
+#: templates/node/question/detail.html:267
 #, fuzzy
 msgid "(only one answer per question is allowed)"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/detail.html:270
+#: templates/node/question/detail.html:275
 #, fuzzy
 msgid "Your answer"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/detail.html:272
+#: templates/node/question/detail.html:277
 #, fuzzy
 msgid "Be the first one to answer this question!"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/detail.html:279
+#: templates/node/question/detail.html:284
 msgid "Login/Signup to Answer"
 msgstr ""
 
-#: templates/node/question/detail.html:302
+#: templates/node/question/detail.html:307
 #, fuzzy
 msgid "Post answer"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/detail.html:316
+#: templates/node/question/detail.html:321
 #, fuzzy
 msgid "Answer Your Own Question"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/detail.html:329
+#: templates/node/question/detail.html:334
 msgid "help_question_detail_short"
 msgstr ""
 
-#: templates/node/question/detail.html:329
+#: templates/node/question/detail.html:334
 msgid "help_question_detail_html"
 msgstr ""
 
-#: templates/node/question/detail.html:330
+#: templates/node/question/detail.html:335
 msgid "Question tools"
 msgstr ""
 
@@ -7000,7 +7008,7 @@ msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/snippets/document_box.html:23
+#: templates/node/snippets/document_box.html:28
 #, fuzzy
 msgid "number of views"
 msgstr ""
@@ -7523,7 +7531,7 @@ msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/user_profile/user.html:72 views/users.py:903
+#: templates/user_profile/user.html:72 views/users.py:917
 msgid "email subscription settings"
 msgstr ""
 
@@ -7929,11 +7937,16 @@ msgstr[1] ""
 msgid "Show question"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/widgets/thread_summary_question.html:31 utils/notify_users.py:35
-msgid "Answer"
-msgid_plural "Answers"
+#: templates/widgets/thread_summary_question.html:31
+#, fuzzy
+msgid "Answer "
+msgid_plural "Answers "
 msgstr[0] ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 msgstr[1] ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
 #: templates/widgets/three_column_category_selector.html:4
 msgid ""
@@ -8182,6 +8195,10 @@ msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+#: utils/notify_users.py:35
+msgid "Answer"
+msgstr ""
+
 #: utils/notify_users.py:37
 #, fuzzy
 msgid "Discussion post"
@@ -8394,98 +8411,98 @@ msgid ""
 "accessible"
 msgstr ""
 
-#: views/users.py:316
+#: views/users.py:329
 msgid "Profile has been succesfully saved."
 msgstr ""
 
-#: views/users.py:443
+#: views/users.py:457
 msgid "Email has been succesfully sent."
 msgstr ""
 
-#: views/users.py:460
+#: views/users.py:474
 msgid "user profile"
 msgstr ""
 
-#: views/users.py:461
+#: views/users.py:475
 msgid "user profile overview"
 msgstr ""
 
-#: views/users.py:634
+#: views/users.py:648
 msgid "organization joining requests"
 msgstr ""
 
-#: views/users.py:635
+#: views/users.py:649
 msgid "profile - organization joins"
 msgstr ""
 
-#: views/users.py:651
+#: views/users.py:665
 #, fuzzy
 msgid "node joining requests"
 msgstr "Verification Email from Q&A forum"
 
-#: views/users.py:652
+#: views/users.py:666
 #, fuzzy
 msgid "profile - node joins"
 msgstr "Verification Email from Q&A forum"
 
-#: views/users.py:732
+#: views/users.py:746
 msgid "comments and answers to others questions"
 msgstr ""
 
-#: views/users.py:733
+#: views/users.py:747
 msgid "profile - responses"
 msgstr ""
 
-#: views/users.py:770
+#: views/users.py:784
 msgid "user vote record"
 msgstr ""
 
-#: views/users.py:771
+#: views/users.py:785
 msgid "profile - votes"
 msgstr ""
 
-#: views/users.py:797
+#: views/users.py:811
 msgid "users followed questions"
 msgstr ""
 
-#: views/users.py:798
+#: views/users.py:812
 msgid "profile - followed questions"
 msgstr ""
 
-#: views/users.py:816
+#: views/users.py:830
 msgid "users followed discussions"
 msgstr ""
 
-#: views/users.py:817
+#: views/users.py:831
 msgid "profile - followed discussions"
 msgstr ""
 
-#: views/users.py:833
+#: views/users.py:847
 msgid "users followed nodes"
 msgstr ""
 
-#: views/users.py:834
+#: views/users.py:848
 msgid "profile - followed nodes"
 msgstr ""
 
-#: views/users.py:852
+#: views/users.py:866
 msgid "users managed nodes"
 msgstr ""
 
-#: views/users.py:853
+#: views/users.py:867
 #, fuzzy
 msgid "profile - managed nodes"
 msgstr "Verification Email from Q&A forum"
 
-#: views/users.py:873 views/users.py:877
+#: views/users.py:887 views/users.py:891
 msgid "changes saved"
 msgstr ""
 
-#: views/users.py:883
+#: views/users.py:897
 msgid "email updates canceled"
 msgstr ""
 
-#: views/users.py:904
+#: views/users.py:918
 msgid "profile - email subscriptions"
 msgstr ""
 
@@ -8584,12 +8601,6 @@ msgstr ""
 #~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 #~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 #~ msgstr[1] ""
-#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#, fuzzy
-#~ msgid "Answer to"
-#~ msgstr ""
 #~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 #~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 

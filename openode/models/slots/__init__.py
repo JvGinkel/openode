@@ -8,7 +8,7 @@ import signal
 def restart_server(sender, **kwargs):
     request = kwargs.pop('request', {"META": {}})
     gunicorn_served = bool(re.match(r"gunicorn", request.META.get("SERVER_SOFTWARE", u"")))
-    print "IS GUNICORN SERVED %s" % gunicorn_served
+    # print "IS GUNICORN SERVED %s" % gunicorn_served
     if gunicorn_served:
         print "RELOAD GUNICORN WORKERS..."
         try:
