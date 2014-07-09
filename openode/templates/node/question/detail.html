@@ -207,15 +207,20 @@
 
                 {# === CREATOR/UPDATER INFOBOX === #}
                 <div class="infobox-wrap">
-                    {# CREATOR #}
-                    {% set user_infobox_label = _('answered') %}
-                    {% if answer.author == answer.last_edited_by %}
-                        {% set user_infobox_label = _('updated') %}
-                    {% endif %}
-                    {{ render_user_infobox(answer.author, request.user, user_infobox_label, answer.added_at) }}
-                    {# UPDATER #}
+
                     {% if answer.last_edited_by and answer.author != answer.last_edited_by %}
+                        {# CREATOR #}
+                        {{ render_user_infobox(answer.author, request.user, _('answered'), answer.added_at) }}
+                        {# UPDATER #}
                         {{ render_user_infobox(answer.last_edited_by, request.user, _('updated'), answer.last_edited_at) }}
+
+                    {% else %}
+                        {# CREATOR ONLY #}
+                        {% set user_infobox_label = _('answered') %}
+                        {% if answer.author == answer.last_edited_by %}
+                            {% set user_infobox_label = _('updated') %}
+                        {% endif %}
+                        {{ render_user_infobox(answer.author, request.user, user_infobox_label, answer.last_edited_at or answer.added_at) }}
                     {% endif %}
                 </div>
 
