@@ -815,6 +815,9 @@ class Thread(models.Model):
             return doc[0]
         return None
 
+    def exists_document(self):
+        return self.documents.public().exists()
+
     def get_tag_names(self):
         "Creates a list of Tag names from the ``tagnames`` attribute."
         if self.tagnames.strip() == '':

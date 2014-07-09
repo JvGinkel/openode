@@ -34,6 +34,7 @@ from jinja2 import Environment, FileSystemLoader
 
 from openode import conf, const, models, schedules
 from openode.conf import settings as openode_settings
+from openode.document.forms import DownloadZipForm
 from openode.models import StaticPage
 from openode.models.actuality import Actuality
 from openode.models.node import Node
@@ -51,7 +52,6 @@ from openode.search.state_manager import SearchState
 from openode.skins.loaders import render_into_skin, get_template  # jinja2 template loading enviroment
 from openode.templatetags import extra_tags
 from openode.views.thread import thread as thread_detail_view
-
 
 #######################################
 
@@ -139,7 +139,7 @@ def index(request):  # generates front page - shows listing of questions sorted 
         "nodes": root_nodes_qs,
         "with_closed": with_closed,
         "display_mode": mode,
-        
+
         "latest_actuality": latest_actuality,
         "opened_nodes": simplejson.dumps(opened_nodes),
 
@@ -461,6 +461,7 @@ def node_module_thread(request, node, module, **kwargs):
             ####################################################################
 
             template_data.update({
+                "download_zip_form": DownloadZipForm(),
                 "free_threads": node.threads.filter(is_deleted=False, category=None, thread_type=const.THREAD_TYPE_DOCUMENT).order_by("title"),  # Thread.objects.filter(thread__node=node, thread__category=None).select_related("thread"),
                 "categories_ids_witn_unread_thread": categories_ids_witn_unread_thread
                 # "categorized_threads": node.threads.exclude(category=None),  # Thread.objects.filter(thread__node=node, thread__category=None).select_related("thread"),

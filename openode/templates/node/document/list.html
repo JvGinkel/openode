@@ -10,11 +10,31 @@
     {{ super() }}
     <script type='text/javascript' src="{{"/js/unfolding.js"|media }}"></script>
     <script type="text/javascript">
+    function submit_button_toggle() {
+        if (jQuery("#id_documents_ids").val() == "") {
+            jQuery("#download-button").attr('disabled','disabled');
+        } else {
+            jQuery("#download-button").removeAttr('disabled');
+        }
+    }
         jQuery(document).ready(function(){
+
             // open 'in session opened' nodes
             jQuery.each({{ opened_categories }}, function(index, value){
                 open_element(jQuery("#element-" + value).find(".js-expander").first(), false, false);
-            })
+            });
+
+             // fill form input with IDs of selected documents
+            var ids_holder = jQuery("#id_documents_ids");
+            jQuery(".js-document-to-zip").on("click", function(e){
+                var ids = [];
+                jQuery(".js-document-to-zip:checked").map(function(i, el){
+                    ids.push(jQuery(el).data("document-id"));
+                })
+                ids_holder.val(ids.join(","));
+                submit_button_toggle();
+            });
+
         });
     </script>
 {% endblock %}
@@ -30,8 +50,9 @@
                     <li id="element-{{ category.pk }}">
                         {# <div class="row"> #}
                             {% if not category.is_leaf_node() or cat_documents %}
+                                <input disabled="disabled" type="checkbox" class="js-document-to-zip">
                                 <span
-                                        class="ico-type js-expander js-use-ajax js-closed"
+                                        class="ico-type js-expander js-use-ajax js-closed folder-ico"
                                         data-url="{% url toggle_category %}?category_id={{ category.pk }}"
                                         data-element_id="{{ category.pk }}"
                                         data-close="▾"
@@ -42,7 +63,8 @@
                                     {{ category.name }}
                                 </span>
                             {% else %}
-                                <span class="ico-type" style="background-image: url({{ '/images/fileicons/folder.png'|media }});">
+                                <input disabled="disabled" type="checkbox" class="js-document-to-zip">
+                                <span class="ico-type folder-ico" style="background-image: url({{ '/images/fileicons/folder.png'|media }});">
                                     {{ category.name }}
                                 </span>
                             {% endif %}
@@ -56,6 +78,7 @@
                             {% endif %}
 
                         {# </div> #}
+
 
                         <div class="js-subelement-of-{{ category.pk }} js-subelement">
 
@@ -82,6 +105,8 @@
 
             <dl>
                 {% for thread in free_threads %}
+                    {% set unread = thread.has_unread_main_post_for_user(request.user) %}
+                    {% set document = thread.get_document() %}
                     <dd>{% include "node/snippets/document_box.html" %}</dd>
                 {% endfor %}
             </dl>
@@ -89,6 +114,11 @@
     {% else %}
         <p>{% trans %}There are no Documents in this Node.{% endtrans %}</p>
     {% endif %}
+
+    <form action="{% url download_as_zip node.pk, node.slug %}" method="post">{% csrf_token %}
+        <div class="hidden">{{ download_zip_form.documents_ids }}</div>
+        <input disabled="disabled" id="download-button" class="button small" type="submit" name="" value="{% trans %}Download selected{% endtrans %}">
+    </form>
 
     <div class="group separated-buttons">
         {% if request.user.has_openode_perm("node_library_create", node) %}

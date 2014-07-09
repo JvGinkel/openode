@@ -299,3 +299,8 @@ class CategoryMoveForm(forms.ModelForm):
         if commit:
             self.instance.save()
         return self.instance
+
+################################################################################
+
+class DownloadZipForm(forms.Form):
+    documents_ids = forms.CharField()
