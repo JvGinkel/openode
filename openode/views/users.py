@@ -71,18 +71,38 @@ def show_perm_table(request):
 
     rules = RULES.keys()
     members_rules = MEMBERS_RULES.keys()
+    print members_rules
 
     permissions = sorted(set(
         RULES["node_visibility_public"].keys() + MEMBERS_RULES[const.NODE_USER_ROLE_MANAGER].keys()
     ))
 
+    _map = [
+        ('node_visibility_public', RULES),
+        ('node_visibility_registered_users', RULES),
+        ('user_loggedin', RULES),
+        ('node_visibility_private', RULES),
+        ('node_visibility_semiprivate', RULES),
+        ('thread_external_access', RULES),
+        ('member', MEMBERS_RULES),
+        ('document-manager', MEMBERS_RULES),
+        ('readonly', MEMBERS_RULES),
+        ('manager', MEMBERS_RULES),
+        ('thread_is_closed', RULES),
+        ('node_qa_is_readonly', RULES),
+        ('node_forum_is_readonly', RULES),
+        ('node_library_is_readonly', RULES),
+        ('node_is_closed', RULES),
+        ('node_is_deleted', RULES),
+    ]
+
+    rules = []
+    for rule, data in _map:
+        rules.append([rule, data[rule]])
+
+
     to_tmpl = {
         "rules": rules,
-        "members_rules": members_rules,
-        "rules_set": [
-            [members_rules, MEMBERS_RULES],
-            [rules, RULES]
-        ],
         "permissions": permissions,
     }
     return django_render(request, 'admin/show_perm_table.html', to_tmpl)

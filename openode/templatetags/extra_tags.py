@@ -58,6 +58,10 @@ def key_value(dict, key):
     return dict.get(key)
 
 @register.filter
+def trans_perm_var(var):
+    return _("perm-%s" % var)
+
+@register.filter
 def yes_no_none_human(val):
     if val is True:
         return "Yes"

@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+
+################################################################################
+# IMPORTANT:
+#   when you add/remove/change some permission, DON'T forget for translation
+#   string on and of the this script
+################################################################################
+
 from openode.const import (
     NODE_USER_ROLE_DOCUMENT_MANAGER,
     NODE_USER_ROLE_MANAGER,
@@ -504,3 +512,64 @@ MEMBERS_RULES = {
         'document_directory_delete': True,
     }
 }
+
+################################################################################
+
+from django.utils.translation import ugettext as _
+
+_('perm-discussion_close')
+_('perm-discussion_delete_any')
+_('perm-discussion_delete_mine')
+_('perm-discussion_post_create')
+_('perm-discussion_post_delete_any')
+_('perm-discussion_post_delete_mine')
+_('perm-discussion_post_update_any')
+_('perm-discussion_post_update_mine')
+_('perm-discussion_read')
+_('perm-discussion_update_any')
+_('perm-discussion_update_mine')
+_('perm-document_delete')
+_('perm-document_directory_create')
+_('perm-document_directory_delete')
+_('perm-document_directory_update')
+_('perm-document_read')
+_('perm-document_update')
+_('perm-node_edit_annotation')
+_('perm-node_forum_create')
+_('perm-node_library_create')
+_('perm-node_qa_create')
+_('perm-node_read')
+_('perm-node_settings')
+_('perm-node_show')
+_('perm-question_answer_accept')
+_('perm-question_answer_comment_create')
+_('perm-question_answer_comment_delete_any')
+_('perm-question_answer_comment_update_any')
+_('perm-question_answer_create')
+_('perm-question_answer_delete_any')
+_('perm-question_answer_update_any')
+_('perm-question_answer_update_mine')
+_('perm-question_answer_vote')
+_('perm-question_close')
+_('perm-question_delete_any')
+_('perm-question_delete_mine')
+_('perm-question_read')
+_('perm-question_update_any')
+_('perm-question_update_mine')
+
+_("perm-node_visibility_public")
+_("perm-node_visibility_registered_users")
+_("perm-user_loggedin")
+_("perm-node_visibility_private")
+_("perm-node_visibility_semiprivate")
+_("perm-thread_external_access")
+_("perm-member")
+_("perm-document-manager")
+_("perm-readonly")
+_("perm-manager")
+_("perm-thread_is_closed")
+_("perm-node_qa_is_readonly")
+_("perm-node_forum_is_readonly")
+_("perm-node_library_is_readonly")
+_("perm-node_is_closed")
+_("perm-node_is_deleted")

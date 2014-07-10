@@ -9,7 +9,7 @@
 
 <style type="text/css" media="screen">
     .table-rules td {
-        width: 50px;
+        width: 20px;
         text-align: left;
     }
     .table-rules td.val {
@@ -24,6 +24,13 @@
     .table-rules td.no {
         background-color: #fce5cd
     }
+    .table-rules td.c-perm {
+        width: 300px;
+    }
+    .table-rules td.c-rule {
+        width: 100px;
+    }
+
 </style>
 
     <h1>{% trans "Permissions" %}</h1>
@@ -32,34 +39,29 @@
 
         <tr>
             <td></td>
-            {% for rules, xxx in rules_set %}
-                {% for c in rules %}
-                    <td>{{ c }}</td>
-                {% endfor %}
+            {% for rule, xxx in rules %}
+                <td class="c-rule">{{ rule|trans_perm_var }}</td>
             {% endfor %}
         </tr>
 
         {% for permission in permissions %}
             <tr>
-                <td>{{ permission }}</td>
+                <td class="c-perm">{{ permission|trans_perm_var }}</td>
 
-                {% for header, rules in rules_set %}
-                    {% for c in header %}
-                        {% with rules|key_value:c|key_value:permission as val %}
-
-                            {% if val == None %}
-                                <td class="val none"></td>
+                {% for rule, data in rules %}
+                    {% with data|key_value:permission as val %}
+                        {% if val == None %}
+                            <td class="val none"></td>
+                        {% else %}
+                            {% if val %}
+                                <td class="val yes">Yes</td>
                             {% else %}
-                                {% if val %}
-                                    <td class="val yes">Yes</td>
-                                {% else %}
-                                    <td class="val no">No</td>
-                                {% endif %}
+                                <td class="val no">No</td>
                             {% endif %}
-
-                        {% endwith %}
-                    {% endfor %}
+                        {% endif %}
+                    {% endwith %}
                 {% endfor %}
+
             </tr>
         {% endfor %}
 
