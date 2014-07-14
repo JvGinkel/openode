@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-14 10:55+0200\n"
-"PO-Revision-Date: 2014-07-14 11:14+0100\n"
+"POT-Creation-Date: 2014-07-14 12:41+0200\n"
+"PO-Revision-Date: 2014-07-14 12:42+0100\n"
 "Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -1719,7 +1719,7 @@ msgstr "Anotace"
 msgid "Questions"
 msgstr "Otázky"
 
-#: const/__init__.py:447 templates/node/snippets/node_box.html:43
+#: const/__init__.py:447
 msgid "Q&As"
 msgstr "Otázky"
 
@@ -1729,7 +1729,7 @@ msgstr "Otázky"
 msgid "Discussions"
 msgstr "Diskuze"
 
-#: const/__init__.py:448 templates/node/snippets/node_box.html:66
+#: const/__init__.py:448
 msgid "Discu."
 msgstr "Diskuze"
 
@@ -1740,7 +1740,7 @@ msgstr "Diskuze"
 msgid "Documents"
 msgstr "Dokumenty"
 
-#: const/__init__.py:449 templates/node/snippets/node_box.html:89
+#: const/__init__.py:449 templates/node/snippets/node_box.html:88
 msgid "Docs."
 msgstr "Dokum."
 
@@ -7495,11 +7495,25 @@ msgstr "o klubu"
 msgid "Open Node's questions"
 msgstr "Otevřít otázky klubu"
 
-#: templates/node/snippets/node_box.html:53
+#: templates/node/snippets/node_box.html:41
+msgid "Q&A "
+msgid_plural "Q&As "
+msgstr[0] "Otázka"
+msgstr[1] "Otázky"
+msgstr[2] "Otázek"
+
+#: templates/node/snippets/node_box.html:52
 msgid "Open Node's discussion"
 msgstr "Otevřít diskuzi klubu"
 
-#: templates/node/snippets/node_box.html:76
+#: templates/node/snippets/node_box.html:63
+msgid "Discus. "
+msgid_plural "Discus. "
+msgstr[0] "Diskuze"
+msgstr[1] "Diskuze"
+msgstr[2] "Diskuzí"
+
+#: templates/node/snippets/node_box.html:75
 msgid "Open Node's documents"
 msgstr "Otevřít dokumenty klubu"
 
@@ -8321,8 +8335,8 @@ msgstr "Zobrazit otázku"
 msgid "Answer "
 msgid_plural "Answers "
 msgstr[0] "Odpověď"
-msgstr[1] "Odpověď"
-msgstr[2] "Odpověď"
+msgstr[1] "Odpovědi"
+msgstr[2] "Odpovědí"
 
 #: templates/widgets/three_column_category_selector.html:4
 msgid ""

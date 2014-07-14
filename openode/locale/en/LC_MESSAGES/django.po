@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-14 10:55+0200\n"
+"POT-Creation-Date: 2014-07-14 12:41+0200\n"
 "PO-Revision-Date: 2013-01-31 13:56\n"
 "Last-Translator:   <info@coex.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1562,7 +1562,7 @@ msgstr ""
 msgid "Questions"
 msgstr ""
 
-#: const/__init__.py:447 templates/node/snippets/node_box.html:43
+#: const/__init__.py:447
 msgid "Q&As"
 msgstr ""
 
@@ -1572,7 +1572,7 @@ msgstr ""
 msgid "Discussions"
 msgstr ""
 
-#: const/__init__.py:448 templates/node/snippets/node_box.html:66
+#: const/__init__.py:448
 msgid "Discu."
 msgstr ""
 
@@ -1583,7 +1583,7 @@ msgstr ""
 msgid "Documents"
 msgstr ""
 
-#: const/__init__.py:449 templates/node/snippets/node_box.html:89
+#: const/__init__.py:449 templates/node/snippets/node_box.html:88
 msgid "Docs."
 msgstr ""
 
@@ -7335,12 +7335,25 @@ msgstr ""
 msgid "Open Node's questions"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/node_box.html:53
+#: templates/node/snippets/node_box.html:41
+msgid "Q&A "
+msgid_plural "Q&As "
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/node/snippets/node_box.html:52
 #, fuzzy
 msgid "Open Node's discussion"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/node_box.html:76
+#: templates/node/snippets/node_box.html:63
+#, fuzzy
+msgid "Discus. "
+msgid_plural "Discus. "
+msgstr[0] "Verification Email from Q&A forum"
+msgstr[1] "Verification Email from Q&A forum"
+
+#: templates/node/snippets/node_box.html:75
 #, fuzzy
 msgid "Open Node's documents"
 msgstr ""

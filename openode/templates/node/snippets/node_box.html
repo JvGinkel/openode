@@ -34,13 +34,12 @@
                                     {% endif %}
                                     </div>
 
-                                    <span class="count">
                                     {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_QA)  %}
-                                        {{ threads_count_for_module }}
+                                        <span class="count">
+                                            {{ threads_count_for_module }}
+                                        </span>
+                                        <span class="title">{% trans cnt = threads_count_for_module %}Q&A {% pluralize %}Q&As {% endtrans %}</span>
                                     {% endwith %}
-                                    </span>
-
-                                    <span class="title">{% trans %}Q&As{% endtrans %}</span>
                                 </a>
                             </div>
                         {% endif %}
@@ -57,13 +56,13 @@
                                     {% endif %}
                                     </div>
 
-                                    <span class="count">
                                     {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_FORUM)  %}
-                                        {{ threads_count_for_module }}
+                                        <span class="count">
+                                            {{ threads_count_for_module }}
+                                        </span>
+                                        <span class="title">{% trans cnt = threads_count_for_module %}Discus. {% pluralize %}Discus. {% endtrans %}</span>
                                     {% endwith %}
-                                    </span>
-
-                                    <span class="title">{% trans %}Discu.{% endtrans %}</span>
+                                    {# <span class="title">{% trans %}Discu.{% endtrans %}</span> #}
                                 </a>
                             </div>
                         {% endif %}
