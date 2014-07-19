@@ -107,6 +107,11 @@
                                     {% trans %}Organizations{% endtrans %}
                                 </a>
                             </li>
+                            <li>
+                                <a href="{% url "live" %}">
+                                    {% trans %}Live{% endtrans %}
+                                </a>
+                            </li>
                             {% for menu_item in menu_items_upper %}
                                 <li><a href="{{ menu_item.url }}">{{ menu_item.title }}</a>{% if not loop.last %}{% endif %}</li>
                             {% endfor%}

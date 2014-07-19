@@ -13,6 +13,9 @@ from openode.views import users
 from openode.views import meta
 from openode.views import download
 from openode.views import upload
+from openode.views import live
+
 from django.conf import settings
+
 if 'avatar' in settings.INSTALLED_APPS:
     from openode.views import avatar_views

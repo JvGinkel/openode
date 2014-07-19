@@ -1,0 +1,59 @@
+{% extends "one_column_body.html" %}
+{% from "macros.html" import render_user_infobox, tag_list %}
+
+
+{% block endjs %}
+    {{ super() }}
+    <script type='text/javascript' src="{{"/js/infinite-ajax-scroll/jquery-ias.min.js"|media }}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery.ias({
+                container : '#js-pages',
+                trigger: '{% trans %}Load more items{% endtrans %}',
+                item: '.img-box',
+                pagination: '.paginator',
+                triggerPageThreshold: 100,
+                next: '.next:last',
+                loader: '<img src="{{"/js/infinite-ajax-scroll/images/loader.gif"|media }}"/>',
+                history: false,
+                onRenderComplete: function(items) {
+                    jQuery(".next").hide();
+                    jQuery(items).find(".next").show();
+                }
+            });
+        });
+    </script>
+{% endblock endjs %}
+
+{% block before_css %}
+    {{ super() }}
+    <link href="{{"/js/infinite-ajax-scroll/css/jquery.ias.css"|media }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+    <h1>Live</h1>
+
+    <table id="js-pages">
+    {% for thread in threads %}
+        {% if check_perm(thread) %}
+            <tr class="img-box">
+                <td>
+                    {{ thread.thread_type }}
+                </td>
+                <td>
+                    {{ thread.dt_changed|humanize_datetime }}
+                </td>
+                <td>
+                    {{ thread }}
+                </td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+
+    <div class="paginator">
+        <a class="next" href="{{ request.path }}?page={{ page + 1 }}">NEXT PAGE</a>
+    </div>
+
+{% endblock content %}

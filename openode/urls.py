@@ -71,6 +71,7 @@ urlpatterns = patterns('',
 
     (r'^search/', include('openode.search.urls')),
 
+    url(r'^live/', views.live.live, name="live"),
 
     # documents urls
     # url(r'^document/', include("openode.document.urls", namespace="document")),
