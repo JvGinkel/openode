@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-14 12:41+0200\n"
-"PO-Revision-Date: 2014-07-14 12:42+0100\n"
+"POT-Creation-Date: 2014-07-25 13:58+0200\n"
+"PO-Revision-Date: 2014-07-25 13:59+0100\n"
 "Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -55,7 +55,7 @@ msgstr "Text"
 msgid "description"
 msgstr "popis"
 
-#: admin.py:350 templates/base.html:274
+#: admin.py:350 templates/base.html:279
 #: templates/authopenid/change_password.html:35
 #: templates/authopenid/signin.html:76 templates/authopenid/signin.html:273
 #: templates/authopenid/signup_with_password.html:70
@@ -2614,7 +2614,7 @@ msgstr "Stránky"
 
 #: deps/livesettings/templates/livesettings/group_settings.html:19
 #: deps/livesettings/templates/livesettings/site_settings.html:33
-#: templates/base.html:292 templates/admin/common/move.html:7
+#: templates/base.html:297 templates/admin/common/move.html:7
 msgid "Home"
 msgstr "Domů"
 
@@ -4073,87 +4073,91 @@ msgstr ""
 msgid "Register now!"
 msgstr "Zaregistrujte se!"
 
-#: templates/base.html:130 templates/base.html.py:132
+#: templates/base.html:112 templates/live/live.html:4
+msgid "Live"
+msgstr "Živě"
+
+#: templates/base.html:135 templates/base.html.py:137
 #: templates/search/search.html:11 templates/search/search.html.py:17
 #: templates/search/search.html:29
 msgid "Search"
 msgstr "Hledat"
 
-#: templates/base.html:143
+#: templates/base.html:148
 msgid "My Nodes"
 msgstr "Moje kluby"
 
-#: templates/base.html:148 templates/base.html.py:188
+#: templates/base.html:153 templates/base.html.py:193
 msgid "My Questions"
 msgstr "Otázky"
 
-#: templates/base.html:153 templates/base.html.py:196
+#: templates/base.html:158 templates/base.html.py:201
 msgid "My Discussions"
 msgstr "Diskuze"
 
-#: templates/base.html:162
+#: templates/base.html:167
 msgid "Admin"
 msgstr "Správa"
 
-#: templates/base.html:166
+#: templates/base.html:171
 msgid "Followed"
 msgstr "Sledované"
 
-#: templates/base.html:180
+#: templates/base.html:185
 msgid "Followed Nodes"
 msgstr "Kluby"
 
-#: templates/base.html:207
+#: templates/base.html:212
 msgid "Requests"
 msgstr "Žádosti"
 
-#: templates/base.html:226 templates/user_profile/user.html:156
+#: templates/base.html:231 templates/user_profile/user.html:156
 msgid "node joins requests"
 msgstr "žádosti o vstup do klubu"
 
-#: templates/base.html:227
+#: templates/base.html:232
 msgid "Node joins"
 msgstr "Vstup do klubu"
 
-#: templates/base.html:236 templates/user_profile/user.html:170
+#: templates/base.html:241 templates/user_profile/user.html:170
 msgid "organization joins requests"
 msgstr "žádosti o vstup do organizace"
 
-#: templates/base.html:237
+#: templates/base.html:242
 msgid "Organization joins"
 msgstr "Vstup do organizace"
 
-#: templates/base.html:246 templates/user_profile/user.html:184
+#: templates/base.html:251 templates/user_profile/user.html:184
 msgid "offensive flag reports"
 msgstr "Prohlížet urážlivé značky"
 
-#: templates/base.html:247
+#: templates/base.html:252
 msgid "Offensive flags"
 msgstr "Označené za nevhodné"
 
-#: templates/base.html:261 templates/user_profile/user.html:53
+#: templates/base.html:266 templates/user_profile/user.html:53
 #: templates/user_profile/user_edit.html:14
 msgid "Update profile"
 msgstr "Upravit profil"
 
-#: templates/base.html:262 templates/authopenid/logout.html:3
+#: templates/base.html:267 templates/authopenid/logout.html:3
 msgid "Logout"
 msgstr "Odhlásit se"
 
-#: templates/base.html:272 templates/authopenid/lost_password.html:27
+#: templates/base.html:277 templates/authopenid/lost_password.html:27
 msgid "E-mail"
 msgstr "E-mail"
 
-#: templates/base.html:277 templates/admin/common/login.html:42
+#: templates/base.html:282 templates/admin/common/login.html:42
 msgid "Log in"
 msgstr "Přihlásit se"
 
-#: templates/base.html:345
+#: templates/base.html:350
 #, python-format
 msgid "Powered by OPENode %(version)s"
 msgstr "Provozováno na systému OPENode %(version)s"
 
-#: templates/base.html:347
+#: templates/base.html:352
 #, python-format
 msgid ""
 "Open source written by <a href=\"%(coex_url)s\">COEX</a> in <a href="
@@ -4991,7 +4995,7 @@ msgstr "Počet"
 
 #: templates/admin/document/state.html:109
 msgid "Files"
-msgstr ""
+msgstr "Soubory"
 
 #: templates/admin/document/state.html:113
 msgid "Mimetype"
@@ -5004,7 +5008,7 @@ msgstr ""
 #: templates/admin/document/state.html:116
 #: templates/node/document/edit.html:60
 msgid "Size"
-msgstr ""
+msgstr "Velikost"
 
 #: templates/admin/document/state.html:117
 msgid "Reprocess"
@@ -6108,6 +6112,10 @@ msgstr "Seznam"
 msgid "List of questions"
 msgstr "Seznam otázek"
 
+#: templates/live/live.html:13 templates/node/document/detail.html:23
+msgid "Load more items"
+msgstr "Nahrát více položek"
+
 #: templates/meta/bottom_scripts.html:7
 #, python-format
 msgid ""
@@ -7031,10 +7039,6 @@ msgid "help_node_document_add_html"
 msgstr ""
 "Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, "
 "otázky a odpovědi, diskuzi a dokumenty..."
-
-#: templates/node/document/detail.html:23
-msgid "Load more items"
-msgstr "Nahrát více položek"
 
 #: templates/node/document/detail.html:66
 msgid "Download file"

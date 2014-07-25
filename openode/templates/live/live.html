@@ -33,9 +33,6 @@
 
 {% block content %}
 
-    <h1>Live</h1>
-    <hr />
-
     <div id="js-pages">
         {% for thread in threads %}
             {{ thread.get_summary_html(visitor=request.user) }}
