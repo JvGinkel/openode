@@ -1342,6 +1342,9 @@ class Thread(models.Model):
         if search_state is None:
             search_state = DummySearchState()
 
+        if not html:
+            return "TODO"
+
         while True:
             match = regex.search(html)
             if not match:
@@ -1444,7 +1447,8 @@ class Thread(models.Model):
         elif self.is_discussion():
             template = "thread_summary_discussion.html"
         elif self.is_document():
-            return  # TODO?
+            template = "thread_summary_document.html"
+            # return  # TODO?
         else:
             raise NotImplementedError()
 

@@ -1,6 +1,7 @@
 {% extends "one_column_body.html" %}
-{% from "macros.html" import render_user_infobox, tag_list %}
+{% from "macros.html" import render_user_infobox %}
 
+{% block title %}{% spaceless %}{% trans %}Live{% endtrans %}{% endspaceless %}{% endblock %}
 
 {% block endjs %}
     {{ super() }}
@@ -10,7 +11,7 @@
             jQuery.ias({
                 container : '#js-pages',
                 trigger: '{% trans %}Load more items{% endtrans %}',
-                item: '.img-box',
+                item: '.node-box',
                 pagination: '.paginator',
                 triggerPageThreshold: 100,
                 next: '.next:last',
@@ -33,24 +34,13 @@
 {% block content %}
 
     <h1>Live</h1>
+    <hr />
 
-    <table id="js-pages">
-    {% for thread in threads %}
-        {% if check_perm(thread) %}
-            <tr class="img-box">
-                <td>
-                    {{ thread.thread_type }}
-                </td>
-                <td>
-                    {{ thread.dt_changed|humanize_datetime }}
-                </td>
-                <td>
-                    {{ thread }}
-                </td>
-            </tr>
-        {% endif %}
-    {% endfor %}
-    </table>
+    <div id="js-pages">
+        {% for thread in threads %}
+            {{ thread.get_summary_html(visitor=request.user) }}
+        {% endfor %}
+    </div>
 
     <div class="paginator">
         <a class="next" href="{{ request.path }}?page={{ page + 1 }}">NEXT PAGE</a>

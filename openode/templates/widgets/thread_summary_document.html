@@ -1,0 +1,29 @@
+{% from "macros.html" import render_last_changed, tag_list %}
+
+<style type="text/css" media="screen">
+    .ico-type {
+        background-repeat: no-repeat;
+        background-position: -2px center;
+        padding-left: 19px;
+    }
+</style>
+
+
+{% with document=thread.get_document() %}
+    <div class="node-box {% if has_unread_main_post %}unread{% endif %}">
+        <div class="node-box-content group">
+            {% if thread_header %}
+                <small>{{ thread.node.title }}</small>
+            {% endif %}
+            <h3>
+                <a title="{{ thread.get_title() }}" href="{{ thread.get_absolute_url() }}">
+                    <span class="ico-type" style="background: url({{ document.get_icon() }}) no-repeat;">
+                        {{ thread.get_title('html') }}
+                    </span>
+                </a>
+            </h3>
+            {{ tag_list(thread.get_tags()) }}
+            {{ render_last_changed(thread.last_activity_by, thread.last_activity_at, thread._main_post().author, thread.added_at) }}
+        </div>
+    </div>
+{% endwith %}
