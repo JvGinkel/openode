@@ -80,7 +80,7 @@ Mayan database setup - change 'mayanpass' to custom password
     echo "CREATE ROLE mayan with password 'mayanpass';CREATE DATABASE mayan;GRANT ALL PRIVILEGES ON DATABASE mayan TO mayan;ALTER DATABASE mayan OWNER TO mayan;ALTER ROLE mayan LOGIN;" | psql
     echo "ALTER SCHEMA public OWNER TO mayan;" | psql -d mayan
 
-Became a root again
+Become a root again
 ::
     exit
 
@@ -141,7 +141,7 @@ Compile translations
     cd deps/livesettings/
     ../../manage.py compilemessages
 
-Became a root again
+Become a root again
 ^^^^^^^^^^^^^^^^^^^
 
 Logout openode user
@@ -338,7 +338,7 @@ It asks you for admin username, email and password.
     ./manage.py migrate
     echo "yes" | ./manage.py collectstatic
 
-Became a root again ;)
+Become a root again ;)
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Logout user mayan
