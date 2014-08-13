@@ -2,11 +2,11 @@
 from datetime import datetime
 # from functools import wraps
 # import os
-# import sys
+import sys
 # import textwrap
 
 from fabric.api import env, run, local, task, cd
-# from fabric.contrib.console import confirm
+from fabric.contrib.console import confirm
 from fabric.context_managers import lcd
 from fabtools.python import virtualenv
 # from fabtools.vagrant import vagrant_settings  # required for fab commands
@@ -29,11 +29,14 @@ CONSOLE_WIDTH = 80
 @task
 def start():
     """
-    Initial project setup
+    Run application
     """
     with virtualenv(env.virtualenv_path, local=True):
         with lcd("./openode/"):
             local("python manage.py runserver")
+
+
+################################################################################
 
 # def vagrant_task(f):
 #     @wraps(f)
@@ -56,36 +59,48 @@ def start():
 #     run('pg_dump -U %(user)s -Ox -Ft -f %(file_path)s %(user)s' % ctx)
 #     run('gzip %(file_path)s' % ctx)
 
+@task
+def update_locale_db():
+    """
+    Create databaze dump on production server and restore on development (local) machine
+    """
+    ctx = env
+    ctx['timestamp'] = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+    ctx['file_path'] = '~/dumps/%(user)s_db_dump_%(timestamp)s.tar' % ctx
 
-# @task
-# def create_tag():
-#     sys.stdout.write("Seznam soucasnych tagu:\n")
-#     local('git tag -l')
-
-#     version = raw_input("Zadejte nazev noveho tagu: ")
-#     local('git tag -a "%s"' % version)
-#     if confirm("Mohu zavolat git push --tags "
-#                "a odeslat informace do remote serveru?", default=False):
-#         local('git push --tags')
+    run('pg_dump -U %(user)s -Ox -Ft -f %(file_path)s %(user)s' % ctx)
+    run('gzip %(file_path)s' % ctx)
 
 
-# @task
-# def deploy():
-#     if confirm('Chcete vytvorit novy tag (verzi) pro soucasny release?', default=False):
-#         create_tag()
+@task
+def create_tag():
+    sys.stdout.write("Seznam soucasnych tagu:\n")
+    local('git tag -l')
 
-#     if confirm('Chcete zazalohovat DB?', default=False):
-#         backup_db()
+    version = raw_input("Zadejte nazev noveho tagu: ")
+    local('git tag -a "%s"' % version)
+    if confirm("Mohu zavolat git push --tags "
+               "a odeslat informace do remote serveru?", default=False):
+        local('git push --tags')
 
-#     if confirm("Mohu zahajit nasazeni na vzdaleny server?"):
-#         with virtualenv(env.virtualenv_path):
-#             run("git pull")
-#             run("pip install -r requirements/production.txt --no-deps")
-#             with cd("project/resources/css"):
-#                 run("/var/lib/gems/1.8/bin/bundle exec compass compile")
-#             run("./compilemessages.sh")
-#             run("./collectstatic.sh")
-#             run("./reload_webserver.py")
+
+@task
+def deploy():
+    if confirm('Chcete vytvorit novy tag (verzi) pro soucasny release?', default=False):
+        create_tag()
+
+    # if confirm('Chcete zazalohovat DB?', default=False):
+    #     backup_db()
+
+    # if confirm("Mohu zahajit nasazeni na vzdaleny server?"):
+    #     with virtualenv(env.virtualenv_path):
+    #         run("git pull")
+    #         run("pip install -r requirements/production.txt --no-deps")
+    #         with cd("project/resources/css"):
+    #             run("/var/lib/gems/1.8/bin/bundle exec compass compile")
+    #         run("./compilemessages.sh")
+    #         run("./collectstatic.sh")
+    #         run("./reload_webserver.py")
 
 
 # @task
