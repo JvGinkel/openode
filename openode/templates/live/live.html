@@ -35,7 +35,7 @@
 
     <div id="js-pages">
         {% for thread in threads %}
-            {{ thread.get_summary_html(visitor=request.user) }}
+            {{ thread.get_summary_html(visitor=request.user, with_breadcrumbs=True) }}
         {% endfor %}
     </div>
 

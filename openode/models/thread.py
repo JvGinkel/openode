@@ -1324,10 +1324,10 @@ class Thread(models.Model):
 
         return last_updated_at, last_updated_by
 
-    def get_summary_html(self, search_state=None, visitor=None):
+    def get_summary_html(self, search_state=None, visitor=None, with_breadcrumbs=False):
         html = self.get_cached_summary_html(visitor)
         if not html:
-            html = self.update_summary_html(visitor)
+            html = self.update_summary_html(visitor, with_breadcrumbs=with_breadcrumbs)
 
         # todo: this work may be pushed onto javascript we post-process tag names
         # in the snippet so that tag urls match the search state
@@ -1416,7 +1416,7 @@ class Thread(models.Model):
             user
         )
 
-    def update_summary_html(self, visitor=None):
+    def update_summary_html(self, visitor=None, with_breadcrumbs=False):
         #todo: it is quite wrong that visitor is an argument here
         #because we do not include any visitor-related info in the cache key
         #ideally cache should be shareable between users, so straight up
@@ -1440,6 +1440,7 @@ class Thread(models.Model):
             "thread_is_unread": thread_view.main_post_viewed if thread_view else False,
             "has_unread_posts": self.has_unread_posts(thread_view, visitor),
             "has_unread_main_post": self.has_unread_main_post(thread_view, visitor),
+            "with_breadcrumbs": with_breadcrumbs
         })
 
         if self.is_question():
