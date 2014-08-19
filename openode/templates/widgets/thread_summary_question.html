@@ -52,7 +52,7 @@
 
         <small>
             {% for node_ancestor in thread.node.get_ancestors(include_self=True) %}
-                <a href="{{ node_ancestor.get_absolute_url() }}">{{ node_ancestor.title }}</a>
+                <a href="{{ node_ancestor.get_absolute_url() }}">{{ node_ancestor.title|upper }}</a>{% if not loop.last %} | {% endif %}
             {% endfor %}
         </small>
 
