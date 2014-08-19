@@ -5,7 +5,7 @@ from datetime import datetime
 import sys
 # import textwrap
 
-from fabric.api import env, run, local, task, cd
+from fabric.api import env, run, local, task, cd, put
 from fabric.contrib.console import confirm
 from fabric.context_managers import lcd
 from fabtools.python import virtualenv
@@ -13,18 +13,19 @@ from fabtools.python import virtualenv
 
 env.virtualenv_path = 'env'
 # env.cwd = '~/cgi-bin'
+env.user = "openode"
 env.output_prefix = False
 env.forward_agent = True
-# env.roledefs = {
-#     'development': ['hranipex@10.0.1.5'],
-#     'production': ['hranipex@10.0.1.5'],
-#     'test': ['hranipex@10.0.1.6'],
-# }
+env.roledefs = {
+    'production': ['openode@forum.esfcr.cz'],
+}
 
 TARGET_LOCAL = 'local'
 TARGET_REMOTE = 'remote'
 CONSOLE_WIDTH = 80
 
+################################################################################
+################################################################################
 
 @task
 def start():
@@ -59,17 +60,34 @@ def start():
 #     run('pg_dump -U %(user)s -Ox -Ft -f %(file_path)s %(user)s' % ctx)
 #     run('gzip %(file_path)s' % ctx)
 
+# env.hosts = ['openode@forum.esfcr.cz', 'host2']
+
+
 @task
 def update_locale_db():
     """
     Create databaze dump on production server and restore on development (local) machine
     """
-    ctx = env
-    ctx['timestamp'] = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
-    ctx['file_path'] = '~/dumps/%(user)s_db_dump_%(timestamp)s.tar' % ctx
 
-    run('pg_dump -U %(user)s -Ox -Ft -f %(file_path)s %(user)s' % ctx)
-    run('gzip %(file_path)s' % ctx)
+    put("/tmp/xc")
+
+    # ctx = env
+    # ctx['timestamp'] = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+    # ctx['tar_name'] = '%(user)s_db_dump_%(timestamp)s.tar' % ctx
+    # ctx['gz_name'] = '%(tar_name)s.gz' % ctx
+
+    # with cd("~/dumps"):
+    #     run('pg_dump -U %(user)s -Ox -Ft -f %(tar_name)s %(user)s' % ctx)
+    #     run('gzip %(tar_name)s' % ctx)
+
+    # local("scp %(user)s@%(host)s:~/dumps/%(gz_name)s dumps/" % ctx)
+    # local('psql -d openode -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"')
+    # local("gzip -d dumps/%(gz_name)s" % ctx)
+    # local("pg_restore -O -d openode dumps/%(tar_name)s" % ctx)
+
+
+################################################################################
+################################################################################
 
 
 @task
