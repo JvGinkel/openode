@@ -1,17 +1,18 @@
 *.pyc
 *.log
-*~
-settings_local.py
 *.mo
-
+*~
 *.egg-info
-openode/upfiles/
-.sass-cache
 *.sublime-project
 *.sublime-workspace
+.sass-cache
 
-docs/_build/
+settings_local.py
+fab_settings.py
+
+/docs/_build/
+/openode/upfiles/
 /env/
-
 /templates/
 /static
+
