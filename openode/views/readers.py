@@ -502,7 +502,6 @@ def node_module(request, node_id, node_slug, module, **kwargs):
 
     thread_type -> setup Thread.thread_type or summary
     """
-
     # bypass for forum module
     if module == const.NODE_MODULE_FORUM:
         return node_module_forum(request, node_id, node_slug, module, **kwargs)
@@ -527,7 +526,11 @@ def node_module(request, node_id, node_slug, module, **kwargs):
         return node_module_thread(request, node, module, **kwargs)
 
     template_file = NODE_MODULE_TEMPLATE_FILE[module]
-    template_data = {'node': node, 'module': module}
+    print template_file
+    template_data = {
+        'node': node,
+        'module': module
+    }
     return render_into_skin(template_file, template_data, request)
 
 
