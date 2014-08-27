@@ -14,6 +14,7 @@ from openode.skins.loaders import get_template
 
 
 def immediately_notify_users(post):
+
     # we don't want to disturb original routine
     try:
         # set default language TODO - language per user - add user atribute
@@ -78,7 +79,11 @@ def immediately_notify_users(post):
         text += '</h2>'
 
         # link to post
-        text += '<p><a href="%s">%s</a></p>' % (url_prefix + post.get_absolute_url(), url_prefix + post.get_absolute_url())
+        if post.post_type == const.POST_TYPE_DOCUMENT:
+            url = url_prefix + post.thread.get_absolute_url()
+        else:
+            url = url_prefix + post.get_absolute_url()
+        text += '<p><a href="%(url)s">%(url)s</a></p>' % {"url": url}
 
         # author
         text += '<p>'
@@ -150,12 +155,20 @@ def immediately_notify_users(post):
                 recipient_email = user.email
 
             mail.send_mail(subject_line, message, django_settings.DEFAULT_FROM_EMAIL, [recipient_email], raise_on_failure=True)
-            logging.info('Notification: %s (pk=%s) immediate mail sent for post id %s' % (user.screen_name, user.pk, post.pk))
+            logging.info('Email notification sent: %s' % repr({
+                "user": user.screen_name,
+                "user_email": recipient_email,
+                "user_pk": user.pk,
+                "post_pk": post.pk
+            }))
 
         activate(old_lang)
         return True
 
     except Exception, e:
-        logging.error('Notification: Failed to send immediate notification for post id %s, Exception: %s' % (post.pk, e))
+        logging.error('Email notification - failed to send immediate notification for post: %s' % repr({
+            "post_pk": post.pk,
+            "error": e
+        }))
 
     return False
