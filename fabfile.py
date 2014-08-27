@@ -72,3 +72,25 @@ def create_tag():
     if confirm("Call git push --tags "
                "and send information to remote server?", default=False):
         local('git push --tags')
+
+################################################################################
+
+
+@task
+def deploy():
+    """
+        TODO: add all related commands
+    """
+    # if confirm('Create tag for this release?', default=False):
+    #     create_tag()
+
+    # if confirm('Backup DB?', default=False):
+    #     backup_db()
+
+    if confirm("Start deploying to remote server?"):
+        with cd("cgi-bin"):
+            run("git pull")
+
+            with virtualenv(env.virtualenv_path):
+                run("compilemessages.sh")
+                run("./reload_webserver.py")
