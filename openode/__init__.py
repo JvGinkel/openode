@@ -56,7 +56,7 @@ REQUIREMENTS = {
     "haystack": "django-haystack==2.0.0",
     "pyelasticsearch": "pyelasticsearch==0.5",
     "psi": "PSI==0.3b2",
-    "nagios-nsca": "nagios-nsca==1.1.0",
+    "nagios": "nagios-nsca==1.1.0",
 
 }
 
