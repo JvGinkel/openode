@@ -44,7 +44,7 @@ Project dependencies and libraries
 
 Install developer libraries
 ::
-    apt-get install python-virtualenv git postgresql-server-dev-9.1 python-dev libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms1-dev libwebp-dev gettext
+    apt-get install python-virtualenv git postgresql-server-dev-9.1 python-dev libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms1-dev libwebp-dev gettext nsca
 
 
 Mayan dependencies
@@ -107,7 +107,7 @@ Get source of project OPENode and compile&install dependencies
     cd cgi-bin
     virtualenv env
     source env/bin/activate
-    
+
 Fixed broken bdist_egg for zip_safe flag
 ::
     pip install django-mptt==0.5.4
