@@ -505,9 +505,11 @@ Edit crontab
     su openode
     crontab -e
 
-Append line for every 30 minutes sending email notifications:
+Cron commands
 ::
-    */30 * * * * cd /srv/openode/cgi-bin/openode && /srv/openode/cgi-bin/env/bin/python manage.py send_email_notifications
+    */30 * * * * ~/cgi-bin/env/bin/python ~/cgi-bin/openode/manage.py send_email_notifications
+    0 */6 * * *  ~/cgi-bin/env/bin/python ~/cgi-bin/openode/manage.py stuck_documents_check
+
 
 Email tweaks
 ^^^^^^^^^^^^
@@ -518,3 +520,4 @@ To minimize probability of your emails ends up in the spam, don’t forget to se
 * reverse DNS
 * SPF
 * DKIM
+
