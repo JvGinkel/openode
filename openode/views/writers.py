@@ -678,6 +678,12 @@ def __generate_comments_json(obj, user, new_comment=None):  # non-view generates
             }))
         })
         new_comment.thread.visit(user)
+
+        # add new comment is "activity" a must be reflected
+        new_comment.thread.set_last_activity(
+            last_activity_at=datetime.datetime.now(),
+            last_activity_by=user
+        )
     else:
         data = simplejson.dumps(json_comments)
 
