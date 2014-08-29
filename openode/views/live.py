@@ -25,6 +25,7 @@ from django.http import (
     HttpResponseNotAllowed,
     QueryDict,
     )
+from django.db.models import Q
 # from django.shortcuts import get_object_or_404
 # from django.template import Context
 # from django.utils import simplejson, translation
@@ -55,16 +56,46 @@ from openode.skins.loaders import render_into_skin, get_template  # jinja2 templ
 
 #######################################
 
+PER_PAGE = 10
+check_perm = lambda thread, user: user.has_openode_perm('%s_read' % thread.thread_type, thread)
+
+################################################################################
+
+
+def get_live_data(user=None, start=0, end=PER_PAGE, node=None):
+    threads = Thread.objects.all()
+
+    if node:
+        threads = threads.filter(node=node)
+
+    if user.is_authenticated():
+        threads = threads.filter(
+            Q(node__visibility__in=[
+                const.NODE_VISIBILITY_PUBLIC,
+                const.NODE_VISIBILITY_REGISTRED_USERS
+            ])
+            | Q(
+                node__in=user.nodes.all(),
+                node__visibility__in=[
+                    const.NODE_VISIBILITY_SEMIPRIVATE,
+                    const.NODE_VISIBILITY_PRIVATE
+                ]
+            )
+        )
+
+    else:
+        threads = threads.filter(node__visibility=const.NODE_VISIBILITY_PUBLIC)
+
+    threads = threads.order_by("-dt_created")[start:end]
+    return threads
+
+################################################################################
+
 
 def live(request):
     """
+        live stream view
     """
-
-    PER_PAGE = 10
-
-    check_perm = lambda thread: request.user.has_openode_perm('%s_read' % thread.thread_type, thread)
-
-    # print check_perm
 
     try:
         page_no = int(request.GET.get("page", 1))
@@ -74,20 +105,7 @@ def live(request):
     end = PER_PAGE * page_no
     start = end - PER_PAGE
 
-    threads = Thread.objects.all()
-
-    if not request.user.is_authenticated():
-        threads = threads.filter(node__visibility=const.NODE_VISIBILITY_PUBLIC)
-
-    threads = threads.order_by("-dt_created")[start:end]
-
-    # print threads.query
-
-    # threads = threads.filter(
-    #     pk__in=request.user.user_followed_threads.all().values_list("thread_id")
-    # )
-    # print request.user.user_followed_threads.all()
-
+    threads = get_live_data(request.user, start, end)
 
     context_dict = {
         "threads": threads,
@@ -95,7 +113,3 @@ def live(request):
         "page": page_no
     }
     return render_into_skin('live/live.html', context_dict, request)
-
-
-def live_node(request):
-    pass
