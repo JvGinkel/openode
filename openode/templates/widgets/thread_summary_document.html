@@ -28,7 +28,7 @@
 
             <h3>
                 <a title="{{ thread.get_title() }}" href="{{ thread.get_absolute_url() }}">
-                    <span class="ico-type" style="background: url({{ document.get_icon() }}) no-repeat;">
+                    <span class="ico-type" {% if document %}style="background: url({{ document.get_icon() }}) no-repeat;"{% endif %}>
                         {{ thread.get_title('html') }}
                     </span>
                 </a>
