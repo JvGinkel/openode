@@ -1,58 +1,10 @@
 # -*- coding: utf-8 -*-
-"""
-:synopsis: views "read-only" for main textual content
 
-By main textual content is meant - text of Questions, Answers and Comments.
-The "read-only" requirement here is not 100% strict, as for example "question" view does
-allow adding new comments via Ajax form post.
-"""
-
-# import datetime
-# import operator
-# import os
-
-# from django.conf import settings
-# from django.views.decorators import csrf
-# from django.core.exceptions import ObjectDoesNotExist
-# from django.core.paginator import Paginator, EmptyPage
-# from django.core.urlresolvers import reverse
-# from django.contrib.humanize.templatetags import humanize
-# from django.contrib.auth.models import User
-from django.http import (
-    HttpResponseRedirect,
-    HttpResponse,
-    Http404,
-    HttpResponseNotAllowed,
-    QueryDict,
-    )
 from django.db.models import Q
-# from django.shortcuts import get_object_or_404
-# from django.template import Context
-# from django.utils import simplejson, translation
-# from django.utils.html import escape
-from django.utils.translation import ugettext as _, ungettext
-# from jinja2 import Environment, FileSystemLoader
 
-from openode import conf, const, models, schedules
-# from openode.conf import settings as openode_settings
-# from openode.document.forms import DownloadZipForm
-# from openode.models import StaticPage
-# from openode.models.actuality import Actuality
-# from openode.models.node import Node
-# from openode.models.post import Post
-# from openode.models.tag import Tag
-from openode.models.thread import ThreadCategory, Thread
-# from openode.utils import JsonResponse
-# from openode.utils import functions
-# from openode.utils.decorators import anonymous_forbidden, ajax_only, get_only
-# from openode.utils.diff import textDiff as htmldiff
-# from openode.utils.html import bleach_html
-# from openode.utils.http import render_forbidden
-# from openode.views.node import node_ask_to_join
-# from openode.search.state_manager import SearchState
-from openode.skins.loaders import render_into_skin, get_template  # jinja2 template loading enviroment
-# from openode.templatetags import extra_tags
-# from openode.views.thread import thread as thread_detail_view
+from openode import const
+from openode.models.thread import Thread
+from openode.skins.loaders import render_into_skin
 
 #######################################
 
@@ -63,7 +15,7 @@ check_perm = lambda thread, user: user.has_openode_perm('%s_read' % thread.threa
 
 
 def get_live_data(user=None, start=0, end=PER_PAGE, node=None):
-    threads = Thread.objects.all()
+    threads = Thread.objects.public()
 
     if node:
         threads = threads.filter(node=node)
