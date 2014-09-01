@@ -9,8 +9,9 @@ allow adding new comments via Ajax form post.
 
 import datetime
 import operator
-import os
+# import os
 
+from django import forms
 from django.conf import settings
 from django.views.decorators import csrf
 from django.core.exceptions import ObjectDoesNotExist
@@ -26,11 +27,13 @@ from django.http import (
     QueryDict,
     )
 from django.shortcuts import get_object_or_404
-from django.template import Context
+# from django.template import Context
 from django.utils import simplejson, translation
-from django.utils.html import escape
+# from django.utils.html import escape
 from django.utils.translation import ugettext as _, ungettext
-from jinja2 import Environment, FileSystemLoader
+from django_select2 import AutoModelSelect2Field
+# from jinja2 import Environment, FileSystemLoader
+
 
 from openode import conf, const, models, schedules
 from openode.conf import settings as openode_settings
@@ -77,6 +80,18 @@ DISPLAY_MODE_ACTIVE_AND_CLOSED = 2
 #     1: DISPLAY_MODE_ACTIVE,
 #     2: DISPLAY_MODE_ACTIVE_AND_CLOSED,
 # }
+
+#######################################
+
+class NodeUserPublicChoices(AutoModelSelect2Field):
+    queryset = User.objects.filter(is_active=True)
+    search_fields = ['display_name__icontains', 'last_name__icontains', 'first_name__icontains', 'email__icontains']
+
+    def label_from_instance(self, obj):
+        return obj.screen_name
+
+class SearchUserForm(forms.Form):
+    query = NodeUserPublicChoices()
 
 #######################################
 
@@ -227,7 +242,6 @@ def toggle_category(request):
 #######################################
 #######################################
 
-
 def static_page(request, slug):
     """
         static page detail page
@@ -284,6 +298,10 @@ def node_module_thread(request, node, module, **kwargs):
         **kwargs
         )
     page_size = int(openode_settings.DEFAULT_QUESTIONS_PAGE_SIZE)
+
+    if "clean-author" in request.GET:
+        search_state = search_state.remove_author()
+        return HttpResponseRedirect(search_state.full_url())
 
     qs, meta_data = models.Thread.objects.run_advanced_search(
         request_user=request.user,
@@ -398,13 +416,16 @@ def node_module_thread(request, node, module, **kwargs):
 
     else:  # non-AJAX branch
 
+        search_user_form = SearchUserForm()
+
         template_data = {
 
             # ThreadCategory Tree root
             "categories": node.thread_categories.filter(level=0),
-
+            "search_user_form": search_user_form,
             'active_tab': 'questions',
             'author_name': meta_data.get('author_name', None),
+            'author_screen_name': meta_data.get('author_screen_name', None),
             'contributors': contributors,
             'context': paginator_context,
             'is_unanswered': False,  # remove this from template

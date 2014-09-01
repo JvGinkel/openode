@@ -7,7 +7,22 @@
 {% block h1 %}{% trans %}Questions{% endtrans %} – {{ node.full_title() }}{% endblock %}
 
 {% block module_content %}
+
     <h2>{% trans %}Questions{% endtrans %}</h2>
+
+   {#  <select name="">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select> #}
+
+    {{ search_user_form }}
+    {% if search_state.author %}
+        {{ author_screen_name }}
+        <a href="{{ request.path }}?clean-author" title="">&times;</a>
+    {% endif %}
+
+
     {% include "node/snippets/thread_sort.html" %}{# sorting #}
     {% include "node/snippets/paginator.html" %}
     {% if threads.object_list|length == 0 %}

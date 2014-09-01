@@ -87,16 +87,19 @@ class SearchState(object):
 
     @classmethod
     def get_empty(cls):
-        return cls(node=None, module=None, scope=None, sort=None, query=None, tags=None, author=None, page=None, user_logged_in=None, request=None)
+        # return cls(node=None, module=None, scope=None, sort=None, query=None, tags=None, author=None, page=None, user_logged_in=None, request=None)
+        return cls(node=None, module=None, scope=None, sort=None, tags=None, author=None, page=None, user_logged_in=None, request=None)
 
-    def __init__(self, node, module, scope, sort, query, tags, author, page, user_logged_in, request = None):
+    # def __init__(self, node, module, scope, sort, query, tags, author, page, user_logged_in, request = None):
+    def __init__(self, node, module, scope, sort, tags, author, page, user_logged_in, request = None):
 
         if (scope not in const.THREAD_SCOPE_LIST) or (scope == const.THREAD_SCOPE_FOLLOWED and not user_logged_in):
             self.scope = const.DEFAULT_THREAD_SCOPE
         else:
             self.scope = scope
 
-        self.query = query.strip() if query else None
+        # self.query = query.strip() if query else None
+        self.query = None
 
         self.module = module
         self.node = node

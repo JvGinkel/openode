@@ -308,8 +308,13 @@ class ThreadManager(BaseQuerySetManager):
             except User.DoesNotExist:
                 meta_data['author_name'] = None
             else:
-                qs = qs.filter(posts__post_type__in=(thread_type, 'answer'), posts__author=u, posts__deleted=False)
+                qs = qs.filter(
+                    posts__post_type__in=(thread_type, 'answer', "comment"),
+                    posts__author=u,
+                    posts__deleted=False
+                )
                 meta_data['author_name'] = u.username
+                meta_data['author_screen_name'] = u.screen_name
 
         #get users tag filters
         if request_user and request_user.is_authenticated():
