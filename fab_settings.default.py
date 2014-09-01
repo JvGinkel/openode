@@ -3,5 +3,7 @@
 # create copy of this file called "fab_settings.py" and replace values by need
 
 USER = ""
-ROLEDEFS = {}
+ROLEDEFS = {
+    # "production": ["username@server.ltd"]
+}
 DUMPS_DIR = "dumps"
