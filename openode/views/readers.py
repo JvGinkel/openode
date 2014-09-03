@@ -110,8 +110,8 @@ class NodeUserPublicChoices(AutoSelect2MultipleField):
         )
 
         return (
-            "nil",
-            False,
+            "nil",  # errors
+            False,  # is paginated
             [(u.id, u.screen_name) for u in qs]
         )
 
