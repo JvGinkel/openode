@@ -715,11 +715,13 @@ def run():
                 verbosity_level = int(arg.split("=")[1])
 
     try:
-        run_startup_tests(verbosity_level)
+        if django_settings.RUN_STARTUP_TEST:
+            run_startup_tests(verbosity_level)
     except OpenodeConfigError, error:
         transaction.rollback()
         print error
         sys.exit(1)
+
     try:
         transaction.commit()
     except Exception, error:
