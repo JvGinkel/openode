@@ -972,21 +972,22 @@ class Thread(models.Model):
         else:
             return 'votes'
 
-    def get_cached_post_data(self, user=None, sort_method=None):
+    def get_cached_post_data(self, user=None, sort_method=None, qs=None):
         """returns cached post data, as calculated by
         the method get_post_data()"""
         #temporary plug: bypass cache where groups are enabled
-        return self.get_post_data(sort_method=sort_method, user=user)
+        return self.get_post_data(sort_method=sort_method, user=user, qs=qs)
+
         #TODO
-        key = self.get_post_data_cache_key(sort_method)
 
-        post_data = cache.cache.get(key)
-        if not post_data:
-            post_data = self.get_post_data(sort_method)
-            cache.cache.set(key, post_data, const.LONG_TIME)
-        return post_data
+        # key = self.get_post_data_cache_key(sort_method)
+        # post_data = cache.cache.get(key)
+        # if not post_data:
+        #     post_data = self.get_post_data(sort_method)
+        #     cache.cache.set(key, post_data, const.LONG_TIME)
+        # return post_data
 
-    def get_post_data(self, sort_method=None, user=None):
+    def get_post_data(self, sort_method=None, user=None, qs=None):
         """returns question, answers as list and a list of post ids
         for the given thread, and the list of published post ids
         (four values)
@@ -994,7 +995,11 @@ class Thread(models.Model):
         all (both posts and the comments sorted in the correct
         order)
         """
-        thread_posts = self.posts.all()
+        if qs is None:
+            thread_posts = self.posts.all()
+        else:
+            thread_posts = qs
+
 
         if sort_method is None:
             sort_method = self.get_default_sort_method()
@@ -1004,6 +1009,7 @@ class Thread(models.Model):
                 'oldest': 'added_at',
                 'votes': '-points'
             }[sort_method])
+        print thread_posts.query
 
         #1) collect question, answer and comment posts and list of post id's
         answers = list()

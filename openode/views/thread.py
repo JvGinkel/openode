@@ -148,14 +148,24 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
 
     #load answers and post id's->athor_id mapping
     #posts are pre-stuffed with the correctly ordered comments
-    updated_main_post, answers, post_to_author = thread.get_cached_post_data(
-        sort_method=answer_sort_method,
-        user=request.user
+
+    authors = []
+
+    qs = thread.posts.filter(
+        author__in=authors,
+        deleted=False
     )
 
-    main_post.set_cached_comments(
-        updated_main_post.get_cached_comments()
+    updated_main_post, answers, post_to_author = thread.get_cached_post_data(
+        sort_method=answer_sort_method,
+        user=request.user,
+        qs=qs
     )
+
+    if updated_main_post:
+        main_post.set_cached_comments(
+            updated_main_post.get_cached_comments()
+        )
 
     #Post.objects.precache_comments(for_posts=[question_post] + answers, visitor=request.user)
 
