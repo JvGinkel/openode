@@ -356,7 +356,7 @@ class HeavySelect2Mixin(Select2Mixin):
 
                 3. Otherwise, check the cached results. When the user searches in the fields then all the returned
                 responses from server, which has the value and label mapping, are cached by ``heavy_data.js``.
-                
+
         :type userGetValTextFuncName: :py:obj:`str`
 
         .. tip:: Since version 3.2.0, cookies or localStorage are no longer checked or used. All

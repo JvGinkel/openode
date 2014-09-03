@@ -8,20 +8,47 @@
 
 {% block module_content %}
 
-    <h2>{% trans %}Questions{% endtrans %}</h2>
+    {# === filter by author === #}
+    <div class="row">
+        <div class="six column">
+            <h2>{% trans %}Questions{% endtrans %}</h2>
+        </div>
+        <div class="six column">
+            <div class="group filter">
+                <form action="{{ request.path }}" method="get" class="js-filter-users">
+                    <dl class="sub-nav f-right">
+                        <dt>
+                            {{ search_user_form.authors.label }}:
+                        </dt>
+                        <dd>
+                            {{ search_user_form.authors }}
+                        </dd>
+                    </dl>
+                </form>
+            </div>
+        </div>
+    </div>
 
-   {#  <select name="">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-    </select> #}
+    <script type="text/javascript">
+        load_selected = function(element, callback) {
+            var data = [];
+            {% for author in authors %}
+                data.push({
+                    id: {{ author.pk }},
+                    text: '{{ author.screen_name }}'
+                });
+            {% endfor %}
+            callback(data);
+        }
+        jQuery(document).ready(function(){
+            var form = jQuery(".js-filter-users");
+            form.on("change", "#id_authors", function(e){
+                form.submit();
+            })
+        });
+    </script>
 
-    {{ search_user_form }}
-    {% if search_state.author %}
-        {{ author_screen_name }}
-        <a href="{{ request.path }}?clean-author" title="">&times;</a>
-    {% endif %}
-
+    {# ###################################################################### #}
 
     {% include "node/snippets/thread_sort.html" %}{# sorting #}
     {% include "node/snippets/paginator.html" %}

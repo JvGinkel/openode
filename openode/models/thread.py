@@ -300,21 +300,27 @@ class ThreadManager(BaseQuerySetManager):
                 followed_filter |= models.Q(posts__post_type__in=(thread_type, 'answer'), posts__author__in=followed_users)
             qs = qs.filter(followed_filter)
 
-        #user contributed questions
+        # user contributed questions
         if search_state.author:
             try:
-                # TODO: maybe support selection by multiple authors
-                u = User.objects.get(id=int(search_state.author))
+                if isinstance(search_state.author, (list, tuple, set)):
+                    _ids = [
+                        int(_id)
+                        for _id in search_state.author
+                        if str(_id).isdigit()
+                    ]
+                    u = User.objects.filter(id__in=_ids)
+                else:
+                    u = User.objects.filter(id=search_state.author)
             except User.DoesNotExist:
-                meta_data['author_name'] = None
+                meta_data['authors'] = []
             else:
                 qs = qs.filter(
                     posts__post_type__in=(thread_type, 'answer', "comment"),
-                    posts__author=u,
+                    posts__author__in=u,
                     posts__deleted=False
                 )
-                meta_data['author_name'] = u.username
-                meta_data['author_screen_name'] = u.screen_name
+                meta_data['authors'] = u
 
         #get users tag filters
         if request_user and request_user.is_authenticated():

@@ -13,6 +13,7 @@ import operator
 
 from django import forms
 from django.conf import settings
+from django.db.models import Q
 from django.views.decorators import csrf
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, EmptyPage
@@ -31,7 +32,9 @@ from django.shortcuts import get_object_or_404
 from django.utils import simplejson, translation
 # from django.utils.html import escape
 from django.utils.translation import ugettext as _, ungettext
-from django_select2 import AutoModelSelect2Field
+from django_select2 import AutoSelect2MultipleField, AutoHeavySelect2MultipleWidget
+from django_select2.util import JSFunction
+# from django_select2 import Select2MultipleChoiceField
 # from jinja2 import Environment, FileSystemLoader
 
 
@@ -83,15 +86,40 @@ DISPLAY_MODE_ACTIVE_AND_CLOSED = 2
 
 #######################################
 
-class NodeUserPublicChoices(AutoModelSelect2Field):
-    queryset = User.objects.filter(is_active=True)
-    search_fields = ['display_name__icontains', 'last_name__icontains', 'first_name__icontains', 'email__icontains']
+class NodeUserAutoHeavySelect2MultipleWidget(AutoHeavySelect2MultipleWidget):
+    def __init__(self, *args, **kwargs):
+        super(AutoHeavySelect2MultipleWidget, self).__init__(*args, **kwargs)
+        self.options['initSelection'] = JSFunction("load_selected")
+
+class NodeUserPublicChoices(AutoSelect2MultipleField):
+    widget = NodeUserAutoHeavySelect2MultipleWidget
+
+    def get_results(self, request, term, page, context):
+        qs = User.objects.filter(
+            is_active=True
+        ).filter(
+            Q(display_name__istartswith=term)
+            | Q(last_name__istartswith=term)
+            | Q(first_name__istartswith=term)
+            | Q(email__istartswith=term)
+        ).only(
+            "display_name",
+            "first_name",
+            "last_name",
+            "id"
+        )
+
+        return (
+            "nil",
+            False,
+            [(u.id, u.screen_name) for u in qs]
+        )
 
     def label_from_instance(self, obj):
         return obj.screen_name
 
 class SearchUserForm(forms.Form):
-    query = NodeUserPublicChoices()
+    authors = NodeUserPublicChoices()
 
 #######################################
 
@@ -290,6 +318,18 @@ NODE_MODULE_TEMPLATE_FILE = {
 
 
 def node_module_thread(request, node, module, **kwargs):
+
+
+    search_user_form = SearchUserForm(request.GET)
+    if search_user_form.is_valid():
+        search_user_form.cleaned_data["authors"]
+        ids = [
+            int(_id) for _id in
+            search_user_form.cleaned_data["authors"]
+            if _id.isdigit()
+        ]
+        kwargs.update({"author": ids})
+
     search_state = SearchState(
         user_logged_in=request.user.is_authenticated(),
         node=node,
@@ -297,11 +337,8 @@ def node_module_thread(request, node, module, **kwargs):
         request=request,
         **kwargs
         )
-    page_size = int(openode_settings.DEFAULT_QUESTIONS_PAGE_SIZE)
 
-    if "clean-author" in request.GET:
-        search_state = search_state.remove_author()
-        return HttpResponseRedirect(search_state.full_url())
+    page_size = int(openode_settings.DEFAULT_QUESTIONS_PAGE_SIZE)
 
     qs, meta_data = models.Thread.objects.run_advanced_search(
         request_user=request.user,
@@ -416,16 +453,12 @@ def node_module_thread(request, node, module, **kwargs):
 
     else:  # non-AJAX branch
 
-        search_user_form = SearchUserForm()
-
         template_data = {
-
             # ThreadCategory Tree root
             "categories": node.thread_categories.filter(level=0),
             "search_user_form": search_user_form,
             'active_tab': 'questions',
-            'author_name': meta_data.get('author_name', None),
-            'author_screen_name': meta_data.get('author_screen_name', None),
+            'authors': meta_data.get('authors', []),
             'contributors': contributors,
             'context': paginator_context,
             'is_unanswered': False,  # remove this from template
