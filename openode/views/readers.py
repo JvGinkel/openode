@@ -9,6 +9,7 @@ allow adding new comments via Ajax form post.
 
 import datetime
 import operator
+import re
 # import os
 
 from django import forms
@@ -48,17 +49,18 @@ from openode.models.post import Post
 from openode.models.tag import Tag
 from openode.models.thread import ThreadCategory, Thread
 from openode.utils import JsonResponse
-from openode.utils import functions
+# from openode.utils import functions
 from openode.utils.decorators import anonymous_forbidden, ajax_only, get_only
 from openode.utils.diff import textDiff as htmldiff
 from openode.utils.html import bleach_html
 from openode.utils.http import render_forbidden
+from openode.utils.text import extract_numbers
 from openode.views.node import node_ask_to_join
 from openode.search.state_manager import SearchState
 from openode.skins.loaders import render_into_skin, get_template  # jinja2 template loading enviroment
 from openode.templatetags import extra_tags
 from openode.views.live import get_live_data, check_perm, PER_PAGE as LIVE_PER_PAGE
-from openode.views.thread import thread as thread_detail_view
+# from openode.views.thread import thread as thread_detail_view
 
 #######################################
 
@@ -319,16 +321,15 @@ NODE_MODULE_TEMPLATE_FILE = {
 
 def node_module_thread(request, node, module, **kwargs):
 
-
+    redirect = False
     search_user_form = SearchUserForm(request.GET)
     if search_user_form.is_valid():
-        search_user_form.cleaned_data["authors"]
         ids = [
             int(_id) for _id in
-            search_user_form.cleaned_data["authors"]
-            if _id.isdigit()
+            extract_numbers(search_user_form.data["authors"])
         ]
         kwargs.update({"author": ids})
+        redirect = True
 
     search_state = SearchState(
         user_logged_in=request.user.is_authenticated(),
@@ -337,6 +338,12 @@ def node_module_thread(request, node, module, **kwargs):
         request=request,
         **kwargs
         )
+
+    if redirect:
+        return HttpResponseRedirect(search_state.full_url())
+
+    if search_state.author:
+        search_user_form.data["authors"] = extract_numbers(search_state.author)
 
     page_size = int(openode_settings.DEFAULT_QUESTIONS_PAGE_SIZE)
 

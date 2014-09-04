@@ -8,3 +8,7 @@ import re
 
 url_reg = r'(https?://[-A-Za-z0-9+&@#/%?=~_()|!:,.;]*[-A-Za-z0-9+&@#/%=~_|])'
 get_urllist_from_text = lambda text: re.findall(url_reg, text)
+
+
+def extract_numbers(str):
+    return re.findall(r"\d+", str)

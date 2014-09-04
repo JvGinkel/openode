@@ -6,11 +6,13 @@ import copy
 from django.core import urlresolvers
 from django.utils.http import urlencode
 from django.utils.encoding import smart_str
+from django.contrib.auth.models import User
 
 import openode
 import openode.conf
 from openode import const
 from openode.utils.functions import strip_plus
+from openode.utils.text import extract_numbers
 
 
 def extract_matching_token(text, regexes):
@@ -197,7 +199,16 @@ class SearchState(object):
         if self.tags:
             lst.append('tags:' + urllib.quote(smart_str(const.TAG_SEP.join(self.tags)), safe=self.SAFE_CHARS))
         if self.author:
-            lst.append('author:' + str(self.author))
+            if isinstance(self.author, (list, tuple, set)):
+                ids = self.author
+            else:
+                ids = extract_numbers(self.author)
+            ids = User.objects.filter(
+                pk__in=ids,
+                is_active=True,
+                is_hidden=False
+            ).values_list("pk", flat=True)
+            lst.append('author:' + "[%s]" % ",".join([str(ch) for ch in ids]))
         if self.page:
             lst.append('page:' + str(self.page))
         return '/'.join(lst) + '/'

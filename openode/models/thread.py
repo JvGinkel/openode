@@ -40,6 +40,7 @@ from openode.models import signals
 from openode import const
 from openode.utils.lists import LazyList
 from openode.utils.path import sanitize_file_name
+from openode.utils.text import extract_numbers
 from openode.search import mysql
 # from openode.utils.slug import slugify
 from openode.skins.loaders import get_template  # jinja2 template loading enviroment
@@ -309,17 +310,36 @@ class ThreadManager(BaseQuerySetManager):
                         for _id in search_state.author
                         if str(_id).isdigit()
                     ]
-                    u = User.objects.filter(id__in=_ids)
+                    u = User.objects.filter(
+                        is_active=True,
+                        is_hidden=False,
+                        id__in=_ids
+                    )
+                elif search_state.author.isdigit():
+                    u = User.objects.filter(
+                        is_active=True,
+                        is_hidden=False,
+                        id=search_state.author
+                    )
                 else:
-                    u = User.objects.filter(id=search_state.author)
+                    ids = [
+                        int(ch)
+                        for ch in extract_numbers(search_state.author)
+                    ]
+                    u = User.objects.filter(
+                        id__in=ids,
+                        is_active=True,
+                        is_hidden=False
+                    )
             except User.DoesNotExist:
                 meta_data['authors'] = []
             else:
-                qs = qs.filter(
-                    posts__post_type__in=(thread_type, 'answer', "comment"),
-                    posts__author__in=u,
-                    posts__deleted=False
-                )
+                if u.exists():
+                    qs = qs.filter(
+                        posts__post_type__in=(thread_type, 'answer', "comment"),
+                        posts__author__in=u,
+                        posts__deleted=False
+                    )
                 meta_data['authors'] = u
 
         #get users tag filters

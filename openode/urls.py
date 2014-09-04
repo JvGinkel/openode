@@ -30,7 +30,7 @@ threads_filter_kwargs = (
     ('sort', '(?P<sort>[\w\-]+)'),
     # ('query', '(?P<query>[^/]+)'),
     ('tags', '(?P<tags>[\w+.#,-]+)'),
-    ('author', '(?P<author>\d+)'),
+    ('author', '(?P<author>[\[\d\,\]]+)'),
     ('page', '(?P<page>\d+)')
 )
 
