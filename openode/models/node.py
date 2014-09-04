@@ -281,8 +281,11 @@ class Node(MPTTModel):
 
     @property
     def sum_of_all_views(self):
-        n_of_threads = self.threads.filter(is_deleted=False).aggregate(all_views=Sum('view_count'))['all_views']
-        return n_of_threads
+        children = self.get_children().filter(deleted=False)
+        children_sum = sum([child.sum_of_all_views for child in children]) or 0
+
+        n_of_threads = self.threads.filter(is_deleted=False).aggregate(all_views=Sum('view_count'))['all_views'] or 0 
+        return n_of_threads + children_sum
 
     def is_category(self):
         return self.style == const.NODE_STYLE_CATEGORY
