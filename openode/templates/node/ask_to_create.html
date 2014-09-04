@@ -1,0 +1,19 @@
+{% extends "one_column_body.html" %}
+{% from "macros.html" import node_breadcrumb %}
+
+
+{% block title %}{% trans %}Ask to create node{% endtrans %}{% endblock %}
+
+{% block breadcrumbs %}
+    <li><span>{% trans %}Ask to create node{% endtrans %}</span></li>
+{% endblock %}
+
+
+{% block content %}
+    <h2 class="node">{% trans %}Node{% endtrans %}{% trans %}:{% endtrans %}</h2>
+        <p>{% trans %}You may ask Node manager to create a new Node using form below.{% endtrans %}</p>
+        <form action="{% url node_ask_to_create %}">
+            {{ form }}
+            <input type="submit" class="button success" value="{% trans %}Ask to create node{% endtrans %}"/>
+        </form>
+{% endblock %}
