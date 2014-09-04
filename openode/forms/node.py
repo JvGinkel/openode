@@ -166,3 +166,7 @@ class PerexesEditForm(forms.ModelForm):
                 mode="full",
                 upload_url=upload_url
             )
+
+class AskToCreateNodeForm(forms.Form):
+    name = forms.CharField(label=_('Name'), max_length=300)
+    note = forms.CharField(label=_('Note'), widget=forms.Textarea)
