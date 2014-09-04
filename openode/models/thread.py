@@ -303,44 +303,41 @@ class ThreadManager(BaseQuerySetManager):
 
         # user contributed questions
         if search_state.author:
-            try:
-                if isinstance(search_state.author, (list, tuple, set)):
-                    _ids = [
-                        int(_id)
-                        for _id in search_state.author
-                        if str(_id).isdigit()
-                    ]
-                    u = User.objects.filter(
-                        is_active=True,
-                        is_hidden=False,
-                        id__in=_ids
-                    )
-                elif search_state.author.isdigit():
-                    u = User.objects.filter(
-                        is_active=True,
-                        is_hidden=False,
-                        id=search_state.author
-                    )
-                else:
-                    ids = [
-                        int(ch)
-                        for ch in extract_numbers(search_state.author)
-                    ]
-                    u = User.objects.filter(
-                        id__in=ids,
-                        is_active=True,
-                        is_hidden=False
-                    )
-            except User.DoesNotExist:
-                meta_data['authors'] = []
+            if isinstance(search_state.author, (list, tuple, set)):
+                _ids = [
+                    int(_id)
+                    for _id in search_state.author
+                    if str(_id).isdigit()
+                ]
+                u = User.objects.filter(
+                    is_active=True,
+                    is_hidden=False,
+                    id__in=_ids
+                )
+            elif search_state.author.isdigit():
+                u = User.objects.filter(
+                    is_active=True,
+                    is_hidden=False,
+                    id=search_state.author
+                )
             else:
-                if u.exists():
-                    qs = qs.filter(
-                        posts__post_type__in=(thread_type, 'answer', "comment"),
-                        posts__author__in=u,
-                        posts__deleted=False
-                    )
-                meta_data['authors'] = u
+                ids = [
+                    int(ch)
+                    for ch in extract_numbers(search_state.author)
+                ]
+                u = User.objects.filter(
+                    id__in=ids,
+                    is_active=True,
+                    is_hidden=False
+                )
+
+            if u.exists():
+                qs = qs.filter(
+                    posts__post_type__in=(thread_type, 'answer', "comment"),
+                    posts__author__in=u,
+                    posts__deleted=False
+                )
+            meta_data['authors'] = u
 
         #get users tag filters
         if request_user and request_user.is_authenticated():
