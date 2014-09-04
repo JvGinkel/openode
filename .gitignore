@@ -16,3 +16,6 @@ fab_settings.py
 /templates/
 /static
 
+.idea/
+mayan/
+dumps/
