@@ -168,6 +168,14 @@ urlpatterns = patterns('',
         name='node_followers'
     ),
 
+    # ticket #650 ask to create node
+    url(
+        r'ask-to-create/$',
+        views.node.node_ask_to_create,
+        name='node_ask_to_create'
+    ),
+
+
     ############################################################################
 
     # force forum 'module'
