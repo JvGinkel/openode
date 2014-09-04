@@ -32,3 +32,11 @@
 -- BEGIN;
 --     ALTER TABLE "auth_user" ADD COLUMN "change_password_key" varchar(255);
 -- COMMIT;
+
+
+-- -- 2014-09-4
+
+BEGIN;
+     ALTER TABLE "activity" ALTER COLUMN "content_type_id" DROP NOT NULL;
+     ALTER TABLE "activity" ALTER COLUMN "object_id" DROP NOT NULL;
+COMMIT;

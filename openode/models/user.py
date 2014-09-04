@@ -180,8 +180,8 @@ class Activity(models.Model):
     recipients = models.ManyToManyField(User, through=ActivityAuditStatus, related_name='incoming_activity')
     activity_type = models.SmallIntegerField(choices=const.TYPE_ACTIVITY)
     active_at = models.DateTimeField(default=datetime.datetime.now)
-    content_type = models.ForeignKey(ContentType)
-    object_id = models.PositiveIntegerField()
+    content_type = models.ForeignKey(ContentType, blank=True)
+    object_id = models.PositiveIntegerField(blank=True)
     content_object = generic.GenericForeignKey('content_type', 'object_id')
 
     #todo: remove this denorm question field when Post model is set up
