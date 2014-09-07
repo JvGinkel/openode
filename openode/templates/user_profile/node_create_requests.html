@@ -19,7 +19,7 @@
 
                 </td>
                 <td>{# forms with accept and reject buttons #}
-                    <form action="" method="post">{% csrf_token %}
+                    <form action="{% url resolve_node_create_request %}" method="post">{% csrf_token %}
                         <input
                             type="hidden"
                             name="request_id"
@@ -34,7 +34,7 @@
                     </form>
                 </td>
                 <td>
-                    <form action="" method="post">
+                    <form action="{% url resolve_node_create_request %}" method="post">
                         {% csrf_token %}
                         <input
                             type="hidden"

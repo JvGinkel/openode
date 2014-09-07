@@ -241,9 +241,9 @@ urlpatterns = patterns('',
         name='resolve_organization_join_request'
     ),
     url(
-        r'^resolve-node-join-request/',
-        views.commands.resolve_node_join_request,
-        name='resolve_node_join_request'
+        r'^resolve-node-create-request/',
+        views.commands.resolve_node_create_request,
+        name='resolve_node_create_request'
     ),
     url(
         r'^save-draft-question/',

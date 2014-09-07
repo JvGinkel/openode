@@ -236,6 +236,16 @@
                                     </a>
                                 </li>
                                 {% endif %}
+                                {% if user_has_perm_resolve_node_joining %}
+                                <li>
+                                    <a href="{% url user_profile request.user.id, 'node_create' %}" title="{% trans %}node create requests{% endtrans %}">
+                                        {% trans %}Node creation requsts{% endtrans %}
+                                        {% if node_create_requests_count %}
+                                            <span class="unread-mark">{{ node_create_requests_count }}</span>
+                                        {% endif %}
+                                    </a>
+                                </li>
+                                {% endif %}
                                 {% if request.user.has_perm('openode.resolve_organization_joining') %}
                                 <li>
                                     <a href="{% url user_profile request.user.id, 'organization_joins' %}" title="{% trans %}organization joins requests{% endtrans %}">

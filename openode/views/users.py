@@ -708,7 +708,6 @@ def user_node_create_requests(request, user, context):
     return render_into_skin('user_profile/node_create_requests.html', context, request)
 
 
-
 @owner_or_moderator_required
 def user_offensive_flags_reports(request, user, context):
     """
