@@ -192,6 +192,22 @@
                 </li>
                 {% endif %}
 
+                {% if request.user.is_admin('openode.add_organization') %}
+                <li {% if tab_name=="organization_requests" %}class="active"{% endif %}>
+                    <a id="node_joins" {% if tab_name=="node_create" %}class="on"{% endif %}
+                        title="{% trans %}organization create requests{% endtrans %}"
+                        href="{% url user_profile view_user.id, 'organization_requests' %}"
+                        >
+                        {% if organizatiion_requests_count %}
+                            <span class="f-right unread-mark">{{ node_create_requests_count }}</span>
+                        {% endif %}
+                        <span>{% trans %}Unresolved requests to create organization{% endtrans %}</span>
+                    </a>
+                </li>
+                {% endif %}
+
+
+
                 {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
                 <li {% if tab_name=="offensive_flags" %}class="active"{% endif %}>
                     <a id="offensive_flags" {% if tab_name=="offensive_flags" %}class="on"{% endif %}

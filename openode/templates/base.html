@@ -246,6 +246,18 @@
                                     </a>
                                 </li>
                                 {% endif %}
+
+                                {% if request.user.is_admin('openode.add_organization') %}
+                                <li>
+                                    <a href="{% url user_profile request.user.id, 'organization_requests' %}" title="{% trans %}organization requests{% endtrans %}">
+                                        {% trans %}Requests to create organization{% endtrans %}
+                                        {% if organization_requests_count %}
+                                            <span class="unread-mark">{{ organization_requests_count }}</span>
+                                        {% endif %}
+                                    </a>
+                                </li>
+                                {% endif %}
+
                                 {% if request.user.has_perm('openode.resolve_organization_joining') %}
                                 <li>
                                     <a href="{% url user_profile request.user.id, 'organization_joins' %}" title="{% trans %}organization joins requests{% endtrans %}">

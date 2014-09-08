@@ -308,7 +308,7 @@ class SubscribedNodeAdmin(BaseAdmin):
 
 class OrganizationAdminForm(BaseAdminModelForm):
     class Meta:
-        fields = ('title', 'long_title', 'logo', 'desc', 'openness', 'preapproved_emails', 'preapproved_email_domains',)
+        fields = ('approved', 'title', 'long_title', 'logo', 'desc', 'openness', 'preapproved_emails', 'preapproved_email_domains',)
 
     desc = forms.CharField(widget=Wysiwyg(mode='simple', width='800px'), required=False, label=_('description'))
 

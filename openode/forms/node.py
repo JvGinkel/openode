@@ -14,6 +14,7 @@ from django_select2 import AutoModelSelect2Field, ModelSelect2Field
 from openode import const
 from openode.forms.widgets import Wysiwyg
 from openode.models import Node, NodeUser
+from openode.models.user import Organization
 from openode.utils.url_utils import reverse_lazy
 #######################################
 

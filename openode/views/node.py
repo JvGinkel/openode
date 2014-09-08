@@ -15,10 +15,11 @@ from django.utils.datastructures import SortedDict
 
 from openode import const
 from openode.models.node import Node, Post, FollowedNode, SubscribedNode, NodeUser
-from openode.models.user import Activity
+from openode.models.user import Activity, Organization
 from openode.skins.loaders import render_into_skin
 from openode.forms.node import NodeAnnotationEditForm, NodeSettingsForm, NodeUserForm, PerexesEditForm, \
     AskToCreateNodeForm
+from openode.forms.organization import OrganizationForm
 
 from openode.utils.http import render_forbidden
 
@@ -379,6 +380,35 @@ def node_ask_to_create(request):
     }
 
     return render_into_skin("node/ask_to_create.html", to_tmpl, request)
+
+
+@login_required()
+def ask_to_create_org(request):
+    """
+        ask to create organization
+    """
+
+    if request.POST:
+        form = OrganizationForm(request.POST)
+        if form.is_valid():
+            org = form.save(request)
+
+            org_request, created = Activity.objects.get_or_create(
+                object_id=org.pk,
+                content_type=ContentType.objects.get_for_model(Organization),
+                user=request.user,
+                activity_type=const.TYPE_ACTIVITY_ASK_TO_CREATE_ORG
+            )
+
+            request.user.log(org, const.LOG_ACTION_ASK_TO_CREATE_ORG)
+    else:
+        form = OrganizationForm()
+
+    to_tmpl = {
+        'form': form,
+    }
+
+    return render_into_skin("ask_to_create_organization.html", to_tmpl, request)
 
 
 @login_required

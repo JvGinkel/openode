@@ -82,6 +82,11 @@ def get_for_user_profile(user):
 
     node_create_requests_count = node_create_requests.count()
 
+    organization_requests = models.Activity.objects.filter(
+                    activity_type=const.TYPE_ACTIVITY_ASK_TO_CREATE_ORG,
+    ).order_by('-active_at')
+
+    organization_requests_count = organization_requests.count()
 
     return {
         're_count': user.new_response_count + user.seen_response_count,
@@ -94,4 +99,6 @@ def get_for_user_profile(user):
         'user_has_perm_resolve_node_creating': user_has_perm_resolve_node_creating,
         'node_create_requests_count': node_create_requests_count,
         'node_create_requests': node_create_requests,
+        'organization_requests': organization_requests,
+        'organization_requests_count': organization_requests_count,
     }

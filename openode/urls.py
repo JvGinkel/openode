@@ -175,6 +175,12 @@ urlpatterns = patterns('',
         name='node_ask_to_create'
     ),
 
+    url(
+        r'organization-form/$',
+        views.node.ask_to_create_org,
+        name='ask_to_create_org'
+    ),
+
 
     ############################################################################
 
