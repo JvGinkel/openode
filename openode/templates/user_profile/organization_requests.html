@@ -1,29 +1,27 @@
 {% extends "user_profile/user.html" %}
 
 {% block profile_breadcrumbs %}
-    <li><span>{% trans %}Unresolved requests to create Node{% endtrans %}</span></li>
+    <li><span>{% trans %}Unresolved requests to create organization{% endtrans %}</span></li>
 {% endblock %}
 
 {% block profilesection %}
-    {% trans %}Unresolved requests to create Node{% endtrans %}
+    {% trans %}Unresolved requests to create organization{% endtrans %}
 {% endblock %}
 
 {% block usercontent %}
-    {% if node_create_requests %}
+    {% if organization_requests %}
         <table>
-        {% for node_create_request in node_create_requests %}
+        {% for org_request in organization_requests %}
             <tr>
-                {% url user_profile node_create_request.user.pk as user_url %}
-                <td style="width: 100%">
-                    {{ node_create_request.summary }}
-
-                </td>
+                {% url user_profile org_request.user.pk as user_url %}
+                <td style="width: 100%">{% trans user=org_request.user, org=org_request.content_object %}<a href="{{ user_url }}">{{ user }}</a> wants to create organization: {{ org }}{% endtrans %}</td>
+                <td><a href="{% url admin:openode_organization_change org_request.content_object.id %}">{% trans %}View in admin{% endtrans %}</a></td>
                 <td>{# forms with accept and reject buttons #}
-                    <form action="{% url resolve_node_create_request %}" method="post">{% csrf_token %}
+                    <form action="{% url resolve_org_request %}" method="post">{% csrf_token %}
                         <input
                             type="hidden"
                             name="request_id"
-                            value="{{node_create_request.pk}}"
+                            value="{{org_request.pk}}"
                         />
                         <input type="hidden" name="action" value="approve"/>
                         <input
@@ -34,12 +32,12 @@
                     </form>
                 </td>
                 <td>
-                    <form action="{% url resolve_node_create_request %}" method="post">
+                    <form action="{% url resolve_org_request %}" method="post">
                         {% csrf_token %}
                         <input
                             type="hidden"
                             name="request_id"
-                            value="{{node_create_request.pk}}"
+                            value="{{org_request.pk}}"
                         />
                         <input type="hidden" name="action" value="deny"/>
                         <input

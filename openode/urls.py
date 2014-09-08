@@ -252,6 +252,11 @@ urlpatterns = patterns('',
         name='resolve_node_create_request'
     ),
     url(
+        r'^resolve-organization-request/',
+        views.commands.resolve_organization_request,
+        name='resolve_org_request'
+    ),
+    url(
         r'^save-draft-question/',
         views.commands.save_draft_question,
         name='save_draft_question'

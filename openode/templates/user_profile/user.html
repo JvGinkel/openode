@@ -198,8 +198,8 @@
                         title="{% trans %}organization create requests{% endtrans %}"
                         href="{% url user_profile view_user.id, 'organization_requests' %}"
                         >
-                        {% if organizatiion_requests_count %}
-                            <span class="f-right unread-mark">{{ node_create_requests_count }}</span>
+                        {% if organization_requests_count %}
+                            <span class="f-right unread-mark">{{ organization_requests_count }}</span>
                         {% endif %}
                         <span>{% trans %}Unresolved requests to create organization{% endtrans %}</span>
                     </a>
