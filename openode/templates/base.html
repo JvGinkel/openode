@@ -236,7 +236,7 @@
                                     </a>
                                 </li>
                                 {% endif %}
-                                {% if user_has_perm_resolve_node_joining %}
+                                {% if user_has_perm_resolve_node_creating %}
                                 <li>
                                     <a href="{% url user_profile request.user.id, 'node_create' %}" title="{% trans %}node create requests{% endtrans %}">
                                         {% trans %}Node creation requsts{% endtrans %}

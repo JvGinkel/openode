@@ -694,8 +694,7 @@ def user_node_join_requests(request, user, context):
 def user_node_create_requests(request, user, context):
     """show Unresolved Node create requests"""
 
-    # TODO: WHAT PERMISSION SHOULD BE HERE?
-    if not context['user_has_perm_resolve_node_joining']:
+    if not context['user_has_perm_resolve_node_creating']:
         raise Http404
 
     data = {

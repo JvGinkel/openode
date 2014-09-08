@@ -164,7 +164,7 @@
                 </li>
                 {% endif %}
 
-                {% if user_has_perm_resolve_node_joining %}
+                {% if user_has_perm_resolve_node_creating %}
                 <li {% if tab_name=="node_create" %}class="active"{% endif %}>
                     <a id="node_joins" {% if tab_name=="node_create" %}class="on"{% endif %}
                         title="{% trans %}node create requests{% endtrans %}"
