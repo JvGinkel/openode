@@ -40,3 +40,11 @@ BEGIN;
      ALTER TABLE "activity" ALTER COLUMN "content_type_id" DROP NOT NULL;
      ALTER TABLE "activity" ALTER COLUMN "object_id" DROP NOT NULL;
 COMMIT;
+
+
+-- -- 2014-09-4
+
+BEGIN;
+  ALTER TABLE "activity" ADD COLUMN "approved" boolean;
+  UPDATE "activity" SET approved=TRUE;
+COMMIT;

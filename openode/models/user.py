@@ -379,6 +379,9 @@ class Organization(models.Model):
         (MODERATED, 'moderated'),
         (CLOSED, 'closed'),
     )
+
+    approved = models.BooleanField(default=True, blank=True)
+
     title = models.CharField(max_length=16)
     long_title = models.CharField(max_length=300, default='', blank=True, null=True)
 
