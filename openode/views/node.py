@@ -10,13 +10,15 @@ from django.shortcuts import get_object_or_404
 from django.utils.datastructures import MergeDict
 from django.utils import simplejson
 from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_noop
 from django.utils.datastructures import SortedDict
 
 from openode import const
 from openode.models.node import Node, Post, FollowedNode, SubscribedNode, NodeUser
 from openode.models.user import Activity
 from openode.skins.loaders import render_into_skin
-from openode.forms.node import NodeAnnotationEditForm, NodeSettingsForm, NodeUserForm, PerexesEditForm
+from openode.forms.node import NodeAnnotationEditForm, NodeSettingsForm, NodeUserForm, PerexesEditForm, \
+    AskToCreateNodeForm
 
 from openode.utils.http import render_forbidden
 
@@ -338,6 +340,45 @@ def node_ask_to_join(request, node_id, node_slug):
         'join_request': join_request
     }
     return render_into_skin("node/ask_to_join.html", to_tmpl, request)
+
+
+@login_required()
+def node_ask_to_create(request):
+    """
+        ask to create node
+
+        There is no cancel option as user may create more than one request
+        and there is no way to tell what request he wants to cancel.
+
+    """
+    sent = False   # was form successful, sent and without errors?
+
+    if request.POST:
+        form = AskToCreateNodeForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            note = form.cleaned_data['note']
+            summary = _(u'''%(user)s wants to create a new organization %(organization_name)s.
+            Here is a note regarding the request:  %(note)s''') % {'user':request.user, 'organization_name' : name,
+                                                                   'note': note}
+            ugettext_noop(summary)  # this will translate it after its pulled from db, not before.
+
+            create_request, created = Activity.objects.get_or_create(
+                    user=request.user,
+                    activity_type=const.TYPE_ACTIVITY_ASK_TO_CREATE_NODE,
+                    summary=summary,
+                )
+            request.user.log(create_request, const.LOG_ACTION_ASK_TO_CREATE_NODE)
+            sent = True
+    else:
+        form = AskToCreateNodeForm()
+
+    to_tmpl = {
+        'sent': sent,
+        'form': form,
+    }
+
+    return render_into_skin("node/ask_to_create.html", to_tmpl, request)
 
 
 @login_required

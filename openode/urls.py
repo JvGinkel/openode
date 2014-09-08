@@ -168,6 +168,14 @@ urlpatterns = patterns('',
         name='node_followers'
     ),
 
+    # ticket #650 ask to create node
+    url(
+        r'ask-to-create/$',
+        views.node.node_ask_to_create,
+        name='node_ask_to_create'
+    ),
+
+
     ############################################################################
 
     # force forum 'module'
@@ -233,9 +241,9 @@ urlpatterns = patterns('',
         name='resolve_organization_join_request'
     ),
     url(
-        r'^resolve-node-join-request/',
-        views.commands.resolve_node_join_request,
-        name='resolve_node_join_request'
+        r'^resolve-node-create-request/',
+        views.commands.resolve_node_create_request,
+        name='resolve_node_create_request'
     ),
     url(
         r'^save-draft-question/',

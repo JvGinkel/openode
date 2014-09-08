@@ -74,6 +74,15 @@ def get_for_user_profile(user):
     if user_has_perm_resolve_node_joining:
         node_join_requests_count = node_join_requests.count()
 
+    user_has_perm_resolve_node_creating = user.is_staff and user.has_perm('openode.add_node')
+
+    node_create_requests = models.Activity.objects.filter(
+                    activity_type=const.TYPE_ACTIVITY_ASK_TO_CREATE_NODE,
+    ).order_by('-active_at')
+
+    node_create_requests_count = node_create_requests.count()
+
+
     return {
         're_count': user.new_response_count + user.seen_response_count,
         'flags_count': flags_count,
@@ -81,5 +90,8 @@ def get_for_user_profile(user):
         'organization_pending_memberships': organization_pending_memberships,
         'user_has_perm_resolve_node_joining': user_has_perm_resolve_node_joining,
         'node_join_requests_count': node_join_requests_count,
-        'node_join_requests': node_join_requests
+        'node_join_requests': node_join_requests,
+        'user_has_perm_resolve_node_creating': user_has_perm_resolve_node_creating,
+        'node_create_requests_count': node_create_requests_count,
+        'node_create_requests': node_create_requests,
     }
