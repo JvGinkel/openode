@@ -45,6 +45,6 @@ COMMIT;
 -- -- 2014-09-4
 
 BEGIN;
-  ALTER TABLE "activity" ADD COLUMN "approved" boolean;
-  UPDATE "activity" SET approved=TRUE;
+  ALTER TABLE "openode_organization" ADD COLUMN "approved" boolean;
+  UPDATE "openode_organization" SET approved=TRUE;
 COMMIT;
