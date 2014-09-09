@@ -18,7 +18,7 @@ def get_live_data(user=None, start=0, end=PER_PAGE, node=None):
     threads = Thread.objects.public()
 
     if node:
-        threads = threads.filter(node=node)
+        threads = threads.filter(node__in=node.get_descendants(include_self=True))
 
     if user.is_authenticated():
         threads = threads.filter(
