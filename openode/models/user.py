@@ -420,7 +420,7 @@ class Organization(models.Model):
     preapproved_email_domains = models.TextField(null=True, blank=True, default='')
 
 
-    objects = OrganizationManager()
+    # objects = OrganizationManager()
     all_objects = models.Manager()
 
     class Meta:
