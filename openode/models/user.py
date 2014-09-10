@@ -15,6 +15,7 @@ from django.db.backends.dummy.base import IntegrityError
 from django.forms import EmailField
 from django.utils.encoding import smart_unicode
 from django.utils.translation import ugettext as _
+
 from sorl.thumbnail.helpers import ThumbnailError
 from sorl.thumbnail.shortcuts import get_thumbnail
 
@@ -448,6 +449,7 @@ class Organization(models.Model):
             return thumbnail url for organization
         """
         GEOMETRY_STRING = "%sx%s" % (size, size)
+
         try:
             return get_thumbnail(
                 self.logo,
@@ -462,6 +464,7 @@ class Organization(models.Model):
                 "logo": str(self.logo)
             }))
             return None
+
 
     def get_openness_choices(self):
         """gives answers to question
