@@ -14,7 +14,13 @@
         {% for org_request in organization_requests %}
             <tr>
                 {% url user_profile org_request.user.pk as user_url %}
-                <td style="width: 100%">{% trans user=org_request.user, org=org_request.content_object %}<a href="{{ user_url }}">{{ user }}</a> wants to create organization: {{ org }}{% endtrans %}</td>
+                <td style="width: 100%">{% trans user=org_request.user, org=org_request.content_object %}<a href="{{ user_url }}">{{ user }}</a> wants to create organization: <b>{{ org }}</b>{% endtrans %}
+
+                <hr/>
+                {{ org_request.content_object.description.summary }}
+
+                </td>
+
                 <td><a href="{% url admin:openode_organization_change org_request.content_object.id %}">{% trans %}View in admin{% endtrans %}</a></td>
                 <td>{# forms with accept and reject buttons #}
                     <form action="{% url resolve_org_request %}" method="post">{% csrf_token %}
