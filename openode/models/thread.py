@@ -1017,7 +1017,6 @@ class Thread(models.Model):
         else:
             thread_posts = qs
 
-
         if sort_method is None:
             sort_method = self.get_default_sort_method()
 
@@ -1026,7 +1025,6 @@ class Thread(models.Model):
                 'oldest': 'added_at',
                 'votes': '-points'
             }[sort_method])
-        print thread_posts.query
 
         #1) collect question, answer and comment posts and list of post id's
         answers = list()

@@ -16,6 +16,31 @@
 
 {##############################################################################}
 
+{% block forejs %}
+    {{ super() }}
+    <script type="text/javascript">
+        load_selected = function(element, callback) {
+            var data = [];
+            {% for author in authors %}
+                data.push({
+                    id: {{ author.pk }},
+                    text: '{{ author.screen_name }}'
+                });
+            {% endfor %}
+            callback(data);
+        }
+        jQuery(document).ready(function(){
+            var form = jQuery(".js-filter-users");
+            form.on("change", "#id_authors", function(e){
+                jQuery("#id_authors").prop('readonly', true);
+                window.location.href = "?authors=" + jQuery("#id_authors").select2("val").join(",");
+            });
+        });
+    </script>
+{% endblock %}
+
+{##############################################################################}
+
 {% block thread_content %}
 
 {# === NODE PEREX TEXT === #}
@@ -45,7 +70,34 @@
     </div>
 {% endif %}
 
-<h2>{% trans %}Discussion{% endtrans %}</h2>
+
+<div class="row">
+    <div class="six column">
+        <h2>{% trans %}Discussion{% endtrans %}</h2>
+    </div>
+    <div class="six column">
+        <div class="group filter">
+            <form action="{{ request.path }}" method="get" class="js-filter-users">
+                <dl class="sub-nav f-right">
+                    <dt>
+                        {{ search_user_form.authors.label }}:
+                    </dt>
+                    <dd>
+                        {{ search_user_form.authors }}
+                        <script type="text/javascript">
+                            jQuery(document).ready(function(){
+                                // select2 need this construction for call initSelection
+                                // some ugly select2 error?
+                                jQuery("#id_authors").select2("val", 0);
+                            });
+                        </script>
+                    </dd>
+                </dl>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 {# <div id="post-id-{{main_post.id}}" class="question-content{% if main_post.deleted %} deleted{% endif %}"> #}
     {# <h3 class="thread"><a href="{{ main_post.get_absolute_url() }}">{% trans %}Discussion{% endtrans %}{% trans %}:{% endtrans %} {{ thread.title|escape }}</a></h3> #}

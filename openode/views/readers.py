@@ -99,12 +99,19 @@ class NodeUserPublicChoices(AutoSelect2MultipleField):
     def get_results(self, request, term, page, context):
         qs = User.objects.filter(
             is_active=True
-        ).filter(
-            Q(display_name__istartswith=term)
-            | Q(last_name__istartswith=term)
-            | Q(first_name__istartswith=term)
-            | Q(email__istartswith=term)
-        ).only(
+        )
+
+        for part in term.split(" "):
+            qs = qs.filter(
+                Q(
+                    Q(display_name__istartswith=part)
+                    | Q(last_name__istartswith=part)
+                    | Q(first_name__istartswith=part)
+                    | Q(email__istartswith=part)
+                )
+            )
+
+        qs = qs.only(
             "display_name",
             "first_name",
             "last_name",

@@ -11,4 +11,7 @@ get_urllist_from_text = lambda text: re.findall(url_reg, text)
 
 
 def extract_numbers(str):
-    return re.findall(r"\d+", str)
+    return [
+        int(_id) for _id in
+        re.findall(r"\d+", str)
+    ]
