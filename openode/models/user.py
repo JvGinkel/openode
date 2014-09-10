@@ -369,6 +369,11 @@ class OrganizationLogoStorage(FileSystemStorage):
     pass
 
 
+class OrganizationManager(models.Manager):
+    def get_query_set(self):
+        return super(OrganizationManager, self).get_query_set().filter(approved = True)
+
+
 class Organization(models.Model):
     """organization profile for openode"""
     OPEN = 0
@@ -412,6 +417,10 @@ class Organization(models.Model):
     preapproved_emails = models.TextField(null=True, blank=True, default='')
     #only domains - without the '@' or anything before them
     preapproved_email_domains = models.TextField(null=True, blank=True, default='')
+
+
+    objects = OrganizationManager()
+    all_objects = models.Manager()
 
     class Meta:
         app_label = 'openode'

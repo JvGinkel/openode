@@ -321,6 +321,9 @@ class OrganizationAdminForm(BaseAdminModelForm):
 class OrganizationAdmin(BaseAdmin):
     form = OrganizationAdminForm
 
+    def queryset(self, request):
+         return self.model.all_objects
+
     def save_model(self, request, obj, form, change):
         super(OrganizationAdmin, self).save_model(request, obj, form, change)
         description = form.cleaned_data['desc']
