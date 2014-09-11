@@ -15,10 +15,11 @@
             <tr>
                 {% url user_profile org_request.user.pk as user_url %}
                 <td style="width: 100%">{% trans user=org_request.user, org=org_request.content_object %}<a href="{{ user_url }}">{{ user }}</a> wants to create organization: <b>{{ org }}</b>{% endtrans %}
-
-                <hr/>
-                {{ org_request.content_object.description.summary }}
-
+                   
+                {% if org_request.content_object.description %}
+                    <hr/>
+                    {{ org_request.content_object.description.summary }}
+                {% endif %}
                 </td>
 
                 <td><a href="{% url admin:openode_organization_change org_request.content_object.id %}">{% trans %}View in admin{% endtrans %}</a></td>

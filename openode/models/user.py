@@ -421,7 +421,7 @@ class Organization(models.Model):
 
 
     # objects = OrganizationManager()
-    all_objects = models.Manager()
+    #all_objects = models.Manager()
 
     class Meta:
         app_label = 'openode'

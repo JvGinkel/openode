@@ -1389,18 +1389,14 @@ def resolve_organization_request(request):
 
         message = _('Your request to create organization has been approved!')
         applicant.message_set.create(message=message)
-        return HttpResponseRedirect(reverse('admin:openode_organization_change', args=(activity.object_id,)))
+        activity.delete()
+        #return HttpResponseRedirect(reverse('admin:openode_organization_change', args=(activity.object_id,)))
     else:
         request.user.log(activity, const.LOG_ACTION_ASK_TO_CREATE_ORG_DECLINED)
         message = _('Sorry, your request to create organization has been denied.')
         applicant.message_set.create(message=message)
-
-
-    activity.delete()
+        activity.delete()
     return HttpResponseRedirect(reverse('user_profile', args=[request.user.id, 'organization_requests']))
-
-
-
 
 
 @login_required

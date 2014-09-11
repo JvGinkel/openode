@@ -1066,7 +1066,7 @@ def organization_list(request, id=None, slug=None):
     else:
         organizations = request.user.organizations.all()
 
-    organizations = organizations.all()
+    organizations = organizations.filter(approved=True)
     organizations = organizations.annotate(users_count=Count('users'))
 
     user_can_add_organizations = request.user.is_admin('openode.add_organization')

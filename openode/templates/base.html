@@ -342,6 +342,11 @@
             {% endif %}
 
             {% include "widgets/system_messages.html" %}
+
+            {% if user.is_authenticated() and not user.get_organizations() %}
+                {% include "widgets/enforce_organization.html" %}
+            {% endif %}
+
             <div class="content-body {% block content_class %}{% endblock%}">
                 {% block body %}{% endblock %}
             </div>

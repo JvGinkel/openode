@@ -88,6 +88,7 @@ def get_for_user_profile(user):
 
     organization_requests_count = organization_requests.count()
 
+
     return {
         're_count': user.new_response_count + user.seen_response_count,
         'flags_count': flags_count,
