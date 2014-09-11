@@ -44,7 +44,7 @@ Project dependencies and libraries
 
 Install developer libraries
 ::
-    apt-get install python-virtualenv git postgresql-server-dev-9.1 python-dev libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms1-dev libwebp-dev gettext
+    apt-get install python-virtualenv git postgresql-server-dev-9.1 python-dev libtiff4-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms1-dev libwebp-dev gettext nsca
 
 
 Mayan dependencies
@@ -107,7 +107,7 @@ Get source of project OPENode and compile&install dependencies
     cd cgi-bin
     virtualenv env
     source env/bin/activate
-    
+
 Fixed broken bdist_egg for zip_safe flag
 ::
     pip install django-mptt==0.5.4
@@ -505,9 +505,11 @@ Edit crontab
     su openode
     crontab -e
 
-Append line for every 30 minutes sending email notifications:
+Cron commands
 ::
-    */30 * * * * cd /srv/openode/cgi-bin/openode && /srv/openode/cgi-bin/env/bin/python manage.py send_email_notifications
+    */30 * * * * ~/cgi-bin/env/bin/python ~/cgi-bin/openode/manage.py send_email_notifications
+    0 */6 * * *  ~/cgi-bin/env/bin/python ~/cgi-bin/openode/manage.py stuck_documents_check
+
 
 Email tweaks
 ^^^^^^^^^^^^
@@ -518,3 +520,4 @@ To minimize probability of your emails ends up in the spam, don’t forget to se
 * reverse DNS
 * SPF
 * DKIM
+

@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.urlresolvers import reverse
 from django.db import models
-from django.db.models import signals
+from django.db.models import signals, Sum
 from django.utils.html import escape, strip_tags
 from django.utils.translation import ugettext as _
 from mptt.models import MPTTModel, TreeForeignKey
@@ -278,6 +278,14 @@ class Node(MPTTModel):
     @property
     def users_count(self):
         return self.users.count()
+
+    @property
+    def sum_of_all_views(self):
+        children = self.get_children().filter(deleted=False)
+        children_sum = sum([child.sum_of_all_views for child in children]) or 0
+
+        n_of_threads = self.threads.filter(is_deleted=False).aggregate(all_views=Sum('view_count'))['all_views'] or 0 
+        return n_of_threads + children_sum
 
     def is_category(self):
         return self.style == const.NODE_STYLE_CATEGORY

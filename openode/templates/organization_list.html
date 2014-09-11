@@ -28,6 +28,10 @@
                     <a href="{% url admin:openode_organization_add %}" class="control-link">{% trans %}Add new organization{% endtrans %}</a>
                 </div>
             {% endif %}
+            <div class="f-right section-header-control">
+                <a href="{% url ask_to_create_org %}" class="control-link">{% trans %}Request a new organization to be created{% endtrans %}</a>
+            </div>
+
             <hr />
         </div>
     </div>
@@ -63,7 +67,7 @@
                             {% if logo %}
                                 <img src="{{ logo }}" class="organization-logo" alt="{{ organization.title|escape }}" />
                             {% else %}
-                                {{ organization.title|escape }}
+                                <img src="" class="organization-logo" alt="{{ organization.title|escape }}" />
                             {% endif %}
                             </a>
                         </div>

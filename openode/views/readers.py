@@ -51,6 +51,7 @@ from openode.views.node import node_ask_to_join
 from openode.search.state_manager import SearchState
 from openode.skins.loaders import render_into_skin, get_template  # jinja2 template loading enviroment
 from openode.templatetags import extra_tags
+from openode.views.live import get_live_data, check_perm, PER_PAGE as LIVE_PER_PAGE
 from openode.views.thread import thread as thread_detail_view
 
 #######################################
@@ -502,7 +503,6 @@ def node_module(request, node_id, node_slug, module, **kwargs):
 
     thread_type -> setup Thread.thread_type or summary
     """
-
     # bypass for forum module
     if module == const.NODE_MODULE_FORUM:
         return node_module_forum(request, node_id, node_slug, module, **kwargs)
@@ -527,7 +527,25 @@ def node_module(request, node_id, node_slug, module, **kwargs):
         return node_module_thread(request, node, module, **kwargs)
 
     template_file = NODE_MODULE_TEMPLATE_FILE[module]
-    template_data = {'node': node, 'module': module}
+    template_data = {
+        'node': node,
+        'module': module
+    }
+
+    if module == const.NODE_MODULE_ANNOTATION:
+        try:
+            page_no = int(request.GET.get("page", 1))
+        except ValueError:
+            page_no = 1
+
+        end = LIVE_PER_PAGE * page_no
+        start = end - LIVE_PER_PAGE
+        template_data.update({
+            "live_threads": get_live_data(request.user, start, end, node),
+            "page": page_no,
+            "check_perm": check_perm
+        })
+
     return render_into_skin(template_file, template_data, request)
 
 

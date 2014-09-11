@@ -1,0 +1,63 @@
+{% extends "user_profile/user.html" %}
+
+{% block profile_breadcrumbs %}
+    <li><span>{% trans %}Unresolved requests to create organization{% endtrans %}</span></li>
+{% endblock %}
+
+{% block profilesection %}
+    {% trans %}Unresolved requests to create organization{% endtrans %}
+{% endblock %}
+
+{% block usercontent %}
+    {% if organization_requests %}
+        <table>
+        {% for org_request in organization_requests %}
+            <tr>
+                {% url user_profile org_request.user.pk as user_url %}
+                <td style="width: 100%">{% trans user=org_request.user, org=org_request.content_object %}<a href="{{ user_url }}">{{ user }}</a> wants to create organization: <b>{{ org }}</b>{% endtrans %}
+                   
+                {% if org_request.content_object.description %}
+                    <hr/>
+                    {{ org_request.content_object.description.summary }}
+                {% endif %}
+                </td>
+
+                <td><a href="{% url admin:openode_organization_change org_request.content_object.id %}">{% trans %}View in admin{% endtrans %}</a></td>
+                <td>{# forms with accept and reject buttons #}
+                    <form action="{% url resolve_org_request %}" method="post">{% csrf_token %}
+                        <input
+                            type="hidden"
+                            name="request_id"
+                            value="{{org_request.pk}}"
+                        />
+                        <input type="hidden" name="action" value="approve"/>
+                        <input
+                            class="btn button success"
+                            type="submit"
+                            value="{% trans %}Approve{% endtrans %}"
+                        />
+                    </form>
+                </td>
+                <td>
+                    <form action="{% url resolve_org_request %}" method="post">
+                        {% csrf_token %}
+                        <input
+                            type="hidden"
+                            name="request_id"
+                            value="{{org_request.pk}}"
+                        />
+                        <input type="hidden" name="action" value="deny"/>
+                        <input
+                            class="btn button alert"
+                            type="submit"
+                            value="{% trans %}Deny{% endtrans %}"
+                        />
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <p>{% trans %}You have no unresolved requests.{% endtrans %}</p>
+    {% endif %}
+{% endblock %}

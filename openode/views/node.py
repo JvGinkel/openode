@@ -10,15 +10,20 @@ from django.shortcuts import get_object_or_404
 from django.utils.datastructures import MergeDict
 from django.utils import simplejson
 from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_noop
 from django.utils.datastructures import SortedDict
 
 from openode import const
+from openode.models import get_users_with_perm
 from openode.models.node import Node, Post, FollowedNode, SubscribedNode, NodeUser
-from openode.models.user import Activity
-from openode.skins.loaders import render_into_skin
-from openode.forms.node import NodeAnnotationEditForm, NodeSettingsForm, NodeUserForm, PerexesEditForm
+from openode.models.user import Activity, Organization
+from openode.skins.loaders import render_into_skin, get_template
+from openode.forms.node import NodeAnnotationEditForm, NodeSettingsForm, NodeUserForm, PerexesEditForm, \
+    AskToCreateNodeForm
+from openode.forms.organization import OrganizationForm
 
 from openode.utils.http import render_forbidden
+from openode.utils.notify_users import notify_about_requests
 
 
 def node_detail(request, node_id, node_slug):
@@ -338,6 +343,91 @@ def node_ask_to_join(request, node_id, node_slug):
         'join_request': join_request
     }
     return render_into_skin("node/ask_to_join.html", to_tmpl, request)
+
+
+@login_required()
+def node_ask_to_create(request):
+    """
+        ask to create node
+
+        There is no cancel option as user may create more than one request
+        and there is no way to tell what request he wants to cancel.
+
+    """
+    sent = False   # was form successful, sent and without errors?
+
+    if request.POST:
+        form = AskToCreateNodeForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            note = form.cleaned_data['note']
+            summary = _(u'''%(user)s wants to create a new node %(node_name)s.
+            Here is a note regarding the request:  %(note)s''') % {'user':request.user, 'node_name' : name, 'note': note}
+
+            # send mail:
+            users_to_notify = get_users_with_perm('openode.add_node')
+            subject = _(u'''%(user)s wants to create a new node %(name)s''') % {'user': request.user, 'name': name}
+            notify_about_requests(users_to_notify, subject, summary)
+
+
+            ugettext_noop(summary)  # this will translate it after its pulled from db, not before.
+
+            create_request, created = Activity.objects.get_or_create(
+                    user=request.user,
+                    activity_type=const.TYPE_ACTIVITY_ASK_TO_CREATE_NODE,
+                    summary=summary,
+                )
+
+            request.user.log(create_request, const.LOG_ACTION_ASK_TO_CREATE_NODE)
+            sent = True
+    else:
+        form = AskToCreateNodeForm()
+
+    to_tmpl = {
+        'sent': sent,
+        'form': form,
+    }
+
+    return render_into_skin("node/ask_to_create.html", to_tmpl, request)
+
+
+@login_required()
+def ask_to_create_org(request):
+    """
+        ask to create organization
+    """
+
+    if request.POST:
+        form = OrganizationForm(request.POST)
+        if form.is_valid():
+            org = form.save(request)
+
+            summary = _(u'''%(user)s wants to create a new organization %(organization_name)s.
+            Description of the organization:  %(description)s''') % {'user': request.user, 'organization_name': org.title, 'description': org.description.summary}
+
+            # send mail:
+            users_to_notify = get_users_with_perm('add_organization')
+            subject = _(u'''%(user)s wants to create a new organization %(organization_name)s''') % {'user': request.user, 'organization_name': org.title}
+
+            notify_about_requests(users_to_notify, subject, summary)
+
+            org_request, created = Activity.objects.get_or_create(
+                object_id=org.pk,
+                content_type=ContentType.objects.get_for_model(Organization),
+                user=request.user,
+                activity_type=const.TYPE_ACTIVITY_ASK_TO_CREATE_ORG,
+                summary=summary,
+            )
+
+            request.user.log(org, const.LOG_ACTION_ASK_TO_CREATE_ORG)
+    else:
+        form = OrganizationForm()
+
+    to_tmpl = {
+        'form': form,
+    }
+
+    return render_into_skin("ask_to_create_organization.html", to_tmpl, request)
 
 
 @login_required

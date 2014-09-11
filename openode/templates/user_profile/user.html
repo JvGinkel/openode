@@ -164,6 +164,20 @@
                 </li>
                 {% endif %}
 
+                {% if user_has_perm_resolve_node_creating %}
+                <li {% if tab_name=="node_create" %}class="active"{% endif %}>
+                    <a id="node_joins" {% if tab_name=="node_create" %}class="on"{% endif %}
+                        title="{% trans %}node create requests{% endtrans %}"
+                        href="{% url user_profile view_user.id, 'node_create' %}"
+                        >
+                        {% if node_create_requests_count %}
+                            <span class="f-right unread-mark">{{ node_create_requests_count }}</span>
+                        {% endif %}
+                        <span>{% trans %}Unresolved requests to create Node{% endtrans %}</span>
+                    </a>
+                </li>
+                {% endif %}
+
                 {% if request.user.has_perm('openode.resolve_organization_joining') %}
                 <li {% if tab_name=="organization_joins" %}class="active"{% endif %}>
                     <a id="organization_joins" {% if tab_name=="organization_joins" %}class="on"{% endif %}
@@ -177,6 +191,22 @@
                     </a>
                 </li>
                 {% endif %}
+
+                {% if request.user.is_admin('openode.add_organization') %}
+                <li {% if tab_name=="organization_requests" %}class="active"{% endif %}>
+                    <a id="node_joins" {% if tab_name=="node_create" %}class="on"{% endif %}
+                        title="{% trans %}organization create requests{% endtrans %}"
+                        href="{% url user_profile view_user.id, 'organization_requests' %}"
+                        >
+                        {% if organization_requests_count %}
+                            <span class="f-right unread-mark">{{ organization_requests_count }}</span>
+                        {% endif %}
+                        <span>{% trans %}Unresolved requests to create organization{% endtrans %}</span>
+                    </a>
+                </li>
+                {% endif %}
+
+
 
                 {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
                 <li {% if tab_name=="offensive_flags" %}class="active"{% endif %}>

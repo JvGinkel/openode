@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-14 12:41+0200\n"
+"POT-Creation-Date: 2014-07-25 13:58+0200\n"
 "PO-Revision-Date: 2013-01-31 13:56\n"
 "Last-Translator:   <info@coex.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "description"
 msgstr ""
 
-#: admin.py:350 templates/base.html:274
+#: admin.py:350 templates/base.html:279
 #: templates/authopenid/change_password.html:35
 #: templates/authopenid/signin.html:76 templates/authopenid/signin.html:273
 #: templates/authopenid/signup_with_password.html:70
@@ -2507,7 +2507,7 @@ msgstr ""
 
 #: deps/livesettings/templates/livesettings/group_settings.html:19
 #: deps/livesettings/templates/livesettings/site_settings.html:33
-#: templates/base.html:292 templates/admin/common/move.html:7
+#: templates/base.html:297 templates/admin/common/move.html:7
 msgid "Home"
 msgstr ""
 
@@ -3884,98 +3884,102 @@ msgstr ""
 msgid "Register now!"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:130 templates/base.html.py:132
+#: templates/base.html:112 templates/live/live.html:4
+msgid "Live"
+msgstr ""
+
+#: templates/base.html:135 templates/base.html.py:137
 #: templates/search/search.html:11 templates/search/search.html.py:17
 #: templates/search/search.html:29
 msgid "Search"
 msgstr ""
 
-#: templates/base.html:143
+#: templates/base.html:148
 #, fuzzy
 msgid "My Nodes"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:148 templates/base.html.py:188
+#: templates/base.html:153 templates/base.html.py:193
 #, fuzzy
 msgid "My Questions"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:153 templates/base.html.py:196
+#: templates/base.html:158 templates/base.html.py:201
 #, fuzzy
 msgid "My Discussions"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:162
+#: templates/base.html:167
 msgid "Admin"
 msgstr ""
 
-#: templates/base.html:166
+#: templates/base.html:171
 #, fuzzy
 msgid "Followed"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:180
+#: templates/base.html:185
 #, fuzzy
 msgid "Followed Nodes"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:207
+#: templates/base.html:212
 #, fuzzy
 msgid "Requests"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:226 templates/user_profile/user.html:156
+#: templates/base.html:231 templates/user_profile/user.html:156
 #, fuzzy
 msgid "node joins requests"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:227
+#: templates/base.html:232
 #, fuzzy
 msgid "Node joins"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:236 templates/user_profile/user.html:170
+#: templates/base.html:241 templates/user_profile/user.html:170
 #, fuzzy
 msgid "organization joins requests"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:237
+#: templates/base.html:242
 #, fuzzy
 msgid "Organization joins"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:246 templates/user_profile/user.html:184
+#: templates/base.html:251 templates/user_profile/user.html:184
 msgid "offensive flag reports"
 msgstr ""
 
-#: templates/base.html:247
+#: templates/base.html:252
 msgid "Offensive flags"
 msgstr ""
 
-#: templates/base.html:261 templates/user_profile/user.html:53
+#: templates/base.html:266 templates/user_profile/user.html:53
 #: templates/user_profile/user_edit.html:14
 #, fuzzy
 msgid "Update profile"
 msgstr "people"
 
-#: templates/base.html:262 templates/authopenid/logout.html:3
+#: templates/base.html:267 templates/authopenid/logout.html:3
 msgid "Logout"
 msgstr "Sign out"
 
-#: templates/base.html:272 templates/authopenid/lost_password.html:27
+#: templates/base.html:277 templates/authopenid/lost_password.html:27
 msgid "E-mail"
 msgstr ""
 
-#: templates/base.html:277 templates/admin/common/login.html:42
+#: templates/base.html:282 templates/admin/common/login.html:42
 msgid "Log in"
 msgstr ""
 
-#: templates/base.html:345
+#: templates/base.html:350
 #, python-format
 msgid "Powered by OPENode %(version)s"
 msgstr ""
 
-#: templates/base.html:347
+#: templates/base.html:352
 #, python-format
 msgid ""
 "Open source written by <a href=\"%(coex_url)s\">COEX</a> in <a href="
@@ -4342,8 +4346,9 @@ msgid ""
 msgstr ""
 
 #: templates/list_suggested_tags.html:12
+#, fuzzy
 msgid "Suggested by"
-msgstr ""
+msgstr "Verification Email from Q&A forum"
 
 #: templates/list_suggested_tags.html:13
 #, fuzzy
@@ -4359,8 +4364,9 @@ msgid "Accept"
 msgstr ""
 
 #: templates/list_suggested_tags.html:34
+#, fuzzy
 msgid "Reject"
-msgstr ""
+msgstr "Verification Email from Q&A forum"
 
 #: templates/list_suggested_tags.html:49
 #, python-format
@@ -4989,8 +4995,11 @@ msgid ""
 msgstr ""
 
 #: templates/authopenid/changeemail.html:48
+#, fuzzy
 msgid "Save Email"
 msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
 #: templates/authopenid/changeemail.html:57
 msgid "Validate email"
@@ -5335,8 +5344,9 @@ msgstr ""
 
 #: templates/authopenid/signin.html:330
 #: templates/authopenid/widget_signin.html:163
+#, fuzzy
 msgid "Here are your current login methods"
-msgstr ""
+msgstr "Verification Email from Q&A forum"
 
 #: templates/authopenid/signin.html:334
 #: templates/authopenid/widget_signin.html:167
@@ -5725,8 +5735,9 @@ msgid "Asked by %(author)s:"
 msgstr "Verification Email from Q&A forum"
 
 #: templates/email/macros.html:32
+#, fuzzy
 msgid "Tags:"
-msgstr ""
+msgstr "Verification Email from Q&A forum"
 
 #: templates/email/macros.html:40
 #, fuzzy, python-format
@@ -5906,6 +5917,10 @@ msgstr ""
 #, fuzzy
 msgid "List of questions"
 msgstr "Verification Email from Q&A forum"
+
+#: templates/live/live.html:13 templates/node/document/detail.html:23
+msgid "Load more items"
+msgstr ""
 
 #: templates/meta/bottom_scripts.html:7
 #, python-format
@@ -6501,8 +6516,9 @@ msgid "Del."
 msgstr ""
 
 #: templates/node/edit_settings.html:162
+#, fuzzy
 msgid "Node members email dump"
-msgstr ""
+msgstr "Verification Email from Q&A forum"
 
 #: templates/node/edit_settings.html:163
 msgid ""
@@ -6841,10 +6857,6 @@ msgstr "Verification Email from Q&A forum"
 msgid "help_node_document_add_html"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/detail.html:23
-msgid "Load more items"
-msgstr ""
-
 #: templates/node/document/detail.html:66
 #, fuzzy
 msgid "Download file"
@@ -6948,8 +6960,9 @@ msgid "File"
 msgstr ""
 
 #: templates/node/document/edit.html:61
+#, fuzzy
 msgid "Revised at"
-msgstr ""
+msgstr "Verification Email from Q&A forum"
 
 #: templates/node/document/edit.html:62
 #, fuzzy
@@ -7622,8 +7635,9 @@ msgstr ""
 #: templates/snippets/organization_join_button.html:8
 #: templates/snippets/organization_join_button.html:13
 #: templates/snippets/organization_join_button.html:23
+#, fuzzy
 msgid "You are a member"
-msgstr ""
+msgstr "Verification Email from Q&A forum"
 
 #: templates/snippets/organization_join_button.html:15
 msgid "Cancel application"
@@ -7911,8 +7925,9 @@ msgstr "Verification Email from Q&A forum"
 
 #: templates/user_profile/user.html:137
 #: templates/user_profile/user_overview.html:121
+#, fuzzy
 msgid "discussions that user is following"
-msgstr ""
+msgstr "Verification Email from Q&A forum"
 
 #: templates/user_profile/user.html:144
 #: templates/user_profile/user_followed_discussions.html:4
@@ -8049,8 +8064,9 @@ msgid "profile - action history"
 msgstr "Verification Email from Q&A forum"
 
 #: templates/user_profile/user_logs.html:17
+#, fuzzy
 msgid "Date and time"
-msgstr ""
+msgstr "Verification Email from Q&A forum"
 
 #: templates/user_profile/user_logs.html:18
 #, fuzzy

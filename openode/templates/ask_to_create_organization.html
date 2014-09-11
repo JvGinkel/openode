@@ -1,0 +1,24 @@
+{% extends "one_column_body.html" %}
+{% from "macros.html" import node_breadcrumb %}
+
+
+{% block title %}{% trans %}Ask to create organization{% endtrans %}{% endblock %}
+
+{% block breadcrumbs %}
+    <li><span>{% trans %}Ask to create organization{% endtrans %}</span></li>
+{% endblock %}
+
+
+{% block content %}
+    <h2 class="node">{% trans %}Organization{% endtrans %}{% trans %}:{% endtrans %}</h2>
+        {% if form.is_valid() %}
+            <h1>{% trans %}Your request to create new Organization was sent.{% endtrans %}</h1>
+        {% else %}
+            <p>{% trans %}You may ask Node manager to create a new Node using form below.{% endtrans %}</p>
+            <form action="{% url ask_to_create_org %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" class="button success" value="{% trans %}Ask to create organization{% endtrans %}"/>
+            </form>
+        {% endif %}
+{% endblock %}

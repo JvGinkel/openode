@@ -14,6 +14,7 @@ from django_select2 import AutoModelSelect2Field, ModelSelect2Field
 from openode import const
 from openode.forms.widgets import Wysiwyg
 from openode.models import Node, NodeUser
+from openode.models.user import Organization
 from openode.utils.url_utils import reverse_lazy
 #######################################
 
@@ -166,3 +167,8 @@ class PerexesEditForm(forms.ModelForm):
                 mode="full",
                 upload_url=upload_url
             )
+
+
+class AskToCreateNodeForm(forms.Form):
+    name = forms.CharField(label=_('Name'), max_length=300)
+    note = forms.CharField(label=_('Note'), widget=forms.Textarea)

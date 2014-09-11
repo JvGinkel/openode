@@ -689,6 +689,41 @@ def user_node_join_requests(request, user, context):
     return render_into_skin('user_profile/node_join_requests.html', context, request)
 
 
+#not a view - no direct url route here, called by `user_responses`
+@csrf.csrf_protect
+def user_node_create_requests(request, user, context):
+    """show Unresolved Node create requests"""
+
+    if not context['user_has_perm_resolve_node_creating']:
+        raise Http404
+
+    data = {
+        'active_tab': 'users',
+        'page_class': 'user-profile-page',
+        'tab_description': _('requests to create nodes'),
+        'page_title': _('profile - node requests')
+    }
+    context.update(data)
+    return render_into_skin('user_profile/node_create_requests.html', context, request)
+
+
+#not a view - no direct url route here, called by `user_responses`
+@csrf.csrf_protect
+def organization_requests(request, user, context):
+    """show Unresolved Node join requests"""
+    if not request.user.is_admin('openode.add_organization'):
+        raise Http404
+
+    data = {
+        'active_tab': 'users',
+        'page_class': 'user-profile-page',
+        'tab_description': _('Organization requests'),
+        'page_title': _('profile - organization requests')
+    }
+    context.update(data)
+    return render_into_skin('user_profile/organization_requests.html', context, request)
+
+
 @owner_or_moderator_required
 def user_offensive_flags_reports(request, user, context):
     """
@@ -958,8 +993,10 @@ USER_VIEW_CALL_TABLE = {
     'managed_nodes': user_managed_nodes,
 
     'node_joins': user_node_join_requests,
+    'node_create': user_node_create_requests,
     'offensive_flags': user_offensive_flags_reports,
     'organization_joins': user_organization_join_requests,
+    'organization_requests': organization_requests,
     'votes': user_votes,
     'email_subscriptions': user_email_subscriptions,
     'logs': user_logs,
@@ -1029,7 +1066,7 @@ def organization_list(request, id=None, slug=None):
     else:
         organizations = request.user.organizations.all()
 
-    organizations = organizations.all()
+    organizations = organizations.filter(approved=True)
     organizations = organizations.annotate(users_count=Count('users'))
 
     user_can_add_organizations = request.user.is_admin('openode.add_organization')

@@ -48,6 +48,14 @@
             <small>{{ thread.node.title }}</small>
         {% endif %}
 
+        {% if with_breadcrumbs %}
+            <span class="summary-html-breadcrumbs">
+                {% for node_ancestor in thread.node.get_ancestors(include_self=True) %}
+                    <a href="{{ node_ancestor.get_absolute_url() }}">{{ node_ancestor.title|upper }}</a>{% if not loop.last %} | {% endif %}
+                {% endfor %}
+            </span>
+        {% endif %}
+
         <h3>
             <a title="{% trans %}Show question{% endtrans %}" href="{{ thread.get_absolute_url() }}">
                 <span class="title">{{ thread.get_title('html') }}</span>
