@@ -58,6 +58,12 @@
             </a>
         </h3>
 
+        {% if render_discussion_sample %}
+            <p>
+                {{ thread.get_discusion_sample() }}
+            </p>
+        {% endif %}
+
         {{ tag_list(thread.get_tags()) }}
 
         {{ render_last_changed(thread.last_activity_by, thread.last_activity_at, thread._main_post().author, thread.added_at) }}

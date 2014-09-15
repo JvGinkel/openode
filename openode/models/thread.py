@@ -753,7 +753,6 @@ class Thread(models.Model):
 
         self.node.visit(user, timestamp)
 
-
     def render_last_changed(self):
         return get_template('snippets/thread_last_changed.html').render({"thread": self})
 
@@ -865,6 +864,13 @@ class Thread(models.Model):
             return u'%s %s' % (escape(self.title), style_str)
 
         return escape(self.title)
+
+    def get_discusion_sample(self):
+        if self.is_discussion():
+            post = self.posts.latest("dt_changed")
+            if post:
+                return post.summary
+        return ""
 
     def format_for_email(self, user=None):
         """experimental function: output entire thread for email"""
@@ -1324,10 +1330,10 @@ class Thread(models.Model):
 
         return last_updated_at, last_updated_by
 
-    def get_summary_html(self, search_state=None, visitor=None, with_breadcrumbs=False):
+    def get_summary_html(self, search_state=None, visitor=None, with_breadcrumbs=False, render_discussion_sample=False):
         html = self.get_cached_summary_html(visitor)
         if not html:
-            html = self.update_summary_html(visitor, with_breadcrumbs=with_breadcrumbs)
+            html = self.update_summary_html(visitor, with_breadcrumbs=with_breadcrumbs, render_discussion_sample=render_discussion_sample)
 
         # todo: this work may be pushed onto javascript we post-process tag names
         # in the snippet so that tag urls match the search state
@@ -1416,7 +1422,7 @@ class Thread(models.Model):
             user
         )
 
-    def update_summary_html(self, visitor=None, with_breadcrumbs=False):
+    def update_summary_html(self, visitor=None, with_breadcrumbs=False, render_discussion_sample=False):
         #todo: it is quite wrong that visitor is an argument here
         #because we do not include any visitor-related info in the cache key
         #ideally cache should be shareable between users, so straight up
@@ -1436,6 +1442,7 @@ class Thread(models.Model):
         # display_new = self.is_thread_view_new(thread_view=thread_view)
 
         context.update({
+            "render_discussion_sample": render_discussion_sample,
             "thread_view": thread_view,
             "thread_is_unread": thread_view.main_post_viewed if thread_view else False,
             "has_unread_posts": self.has_unread_posts(thread_view, visitor),
