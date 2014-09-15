@@ -869,7 +869,7 @@ class Thread(models.Model):
         if self.is_discussion():
             post = self.posts.latest("dt_changed")
             if post:
-                return post.summary
+                return re.sub(r"replyto:#\d+", "", post.summary)
         return ""
 
     def format_for_email(self, user=None):
