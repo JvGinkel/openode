@@ -38,7 +38,7 @@ def get_live_data(user=None, start=0, end=PER_PAGE, node=None):
     else:
         threads = threads.filter(node__visibility=const.NODE_VISIBILITY_PUBLIC)
 
-    threads = threads.order_by("-dt_created")[start:end]
+    threads = threads.order_by("-dt_changed")[start:end]
     return threads
 
 ################################################################################
