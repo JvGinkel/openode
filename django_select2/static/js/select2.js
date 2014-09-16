@@ -2655,7 +2655,16 @@ the specific language governing permissions and limitations under the Apache Lic
         },
         formatResultCssClass: function(data) {return undefined;},
         formatNoMatches: function () { return "No matches found"; },
-        formatInputTooShort: function (input, min) { var n = min - input.length; return "Please enter " + n + " more character" + (n == 1? "" : "s"); },
+        formatInputTooShort: function (input, min) {
+            var n = min - input.length;
+            // console.log(gettext);
+            if (n == 1){
+                return interpolate(gettext("Please enter %s more character"), [n]);
+            } else {
+                return interpolate(gettext("Please enter %s more characters"), [n]);
+            }
+
+        },
         formatInputTooLong: function (input, max) { var n = input.length - max; return "Please enter " + n + " less character" + (n == 1? "" : "s"); },
         formatSelectionTooBig: function (limit) { return "You can only select " + limit + " item" + (limit == 1 ? "" : "s"); },
         formatLoadMore: function (pageNumber) { return "Loading more results..."; },

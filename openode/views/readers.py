@@ -129,7 +129,7 @@ class NodeUserPublicChoices(AutoSelect2MultipleField):
         return obj.screen_name
 
 class SearchUserForm(forms.Form):
-    authors = NodeUserPublicChoices()
+    authors = NodeUserPublicChoices(label=_("Authors"))
 
 #######################################
 
