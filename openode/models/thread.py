@@ -40,6 +40,7 @@ from openode.models import signals
 from openode import const
 from openode.utils.lists import LazyList
 from openode.utils.path import sanitize_file_name
+from openode.utils.text import extract_numbers
 from openode.search import mysql
 # from openode.utils.slug import slugify
 from openode.skins.loaders import get_template  # jinja2 template loading enviroment
@@ -300,16 +301,43 @@ class ThreadManager(BaseQuerySetManager):
                 followed_filter |= models.Q(posts__post_type__in=(thread_type, 'answer'), posts__author__in=followed_users)
             qs = qs.filter(followed_filter)
 
-        #user contributed questions
+        # user contributed questions
         if search_state.author:
-            try:
-                # TODO: maybe support selection by multiple authors
-                u = User.objects.get(id=int(search_state.author))
-            except User.DoesNotExist:
-                meta_data['author_name'] = None
+            if isinstance(search_state.author, (list, tuple, set)):
+                _ids = [
+                    int(_id)
+                    for _id in search_state.author
+                    if str(_id).isdigit()
+                ]
+                u = User.objects.filter(
+                    is_active=True,
+                    is_hidden=False,
+                    id__in=_ids
+                )
+            elif search_state.author.isdigit():
+                u = User.objects.filter(
+                    is_active=True,
+                    is_hidden=False,
+                    id=search_state.author
+                )
             else:
-                qs = qs.filter(posts__post_type__in=(thread_type, 'answer'), posts__author=u, posts__deleted=False)
-                meta_data['author_name'] = u.username
+                ids = [
+                    int(ch)
+                    for ch in extract_numbers(search_state.author)
+                ]
+                u = User.objects.filter(
+                    id__in=ids,
+                    is_active=True,
+                    is_hidden=False
+                )
+
+            if u.exists():
+                qs = qs.filter(
+                    posts__post_type__in=(thread_type, 'answer', "comment"),
+                    posts__author__in=u,
+                    posts__deleted=False
+                )
+            meta_data['authors'] = u
 
         #get users tag filters
         if request_user and request_user.is_authenticated():
@@ -967,21 +995,22 @@ class Thread(models.Model):
         else:
             return 'votes'
 
-    def get_cached_post_data(self, user=None, sort_method=None):
+    def get_cached_post_data(self, user=None, sort_method=None, qs=None):
         """returns cached post data, as calculated by
         the method get_post_data()"""
         #temporary plug: bypass cache where groups are enabled
-        return self.get_post_data(sort_method=sort_method, user=user)
+        return self.get_post_data(sort_method=sort_method, user=user, qs=qs)
+
         #TODO
-        key = self.get_post_data_cache_key(sort_method)
 
-        post_data = cache.cache.get(key)
-        if not post_data:
-            post_data = self.get_post_data(sort_method)
-            cache.cache.set(key, post_data, const.LONG_TIME)
-        return post_data
+        # key = self.get_post_data_cache_key(sort_method)
+        # post_data = cache.cache.get(key)
+        # if not post_data:
+        #     post_data = self.get_post_data(sort_method)
+        #     cache.cache.set(key, post_data, const.LONG_TIME)
+        # return post_data
 
-    def get_post_data(self, sort_method=None, user=None):
+    def get_post_data(self, sort_method=None, user=None, qs=None):
         """returns question, answers as list and a list of post ids
         for the given thread, and the list of published post ids
         (four values)
@@ -989,7 +1018,10 @@ class Thread(models.Model):
         all (both posts and the comments sorted in the correct
         order)
         """
-        thread_posts = self.posts.all()
+        if qs is None:
+            thread_posts = self.posts.all()
+        else:
+            thread_posts = qs
 
         if sort_method is None:
             sort_method = self.get_default_sort_method()

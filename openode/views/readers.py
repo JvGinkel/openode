@@ -9,9 +9,12 @@ allow adding new comments via Ajax form post.
 
 import datetime
 import operator
-import os
+import re
+# import os
 
+from django import forms
 from django.conf import settings
+from django.db.models import Q
 from django.views.decorators import csrf
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator, EmptyPage
@@ -26,11 +29,15 @@ from django.http import (
     QueryDict,
     )
 from django.shortcuts import get_object_or_404
-from django.template import Context
+# from django.template import Context
 from django.utils import simplejson, translation
-from django.utils.html import escape
+# from django.utils.html import escape
 from django.utils.translation import ugettext as _, ungettext
-from jinja2 import Environment, FileSystemLoader
+from django_select2 import AutoSelect2MultipleField, AutoHeavySelect2MultipleWidget
+from django_select2.util import JSFunction
+# from django_select2 import Select2MultipleChoiceField
+# from jinja2 import Environment, FileSystemLoader
+
 
 from openode import conf, const, models, schedules
 from openode.conf import settings as openode_settings
@@ -42,17 +49,18 @@ from openode.models.post import Post
 from openode.models.tag import Tag
 from openode.models.thread import ThreadCategory, Thread
 from openode.utils import JsonResponse
-from openode.utils import functions
+# from openode.utils import functions
 from openode.utils.decorators import anonymous_forbidden, ajax_only, get_only
 from openode.utils.diff import textDiff as htmldiff
 from openode.utils.html import bleach_html
 from openode.utils.http import render_forbidden
+from openode.utils.text import extract_numbers
 from openode.views.node import node_ask_to_join
 from openode.search.state_manager import SearchState
 from openode.skins.loaders import render_into_skin, get_template  # jinja2 template loading enviroment
 from openode.templatetags import extra_tags
 from openode.views.live import get_live_data, check_perm, PER_PAGE as LIVE_PER_PAGE
-from openode.views.thread import thread as thread_detail_view
+# from openode.views.thread import thread as thread_detail_view
 
 #######################################
 
@@ -77,6 +85,50 @@ DISPLAY_MODE_ACTIVE_AND_CLOSED = 2
 #     1: DISPLAY_MODE_ACTIVE,
 #     2: DISPLAY_MODE_ACTIVE_AND_CLOSED,
 # }
+
+#######################################
+
+class NodeUserAutoHeavySelect2MultipleWidget(AutoHeavySelect2MultipleWidget):
+    def __init__(self, *args, **kwargs):
+        super(AutoHeavySelect2MultipleWidget, self).__init__(*args, **kwargs)
+        self.options['initSelection'] = JSFunction("load_selected")
+
+class NodeUserPublicChoices(AutoSelect2MultipleField):
+    widget = NodeUserAutoHeavySelect2MultipleWidget
+
+    def get_results(self, request, term, page, context):
+        qs = User.objects.filter(
+            is_active=True
+        )
+
+        for part in term.split(" "):
+            qs = qs.filter(
+                Q(
+                    Q(display_name__istartswith=part)
+                    | Q(last_name__istartswith=part)
+                    | Q(first_name__istartswith=part)
+                    | Q(email__istartswith=part)
+                )
+            )
+
+        qs = qs.only(
+            "display_name",
+            "first_name",
+            "last_name",
+            "id"
+        )
+
+        return (
+            "nil",  # errors
+            False,  # is paginated
+            [(u.id, u.screen_name) for u in qs]
+        )
+
+    def label_from_instance(self, obj):
+        return obj.screen_name
+
+class SearchUserForm(forms.Form):
+    authors = NodeUserPublicChoices()
 
 #######################################
 
@@ -227,7 +279,6 @@ def toggle_category(request):
 #######################################
 #######################################
 
-
 def static_page(request, slug):
     """
         static page detail page
@@ -276,6 +327,17 @@ NODE_MODULE_TEMPLATE_FILE = {
 
 
 def node_module_thread(request, node, module, **kwargs):
+
+    redirect = False
+    search_user_form = SearchUserForm(request.GET)
+    if search_user_form.is_valid():
+        ids = [
+            int(_id) for _id in
+            extract_numbers(search_user_form.data["authors"])
+        ]
+        kwargs.update({"author": ids})
+        redirect = True
+
     search_state = SearchState(
         user_logged_in=request.user.is_authenticated(),
         node=node,
@@ -283,6 +345,13 @@ def node_module_thread(request, node, module, **kwargs):
         request=request,
         **kwargs
         )
+
+    if redirect:
+        return HttpResponseRedirect(search_state.full_url())
+
+    if search_state.author:
+        search_user_form.data["authors"] = extract_numbers(search_state.author)
+
     page_size = int(openode_settings.DEFAULT_QUESTIONS_PAGE_SIZE)
 
     qs, meta_data = models.Thread.objects.run_advanced_search(
@@ -399,12 +468,11 @@ def node_module_thread(request, node, module, **kwargs):
     else:  # non-AJAX branch
 
         template_data = {
-
             # ThreadCategory Tree root
             "categories": node.thread_categories.filter(level=0),
-
+            "search_user_form": search_user_form,
             'active_tab': 'questions',
-            'author_name': meta_data.get('author_name', None),
+            'authors': meta_data.get('authors', []),
             'contributors': contributors,
             'context': paginator_context,
             'is_unanswered': False,  # remove this from template

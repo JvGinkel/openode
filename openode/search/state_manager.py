@@ -6,11 +6,13 @@ import copy
 from django.core import urlresolvers
 from django.utils.http import urlencode
 from django.utils.encoding import smart_str
+from django.contrib.auth.models import User
 
 import openode
 import openode.conf
 from openode import const
 from openode.utils.functions import strip_plus
+from openode.utils.text import extract_numbers
 
 
 def extract_matching_token(text, regexes):
@@ -87,16 +89,19 @@ class SearchState(object):
 
     @classmethod
     def get_empty(cls):
-        return cls(node=None, module=None, scope=None, sort=None, query=None, tags=None, author=None, page=None, user_logged_in=None, request=None)
+        # return cls(node=None, module=None, scope=None, sort=None, query=None, tags=None, author=None, page=None, user_logged_in=None, request=None)
+        return cls(node=None, module=None, scope=None, sort=None, tags=None, author=None, page=None, user_logged_in=None, request=None)
 
-    def __init__(self, node, module, scope, sort, query, tags, author, page, user_logged_in, request = None):
+    # def __init__(self, node, module, scope, sort, query, tags, author, page, user_logged_in, request = None):
+    def __init__(self, node, module, scope, sort, tags, author, page, user_logged_in, request = None):
 
         if (scope not in const.THREAD_SCOPE_LIST) or (scope == const.THREAD_SCOPE_FOLLOWED and not user_logged_in):
             self.scope = const.DEFAULT_THREAD_SCOPE
         else:
             self.scope = scope
 
-        self.query = query.strip() if query else None
+        # self.query = query.strip() if query else None
+        self.query = None
 
         self.module = module
         self.node = node
@@ -142,7 +147,7 @@ class SearchState(object):
                 if tag not in self.tags:
                     self.tags.append(tag)
 
-        self.author = int(author) if author else None
+        self.author = author if author else None
         self.page = int(page) if page else 1
         if self.page == 0:  # in case someone likes jokes :)
             self.page = 1
@@ -194,7 +199,16 @@ class SearchState(object):
         if self.tags:
             lst.append('tags:' + urllib.quote(smart_str(const.TAG_SEP.join(self.tags)), safe=self.SAFE_CHARS))
         if self.author:
-            lst.append('author:' + str(self.author))
+            if isinstance(self.author, (list, tuple, set)):
+                ids = self.author
+            else:
+                ids = extract_numbers(self.author)
+            ids = User.objects.filter(
+                pk__in=ids,
+                is_active=True,
+                is_hidden=False
+            ).values_list("pk", flat=True)
+            lst.append('author:' + "[%s]" % ",".join([str(ch) for ch in ids]))
         if self.page:
             lst.append('page:' + str(self.page))
         return '/'.join(lst) + '/'

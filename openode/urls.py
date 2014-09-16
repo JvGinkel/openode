@@ -28,9 +28,9 @@ node_module_url = '%s/(?P<module>%s)/' % (node_url, '|'.join([cm[0] for cm in co
 threads_filter_kwargs = (
     ('scope', '(?P<scope>[\w\-]+)'),
     ('sort', '(?P<sort>[\w\-]+)'),
-    ('query', '(?P<query>[^/]+)'),
+    # ('query', '(?P<query>[^/]+)'),
     ('tags', '(?P<tags>[\w+.#,-]+)'),
-    ('author', '(?P<author>\d+)'),
+    ('author', '(?P<author>[\[\d\,\]]+)'),
     ('page', '(?P<page>\d+)')
 )
 

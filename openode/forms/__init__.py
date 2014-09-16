@@ -19,8 +19,8 @@ from recaptcha_works.fields import RecaptchaField
 from openode import const
 from openode.const import message_keys
 from openode.conf import settings as openode_settings, get_tag_display_filter_strategy_choices
-from openode.forms.widgets import Wysiwyg
 from openode.forms.fields import WysiwygFormField
+from openode.forms.widgets import Wysiwyg
 from openode.mail import extract_first_email_address
 from openode.utils.url_utils import reverse_lazy
 
