@@ -36,7 +36,7 @@
     <div id="js-pages">
         {% for thread in threads %}
             {% if check_perm(thread, request.user) %}
-                {{ thread.get_summary_html(visitor=request.user, with_breadcrumbs=True) }}
+                {{ thread.get_summary_html(visitor=request.user, with_breadcrumbs=True, render_discussion_sample=True) }}
             {% endif %}
         {% endfor %}
     </div>

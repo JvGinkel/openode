@@ -98,7 +98,8 @@ class NodeUserPublicChoices(AutoSelect2MultipleField):
 
     def get_results(self, request, term, page, context):
         qs = User.objects.filter(
-            is_active=True
+            is_active=True,
+            is_hidden=False
         )
 
         for part in term.split(" "):
