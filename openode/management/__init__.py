@@ -1,7 +1,7 @@
 import sys
 from django.core.management.base import NoArgsCommand
 from django.db import transaction
-from openode.models import signals
+# from openode.models import signals
 from openode.utils import console
 
 FORMAT_STRING = '%6.2f%%'#to print progress in percent
@@ -37,6 +37,8 @@ class NoArgsJob(NoArgsCommand):
         """handler function that removes all signal listeners
         then runs the job and finally restores the listerers
         """
+        from openode.models import signals
+
         signal_data = signals.pop_all_db_signal_receivers()
         self.run_command(**options)
         signals.set_all_db_signal_receivers(signal_data)

@@ -2657,7 +2657,6 @@ the specific language governing permissions and limitations under the Apache Lic
         formatNoMatches: function () { return "No matches found"; },
         formatInputTooShort: function (input, min) {
             var n = min - input.length;
-            // console.log(gettext);
             if (n == 1){
                 return interpolate(gettext("Please enter %s more character"), [n]);
             } else {
