@@ -1357,13 +1357,14 @@ def resolve_node_create_request(request):
         applicant.log(activity, const.LOG_ACTION_ASK_TO_CREATE_NODE_ACCEPTED)
         request.user.log(applicant, const.LOG_ACTION_ASK_TO_CREATE_NODE_ACCEPTED)
 
-        message = _('Your request to create Node has been approved!')
+        message = _('Your request to create node has been approved!')
         applicant.message_set.create(message=message)
+        activity.delete()
         return HttpResponseRedirect(reverse('admin:openode_node_add'))
 
     else:
         request.user.log(activity, const.LOG_ACTION_ASK_TO_CREATE_NODE_DECLINED)
-        message = _('Sorry, your request to create Node has been denied.')
+        message = _('Sorry, your request to create node has been denied.')
         applicant.message_set.create(message=message)
 
     activity.delete()
