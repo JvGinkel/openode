@@ -89,7 +89,7 @@
                                 {% if request.user.is_admin('openode.add_node') %}
                                     <a href="{% url admin:openode_node_add %}" class="control-link">{% trans %}Add new node{% endtrans %}</a>
                                 {% endif %}
-                            {% else %}
+                            {% elif request.user.is_authenticated() %}
                                 <a href="{% url node_ask_to_create %}" class="control-link">{% trans %}Ask to create node{% endtrans %}</a>
                             {% endif %}
                         </div>
