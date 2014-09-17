@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-17 10:46+0200\n"
-"PO-Revision-Date: 2014-09-17 10:51+0100\n"
+"PO-Revision-Date: 2014-09-17 10:55+0100\n"
 "Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -3053,11 +3053,11 @@ msgstr "%s jsou již uživatelé s rolí v klubu"
 
 #: forms/node.py:172
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 #: forms/node.py:173
 msgid "Note"
-msgstr ""
+msgstr "Poznámka"
 
 #: mail/__init__.py:183
 msgid "<p>To ask by email, please:</p>"
