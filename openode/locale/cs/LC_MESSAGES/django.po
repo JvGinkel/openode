@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-17 10:46+0200\n"
-"PO-Revision-Date: 2014-09-17 10:50+0100\n"
+"PO-Revision-Date: 2014-09-17 10:51+0100\n"
 "Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -4534,9 +4534,8 @@ msgstr "Přidat nový klub"
 
 #: templates/homepage.html:93 templates/node/ask_to_create.html:5
 #: templates/node/ask_to_create.html:8 templates/node/ask_to_create.html:21
-#, fuzzy
 msgid "Ask to create node"
-msgstr "Požádat o vstup do klubu"
+msgstr "Požádat o vytvoření klubu"
 
 #: templates/homepage.html:102 templates/organization_list.html:42
 #: templates/node/snippets/thread_sort.html:8
