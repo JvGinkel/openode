@@ -12,7 +12,7 @@
 {% block content %}
     <h2 class="node">{% trans %}Node{% endtrans %}{% trans %}:{% endtrans %}</h2>
         {% if sent %}
-            <h1>{% trans %}Your request to create new Node was sent.{% endtrans %}</h1>
+            <h1>{% trans %}Your request to create new node was sent.{% endtrans %}</h1>
         {% else %}
             <p>{% trans %}You may ask Node manager to create a new Node using form below.{% endtrans %}</p>
             <form action="{% url node_ask_to_create %}" method="post">

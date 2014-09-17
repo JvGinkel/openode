@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 16:23+0200\n"
-"PO-Revision-Date: 2014-09-16 16:37+0100\n"
+"POT-Creation-Date: 2014-09-17 10:46+0200\n"
+"PO-Revision-Date: 2014-09-17 10:50+0100\n"
 "Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -55,7 +55,7 @@ msgstr "Text"
 msgid "description"
 msgstr "popis"
 
-#: admin.py:350 templates/base.html:289
+#: admin.py:350 templates/base.html:292
 #: templates/authopenid/change_password.html:35
 #: templates/authopenid/signin.html:76 templates/authopenid/signin.html:273
 #: templates/authopenid/signup_with_password.html:70
@@ -2042,9 +2042,8 @@ msgid "ask to join node"
 msgstr "požádat o vstup do klubu"
 
 #: const/__init__.py:659
-#, fuzzy
 msgid "ask to create node"
-msgstr "požádat o vstup do klubu"
+msgstr "Požádat vytvoření klubu"
 
 #: const/__init__.py:660
 msgid "agreed to create node"
@@ -2632,7 +2631,7 @@ msgstr "Stránky"
 
 #: deps/livesettings/templates/livesettings/group_settings.html:19
 #: deps/livesettings/templates/livesettings/site_settings.html:33
-#: templates/base.html:307 templates/admin/common/move.html:7
+#: templates/base.html:310 templates/admin/common/move.html:7
 msgid "Home"
 msgstr "Domů"
 
@@ -3883,7 +3882,7 @@ msgstr ""
 msgid "Tag"
 msgstr "Štítky"
 
-#: models/tag.py:289 templates/base.html:95 templates/homepage.html:149
+#: models/tag.py:289 templates/base.html:95 templates/homepage.html:152
 #: templates/tag_list.html:4 templates/tag_list.html.py:7
 #: templates/node/base_post_edit.html:61
 #: templates/node/base_thread_add.html:64
@@ -3994,7 +3993,7 @@ msgstr ""
 msgid "change message"
 msgstr "Upravit zprávu"
 
-#: search/forms.py:19 templates/homepage.html:9 templates/homepage.html.py:94
+#: search/forms.py:19 templates/homepage.html:9 templates/homepage.html.py:97
 #: templates/user_profile/user_overview.html:111
 msgid "Nodes"
 msgstr "Kluby"
@@ -4138,63 +4137,62 @@ msgstr "Kluby"
 msgid "Requests"
 msgstr "Žádosti"
 
-#: templates/base.html:231 templates/user_profile/user.html:156
+#: templates/base.html:234 templates/user_profile/user.html:156
 msgid "node joins requests"
 msgstr "žádosti o vstup do klubu"
 
-#: templates/base.html:232
+#: templates/base.html:235
 msgid "Node joins"
 msgstr "Vstup do klubu"
 
-#: templates/base.html:241 templates/user_profile/user.html:170
+#: templates/base.html:244 templates/user_profile/user.html:170
 #, fuzzy
 msgid "node create requests"
 msgstr "žádosti o vstup do klubu"
 
-#: templates/base.html:242
-#, fuzzy
-msgid "Node creation requsts"
-msgstr "žádosti o vstup do klubu"
+#: templates/base.html:245
+msgid "Node creation request"
+msgstr "Žádosti o vytvoření klubu"
 
-#: templates/base.html:251 templates/user_profile/user.html:184
+#: templates/base.html:254 templates/user_profile/user.html:184
 msgid "organization joins requests"
 msgstr "žádosti o vstup do organizace"
 
-#: templates/base.html:252
+#: templates/base.html:255
 msgid "Organization joins"
 msgstr "Vstup do organizace"
 
-#: templates/base.html:261 templates/user_profile/user.html:198
+#: templates/base.html:264 templates/user_profile/user.html:198
 msgid "offensive flag reports"
 msgstr "Prohlížet urážlivé značky"
 
-#: templates/base.html:262
+#: templates/base.html:265
 msgid "Offensive flags"
 msgstr "Označené za nevhodné"
 
-#: templates/base.html:276 templates/user_profile/user.html:53
+#: templates/base.html:279 templates/user_profile/user.html:53
 #: templates/user_profile/user_edit.html:14
 msgid "Update profile"
 msgstr "Upravit profil"
 
-#: templates/base.html:277 templates/authopenid/logout.html:3
+#: templates/base.html:280 templates/authopenid/logout.html:3
 msgid "Logout"
 msgstr "Odhlásit se"
 
-#: templates/base.html:287 templates/authopenid/lost_password.html:27
+#: templates/base.html:290 templates/authopenid/lost_password.html:27
 msgid "E-mail"
 msgstr "E-mail"
 
-#: templates/base.html:292 templates/admin/common/login.html:42
+#: templates/base.html:295 templates/admin/common/login.html:42
 msgid "Log in"
 msgstr "Přihlásit se"
 
-#: templates/base.html:360
+#: templates/base.html:363
 #, python-format
 msgid "Powered by OPENode %(version)s"
 msgstr "Provozováno na systému OPENode %(version)s"
 
-#: templates/base.html:362
+#: templates/base.html:365
 #, python-format
 msgid ""
 "Open source written by <a href=\"%(coex_url)s\">COEX</a> in <a href="
@@ -4526,34 +4524,40 @@ msgstr "přidáno"
 msgid "edit"
 msgstr "Upravit "
 
-#: templates/homepage.html:86
+#: templates/homepage.html:87
 msgid "Edit node list"
 msgstr "Upravit seznam klubů"
 
-#: templates/homepage.html:89
+#: templates/homepage.html:90
 msgid "Add new node"
 msgstr "Přidat nový klub"
 
-#: templates/homepage.html:99 templates/organization_list.html:42
+#: templates/homepage.html:93 templates/node/ask_to_create.html:5
+#: templates/node/ask_to_create.html:8 templates/node/ask_to_create.html:21
+#, fuzzy
+msgid "Ask to create node"
+msgstr "Požádat o vstup do klubu"
+
+#: templates/homepage.html:102 templates/organization_list.html:42
 #: templates/node/snippets/thread_sort.html:8
 msgid "Show:"
 msgstr "Zobrazit:"
 
-#: templates/homepage.html:101
+#: templates/homepage.html:104
 msgid "active only"
 msgstr "pouze aktivní"
 
-#: templates/homepage.html:104
+#: templates/homepage.html:107
 msgid "active and closed"
 msgstr "aktivní i uzavřené"
 
-#: templates/homepage.html:136 templates/two_column_node_body.html:165
+#: templates/homepage.html:139 templates/two_column_node_body.html:165
 #: templates/user_profile/user_followed_discussions.html:30
 #: templates/user_profile/user_followed_questions.html:31
 msgid "Mark all read"
 msgstr "Označit vše jako přečtené"
 
-#: templates/homepage.html:153
+#: templates/homepage.html:156
 msgid "All tags"
 msgstr "Všechny štítky"
 
@@ -6166,20 +6170,13 @@ msgstr ""
 "povolte prosím javascript ve svém prohlížeči. <a href=\"%(noscript_url)s"
 "\">zde najdete jak</a> "
 
-#: templates/node/ask_to_create.html:5 templates/node/ask_to_create.html:8
-#: templates/node/ask_to_create.html:21
-#, fuzzy
-msgid "Ask to create node"
-msgstr "Požádat o vstup do klubu"
-
 #: templates/node/ask_to_create.html:15
-msgid "Your request to create new Node was sent."
-msgstr ""
+msgid "Your request to create new node was sent."
+msgstr "Váš požadavek na vytvoření klub byl odeslán!"
 
 #: templates/node/ask_to_create.html:17
-#, fuzzy
 msgid "You may ask Node manager to create a new Node using form below."
-msgstr "Můžete požádat manažera klubu o povolení vstupu pomocí tlačítka níže."
+msgstr "Můžete požádat manažera klubu o povolení vstupu pomocí formuláře níže."
 
 #: templates/node/ask_to_join.html:5 templates/node/ask_to_join.html.py:9
 #: templates/node/ask_to_join.html:33
@@ -8823,15 +8820,15 @@ msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut
 
 #: views/commands.py:1360
 #, fuzzy
-msgid "Your request to create Node has been approved!"
+msgid "Your request to create node has been approved!"
 msgstr "Váš požadavek na vstup do klubu %(node)s byl schválen!"
 
-#: views/commands.py:1366
+#: views/commands.py:1367
 #, fuzzy
-msgid "Sorry, your request to create Node has been denied."
+msgid "Sorry, your request to create node has been denied."
 msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut."
 
-#: views/commands.py:1397
+#: views/commands.py:1398
 msgid "Sorry, only thread moderators can use this function"
 msgstr "Promiňte, pouze správci vlákna mohou využít tuto funkci."
 

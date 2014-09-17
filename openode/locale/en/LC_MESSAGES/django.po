@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-16 16:22+0200\n"
+"POT-Creation-Date: 2014-09-17 10:46+0200\n"
 "PO-Revision-Date: 2013-01-31 13:56\n"
 "Last-Translator:   <info@coex.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,7 +50,7 @@ msgstr ""
 msgid "description"
 msgstr ""
 
-#: admin.py:350 templates/base.html:289
+#: admin.py:350 templates/base.html:292
 #: templates/authopenid/change_password.html:35
 #: templates/authopenid/signin.html:76 templates/authopenid/signin.html:273
 #: templates/authopenid/signup_with_password.html:70
@@ -2529,7 +2529,7 @@ msgstr ""
 
 #: deps/livesettings/templates/livesettings/group_settings.html:19
 #: deps/livesettings/templates/livesettings/site_settings.html:33
-#: templates/base.html:307 templates/admin/common/move.html:7
+#: templates/base.html:310 templates/admin/common/move.html:7
 msgid "Home"
 msgstr ""
 
@@ -3692,7 +3692,7 @@ msgstr ""
 msgid "Tag"
 msgstr ""
 
-#: models/tag.py:289 templates/base.html:95 templates/homepage.html:149
+#: models/tag.py:289 templates/base.html:95 templates/homepage.html:152
 #: templates/tag_list.html:4 templates/tag_list.html.py:7
 #: templates/node/base_post_edit.html:61
 #: templates/node/base_thread_add.html:64
@@ -3803,7 +3803,7 @@ msgstr ""
 msgid "change message"
 msgstr ""
 
-#: search/forms.py:19 templates/homepage.html:9 templates/homepage.html.py:94
+#: search/forms.py:19 templates/homepage.html:9 templates/homepage.html.py:97
 #: templates/user_profile/user_overview.html:111
 #, fuzzy
 msgid "Nodes"
@@ -3959,68 +3959,68 @@ msgstr "Verification Email from Q&A forum"
 msgid "Requests"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:231 templates/user_profile/user.html:156
+#: templates/base.html:234 templates/user_profile/user.html:156
 #, fuzzy
 msgid "node joins requests"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:232
+#: templates/base.html:235
 #, fuzzy
 msgid "Node joins"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:241 templates/user_profile/user.html:170
+#: templates/base.html:244 templates/user_profile/user.html:170
 #, fuzzy
 msgid "node create requests"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:242
+#: templates/base.html:245
 #, fuzzy
-msgid "Node creation requsts"
+msgid "Node creation request"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:251 templates/user_profile/user.html:184
+#: templates/base.html:254 templates/user_profile/user.html:184
 #, fuzzy
 msgid "organization joins requests"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:252
+#: templates/base.html:255
 #, fuzzy
 msgid "Organization joins"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/base.html:261 templates/user_profile/user.html:198
+#: templates/base.html:264 templates/user_profile/user.html:198
 msgid "offensive flag reports"
 msgstr ""
 
-#: templates/base.html:262
+#: templates/base.html:265
 msgid "Offensive flags"
 msgstr ""
 
-#: templates/base.html:276 templates/user_profile/user.html:53
+#: templates/base.html:279 templates/user_profile/user.html:53
 #: templates/user_profile/user_edit.html:14
 #, fuzzy
 msgid "Update profile"
 msgstr "people"
 
-#: templates/base.html:277 templates/authopenid/logout.html:3
+#: templates/base.html:280 templates/authopenid/logout.html:3
 msgid "Logout"
 msgstr "Sign out"
 
-#: templates/base.html:287 templates/authopenid/lost_password.html:27
+#: templates/base.html:290 templates/authopenid/lost_password.html:27
 msgid "E-mail"
 msgstr ""
 
-#: templates/base.html:292 templates/admin/common/login.html:42
+#: templates/base.html:295 templates/admin/common/login.html:42
 msgid "Log in"
 msgstr ""
 
-#: templates/base.html:360
+#: templates/base.html:363
 #, python-format
 msgid "Powered by OPENode %(version)s"
 msgstr ""
 
-#: templates/base.html:362
+#: templates/base.html:365
 #, python-format
 msgid ""
 "Open source written by <a href=\"%(coex_url)s\">COEX</a> in <a href="
@@ -4316,43 +4316,51 @@ msgstr ""
 msgid "edit"
 msgstr ""
 
-#: templates/homepage.html:86
+#: templates/homepage.html:87
 #, fuzzy
 msgid "Edit node list"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/homepage.html:89
+#: templates/homepage.html:90
 #, fuzzy
 msgid "Add new node"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/homepage.html:99 templates/organization_list.html:42
+#: templates/homepage.html:93 templates/node/ask_to_create.html:5
+#: templates/node/ask_to_create.html:8 templates/node/ask_to_create.html:21
+#, fuzzy
+msgid "Ask to create node"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: templates/homepage.html:102 templates/organization_list.html:42
 #: templates/node/snippets/thread_sort.html:8
 msgid "Show:"
 msgstr ""
 
-#: templates/homepage.html:101
+#: templates/homepage.html:104
 #, fuzzy
 msgid "active only"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/homepage.html:104
+#: templates/homepage.html:107
 #, fuzzy
 msgid "active and closed"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/homepage.html:136 templates/two_column_node_body.html:165
+#: templates/homepage.html:139 templates/two_column_node_body.html:165
 #: templates/user_profile/user_followed_discussions.html:30
 #: templates/user_profile/user_followed_questions.html:31
 #, fuzzy
 msgid "Mark all read"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/homepage.html:153
+#: templates/homepage.html:156
 #, fuzzy
 msgid "All tags"
 msgstr "Verification Email from Q&A forum"
@@ -5973,17 +5981,12 @@ msgid ""
 "a>"
 msgstr ""
 
-#: templates/node/ask_to_create.html:5 templates/node/ask_to_create.html:8
-#: templates/node/ask_to_create.html:21
-#, fuzzy
-msgid "Ask to create node"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
 #: templates/node/ask_to_create.html:15
-msgid "Your request to create new Node was sent."
+#, fuzzy
+msgid "Your request to create new node was sent."
 msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
 #: templates/node/ask_to_create.html:17
 msgid "You may ask Node manager to create a new Node using form below."
@@ -8799,14 +8802,20 @@ msgid "Sorry, your request to join Node %(node)s has been denied."
 msgstr ""
 
 #: views/commands.py:1360
-msgid "Your request to create Node has been approved!"
+#, fuzzy
+msgid "Your request to create node has been approved!"
 msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: views/commands.py:1366
-msgid "Sorry, your request to create Node has been denied."
+#: views/commands.py:1367
+#, fuzzy
+msgid "Sorry, your request to create node has been denied."
 msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: views/commands.py:1397
+#: views/commands.py:1398
 msgid "Sorry, only thread moderators can use this function"
 msgstr ""
 
