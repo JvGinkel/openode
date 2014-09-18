@@ -111,14 +111,14 @@
                 {% endfor %}
             </dl>
         </div>
+        <form action="{% url download_as_zip node.pk, node.slug %}" method="post">{% csrf_token %}
+            <div class="hidden">{{ download_zip_form.documents_ids }}</div>
+            <input disabled="disabled" id="download-button" class="button small" type="submit" name="" value="{% trans %}Download selected{% endtrans %}">
+        </form>
     {% else %}
         <p>{% trans %}There are no Documents in this Node.{% endtrans %}</p>
     {% endif %}
 
-    <form action="{% url download_as_zip node.pk, node.slug %}" method="post">{% csrf_token %}
-        <div class="hidden">{{ download_zip_form.documents_ids }}</div>
-        <input disabled="disabled" id="download-button" class="button small" type="submit" name="" value="{% trans %}Download selected{% endtrans %}">
-    </form>
 
     <div class="group separated-buttons">
         {% if request.user.has_openode_perm("node_library_create", node) %}

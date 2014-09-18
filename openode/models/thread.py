@@ -900,6 +900,10 @@ class Thread(models.Model):
                 return re.sub(r"replyto:#\d+", "", post.summary)
         return ""
 
+    def get_latest_post(self):
+        return self.posts.latest("dt_changed")
+
+
     def format_for_email(self, user=None):
         """experimental function: output entire thread for email"""
         main_post, answers, junk, published_ans_ids = self.get_cached_post_data(user=user)
@@ -1472,14 +1476,18 @@ class Thread(models.Model):
         thread_view = self.get_thread_view(visitor)
 
         # display_new = self.is_thread_view_new(thread_view=thread_view)
-
         context.update({
             "render_discussion_sample": render_discussion_sample,
             "thread_view": thread_view,
             "thread_is_unread": thread_view.main_post_viewed if thread_view else False,
             "has_unread_posts": self.has_unread_posts(thread_view, visitor),
             "has_unread_main_post": self.has_unread_main_post(thread_view, visitor),
-            "with_breadcrumbs": with_breadcrumbs
+            "with_breadcrumbs": with_breadcrumbs,
+
+            "NODE_MODULE_ANNOTATION": const.NODE_MODULE_ANNOTATION,
+            "NODE_MODULE_QA": const.NODE_MODULE_QA,
+            "NODE_MODULE_FORUM": const.NODE_MODULE_FORUM,
+            "NODE_MODULE_LIBRARY": const.NODE_MODULE_LIBRARY
         })
 
         if self.is_question():

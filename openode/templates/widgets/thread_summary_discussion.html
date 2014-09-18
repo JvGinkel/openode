@@ -47,21 +47,30 @@
         {% if with_breadcrumbs %}
             <span class="summary-html-breadcrumbs">
                 {% for node_ancestor in thread.node.get_ancestors(include_self=True) %}
-                    <a href="{{ node_ancestor.get_absolute_url() }}">{{ node_ancestor.title|upper }}</a>{% if not loop.last %} | {% endif %}
+                    <a href="{% url node_module node_id=node_ancestor.pk, node_slug=node_ancestor.slug, module=NODE_MODULE_FORUM %}">{{ node_ancestor.title|upper }}</a>{% if not loop.last %} | {% endif %}
                 {% endfor %}
             </span >
         {% endif %}
 
-        <h3>
-            <a title="{{ thread.get_title() }}" href="{{ thread.get_absolute_url() }}">
-                {{ thread.get_title('html') }}
-            </a>
-        </h3>
-
         {% if render_discussion_sample %}
-            <p>
-                {{ thread.get_discusion_sample() }}
-            </p>
+            {% with answer=thread.get_latest_post() %}
+                <p>
+                    {% if answer %}
+                        <a href="{{ answer.get_absolute_url() }}">
+                            {{ thread.get_discusion_sample() }}
+                        </a>
+                    {% else %}
+                        {{ thread.get_discusion_sample() }}
+                    {% endif %}
+                </p>
+            {% endwith %}
+        {% else %}
+            <h3>
+                <a title="{{ thread.get_title() }}" href="{{ thread.get_absolute_url() }}">
+                    {{ thread.get_title('html') }}
+                </a>
+            </h3>
+
         {% endif %}
 
         {{ tag_list(thread.get_tags()) }}

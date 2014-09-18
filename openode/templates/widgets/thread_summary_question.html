@@ -51,7 +51,7 @@
         {% if with_breadcrumbs %}
             <span class="summary-html-breadcrumbs">
                 {% for node_ancestor in thread.node.get_ancestors(include_self=True) %}
-                    <a href="{{ node_ancestor.get_absolute_url() }}">{{ node_ancestor.title|upper }}</a>{% if not loop.last %} | {% endif %}
+                    <a href="{% url node_module node_id=node_ancestor.pk, node_slug=node_ancestor.slug, module=NODE_MODULE_QA %}">{{ node_ancestor.title|upper }}</a>{% if not loop.last %} | {% endif %}
                 {% endfor %}
             </span>
         {% endif %}
