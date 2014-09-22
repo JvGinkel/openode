@@ -153,9 +153,7 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
     # authors = request.GET.get("authors", "")
     from openode.utils.text import extract_numbers
     authors_ids = extract_numbers(request.GET.get("authors", ""))
-    print authors_ids
     authors = []
-    # print type(authors_ids[0])
 
     qs = None
     if authors_ids:
@@ -168,8 +166,6 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
             author__in=authors,
             deleted=False
         )
-        # print authors_ids
-        # print sorted(set(qs.values_list("author", flat=True)))
 
     updated_main_post, answers, post_to_author = thread.get_cached_post_data(
         sort_method=answer_sort_method,
@@ -231,6 +227,13 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
 
     count_visit(request, thread, main_post)
 
+    base_url = request.path + '?sort=%s&amp;' % answer_sort_method
+    if authors:
+        base_url = "%sauthors=%s&amp;" % (
+            base_url,
+            ",".join([str(pk) for pk in authors.values_list("pk", flat=True)])
+        )
+
     paginator_data = {
         'is_paginated': (objects_list.count > per_page),
         'pages': objects_list.num_pages,
@@ -239,7 +242,7 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
         'has_next': page_objects.has_next(),
         'previous': page_objects.previous_page_number(),
         'next': page_objects.next_page_number(),
-        'base_url': request.path + '?sort=%s&amp;' % answer_sort_method,
+        'base_url': base_url,
     }
     paginator_context = functions.setup_paginator(paginator_data)
 
