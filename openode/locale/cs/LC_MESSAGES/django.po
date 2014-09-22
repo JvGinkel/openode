@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-17 10:46+0200\n"
-"PO-Revision-Date: 2014-09-17 10:55+0100\n"
+"PO-Revision-Date: 2014-09-22 13:39+0100\n"
 "Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -4987,18 +4987,16 @@ msgid "All document with error during OCR process and contains valid file"
 msgstr "Všechny dokumenty s chybou při OCR procesu obsahující validní soubor"
 
 #: templates/admin/document/state.html:48
-#, fuzzy
 msgid "complete reprocess - 10"
-msgstr "Znovu zpracovat 10"
+msgstr "Znovu zpracovat - 10"
 
 #: templates/admin/document/state.html:48
 msgid "10"
 msgstr ""
 
 #: templates/admin/document/state.html:48
-#, fuzzy
 msgid "complete reprocess - all"
-msgstr "Znovu zpracovat vše"
+msgstr "Znovu zpracovat - vše"
 
 #: templates/admin/document/state.html:52
 msgid "only retrive texts - 50"
@@ -6171,11 +6169,13 @@ msgstr ""
 
 #: templates/node/ask_to_create.html:15
 msgid "Your request to create new node was sent."
-msgstr "Váš požadavek na vytvoření klub byl odeslán!"
+msgstr "Váš požadavek na vytvoření klubu byl odeslán!"
 
 #: templates/node/ask_to_create.html:17
 msgid "You may ask Node manager to create a new Node using form below."
-msgstr "Můžete požádat manažera klubu o povolení vstupu pomocí formuláře níže."
+msgstr ""
+"Pomocí níže uvedeného formuláře můžete zažádat o zřízení klubu. Přesvědčte "
+"se však nejdříve, zda již nefunguje stejný klub."
 
 #: templates/node/ask_to_join.html:5 templates/node/ask_to_join.html.py:9
 #: templates/node/ask_to_join.html:33
@@ -7889,9 +7889,8 @@ msgstr "navrženo"
 #: templates/user_profile/node_create_requests.html:4
 #: templates/user_profile/node_create_requests.html:8
 #: templates/user_profile/user.html:176
-#, fuzzy
 msgid "Unresolved requests to create Node"
-msgstr "Zrušit žádost o vstup do klubu"
+msgstr "Nevyřešené žádosti o založení klubu"
 
 #: templates/user_profile/node_create_requests.html:32
 #: templates/user_profile/node_join_requests.html:31
@@ -8913,14 +8912,12 @@ msgid "profile - node joins"
 msgstr "profil - žádosti o vstup do klubu"
 
 #: views/users.py:703
-#, fuzzy
 msgid "requests to create nodes"
-msgstr "Zrušit žádost o vstup do klubu"
+msgstr "žádost o založení klubu"
 
 #: views/users.py:704
-#, fuzzy
 msgid "profile - node requests"
-msgstr "profil - sledované otázky"
+msgstr "profil - žádosti z klubu"
 
 #: views/users.py:784
 msgid "comments and answers to others questions"
