@@ -91,6 +91,17 @@ def deploy():
         with cd("cgi-bin"):
             run("git pull")
 
+            alter_sql_path = "openode/alter.sql"
+
+            if confirm('Show alter.sql file?', default=False):
+                print 40 * "-"
+                run("cat %s" % alter_sql_path)
+                print 40 * "-"
+
+            if confirm('Execute alter.sql file?', default=False):
+                run("psql -f %s" % alter_sql_path)
+
             with virtualenv(env.virtualenv_path):
+
                 run("compilemessages.sh")
                 run("./reload_webserver.py")
