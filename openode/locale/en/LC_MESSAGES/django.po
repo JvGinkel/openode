@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-02 14:26+0200\n"
+"POT-Creation-Date: 2014-10-02 14:54+0200\n"
 "PO-Revision-Date: 2014-09-22 13:27+0100\n"
 "Last-Translator:  <info@coex.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7816,8 +7816,8 @@ msgstr "Unresolved requests to create club"
 #: templates/user_profile/node_create_requests.html:22
 #, python-format
 msgid ""
-"%(user_name)s (%(user_email)s) wants to create a new node %(node_name)s.Here "
-"is a note regarding the request: %(note)s"
+"%(user_name)s (%(user_email)s) wants to create a new node %(node_name)s. "
+"Here is a note regarding the request: %(note)s"
 msgstr ""
 
 #: templates/user_profile/node_create_requests.html:36
