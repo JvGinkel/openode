@@ -91,7 +91,7 @@ def deploy():
         with cd("cgi-bin"):
             run("git pull")
 
-            alter_sql_path = "openode/alter.sql"
+            alter_sql_path = "alter.sql"
 
             if confirm('Show alter.sql file?', default=False):
                 print 40 * "-"
