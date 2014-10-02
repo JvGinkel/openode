@@ -40,3 +40,8 @@ BEGIN;
      ALTER TABLE "activity" ALTER COLUMN "content_type_id" DROP NOT NULL;
      ALTER TABLE "activity" ALTER COLUMN "object_id" DROP NOT NULL;
 COMMIT;
+
+-- 2014-10-02
+BEGIN;
+     ALTER TABLE "activity" ADD COLUMN "data" text;
+COMMIT;

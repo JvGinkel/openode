@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-17 10:46+0200\n"
-"PO-Revision-Date: 2014-09-22 13:39+0100\n"
+"PO-Revision-Date: 2014-10-02 12:44+0100\n"
 "Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -80,9 +80,8 @@ msgid "Passwords did not match"
 msgstr "Hesla se neshodovala"
 
 #: dashboard.py:27
-#, fuzzy
 msgid "Openode low level administration"
-msgstr "Pluto nízkoúrovňová administrace"
+msgstr "Openode nízkoúrovňová administrace"
 
 #: dashboard.py:35 templates/admin/document/state.html:48
 #: templates/admin/document/state.html:52
@@ -8817,9 +8816,8 @@ msgid "Sorry, your request to join Node %(node)s has been denied."
 msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut."
 
 #: views/commands.py:1360
-#, fuzzy
 msgid "Your request to create node has been approved!"
-msgstr "Váš požadavek na vstup do klubu %(node)s byl schválen!"
+msgstr "Váš požadavek na vytvoření klubu %(node)s byl schválen!"
 
 #: views/commands.py:1367
 #, fuzzy
@@ -8868,6 +8866,8 @@ msgid ""
 "%(user)s wants to create a new organization %(organization_name)s.\n"
 "            Here is a note regarding the request:  %(note)s"
 msgstr ""
+"%(user)s požaduje založení nové organizace %(organization_name)s.\n"
+"            Zde je poznámka k žádosti:  %(note)s"
 
 #: views/readers.py:132
 msgid "Authors"

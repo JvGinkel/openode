@@ -3,6 +3,7 @@
 import datetime
 import logging
 import os
+import simplejson
 
 from django.core.files.storage import FileSystemStorage
 from django.core.urlresolvers import reverse
@@ -184,6 +185,8 @@ class Activity(models.Model):
     object_id = models.PositiveIntegerField(blank=True)
     content_object = generic.GenericForeignKey('content_type', 'object_id')
 
+    data = models.TextField(null=True, blank=True)
+
     #todo: remove this denorm question field when Post model is set up
     question = models.ForeignKey('Post', null=True)
 
@@ -205,6 +208,15 @@ class Activity(models.Model):
                     ("resolve_organization_joining", "Can resolve organization joining"),
                     ("resolve_node_joining", "Can resolve node joining"),
                 )
+
+    def render_data(self, template_string):
+        try:
+            data = simplejson.loads(self.data)
+            print data
+        except Exception:
+            return ""
+        else:
+            return template_string % data
 
     def add_recipients(self, recipients):
         """have to use a special method, because django does not allow

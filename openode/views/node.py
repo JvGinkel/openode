@@ -358,15 +358,27 @@ def node_ask_to_create(request):
         if form.is_valid():
             name = form.cleaned_data['name']
             note = form.cleaned_data['note']
-            summary = _(u'''%(user)s wants to create a new organization %(organization_name)s.
-            Here is a note regarding the request:  %(note)s''') % {'user':request.user, 'organization_name' : name,
-                                                                   'note': note}
-            ugettext_noop(summary)  # this will translate it after its pulled from db, not before.
+            summary = ugettext_noop(u'''%(user)s wants to create a new node %(node_name)s.
+                Here is a note regarding the request:  %(note)s''') % {
+                'user': request.user,
+                'node_name': name,
+                'note': note
+            }
+
+            data = simplejson.dumps({
+                'user_name': request.user.screen_name,
+                'user_email': request.user.email,
+                'node_name': name,
+                'note': note
+            })
+
+            # ugettext_noop(summary)  # this will translate it after its pulled from db, not before.
 
             create_request, created = Activity.objects.get_or_create(
                     user=request.user,
                     activity_type=const.TYPE_ACTIVITY_ASK_TO_CREATE_NODE,
-                    summary=summary,
+                    # summary=summary,
+                    data=data
                 )
             request.user.log(create_request, const.LOG_ACTION_ASK_TO_CREATE_NODE)
             sent = True
