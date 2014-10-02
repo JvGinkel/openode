@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-17 10:46+0200\n"
-"PO-Revision-Date: 2014-10-02 12:44+0100\n"
+"POT-Creation-Date: 2014-10-02 14:26+0200\n"
+"PO-Revision-Date: 2014-10-02 14:39+0100\n"
 "Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -3871,7 +3871,7 @@ msgstr "upraveno přes e-mail"
 msgid "New tags added to %s"
 msgstr "Nové štítky přidány k %s"
 
-#: models/tag.py:198 models/thread.py:1273
+#: models/tag.py:198 models/thread.py:1277
 #, python-format
 msgid "Tags %s are new and will be submitted for the moderators approval"
 msgstr ""
@@ -3907,7 +3907,7 @@ msgstr "Platné pouze pro dokument"
 msgid "Valid only for question"
 msgstr "Platné pouze pro otázku"
 
-#: models/thread.py:909
+#: models/thread.py:913
 #, python-format
 msgid "%(count)d answer:"
 msgid_plural "%(count)d answers:"
@@ -3915,80 +3915,80 @@ msgstr[0] "%(count)d odpověď:"
 msgstr[1] "%(count)d odpovědi:"
 msgstr[2] "%(count)d odpovědí:"
 
-#: models/thread.py:1268
+#: models/thread.py:1272
 #, python-format
 msgid "Tag %s is new and will be submitted for the moderators approval"
 msgstr ""
 
-#: models/user.py:297
+#: models/user.py:309
 msgid "Entire forum"
 msgstr "Celé fórum"
 
-#: models/user.py:298
+#: models/user.py:310
 msgid "Questions that I asked"
 msgstr "Mnou položené otázky"
 
-#: models/user.py:299
+#: models/user.py:311
 msgid "Questions that I answered"
 msgstr "Otázky, které jsem zodpověděl"
 
-#: models/user.py:300
+#: models/user.py:312
 msgid "Individually selected questions"
 msgstr "Jednotlivě vybrané otázky"
 
-#: models/user.py:301
+#: models/user.py:313
 msgid "Mentions and comment responses"
 msgstr "Poznámky a komentované reakce"
 
-#: models/user.py:304
+#: models/user.py:316
 msgid "Instantly"
 msgstr "Okamžitě"
 
-#: models/user.py:305
+#: models/user.py:317
 msgid "Daily"
 msgstr "Denně"
 
-#: models/user.py:306
+#: models/user.py:318
 msgid "Weekly"
 msgstr "Týdně"
 
-#: models/user.py:307
+#: models/user.py:319
 msgid "No email"
 msgstr "Žádný e-mail"
 
-#: models/user.py:459
+#: models/user.py:471
 msgid "Can join when they want"
 msgstr ""
 
-#: models/user.py:460
+#: models/user.py:472
 msgid "Users ask permission"
 msgstr ""
 
-#: models/user.py:461
+#: models/user.py:473
 msgid "Moderator adds users"
 msgstr "Manažer přidal uživatele"
 
-#: models/user.py:499
+#: models/user.py:511
 msgid "Please give a list of valid email addresses."
 msgstr "prosím zadejte platné e-mailové adresy"
 
-#: models/user.py:582
+#: models/user.py:594
 msgid "action time"
 msgstr ""
 
-#: models/user.py:585
+#: models/user.py:597
 msgid "object id"
 msgstr "id objektu"
 
-#: models/user.py:586
+#: models/user.py:598
 msgid "object repr"
 msgstr "reprezentace objektu"
 
-#: models/user.py:588
+#: models/user.py:600
 msgid "action flag"
 msgstr ""
 
-#: models/user.py:589
+#: models/user.py:601
 msgid "change message"
 msgstr "Upravit zprávu"
 
@@ -7265,13 +7265,13 @@ msgstr ""
 msgid "NEW"
 msgstr ""
 
-#: templates/node/document/list.html:115
-msgid "There are no Documents in this Node."
-msgstr "Tento klub neobsahuje žádné dokumenty."
-
-#: templates/node/document/list.html:120
+#: templates/node/document/list.html:116
 msgid "Download selected"
 msgstr "Stáhnout vybrané"
+
+#: templates/node/document/list.html:119
+msgid "There are no Documents in this Node."
+msgstr "Tento klub neobsahuje žádné dokumenty."
 
 #: templates/node/document/list.html:133
 msgid "Change order"
@@ -7891,19 +7891,28 @@ msgstr "navrženo"
 msgid "Unresolved requests to create Node"
 msgstr "Nevyřešené žádosti o založení klubu"
 
-#: templates/user_profile/node_create_requests.html:32
+#: templates/user_profile/node_create_requests.html:22
+#, python-format
+msgid ""
+"%(user_name)s (%(user_email)s) wants to create a new node %(node_name)s.Here "
+"is a note regarding the request: %(note)s"
+msgstr ""
+"%(user_name)s (%(user_email)s) požaduje založení nového klubu %(node_name)s. "
+"Zde je poznámka k žádosti: %(note)s"
+
+#: templates/user_profile/node_create_requests.html:36
 #: templates/user_profile/node_join_requests.html:31
 #: templates/user_profile/organization_pending_memberships.html:31
 msgid "Approve"
 msgstr "Schválit"
 
-#: templates/user_profile/node_create_requests.html:48
+#: templates/user_profile/node_create_requests.html:52
 #: templates/user_profile/node_join_requests.html:47
 #: templates/user_profile/organization_pending_memberships.html:47
 msgid "Deny"
 msgstr "Odmítnout"
 
-#: templates/user_profile/node_create_requests.html:56
+#: templates/user_profile/node_create_requests.html:60
 #: templates/user_profile/node_join_requests.html:55
 #: templates/user_profile/organization_pending_memberships.html:55
 msgid "You have no unresolved requests."
@@ -8817,7 +8826,7 @@ msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut
 
 #: views/commands.py:1360
 msgid "Your request to create node has been approved!"
-msgstr "Váš požadavek na vytvoření klubu %(node)s byl schválen!"
+msgstr "Váš požadavek na vytvoření klubu byl schválen!"
 
 #: views/commands.py:1367
 #, fuzzy
@@ -8861,10 +8870,10 @@ msgid "Node perexes has been succesfully saved."
 msgstr "Perex klubu byl úspěšně uložen."
 
 #: views/node.py:361
-#, python-format
+#, fuzzy, python-format
 msgid ""
-"%(user)s wants to create a new organization %(organization_name)s.\n"
-"            Here is a note regarding the request:  %(note)s"
+"%(user)s wants to create a new node %(node_name)s.\n"
+"                Here is a note regarding the request:  %(note)s"
 msgstr ""
 "%(user)s požaduje založení nové organizace %(organization_name)s.\n"
 "            Zde je poznámka k žádosti:  %(note)s"
