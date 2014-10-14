@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-02 14:54+0200\n"
+"POT-Creation-Date: 2014-10-14 12:23+0200\n"
 "PO-Revision-Date: 2014-09-22 13:27+0100\n"
 "Last-Translator:  <info@coex.cz>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,9 +51,8 @@ msgstr ""
 msgid "description"
 msgstr ""
 
-#: admin.py:350 templates/base.html:292
-#: templates/authopenid/change_password.html:35
-#: templates/authopenid/signin.html:76 templates/authopenid/signin.html:273
+#: admin.py:350 templates/base.html:292 templates/authopenid/signin.html:76
+#: templates/authopenid/signin.html:273
 #: templates/authopenid/signup_with_password.html:70
 #: templates/authopenid/widget_signin.html:114 utils/forms.py:279
 msgid "Password"
@@ -4968,9 +4967,18 @@ msgstr ""
 msgid "Cannot submit, form has errors."
 msgstr ""
 
+#: templates/authopenid/change_password.html:35
+#: templates/authopenid/signin.html:141 templates/authopenid/signin.html:295
+#: templates/authopenid/widget_signin.html:130
+#, fuzzy
+msgid "New password"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
 #: templates/authopenid/change_password.html:46
 #, fuzzy
-msgid "Repeat password"
+msgid "New password (repeat)"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
@@ -5328,14 +5336,6 @@ msgstr ""
 #: templates/authopenid/signin.html:120
 msgid "I have forgotten my password."
 msgstr ""
-
-#: templates/authopenid/signin.html:141 templates/authopenid/signin.html:295
-#: templates/authopenid/widget_signin.html:130
-#, fuzzy
-msgid "New password"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
 #: templates/authopenid/signin.html:151 templates/authopenid/signin.html:304
 #: templates/authopenid/widget_signin.html:139
@@ -7813,26 +7813,26 @@ msgstr ""
 msgid "Unresolved requests to create Node"
 msgstr "Unresolved requests to create club"
 
-#: templates/user_profile/node_create_requests.html:22
+#: templates/user_profile/node_create_requests.html:18
 #, python-format
 msgid ""
 "%(user_name)s (%(user_email)s) wants to create a new node %(node_name)s. "
 "Here is a note regarding the request: %(note)s"
 msgstr ""
 
-#: templates/user_profile/node_create_requests.html:36
+#: templates/user_profile/node_create_requests.html:33
 #: templates/user_profile/node_join_requests.html:31
 #: templates/user_profile/organization_pending_memberships.html:31
 msgid "Approve"
 msgstr ""
 
-#: templates/user_profile/node_create_requests.html:52
+#: templates/user_profile/node_create_requests.html:50
 #: templates/user_profile/node_join_requests.html:47
 #: templates/user_profile/organization_pending_memberships.html:47
 msgid "Deny"
 msgstr ""
 
-#: templates/user_profile/node_create_requests.html:60
+#: templates/user_profile/node_create_requests.html:59
 #: templates/user_profile/node_join_requests.html:55
 #: templates/user_profile/organization_pending_memberships.html:55
 msgid "You have no unresolved requests."
@@ -8813,14 +8813,14 @@ msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: views/commands.py:1367
+#: views/commands.py:1372
 #, fuzzy
 msgid "Sorry, your request to create node has been denied."
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: views/commands.py:1398
+#: views/commands.py:1403
 msgid "Sorry, only thread moderators can use this function"
 msgstr ""
 
@@ -9055,6 +9055,12 @@ msgstr ""
 #: views/writers.py:905
 msgid "the selected answer cannot be a comment"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Repeat password"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
 #, fuzzy
 #~ msgid "Email subscription settings"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-02 14:54+0200\n"
-"PO-Revision-Date: 2014-10-02 14:59+0100\n"
-"Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
+"POT-Creation-Date: 2014-10-14 12:23+0200\n"
+"PO-Revision-Date: 2014-10-14 12:25+0100\n"
+"Last-Translator: Martin Kubát <martin.kubat@coex.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
 "Language: cs_CZ\n"
@@ -55,9 +55,8 @@ msgstr "Text"
 msgid "description"
 msgstr "popis"
 
-#: admin.py:350 templates/base.html:292
-#: templates/authopenid/change_password.html:35
-#: templates/authopenid/signin.html:76 templates/authopenid/signin.html:273
+#: admin.py:350 templates/base.html:292 templates/authopenid/signin.html:76
+#: templates/authopenid/signin.html:273
 #: templates/authopenid/signup_with_password.html:70
 #: templates/authopenid/widget_signin.html:114 utils/forms.py:279
 msgid "Password"
@@ -5091,9 +5090,15 @@ msgstr "Stránka nenalezena"
 msgid "Cannot submit, form has errors."
 msgstr "Nelze odeslat, formulář obsahuje chyby."
 
-#: templates/authopenid/change_password.html:46
-msgid "Repeat password"
+#: templates/authopenid/change_password.html:35
+#: templates/authopenid/signin.html:141 templates/authopenid/signin.html:295
+#: templates/authopenid/widget_signin.html:130
+msgid "New password"
 msgstr "Nové heslo"
+
+#: templates/authopenid/change_password.html:46
+msgid "New password (repeat)"
+msgstr "Nové heslo (ověření)"
 
 #: templates/authopenid/change_password.html:59
 #: templates/embed/widget_form.html:14 templates/node/base_thread_edit.html:69
@@ -5483,11 +5488,6 @@ msgstr "Nemáte oprávnění upravovat hodnoty."
 #: templates/authopenid/signin.html:120
 msgid "I have forgotten my password."
 msgstr "Zapomněl jsem své heslo"
-
-#: templates/authopenid/signin.html:141 templates/authopenid/signin.html:295
-#: templates/authopenid/widget_signin.html:130
-msgid "New password"
-msgstr "Změnit heslo"
 
 #: templates/authopenid/signin.html:151 templates/authopenid/signin.html:304
 #: templates/authopenid/widget_signin.html:139
@@ -7891,7 +7891,7 @@ msgstr "navrženo"
 msgid "Unresolved requests to create Node"
 msgstr "Nevyřešené žádosti o založení klubu"
 
-#: templates/user_profile/node_create_requests.html:22
+#: templates/user_profile/node_create_requests.html:18
 #, python-format
 msgid ""
 "%(user_name)s (%(user_email)s) wants to create a new node %(node_name)s. "
@@ -7900,19 +7900,19 @@ msgstr ""
 "%(user_name)s (%(user_email)s) požaduje založení nového klubu %(node_name)s. "
 "Zde je poznámka k žádosti: %(note)s"
 
-#: templates/user_profile/node_create_requests.html:36
+#: templates/user_profile/node_create_requests.html:33
 #: templates/user_profile/node_join_requests.html:31
 #: templates/user_profile/organization_pending_memberships.html:31
 msgid "Approve"
 msgstr "Schválit"
 
-#: templates/user_profile/node_create_requests.html:52
+#: templates/user_profile/node_create_requests.html:50
 #: templates/user_profile/node_join_requests.html:47
 #: templates/user_profile/organization_pending_memberships.html:47
 msgid "Deny"
 msgstr "Odmítnout"
 
-#: templates/user_profile/node_create_requests.html:60
+#: templates/user_profile/node_create_requests.html:59
 #: templates/user_profile/node_join_requests.html:55
 #: templates/user_profile/organization_pending_memberships.html:55
 msgid "You have no unresolved requests."
@@ -8828,11 +8828,11 @@ msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut
 msgid "Your request to create node has been approved!"
 msgstr "Váš požadavek na vytvoření klubu byl schválen!"
 
-#: views/commands.py:1367
+#: views/commands.py:1372
 msgid "Sorry, your request to create node has been denied."
 msgstr "Omlouváme se, váš požadavek na vytvoření klubu byl zamítnut."
 
-#: views/commands.py:1398
+#: views/commands.py:1403
 msgid "Sorry, only thread moderators can use this function"
 msgstr "Promiňte, pouze správci vlákna mohou využít tuto funkci."
 
@@ -9066,6 +9066,9 @@ msgstr "Omlouváme se, zdá se, že máme nějaké technické potíže"
 #: views/writers.py:905
 msgid "the selected answer cannot be a comment"
 msgstr "Vybraná odpověď nemůže být komentář."
+
+#~ msgid "Repeat password"
+#~ msgstr "Nové heslo "
 
 #~ msgid "Answer XXX"
 #~ msgstr "Odpověď"
