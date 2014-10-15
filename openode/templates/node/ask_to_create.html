@@ -18,6 +18,14 @@
             <form action="{% url node_ask_to_create %}" method="post">
                 {% csrf_token %}
                 {{ form }}
+
+                <ul>
+                    <li><small>{% trans %}Point, where will be Node placed.{% endtrans %}</small></li>
+                    <li><small>{% trans %}Public or private Node?{% endtrans %}</small></li>
+                    <li><small>{% trans %}In the case of a private Node specify which users have access.{% endtrans %}</small></li>
+                    <li><small>{% trans %}Which modules will included in Node (Q&A, Discussion, Documents)?{% endtrans %}</small></li>
+                    <li><small>{% trans %}Others...{% endtrans %}</small></li>
+                </ul>
                 <input type="submit" class="button success" value="{% trans %}Ask to create node{% endtrans %}"/>
             </form>
         {% endif %}
