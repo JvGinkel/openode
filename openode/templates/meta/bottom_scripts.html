@@ -98,6 +98,13 @@ DEPRECATED
         //     organization_dropdown.enableAddOrganizations();
         // {% endif %}
         #}
+
+    $('#closeOrganizationNotify').click(function() {
+
+      remove_notification();
+    });
+
+
     });
 
     {% if user_messages %}
@@ -168,3 +175,58 @@ DEPRECATED
         });
     });
 </script>
+
+<script type="application/javascript">
+    // Show spam dialog in enforce_organization.html to motivate users to join organization
+
+    function setCookie(key, value) {
+        var expires = new Date();
+        expires.setTime(expires.getTime() + (1 * 24 * 60 * 60 * 1000));
+        document.cookie = key + '=' + value + ';expires=' + expires.toUTCString();
+    }
+
+    function getCookie(key) {
+        var keyValue = document.cookie.match('(^|;) ?' + key + '=([^;]*)(;|$)');
+        return keyValue ? keyValue[2] : null;
+    }
+
+    function remove_notification() {
+        setCookie('hide_registration_enforcer', true);
+        $('#registration_enforcer').slideUp();
+    }
+
+    function show_notication() {
+        $('#registration_enforcer').show();
+    }
+
+    if (!getCookie('hide_registration_enforcer')) {
+        show_notication();
+    }
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

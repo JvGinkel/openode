@@ -14,7 +14,7 @@ SECRET_KEY = '3#&ds&r_!m2bz+f&$37nlfb4t81t@^&ql6au4rolas(of0dq&s'
 # enable asynchronous calls
 CELERY_ALWAYS_EAGER = False
 
-DEBUG = False
+DEBUG = True
 
 # mayan server IP
 DOCUMENT_SERVER_IP = "127.0.0.1"

@@ -7,9 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 0.7\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2014-10-15 14:58+0200\n"
 "PO-Revision-Date: 2014-09-22 13:27+0100\n"
 "Last-Translator:  <info@coex.cz>\n"
+=======
+"POT-Creation-Date: 2014-09-11 09:43+0200\n"
+"PO-Revision-Date: 2013-01-31 13:56\n"
+"Last-Translator:   <info@coex.cz>\n"
+>>>>>>> master
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -19,11 +25,7 @@ msgstr ""
 "X-Translated-Using: django-rosetta 0.6.8\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: admin.py:47 templates/authopenid/signin.html:66
-#: templates/authopenid/signin.html:269
-#: templates/authopenid/signup_with_password.html:68
-#: templates/node/edit_settings.html:107
-#: templates/user_profile/user_overview.html:54
+#: admin.py:47
 msgid "Email"
 msgstr ""
 
@@ -39,38 +41,39 @@ msgstr ""
 msgid "Move"
 msgstr ""
 
-#: admin.py:235 models/cms.py:41 templates/node/base_post_edit.html:40
-#: templates/node/base_thread_add.html:49
+#: admin.py:235 models/cms.py:41 templates/node/base_thread_add.html:49
 #: templates/node/base_thread_add.html:57
-#: templates/node/base_thread_edit.html:55
-#: templates/user_profile/user_overview.html:148
 msgid "Text"
 msgstr ""
 
-#: admin.py:313 admin.py:349
+#: admin.py:313 admin.py:352 forms/organization.py:12 forms/organization.py:21
 msgid "description"
 msgstr ""
 
+<<<<<<< HEAD
 #: admin.py:350 templates/base.html:292 templates/authopenid/signin.html:76
 #: templates/authopenid/signin.html:273
 #: templates/authopenid/signup_with_password.html:70
 #: templates/authopenid/widget_signin.html:114 utils/forms.py:279
+=======
+#: admin.py:353 utils/forms.py:279
+>>>>>>> master
 msgid "Password"
 msgstr ""
 
-#: admin.py:351
+#: admin.py:354
 msgid "Password retyped"
 msgstr ""
 
-#: admin.py:358
+#: admin.py:361
 msgid "Don't forget to activate Staff status field."
 msgstr ""
 
-#: admin.py:375
+#: admin.py:378
 msgid "Account with this email already exists."
 msgstr ""
 
-#: admin.py:379 deps/django_authopenid/forms.py:304
+#: admin.py:382 deps/django_authopenid/forms.py:304
 msgid "Passwords did not match"
 msgstr ""
 
@@ -80,7 +83,6 @@ msgstr ""
 
 #: dashboard.py:35 templates/admin/document/state.html:48
 #: templates/admin/document/state.html:52
-#: templates/node/snippets/thread_sort.html:10
 msgid "all"
 msgstr ""
 
@@ -1246,9 +1248,13 @@ msgstr ""
 msgid "Enable mark offensive flags"
 msgstr ""
 
+<<<<<<< HEAD
 #: const/__init__.py:59 templates/node/base_thread_detail.html:130
 #: templates/node/annotation/show.html:185
 #: templates/user_profile/user_overview.html:83
+=======
+#: const/__init__.py:59
+>>>>>>> master
 msgid "Never"
 msgstr ""
 
@@ -1275,6 +1281,7 @@ msgstr ""
 msgid "cloud"
 msgstr ""
 
+<<<<<<< HEAD
 #: const/__init__.py:191
 msgid "asked a question"
 msgstr ""
@@ -1352,16 +1359,104 @@ msgid "user asks to join node"
 msgstr ""
 
 #: const/__init__.py:210
+=======
+#: const/__init__.py:192
+msgid "asked a question"
+msgstr ""
+
+#: const/__init__.py:193
+msgid "answered a question"
+msgstr ""
+
+#: const/__init__.py:194 const/__init__.py:295
+msgid "commented question"
+msgstr ""
+
+#: const/__init__.py:195 const/__init__.py:296
+msgid "commented answer"
+msgstr ""
+
+#: const/__init__.py:196
+msgid "edited question"
+msgstr ""
+
+#: const/__init__.py:197
+msgid "edited answer"
+msgstr ""
+
+#: const/__init__.py:198
+msgid "marked best answer"
+msgstr ""
+
+#: const/__init__.py:199
+msgid "upvoted"
+msgstr ""
+
+#: const/__init__.py:200
+msgid "downvoted"
+msgstr ""
+
+#: const/__init__.py:201
+msgid "canceled vote"
+msgstr ""
+
+#: const/__init__.py:202
+msgid "deleted question"
+msgstr ""
+
+#: const/__init__.py:203
+msgid "deleted answer"
+msgstr ""
+
+#: const/__init__.py:204
+msgid "marked offensive"
+msgstr ""
+
+#: const/__init__.py:205
+msgid "updated tags"
+msgstr ""
+
+#: const/__init__.py:206
+msgid "selected followed"
+msgstr ""
+
+#: const/__init__.py:207
+msgid "completed user profile"
+msgstr ""
+
+#: const/__init__.py:208
+msgid "email update sent to user"
+msgstr ""
+
+#: const/__init__.py:209
+msgid "a post was shared"
+msgstr ""
+
+#: const/__init__.py:210
+msgid "user asks to join node"
+msgstr ""
+
+#: const/__init__.py:211
+>>>>>>> master
 #, fuzzy
 msgid "user asks to create node"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: const/__init__.py:213
 msgid "reminder about unanswered questions sent"
+=======
+#: const/__init__.py:212
+#, fuzzy
+msgid "user asks to create organization"
+>>>>>>> master
 msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: const/__init__.py:217
 msgid "reminder about accepting the best answer sent"
 msgstr ""
@@ -1623,17 +1718,277 @@ msgid "Private"
 msgstr ""
 
 #: const/__init__.py:487
+=======
+#: const/__init__.py:215
+msgid "reminder about unanswered questions sent"
+msgstr ""
+
+#: const/__init__.py:219
+msgid "reminder about accepting the best answer sent"
+msgstr ""
+
+#: const/__init__.py:221
+msgid "mentioned in the post"
+msgstr ""
+
+#: const/__init__.py:224
+msgid "created tag description"
+msgstr ""
+
+#: const/__init__.py:228
+msgid "updated tag description"
+msgstr ""
+
+#: const/__init__.py:232
+msgid "created post reject reason"
+msgstr ""
+
+#: const/__init__.py:236
+msgid "updated post reject reason"
+msgstr ""
+
+#: const/__init__.py:294
+msgid "answered question"
+msgstr ""
+
+#: const/__init__.py:297
+msgid "accepted answer"
+msgstr ""
+
+#: const/__init__.py:301
+msgid "SOLVED"
+msgstr ""
+
+#: const/__init__.py:302 models/node.py:153
+msgid "CLOSED"
+msgstr ""
+
+#: const/__init__.py:303 models/node.py:152
+msgid "DELETED"
+msgstr ""
+
+#: const/__init__.py:304 views/readers.py:560
+msgid "initial version"
+msgstr ""
+
+#: const/__init__.py:305
+msgid "retagged"
+msgstr ""
+
+#: const/__init__.py:306
+msgid "[private]"
+msgstr ""
+
+#: const/__init__.py:315
+msgid "show all tags"
+msgstr ""
+
+#: const/__init__.py:316 const/__init__.py:326
+msgid "exclude ignored tags"
+msgstr ""
+
+#: const/__init__.py:317
+msgid "only interesting tags"
+msgstr ""
+
+#: const/__init__.py:321 const/__init__.py:327
+msgid "only subscribed tags"
+msgstr ""
+
+#: const/__init__.py:325
+msgid "email for all tags"
+msgstr ""
+
+#: const/__init__.py:331
+msgid "instantly"
+msgstr ""
+
+#: const/__init__.py:332
+msgid "daily"
+msgstr ""
+
+#: const/__init__.py:333
+msgid "weekly"
+msgstr ""
+
+#: const/__init__.py:334
+msgid "no email"
+msgstr ""
+
+#: const/__init__.py:341
+msgid "identicon"
+msgstr ""
+
+#: const/__init__.py:342
+msgid "mystery-man"
+msgstr ""
+
+#: const/__init__.py:343
+msgid "monsterid"
+msgstr ""
+
+#: const/__init__.py:344
+msgid "wavatar"
+msgstr ""
+
+#: const/__init__.py:345
+msgid "retro"
+msgstr ""
+
+#: const/__init__.py:357
+msgid "moderator"
+msgstr ""
+
+#: const/__init__.py:358
+msgid "approved"
+msgstr ""
+
+#: const/__init__.py:359
+msgid "watched"
+msgstr ""
+
+#: const/__init__.py:360
+msgid "suspended"
+msgstr ""
+
+#: const/__init__.py:361
+msgid "blocked"
+msgstr ""
+
+#: const/__init__.py:389
+msgid "None"
+msgstr ""
+
+#: const/__init__.py:390
+msgid "Gravatar"
+msgstr ""
+
+#: const/__init__.py:391
+msgid "Uploaded Avatar"
+msgstr ""
+
+#: const/__init__.py:395
+msgid "date descendant"
+msgstr ""
+
+#: const/__init__.py:396
+msgid "date ascendant"
+msgstr ""
+
+#: const/__init__.py:397
+msgid "activity descendant"
+msgstr ""
+
+#: const/__init__.py:398
+msgid "activity ascendant"
+msgstr ""
+
+#: const/__init__.py:399
+msgid "answers descendant"
+msgstr ""
+
+#: const/__init__.py:400
+msgid "answers ascendant"
+msgstr ""
+
+#: const/__init__.py:401
+msgid "votes descendant"
+msgstr ""
+
+#: const/__init__.py:402
+msgid "votes ascendant"
+msgstr ""
+
+#: const/__init__.py:440
+msgid "question"
+msgstr ""
+
+#: const/__init__.py:441
+msgid "discussion"
+msgstr ""
+
+#: const/__init__.py:442
+msgid "document"
+msgstr ""
+
+#: const/__init__.py:450
+msgid "Annotation"
+msgstr ""
+
+#: const/__init__.py:450
+msgid "Annot."
+msgstr ""
+
+#: const/__init__.py:451 search/forms.py:21
+msgid "Questions"
+msgstr ""
+
+#: const/__init__.py:451
+msgid "Q&As"
+msgstr ""
+
+#: const/__init__.py:452 search/forms.py:22
+msgid "Discussions"
+msgstr ""
+
+#: const/__init__.py:452
+msgid "Discu."
+msgstr ""
+
+#: const/__init__.py:453 document/models.py:83 search/forms.py:20
+msgid "Documents"
+msgstr ""
+
+#: const/__init__.py:453
+msgid "Docs."
+msgstr ""
+
+#: const/__init__.py:469
+msgid "Regular"
+msgstr ""
+
+#: const/__init__.py:470
+msgid "Category"
+msgstr ""
+
+#: const/__init__.py:487
+msgid "Public"
+msgstr ""
+
+#: const/__init__.py:487
+msgid "Node will be visible and accessible for everyone."
+msgstr ""
+
+#: const/__init__.py:488 const/__init__.py:489
+msgid "Registered users"
+msgstr ""
+
+#: const/__init__.py:488
+msgid "Node will be visible and accessible only for registered users."
+msgstr ""
+
+#: const/__init__.py:489 const/__init__.py:490
+msgid "Private"
+msgstr ""
+
+#: const/__init__.py:489
+>>>>>>> master
 msgid ""
 "Node will be visible for all registered users, but accessible only for node "
 "members, others may ask for access."
 msgstr ""
 
+<<<<<<< HEAD
 #: const/__init__.py:488
+=======
+#: const/__init__.py:490
+>>>>>>> master
 msgid ""
 "Node will be visible and accessible only for node members disregarding "
 "user's role."
 msgstr ""
 
+<<<<<<< HEAD
 #: const/__init__.py:500 const/__init__.py:501 const/__init__.py:502
 msgid "Member"
 msgstr ""
@@ -1643,12 +1998,24 @@ msgid "Read only"
 msgstr ""
 
 #: const/__init__.py:502
+=======
+#: const/__init__.py:502 const/__init__.py:503 const/__init__.py:504
+msgid "Member"
+msgstr ""
+
+#: const/__init__.py:503
+msgid "Read only"
+msgstr ""
+
+#: const/__init__.py:504
+>>>>>>> master
 #, fuzzy
 msgid "Document editor"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: const/__init__.py:503
 msgid "Manager"
 msgstr ""
@@ -1666,15 +2033,39 @@ msgid "comment question"
 msgstr ""
 
 #: const/__init__.py:592 templates/node/snippets/post_controls.html:17
+=======
+#: const/__init__.py:505
+msgid "Manager"
+msgstr ""
+
+#: const/__init__.py:595
+msgid "asked question"
+msgstr ""
+
+#: const/__init__.py:596
+msgid "answer question"
+msgstr ""
+
+#: const/__init__.py:597
+msgid "comment question"
+msgstr ""
+
+#: const/__init__.py:598
+>>>>>>> master
 #, fuzzy
 msgid "close question"
 msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: const/__init__.py:593 templates/node/snippets/post_controls.html:15
+=======
+#: const/__init__.py:599
+>>>>>>> master
 #, fuzzy
 msgid "reopen question"
 msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: const/__init__.py:594
 msgid "comment answer"
 msgstr ""
@@ -1728,20 +2119,84 @@ msgid "follow discussion"
 msgstr ""
 
 #: const/__init__.py:607
+=======
+#: const/__init__.py:600
+msgid "comment answer"
+msgstr ""
+
+#: const/__init__.py:601
+msgid "update question"
+msgstr ""
+
+#: const/__init__.py:602
+msgid "update answer"
+msgstr ""
+
+#: const/__init__.py:603
+msgid "vote up"
+msgstr ""
+
+#: const/__init__.py:604
+msgid "vote down"
+msgstr ""
+
+#: const/__init__.py:605
+msgid "cancel vote"
+msgstr ""
+
+#: const/__init__.py:606
+msgid "delete question"
+msgstr ""
+
+#: const/__init__.py:607
+msgid "delete answer"
+msgstr ""
+
+#: const/__init__.py:608
+msgid "mark offensive"
+msgstr ""
+
+#: const/__init__.py:609
+msgid "update tags"
+msgstr ""
+
+#: const/__init__.py:610
+msgid "follow node"
+msgstr ""
+
+#: const/__init__.py:611
+msgid "follow question"
+msgstr ""
+
+#: const/__init__.py:612
+msgid "follow discussion"
+msgstr ""
+
+#: const/__init__.py:613
+>>>>>>> master
 #, fuzzy
 msgid "update user"
 msgstr "people"
 
+<<<<<<< HEAD
 #: const/__init__.py:609
+=======
+#: const/__init__.py:615
+>>>>>>> master
 #, fuzzy
 msgid "discussion close"
 msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: const/__init__.py:610
+=======
+#: const/__init__.py:616
+>>>>>>> master
 #, fuzzy
 msgid "discussion reopen"
 msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: const/__init__.py:612 const/__init__.py:615
 msgid "create organization description"
 msgstr ""
@@ -1795,12 +2250,68 @@ msgid "thread category edit"
 msgstr ""
 
 #: const/__init__.py:630
+=======
+#: const/__init__.py:618 const/__init__.py:621
+msgid "create organization description"
+msgstr ""
+
+#: const/__init__.py:619
+msgid "update organization description"
+msgstr ""
+
+#: const/__init__.py:622
+msgid "update reject reason"
+msgstr ""
+
+#: const/__init__.py:624
+msgid "ask to join group"
+msgstr ""
+
+#: const/__init__.py:625
+msgid "create node description"
+msgstr ""
+
+#: const/__init__.py:626
+msgid "update node description"
+msgstr ""
+
+#: const/__init__.py:628
+msgid "create discussion"
+msgstr ""
+
+#: const/__init__.py:629
+msgid "update discussion"
+msgstr ""
+
+#: const/__init__.py:631
+msgid "create document"
+msgstr ""
+
+#: const/__init__.py:632
+msgid "update document"
+msgstr ""
+
+#: const/__init__.py:633
+msgid "add thread category"
+msgstr ""
+
+#: const/__init__.py:634
+msgid "thread category move"
+msgstr ""
+
+#: const/__init__.py:635
+msgid "thread category edit"
+msgstr ""
+
+#: const/__init__.py:636
+>>>>>>> master
 #, fuzzy
 msgid "document move"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: const/__init__.py:632
 msgid "change node settings"
 msgstr ""
@@ -1874,12 +2385,88 @@ msgid "refuse joining group"
 msgstr ""
 
 #: const/__init__.py:654
+=======
+#: const/__init__.py:638
+msgid "change node settings"
+msgstr ""
+
+#: const/__init__.py:639
+msgid "change node member"
+msgstr ""
+
+#: const/__init__.py:640
+msgid "change node perex"
+msgstr ""
+
+#: const/__init__.py:642
+msgid "discussion post"
+msgstr ""
+
+#: const/__init__.py:643
+msgid "unfollow node"
+msgstr ""
+
+#: const/__init__.py:644
+msgid "unfollow question"
+msgstr ""
+
+#: const/__init__.py:645
+msgid "unfollow discussion"
+msgstr ""
+
+#: const/__init__.py:647
+msgid "subscribe node"
+msgstr ""
+
+#: const/__init__.py:648
+msgid "subscribe question"
+msgstr ""
+
+#: const/__init__.py:649
+msgid "subscribe discussion"
+msgstr ""
+
+#: const/__init__.py:651
+msgid "unsubscribe node"
+msgstr ""
+
+#: const/__init__.py:652
+msgid "unsubscribe question"
+msgstr ""
+
+#: const/__init__.py:653
+msgid "unsubscribe discussion"
+msgstr ""
+
+#: const/__init__.py:655
+msgid "join group"
+msgstr ""
+
+#: const/__init__.py:656
+msgid "leave group"
+msgstr ""
+
+#: const/__init__.py:657
+msgid "cancel ask to join group"
+msgstr ""
+
+#: const/__init__.py:658
+msgid "approve joining group"
+msgstr ""
+
+#: const/__init__.py:659
+msgid "refuse joining group"
+msgstr ""
+
+#: const/__init__.py:660
+>>>>>>> master
 #, fuzzy
 msgid "join node"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: const/__init__.py:655
 msgid "approve joining node"
 msgstr ""
@@ -1893,19 +2480,39 @@ msgid "send email to user"
 msgstr ""
 
 #: const/__init__.py:658
+=======
+#: const/__init__.py:661
+msgid "approve joining node"
+msgstr ""
+
+#: const/__init__.py:662
+msgid "refuse joining node"
+msgstr ""
+
+#: const/__init__.py:663
+msgid "send email to user"
+msgstr ""
+
+#: const/__init__.py:664
+>>>>>>> master
 #, fuzzy
 msgid "ask to join node"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: const/__init__.py:659
+=======
+#: const/__init__.py:666
+>>>>>>> master
 #, fuzzy
 msgid "ask to create node"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: const/__init__.py:660
 msgid "agreed to create node"
 msgstr ""
@@ -1914,6 +2521,37 @@ msgstr ""
 msgid "declined to create node"
 msgstr ""
 
+=======
+#: const/__init__.py:667
+msgid "agreed to create node"
+msgstr ""
+
+#: const/__init__.py:668
+msgid "declined to create node"
+msgstr ""
+
+#: const/__init__.py:670
+#, fuzzy
+msgid "ask to create organization"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: const/__init__.py:671
+#, fuzzy
+msgid "agreed to create organization"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: const/__init__.py:672
+#, fuzzy
+msgid "declined to create organization"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+>>>>>>> master
 #: const/message_keys.py:21
 msgid "most relevant questions"
 msgstr ""
@@ -1926,7 +2564,11 @@ msgstr ""
 msgid "by relevance"
 msgstr ""
 
+<<<<<<< HEAD
 #: const/message_keys.py:24 templates/node/snippets/thread_sort.html:43
+=======
+#: const/message_keys.py:24
+>>>>>>> master
 msgid "click to see the oldest questions"
 msgstr ""
 
@@ -1934,11 +2576,19 @@ msgstr ""
 msgid "by date"
 msgstr ""
 
+<<<<<<< HEAD
 #: const/message_keys.py:26 templates/node/snippets/thread_sort.html:43
 msgid "click to see the newest questions"
 msgstr ""
 
 #: const/message_keys.py:27 templates/node/snippets/thread_sort.html:44
+=======
+#: const/message_keys.py:26
+msgid "click to see the newest questions"
+msgstr ""
+
+#: const/message_keys.py:27
+>>>>>>> master
 msgid "click to see the least recently updated questions"
 msgstr ""
 
@@ -1946,11 +2596,19 @@ msgstr ""
 msgid "by activity"
 msgstr ""
 
+<<<<<<< HEAD
 #: const/message_keys.py:29 templates/node/snippets/thread_sort.html:44
 msgid "click to see the most recently updated questions"
 msgstr ""
 
 #: const/message_keys.py:30 templates/node/snippets/thread_sort.html:46
+=======
+#: const/message_keys.py:29
+msgid "click to see the most recently updated questions"
+msgstr ""
+
+#: const/message_keys.py:30
+>>>>>>> master
 msgid "click to see the least answered questions"
 msgstr ""
 
@@ -1958,7 +2616,11 @@ msgstr ""
 msgid "by answers"
 msgstr ""
 
+<<<<<<< HEAD
 #: const/message_keys.py:32 templates/node/snippets/thread_sort.html:46
+=======
+#: const/message_keys.py:32
+>>>>>>> master
 msgid "click to see the most answered questions"
 msgstr ""
 
@@ -2346,13 +3008,11 @@ msgstr ""
 msgid "%(site)s user name and password"
 msgstr ""
 
-#: deps/django_authopenid/util.py:397 templates/authopenid/signin.html:115
-#: templates/authopenid/signin.html:284
-#: templates/authopenid/widget_signin.html:121
+#: deps/django_authopenid/util.py:397
 msgid "Create a password-protected account"
 msgstr ""
 
-#: deps/django_authopenid/util.py:398 templates/authopenid/signin.html:133
+#: deps/django_authopenid/util.py:398
 msgid "Change your password"
 msgstr ""
 
@@ -2476,17 +3136,10 @@ msgid "You have been successfully logged out."
 msgstr ""
 
 #: deps/django_authopenid/views.py:1226
-#: templates/authopenid/email_validation.html:2
-#: templates/authopenid/verify_email.html:3
-#: templates/authopenid/verify_email.html:19
 msgid "Confirm your registration"
 msgstr ""
 
 #: deps/django_authopenid/views.py:1269
-#: templates/authopenid/lost_password.html:3
-#: templates/authopenid/lost_password.html:16
-#: templates/authopenid/lost_password_sent.html:9
-#: templates/authopenid/signin.html:97
 #, fuzzy
 msgid "Lost password"
 msgstr ""
@@ -2529,7 +3182,11 @@ msgstr ""
 
 #: deps/livesettings/templates/livesettings/group_settings.html:19
 #: deps/livesettings/templates/livesettings/site_settings.html:33
+<<<<<<< HEAD
 #: templates/base.html:310 templates/admin/common/move.html:7
+=======
+#: templates/admin/common/move.html:7
+>>>>>>> master
 msgid "Home"
 msgstr ""
 
@@ -2560,13 +3217,6 @@ msgid "Documentation"
 msgstr ""
 
 #: deps/livesettings/templates/livesettings/site_settings.html:30
-#: templates/authopenid/change_password.html:3
-#: templates/authopenid/change_password.html:24
-#: templates/authopenid/signin.html:163 templates/authopenid/signin.html:314
-#: templates/authopenid/widget_signin.html:149
-#: templates/authopenid/emails/lost_password.html:3
-#: templates/authopenid/emails/lost_password.html:5
-#: templates/user_profile/user.html:64
 msgid "Change password"
 msgstr ""
 
@@ -2635,10 +3285,15 @@ msgstr ""
 msgid "Is deleted"
 msgstr ""
 
+<<<<<<< HEAD
 #: document/models.py:82 templates/node/document/detail.html:6
 #: templates/node/document/detail.html:164
 #: templates/search/results/autocomplete_document.html:2
 #: templates/search/results/document.html:9 utils/notify_users.py:31
+=======
+#: document/models.py:82 templates/node/document/detail.html:164
+#: utils/notify_users.py:31
+>>>>>>> master
 msgid "Document"
 msgstr ""
 
@@ -2650,7 +3305,7 @@ msgstr ""
 msgid "Documents revisions"
 msgstr ""
 
-#: document/models.py:324 templates/search/results/page.html:22
+#: document/models.py:324
 msgid "Page"
 msgstr ""
 
@@ -2700,8 +3355,7 @@ msgid_plural "must be < %d words"
 msgstr[0] ""
 msgstr[1] ""
 
-#: forms/__init__.py:226 templates/widgets/markdown_help.html:5
-#: templates/widgets/markdown_help.html:9
+#: forms/__init__.py:226
 msgid "title"
 msgstr ""
 
@@ -2763,8 +3417,7 @@ msgid ""
 "them."
 msgstr ""
 
-#: forms/__init__.py:366 templates/node/base_post_edit.html:67
-#: templates/search/search.html:7
+#: forms/__init__.py:366
 msgid "tags"
 msgstr ""
 
@@ -2829,7 +3482,7 @@ msgid ""
 "Subject line is expected in the format: [tag1, tag2, tag3,...] question title"
 msgstr ""
 
-#: forms/__init__.py:785 templates/thread_close.html:50
+#: forms/__init__.py:785
 msgid "Reason"
 msgstr ""
 
@@ -2875,17 +3528,12 @@ msgid "no %(sitename)s email please, thanks"
 msgstr ""
 
 #: forms/__init__.py:1107 models/cms.py:33 models/cms.py:72
-#: templates/node/base_post_edit.html:25
 #: templates/node/base_thread_add.html:48
 #: templates/node/base_thread_add.html:56
-#: templates/node/base_thread_edit.html:54
-#: templates/node/edit_settings.html:46
 msgid "Title"
 msgstr ""
 
 #: forms/__init__.py:1110 templates/node/base_thread_add.html:53
-#: templates/user_profile/user_edit.html:83
-#: templates/user_profile/user_overview.html:92
 msgid "Description"
 msgstr ""
 
@@ -2902,41 +3550,49 @@ msgstr ""
 msgid "Text must be shorter than %d characters."
 msgstr ""
 
-#: forms/node.py:91
+#: forms/node.py:92
 #, python-format
 msgid "%s is not valid email."
 msgstr ""
 
-#: forms/node.py:93
+#: forms/node.py:94
 #, python-format
 msgid "%s are not valid emails."
 msgstr ""
 
-#: forms/node.py:96
+#: forms/node.py:97
 #, python-format
 msgid "%s is not existing user."
 msgstr ""
 
-#: forms/node.py:98
+#: forms/node.py:99
 #, python-format
 msgid "%s are not existing users."
 msgstr ""
 
-#: forms/node.py:101
+#: forms/node.py:102
 #, python-format
 msgid "%s is already user with role in node."
 msgstr ""
 
-#: forms/node.py:103
+#: forms/node.py:104
 #, python-format
 msgid "%s are already users with role in node."
 msgstr ""
 
+<<<<<<< HEAD
 #: forms/node.py:172
 msgid "Name"
 msgstr ""
 
 #: forms/node.py:173
+=======
+#: forms/node.py:173
+msgid "Name"
+msgstr ""
+
+#: forms/node.py:174
+>>>>>>> master
 msgid "Note"
 msgstr ""
 
@@ -3058,7 +3714,6 @@ msgid ""
 msgstr ""
 
 #: management/commands/send_email_notifications.py:349
-#: templates/email/notification.html:2 templates/email/notification.html:3
 #, fuzzy
 msgid "Updates overview"
 msgstr "people"
@@ -3436,13 +4091,13 @@ msgstr ""
 msgid "\"%(title)s\""
 msgstr ""
 
-#: models/__init__.py:3312 templates/email/welcome.html:5
+#: models/__init__.py:3312
 msgid ""
 "Your registration is complete! To get desired content use our smart search "
 "field or simply browse around."
 msgstr ""
 
-#: models/__init__.py:3329 templates/email/welcome.html:2
+#: models/__init__.py:3329
 msgid "Your registration is complete"
 msgstr ""
 
@@ -3575,7 +4230,7 @@ msgstr ""
 msgid "Forum perex"
 msgstr ""
 
-#: models/node.py:81 templates/node/edit_perexes.html:68
+#: models/node.py:81
 msgid "Annotation perex"
 msgstr ""
 
@@ -3653,7 +4308,7 @@ msgstr ""
 msgid "Post a comment"
 msgstr ""
 
-#: models/reply_by_email.py:40 templates/node/discussion/edit_post.html:19
+#: models/reply_by_email.py:40
 msgid "Edit post"
 msgstr ""
 
@@ -3687,17 +4342,20 @@ msgstr ""
 msgid "Tags %s are new and will be submitted for the moderators approval"
 msgstr ""
 
-#: models/tag.py:288 templates/list_suggested_tags.html:11
-#: templates/tag_detail.html:4
+#: models/tag.py:288
 msgid "Tag"
 msgstr ""
 
+<<<<<<< HEAD
 #: models/tag.py:289 templates/base.html:95 templates/homepage.html:152
 #: templates/tag_list.html:4 templates/tag_list.html.py:7
 #: templates/node/base_post_edit.html:61
 #: templates/node/base_thread_add.html:64
 #: templates/node/base_thread_edit.html:60 templates/search/search.html:143
 #: templates/tags/header.html:9 templates/widgets/tag_category_selector.html:2
+=======
+#: models/tag.py:289
+>>>>>>> master
 msgid "Tags"
 msgstr ""
 
@@ -3731,6 +4389,7 @@ msgstr[1] ""
 msgid "Tag %s is new and will be submitted for the moderators approval"
 msgstr ""
 
+<<<<<<< HEAD
 #: models/user.py:309
 msgid "Entire forum"
 msgstr ""
@@ -3805,23 +4464,90 @@ msgstr ""
 
 #: search/forms.py:19 templates/homepage.html:9 templates/homepage.html.py:97
 #: templates/user_profile/user_overview.html:111
+=======
+#: models/user.py:298
+msgid "Entire forum"
+msgstr ""
+
+#: models/user.py:299
+msgid "Questions that I asked"
+msgstr ""
+
+#: models/user.py:300
+msgid "Questions that I answered"
+msgstr ""
+
+#: models/user.py:301
+msgid "Individually selected questions"
+msgstr ""
+
+#: models/user.py:302
+msgid "Mentions and comment responses"
+msgstr ""
+
+#: models/user.py:305
+msgid "Instantly"
+msgstr ""
+
+#: models/user.py:306
+msgid "Daily"
+msgstr ""
+
+#: models/user.py:307
+msgid "Weekly"
+msgstr ""
+
+#: models/user.py:308
+msgid "No email"
+msgstr ""
+
+#: models/user.py:474
+msgid "Can join when they want"
+msgstr ""
+
+#: models/user.py:475
+msgid "Users ask permission"
+msgstr ""
+
+#: models/user.py:476
+msgid "Moderator adds users"
+msgstr ""
+
+#: models/user.py:514
+msgid "Please give a list of valid email addresses."
+msgstr ""
+
+#: models/user.py:597
+msgid "action time"
+msgstr ""
+
+#: models/user.py:600
+msgid "object id"
+msgstr ""
+
+#: models/user.py:601
+msgid "object repr"
+msgstr ""
+
+#: models/user.py:603
+msgid "action flag"
+msgstr ""
+
+#: models/user.py:604
+msgid "change message"
+msgstr ""
+
+#: search/forms.py:19
+>>>>>>> master
 #, fuzzy
 msgid "Nodes"
 msgstr "Verification Email from Q&A forum"
 
-#: search/forms.py:23 templates/base.html:107
-#: templates/organization_detail.html:8 templates/organization_list.html:4
-#: templates/organization_list.html.py:7 templates/organization_list.html:25
-#: templates/user_profile/user_overview.html:60
+#: search/forms.py:23
 msgid "Organizations"
 msgstr ""
 
-#: search/forms.py:24 templates/base.html:101
-#: templates/organization_detail.html:5 templates/user_list.html:4
-#: templates/user_list.html.py:7 templates/snippets/user_list.html:6
-#: templates/user_profile/user.html:9 templates/user_profile/user.html:11
-#: templates/user_profile/user_edit.html:22
-#: templates/user_profile/user_edit.html:24
+#: search/forms.py:24
 msgid "Users"
 msgstr "People"
 
@@ -3833,122 +4559,119 @@ msgstr ""
 msgid "more results"
 msgstr ""
 
-#: templates/403.html:3 templates/403.html.py:6
-msgid "Forbidden"
-msgstr ""
-
-#: templates/404.jinja.html:3 templates/404.jinja.html.py:12
+#: templates/thread_close.html:22 templates/thread_reopen.html:22
 #, fuzzy
-msgid "Page not found"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/404.jinja.html:15
-msgid "Sorry, could not find the page you requested."
-msgstr ""
-
-#: templates/404.jinja.html:17
-#, fuzzy
-msgid "This might have happened for the following reasons:"
+msgid "Back to question"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/404.jinja.html:19
-msgid "this question or answer has been deleted;"
-msgstr ""
-
-#: templates/404.jinja.html:20
-msgid "url has error - please check it;"
-msgstr ""
-
-#: templates/404.jinja.html:22
-msgid "if you believe this error 404 should not have occured, please"
-msgstr ""
-
-#: templates/404.jinja.html:24
-msgid "report this problem"
-msgstr ""
-
-#: templates/404.jinja.html:39 templates/404.jinja.html.py:48
-#: templates/500.jinja.html:61
-msgid "back to previous page"
-msgstr ""
-
-#: templates/404.jinja.html:40 templates/node/snippets/thread_sort.html:10
-#: templates/widgets/scope_nav.html:6
+#: templates/thread_close.html:26 templates/thread_reopen.html:26
 #, fuzzy
-msgid "see all questions"
+msgid "Back to discussion"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/404.jinja.html:41
+#: templates/admin/show_perm_table.html:5
+#: templates/admin/document/state.html:5
+#: templates/admin/document/state.html:11
+msgid "Documents state"
+msgstr ""
+
+#: templates/admin/show_perm_table.html:36
 #, fuzzy
-msgid "see all tags"
+msgid "Permissions"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/500.jinja.html:4 templates/500.jinja.html.py:54
-msgid "Internal server error"
+#: templates/admin/common/login.html:37
+msgid "Password:"
 msgstr ""
 
-#: templates/500.jinja.html:56
-msgid "system error log is recorded, error will be fixed as soon as possible"
+#: templates/admin/common/login.html:42
+msgid "Log in"
 msgstr ""
 
-#: templates/500.jinja.html:57
-msgid "please report the error to the site administrators if you wish"
+#: templates/admin/document/state.html:10
+msgid "Status"
 msgstr ""
 
-#: templates/base.html:48
-msgid "You are using an outdated browser"
+#: templates/admin/document/state.html:16
+msgid "Documents total"
 msgstr ""
 
-#: templates/base.html:50
-msgid ""
-"For a better experience using this site, please upgrade to a modern web "
-"browser."
+#: templates/admin/document/state.html:25
+msgid "All document with error during OCR process"
 msgstr ""
 
-#: templates/base.html:79 templates/node/ask_to_join.html:39
-#: templates/search/search.html:109
-#: templates/user_profile/user_overview.html:183
-#, fuzzy
-msgid "Register now!"
-msgstr "Verification Email from Q&A forum"
+#: templates/admin/document/state.html:35
+msgid "All document with error during OCR process and contains valid file"
+msgstr ""
 
+#: templates/admin/document/state.html:48
+msgid "complete reprocess - 10"
+msgstr ""
+
+#: templates/admin/document/state.html:48
+msgid "10"
+msgstr ""
+
+#: templates/admin/document/state.html:48
+msgid "complete reprocess - all"
+msgstr ""
+
+#: templates/admin/document/state.html:52
+msgid "only retrive texts - 50"
+msgstr ""
+
+#: templates/admin/document/state.html:52
+msgid "only retrive texts - all"
+msgstr ""
+
+#: templates/admin/document/state.html:73
+msgid "Mayan state"
+msgstr ""
+
+#: templates/admin/document/state.html:78
+msgid "Queue name"
+msgstr ""
+
+<<<<<<< HEAD
 #: templates/base.html:112 templates/live/live.html:4
 #: templates/node/annotation/show.html:109
 msgid "Live"
+=======
+#: templates/admin/document/state.html:82
+msgid "Clean"
+>>>>>>> master
 msgstr ""
 
-#: templates/base.html:135 templates/base.html.py:137
-#: templates/search/search.html:11 templates/search/search.html.py:17
-#: templates/search/search.html:29
-msgid "Search"
+#: templates/admin/document/state.html:88
+#: templates/admin/document/state.html:96
+#: templates/admin/document/state.html:114
+msgid "State"
 msgstr ""
 
-#: templates/base.html:148
+#: templates/admin/document/state.html:92
 #, fuzzy
-msgid "My Nodes"
-msgstr "Verification Email from Q&A forum"
+msgid "Documents in queue"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/base.html:153 templates/base.html.py:193
-#, fuzzy
-msgid "My Questions"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/base.html:158 templates/base.html.py:201
-#, fuzzy
-msgid "My Discussions"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/base.html:167
-msgid "Admin"
+#: templates/admin/document/state.html:97
+msgid "Count"
 msgstr ""
 
-#: templates/base.html:171
-#, fuzzy
-msgid "Followed"
-msgstr "Verification Email from Q&A forum"
+#: templates/admin/document/state.html:109
+msgid "Files"
+msgstr ""
 
+#: templates/admin/document/state.html:113
+msgid "Mimetype"
+msgstr ""
+
+#: templates/admin/document/state.html:115
+msgid "Timestamp"
+msgstr ""
+
+<<<<<<< HEAD
 #: templates/base.html:185
 #, fuzzy
 msgid "Followed Nodes"
@@ -3999,10 +4722,33 @@ msgstr ""
 
 #: templates/base.html:279 templates/user_profile/user.html:53
 #: templates/user_profile/user_edit.html:14
+=======
+#: templates/admin/document/state.html:116
+msgid "Size"
+msgstr ""
+
+#: templates/admin/document/state.html:117
+msgid "Reprocess"
+msgstr ""
+
+#: templates/admin/document/state.html:126
+msgid "Reprocess in Mayan"
+msgstr ""
+
+#: templates/authopenid/signin.html:13
+#: templates/authopenid/signup_with_password.html:16
+#: templates/authopenid/verify_email.html:6 templates/cms/archive.html:55
+msgid "Back to Homepage"
+msgstr ""
+
+#: templates/authopenid/signin.html:18
+#: templates/user_profile/user_edit.html:10
+>>>>>>> master
 #, fuzzy
-msgid "Update profile"
+msgid "Back to Profile"
 msgstr "people"
 
+<<<<<<< HEAD
 #: templates/base.html:280 templates/authopenid/logout.html:3
 msgid "Logout"
 msgstr "Sign out"
@@ -4025,311 +4771,264 @@ msgstr ""
 msgid ""
 "Open source written by <a href=\"%(coex_url)s\">COEX</a> in <a href="
 "\"%(python_url)s\">Python</a> and <a href=\"%(django_url)s\">Django</a>"
-msgstr ""
-
-#: templates/faq_static.html:3 templates/faq_static.html.py:5
-msgid "FAQ"
-msgstr ""
-
-#: templates/faq_static.html:5
+=======
+#: templates/email/user_profile_email.html:6
 #, fuzzy
-msgid "Frequently Asked Questions "
-msgstr "Verification Email from Q&A forum"
+msgid "user's profile"
+msgstr "User login"
 
-#: templates/faq_static.html:6
-msgid "What kinds of questions can I ask here?"
+#: templates/node/base_thread_add.html:51
+#: templates/node/base_thread_edit.html:49
+msgid "please enter a descriptive title for your discussion"
 msgstr ""
 
-#: templates/faq_static.html:7
-msgid ""
-"Most importantly - questions should be <strong>relevant</strong> to this "
-"community."
+#: templates/node/base_thread_add.html:52
+msgid "Theme"
 msgstr ""
 
-#: templates/faq_static.html:8
-msgid ""
-"Before you ask - please make sure to search for a similar question. You can "
-"search questions by their title or tags."
+#: templates/node/base_thread_add.html:55
+#: templates/node/base_thread_edit.html:51
+msgid "please enter a descriptive title for your document"
 msgstr ""
 
-#: templates/faq_static.html:10
-msgid "What kinds of questions should be avoided?"
+#: templates/node/edit_perexes.html:22 templates/node/edit_settings.html:19
+#: templates/node/followers.html:52
+msgid "Back to Node"
+>>>>>>> master
 msgstr ""
 
-#: templates/faq_static.html:11
-msgid ""
-"Please avoid asking questions that are not relevant to this community, too "
-"subjective and argumentative."
+#: templates/node/annotation/edit.html:53
+msgid "Back to Annotation"
 msgstr ""
 
-#: templates/faq_static.html:13
-msgid "What should I avoid in my answers?"
+#: templates/node/discussion/add.html:14
+msgid "Back to Discussions"
 msgstr ""
 
-#: templates/faq_static.html:14
-msgid ""
-"is a <strong>question and answer</strong> site - <strong>it is not a "
-"discussion group</strong>. Please avoid holding debates in your answers as "
-"they tend to dilute the essense of questions and answers. For the brief "
-"discussions please use commenting facility."
+#: templates/node/discussion/detail.html:227
+msgid "Discussion"
 msgstr ""
 
-#: templates/faq_static.html:15
-#, fuzzy
-msgid "Who moderates this community?"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/faq_static.html:16
-msgid "The short answer is: <strong>you</strong>."
+#: templates/node/discussion/detail.html:227
+msgid "help_discussion_detail_short"
 msgstr ""
 
-#: templates/faq_static.html:17
-msgid "This website is moderated by the users."
+#: templates/node/discussion/detail.html:227
+#: templates/node/document/detail.html:164
+#: templates/node/question/detail.html:334
+msgid "More help"
 msgstr ""
 
-#: templates/faq_static.html:18
-msgid ""
-"Karma system allows users to earn rights to perform a variety of moderation "
-"tasks"
+#: templates/node/discussion/detail.html:227
+msgid "help_discussion_detail_html"
 msgstr ""
 
-#: templates/faq_static.html:20
-msgid "How does karma system work?"
+#: templates/node/discussion/detail.html:228
+msgid "Discussion tools"
 msgstr ""
 
-#: templates/faq_static.html:21
-msgid ""
-"When a question or answer is upvoted, the user who posted them will gain "
-"some points, which are called \\\"karma points\\\". These points serve as a "
-"rough measure of the community trust to him/her. Various moderation tasks "
-"are gradually assigned to the users based on those points."
+#: templates/node/discussion/edit.html:12
+#: templates/node/discussion/edit_post.html:15
+#: templates/node/discussion/followers.html:13
+#: templates/node/discussion/last_visit.html:13
+msgid "Back to Discussion"
 msgstr ""
 
-#: templates/faq_static.html:22
+#: templates/node/document/add.html:13 templates/node/document/detail.html:159
+#: templates/node/document/edit_directory.html:19
+msgid "Back to Documents"
+msgstr ""
+
+#: templates/node/document/detail.html:164
+msgid "help_document_detail_short"
+msgstr ""
+
+#: templates/node/document/detail.html:164
+msgid "help_document_detail_html"
+msgstr ""
+
+#: templates/node/document/detail.html:165
+msgid "Document tools"
+msgstr ""
+
+#: templates/node/document/edit.html:14
+#: templates/node/document/followers.html:13
+#: templates/node/document/last_visit.html:13
+msgid "Back to Document"
+msgstr ""
+
+#: templates/node/question/add.html:13 templates/node/question/detail.html:329
+msgid "Back to Questions"
+msgstr ""
+
+#: templates/node/question/detail.html:219
+msgid "answered"
+msgstr ""
+
+#: templates/node/question/detail.html:221
+msgid "updated"
+msgstr ""
+
+#: templates/node/question/detail.html:334 utils/notify_users.py:29
+#: utils/notify_users.py:104
+msgid "Question"
+msgstr ""
+
+#: templates/node/question/detail.html:334
+msgid "help_question_detail_short"
+msgstr ""
+
+#: templates/node/question/detail.html:334
+msgid "help_question_detail_html"
+msgstr ""
+
+#: templates/node/question/detail.html:335
+msgid "Question tools"
+msgstr ""
+
+#: templates/node/question/edit.html:12
+#: templates/node/question/edit_post.html:15
+#: templates/node/question/followers.html:14
+#: templates/node/question/last_visit.html:13
+msgid "Back to Question"
+msgstr ""
+
+#: templatetags/extra_filters_jinja.py:469
+msgid "no"
+msgstr ""
+
+#: templatetags/extra_filters_jinja.py:563
+#, python-format
+msgid "Reply to the post by %(author)s &ndash; %(datetime_str)s"
+msgstr ""
+
+#: templatetags/extra_filters_jinja.py:572
+msgid "Quoted post was deleted or does not exist in this discussion."
+msgstr ""
+
+#: templatetags/extra_tags.py:49
+#, python-format
+msgid "%(username)s gravatar image"
+msgstr ""
+
+#: templatetags/extra_tags.py:62
+#, python-format
+msgid "perm-%s"
+msgstr ""
+
+#: templatetags/mptt_tags.py:30
+#, python-format
+msgid "full_tree_for_model tag was given an invalid model: %s"
+msgstr ""
+
+#: templatetags/mptt_tags.py:54
+#, python-format
+msgid "drilldown_tree_for_node tag was given an invalid model: %s"
+msgstr ""
+
+#: templatetags/mptt_tags.py:61
+#, python-format
+msgid "drilldown_tree_for_node tag was given an invalid model field: %s"
+msgstr ""
+
+#: templatetags/mptt_tags.py:88
+#, python-format
+msgid "%s tag requires three arguments"
+msgstr ""
+
+#: templatetags/mptt_tags.py:90 templatetags/mptt_tags.py:145
+#, python-format
+msgid "second argument to %s tag must be 'as'"
+msgstr ""
+
+#: templatetags/mptt_tags.py:142
+#, python-format
+msgid "%s tag requires either three, seven or eight arguments"
+msgstr ""
+
+#: templatetags/mptt_tags.py:149
+#, python-format
+msgid "if seven arguments are given, fourth argument to %s tag must be 'with'"
+msgstr ""
+
+#: templatetags/mptt_tags.py:152
+#, python-format
+msgid "if seven arguments are given, sixth argument to %s tag must be 'in'"
+msgstr ""
+
+#: templatetags/mptt_tags.py:157
 #, python-format
 msgid ""
-"For example, if you ask an interesting question or give a helpful answer, "
-"your input will be upvoted. On the other hand if the answer is misleading - "
-"it will be downvoted. Each vote in favor will generate <strong>"
-"%(REP_GAIN_FOR_RECEIVING_UPVOTE)s</strong> points, each vote against will "
-"subtract <strong>%(REP_LOSS_FOR_RECEIVING_DOWNVOTE)s</strong> points. There "
-"is a limit of <strong>%(MAX_REP_GAIN_PER_USER_PER_DAY)s</strong> points that "
-"can be accumulated for a question or answer per day. The table below "
-"explains reputation point requirements for each type of moderation task."
+"if eight arguments are given, fourth argument to %s tag must be 'cumulative'"
 msgstr ""
 
-#: templates/faq_static.html:32 templates/user_profile/user_votes.html:13
-msgid "upvote"
-msgstr ""
-
-#: templates/faq_static.html:36
-#, fuzzy
-msgid "add comments"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/faq_static.html:40 templates/user_profile/user_votes.html:15
-msgid "downvote"
-msgstr ""
-
-#: templates/faq_static.html:43
-#, fuzzy
-msgid " accept own answer to own questions"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/faq_static.html:47
-#, fuzzy
-msgid "open and close own questions"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/faq_static.html:51
-#, fuzzy
-msgid "retag other's questions"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/faq_static.html:55
-#, fuzzy
-msgid "edit any answer"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/faq_static.html:59
-#, fuzzy
-msgid "delete any comment"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/faq_static.html:63
-msgid "How to change my picture (gravatar) and what is gravatar?"
-msgstr ""
-
-#: templates/faq_static.html:64
-msgid ""
-"<p>The picture that appears on the users profiles is called "
-"<strong>gravatar</strong> (which means <strong>g</strong>lobally <strong>r</"
-"strong>ecognized <strong>avatar</strong>).</p><p>Here is how it works: a "
-"<strong>cryptographic key</strong> (unbreakable code) is calculated from "
-"your email address. You upload your picture (or your favorite alter ego "
-"image) the website <a href='http://gravatar.com'><strong>gravatar.com</"
-"strong></a> from where we later retreive your image using the key.</"
-"p><p>This way all the websites you trust can show your image next to your "
-"posts and your email address remains private.</p><p>Please "
-"<strong>personalize your account</strong> with an image - just register at "
-"<a href='http://gravatar.com'><strong>gravatar.com</strong></a> (just please "
-"be sure to use the same email address that you used to register with us). "
-"Default image that looks like a kitchen tile is generated automatically.</p>"
-msgstr ""
-
-#: templates/faq_static.html:65
-msgid "To register, do I need to create new password?"
-msgstr ""
-
-#: templates/faq_static.html:66
-msgid ""
-"No, you don't have to. You can login through any service that supports "
-"OpenID, e.g. Google, Yahoo, AOL, etc."
-msgstr ""
-
-#: templates/faq_static.html:67
-msgid "\"Login now!\""
-msgstr ""
-
-#: templates/faq_static.html:69
-msgid "Why other people can edit my questions/answers?"
-msgstr ""
-
-#: templates/faq_static.html:70
-msgid "Goal of this site is..."
-msgstr ""
-
-#: templates/faq_static.html:70
-msgid ""
-"So questions and answers can be edited like wiki pages by experienced users "
-"of this site and this improves the overall quality of the knowledge base "
-"content."
-msgstr ""
-
-#: templates/faq_static.html:71
-msgid "If this approach is not for you, we respect your choice."
-msgstr ""
-
-#: templates/faq_static.html:73
-#, fuzzy
-msgid "Still have questions?"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/faq_static.html:74
+#: templatetags/mptt_tags.py:160
 #, python-format
-msgid ""
-"Please <a href='%(ask_question_url)s'>ask</a> your question, help make our "
-"community better!"
+msgid "if eight arguments are given, fifth argument to %s tag must be 'count'"
 msgstr ""
 
-#: templates/feedback.html:3
-msgid "Feedback"
-msgstr ""
-
-#: templates/feedback.html:5
-msgid "Give us your feedback!"
-msgstr ""
-
-#: templates/feedback.html:14
+#: templatetags/mptt_tags.py:163
 #, python-format
-msgid ""
-"\n"
-"        <span class='big strong'>Dear %(screen_name)s</span>, we look "
-"forward to hearing your feedback.\n"
-"        Please type and send us your message below.\n"
-"        "
+msgid "if eight arguments are given, seventh argument to %s tag must be 'in'"
 msgstr ""
 
-#: templates/feedback.html:21
-msgid ""
-"\n"
-"        <span class='big strong'>Dear visitor</span>, we look forward to "
-"hearing your feedback.\n"
-"        Please type and send us your message below.\n"
-"        "
+#: templatetags/mptt_tags.py:253
+msgid "cache_tree_children was passed nodes in the wrong order!"
 msgstr ""
 
-#: templates/feedback.html:30
-msgid "(to hear from us please enter a valid email or check the box below)"
+#: templatetags/mptt_tags.py:351
+#, python-format
+msgid "%s tag requires a queryset"
 msgstr ""
 
-#: templates/feedback.html:37 templates/feedback.html.py:46
-msgid "(this field is required)"
+#: utils/__init__.py:473
+#, python-format
+msgid "yesterday %(hours)d:%(minutes)02d"
 msgstr ""
 
-#: templates/feedback.html:55
-msgid "(Please solve the captcha)"
+#: utils/__init__.py:475
+#, python-format
+msgid "%(hours)d hours ago"
 msgstr ""
 
-#: templates/feedback.html:63
-msgid "Send Feedback"
+#: utils/__init__.py:477
+msgid "an hour ago"
 msgstr ""
 
-#: templates/feedback.html:64 templates/subscribe_for_tags.html:14
-#: templates/thread_retag.html:22 templates/authopenid/changeemail.html:50
-#: templates/node/base_post_edit.html:115
-#: templates/node/annotation/edit.html:37
-#: templates/node/annotation/edit.html:43
-#: templates/user_profile/reject_post_dialog.html:36
-#: templates/user_profile/reject_post_dialog.html:74
-#: templates/user_profile/reject_post_dialog.html:104
-msgid "Cancel"
+#: utils/__init__.py:479
+#, python-format
+msgid "%(minutes)d minutes ago"
 msgstr ""
 
-#: templates/homepage.html:55
-#, fuzzy
-msgid "Add news"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/homepage.html:57 templates/cms/archive.html:18
-#: templates/cms/archive.html.py:59
-msgid "News archive"
+#: utils/__init__.py:481
+msgid "1 minute ago"
 msgstr ""
 
-#: templates/homepage.html:59
-msgid "News"
+#: utils/__init__.py:483
+msgid "less then minute ago"
 msgstr ""
 
-#: templates/homepage.html:62 templates/cms/archive.html:22
-msgid "added"
-msgstr ""
-
-#: templates/homepage.html:69 templates/macros.html:334
-#: templates/organization_detail.html:31 templates/revisions.html:38
-#: templates/revisions.html.py:41 templates/cms/archive.html:27
-#: templates/cms/static_page.html:14 templates/node/document/detail.html:93
-#: templates/node/document/list.html:73
-#: templates/node/snippets/answer_controls.html:69
-#: templates/node/snippets/post_controls.html:71
-#: templates/snippets/post_comments_widget.html:48
-#: templates/widgets/organization_info.html:15
-msgid "edit"
-msgstr ""
-
+<<<<<<< HEAD
 #: templates/homepage.html:87
 #, fuzzy
 msgid "Edit node list"
+=======
+#: utils/decorators.py:105 views/commands.py:132
+msgid "Oops, apologies - there was some error"
+>>>>>>> master
 msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/homepage.html:90
 #, fuzzy
 msgid "Add new node"
+=======
+#: utils/decorators.py:125
+msgid "Please login to post"
+>>>>>>> master
 msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/homepage.html:93 templates/node/ask_to_create.html:5
 #: templates/node/ask_to_create.html:8 templates/node/ask_to_create.html:29
 #, fuzzy
@@ -4364,74 +5063,69 @@ msgstr "Verification Email from Q&A forum"
 #, fuzzy
 msgid "All tags"
 msgstr "Verification Email from Q&A forum"
-
-#: templates/import_data.html:2 templates/import_data.html.py:4
-msgid "Import StackExchange data"
+=======
+#: utils/decorators.py:222
+msgid "Spam was detected on your post, sorry for if this is a mistake"
 msgstr ""
 
-#: templates/import_data.html:13
-msgid ""
-"<em>Warning:</em> if your database is not empty, please back it up\n"
-"        before attempting this operation."
+#: utils/decorators.py:247
+msgid "This function is limited to moderators and administrators"
 msgstr ""
 
-#: templates/import_data.html:16
-msgid ""
-"Upload your stackexchange dump .zip file, then wait until\n"
-"        the data import completes. This process may take several minutes.\n"
-"        Please note that feedback will be printed in plain text.\n"
-"        "
+#: utils/forms.py:75
+msgid "this field is required"
 msgstr ""
 
-#: templates/import_data.html:25
-msgid "Import data"
+#: utils/forms.py:108
+msgid "Choose a screen name"
+msgstr ""
+>>>>>>> master
+
+#: utils/forms.py:118
+msgid "user name is required"
 msgstr ""
 
-#: templates/import_data.html:27
-msgid ""
-"In the case you experience any difficulties in using this import tool,\n"
-"        please try importing your data via command line: <code>python manage."
-"py load_stackexchange path/to/your-data.zip</code>"
+#: utils/forms.py:119
+msgid "sorry, this name is taken, please choose another"
 msgstr ""
 
-#: templates/list_suggested_tags.html:12
-#, fuzzy
-msgid "Suggested by"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/list_suggested_tags.html:13
-#, fuzzy
-msgid "Your decision"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/list_suggested_tags.html:14
-msgid "Suggested tag was used for questions"
+#: utils/forms.py:120
+msgid "sorry, this name is not allowed, please choose another"
 msgstr ""
 
-#: templates/list_suggested_tags.html:33
-msgid "Accept"
+#: utils/forms.py:121
+msgid "sorry, there is no user with this name"
 msgstr ""
 
-#: templates/list_suggested_tags.html:34
-#, fuzzy
-msgid "Reject"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/list_suggested_tags.html:49
-#, python-format
-msgid "Apply tag \"%(name)s\" to all above questions"
+#: utils/forms.py:122
+msgid "sorry, we have a serious error - user name is taken by several users"
 msgstr ""
 
-#: templates/list_suggested_tags.html:50
-#, fuzzy
-msgid "Reject tag"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/list_suggested_tags.html:58 templates/tag_list.html:16
-#: templates/tag_list.html.py:39
-msgid "Nothing found"
+#: utils/forms.py:123
+msgid "user name can only consist of letters, empty space and underscore"
 msgstr ""
 
+#: utils/forms.py:124
+msgid "please use at least some alphabetic characters in the user name"
+msgstr ""
+
+#: utils/forms.py:125
+msgid "symbol \"@\" is not allowed"
+msgstr ""
+
+#: utils/forms.py:231
+msgid "Your email <i>(never shared)</i>"
+msgstr ""
+
+#: utils/forms.py:233
+msgid "email address is required"
+msgstr ""
+
+#: utils/forms.py:234
+msgid "please enter a valid email address"
+msgstr ""
+
+<<<<<<< HEAD
 #: templates/macros.html:229 templates/macros.html.py:269
 #: templates/node/discussion/detail.html:235
 #: templates/node/discussion/discussion_answer.html:10
@@ -4440,71 +5134,75 @@ msgstr ""
 #: templates/node/question/detail.html:221
 #: templates/snippets/post_contributor_info.html:51
 msgid "updated"
+=======
+#: utils/forms.py:235
+msgid "this email is already used by someone else, please choose another"
+>>>>>>> master
 msgstr ""
 
-#: templates/macros.html:231 templates/macros.html.py:271
-#: templates/node/question/detail.html:109
-#: templates/snippets/post_contributor_info.html:10
-msgid "asked"
+#: utils/forms.py:236
+msgid "this email address is not authorized"
 msgstr ""
 
-#: templates/macros.html:233 templates/macros.html.py:273
-#: templates/node/question/detail.html:213
-#: templates/node/question/detail.html:219
-#: templates/snippets/post_contributor_info.html:12
-msgid "answered"
+#: utils/forms.py:280
+msgid "password is required"
 msgstr ""
 
+<<<<<<< HEAD
 #: templates/macros.html:235 templates/macros.html.py:275
 #: templates/node/discussion/detail.html:232
 #: templates/node/discussion/discussion_answer.html:7
 #: templates/snippets/post_contributor_info.html:14
 msgid "posted"
+=======
+#: utils/forms.py:286
+msgid "Password <i>(please retype)</i>"
+>>>>>>> master
 msgstr ""
 
-#: templates/macros.html:326 templates/node/document/detail.html:80
-#: templates/node/document/edit_directory.html:112
-#: templates/node/snippets/post_controls.html:26
-msgid "Are you sure?"
+#: utils/forms.py:288
+msgid "please, retype your password"
 msgstr ""
 
-#: templates/macros.html:327 templates/authopenid/signin.html:350
-#: templates/authopenid/widget_signin.html:183
-#: templates/node/document/detail.html:84
-#: templates/node/snippets/answer_controls.html:28
-#: templates/node/snippets/post_controls.html:30
-#, fuzzy
-msgid "delete"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/macros.html:347
-msgid "cancel"
+#: utils/forms.py:289
+msgid "sorry, entered passwords did not match, please try again"
 msgstr ""
 
-#: templates/macros.html:358
-msgid "save"
+#: utils/functions.py:111
+msgid "2 days ago"
 msgstr ""
 
-#: templates/macros.html:401 templates/email/post_as_subthread.html:8
-#, fuzzy, python-format
-msgid "%(count)s comment"
-msgid_plural "%(count)s comments"
+#: utils/functions.py:113
+msgid "yesterday"
+msgstr ""
+
+#: utils/functions.py:116
+#, python-format
+msgid "%(hr)d hour ago"
+msgid_plural "%(hr)d hours ago"
 msgstr[0] ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 msgstr[1] ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/macros.html:420
+#: utils/functions.py:122
+#, python-format
+msgid "%(min)d min ago"
+msgid_plural "%(min)d mins ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: utils/notify_users.py:27
 #, fuzzy
-msgid "Add comment"
+msgid "Notification"
+msgstr "Verification Email from Q&A forum"
+
+#: utils/notify_users.py:33
+#, fuzzy
+msgid "Comment"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/macros.html:520 utils/notify_users.py:95
 #, python-format
 msgid "%(datetime)s created by <strong>%(user)s</strong>"
@@ -4518,206 +5216,172 @@ msgstr ""
 #: templates/macros.html:538
 #, python-format
 msgid "closed at %(datetime)s by <a href=\"%(url)s\">%(user)s</a>"
+=======
+#: utils/notify_users.py:36
+msgid "Answer"
+>>>>>>> master
 msgstr ""
 
-#: templates/macros.html:541
+#: utils/notify_users.py:38
+#, fuzzy
+msgid "Discussion post"
+msgstr "Verification Email from Q&A forum"
+
+#: utils/notify_users.py:50
+msgid "Node"
+msgstr ""
+
+#: utils/notify_users.py:56
+#, fuzzy
+msgid "Updated question"
+msgstr "Verification Email from Q&A forum"
+
+#: utils/notify_users.py:58
+#, fuzzy
+msgid "Updated document"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: utils/notify_users.py:60
+#, fuzzy
+msgid "Updated comment"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: utils/notify_users.py:63
+#, fuzzy
+msgid "Updated answer"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: utils/notify_users.py:65
+#, fuzzy
+msgid "Updated discussion post"
+msgstr "Verification Email from Q&A forum"
+
+#: utils/notify_users.py:69
+#, fuzzy
+msgid "New question"
+msgstr "Verification Email from Q&A forum"
+
+#: utils/notify_users.py:71
+#, fuzzy
+msgid "New document"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: utils/notify_users.py:73
+#, fuzzy
+msgid "New comment"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: utils/notify_users.py:76
+#, fuzzy
+msgid "New answer"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: utils/notify_users.py:78
+#, fuzzy
+msgid "New discussion post"
+msgstr "Verification Email from Q&A forum"
+
+#: utils/notify_users.py:92
 #, python-format
-msgid "by <a href=\"%(url)s\">%(user)s</a>"
+msgid "%(datetime)s changed by <strong>%(user)s</strong>"
 msgstr ""
 
-#: templates/macros.html:546
+#: utils/notify_users.py:95
 #, python-format
-msgid "closed at %(datetime)s"
+msgid "%(datetime)s created by <strong>%(user)s</strong>"
 msgstr ""
 
-#: templates/organization_detail.html:45
-#: templates/widgets/organization_info.html:26
-#, fuzzy
-msgid "Join organization"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/organization_detail.html:47
-#: templates/widgets/organization_info.html:28
-#, fuzzy
-msgid "Ask to join organization"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/organization_detail.html:49
-#: templates/widgets/organization_info.html:30
-#, fuzzy
-msgid "Leave organization"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/organization_detail.html:51
-#: templates/widgets/organization_info.html:32
-#, fuzzy
-msgid "Cancel request ask to join organization"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/organization_list.html:28
-#, fuzzy
-msgid "Add new organization"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/organization_list.html:44
-#, fuzzy
-msgid "Show all organizations"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/organization_list.html:44
-#, fuzzy
-msgid "All organizations"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/organization_list.html:47
-#, fuzzy
-msgid "Show my organizations"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/organization_list.html:47
-#, fuzzy
-msgid "My organizations"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/revisions.html:4 templates/revisions.html.py:7
-#, fuzzy
-msgid "Revision history"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/revisions.html:7 templates/thread_retag.html:5
-#: templates/node/base_post_edit.html:8
-msgid "back"
+#: utils/notify_users.py:110
+msgid "Commented post"
 msgstr ""
 
-#: templates/revisions.html:23
-#, fuzzy
-msgid "click to hide/show revision"
-msgstr "Verification Email from Q&A forum"
+#: views/avatar_views.py:99
+msgid "Successfully uploaded a new avatar."
+msgstr ""
 
-#: templates/revisions.html:29
+#: views/avatar_views.py:140
+msgid "Successfully updated your avatar."
+msgstr ""
+
+#: views/avatar_views.py:180
+msgid "Successfully deleted the requested avatars."
+msgstr ""
+
+#: views/commands.py:109
+msgid "your post was not accepted"
+msgstr ""
+
+#: views/commands.py:122
+msgid "Sorry, but anonymous users cannot access the inbox"
+msgstr ""
+
+#: views/commands.py:152
+msgid "You can't vote for this post."
+msgstr ""
+
+#: views/commands.py:157
+msgid "Sorry, but you don't have permission to vote."
+msgstr ""
+
+#: views/commands.py:174
+msgid "Sorry you ran out of votes for today"
+msgstr ""
+
+#: views/commands.py:180
 #, python-format
-msgid "revision %(number)s"
+msgid "You have %(votes_left)s votes left for today"
 msgstr ""
 
-#: templates/subscribe_for_tags.html:3 templates/subscribe_for_tags.html:5
-msgid "Subscribe for tags"
+#: views/commands.py:254
+msgid "Sorry, something is not right here..."
 msgstr ""
 
-#: templates/subscribe_for_tags.html:6
-#, fuzzy
-msgid "Please, subscribe for the following tags:"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/subscribe_for_tags.html:13
-msgid "Subscribe"
+#: views/commands.py:268
+msgid "Anonymous user can't vote for best answer."
 msgstr ""
 
-#: templates/thread_close.html:4 templates/thread_close.html.py:14
-#: templates/thread_close.html:39 templates/thread_close.html.py:56
-#, fuzzy
-msgid "Close question"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/thread_close.html:6 templates/thread_close.html.py:16
-#: templates/thread_close.html:41 templates/thread_close.html.py:58
-#, fuzzy
-msgid "Close discussion"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/thread_close.html:22 templates/thread_reopen.html:22
-#, fuzzy
-msgid "Back to question"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/thread_close.html:26 templates/thread_reopen.html:26
-#, fuzzy
-msgid "Back to discussion"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/thread_reopen.html:4 templates/thread_reopen.html.py:14
-#: templates/thread_reopen.html:35 templates/thread_reopen.html.py:74
-#, fuzzy
-msgid "Reopen question"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/thread_reopen.html:6 templates/thread_reopen.html.py:16
-#: templates/thread_reopen.html:37 templates/thread_reopen.html.py:76
-#, fuzzy
-msgid "Reopen discussion"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/thread_reopen.html:44 templates/node/edit_settings.html:84
-#, fuzzy
-msgid "Close reason"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/thread_reopen.html:53
-#, fuzzy
-msgid "Closed by"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/thread_reopen.html:62
-msgid "When"
+#: views/commands.py:386
+#, python-format
+msgid ""
+"Your subscription is saved, but email address %(email)s needs to be "
+"validated, please see <a href=\"%(details_url)s\">more details here</a>"
 msgstr ""
 
-#: templates/thread_retag.html:3 templates/thread_retag.html.py:5
-#, fuzzy
-msgid "Retag question"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/thread_retag.html:21
-msgid "Retag"
+#: views/commands.py:395
+msgid "email update frequency has been set to daily"
 msgstr ""
 
-#: templates/thread_retag.html:28
-msgid "Why use and modify tags?"
+#: views/commands.py:662
+#, python-format
+msgid "Tag subscription was canceled (<a href=\"%(url)s\">undo</a>)."
 msgstr ""
 
-#: templates/thread_retag.html:30
-msgid "Tags help to keep the content better organized and searchable"
+#: views/commands.py:671
+#, python-format
+msgid "Please sign in to subscribe for: %(tags)s"
 msgstr ""
 
-#: templates/thread_retag.html:32
-msgid "tag editors receive special awards from the community"
+#: views/commands.py:815
+msgid "Please sign in to vote"
 msgstr ""
 
-#: templates/thread_retag.html:54
-msgid "tags are required"
+#: views/commands.py:838
+msgid "Please sign in to delete/restore posts"
 msgstr ""
 
-#: templates/thread_retag.html:55
-msgid "up to 5 tags, less than 20 characters each"
-msgstr ""
-
-#: templates/two_column_node_body.html:26 templates/node/ask_to_join.html:19
-#, fuzzy
-msgid "Edit node settings"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/two_column_node_body.html:26 templates/node/ask_to_join.html:19
-#: templates/node/edit_settings.html:23
-#, fuzzy
-msgid "Node settings"
-msgstr "Verification Email from Q&A forum"
-
+<<<<<<< HEAD
 #: templates/two_column_node_body.html:32
 #: templates/node/annotation/show.html:138
 #, fuzzy
@@ -4729,11 +5393,24 @@ msgstr "Verification Email from Q&A forum"
 #, fuzzy
 msgid "Follow node"
 msgstr "Verification Email from Q&A forum"
-
-#: templates/two_column_node_body.html:35
-msgid "You cannot unfollow this club, because you are manager"
+=======
+#: views/commands.py:884
+msgid "Thread has been succesfully deleted."
 msgstr ""
 
+#: views/commands.py:1301
+#, python-format
+msgid "Your reqest to join organization %(organization)s has been approved!"
+msgstr ""
+>>>>>>> master
+
+#: views/commands.py:1307
+#, python-format
+msgid ""
+"Sorry, your reqest to join organization %(organization)s has been denied."
+msgstr ""
+
+<<<<<<< HEAD
 #: templates/two_column_node_body.html:35
 #: templates/node/annotation/show.html:141
 #, fuzzy
@@ -4759,200 +5436,196 @@ msgstr ""
 #: templates/node/base_thread_detail.html:25
 #: templates/node/question/detail.html:101
 msgid ":"
+=======
+#: views/commands.py:1333
+#, python-format
+msgid "Your request to join Node %(node)s has been approved!"
 msgstr ""
 
-#: templates/two_column_node_body.html:46
-#, fuzzy
-msgid "This node has been closed for the following reason:"
-msgstr "Verification Email from Q&A forum"
+#: views/commands.py:1339
+#, python-format
+msgid "Sorry, your request to join Node %(node)s has been denied."
+msgstr ""
 
-#: templates/two_column_node_body.html:49
-#, fuzzy
-msgid "This node has been closed."
-msgstr "Verification Email from Q&A forum"
+#: views/commands.py:1360
+msgid "Your request to create Node has been approved!"
+msgstr ""
 
-#: templates/two_column_node_body.html:72
-#, fuzzy
-msgid "This Node is read-only."
-msgstr "Verification Email from Q&A forum"
+#: views/commands.py:1366
+msgid "Sorry, your request to create Node has been denied."
+>>>>>>> master
+msgstr ""
 
-#: templates/two_column_node_body.html:84
-#: templates/two_column_node_body.html:112
-#: templates/two_column_node_body.html:140
-#, fuzzy
-msgid "This Node is read-only"
-msgstr "Verification Email from Q&A forum"
+#: views/commands.py:1390
+msgid "Your request to create organization has been approved!"
+msgstr ""
 
-#: templates/two_column_node_body.html:86
-#, fuzzy
-msgid "Questions are read-only"
-msgstr "Verification Email from Q&A forum"
+#: views/commands.py:1396
+msgid "Sorry, your request to create organization has been denied."
+msgstr ""
 
-#: templates/two_column_node_body.html:97
-#: templates/two_column_node_body.html:125
-#: templates/two_column_node_body.html:153
-#, fuzzy, python-format
-msgid "%(count)s item"
-msgid_plural "%(count)s items"
-msgstr[0] ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-msgstr[1] ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#: views/commands.py:1426
+msgid "Sorry, only thread moderators can use this function"
+msgstr ""
 
+#: views/meta.py:71
+msgid "Please sign in or register to send your feedback"
+msgstr ""
+
+#: views/meta.py:88
+msgid "Q&A forum feedback"
+msgstr ""
+
+#: views/meta.py:89
+msgid "Thanks for the feedback!"
+msgstr ""
+
+<<<<<<< HEAD
 #: templates/two_column_node_body.html:110
 #: templates/node/discussion/detail.html:76
 #: templates/node/discussion/detail.html:279
 msgid "Discussion"
+=======
+#: views/meta.py:98
+msgid "We look forward to hearing your feedback! Please, give it next time :)"
+>>>>>>> master
 msgstr ""
 
-#: templates/two_column_node_body.html:114
+#: views/meta.py:144
+msgid "Suggested tags"
+msgstr ""
+
+#: views/node.py:98
+msgid "Node annotation has been succesfully saved."
+msgstr ""
+
+#: views/node.py:139
+msgid "Node settings has been succesfully saved."
+msgstr ""
+
+#: views/node.py:287
+msgid "Node perexes has been succesfully saved."
+msgstr ""
+
+#: views/node.py:364
+#, python-format
+msgid ""
+"%(user)s wants to create a new node %(node_name)s.\n"
+"            Here is a note regarding the request:  %(note)s"
+msgstr ""
+
+#: views/node.py:369
+#, python-format
+msgid "%(user)s wants to create a new node %(name)s"
+msgstr ""
+
+#: views/node.py:405
+#, python-format
+msgid ""
+"%(user)s wants to create a new organization %(organization_name)s.\n"
+"            Description of the organization:  %(description)s"
+msgstr ""
+
+#: views/node.py:410
+#, python-format
+msgid "%(user)s wants to create a new organization %(organization_name)s"
+msgstr ""
+
+#: views/thread.py:112
+msgid ""
+"Sorry, the comment you are looking for has been deleted and is no longer "
+"accessible"
+msgstr ""
+
+#: views/users.py:349
+msgid "Profile has been succesfully saved."
+msgstr ""
+
+#: views/users.py:477
+msgid "Email has been succesfully sent."
+msgstr ""
+
+#: views/users.py:494
+msgid "user profile"
+msgstr ""
+
+#: views/users.py:495
+msgid "user profile overview"
+msgstr ""
+
+#: views/users.py:668
+msgid "organization joining requests"
+msgstr ""
+
+#: views/users.py:669
+msgid "profile - organization joins"
+msgstr ""
+
+#: views/users.py:685
 #, fuzzy
-msgid "Discussion is read-only"
+msgid "node joining requests"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/two_column_node_body.html:142
+#: views/users.py:686
 #, fuzzy
-msgid "Documents are read-only"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/two_column_node_body.html:165
-#, fuzzy
-msgid "Mark all read in this node."
+msgid "profile - node joins"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/admin/show_perm_table.html:5
-#: templates/admin/document/state.html:5
-#: templates/admin/document/state.html:11
-msgid "Documents state"
-msgstr ""
-
-#: templates/admin/show_perm_table.html:36
+#: views/users.py:703
 #, fuzzy
-msgid "Permissions"
+msgid "requests to create nodes"
+msgstr ""
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#: views/users.py:704
+#, fuzzy
+msgid "profile - node requests"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/admin/common/login.html:37
-msgid "Password:"
-msgstr ""
-
-#: templates/admin/document/state.html:10
-msgid "Status"
-msgstr ""
-
-#: templates/admin/document/state.html:16
-msgid "Documents total"
-msgstr ""
-
-#: templates/admin/document/state.html:25
-msgid "All document with error during OCR process"
-msgstr ""
-
-#: templates/admin/document/state.html:35
-msgid "All document with error during OCR process and contains valid file"
-msgstr ""
-
-#: templates/admin/document/state.html:48
-msgid "complete reprocess - 10"
-msgstr ""
-
-#: templates/admin/document/state.html:48
-msgid "10"
-msgstr ""
-
-#: templates/admin/document/state.html:48
-msgid "complete reprocess - all"
-msgstr ""
-
-#: templates/admin/document/state.html:52
-msgid "only retrive texts - 50"
-msgstr ""
-
-#: templates/admin/document/state.html:52
-msgid "only retrive texts - all"
-msgstr ""
-
-#: templates/admin/document/state.html:73
-msgid "Mayan state"
-msgstr ""
-
-#: templates/admin/document/state.html:78
-msgid "Queue name"
-msgstr ""
-
-#: templates/admin/document/state.html:82
-msgid "Clean"
-msgstr ""
-
-#: templates/admin/document/state.html:88
-#: templates/admin/document/state.html:96
-#: templates/admin/document/state.html:114
-msgid "State"
-msgstr ""
-
-#: templates/admin/document/state.html:92
+#: views/users.py:720
 #, fuzzy
-msgid "Documents in queue"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+msgid "Organization requests"
+msgstr "Verification Email from Q&A forum"
 
-#: templates/admin/document/state.html:97
-msgid "Count"
-msgstr ""
-
-#: templates/admin/document/state.html:109
-msgid "Files"
-msgstr ""
-
-#: templates/admin/document/state.html:113
-msgid "Mimetype"
-msgstr ""
-
-#: templates/admin/document/state.html:115
-msgid "Timestamp"
-msgstr ""
-
-#: templates/admin/document/state.html:116
-#: templates/node/document/edit.html:60
-msgid "Size"
-msgstr ""
-
-#: templates/admin/document/state.html:117
-msgid "Reprocess"
-msgstr ""
-
-#: templates/admin/document/state.html:126
-msgid "Reprocess in Mayan"
-msgstr ""
-
-#: templates/authopenid/authopenid_macros.html:63
-msgid "Please enter your <span>user name</span>, then sign in"
-msgstr ""
-
-#: templates/authopenid/authopenid_macros.html:64
-#: templates/authopenid/signin.html:256
-#: templates/authopenid/widget_signin.html:103
-msgid "(or select another login method above)"
-msgstr ""
-
-#: templates/authopenid/authopenid_macros.html:66
-#: templates/authopenid/signin.html:57 templates/authopenid/signin.html:87
-#: templates/authopenid/signin.html:281
-#: templates/authopenid/widget_signin.html:119
-msgid "Sign in"
-msgstr ""
-
-#: templates/authopenid/change_password.html:11
+#: views/users.py:721
 #, fuzzy
-msgid "User not found"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+msgid "profile - organization requests"
+msgstr "Verification Email from Q&A forum"
 
+#: views/users.py:801
+msgid "comments and answers to others questions"
+msgstr ""
+
+#: views/users.py:802
+msgid "profile - responses"
+msgstr ""
+
+#: views/users.py:839
+msgid "user vote record"
+msgstr ""
+
+#: views/users.py:840
+msgid "profile - votes"
+msgstr ""
+
+#: views/users.py:866
+msgid "users followed questions"
+msgstr ""
+
+#: views/users.py:867
+msgid "profile - followed questions"
+msgstr ""
+
+#: views/users.py:885
+msgid "users followed discussions"
+msgstr ""
+
+#: views/users.py:886
+msgid "profile - followed discussions"
+msgstr ""
+
+<<<<<<< HEAD
 #: templates/authopenid/change_password.html:29
 #: templates/authopenid/lost_password.html:21
 #: templates/authopenid/signin.html:137
@@ -4979,266 +5652,148 @@ msgstr ""
 #: templates/authopenid/change_password.html:46
 #, fuzzy
 msgid "New password (repeat)"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/authopenid/change_password.html:59
-#: templates/embed/widget_form.html:14 templates/node/base_thread_edit.html:69
-#: templates/node/edit_perexes.html:150 templates/node/edit_settings.html:89
-#: templates/node/edit_settings.html:155 templates/node/edit_settings.html:195
-#: templates/node/document/edit.html:43
-#: templates/user_profile/user_edit.html:102
-#: templates/user_profile/user_email_subscriptions.html:105
-msgid "Save"
+=======
+#: views/users.py:902
+msgid "users followed nodes"
 msgstr ""
 
-#: templates/authopenid/change_password_ok.html:4
+#: views/users.py:903
+msgid "profile - followed nodes"
+>>>>>>> master
+msgstr ""
+
+#: views/users.py:921
+msgid "users managed nodes"
+msgstr ""
+
+#: views/users.py:922
 #, fuzzy
-msgid "Change password success"
+msgid "profile - managed nodes"
 msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/change_password_ok.html:9
-msgid "Password change has been successful!"
+#: views/users.py:942 views/users.py:946
+msgid "changes saved"
 msgstr ""
 
-#: templates/authopenid/change_password_ok.html:12
-msgid "Login"
+#: views/users.py:952
+msgid "email updates canceled"
 msgstr ""
 
-#: templates/authopenid/changeemail.html:2
-#: templates/authopenid/changeemail.html:8
-#: templates/authopenid/changeemail.html:48
-#, fuzzy
-msgid "Change Email"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/authopenid/changeemail.html:10
-msgid "Save your email address"
+#: views/users.py:972
+msgid "email subscription settings"
 msgstr ""
 
-#: templates/authopenid/changeemail.html:15
+#: views/users.py:973
+msgid "profile - email subscriptions"
+msgstr ""
+
+#: views/writers.py:66
+msgid "Sorry, anonymous users cannot upload files"
+msgstr ""
+
+#: views/writers.py:84
+#, python-format
+msgid "allowed file types are '%(file_types)s'"
+msgstr ""
+
+#: views/writers.py:121
+msgid "Error uploading file. Please contact the site administrator. Thank you."
+msgstr ""
+
+#: views/writers.py:205
+msgid "Question has been successfully saved and added to your followed items."
+msgstr ""
+
+#: views/writers.py:207
+msgid "Discussion has been successfully added."
+msgstr ""
+
+#: views/writers.py:256
+msgid "PermissionDenied: you can not retag this object."
+msgstr ""
+
+#: views/writers.py:358
+msgid "Document has been deleted."
+msgstr ""
+
+#: views/writers.py:368 views/writers.py:466
+msgid "Document has been successfully saved."
+msgstr ""
+
+#: views/writers.py:460
+msgid "Question has been successfully saved."
+msgstr ""
+
+#: views/writers.py:463
+msgid "Discussion has been successfully saved."
+msgstr ""
+
+#: views/writers.py:719
+msgid "Comment is empty."
+msgstr ""
+
+#: views/writers.py:725
+#, python-format
+msgid "Comment must be at least %d character long."
+msgstr ""
+
+#: views/writers.py:732
 #, python-format
 msgid ""
-"<span class=\\\"strong big\\\">Enter your new email into the box below</"
-"span> if \n"
-"you'd like to use another email for <strong>update subscriptions</strong>.\n"
-"<br>Currently you are using <strong>%%(email)s</strong>"
+"Sorry, you appear to be logged out and cannot post comments. Please <a href="
+"\"%(sign_in_url)s\">sign in</a>."
 msgstr ""
 
-#: templates/authopenid/changeemail.html:19
+#: views/writers.py:758
+msgid "Sorry, anonymous users cannot edit comments"
+msgstr ""
+
+#: views/writers.py:811
 #, python-format
 msgid ""
-"<span class='strong big'>Please enter your email address in the box below.</"
-"span>\n"
-"Valid email address is required on this Q&amp;A forum. If you like, \n"
-"you can <strong>receive updates</strong> on interesting questions or entire\n"
-"forum via email. Also, your email is used to create a unique \n"
-"<a href='%%(gravatar_faq_url)s'><strong>gravatar</strong></a> image for "
-"your\n"
-"account. Email addresses are never shown or otherwise shared with anybody\n"
-"else."
+"Sorry, you appear to be logged out and cannot delete comments. Please <a "
+"href=\"%(sign_in_url)s\">sign in</a>."
 msgstr ""
 
-#: templates/authopenid/changeemail.html:38
-msgid ""
-"<strong>Your new Email:</strong> \n"
-"(will <strong>not</strong> be shown to anyone, must be valid)"
+#: views/writers.py:837
+msgid "sorry, we seem to have some technical difficulties"
 msgstr ""
 
-#: templates/authopenid/changeemail.html:41
-msgid ""
-"<strong>Your Email</strong> (<i>must be valid, never shown to others</i>)"
+#: views/writers.py:905
+msgid "the selected answer cannot be a comment"
 msgstr ""
 
-#: templates/authopenid/changeemail.html:48
 #, fuzzy
-msgid "Save Email"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Page not found"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/authopenid/changeemail.html:57
-msgid "Validate email"
-msgstr ""
-
-#: templates/authopenid/changeemail.html:60
-#, python-format
-msgid ""
-"<span class=\\\"strong big\\\">An email with a validation link has been sent "
-"to \n"
-"%%(email)s.</span> Please <strong>follow the emailed link</strong> with "
-"your \n"
-"web browser. Email validation is necessary to help insure the proper use "
-"of \n"
-"email on <span class=\\\"orange\\\">Q&amp;A</span>. If you would like to "
-"use \n"
-"<strong>another email</strong>, please <a \n"
-"href='%%(change_email_url)s'><strong>change it again</strong></a>."
-msgstr ""
-
-#: templates/authopenid/changeemail.html:69
 #, fuzzy
-msgid "Email not changed"
-msgstr "people"
+#~ msgid "This might have happened for the following reasons:"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/changeemail.html:72
-#, python-format
-msgid ""
-"<span class=\\\"strong big\\\">Your email address %%(email)s has not been "
-"changed.\n"
-"</span> If you decide to change it later - you can always do it by editing \n"
-"it in your user profile or by using the <a \n"
-"href='%%(change_email_url)s'><strong>previous form</strong></a> again."
-msgstr ""
-
-#: templates/authopenid/changeemail.html:79
 #, fuzzy
-msgid "Email changed"
-msgstr "people"
+#~ msgid "see all questions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/changeemail.html:82
-#, python-format
-msgid ""
-"\n"
-"<span class='big strong'>Your email address is now set to %%(email)s.</"
-"span> \n"
-"Updates on the questions that you like most will be sent to this address. \n"
-"Email notifications are sent once a day or less frequently - only when "
-"there \n"
-"are any news."
-msgstr ""
-
-#: templates/authopenid/changeemail.html:90
-msgid "Email verified"
-msgstr ""
-
-#: templates/authopenid/changeemail.html:93
-msgid ""
-"<span class=\\\"big strong\\\">Thank you for verifying your email!</span> "
-"Now \n"
-"you can <strong>ask</strong> and <strong>answer</strong> questions. Also "
-"if \n"
-"you find a very interesting question you can <strong>subscribe for the \n"
-"updates</strong> - then will be notified about changes <strong>once a day</"
-"strong>\n"
-"or less frequently."
-msgstr ""
-
-#: templates/authopenid/changeemail.html:101
-msgid "Validation email not sent"
-msgstr ""
-
-#: templates/authopenid/changeemail.html:104
-#, python-format
-msgid ""
-"<span class='big strong'>Your current email address %%(email)s has been \n"
-"validated before</span> so the new key was not sent. You can <a \n"
-"href='%%(change_link)s'>change</a> email used for update subscriptions if \n"
-"necessary."
-msgstr ""
-
-#: templates/authopenid/complete.html:23
 #, fuzzy
-msgid "Registration"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "see all tags"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/complete.html:25
 #, fuzzy
-msgid "User registration"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Register now!"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/complete.html:44
-msgid "<strong>Screen Name</strong> (<i>will be shown to others</i>)"
-msgstr ""
-
-#: templates/authopenid/complete.html:53
-msgid ""
-"<strong>Email Address</strong> (<i>will <strong>not</strong> be shared with\n"
-"anyone, must be valid</i>)\n"
-"                    "
-msgstr ""
-
-#: templates/authopenid/complete.html:64
 #, fuzzy
-msgid "<strong>User description</strong>"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "My Nodes"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/complete.html:71
-#: templates/authopenid/signup_with_password.html:5
-#: templates/authopenid/signup_with_password.html:106
-msgid "Signup"
-msgstr ""
-
-#: templates/authopenid/email_validation.html:3
-msgid "Welcome to OPENode!"
-msgstr ""
-
-#: templates/authopenid/email_validation.html:5
-msgid ""
-"We are glad you joined us. Please confirm your registration by clicking on "
-"this link:"
-msgstr ""
-
-#: templates/authopenid/email_validation.html:7
-msgid "or use this key in the web form:"
-msgstr ""
-
-#: templates/authopenid/logout.html:5
-msgid "You have successfully logged out"
-msgstr ""
-
-#: templates/authopenid/logout.html:7
-msgid ""
-"However, you still may be logged in to your OpenID provider. Please logout "
-"of your provider if you wish to do so."
-msgstr ""
-
-#: templates/authopenid/lost_password.html:40
-#: templates/user_profile/user_overview.html:152
 #, fuzzy
-msgid "Send"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "My Questions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/lost_password_sent.html:3
-#, fuzzy
-msgid "Lost password sent"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/authopenid/lost_password_sent.html:10
-msgid "To your e-mail account has been sent account recovery instructions."
-msgstr ""
-
-#: templates/authopenid/providers_javascript.html:7
-msgid "account/"
-msgstr ""
-
-#: templates/authopenid/signin.html:5
-#: templates/authopenid/widget_signin.html:4
-msgid "User login"
-msgstr "User login"
-
-#: templates/authopenid/signin.html:13
-#: templates/authopenid/signup_with_password.html:16
-#: templates/authopenid/verify_email.html:6 templates/cms/archive.html:55
-msgid "Back to Homepage"
-msgstr ""
-
-#: templates/authopenid/signin.html:16
-msgid "Login page"
-msgstr ""
-
-#: templates/authopenid/signin.html:16
-#, fuzzy
-msgid "help_login_page_short"
-msgstr "Verification Email from Q&A forum"
-
+<<<<<<< HEAD
 #: templates/authopenid/signin.html:16 templates/authopenid/signin.html:21
 #: templates/authopenid/signup_with_password.html:20
 #: templates/authopenid/verify_email.html:10 templates/cms/archive.html:59
@@ -5267,721 +5822,636 @@ msgstr "Verification Email from Q&A forum"
 #: templates/user_profile/user_edit.html:14
 msgid "More help"
 msgstr ""
-
-#: templates/authopenid/signin.html:16
+=======
 #, fuzzy
-msgid "help_login_page_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "My Discussions"
+#~ msgstr "Verification Email from Q&A forum"
+>>>>>>> master
 
-#: templates/authopenid/signin.html:18
-#: templates/user_profile/user_edit.html:10
 #, fuzzy
-msgid "Back to Profile"
-msgstr "people"
+#~ msgid "Followed"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signin.html:21
 #, fuzzy
-msgid "Change password page"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Followed Nodes"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signin.html:21
 #, fuzzy
-msgid "help_change_password_page_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Requests"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signin.html:21
 #, fuzzy
-msgid "help_change_password_page_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "node joins requests"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signin.html:31
-#: templates/authopenid/widget_signin.html:19
-#, python-format
-msgid ""
-"\n"
-"        Your answer to %(title)s %(summary)s will be posted once you log in\n"
-"        "
-msgstr ""
-"\n"
-"<span class=\"strong big\">Your answer to </span> <i>\"<strong>%(title)s</"
-"strong> %(summary)s...\"</i> <span class=\"strong big\">is saved and will be "
-"posted once you log in.</span>"
+#, fuzzy
+#~ msgid "Node joins"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signin.html:38
-#: templates/authopenid/widget_signin.html:26
-#, fuzzy, python-format
-msgid ""
-"Your question\n"
-"        %(title)s %(summary)s will be posted once you log in\n"
-"        "
-msgstr ""
-"<span class=\"strong big\">Your question</span> <i>\"<strong>%(title)s</"
-"strong> %(summary)s...\"</i> <span class=\"strong big\">is saved and will be "
-"posted once you log in.</span>"
+#, fuzzy
+#~ msgid "Organization joins"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signin.html:61 templates/authopenid/signin.html:264
-#: templates/authopenid/widget_signin.html:106
-msgid "Login failed, please try again"
-msgstr ""
+#, fuzzy
+#~ msgid "Update profile"
+#~ msgstr "people"
 
-#: templates/authopenid/signin.html:88 templates/authopenid/signin.html:107
-#: templates/authopenid/signup_with_password.html:31
-msgid "Create new user account"
-msgstr ""
+#~ msgid "Logout"
+#~ msgstr "Sign out"
 
-#: templates/authopenid/signin.html:107
-msgid "You don't have user account yet?"
-msgstr ""
+#, fuzzy
+#~ msgid "Frequently Asked Questions "
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signin.html:120
-msgid "I have forgotten my password."
-msgstr ""
+#, fuzzy
+#~ msgid "Who moderates this community?"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/authopenid/signin.html:151 templates/authopenid/signin.html:304
 #: templates/authopenid/widget_signin.html:139
 msgid "Please, retype"
 msgstr ""
-
-#: templates/authopenid/signin.html:188
-#: templates/authopenid/widget_signin.html:37
-msgid ""
-"It's a good idea to make sure that your existing login methods still work, "
-"or add a new one. Please click any of the icons below to check/change or add "
-"new login methods."
-msgstr ""
-
-#: templates/authopenid/signin.html:190
-#: templates/authopenid/widget_signin.html:39
-msgid ""
-"Please add a more permanent login method by clicking one of the icons below, "
-"to avoid logging in via email each time."
-msgstr ""
-
-#: templates/authopenid/signin.html:194
-#: templates/authopenid/widget_signin.html:43
-msgid ""
-"Click on one of the icons below to add a new login method or re-validate an "
-"existing one."
-msgstr ""
-
-#: templates/authopenid/signin.html:196
-#: templates/authopenid/widget_signin.html:45
-msgid ""
-"You don't have a method to log in right now, please add one or more by "
-"clicking any of the icons below."
-msgstr ""
-
-#: templates/authopenid/signin.html:199
-#: templates/authopenid/widget_signin.html:48
-msgid ""
-"Please check your email and visit the enclosed link to re-connect to your "
-"account"
-msgstr ""
-
-#: templates/authopenid/signin.html:248
-#: templates/authopenid/widget_signin.html:95
-msgid "or enter your <span>user name and password</span>, then sign in"
-msgstr ""
-
-#: templates/authopenid/signin.html:252
-#: templates/authopenid/widget_signin.html:99
-msgid "Please, sign in"
-msgstr ""
-
-#: templates/authopenid/signin.html:291
-#: templates/authopenid/widget_signin.html:126
-msgid "To change your password - please enter the new one twice, then submit"
-msgstr ""
-
-#: templates/authopenid/signin.html:330
-#: templates/authopenid/widget_signin.html:163
+=======
 #, fuzzy
-msgid "Here are your current login methods"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "add comments"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/authopenid/signin.html:334
-#: templates/authopenid/widget_signin.html:167
-msgid "provider"
-msgstr ""
-
-#: templates/authopenid/signin.html:335
-#: templates/authopenid/widget_signin.html:168
 #, fuzzy
-msgid "last used"
-msgstr "people"
+#~ msgid " accept own answer to own questions"
+#~ msgstr "Verification Email from Q&A forum"
+>>>>>>> master
 
-#: templates/authopenid/signin.html:336
-#: templates/authopenid/widget_signin.html:169
-msgid "delete, if you like"
-msgstr ""
-
-#: templates/authopenid/signin.html:352
-#: templates/authopenid/widget_signin.html:185
-msgid "cannot be deleted"
-msgstr ""
-
-#: templates/authopenid/signin.html:365
-#: templates/authopenid/widget_signin.html:198
 #, fuzzy
-msgid "Still have trouble signing in?"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "open and close own questions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signin.html:370
-#: templates/authopenid/widget_signin.html:203
-msgid "Please, enter your email address below and obtain a new key"
-msgstr ""
-
-#: templates/authopenid/signin.html:372
-#: templates/authopenid/widget_signin.html:205
-msgid "Please, enter your email address below to recover your account"
-msgstr ""
-
-#: templates/authopenid/signin.html:375
-#: templates/authopenid/widget_signin.html:208
-msgid "recover your account via email"
-msgstr ""
-
-#: templates/authopenid/signin.html:386
-#: templates/authopenid/widget_signin.html:219
-msgid "Send a new recovery key"
-msgstr ""
-
-#: templates/authopenid/signin.html:388
-#: templates/authopenid/widget_signin.html:221
-msgid "Recover your account via email"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:20
 #, fuzzy
-msgid "Registration page"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "retag other's questions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signup_with_password.html:20
 #, fuzzy
-msgid "help_registration_page_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "edit any answer"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/authopenid/signup_with_password.html:20
 #, fuzzy
-msgid "help_registration_page_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "delete any comment"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/authopenid/signup_with_password.html:33
-msgid "Please register by clicking on any of the icons below"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:46
-msgid "or create a new user name and password here"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:48
-msgid ""
-"<span class='strong big'>If you prefer, create your forum login name and\n"
-"        password here. However</span>, please keep in mind that we also "
-"support\n"
-"        <strong>OpenID</strong> login method. With <strong>OpenID</strong> "
-"you can\n"
-"        simply reuse your external login (e.g. Gmail or AOL) without ever "
-"sharing\n"
-"        your login details with anyone and having to remember yet another "
-"password."
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:65
-#: templates/user_profile/user_edit.html:65
-msgid "Required information"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:68
-msgid ""
-"We will never show your email to other users, nor provide it to a third "
-"party. Only system administrators and node managers may see it."
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:70
-msgid "Choose your password. For example \"Star_$U5\"."
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:71
-msgid "Password again"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:71
-msgid "Retype your password for confirmation"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:73
-#: templates/user_profile/user_edit.html:68
-#: templates/user_profile/user_overview.html:45
-#: templates/user_profile/user_overview.html:170
 #, fuzzy
-msgid "First name"
-msgstr "people"
+#~ msgid "Still have questions?"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/signup_with_password.html:73
-msgid "For example: \"John Allan\"."
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:74
-#: templates/user_profile/user_edit.html:69
-#: templates/user_profile/user_overview.html:49
-#: templates/user_profile/user_overview.html:174
 #, fuzzy
-msgid "Last name"
-msgstr "people"
+#~ msgid "Add news"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/authopenid/signup_with_password.html:74
-msgid "For example: \"Smith\"."
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:78
-#: templates/user_profile/user_edit.html:74
-msgid "Optional information"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:83
-#: templates/user_profile/user_edit.html:79
-msgid ""
-"If you want do change your sigature to something else than first name and "
-"last name, please fill up the Screen name."
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:86
-#: templates/node/edit_settings.html:106
-#: templates/user_profile/user_edit.html:82
-msgid "Screen name"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:86
-msgid ""
-"Type your name in format you want it to be displayed to other users. For "
-"example: \"Dr. John A. Smith\"."
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:89
-msgid ""
-"Please provide some information about you (company, occupation, contact), so "
-"other users may recognize your competences and find you for cooperation."
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:92
-msgid "Additional information"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:98
-msgid ""
-"Please read and type in the two words below to help us prevent automated "
-"account creation."
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:108
-msgid "or"
-msgstr ""
-
-#: templates/authopenid/signup_with_password.html:109
-msgid "return to OpenID login"
-msgstr ""
-
-#: templates/authopenid/verify_email.html:10
 #, fuzzy
-msgid "Confirm registration page"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit node list"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/authopenid/verify_email.html:10
 #, fuzzy
-msgid "help_confirm_registration_page_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Add new node"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/authopenid/verify_email.html:10
 #, fuzzy
-msgid "help_confirm_registration_page_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "active only"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/authopenid/verify_email.html:21
-msgid ""
-"Validation email has been sent to your mailbox. Please find it and follow "
-"the enclosed link.<br/>\n"
-"                    If the link doesn't work - enter the code below:"
-msgstr ""
-
-#: templates/authopenid/verify_email.html:33
-msgid "Validation code"
-msgstr ""
-
-#: templates/authopenid/verify_email.html:44
-msgid "Validate"
-msgstr ""
-
-#: templates/authopenid/widget_signin.html:34
-msgid ""
-"Choose your favorite service below to sign in using secure OpenID or similar "
-"technology. Your external service password always stays confidential and you "
-"don't have to rememeber or create another one."
-msgstr ""
-
-#: templates/authopenid/widget_signin.html:110
-msgid "Login or email"
-msgstr ""
-
-#: templates/authopenid/emails/lost_password.html:8
-msgid ""
-"Greetings, somebody has requested these instructions for password renewal to "
-"your email. If it was not you personally, please ignore this message. In "
-"other case, please follow the link below:"
-msgstr ""
-
-#: templates/avatar/add.html:3
 #, fuzzy
-msgid "add avatar"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "active and closed"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/avatar/add.html:5
 #, fuzzy
-msgid "Change avatar"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Mark all read"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/avatar/add.html:6 templates/avatar/change.html:5
-msgid "Your current avatar: "
-msgstr ""
-
-#: templates/avatar/add.html:9 templates/avatar/change.html:9
-msgid "You haven't uploaded an avatar yet. Please upload one now."
-msgstr ""
-
-#: templates/avatar/add.html:13
-msgid "Upload New Image"
-msgstr ""
-
-#: templates/avatar/change.html:3
 #, fuzzy
-msgid "change avatar"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "All tags"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/avatar/change.html:15
-msgid "Choose new Default"
-msgstr ""
-
-#: templates/avatar/change.html:20
-msgid "Upload"
-msgstr ""
-
-#: templates/avatar/confirm_delete.html:2
 #, fuzzy
-msgid "delete avatar"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Suggested by"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/avatar/confirm_delete.html:4
-msgid "Please select the avatars that you would like to delete."
-msgstr ""
-
-#: templates/avatar/confirm_delete.html:6
-#, python-format
-msgid ""
-"You have no avatars to delete. Please <a href=\"%(avatar_change_url)s"
-"\">upload one</a> now."
-msgstr ""
-
-#: templates/avatar/confirm_delete.html:12
 #, fuzzy
-msgid "Delete These"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Your decision"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/cms/archive.html:14
-msgid "Actuality archive"
-msgstr ""
-
-#: templates/cms/archive.html:59
 #, fuzzy
-msgid "help_news_archive_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Reject"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/cms/archive.html:59
 #, fuzzy
-msgid "help_news_archive_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Reject tag"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/email/ask_for_signature.html:4
-#, python-format
-msgid "%(user)s, please reply to this message."
-msgstr ""
+#, fuzzy
+#~ msgid "delete"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/email/ask_for_signature.html:9
-msgid ""
-"Your post could not be published, because we could not detect signature in "
-"your email."
-msgstr ""
+#, fuzzy
+#~ msgid "%(count)s comment"
+#~ msgid_plural "%(count)s comments"
+#~ msgstr[0] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgstr[1] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/email/ask_for_signature.html:10
-msgid ""
-"This happened either because this is your first post or you have changed "
-"your email signature."
-msgstr ""
+#, fuzzy
+#~ msgid "Add comment"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/email/ask_for_signature.html:11
-msgid "Please make a simple response, without editing this message."
-msgstr ""
+#, fuzzy
+#~ msgid "Join organization"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/email/ask_for_signature.html:12
-msgid ""
-"We will then attempt to detect the signature in your response and you should "
-"be able to post."
-msgstr ""
+#, fuzzy
+#~ msgid "Cancel request ask to join organization"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/email/footer.html:1
-#, python-format
-msgid ""
-"Do not hesitate to contact us,<br />\n"
-"System Administrators<br />\n"
-"<a href=\"%(site_url)s\" title=\"%(site_name)s\">%(site_url)s</a>"
-msgstr ""
+#, fuzzy
+#~ msgid "Show all organizations"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+#, fuzzy
+#~ msgid "All organizations"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Show my organizations"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "My organizations"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Revision history"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "click to hide/show revision"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Please, subscribe for the following tags:"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Close question"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Close discussion"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Reopen question"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Reopen discussion"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Close reason"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Closed by"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Retag question"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Edit node settings"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Node settings"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "click to follow this node"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Follow node"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "click to unfollow this node"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Unfollow node"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "This node has been closed for the following reason:"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "This node has been closed."
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "This Node is read-only."
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "This Node is read-only"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Questions are read-only"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "%(count)s item"
+#~ msgid_plural "%(count)s items"
+#~ msgstr[0] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgstr[1] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Discussion is read-only"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Documents are read-only"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Mark all read in this node."
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "User not found"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Repeat password"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Change password success"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Change Email"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Save Email"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Email not changed"
+#~ msgstr "people"
+
+#, fuzzy
+#~ msgid "Email changed"
+#~ msgstr "people"
+
+#, fuzzy
+#~ msgid "Registration"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "User registration"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "<strong>User description</strong>"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Send"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Lost password sent"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#~ msgid "User login"
+#~ msgstr "User login"
+
+#, fuzzy
+#~ msgid "help_login_page_short"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_login_page_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Change password page"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_change_password_page_short"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_change_password_page_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+#~ msgid ""
+#~ "\n"
+#~ "        Your answer to %(title)s %(summary)s will be posted once you log "
+#~ "in\n"
+#~ "        "
+#~ msgstr ""
+#~ "\n"
+#~ "<span class=\"strong big\">Your answer to </span> <i>\"<strong>%(title)s</"
+#~ "strong> %(summary)s...\"</i> <span class=\"strong big\">is saved and will "
+#~ "be posted once you log in.</span>"
+
+#, fuzzy
+#~ msgid ""
+#~ "Your question\n"
+#~ "        %(title)s %(summary)s will be posted once you log in\n"
+#~ "        "
+#~ msgstr ""
+#~ "<span class=\"strong big\">Your question</span> <i>\"<strong>%(title)s</"
+#~ "strong> %(summary)s...\"</i> <span class=\"strong big\">is saved and will "
+#~ "be posted once you log in.</span>"
+
+#, fuzzy
+#~ msgid "New password"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Here are your current login methods"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/email/instant_notification.html:2
 #: templates/email/instant_notification.html:3 utils/notify_users.py:27
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Notification"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "last used"
+#~ msgstr "people"
 
-#: templates/email/insufficient_rep_to_post_by_email.html:10
-#, python-format
-msgid "%(username)s, your question could not be posted by email just yet."
-msgstr ""
-
-#: templates/email/insufficient_rep_to_post_by_email.html:14
-#, python-format
-msgid ""
-"To make posts by email, you need to receive about %(min_upvotes)s upvotes."
-msgstr ""
-
-#: templates/email/insufficient_rep_to_post_by_email.html:15
-#, python-format
-msgid "At this time, please post your question at %(link)s"
-msgstr ""
-
-#: templates/email/macros.html:15
-#, fuzzy, python-format
-msgid "Question by %(author)s:"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/email/macros.html:17
-#, fuzzy, python-format
-msgid "In reply to %(author)s's question:"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/email/macros.html:20
 #, fuzzy
-msgid "Question :"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Still have trouble signing in?"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/email/macros.html:26
-#, fuzzy, python-format
-msgid "Asked by %(author)s:"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/email/macros.html:32
 #, fuzzy
-msgid "Tags:"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Registration page"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/email/macros.html:40
-#, fuzzy, python-format
-msgid "%(author)s's answer:"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/email/macros.html:42
-#, fuzzy, python-format
-msgid "In reply to %(author)s's answer:"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/email/macros.html:45
-#, fuzzy, python-format
-msgid "Answered by %(author)s:"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/email/macros.html:52
-#, fuzzy, python-format
-msgid "%(author)s's comment:"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/email/macros.html:54
-#, fuzzy, python-format
-msgid "In reply to %(author)s's comment:"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/email/notify_author_about_approved_post.html:20
-msgid "Below is a copy of your post:"
-msgstr ""
-
-#: templates/email/re_welcome_lamson_on.html:2
-#: templates/email/re_welcome_lamson_on.html:3
-#, python-format
-msgid "Great, you are ready to use %(site_name)s!"
-msgstr ""
-
-#: templates/email/re_welcome_lamson_on.html:6
-#, python-format
-msgid "You can post questions by emailing them at %(ask_address)s."
-msgstr ""
-
-#: templates/email/re_welcome_lamson_on.html:7
-msgid ""
-"When you receive update notifications, you will be able to respond to them, "
-"also by email."
-msgstr ""
-
-#: templates/email/re_welcome_lamson_on.html:8
-#, python-format
-msgid ""
-"Of course, you can always visit the %(site_name)s at <a href=\"%(site_url)s"
-"\">%(site_url)s</a>"
-msgstr ""
-
-#: templates/email/rejected_post.html:2 templates/email/rejected_post.html:3
-msgid " Your post was rejected. "
-msgstr ""
-
-#: templates/email/rejected_post.html:5
 #, fuzzy
-msgid "Your post (copied in the end), was rejected for the following reason:"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_registration_page_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/email/rejected_post.html:7
-msgid "Here is your original post"
-msgstr ""
-
-#: templates/email/reply_by_email_error.html:1
-msgid ""
-"\n"
-"<p>The system was unable to process your message successfully, the reason "
-"being:<p>\n"
-msgstr ""
-
-#: templates/email/user_profile_email.html:6
 #, fuzzy
-msgid "user's profile"
-msgstr "User login"
+#~ msgid "help_registration_page_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/email/user_profile_email.html:7
-#, python-format
-msgid "User %(user_str)s has send you this message:"
-msgstr ""
-
-#: templates/email/user_profile_email.html:11
-msgid ""
-"If you want to reply back, you may use the form in his/her profile (if it's "
-"allowed)."
-msgstr ""
-
-#: templates/email/welcome.html:3
-msgid "Thank you for your registration!"
-msgstr ""
-
-#: templates/email/welcome_lamson_off.html:6
-#: templates/email/welcome_lamson_off.html:7
-#: templates/email/welcome_lamson_on.html:3
-#: templates/email/welcome_lamson_on.html:4
-#, python-format
-msgid "Welcome to %(site_name)s!"
-msgstr ""
-
-#: templates/email/welcome_lamson_off.html:10
-msgid "We look forward to your Questions!"
-msgstr ""
-
-#: templates/email/welcome_lamson_on.html:11
-msgid ""
-"Important: <em>Please reply</em> to this message, without editing it. We "
-"need this to determine your email signature and that the email address is "
-"valid and was typed correctly."
-msgstr ""
-
-#: templates/email/welcome_lamson_on.html:14
-#, python-format
-msgid ""
-"Until we receive the response from you, you will not be able ask or answer "
-"questions on %(site_name)s by email."
-msgstr ""
-
-#: templates/embed/ask_by_widget.html:148
-msgid "Please enter a descriptive title for your question"
-msgstr ""
-
-#: templates/embed/list_widgets.html:39
-msgid "How to use?"
-msgstr ""
-
-#: templates/embed/list_widgets.html:40
-msgid ""
-"\n"
-"    Just copy the &lt;script&gt; tag provided and paste it in the site where "
-"you wan to put it.\n"
-"    "
-msgstr ""
-
-#: templates/embed/widget_form.html:3 templates/embed/widget_form.html.py:5
-#, python-format
-msgid "%(action)s an %(widget_name)s widget"
-msgstr ""
-
-#: templates/embed/widgets.html:3 templates/embed/widgets.html.py:5
-msgid "Widgets"
-msgstr ""
-
-#: templates/embed/widgets.html:11
-msgid ""
-"Create and embed widgets into your sites, here a list of available widgets."
-msgstr ""
-
-#: templates/embed/widgets.html:16
 #, fuzzy
-msgid "Ask a question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "First name"
+#~ msgstr "people"
 
-#: templates/embed/widgets.html:17 templates/embed/widgets.html.py:26
 #, fuzzy
-msgid "create"
-msgstr "people"
+#~ msgid "Last name"
+#~ msgstr "people"
 
-#: templates/embed/widgets.html:20 templates/embed/widgets.html.py:29
 #, fuzzy
-msgid "view list"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Confirm registration page"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/embed/widgets.html:25
 #, fuzzy
-msgid "List of questions"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_confirm_registration_page_short"
+#~ msgstr "Verification Email from Q&A forum"
 
+#, fuzzy
+#~ msgid "help_confirm_registration_page_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "add avatar"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Change avatar"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "change avatar"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "delete avatar"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Delete These"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_news_archive_short"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_news_archive_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Question by %(author)s:"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "In reply to %(author)s's question:"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Question :"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Asked by %(author)s:"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Tags:"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "%(author)s's answer:"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "In reply to %(author)s's answer:"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Answered by %(author)s:"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "%(author)s's comment:"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "In reply to %(author)s's comment:"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "Your post (copied in the end), was rejected for the following reason:"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Ask a question"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "create"
+#~ msgstr "people"
+
+#, fuzzy
+#~ msgid "view list"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "List of questions"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Ask to join node"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Edit answer"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Revision"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "revision"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "tags:"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Ask Your Question"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Start new discussion"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Add new document"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Add question"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/live/live.html:13 templates/node/annotation/show.html:23
 #: templates/node/document/detail.html:23
 msgid "Load more items"
 msgstr ""
+=======
+#, fuzzy
+#~ msgid "Add discussion"
+#~ msgstr "Verification Email from Q&A forum"
+>>>>>>> master
 
-#: templates/meta/bottom_scripts.html:7
-#, python-format
-msgid ""
-"Please note: %(app_name)s requires javascript to work properly, please "
-"enable javascript in your browser, <a href=\"%(noscript_url)s\">here is how</"
-"a>"
-msgstr ""
+#, fuzzy
+#~ msgid "Add document"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/node/ask_to_create.html:15
 #, fuzzy
 msgid "Your request to create new node was sent."
@@ -6015,200 +6485,144 @@ msgstr ""
 
 #: templates/node/ask_to_join.html:5 templates/node/ask_to_join.html.py:9
 #: templates/node/ask_to_join.html:33
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Ask to join node"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Document file"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/ask_to_join.html:26
-msgid "Your request has been sent and is being processed. Please wait."
-msgstr ""
-
-#: templates/node/ask_to_join.html:28
 #, fuzzy
-msgid "Cancel request ask to join node"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "click to follow this question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/ask_to_join.html:31
-msgid "You may ask Node manager to gain access using button below."
-msgstr ""
-
-#: templates/node/ask_to_join.html:37
-msgid "This node is accessible only on request by registered users."
-msgstr ""
-
-#: templates/node/base_node.html:18
-msgid "No content (no module active)."
-msgstr ""
-
-#: templates/node/base_post_edit.html:4 templates/node/base_post_edit.html:8
-#: templates/node/question/edit_post.html:19
 #, fuzzy
-msgid "Edit answer"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Follow this Discussion"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_post_edit.html:12 templates/node/document/edit.html:57
 #, fuzzy
-msgid "Revision"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Follow this Question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_post_edit.html:15
 #, fuzzy
-msgid "revision"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "click to unfollow this question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_post_edit.html:68
-msgid ", one of these is required"
-msgstr ""
-
-#: templates/node/base_post_edit.html:73 templates/node/base_post_edit.html:78
 #, fuzzy
-msgid "tags:"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Unollow this Discussion"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_post_edit.html:74
-msgid "(required)"
-msgstr ""
-
-#: templates/node/base_post_edit.html:90
-#: templates/node/base_thread_edit.html:64
-msgid "Summary"
-msgstr ""
-
-#: templates/node/base_post_edit.html:108
-#: templates/node/base_post_edit.html:114
-#: templates/node/annotation/edit.html:38
-#: templates/node/annotation/edit.html:42
-msgid "Save edit"
-msgstr ""
-
-#: templates/node/base_thread_add.html:7
-#: templates/node/base_thread_add.html:79 templates/widgets/ask_button.html:8
 #, fuzzy
-msgid "Ask Your Question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Unfollow this Question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_add.html:9
-#: templates/node/base_thread_add.html:81
-#: templates/node/discussion/add.html:18
-#: templates/node/discussion/list.html:31
 #, fuzzy
-msgid "Start new discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "email the updates"
+#~ msgstr "people"
 
-#: templates/node/base_thread_add.html:11
-#: templates/node/base_thread_add.html:83 templates/node/document/add.html:17
-#: templates/node/document/list.html:125
 #, fuzzy
-msgid "Add new document"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Show followers"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_add.html:30
 #, fuzzy
-msgid "Add question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Show last visits"
+#~ msgstr "people"
 
-#: templates/node/base_thread_add.html:32
 #, fuzzy
-msgid "Add discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit in admin"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_add.html:34
 #, fuzzy
-msgid "Add document"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Related content"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/base_thread_add.html:51
-#: templates/node/base_thread_edit.html:49
-msgid "please enter a descriptive title for your discussion"
-msgstr ""
-
-#: templates/node/base_thread_add.html:52
-msgid "Theme"
-msgstr ""
-
-#: templates/node/base_thread_add.html:55
-#: templates/node/base_thread_edit.html:51
-msgid "please enter a descriptive title for your document"
-msgstr ""
-
-#: templates/node/base_thread_add.html:68 templates/node/document/edit.html:38
 #, fuzzy
-msgid "Document file"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Activity"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:49
 #, fuzzy
-msgid "click to follow this question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Followers"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:51
 #, fuzzy
-msgid "Follow this Discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Closed"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:53
 #, fuzzy
-msgid "Follow this Question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Your role"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/base_thread_detail.html:57
 #, fuzzy
-msgid "click to unfollow this question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "post a comment / <strong>some</strong> more"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:59
 #, fuzzy
-msgid "Unollow this Discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "see <strong>some</strong> more"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:61
 #, fuzzy
-msgid "Unfollow this Question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "post a comment"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/base_thread_detail.html:68
 #, fuzzy
-msgid "email the updates"
-msgstr "people"
+#~ msgid "hide preview"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+#, fuzzy
+#~ msgid "show preview"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Edit"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Edit question"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/base_thread_detail.html:72
 #: templates/node/annotation/show.html:154
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Show followers"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit discussion"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:75
-#: templates/node/base_thread_detail.html:84
 #, fuzzy
-msgid "Show last visits"
-msgstr "people"
+#~ msgid "Edit document"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/node/base_thread_detail.html:89
 #: templates/node/edit_settings.html:30
 #: templates/node/annotation/show.html:159
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Edit in admin"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Directory"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:100
 #, fuzzy
-msgid "Related content"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Followers for %(thread_title)s"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/base_thread_detail.html:121
 #: templates/node/annotation/show.html:176
 #: templates/node/question/list.html:92
@@ -6217,520 +6631,414 @@ msgstr ""
 
 #: templates/node/base_thread_detail.html:125
 #: templates/node/annotation/show.html:180
+=======
 #, fuzzy
-msgid "Activity"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "User"
+#~ msgstr "People"
 
-#: templates/node/base_thread_detail.html:135
-#: templates/node/base_thread_followers.html:3 templates/node/followers.html:4
-#: templates/node/discussion/followers.html:8
-#: templates/node/document/followers.html:8
-#: templates/node/question/followers.html:8
+>>>>>>> master
 #, fuzzy
-msgid "Followers"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Unread"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/base_thread_detail.html:139
-msgid "Viewed"
-msgstr ""
+#, fuzzy
+#~ msgid "Last visit"
+#~ msgstr "people"
 
+#, fuzzy
+#~ msgid "Last visits"
+#~ msgstr "people"
+
+<<<<<<< HEAD
 #: templates/node/base_thread_detail.html:143
 #: templates/node/annotation/show.html:199
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Closed"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Last visit for %(thread_title)s"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/base_thread_detail.html:147
 #: templates/node/annotation/show.html:207
 #: templates/node/question/list.html:100
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Your role"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Edit Node Perexes"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/node/base_thread_detail.html:148
 #: templates/node/annotation/show.html:208
 #: templates/node/question/list.html:101
 msgid "Visitor"
 msgstr ""
-
-#: templates/node/base_thread_detail.html:170
-#, python-format
-msgid "each tag must be shorter that %(max_chars)s character"
-msgid_plural "each tag must be shorter than %(max_chars)s characters"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/node/base_thread_detail.html:172
-#, python-format
-msgid "please use %(tag_count)s tag"
-msgid_plural "please use %(tag_count)s tags or less"
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/node/base_thread_detail.html:173
-#, python-format
-msgid ""
-"please use up to %(tag_count)s tags, less than %(max_chars)s characters each"
-msgstr ""
-
-#: templates/node/base_thread_detail.html:277
+=======
 #, fuzzy
-msgid "post a comment / <strong>some</strong> more"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Node perexes"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+>>>>>>> master
 
-#: templates/node/base_thread_detail.html:279
 #, fuzzy
-msgid "see <strong>some</strong> more"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_perexes_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:283
-#: templates/node/base_thread_detail.html:351
 #, fuzzy
-msgid "post a comment"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "help_node_perexes_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:422
-#: templates/node/base_thread_detail.html:425
 #, fuzzy
-msgid "hide preview"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Questions perex"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_detail.html:425
 #, fuzzy
-msgid "show preview"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Discussions perex"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_edit.html:4
 #, fuzzy
-msgid "Edit"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Documents perex"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/base_thread_edit.html:22
-#: templates/node/question/edit.html:16
 #, fuzzy
-msgid "Edit question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit node"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/base_thread_edit.html:24
-#: templates/node/discussion/edit.html:16
 #, fuzzy
-msgid "Edit discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit Node Settings"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_edit.html:26
-#: templates/node/document/edit.html:18
 #, fuzzy
-msgid "Edit document"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "help_node_settings_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_edit.html:39
 #, fuzzy
-msgid "Directory"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_settings_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_followers.html:7
-#, fuzzy, python-format
-msgid "Followers for %(thread_title)s"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/node/base_thread_followers.html:12
-#: templates/node/base_thread_last_visit.html:10
-#: templates/node/followers.html:21
-#: templates/search/results/autocomplete_user.html:3
-#: templates/search/results/user.html:9
 #, fuzzy
-msgid "User"
-msgstr "People"
+#~ msgid "Node tools"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_followers.html:13
 #, fuzzy
-msgid "Unread"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Node settings for %(node_title)s"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_followers.html:14
-#: templates/node/followers.html:22
-msgid "Added at"
-msgstr ""
-
-#: templates/node/base_thread_followers.html:15
-#: templates/node/base_thread_last_visit.html:12
-#: templates/node/followers.html:23
 #, fuzzy
-msgid "Last visit"
-msgstr "people"
+#~ msgid "Node modules"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_followers.html:17
-#: templates/node/base_thread_followers.html:47
-#: templates/node/document/edit.html:35
-msgid "Remove"
-msgstr ""
-
-#: templates/node/base_thread_last_visit.html:3
 #, fuzzy
-msgid "Last visits"
-msgstr "people"
+#~ msgid "Enable module Questions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/base_thread_last_visit.html:6
-#, fuzzy, python-format
-msgid "Last visit for %(thread_title)s"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/node/base_thread_last_visit.html:11
-msgid "Not viewed"
-msgstr ""
-
-#: templates/node/edit_perexes.html:14
 #, fuzzy
-msgid "Edit Node Perexes"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Module Questions is readonly"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_perexes.html:22 templates/node/edit_settings.html:19
-#: templates/node/followers.html:52
-msgid "Back to Node"
-msgstr ""
-
-#: templates/node/edit_perexes.html:26
 #, fuzzy
-msgid "Node perexes"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Enable module Discussions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_perexes.html:26
 #, fuzzy
-msgid "help_node_perexes_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Module Discussions is readonly"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_perexes.html:26
 #, fuzzy
-msgid "help_node_perexes_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Enable module Documents"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/edit_perexes.html:51 templates/node/edit_perexes.html:73
-#: templates/node/edit_perexes.html:94 templates/node/edit_perexes.html:114
-#: templates/node/edit_perexes.html:134
-msgid "hilight perex as important"
-msgstr ""
-
-#: templates/node/edit_perexes.html:58
-msgid "Will be always displayed under the node title."
-msgstr ""
-
-#: templates/node/edit_perexes.html:89
 #, fuzzy
-msgid "Questions perex"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Module Documents is readonly"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_perexes.html:109
 #, fuzzy
-msgid "Discussions perex"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Default module"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_perexes.html:129
 #, fuzzy
-msgid "Documents perex"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Close Node"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:5
 #, fuzzy
-msgid "Edit node"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Node is closed"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:12
 #, fuzzy
-msgid "Edit Node Settings"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Node members"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:23
 #, fuzzy
-msgid "help_node_settings_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Delete"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:23
 #, fuzzy
-msgid "help_node_settings_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Node members email dump"
+#~ msgstr "Verification Email from Q&A forum"
 
+#, fuzzy
+#~ msgid "Show Node Followers"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Followers for %(node_title)s"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Node followers"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_node_followers_short"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_node_followers_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Edit annotation"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Edit Node Annotation"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Node annotation"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_node_annotation_short"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_node_annotation_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "About Node"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "This Node has no annotation yet."
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/edit_settings.html:27
 #: templates/node/annotation/show.html:133
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Node tools"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Sub-Nodes"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:40
-#, fuzzy, python-format
-msgid "Node settings for %(node_title)s"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/node/edit_settings.html:47
-msgid "Long title"
-msgstr ""
-
-#: templates/node/edit_settings.html:48
-msgid "Node visibility"
-msgstr ""
-
-#: templates/node/edit_settings.html:51
 #, fuzzy
-msgid "Node modules"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_detail_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:54
-msgid "Enable Annotation module"
-msgstr ""
-
-#: templates/node/edit_settings.html:56
 #, fuzzy
-msgid "Enable module Questions"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_detail_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:57
 #, fuzzy
-msgid "Module Questions is readonly"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit perexes"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/edit_settings.html:59
 #, fuzzy
-msgid "Enable module Discussions"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Number of followers"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/edit_settings.html:60
 #, fuzzy
-msgid "Module Discussions is readonly"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Node users"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:62
 #, fuzzy
-msgid "Enable module Documents"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Add New Discussion"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:63
 #, fuzzy
-msgid "Module Documents is readonly"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_discussion_add_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:66
 #, fuzzy
-msgid "Default module"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_discussion_add_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:66
-msgid ""
-"Default tab to show when visiting node. Please choose among enabled modules, "
-"otherwise built-in order will be used."
-msgstr ""
-
-#: templates/node/edit_settings.html:70
-msgid "Read-only"
-msgstr ""
-
-#: templates/node/edit_settings.html:79
 #, fuzzy
-msgid "Close Node"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "This discussion has been closed for the following reason:"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:82
 #, fuzzy
-msgid "Node is closed"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Reopen this discussion"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:82
-msgid ""
-"Node will not be displayed by default and will be read only, content is "
-"archived."
-msgstr ""
-
-#: templates/node/edit_settings.html:84
-msgid "If node is not closed, value will not be displayed."
-msgstr ""
-
-#: templates/node/edit_settings.html:96
 #, fuzzy
-msgid "Node members"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Close this discussion"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:97
-msgid ""
-"Use last field to add new member. Items marked as deleted will vanish after "
-"clicking on the save button."
-msgstr ""
-
-#: templates/node/edit_settings.html:108
-msgid "Role"
-msgstr ""
-
-#: templates/node/edit_settings.html:109
-msgid "Is responsible"
-msgstr ""
-
-#: templates/node/edit_settings.html:109
-msgid "Resp."
-msgstr ""
-
-#: templates/node/edit_settings.html:110
-#: templates/node/document/edit_directory.html:112
 #, fuzzy
-msgid "Delete"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Send post"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/edit_settings.html:110
-msgid "Del."
-msgstr ""
-
-#: templates/node/edit_settings.html:162
 #, fuzzy
-msgid "Node members email dump"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Post Your Own Discussion"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/edit_settings.html:163
-msgid ""
-"List of semicolon separated email addresses to be used for batch add users "
-"in another node."
-msgstr ""
-
-#: templates/node/edit_settings.html:184
-msgid "Batch add users"
-msgstr ""
-
-#: templates/node/edit_settings.html:188
-msgid "Assign role"
-msgstr ""
-
-#: templates/node/edit_settings.html:190
-msgid "Emails"
-msgstr ""
-
-#: templates/node/edit_settings.html:190
-msgid "List of semicolon separated email addresses."
-msgstr ""
-
-#: templates/node/followers.html:9
 #, fuzzy
-msgid "Show Node Followers"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "%(counter)s Post"
+#~ msgid_plural "%(counter)s Posts"
+#~ msgstr[0] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgstr[1] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/followers.html:16
-#, fuzzy, python-format
-msgid "Followers for %(node_title)s"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/node/followers.html:45
-msgid ""
-"Here are only latest records of visitors for this thread. Older are hidden."
-msgstr ""
-
-#: templates/node/followers.html:56
 #, fuzzy
-msgid "Node followers"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "There are no discussion posts in this Node."
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/followers.html:56
 #, fuzzy
-msgid "help_node_followers_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit Discussion"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/followers.html:56
 #, fuzzy
-msgid "help_node_followers_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_discussion_edit_short"
+#~ msgstr "Verification Email from Q&A forum"
 
+#, fuzzy
+#~ msgid "help_node_discussion_edit_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Edit Post"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "help_node_discussion_edit_post_short"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "help_node_discussion_edit_post_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/annotation/edit.html:5
 #: templates/node/annotation/show.html:66
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Edit annotation"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Discussion followers"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/annotation/edit.html:11
 #, fuzzy
-msgid "Edit Node Annotation"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_discussion_followers_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/annotation/edit.html:53
-msgid "Back to Annotation"
-msgstr ""
-
-#: templates/node/annotation/edit.html:57
 #, fuzzy
-msgid "Node annotation"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_discussion_followers_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/annotation/edit.html:57
 #, fuzzy
-msgid "help_node_annotation_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Last Visits"
+#~ msgstr "people"
 
-#: templates/node/annotation/edit.html:57
 #, fuzzy
-msgid "help_node_annotation_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Discussion visits"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/annotation/show.html:4
 #, fuzzy
-msgid "About Node"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "help_node_discussion_visits_short"
+#~ msgstr "Verification Email from Q&A forum"
 
+#, fuzzy
+#~ msgid "help_node_discussion_visits_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/annotation/show.html:74
+=======
+>>>>>>> master
 #, fuzzy
-msgid "This Node has no annotation yet."
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_discussion_list_short"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/annotation/show.html:87
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Sub-Nodes"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Discussion list"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/annotation/show.html:129
+=======
+>>>>>>> master
 #, fuzzy
-msgid "help_node_detail_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_discussion_list_html"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/annotation/show.html:129
+=======
+>>>>>>> master
 #, fuzzy
-msgid "help_node_detail_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Add New Document"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/node/annotation/show.html:141
 msgid "You cannot unfollow this node, because you are manager"
 msgstr ""
 
 #: templates/node/annotation/show.html:149
+=======
 #, fuzzy
-msgid "Edit perexes"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "help_node_document_add_short"
+#~ msgstr "Verification Email from Q&A forum"
 
+>>>>>>> master
+#, fuzzy
+#~ msgid "help_node_document_add_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/annotation/show.html:190
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Number of followers"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Download file"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/node/annotation/show.html:194
 msgid "Readonly"
 msgstr ""
@@ -6741,10 +7049,27 @@ msgid "Visibility"
 msgstr ""
 
 #: templates/node/annotation/show.html:211
+=======
 #, fuzzy
-msgid "Node users"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Document file not found."
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+#, fuzzy
+#~ msgid "undelete"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+>>>>>>> master
+#, fuzzy
+#~ msgid "Document preview"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+<<<<<<< HEAD
 #: templates/node/annotation/show.html:215
 #, fuzzy
 msgid "Number of views"
@@ -6753,55 +7078,79 @@ msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
 #: templates/node/discussion/add.html:9
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Add New Discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "number of pages:"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/discussion/add.html:14
-msgid "Back to Discussions"
-msgstr ""
-
-#: templates/node/discussion/add.html:18
 #, fuzzy
-msgid "help_node_discussion_add_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit Document"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/discussion/add.html:18
 #, fuzzy
-msgid "help_node_discussion_add_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_document_edit_short"
+#~ msgstr "Verification Email from Q&A forum"
 
+#, fuzzy
+#~ msgid "help_node_document_edit_html"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/discussion/detail.html:57
+=======
+>>>>>>> master
 #, fuzzy
-msgid "This discussion has been closed for the following reason:"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Change file"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/node/discussion/detail.html:66
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Reopen this discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "File revision history"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/discussion/detail.html:68
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Close this discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Revised at"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/discussion/detail.html:154
 msgid "Login/Signup to Post"
 msgstr ""
 
 #: templates/node/discussion/detail.html:177
+=======
 #, fuzzy
-msgid "Send post"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Revised by"
+#~ msgstr "Verification Email from Q&A forum"
 
+>>>>>>> master
+#, fuzzy
+#~ msgid "Edit Directory"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/discussion/detail.html:188
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Post Your Own Discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Add New Directory"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/discussion/detail.html:201
 #, fuzzy, python-format
 msgid "%(counter)s Post"
@@ -6814,10 +7163,17 @@ msgstr[1] ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
 #: templates/node/discussion/detail.html:273
+=======
 #, fuzzy
-msgid "There are no discussion posts in this Node."
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Add/edit directory"
+#~ msgstr "Verification Email from Q&A forum"
 
+>>>>>>> master
+#, fuzzy
+#~ msgid "help_node_directory_add_edit_short"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/discussion/detail.html:279
 msgid "help_discussion_detail_short"
 msgstr ""
@@ -6829,767 +7185,606 @@ msgstr ""
 #: templates/node/discussion/detail.html:280
 msgid "Discussion tools"
 msgstr ""
-
-#: templates/node/discussion/edit.html:8
+=======
 #, fuzzy
-msgid "Edit Discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_directory_add_edit_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/edit.html:12
-#: templates/node/discussion/edit_post.html:15
-#: templates/node/discussion/followers.html:13
-#: templates/node/discussion/last_visit.html:13
-msgid "Back to Discussion"
-msgstr ""
-
-#: templates/node/discussion/edit.html:16
 #, fuzzy
-msgid "help_node_discussion_edit_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Delete directory"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/edit.html:16
 #, fuzzy
-msgid "help_node_discussion_edit_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Directory is empty."
+#~ msgstr "Verification Email from Q&A forum"
+>>>>>>> master
 
-#: templates/node/discussion/edit_post.html:10
 #, fuzzy
-msgid "Edit Post"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Document followers"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/discussion/edit_post.html:19
 #, fuzzy
-msgid "help_node_discussion_edit_post_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_document_followers_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/edit_post.html:19
 #, fuzzy
-msgid "help_node_discussion_edit_post_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_document_followers_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/followers.html:17
 #, fuzzy
-msgid "Discussion followers"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Document visits"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/discussion/followers.html:17
 #, fuzzy
-msgid "help_node_discussion_followers_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_document_visits_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/followers.html:17
 #, fuzzy
-msgid "help_node_discussion_followers_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_document_visits_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/last_visit.html:8
-#: templates/node/document/last_visit.html:8
-#: templates/node/question/last_visit.html:8
 #, fuzzy
-msgid "Last Visits"
-msgstr "people"
+#~ msgid "There are no Documents in this Node."
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/last_visit.html:17
 #, fuzzy
-msgid "Discussion visits"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Download selected"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/discussion/last_visit.html:17
 #, fuzzy
-msgid "help_node_discussion_visits_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Change order"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/last_visit.html:17
 #, fuzzy
-msgid "help_node_discussion_visits_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_document_list_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/list.html:3
-msgid "Forum"
-msgstr ""
-
-#: templates/node/discussion/list.html:43
-#: templates/node/discussion/list.html:44
 #, fuzzy
-msgid "help_discussion_list_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_document_list_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/list.html:44
 #, fuzzy
-msgid "Discussion list"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Ask your Question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/discussion/list.html:44
 #, fuzzy
-msgid "help_discussion_list_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Ask your question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/add.html:7
 #, fuzzy
-msgid "Add New Document"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "help_node_question_add_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/add.html:13 templates/node/document/detail.html:159
-#: templates/node/document/edit_directory.html:19
-msgid "Back to Documents"
-msgstr ""
-
-#: templates/node/document/add.html:17
 #, fuzzy
-msgid "help_node_document_add_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_question_add_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/add.html:17
 #, fuzzy
-msgid "help_node_document_add_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "This question has been closed for the following reason:"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/detail.html:66
 #, fuzzy
-msgid "Download file"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "%(counter)s Answer"
+#~ msgid_plural "%(counter)s Answers"
+#~ msgstr[0] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgstr[1] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/document/detail.html:70
 #, fuzzy
-msgid "Document file not found."
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "current number of votes"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/document/detail.html:82
-#: templates/node/snippets/answer_controls.html:26
-#: templates/node/snippets/post_controls.html:28
 #, fuzzy
-msgid "undelete"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Edit Your Previous Answer"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/document/detail.html:107
 #, fuzzy
-msgid "Document preview"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "(only one answer per question is allowed)"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/detail.html:114
-msgid ""
-"Preview and search index is being prepared. This action may take up to 10 "
-"minutes."
-msgstr ""
-
-#: templates/node/document/detail.html:118
 #, fuzzy
-msgid "number of pages:"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Your answer"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/document/detail.html:164
-msgid "help_document_detail_short"
-msgstr ""
-
-#: templates/node/document/detail.html:164
-msgid "help_document_detail_html"
-msgstr ""
-
-#: templates/node/document/detail.html:165
-msgid "Document tools"
-msgstr ""
-
-#: templates/node/document/edit.html:8
 #, fuzzy
-msgid "Edit Document"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Be the first one to answer this question!"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit.html:14
-#: templates/node/document/followers.html:13
-#: templates/node/document/last_visit.html:13
-msgid "Back to Document"
-msgstr ""
-
-#: templates/node/document/edit.html:18
 #, fuzzy
-msgid "help_node_document_edit_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Post answer"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/document/edit.html:18
 #, fuzzy
-msgid "help_node_document_edit_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Answer Your Own Question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit.html:32
 #, fuzzy
-msgid "Change file"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Edit Question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit.html:34 templates/node/document/edit.html:70
-msgid "Actual"
-msgstr ""
-
-#: templates/node/document/edit.html:51
 #, fuzzy
-msgid "File revision history"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_question_edit_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit.html:58
-msgid "Type"
-msgstr ""
-
-#: templates/node/document/edit.html:59
-msgid "File"
-msgstr ""
-
-#: templates/node/document/edit.html:61
 #, fuzzy
-msgid "Revised at"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_question_edit_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit.html:62
 #, fuzzy
-msgid "Revised by"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit Answer"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/document/edit_directory.html:12
 #, fuzzy
-msgid "Edit Directory"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_question_edit_answer_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit_directory.html:14
-#: templates/node/document/list.html:129
 #, fuzzy
-msgid "Add New Directory"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_question_edit_answer_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit_directory.html:23
 #, fuzzy
-msgid "Add/edit directory"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Question followers"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit_directory.html:23
 #, fuzzy
-msgid "help_node_directory_add_edit_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_question_followers_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit_directory.html:23
 #, fuzzy
-msgid "help_node_directory_add_edit_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_question_followers_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit_directory.html:98
 #, fuzzy
-msgid "Delete directory"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Question visits"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/edit_directory.html:102
-#, python-format
-msgid "Directory contains %(count)s files! Will be deleted!"
-msgstr ""
-
-#: templates/node/document/edit_directory.html:106
 #, fuzzy
-msgid "Directory is empty."
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_node_question_visits_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/followers.html:17
 #, fuzzy
-msgid "Document followers"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "help_node_question_visits_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/followers.html:17
 #, fuzzy
-msgid "help_node_document_followers_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "There are no questions in this Node."
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/followers.html:17
 #, fuzzy
-msgid "help_node_document_followers_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Question list"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/last_visit.html:17
 #, fuzzy
-msgid "Document visits"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "help_question_list_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/last_visit.html:17
 #, fuzzy
-msgid "help_node_document_visits_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_question_list_html"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/last_visit.html:17
 #, fuzzy
-msgid "help_node_document_visits_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "swap with question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/list.html:77
-msgid "NEW"
-msgstr ""
+#, fuzzy
+#~ msgid "convert to comment"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+#, fuzzy
+#~ msgid "number of views"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "about node"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "Open Node's questions"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Open Node's discussion"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Discus. "
+#~ msgid_plural "Discus. "
+#~ msgstr[0] "Verification Email from Q&A forum"
+#~ msgstr[1] "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "Open Node's documents"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "There are no unanswered questions here"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "No questions here. "
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "resetting author"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "resetting tags"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "starting over"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "previous"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "see unanswered questions"
+#~ msgstr "Verification Email from Q&A forum"
+
+#, fuzzy
+#~ msgid "unanswered"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+
+#, fuzzy
+#~ msgid "see answered questions"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/document/list.html:116
+=======
 #, fuzzy
-msgid "Download selected"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "no accepted answer"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+>>>>>>> master
+#, fuzzy
+#~ msgid "see discussion with no post"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/document/list.html:119
 #, fuzzy
 msgid "There are no Documents in this Node."
 msgstr "Verification Email from Q&A forum"
 
 #: templates/node/document/list.html:133
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Change order"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "no posts"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/document/list.html:146 templates/node/document/list.html:148
 #, fuzzy
-msgid "help_document_list_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "see your followed questions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/document/list.html:148
 #, fuzzy
-msgid "help_document_list_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "followed"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/add.html:7
 #, fuzzy
-msgid "Ask your Question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "created"
+#~ msgstr "people"
 
-#: templates/node/question/add.html:13 templates/node/question/detail.html:329
-msgid "Back to Questions"
-msgstr ""
+#, fuzzy
+#~ msgid "last change"
+#~ msgstr "people"
 
+<<<<<<< HEAD
 #: templates/node/question/add.html:17 templates/node/question/list.html:72
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Ask your question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "number of answers"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/add.html:17
 #, fuzzy
-msgid "help_node_question_add_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "number of posts"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/add.html:17
 #, fuzzy
-msgid "help_node_question_add_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "click to see the least posted discussions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/detail.html:92
 #, fuzzy
-msgid "This question has been closed for the following reason:"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "click to see the most posted discussions"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/question/detail.html:101
 #: templates/node/question/detail.html:334
 #: templates/search/results/question.html:9 utils/notify_users.py:29
 #: utils/notify_users.py:104
 msgid "Question"
 msgstr ""
-
-#: templates/node/question/detail.html:157
-#, fuzzy, python-format
-msgid "%(counter)s Answer"
-msgid_plural "%(counter)s Answers"
-msgstr[0] ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-msgstr[1] ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-
-#: templates/node/question/detail.html:176
-#: templates/snippets/post_vote_buttons.html:3
+=======
 #, fuzzy
-msgid "current number of votes"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Selected tags"
+#~ msgstr "Verification Email from Q&A forum"
+>>>>>>> master
 
-#: templates/node/question/detail.html:188
-msgid "this answer has been selected as correct"
-msgstr ""
-
-#: templates/node/question/detail.html:190
-msgid "mark this answer as correct (click again to undo)"
-msgstr ""
-
-#: templates/node/question/detail.html:266
 #, fuzzy
-msgid "Edit Your Previous Answer"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Answer to Question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/detail.html:267
 #, fuzzy
-msgid "(only one answer per question is allowed)"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Discussion post in Node"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/detail.html:275
 #, fuzzy
-msgid "Your answer"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Page of Document"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/detail.html:277
 #, fuzzy
-msgid "Be the first one to answer this question!"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Organization"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/detail.html:284
-msgid "Login/Signup to Answer"
-msgstr ""
-
-#: templates/node/question/detail.html:307
 #, fuzzy
-msgid "Post answer"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "follow %(alias)s"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/detail.html:321
 #, fuzzy
-msgid "Answer Your Own Question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "unfollow %(alias)s"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/detail.html:334
-msgid "help_question_detail_short"
-msgstr ""
-
-#: templates/node/question/detail.html:334
-msgid "help_question_detail_html"
-msgstr ""
-
-#: templates/node/question/detail.html:335
-msgid "Question tools"
-msgstr ""
-
-#: templates/node/question/edit.html:8
 #, fuzzy
-msgid "Edit Question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "following %(alias)s"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/edit.html:12
-#: templates/node/question/edit_post.html:15
-#: templates/node/question/followers.html:14
-#: templates/node/question/last_visit.html:13
-msgid "Back to Question"
-msgstr ""
-
-#: templates/node/question/edit.html:16
 #, fuzzy
-msgid "help_node_question_edit_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Leave this organization"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/edit.html:16
 #, fuzzy
-msgid "help_node_question_edit_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Join this organization"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/edit_post.html:10
 #, fuzzy
-msgid "Edit Answer"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "You are a member"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/edit_post.html:19
 #, fuzzy
-msgid "help_node_question_edit_answer_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Ask to join"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/edit_post.html:19
 #, fuzzy
-msgid "help_node_question_edit_answer_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "delete this comment"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/followers.html:18
 #, fuzzy
-msgid "Question followers"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "convert to answer"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/followers.html:18
 #, fuzzy
-msgid "help_node_question_followers_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "by last name"
+#~ msgstr "people"
 
-#: templates/node/question/followers.html:18
 #, fuzzy
-msgid "help_node_question_followers_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "by name"
+#~ msgstr "people"
 
-#: templates/node/question/last_visit.html:17
 #, fuzzy
-msgid "Question visits"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Unresolved Node join requests"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/question/last_visit.html:17
 #, fuzzy
-msgid "help_node_question_visits_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Reject the post(s)?"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/question/last_visit.html:17
-#, fuzzy
-msgid "help_node_question_visits_html"
-msgstr "Verification Email from Q&A forum"
-
+<<<<<<< HEAD
 #: templates/node/question/list.html:58
+=======
+>>>>>>> master
 #, fuzzy
-msgid "There are no questions in this Node."
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Use other reason"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/question/list.html:83
+=======
+>>>>>>> master
 #, fuzzy
-msgid "Question list"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Select this reason"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/question/list.html:83
+=======
+>>>>>>> master
 #, fuzzy
-msgid "help_question_list_short"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Delete this reason"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/question/list.html:83
+=======
+>>>>>>> master
 #, fuzzy
-msgid "help_question_list_html"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Add a new reason"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/snippets/answer_controls.html:2
 #, fuzzy
-msgid "swap with question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit this reason"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/answer_controls.html:16
-msgid "permanent link"
-msgstr ""
-
-#: templates/node/snippets/answer_controls.html:17
-#: templates/widgets/markdown_help.html:5
-msgid "link"
-msgstr ""
-
-#: templates/node/snippets/answer_controls.html:38
-msgid "remove offensive flag"
-msgstr ""
-
-#: templates/node/snippets/answer_controls.html:39
-#: templates/node/snippets/post_controls.html:41
-msgid "remove flag"
-msgstr ""
-
-#: templates/node/snippets/answer_controls.html:43
-#: templates/node/snippets/answer_controls.html:49
-#: templates/node/snippets/post_controls.html:40
-#: templates/node/snippets/post_controls.html:43
-#: templates/node/snippets/post_controls.html:47
-msgid ""
-"report as offensive (i.e containing spam, advertising, malicious text, etc.)"
-msgstr ""
-
-#: templates/node/snippets/answer_controls.html:44
-#: templates/node/snippets/answer_controls.html:50
-#: templates/node/snippets/post_controls.html:44
-#: templates/node/snippets/post_controls.html:48
-msgid "flag offensive"
-msgstr ""
-
-#: templates/node/snippets/answer_controls.html:60
-msgid "reply"
-msgstr ""
-
-#: templates/node/snippets/answer_controls.html:82
 #, fuzzy
-msgid "convert to comment"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "delete post"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/snippets/document_box.html:28
 #, fuzzy
-msgid "number of views"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "User profile"
+#~ msgstr "User login"
 
-#: templates/node/snippets/node_box.html:18
 #, fuzzy
-msgid "about node"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Overview"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/node/snippets/node_box.html:30
 #, fuzzy
-msgid "Open Node's questions"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Email subscriptions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/node_box.html:41
-msgid "Q&A "
-msgid_plural "Q&As "
-msgstr[0] ""
-msgstr[1] ""
-
-#: templates/node/snippets/node_box.html:52
 #, fuzzy
-msgid "Open Node's discussion"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Action history"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/node_box.html:63
 #, fuzzy
-msgid "Discus. "
-msgid_plural "Discus. "
-msgstr[0] "Verification Email from Q&A forum"
-msgstr[1] "Verification Email from Q&A forum"
+#~ msgid "Managed nodes"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/node_box.html:75
 #, fuzzy
-msgid "Open Node's documents"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Followed nodes"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/nothing_found.html:4
 #, fuzzy
-msgid "There are no unanswered questions here"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Followed questions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/nothing_found.html:7
 #, fuzzy
-msgid "No questions here. "
-msgstr "Verification Email from Q&A forum"
+#~ msgid "discussions that user is following"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/nothing_found.html:8
-msgid "Please follow some questions or follow some users."
-msgstr ""
-
-#: templates/node/snippets/nothing_found.html:13
-msgid "You can expand your search by "
-msgstr ""
-
-#: templates/node/snippets/nothing_found.html:16
 #, fuzzy
-msgid "resetting author"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Followed discussions"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/nothing_found.html:18
-#: templates/node/snippets/nothing_found.html:21
-msgid " or "
-msgstr ""
-
-#: templates/node/snippets/nothing_found.html:19
 #, fuzzy
-msgid "resetting tags"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "activity"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/nothing_found.html:22
-#: templates/node/snippets/nothing_found.html:25
 #, fuzzy
-msgid "starting over"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Edit user profile"
+#~ msgstr "User login"
 
-#: templates/node/snippets/paginator.html:9
-#: templates/node/snippets/paginator.html:10
-#: templates/search/_pagination.html:6 templates/search/_pagination.html:8
-#: templates/snippets/paginator.html:7 templates/snippets/paginator.html:8
 #, fuzzy
-msgid "previous"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_update_profile_short"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/node/snippets/paginator.html:21
-#: templates/snippets/paginator.html:24
-msgid "current page"
-msgstr ""
-
-#: templates/node/snippets/paginator.html:23
-#: templates/node/snippets/paginator.html:30
-#: templates/snippets/paginator.html:26 templates/snippets/paginator.html:33
-#, python-format
-msgid "page %(num)s"
-msgstr ""
-
-#: templates/node/snippets/paginator.html:34
-#: templates/snippets/paginator.html:39 templates/snippets/paginator.html:40
-msgid "next page"
-msgstr ""
-
-#: templates/node/snippets/post_controls.html:62
-msgid "retag"
-msgstr ""
-
-#: templates/node/snippets/responsible_persons.html:4
-msgid "Responsible persons"
-msgstr ""
-
-#: templates/node/snippets/subscribe_by_email_prompt.html:5
-msgid "Email me when there are any new answers"
-msgstr ""
-
-#: templates/node/snippets/subscribe_by_email_prompt.html:11
-msgid ""
-"<span class='strong'>Here</span> (once you log in) you will be able to sign "
-"up for the periodic email updates about this question."
-msgstr ""
-
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:15
 #: templates/node/snippets/thread_sort.html:22
 #: templates/widgets/scope_nav.html:8
+=======
+>>>>>>> master
 #, fuzzy
-msgid "see unanswered questions"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "help_update_profile_html"
+#~ msgstr "people"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:15
+=======
+>>>>>>> master
 #, fuzzy
-msgid "unanswered"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Update Profile"
+#~ msgstr "people"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:19
+=======
+>>>>>>> master
 #, fuzzy
-msgid "see answered questions"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "edit profile"
+#~ msgstr "people"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:22
+=======
+>>>>>>> master
 #, fuzzy
-msgid "no accepted answer"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "change picture"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:28
+=======
+>>>>>>> master
 #, fuzzy
-msgid "see discussion with no post"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Profile picture"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:28
+=======
+>>>>>>> master
 #, fuzzy
-msgid "no posts"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Privacy settings"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:34
 #: templates/widgets/scope_nav.html:11
+=======
+>>>>>>> master
 #, fuzzy
-msgid "see your followed questions"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Publish your followed"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:34
 #, fuzzy
 msgid "followed"
@@ -7601,162 +7796,114 @@ msgid "Sort by:"
 msgstr ""
 
 #: templates/node/snippets/thread_sort.html:43
+=======
 #, fuzzy
-msgid "created"
-msgstr "people"
+#~ msgid "Mark all followed node read"
+#~ msgstr "Verification Email from Q&A forum"
 
+>>>>>>> master
+#, fuzzy
+#~ msgid "profile - action history"
+#~ msgstr "Verification Email from Q&A forum"
+
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:44
+=======
+>>>>>>> master
 #, fuzzy
-msgid "last change"
-msgstr "people"
+#~ msgid "Date and time"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:46
+=======
+>>>>>>> master
 #, fuzzy
-msgid "number of answers"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Action"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:50
+=======
+>>>>>>> master
 #, fuzzy
-msgid "number of posts"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Mark all managed node read"
+#~ msgstr "Verification Email from Q&A forum"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:50
+=======
+>>>>>>> master
 #, fuzzy
-msgid "click to see the least posted discussions"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Choose an organization and join in"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
+<<<<<<< HEAD
 #: templates/node/snippets/thread_sort.html:50
+=======
+>>>>>>> master
 #, fuzzy
-msgid "click to see the most posted discussions"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Choose organization"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/search/_pagination.html:14 templates/search/_pagination.html:16
-msgid "next"
-msgstr ""
-
-#: templates/search/search.html:5 templates/search/search.html.py:35
-msgid "Search results"
-msgstr ""
-
-#: templates/search/search.html:106
-msgid ""
-"No results found. Please note, that some result may be hidden in private "
-"Nodes."
-msgstr ""
-
-#: templates/search/search.html:108
-#: templates/user_profile/user_overview.html:182
-msgid "Do you want to see more?"
-msgstr ""
-
-#: templates/search/search.html:122
 #, fuzzy
-msgid "Selected tags"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Last seen"
+#~ msgstr "people"
 
-#: templates/search/results/answer.html:9
-#: templates/search/results/autocomplete_answer.html:2
 #, fuzzy
-msgid "Answer to Question"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Following items"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/search/results/autocomplete_discussion_post.html:2
-#: templates/search/results/discussion_post.html:9
 #, fuzzy
-msgid "Discussion post in Node"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Update your profile"
+#~ msgstr "people"
 
-#: templates/search/results/autocomplete_page.html:3
-#: templates/search/results/page.html:9
 #, fuzzy
-msgid "Page of Document"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Ask the Organization"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/search/results/autocomplete_page.html:9
-msgid "page"
-msgstr ""
-
-#: templates/search/results/organization.html:9
-#: templates/user_profile/user_overview.html:16
-#: templates/user_profile/user_overview.html:20
 #, fuzzy
-msgid "Organization"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "numbered list:"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/snippets/follow_toggle.html:3
-#, fuzzy, python-format
-msgid "follow %(alias)s"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/snippets/follow_toggle.html:6
-#, fuzzy, python-format
-msgid "unfollow %(alias)s"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/snippets/follow_toggle.html:7
-#, fuzzy, python-format
-msgid "following %(alias)s"
-msgstr "Verification Email from Q&A forum"
-
-#: templates/snippets/organization_join_button.html:6
-#: templates/snippets/organization_join_button.html:12
 #, fuzzy
-msgid "Leave this organization"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Organization info"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/snippets/organization_join_button.html:7
-#: templates/snippets/organization_join_button.html:9
-#: templates/snippets/organization_join_button.html:28
 #, fuzzy
-msgid "Join this organization"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Please ask your question here"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/snippets/organization_join_button.html:8
-#: templates/snippets/organization_join_button.html:13
-#: templates/snippets/organization_join_button.html:23
 #, fuzzy
-msgid "You are a member"
-msgstr "Verification Email from Q&A forum"
+#~ msgid "Unread posts"
+#~ msgstr ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/snippets/organization_join_button.html:15
-msgid "Cancel application"
-msgstr ""
-
-#: templates/snippets/organization_join_button.html:16
-#: templates/snippets/organization_join_button.html:25
-msgid "Waiting approval"
-msgstr ""
-
-#: templates/snippets/organization_join_button.html:18
-#: templates/snippets/organization_join_button.html:19
-#: templates/snippets/organization_join_button.html:30
 #, fuzzy
-msgid "Ask to join"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Post"
+#~ msgid_plural "Posts"
+#~ msgstr[0] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgstr[1] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
 
-#: templates/snippets/post_comments_widget.html:42
 #, fuzzy
-msgid "delete this comment"
-msgstr ""
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
-"#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgid "Show question"
+#~ msgstr "Verification Email from Q&A forum"
 
-#: templates/snippets/post_comments_widget.html:52
 #, fuzzy
+<<<<<<< HEAD
 msgid "convert to answer"
 msgstr ""
 "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
@@ -9075,6 +9222,16 @@ msgstr ""
 #: views/writers.py:905
 msgid "the selected answer cannot be a comment"
 msgstr ""
+=======
+#~ msgid "Answer "
+#~ msgid_plural "Answers "
+#~ msgstr[0] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ msgstr[1] ""
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+#~ "#-#-#-#-#  django.pot (PACKAGE VERSION)  #-#-#-#-#\n"
+>>>>>>> master
 
 #, fuzzy
 #~ msgid "Repeat password"

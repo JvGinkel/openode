@@ -1375,6 +1375,35 @@ def resolve_node_create_request(request):
     activity.delete()
     return HttpResponseRedirect(reverse('user_profile', args=[request.user.id, 'node_create']))
 
+@csrf.csrf_protect
+def resolve_organization_request(request):
+    """moderator of the organization can accept or reject a new user"""
+
+    request_id = IntegerField().clean(request.POST['request_id'])
+    action = request.POST['action']
+    assert(action in ('approve', 'deny'))
+
+    activity = get_object_or_404(models.Activity, pk=request_id)
+    applicant = activity.user
+    org = activity.content_object
+
+    if action == 'approve':
+        org.approved = True
+        org.save()
+        applicant.log(activity, const.LOG_ACTION_ASK_TO_CREATE_ORG_ACCEPTED)
+        request.user.log(applicant, const.LOG_ACTION_ASK_TO_CREATE_ORG_ACCEPTED)
+
+        message = _('Your request to create organization has been approved!')
+        applicant.message_set.create(message=message)
+        activity.delete()
+        #return HttpResponseRedirect(reverse('admin:openode_organization_change', args=(activity.object_id,)))
+    else:
+        request.user.log(activity, const.LOG_ACTION_ASK_TO_CREATE_ORG_DECLINED)
+        message = _('Sorry, your request to create organization has been denied.')
+        applicant.message_set.create(message=message)
+        activity.delete()
+    return HttpResponseRedirect(reverse('user_profile', args=[request.user.id, 'organization_requests']))
+
 
 @login_required
 def remove_from_followers(request, pk):

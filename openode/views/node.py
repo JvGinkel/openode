@@ -14,13 +14,16 @@ from django.utils.translation import ugettext_noop
 from django.utils.datastructures import SortedDict
 
 from openode import const
+from openode.models import get_users_with_perm
 from openode.models.node import Node, Post, FollowedNode, SubscribedNode, NodeUser
-from openode.models.user import Activity
-from openode.skins.loaders import render_into_skin
+from openode.models.user import Activity, Organization
+from openode.skins.loaders import render_into_skin, get_template
 from openode.forms.node import NodeAnnotationEditForm, NodeSettingsForm, NodeUserForm, PerexesEditForm, \
     AskToCreateNodeForm
+from openode.forms.organization import OrganizationForm
 
 from openode.utils.http import render_forbidden
+from openode.utils.notify_users import notify_about_requests
 
 
 def node_detail(request, node_id, node_slug):
@@ -391,6 +394,45 @@ def node_ask_to_create(request):
     }
 
     return render_into_skin("node/ask_to_create.html", to_tmpl, request)
+
+
+@login_required()
+def ask_to_create_org(request):
+    """
+        ask to create organization
+    """
+
+    if request.POST:
+        form = OrganizationForm(request.POST)
+        if form.is_valid():
+            org = form.save(request)
+
+            summary = _(u'''%(user)s wants to create a new organization %(organization_name)s.
+            Description of the organization:  %(description)s''') % {'user': request.user, 'organization_name': org.title, 'description': org.description.summary}
+
+            # send mail:
+            users_to_notify = get_users_with_perm('add_organization')
+            subject = _(u'''%(user)s wants to create a new organization %(organization_name)s''') % {'user': request.user, 'organization_name': org.title}
+
+            notify_about_requests(users_to_notify, subject, summary)
+
+            org_request, created = Activity.objects.get_or_create(
+                object_id=org.pk,
+                content_type=ContentType.objects.get_for_model(Organization),
+                user=request.user,
+                activity_type=const.TYPE_ACTIVITY_ASK_TO_CREATE_ORG,
+                summary=summary,
+            )
+
+            request.user.log(org, const.LOG_ACTION_ASK_TO_CREATE_ORG)
+    else:
+        form = OrganizationForm()
+
+    to_tmpl = {
+        'form': form,
+    }
+
+    return render_into_skin("ask_to_create_organization.html", to_tmpl, request)
 
 
 @login_required

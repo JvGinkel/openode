@@ -16,6 +16,7 @@ from django.db.backends.dummy.base import IntegrityError
 from django.forms import EmailField
 from django.utils.encoding import smart_unicode
 from django.utils.translation import ugettext as _
+
 from sorl.thumbnail.helpers import ThumbnailError
 from sorl.thumbnail.shortcuts import get_thumbnail
 
@@ -381,6 +382,11 @@ class OrganizationLogoStorage(FileSystemStorage):
     pass
 
 
+class OrganizationManager(models.Manager):
+    def get_query_set(self):
+        return super(OrganizationManager, self).get_query_set().filter(approved = True)
+
+
 class Organization(models.Model):
     """organization profile for openode"""
     OPEN = 0
@@ -391,6 +397,9 @@ class Organization(models.Model):
         (MODERATED, 'moderated'),
         (CLOSED, 'closed'),
     )
+
+    approved = models.BooleanField(default=True, blank=True)
+
     title = models.CharField(max_length=16)
     long_title = models.CharField(max_length=300, default='', blank=True, null=True)
 
@@ -422,6 +431,10 @@ class Organization(models.Model):
     #only domains - without the '@' or anything before them
     preapproved_email_domains = models.TextField(null=True, blank=True, default='')
 
+
+    # objects = OrganizationManager()
+    #all_objects = models.Manager()
+
     class Meta:
         app_label = 'openode'
 
@@ -448,6 +461,7 @@ class Organization(models.Model):
             return thumbnail url for organization
         """
         GEOMETRY_STRING = "%sx%s" % (size, size)
+
         try:
             return get_thumbnail(
                 self.logo,
@@ -462,6 +476,7 @@ class Organization(models.Model):
                 "logo": str(self.logo)
             }))
             return None
+
 
     def get_openness_choices(self):
         """gives answers to question

@@ -34,11 +34,17 @@
 -- COMMIT;
 
 
--- -- 2014-09-4
+-- 2014-09-4
 
 BEGIN;
      ALTER TABLE "activity" ALTER COLUMN "content_type_id" DROP NOT NULL;
      ALTER TABLE "activity" ALTER COLUMN "object_id" DROP NOT NULL;
+COMMIT;
+
+-- 2014-09-04
+BEGIN;
+  ALTER TABLE "openode_organization" ADD COLUMN "approved" boolean;
+  UPDATE "openode_organization" SET approved=TRUE;
 COMMIT;
 
 -- 2014-10-02

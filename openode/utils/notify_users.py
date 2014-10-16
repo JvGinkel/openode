@@ -172,3 +172,17 @@ def immediately_notify_users(post):
         }))
 
     return False
+
+def notify_about_requests(user_list, subject, text):
+    data = {
+            'text': text,
+            'site_name': openode_settings.APP_SHORT_NAME,
+            'site_url': openode_settings.APP_URL
+        }
+
+    template = get_template('email/notification.html')
+    message = template.render(data)
+    email_list = [user.email for user in user_list]
+
+    mail.send_mail(subject, message, django_settings.DEFAULT_FROM_EMAIL, email_list, raise_on_failure=True)
+

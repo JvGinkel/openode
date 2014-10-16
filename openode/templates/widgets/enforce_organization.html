@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="alert-box notify" id="registration_enforcer" style="display: none;">
+          {% url organization_list as list_url%}
+          {% url ask_to_create_org as create_url %}
+
+          <div class="notification">
+          {% trans %}
+              You are currently not a member of any organization. Join organization
+              <a href="{{ list_url }}">here</a> or create a new organization <a href="{{create_url}}">here</a>.
+          {% endtrans %}
+          </div>
+        <a id="closeOrganizationNotify">close</a>
+    </div>
+</div>

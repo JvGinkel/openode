@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-15 14:58+0200\n"
-"PO-Revision-Date: 2014-10-15 14:59+0100\n"
-"Last-Translator: Martin Kubát <martin.kubat@coex.cz>\n"
+"POT-Creation-Date: 2014-07-25 13:58+0200\n"
+"PO-Revision-Date: 2014-07-25 13:59+0100\n"
+"Last-Translator: Martin Kubát <mar.kubat@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
 "Language: cs_CZ\n"
@@ -55,8 +55,9 @@ msgstr "Text"
 msgid "description"
 msgstr "popis"
 
-#: admin.py:350 templates/base.html:292 templates/authopenid/signin.html:76
-#: templates/authopenid/signin.html:273
+#: admin.py:350 templates/base.html:279
+#: templates/authopenid/change_password.html:35
+#: templates/authopenid/signin.html:76 templates/authopenid/signin.html:273
 #: templates/authopenid/signup_with_password.html:70
 #: templates/authopenid/widget_signin.html:114 utils/forms.py:279
 msgid "Password"
@@ -79,8 +80,9 @@ msgid "Passwords did not match"
 msgstr "Hesla se neshodovala"
 
 #: dashboard.py:27
+#, fuzzy
 msgid "Openode low level administration"
-msgstr "Openode nízkoúrovňová administrace"
+msgstr "Pluto nízkoúrovňová administrace"
 
 #: dashboard.py:35 templates/admin/document/state.html:48
 #: templates/admin/document/state.html:52
@@ -1398,7 +1400,7 @@ msgid "Enable mark offensive flags"
 msgstr "Prohlížet urážlivé značky"
 
 #: const/__init__.py:59 templates/node/base_thread_detail.html:130
-#: templates/node/annotation/show.html:185
+#: templates/node/annotation/show.html:142
 #: templates/user_profile/user_overview.html:83
 msgid "Never"
 msgstr "Nikdy"
@@ -1426,356 +1428,361 @@ msgstr "Seznam"
 msgid "cloud"
 msgstr "Oblak"
 
-#: const/__init__.py:191
+#: const/__init__.py:190
 msgid "asked a question"
 msgstr "Položená otázka"
 
-#: const/__init__.py:192
+#: const/__init__.py:191
 msgid "answered a question"
 msgstr "Zodpovězená otázka"
 
-#: const/__init__.py:193 const/__init__.py:293
+#: const/__init__.py:192 const/__init__.py:291
 msgid "commented question"
 msgstr "Okomentovaná otázka"
 
-#: const/__init__.py:194 const/__init__.py:294
+#: const/__init__.py:193 const/__init__.py:292
 msgid "commented answer"
 msgstr "Okomentovaná odpověď"
 
-#: const/__init__.py:195
+#: const/__init__.py:194
 msgid "edited question"
 msgstr "Upravená otázka"
 
-#: const/__init__.py:196
+#: const/__init__.py:195
 msgid "edited answer"
 msgstr "Upravená odpověď"
 
-#: const/__init__.py:197
+#: const/__init__.py:196
 msgid "marked best answer"
 msgstr "Označeno za nejlepší odpověď"
 
-#: const/__init__.py:198
+#: const/__init__.py:197
 msgid "upvoted"
 msgstr "Odhlasováno kladně"
 
-#: const/__init__.py:199
+#: const/__init__.py:198
 msgid "downvoted"
 msgstr "Odhlasováno záporně"
 
-#: const/__init__.py:200
+#: const/__init__.py:199
 msgid "canceled vote"
 msgstr "Zrušený hlas"
 
-#: const/__init__.py:201
+#: const/__init__.py:200
 msgid "deleted question"
 msgstr "Smazaná otázka"
 
-#: const/__init__.py:202
+#: const/__init__.py:201
 msgid "deleted answer"
 msgstr "Smazaná odpověď"
 
-#: const/__init__.py:203
+#: const/__init__.py:202
 msgid "marked offensive"
 msgstr "označeno jako nevhodné"
 
-#: const/__init__.py:204
+#: const/__init__.py:203
 msgid "updated tags"
 msgstr "Aktualizované štítky"
 
-#: const/__init__.py:205
+#: const/__init__.py:204
 msgid "selected followed"
 msgstr "vybrané sledované"
 
-#: const/__init__.py:206
+#: const/__init__.py:205
 msgid "completed user profile"
 msgstr "Dokončený profil uživatele"
 
-#: const/__init__.py:207
+#: const/__init__.py:206
 msgid "email update sent to user"
 msgstr "Emailové oznámení zaslané uživateli"
 
-#: const/__init__.py:208
+#: const/__init__.py:207
 msgid "a post was shared"
 msgstr ""
 
-#: const/__init__.py:209
+#: const/__init__.py:208
 msgid "user asks to join node"
 msgstr "uživatel požádal o přístup do klubu"
 
-#: const/__init__.py:210
+#: const/__init__.py:211
 #, fuzzy
 msgid "user asks to create node"
 msgstr "uživatel požádal o přístup do klubu"
 
-#: const/__init__.py:213
+#: const/__init__.py:212
+#, fuzzy
+msgid "user asks to create organization"
+msgstr "Požádat o vstup do organizace"
+
+#: const/__init__.py:215
 msgid "reminder about unanswered questions sent"
 msgstr "připomenutí o nezodpovězených otázkách bylo odesláno"
 
-#: const/__init__.py:217
+#: const/__init__.py:215
 msgid "reminder about accepting the best answer sent"
 msgstr "připomenutí o odsouhlasení nejlepší odpovědi odesláno"
 
-#: const/__init__.py:219
+#: const/__init__.py:217
 msgid "mentioned in the post"
 msgstr "zmíněno v příspěvku"
 
-#: const/__init__.py:222
+#: const/__init__.py:220
 msgid "created tag description"
 msgstr "vytvořen popis štítku"
 
-#: const/__init__.py:226
+#: const/__init__.py:224
 msgid "updated tag description"
 msgstr "aktualizovaný popisek štítku"
 
-#: const/__init__.py:230
+#: const/__init__.py:228
 msgid "created post reject reason"
 msgstr "vytvořen důvod zamítnutí příspěvku"
 
-#: const/__init__.py:234
+#: const/__init__.py:232
 msgid "updated post reject reason"
 msgstr ""
 
-#: const/__init__.py:292
+#: const/__init__.py:290
 msgid "answered question"
 msgstr "zodpovězená otázka"
 
-#: const/__init__.py:295 templates/node/snippets/thread_sort.html:19
+#: const/__init__.py:293 templates/node/snippets/thread_sort.html:18
 msgid "accepted answer"
 msgstr "odsouhlasená odpověď"
 
-#: const/__init__.py:299
+#: const/__init__.py:297
 msgid "SOLVED"
 msgstr "VYŘEŠENO"
 
-#: const/__init__.py:300 models/node.py:153
+#: const/__init__.py:298 models/node.py:153
 msgid "CLOSED"
 msgstr "UZAVŘENO"
 
-#: const/__init__.py:301 models/node.py:152
+#: const/__init__.py:299 models/node.py:152
 msgid "DELETED"
 msgstr "SMAZÁNO"
 
-#: const/__init__.py:302 views/readers.py:629
+#: const/__init__.py:300 views/readers.py:542
 msgid "initial version"
 msgstr "původní verze"
 
-#: const/__init__.py:303
+#: const/__init__.py:301
 msgid "retagged"
 msgstr "přeštítkováno"
 
-#: const/__init__.py:304
+#: const/__init__.py:302
 msgid "[private]"
 msgstr "[privátní]"
 
-#: const/__init__.py:313
+#: const/__init__.py:311
 msgid "show all tags"
 msgstr "zobrazit všechny štítky"
 
-#: const/__init__.py:314 const/__init__.py:324
+#: const/__init__.py:312 const/__init__.py:322
 #, fuzzy
 msgid "exclude ignored tags"
 msgstr "vynechat ignorované"
 
-#: const/__init__.py:315
+#: const/__init__.py:313
 #, fuzzy
 msgid "only interesting tags"
 msgstr "Zajímavé štítky"
 
-#: const/__init__.py:319 const/__init__.py:325
+#: const/__init__.py:317 const/__init__.py:323
 #, fuzzy
 msgid "only subscribed tags"
 msgstr "Zapsat se pro štítky"
 
-#: const/__init__.py:323
+#: const/__init__.py:321
 #, fuzzy
 msgid "email for all tags"
 msgstr "prohlédnout všechny štítky"
 
-#: const/__init__.py:329
+#: const/__init__.py:327
 msgid "instantly"
 msgstr "ihned"
 
-#: const/__init__.py:330
+#: const/__init__.py:328
 msgid "daily"
 msgstr "denně"
 
-#: const/__init__.py:331
+#: const/__init__.py:329
 msgid "weekly"
 msgstr "týdně"
 
-#: const/__init__.py:332
+#: const/__init__.py:330
 msgid "no email"
 msgstr "žádné maily"
 
-#: const/__init__.py:339
+#: const/__init__.py:337
 msgid "identicon"
 msgstr "identikona"
 
-#: const/__init__.py:340
+#: const/__init__.py:338
 msgid "mystery-man"
 msgstr "mystery-man"
 
-#: const/__init__.py:341
+#: const/__init__.py:339
 msgid "monsterid"
 msgstr "monsterid"
 
-#: const/__init__.py:342
+#: const/__init__.py:340
 msgid "wavatar"
 msgstr "wavatar"
 
-#: const/__init__.py:343
+#: const/__init__.py:341
 msgid "retro"
 msgstr "retro"
 
-#: const/__init__.py:355
+#: const/__init__.py:353
 msgid "moderator"
 msgstr "moderátor"
 
-#: const/__init__.py:356
+#: const/__init__.py:354
 msgid "approved"
 msgstr "schváleno"
 
-#: const/__init__.py:357
+#: const/__init__.py:355
 msgid "watched"
 msgstr "sledované"
 
-#: const/__init__.py:358
+#: const/__init__.py:356
 msgid "suspended"
 msgstr "pozastaveno"
 
-#: const/__init__.py:359
+#: const/__init__.py:357
 msgid "blocked"
 msgstr "zablokováno"
 
-#: const/__init__.py:387
+#: const/__init__.py:385
 msgid "None"
 msgstr "Žádný"
 
-#: const/__init__.py:388
+#: const/__init__.py:386
 msgid "Gravatar"
 msgstr "Gravatar"
 
-#: const/__init__.py:389
+#: const/__init__.py:387
 msgid "Uploaded Avatar"
 msgstr "Nahraná ikonka"
 
-#: const/__init__.py:393
+#: const/__init__.py:391
 msgid "date descendant"
 msgstr "datum sestupně"
 
-#: const/__init__.py:394
+#: const/__init__.py:392
 msgid "date ascendant"
 msgstr "datum vzestupně"
 
-#: const/__init__.py:395
+#: const/__init__.py:393
 msgid "activity descendant"
 msgstr "od nejnovějších"
 
-#: const/__init__.py:396
+#: const/__init__.py:394
 msgid "activity ascendant"
 msgstr "od nejstarších"
 
-#: const/__init__.py:397
+#: const/__init__.py:395
 msgid "answers descendant"
 msgstr "odpovědi shora dolů"
 
-#: const/__init__.py:398
+#: const/__init__.py:396
 msgid "answers ascendant"
 msgstr "odpovědi odspodu nahoru"
 
-#: const/__init__.py:399
+#: const/__init__.py:397
 msgid "votes descendant"
 msgstr "hlasy shora dolů"
 
-#: const/__init__.py:400
+#: const/__init__.py:398
 msgid "votes ascendant"
 msgstr "hlasy odspoda nahoru"
 
-#: const/__init__.py:438
+#: const/__init__.py:436
 msgid "question"
 msgstr "otázka"
 
-#: const/__init__.py:439
+#: const/__init__.py:437
 msgid "discussion"
 msgstr "diskuze"
 
-#: const/__init__.py:440
+#: const/__init__.py:438
 msgid "document"
 msgstr "dokument"
 
-#: const/__init__.py:448 templates/node/annotation/show.html:62
+#: const/__init__.py:446 templates/node/annotation/show.html:37
 msgid "Annotation"
 msgstr "Anotace"
 
-#: const/__init__.py:448
+#: const/__init__.py:446
 msgid "Annot."
 msgstr "Anotace"
 
-#: const/__init__.py:449 search/forms.py:21
+#: const/__init__.py:447 search/forms.py:21
 #: templates/two_column_node_body.html:82
 #: templates/node/document/edit_directory.html:6
 #: templates/node/document/move_directory.html:6
 #: templates/node/document/reorg_directory.html:6
 #: templates/node/question/list.html:3 templates/node/question/list.html:7
-#: templates/node/question/list.html:14
+#: templates/node/question/list.html:10
 #: templates/user_profile/user_overview.html:117
 msgid "Questions"
 msgstr "Otázky"
 
-#: const/__init__.py:449
+#: const/__init__.py:447
 msgid "Q&As"
 msgstr "Otázky"
 
-#: const/__init__.py:450 search/forms.py:22
+#: const/__init__.py:448 search/forms.py:22
 #: templates/node/discussion/list.html:7
 #: templates/user_profile/user_overview.html:123
 msgid "Discussions"
 msgstr "Diskuze"
 
-#: const/__init__.py:450
+#: const/__init__.py:448
 msgid "Discu."
 msgstr "Diskuze"
 
-#: const/__init__.py:451 document/models.py:83 search/forms.py:20
+#: const/__init__.py:449 document/models.py:83 search/forms.py:20
 #: templates/two_column_node_body.html:138 templates/node/document/list.html:3
 #: templates/node/document/list.html:7 templates/node/document/list.html:43
 #: templates/node/document/list.html:148
 msgid "Documents"
 msgstr "Dokumenty"
 
-#: const/__init__.py:451 templates/node/snippets/node_box.html:88
+#: const/__init__.py:449 templates/node/snippets/node_box.html:88
 msgid "Docs."
 msgstr "Dokum."
 
-#: const/__init__.py:467
+#: const/__init__.py:465
 msgid "Regular"
 msgstr "Běžný"
 
-#: const/__init__.py:468 templates/node/base_thread_add.html:69
+#: const/__init__.py:466 templates/node/base_thread_add.html:69
 msgid "Category"
 msgstr "Kategorie"
 
-#: const/__init__.py:485
+#: const/__init__.py:483
 msgid "Public"
 msgstr "Veřejný"
 
-#: const/__init__.py:485
+#: const/__init__.py:483
 msgid "Node will be visible and accessible for everyone."
 msgstr "Klub bude viditelný a přístupný všemi návštěvníky."
 
-#: const/__init__.py:486 const/__init__.py:487
+#: const/__init__.py:484 const/__init__.py:485
 msgid "Registered users"
 msgstr "Registrovaní uživatelé"
 
-#: const/__init__.py:486
+#: const/__init__.py:484
 msgid "Node will be visible and accessible only for registered users."
 msgstr "Klub bude viditelný a přístupný pouze registrovaným uživatelům."
 
-#: const/__init__.py:487 const/__init__.py:488
+#: const/__init__.py:485 const/__init__.py:486
 msgid "Private"
 msgstr "Privátní"
 
-#: const/__init__.py:487
+#: const/__init__.py:485
 msgid ""
 "Node will be visible for all registered users, but accessible only for node "
 "members, others may ask for access."
@@ -1783,7 +1790,7 @@ msgstr ""
 "Klub bude viditelný všem registrovaným uživatelům, ale přístupný bude pouze "
 "členům klubu, ostatní mohou o přístup do klubu požádat."
 
-#: const/__init__.py:488
+#: const/__init__.py:486
 msgid ""
 "Node will be visible and accessible only for node members disregarding "
 "user's role."
@@ -1791,265 +1798,285 @@ msgstr ""
 "Klub bude viditelný a přístupný pouze jeho členům, bez ohledu na konkrétní "
 "role."
 
-#: const/__init__.py:500 const/__init__.py:501 const/__init__.py:502
+#: const/__init__.py:498 const/__init__.py:499 const/__init__.py:500
 msgid "Member"
 msgstr "Člen(ka)"
 
-#: const/__init__.py:501
+#: const/__init__.py:499
 msgid "Read only"
 msgstr "Pouze pro čtení"
 
-#: const/__init__.py:502
+#: const/__init__.py:500
 msgid "Document editor"
 msgstr "Správce dokumentů"
 
-#: const/__init__.py:503
+#: const/__init__.py:501
 msgid "Manager"
 msgstr "Manažer(ka)"
 
-#: const/__init__.py:589
+#: const/__init__.py:583
 msgid "asked question"
 msgstr "Vložil(a) otázku"
 
-#: const/__init__.py:590
+#: const/__init__.py:584
 msgid "answer question"
 msgstr "Vložil(a) odpověď"
 
-#: const/__init__.py:591
+#: const/__init__.py:585
 msgid "comment question"
 msgstr "komentovat otázku"
 
-#: const/__init__.py:592 templates/node/snippets/post_controls.html:17
+#: const/__init__.py:586 templates/node/snippets/post_controls.html:17
 msgid "close question"
 msgstr "Uzavřít otázku"
 
-#: const/__init__.py:593 templates/node/snippets/post_controls.html:15
+#: const/__init__.py:587 templates/node/snippets/post_controls.html:15
 msgid "reopen question"
 msgstr "znovu otevřít otázku"
 
-#: const/__init__.py:594
+#: const/__init__.py:588
 msgid "comment answer"
 msgstr "Okomentoval(a) odpověď"
 
-#: const/__init__.py:595
+#: const/__init__.py:589
 msgid "update question"
 msgstr "Upravil(a) otázku"
 
-#: const/__init__.py:596
+#: const/__init__.py:590
 msgid "update answer"
 msgstr "aktualizovat odpověď"
 
-#: const/__init__.py:597 templates/node/question/detail.html:175
+#: const/__init__.py:591 templates/node/question/detail.html:175
 msgid "vote up"
 msgstr "hlasovat pro"
 
-#: const/__init__.py:598 templates/node/question/detail.html:177
+#: const/__init__.py:592 templates/node/question/detail.html:177
 msgid "vote down"
 msgstr "hlasovat proti"
 
-#: const/__init__.py:599
+#: const/__init__.py:593
 msgid "cancel vote"
 msgstr "Zrušit odhlasování"
 
-#: const/__init__.py:600
+#: const/__init__.py:594
 msgid "delete question"
 msgstr "Smazaná otázka"
 
-#: const/__init__.py:601
+#: const/__init__.py:595
 msgid "delete answer"
 msgstr "smazat odpověď"
 
-#: const/__init__.py:602
+#: const/__init__.py:596
 msgid "mark offensive"
 msgstr "označit jako nevhodné"
 
-#: const/__init__.py:603
+#: const/__init__.py:597
 msgid "update tags"
 msgstr "Upravil(a) štítky"
 
-#: const/__init__.py:604
+#: const/__init__.py:598
 msgid "follow node"
 msgstr "Sleduje klub"
 
-#: const/__init__.py:605
+#: const/__init__.py:599
 msgid "follow question"
 msgstr "sledovat otázku"
 
-#: const/__init__.py:606
+#: const/__init__.py:600
 msgid "follow discussion"
 msgstr "sledovat diskuzi"
 
-#: const/__init__.py:607
+#: const/__init__.py:601
 msgid "update user"
 msgstr "aktualizovat uživatele"
 
-#: const/__init__.py:609
+#: const/__init__.py:603
 msgid "discussion close"
 msgstr "uzavření diskuse"
 
-#: const/__init__.py:610
+#: const/__init__.py:604
 msgid "discussion reopen"
 msgstr "znovuotevření diskuse"
 
-#: const/__init__.py:612 const/__init__.py:615
+#: const/__init__.py:606 const/__init__.py:609
 msgid "create organization description"
 msgstr "vložit popis organizace"
 
-#: const/__init__.py:613
+#: const/__init__.py:607
 msgid "update organization description"
 msgstr "aktualizovat popis organizace"
 
-#: const/__init__.py:616
+#: const/__init__.py:610
 msgid "update reject reason"
 msgstr "Aktualizované štítky"
 
-#: const/__init__.py:618
+#: const/__init__.py:612
 msgid "ask to join group"
 msgstr "požádat o vstup do skupiny"
 
-#: const/__init__.py:619
+#: const/__init__.py:613
 msgid "create node description"
 msgstr "vytvořit popis klubu"
 
-#: const/__init__.py:620
+#: const/__init__.py:614
 msgid "update node description"
 msgstr "upravit popis klubu"
 
-#: const/__init__.py:622
+#: const/__init__.py:616
 msgid "create discussion"
 msgstr "vytvořit diskuzi"
 
-#: const/__init__.py:623
+#: const/__init__.py:617
 msgid "update discussion"
 msgstr "aktualizovat diskuzi"
 
-#: const/__init__.py:625
+#: const/__init__.py:619
 msgid "create document"
 msgstr "Vložil(a) dokument"
 
-#: const/__init__.py:626
+#: const/__init__.py:620
 msgid "update document"
 msgstr "Aktualizoval(a) dokument"
 
-#: const/__init__.py:627
+#: const/__init__.py:621
 msgid "add thread category"
 msgstr ""
 
-#: const/__init__.py:628
+#: const/__init__.py:622
 msgid "thread category move"
 msgstr "přesunout kategorii"
 
-#: const/__init__.py:629
+#: const/__init__.py:623
 msgid "thread category edit"
 msgstr "upravit kategorii"
 
-#: const/__init__.py:630
+#: const/__init__.py:624
 msgid "document move"
 msgstr "přesunout dokument"
 
-#: const/__init__.py:632
+#: const/__init__.py:626
 msgid "change node settings"
 msgstr "změnit nastavení klubu"
 
-#: const/__init__.py:633
+#: const/__init__.py:627
 msgid "change node member"
 msgstr "změnit člena klubu"
 
-#: const/__init__.py:634
+#: const/__init__.py:628
 msgid "change node perex"
 msgstr "změnit perex klubu"
 
-#: const/__init__.py:636
+#: const/__init__.py:630
 msgid "discussion post"
 msgstr "Přispěl(a) do diskuze"
 
-#: const/__init__.py:637
+#: const/__init__.py:631
 msgid "unfollow node"
 msgstr "Nesleduje klub"
 
-#: const/__init__.py:638
+#: const/__init__.py:632
 msgid "unfollow question"
 msgstr "nesledovat otázku"
 
-#: const/__init__.py:639
+#: const/__init__.py:633
 msgid "unfollow discussion"
 msgstr "nesledovat diskuzi"
 
-#: const/__init__.py:641
+#: const/__init__.py:635
 msgid "subscribe node"
 msgstr "odebírat změny klubu"
 
-#: const/__init__.py:642
+#: const/__init__.py:636
 msgid "subscribe question"
 msgstr "sledovat otázku"
 
-#: const/__init__.py:643
+#: const/__init__.py:637
 msgid "subscribe discussion"
 msgstr "sledovat otázku"
 
-#: const/__init__.py:645
+#: const/__init__.py:639
 msgid "unsubscribe node"
 msgstr "přestat odebírat změny klubu"
 
-#: const/__init__.py:646
+#: const/__init__.py:640
 msgid "unsubscribe question"
 msgstr "nesledovat otázku"
 
-#: const/__init__.py:647
+#: const/__init__.py:641
 msgid "unsubscribe discussion"
 msgstr "nesledovat diskuzi"
 
-#: const/__init__.py:649
+#: const/__init__.py:643
 msgid "join group"
 msgstr "Vstoupil(a) do skupiny"
 
-#: const/__init__.py:650
+#: const/__init__.py:644
 msgid "leave group"
 msgstr "opustit skupinu"
 
-#: const/__init__.py:651
+#: const/__init__.py:645
 msgid "cancel ask to join group"
 msgstr "Zrušit žádost o vstup do organizace"
 
-#: const/__init__.py:652
+#: const/__init__.py:646
 msgid "approve joining group"
 msgstr "schválit vstup do skupiny"
 
-#: const/__init__.py:653
+#: const/__init__.py:647
 msgid "refuse joining group"
 msgstr "odmítnout vstup do skupiny"
 
-#: const/__init__.py:654
+#: const/__init__.py:648
 msgid "join node"
 msgstr "Vstoupit do klubu"
 
-#: const/__init__.py:655
+#: const/__init__.py:649
 msgid "approve joining node"
 msgstr "povolit vstup do klubu"
 
-#: const/__init__.py:656
+#: const/__init__.py:650
 msgid "refuse joining node"
 msgstr "zamítnout vstup do klubu"
 
-#: const/__init__.py:657
+#: const/__init__.py:651
 msgid "send email to user"
 msgstr "odeslat e-mail uživateli"
 
-#: const/__init__.py:658
+#: const/__init__.py:652
 msgid "ask to join node"
+msgstr "požádat o vstup do klubu"
+
+#: const/__init__.py:666
+#, fuzzy
+msgid "ask to create node"
 msgstr "požádat o vstup do klubu"
 
 #: const/__init__.py:659
 msgid "ask to create node"
 msgstr "Požádat vytvoření klubu"
 
-#: const/__init__.py:660
+#: const/__init__.py:667
 msgid "agreed to create node"
 msgstr ""
 
-#: const/__init__.py:661
+#: const/__init__.py:668
 msgid "declined to create node"
 msgstr ""
+
+#: const/__init__.py:670
+#, fuzzy
+msgid "ask to create organization"
+msgstr "Požádat o vstup do organizace"
+
+#: const/__init__.py:671
+#, fuzzy
+msgid "agreed to create organization"
+msgstr "Opustit organizaci"
+
+#: const/__init__.py:672
+#, fuzzy
+msgid "declined to create organization"
+msgstr "Přidat novou organizaci"
 
 #: const/message_keys.py:21
 msgid "most relevant questions"
@@ -2063,7 +2090,7 @@ msgstr "klepněte k prohlédnutí relevantních otázek"
 msgid "by relevance"
 msgstr "dle relevance"
 
-#: const/message_keys.py:24 templates/node/snippets/thread_sort.html:43
+#: const/message_keys.py:24 templates/node/snippets/thread_sort.html:40
 msgid "click to see the oldest questions"
 msgstr "klepněte k prohlédnutí nejstarších otázek"
 
@@ -2071,11 +2098,11 @@ msgstr "klepněte k prohlédnutí nejstarších otázek"
 msgid "by date"
 msgstr "dle data"
 
-#: const/message_keys.py:26 templates/node/snippets/thread_sort.html:43
+#: const/message_keys.py:26 templates/node/snippets/thread_sort.html:40
 msgid "click to see the newest questions"
 msgstr "klepněte k prohlédnutí nejnovějších otázek"
 
-#: const/message_keys.py:27 templates/node/snippets/thread_sort.html:44
+#: const/message_keys.py:27 templates/node/snippets/thread_sort.html:41
 msgid "click to see the least recently updated questions"
 msgstr "klepněte k prohlédnutí nejdávněji upravených otázek"
 
@@ -2083,11 +2110,11 @@ msgstr "klepněte k prohlédnutí nejdávněji upravených otázek"
 msgid "by activity"
 msgstr "dle aktivity"
 
-#: const/message_keys.py:29 templates/node/snippets/thread_sort.html:44
+#: const/message_keys.py:29 templates/node/snippets/thread_sort.html:41
 msgid "click to see the most recently updated questions"
 msgstr "klepněte k prohlédnutí nejnověji upravených otázek"
 
-#: const/message_keys.py:30 templates/node/snippets/thread_sort.html:46
+#: const/message_keys.py:30 templates/node/snippets/thread_sort.html:43
 msgid "click to see the least answered questions"
 msgstr "klepněte k prohlédnutí otázek s nejméně odpovědí"
 
@@ -2095,7 +2122,7 @@ msgstr "klepněte k prohlédnutí otázek s nejméně odpovědí"
 msgid "by answers"
 msgstr "dle odpovědí"
 
-#: const/message_keys.py:32 templates/node/snippets/thread_sort.html:46
+#: const/message_keys.py:32 templates/node/snippets/thread_sort.html:43
 msgid "click to see the most answered questions"
 msgstr "klepněte k prohlédnutí otázek s nejvíce odpovědí"
 
@@ -2629,7 +2656,7 @@ msgstr "Stránky"
 
 #: deps/livesettings/templates/livesettings/group_settings.html:19
 #: deps/livesettings/templates/livesettings/site_settings.html:33
-#: templates/base.html:310 templates/admin/common/move.html:7
+#: templates/base.html:297 templates/admin/common/move.html:7
 msgid "Home"
 msgstr "Domů"
 
@@ -2740,7 +2767,7 @@ msgstr "Smazaný"
 #: document/models.py:82 templates/node/document/detail.html:6
 #: templates/node/document/detail.html:164
 #: templates/search/results/autocomplete_document.html:2
-#: templates/search/results/document.html:9 utils/notify_users.py:31
+#: templates/search/results/document.html:9 utils/notify_users.py:30
 msgid "Document"
 msgstr "Dokument"
 
@@ -3049,11 +3076,11 @@ msgstr "%s již je uživatel s rolí v klubu"
 msgid "%s are already users with role in node."
 msgstr "%s jsou již uživatelé s rolí v klubu"
 
-#: forms/node.py:172
+#: forms/node.py:173
 msgid "Name"
 msgstr "Název"
 
-#: forms/node.py:173
+#: forms/node.py:174
 msgid "Note"
 msgstr "Poznámka"
 
@@ -3241,7 +3268,7 @@ msgid "%(num)d changed posts"
 msgstr "%(num)d změněných příspěvků"
 
 #: management/commands/send_email_notifications.py:417
-#: utils/notify_users.py:118
+#: utils/notify_users.py:113
 msgid ""
 "Please remember that you can always adjust frequency of the email updates or "
 "turn them off entirely in your profile."
@@ -3250,7 +3277,7 @@ msgstr ""
 "nastavit ve svém profilu, případně je můžete úplně vypnout."
 
 #: management/commands/send_email_notifications.py:420
-#: utils/notify_users.py:121
+#: utils/notify_users.py:116
 msgid ""
 "If you believe that this message was sent in an error, please contact us."
 msgstr ""
@@ -3729,11 +3756,11 @@ msgstr "Položka menu"
 msgid "Menu items"
 msgstr "Položky menu"
 
-#: models/node.py:33 models/post.py:282 models/thread.py:512
+#: models/node.py:33 models/post.py:282 models/thread.py:484
 msgid "Create date"
 msgstr "Datum vytvoření"
 
-#: models/node.py:34 models/post.py:283 models/thread.py:513
+#: models/node.py:34 models/post.py:283 models/thread.py:485
 msgid "Change date"
 msgstr "Datum změny"
 
@@ -3870,7 +3897,7 @@ msgstr "upraveno přes e-mail"
 msgid "New tags added to %s"
 msgstr "Nové štítky přidány k %s"
 
-#: models/tag.py:198 models/thread.py:1277
+#: models/tag.py:198 models/thread.py:1235
 #, python-format
 msgid "Tags %s are new and will be submitted for the moderators approval"
 msgstr ""
@@ -3880,7 +3907,7 @@ msgstr ""
 msgid "Tag"
 msgstr "Štítky"
 
-#: models/tag.py:289 templates/base.html:95 templates/homepage.html:152
+#: models/tag.py:289 templates/base.html:95 templates/homepage.html:149
 #: templates/tag_list.html:4 templates/tag_list.html.py:7
 #: templates/node/base_post_edit.html:61
 #: templates/node/base_thread_add.html:64
@@ -3889,24 +3916,24 @@ msgstr "Štítky"
 msgid "Tags"
 msgstr "Štítky"
 
-#: models/thread.py:103
+#: models/thread.py:102
 #, python-format
 msgid "\" and \"%s\""
 msgstr "\" a \"%s\""
 
-#: models/thread.py:106
+#: models/thread.py:105
 msgid "\" and more"
 msgstr "\" a více"
 
-#: models/thread.py:528 models/thread.py:550
+#: models/thread.py:500 models/thread.py:522
 msgid "Valid only for document"
 msgstr "Platné pouze pro dokument"
 
-#: models/thread.py:560
+#: models/thread.py:532
 msgid "Valid only for question"
 msgstr "Platné pouze pro otázku"
 
-#: models/thread.py:913
+#: models/thread.py:875
 #, python-format
 msgid "%(count)d answer:"
 msgid_plural "%(count)d answers:"
@@ -3914,84 +3941,84 @@ msgstr[0] "%(count)d odpověď:"
 msgstr[1] "%(count)d odpovědi:"
 msgstr[2] "%(count)d odpovědí:"
 
-#: models/thread.py:1272
+#: models/thread.py:1230
 #, python-format
 msgid "Tag %s is new and will be submitted for the moderators approval"
 msgstr ""
 
-#: models/user.py:309
+#: models/user.py:297
 msgid "Entire forum"
 msgstr "Celé fórum"
 
-#: models/user.py:310
+#: models/user.py:298
 msgid "Questions that I asked"
 msgstr "Mnou položené otázky"
 
-#: models/user.py:311
+#: models/user.py:299
 msgid "Questions that I answered"
 msgstr "Otázky, které jsem zodpověděl"
 
-#: models/user.py:312
+#: models/user.py:300
 msgid "Individually selected questions"
 msgstr "Jednotlivě vybrané otázky"
 
-#: models/user.py:313
+#: models/user.py:301
 msgid "Mentions and comment responses"
 msgstr "Poznámky a komentované reakce"
 
-#: models/user.py:316
+#: models/user.py:304
 msgid "Instantly"
 msgstr "Okamžitě"
 
-#: models/user.py:317
+#: models/user.py:305
 msgid "Daily"
 msgstr "Denně"
 
-#: models/user.py:318
+#: models/user.py:306
 msgid "Weekly"
 msgstr "Týdně"
 
-#: models/user.py:319
+#: models/user.py:307
 msgid "No email"
 msgstr "Žádný e-mail"
 
-#: models/user.py:471
+#: models/user.py:459
 msgid "Can join when they want"
 msgstr ""
 
-#: models/user.py:472
+#: models/user.py:460
 msgid "Users ask permission"
 msgstr ""
 
-#: models/user.py:473
+#: models/user.py:461
 msgid "Moderator adds users"
 msgstr "Manažer přidal uživatele"
 
-#: models/user.py:511
+#: models/user.py:499
 msgid "Please give a list of valid email addresses."
 msgstr "prosím zadejte platné e-mailové adresy"
 
-#: models/user.py:594
+#: models/user.py:582
 msgid "action time"
 msgstr ""
 
-#: models/user.py:597
+#: models/user.py:585
 msgid "object id"
 msgstr "id objektu"
 
-#: models/user.py:598
+#: models/user.py:586
 msgid "object repr"
 msgstr "reprezentace objektu"
 
-#: models/user.py:600
+#: models/user.py:588
 msgid "action flag"
 msgstr ""
 
-#: models/user.py:601
+#: models/user.py:589
 msgid "change message"
 msgstr "Upravit zprávu"
 
-#: search/forms.py:19 templates/homepage.html:9 templates/homepage.html.py:97
+#: search/forms.py:19 templates/homepage.html:9 templates/homepage.html.py:94
 #: templates/user_profile/user_overview.html:111
 msgid "Nodes"
 msgstr "Kluby"
@@ -4097,7 +4124,6 @@ msgid "Register now!"
 msgstr "Zaregistrujte se!"
 
 #: templates/base.html:112 templates/live/live.html:4
-#: templates/node/annotation/show.html:109
 msgid "Live"
 msgstr "Živě"
 
@@ -4135,62 +4161,53 @@ msgstr "Kluby"
 msgid "Requests"
 msgstr "Žádosti"
 
-#: templates/base.html:234 templates/user_profile/user.html:156
+#: templates/base.html:231 templates/user_profile/user.html:156
 msgid "node joins requests"
 msgstr "žádosti o vstup do klubu"
 
-#: templates/base.html:235
+#: templates/base.html:232
 msgid "Node joins"
 msgstr "Vstup do klubu"
 
-#: templates/base.html:244 templates/user_profile/user.html:170
-#, fuzzy
-msgid "node create requests"
-msgstr "žádosti o vstup do klubu"
-
-#: templates/base.html:245
-msgid "Node creation request"
-msgstr "Žádosti o vytvoření klubu"
-
-#: templates/base.html:254 templates/user_profile/user.html:184
+#: templates/base.html:241 templates/user_profile/user.html:170
 msgid "organization joins requests"
 msgstr "žádosti o vstup do organizace"
 
-#: templates/base.html:255
+#: templates/base.html:242
 msgid "Organization joins"
 msgstr "Vstup do organizace"
 
-#: templates/base.html:264 templates/user_profile/user.html:198
+#: templates/base.html:251 templates/user_profile/user.html:184
 msgid "offensive flag reports"
 msgstr "Prohlížet urážlivé značky"
 
-#: templates/base.html:265
+#: templates/base.html:252
 msgid "Offensive flags"
 msgstr "Označené za nevhodné"
 
-#: templates/base.html:279 templates/user_profile/user.html:53
+#: templates/base.html:266 templates/user_profile/user.html:53
 #: templates/user_profile/user_edit.html:14
 msgid "Update profile"
 msgstr "Upravit profil"
 
-#: templates/base.html:280 templates/authopenid/logout.html:3
+#: templates/base.html:267 templates/authopenid/logout.html:3
 msgid "Logout"
 msgstr "Odhlásit se"
 
-#: templates/base.html:290 templates/authopenid/lost_password.html:27
+#: templates/base.html:277 templates/authopenid/lost_password.html:27
 msgid "E-mail"
 msgstr "E-mail"
 
-#: templates/base.html:295 templates/admin/common/login.html:42
+#: templates/base.html:282 templates/admin/common/login.html:42
 msgid "Log in"
 msgstr "Přihlásit se"
 
-#: templates/base.html:363
+#: templates/base.html:350
 #, python-format
 msgid "Powered by OPENode %(version)s"
 msgstr "Provozováno na systému OPENode %(version)s"
 
-#: templates/base.html:365
+#: templates/base.html:352
 #, python-format
 msgid ""
 "Open source written by <a href=\"%(coex_url)s\">COEX</a> in <a href="
@@ -4522,39 +4539,34 @@ msgstr "přidáno"
 msgid "edit"
 msgstr "Upravit "
 
-#: templates/homepage.html:87
+#: templates/homepage.html:86
 msgid "Edit node list"
 msgstr "Upravit seznam klubů"
 
-#: templates/homepage.html:90
+#: templates/homepage.html:89
 msgid "Add new node"
 msgstr "Přidat nový klub"
 
-#: templates/homepage.html:93 templates/node/ask_to_create.html:5
-#: templates/node/ask_to_create.html:8 templates/node/ask_to_create.html:29
-msgid "Ask to create node"
-msgstr "Požádat o vytvoření klubu"
-
-#: templates/homepage.html:102 templates/organization_list.html:42
+#: templates/homepage.html:99 templates/organization_list.html:42
 #: templates/node/snippets/thread_sort.html:8
 msgid "Show:"
 msgstr "Zobrazit:"
 
-#: templates/homepage.html:104
+#: templates/homepage.html:101
 msgid "active only"
 msgstr "pouze aktivní"
 
-#: templates/homepage.html:107
+#: templates/homepage.html:104
 msgid "active and closed"
 msgstr "aktivní i uzavřené"
 
-#: templates/homepage.html:139 templates/two_column_node_body.html:165
+#: templates/homepage.html:136 templates/two_column_node_body.html:165
 #: templates/user_profile/user_followed_discussions.html:30
 #: templates/user_profile/user_followed_questions.html:31
 msgid "Mark all read"
 msgstr "Označit vše jako přečtené"
 
-#: templates/homepage.html:156
+#: templates/homepage.html:153
 msgid "All tags"
 msgstr "Všechny štítky"
 
@@ -4630,7 +4642,7 @@ msgid "Nothing found"
 msgstr "Nic nenalezeno"
 
 #: templates/macros.html:229 templates/macros.html.py:269
-#: templates/node/discussion/detail.html:235
+#: templates/node/discussion/detail.html:183
 #: templates/node/discussion/discussion_answer.html:10
 #: templates/node/question/detail.html:112
 #: templates/node/question/detail.html:215
@@ -4653,7 +4665,7 @@ msgid "answered"
 msgstr "odpovězeno"
 
 #: templates/macros.html:235 templates/macros.html.py:275
-#: templates/node/discussion/detail.html:232
+#: templates/node/discussion/detail.html:180
 #: templates/node/discussion/discussion_answer.html:7
 #: templates/snippets/post_contributor_info.html:14
 msgid "posted"
@@ -4693,12 +4705,12 @@ msgstr[2] "%(count)s komentářů"
 msgid "Add comment"
 msgstr "Přidat komentář"
 
-#: templates/macros.html:520 utils/notify_users.py:95
+#: templates/macros.html:520 utils/notify_users.py:90
 #, python-format
 msgid "%(datetime)s created by <strong>%(user)s</strong>"
 msgstr "%(datetime)s vytvořeno uživatelem <strong>%(user)s</strong>"
 
-#: templates/macros.html:525 utils/notify_users.py:92
+#: templates/macros.html:525 utils/notify_users.py:87
 #, python-format
 msgid "%(datetime)s changed by <strong>%(user)s</strong>"
 msgstr "%(datetime)s změněno uživatelem <strong>%(user)s</strong>"
@@ -4866,12 +4878,12 @@ msgid "Node settings"
 msgstr "Upravit nastavení klubu"
 
 #: templates/two_column_node_body.html:32
-#: templates/node/annotation/show.html:138
+#: templates/node/annotation/show.html:95
 msgid "click to follow this node"
 msgstr "klepněte pro sledování této otázky"
 
 #: templates/two_column_node_body.html:33
-#: templates/node/annotation/show.html:139
+#: templates/node/annotation/show.html:96
 msgid "Follow node"
 msgstr "Sledovat klub"
 
@@ -4880,25 +4892,24 @@ msgid "You cannot unfollow this club, because you are manager"
 msgstr "Nemůžete přestat sledovat klub, protože jste jeho manažer"
 
 #: templates/two_column_node_body.html:35
-#: templates/node/annotation/show.html:141
+#: templates/node/annotation/show.html:98
 msgid "click to unfollow this node"
 msgstr "klikněte pro nesledování tohoto klubu"
 
 #: templates/two_column_node_body.html:36
-#: templates/node/annotation/show.html:142
+#: templates/node/annotation/show.html:99
 msgid "Unfollow node"
 msgstr "Nesledovat klub"
 
 #: templates/two_column_node_body.html:41
-#: templates/two_column_node_body.html:70 templates/node/ask_to_create.html:13
-#: templates/node/ask_to_join.html:23 templates/node/annotation/show.html:129
+#: templates/two_column_node_body.html:70 templates/node/ask_to_join.html:23
+#: templates/node/annotation/show.html:86
 #: templates/search/results/autocomplete_node.html:2
-#: templates/search/results/node.html:6 utils/notify_users.py:50
+#: templates/search/results/node.html:6 utils/notify_users.py:49
 msgid "Node"
 msgstr "Klub"
 
-#: templates/two_column_node_body.html:41 templates/node/ask_to_create.html:13
-#: templates/node/ask_to_join.html:23
+#: templates/two_column_node_body.html:41 templates/node/ask_to_join.html:23
 #: templates/node/base_thread_detail.html:25
 #: templates/node/question/detail.html:101
 msgid ":"
@@ -4937,8 +4948,8 @@ msgstr[1] "%(count)s položky"
 msgstr[2] "%(count)s položek"
 
 #: templates/two_column_node_body.html:110
-#: templates/node/discussion/detail.html:76
-#: templates/node/discussion/detail.html:279
+#: templates/node/discussion/detail.html:48
+#: templates/node/discussion/detail.html:227
 msgid "Discussion"
 msgstr "Diskuze"
 
@@ -4985,16 +4996,18 @@ msgid "All document with error during OCR process and contains valid file"
 msgstr "Všechny dokumenty s chybou při OCR procesu obsahující validní soubor"
 
 #: templates/admin/document/state.html:48
+#, fuzzy
 msgid "complete reprocess - 10"
-msgstr "Znovu zpracovat - 10"
+msgstr "Znovu zpracovat 10"
 
 #: templates/admin/document/state.html:48
 msgid "10"
 msgstr ""
 
 #: templates/admin/document/state.html:48
+#, fuzzy
 msgid "complete reprocess - all"
-msgstr "Znovu zpracovat - vše"
+msgstr "Znovu zpracovat vše"
 
 #: templates/admin/document/state.html:52
 msgid "only retrive texts - 50"
@@ -5083,22 +5096,16 @@ msgstr "Stránka nenalezena"
 #: templates/node/base_thread_add.html:42
 #: templates/node/base_thread_edit.html:33 templates/node/edit_perexes.html:39
 #: templates/node/edit_settings.html:43
-#: templates/node/discussion/detail.html:159
+#: templates/node/discussion/detail.html:107
 #: templates/node/question/detail.html:289
 #: templates/user_profile/user_edit.html:40
 #: templates/user_profile/user_overview.html:144
 msgid "Cannot submit, form has errors."
 msgstr "Nelze odeslat, formulář obsahuje chyby."
 
-#: templates/authopenid/change_password.html:35
-#: templates/authopenid/signin.html:141 templates/authopenid/signin.html:295
-#: templates/authopenid/widget_signin.html:130
-msgid "New password"
-msgstr "Nové heslo"
-
 #: templates/authopenid/change_password.html:46
-msgid "New password (repeat)"
-msgstr "Nové heslo (ověření)"
+msgid "Repeat password"
+msgstr "Nové heslo"
 
 #: templates/authopenid/change_password.html:59
 #: templates/embed/widget_form.html:14 templates/node/base_thread_edit.html:69
@@ -5399,9 +5406,9 @@ msgstr "Na této stránce se můžete přihlásit, pokud již máte registrovan�
 #: templates/authopenid/verify_email.html:10 templates/cms/archive.html:59
 #: templates/node/edit_perexes.html:26 templates/node/edit_settings.html:23
 #: templates/node/followers.html:56 templates/node/annotation/edit.html:57
-#: templates/node/annotation/show.html:129
+#: templates/node/annotation/show.html:86
 #: templates/node/discussion/add.html:18
-#: templates/node/discussion/detail.html:279
+#: templates/node/discussion/detail.html:227
 #: templates/node/discussion/edit.html:16
 #: templates/node/discussion/edit_post.html:19
 #: templates/node/discussion/followers.html:17
@@ -5418,7 +5425,7 @@ msgstr "Na této stránce se můžete přihlásit, pokud již máte registrovan�
 #: templates/node/question/edit_post.html:19
 #: templates/node/question/followers.html:18
 #: templates/node/question/last_visit.html:17
-#: templates/node/question/list.html:83
+#: templates/node/question/list.html:39
 #: templates/user_profile/user_edit.html:14
 msgid "More help"
 msgstr "Více nápovědy"
@@ -5488,6 +5495,11 @@ msgstr "Nemáte oprávnění upravovat hodnoty."
 #: templates/authopenid/signin.html:120
 msgid "I have forgotten my password."
 msgstr "Zapomněl jsem své heslo"
+
+#: templates/authopenid/signin.html:141 templates/authopenid/signin.html:295
+#: templates/authopenid/widget_signin.html:130
+msgid "New password"
+msgstr "Změnit heslo"
 
 #: templates/authopenid/signin.html:151 templates/authopenid/signin.html:304
 #: templates/authopenid/widget_signin.html:139
@@ -5940,7 +5952,7 @@ msgstr ""
 "<a href=\"%(site_url)s\" title=\"%(site_name)s\">%(site_url)s</a>"
 
 #: templates/email/instant_notification.html:2
-#: templates/email/instant_notification.html:3 utils/notify_users.py:27
+#: templates/email/instant_notification.html:3 utils/notify_users.py:26
 msgid "Notification"
 msgstr "Oznámení"
 
@@ -6150,8 +6162,7 @@ msgstr "Seznam"
 msgid "List of questions"
 msgstr "Seznam otázek"
 
-#: templates/live/live.html:13 templates/node/annotation/show.html:23
-#: templates/node/document/detail.html:23
+#: templates/live/live.html:13 templates/node/document/detail.html:23
 msgid "Load more items"
 msgstr "Nahrát více položek"
 
@@ -6165,36 +6176,6 @@ msgstr ""
 "Mějte prosím na paměti: %(app_name)s vyžaduje správně fungující javascript, "
 "povolte prosím javascript ve svém prohlížeči. <a href=\"%(noscript_url)s"
 "\">zde najdete jak</a> "
-
-#: templates/node/ask_to_create.html:15
-msgid "Your request to create new node was sent."
-msgstr "Váš požadavek na vytvoření klubu byl odeslán!"
-
-#: templates/node/ask_to_create.html:17
-msgid "You may ask Node manager to create a new Node using form below."
-msgstr ""
-"Pomocí níže uvedeného formuláře můžete zažádat o zřízení klubu. Přesvědčte "
-"se však nejdříve, zda již nefunguje stejný klub."
-
-#: templates/node/ask_to_create.html:23
-msgid "Point, where will be Node placed."
-msgstr "Kde má být klub zařazen?"
-
-#: templates/node/ask_to_create.html:24
-msgid "Public or private Node?"
-msgstr "Má být klub veřejný či soukromý?"
-
-#: templates/node/ask_to_create.html:25
-msgid "In the case of a private Node specify which users have access."
-msgstr "V případě soukromého klubu uveďte, kteří uživatelé mají mít přístup."
-
-#: templates/node/ask_to_create.html:26
-msgid "Which modules will included in Node (Q&A, Discussion, Documents)?"
-msgstr "Které moduly má klub obsahovat (Otázky, Diskuze, Dokumenty)?"
-
-#: templates/node/ask_to_create.html:27
-msgid "Others..."
-msgstr "Ostatní..."
 
 #: templates/node/ask_to_join.html:5 templates/node/ask_to_join.html.py:9
 #: templates/node/ask_to_join.html:33
@@ -6335,7 +6316,7 @@ msgid "email the updates"
 msgstr "odesílat aktualizace mailem"
 
 #: templates/node/base_thread_detail.html:72
-#: templates/node/annotation/show.html:154
+#: templates/node/annotation/show.html:111
 msgid "Show followers"
 msgstr "Zobrazit sledující"
 
@@ -6346,7 +6327,7 @@ msgstr "Zobrazit poslední návštěvy"
 
 #: templates/node/base_thread_detail.html:89
 #: templates/node/edit_settings.html:30
-#: templates/node/annotation/show.html:159
+#: templates/node/annotation/show.html:116
 msgid "Edit in admin"
 msgstr "Upravit ve správě systému"
 
@@ -6355,13 +6336,13 @@ msgid "Related content"
 msgstr "Související obsah"
 
 #: templates/node/base_thread_detail.html:121
-#: templates/node/annotation/show.html:176
-#: templates/node/question/list.html:92
+#: templates/node/annotation/show.html:133
+#: templates/node/question/list.html:48
 msgid "Stats"
 msgstr "Statistiky"
 
 #: templates/node/base_thread_detail.html:125
-#: templates/node/annotation/show.html:180
+#: templates/node/annotation/show.html:137
 msgid "Activity"
 msgstr "Aktivita"
 
@@ -6378,19 +6359,19 @@ msgid "Viewed"
 msgstr "Zobrazeno"
 
 #: templates/node/base_thread_detail.html:143
-#: templates/node/annotation/show.html:199
+#: templates/node/annotation/show.html:156
 msgid "Closed"
 msgstr "Uzavřeno"
 
 #: templates/node/base_thread_detail.html:147
-#: templates/node/annotation/show.html:207
-#: templates/node/question/list.html:100
+#: templates/node/annotation/show.html:164
+#: templates/node/question/list.html:56
 msgid "Your role"
 msgstr "Vaše role"
 
 #: templates/node/base_thread_detail.html:148
-#: templates/node/annotation/show.html:208
-#: templates/node/question/list.html:101
+#: templates/node/annotation/show.html:165
+#: templates/node/question/list.html:57
 msgid "Visitor"
 msgstr "Návštěvník"
 
@@ -6640,8 +6621,7 @@ msgstr ""
 "Připojené soubory se zobrazí v náhledu zprávy pod textem. Pokud chcete "
 "nekterý z nich ze zprávy odstranit, zrušte zaškrtnutí u jeho jména.</p>"
 
-#: templates/node/edit_settings.html:27
-#: templates/node/annotation/show.html:133
+#: templates/node/edit_settings.html:27 templates/node/annotation/show.html:90
 msgid "Node tools"
 msgstr "Nástroje klubu"
 
@@ -6815,7 +6795,7 @@ msgid "help_node_followers_html"
 msgstr "změnit nastavení klubu"
 
 #: templates/node/annotation/edit.html:5
-#: templates/node/annotation/show.html:66
+#: templates/node/annotation/show.html:41
 msgid "Edit annotation"
 msgstr "Upravit anotaci klubu"
 
@@ -6843,22 +6823,22 @@ msgstr "změnit nastavení klubu"
 msgid "About Node"
 msgstr "O klubu"
 
-#: templates/node/annotation/show.html:74
+#: templates/node/annotation/show.html:49
 msgid "This Node has no annotation yet."
 msgstr "Tento klub nemá zatím žádnou anotaci."
 
-#: templates/node/annotation/show.html:87
+#: templates/node/annotation/show.html:62
 msgid "Sub-Nodes"
 msgstr "Podkluby"
 
-#: templates/node/annotation/show.html:129
+#: templates/node/annotation/show.html:86
 msgid "help_node_detail_short"
 msgstr ""
 "Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, "
 "otázky a odpovědi, diskuzi a dokumenty. Chcete-li sledovat novinky (veškeré "
 "změny) v daném klubu, klepněte na tlačítko \"Sledovat klub\" v pravém rohu..."
 
-#: templates/node/annotation/show.html:129
+#: templates/node/annotation/show.html:86
 msgid "help_node_detail_html"
 msgstr ""
 "<p>Jsou-li zapnuty všechny moduly klubu, tj. Anotace, Otázky, Diskuze, "
@@ -6897,34 +6877,30 @@ msgstr ""
 "zobrazován a nabízen ve vyhledávači.</li>\n"
 "</ul>"
 
-#: templates/node/annotation/show.html:141
+#: templates/node/annotation/show.html:98
 msgid "You cannot unfollow this node, because you are manager"
 msgstr "Nemůžete přestat sledovat klub, protože jste jeho manažer"
 
-#: templates/node/annotation/show.html:149
+#: templates/node/annotation/show.html:106
 msgid "Edit perexes"
 msgstr "Editovat perexy"
 
-#: templates/node/annotation/show.html:190
+#: templates/node/annotation/show.html:147
 msgid "Number of followers"
 msgstr "Počet sledujících"
 
-#: templates/node/annotation/show.html:194
+#: templates/node/annotation/show.html:151
 msgid "Readonly"
 msgstr "Pouze pro čtení"
 
-#: templates/node/annotation/show.html:203
-#: templates/node/question/list.html:96
+#: templates/node/annotation/show.html:160
+#: templates/node/question/list.html:52
 msgid "Visibility"
 msgstr "Viditelnost klubu"
 
-#: templates/node/annotation/show.html:211
+#: templates/node/annotation/show.html:168
 msgid "Node users"
 msgstr "Uživatelé v klubu"
-
-#: templates/node/annotation/show.html:215
-msgid "Number of views"
-msgstr "Počet zobrazení"
 
 #: templates/node/discussion/add.html:9
 msgid "Add New Discussion"
@@ -6946,31 +6922,31 @@ msgstr ""
 "Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, "
 "otázky a odpovědi, diskuzi a dokumenty..."
 
-#: templates/node/discussion/detail.html:57
+#: templates/node/discussion/detail.html:32
 msgid "This discussion has been closed for the following reason:"
 msgstr "Tato diskuze byla uzavřena z následujícího důvodu:"
 
-#: templates/node/discussion/detail.html:66
+#: templates/node/discussion/detail.html:41
 msgid "Reopen this discussion"
 msgstr "Znovu otevřít tuto diskuzi"
 
-#: templates/node/discussion/detail.html:68
+#: templates/node/discussion/detail.html:43
 msgid "Close this discussion"
 msgstr "Uzavřít tuto diskuzi"
 
-#: templates/node/discussion/detail.html:154
+#: templates/node/discussion/detail.html:102
 msgid "Login/Signup to Post"
 msgstr "Přihlásit se/Zaregistrovat pro odeslání"
 
-#: templates/node/discussion/detail.html:177
+#: templates/node/discussion/detail.html:125
 msgid "Send post"
 msgstr "Odeslat příspěvek"
 
-#: templates/node/discussion/detail.html:188
+#: templates/node/discussion/detail.html:136
 msgid "Post Your Own Discussion"
 msgstr "Založit svou vlastní Diskuzi"
 
-#: templates/node/discussion/detail.html:201
+#: templates/node/discussion/detail.html:149
 #, python-format
 msgid "%(counter)s Post"
 msgid_plural "%(counter)s Posts"
@@ -6978,22 +6954,22 @@ msgstr[0] "%(counter)s Příspěvek"
 msgstr[1] "%(counter)s Příspěvků"
 msgstr[2] "%(counter)s Příspěvků"
 
-#: templates/node/discussion/detail.html:273
+#: templates/node/discussion/detail.html:221
 msgid "There are no discussion posts in this Node."
 msgstr "Tento klub neobsahuje žádné příspěvky v diskuzi."
 
-#: templates/node/discussion/detail.html:279
+#: templates/node/discussion/detail.html:227
 msgid "help_discussion_detail_short"
 msgstr ""
 "Na této stránce je přehled diskuzních příspěvků uživatelů. Téma diskuze je "
 "shodné s předmětem (názvem) klubu. Chcete-li sledovat nové příspěvky pouze z "
 "diskuze (nikoliv z celého klubu) klepněte na tlačítko \"Sledovat\""
 
-#: templates/node/discussion/detail.html:279
+#: templates/node/discussion/detail.html:227
 msgid "help_discussion_detail_html"
 msgstr ""
 
-#: templates/node/discussion/detail.html:280
+#: templates/node/discussion/detail.html:228
 msgid "Discussion tools"
 msgstr "Nástroje diskuze"
 
@@ -7285,13 +7261,13 @@ msgstr ""
 msgid "NEW"
 msgstr ""
 
-#: templates/node/document/list.html:116
-msgid "Download selected"
-msgstr "Stáhnout vybrané"
-
-#: templates/node/document/list.html:119
+#: templates/node/document/list.html:115
 msgid "There are no Documents in this Node."
 msgstr "Tento klub neobsahuje žádné dokumenty."
+
+#: templates/node/document/list.html:120
+msgid "Download selected"
+msgstr "Stáhnout vybrané"
 
 #: templates/node/document/list.html:133
 msgid "Change order"
@@ -7318,7 +7294,7 @@ msgstr "Položit vlastní otázku"
 msgid "Back to Questions"
 msgstr "Zpět na otázky"
 
-#: templates/node/question/add.html:17 templates/node/question/list.html:72
+#: templates/node/question/add.html:17 templates/node/question/list.html:28
 msgid "Ask your question"
 msgstr "Položit vlastní otázku"
 
@@ -7343,8 +7319,8 @@ msgstr "Otázka byla uzavřena z následujícího důvodu:"
 
 #: templates/node/question/detail.html:101
 #: templates/node/question/detail.html:334
-#: templates/search/results/question.html:9 utils/notify_users.py:29
-#: utils/notify_users.py:104
+#: templates/search/results/question.html:9 utils/notify_users.py:28
+#: utils/notify_users.py:99
 msgid "Question"
 msgstr "Otázka"
 
@@ -7481,15 +7457,15 @@ msgstr ""
 "Klub je základním stavebním kamenem systému. Klub může obsahovat anotaci, "
 "otázky a odpovědi, diskuzi a dokumenty..."
 
-#: templates/node/question/list.html:58
+#: templates/node/question/list.html:14
 msgid "There are no questions in this Node."
 msgstr "Tento klub neobsahuje žádné otázky."
 
-#: templates/node/question/list.html:83
+#: templates/node/question/list.html:39
 msgid "Question list"
 msgstr "Seznam otázek"
 
-#: templates/node/question/list.html:83
+#: templates/node/question/list.html:39
 msgid "help_question_list_short"
 msgstr ""
 "Nacházíte se na stránce s přehledem otázek v rámci daného klubu. Pod "
@@ -7501,7 +7477,7 @@ msgstr ""
 "odpověď na svůj dotaz mezi položenými či zodpovězenými otázkami, kliknutím "
 "na tlačítko \"Položit vlastní otázku\" budete moci přidat nový dotaz."
 
-#: templates/node/question/list.html:83
+#: templates/node/question/list.html:39
 #, fuzzy
 msgid "help_question_list_html"
 msgstr ""
@@ -7673,67 +7649,67 @@ msgstr ""
 "<span class='strong'>Zde</span>(jakmile se přihlásíte) se budete moci zapsat "
 "pro pravidelné emailové aktualizace o této otázce."
 
-#: templates/node/snippets/thread_sort.html:15
-#: templates/node/snippets/thread_sort.html:22
+#: templates/node/snippets/thread_sort.html:14
+#: templates/node/snippets/thread_sort.html:21
 #: templates/widgets/scope_nav.html:8
 msgid "see unanswered questions"
 msgstr "zobrazit nezodpovězené otázky"
 
-#: templates/node/snippets/thread_sort.html:15
+#: templates/node/snippets/thread_sort.html:14
 msgid "unanswered"
 msgstr "nezodpovězené"
 
-#: templates/node/snippets/thread_sort.html:19
+#: templates/node/snippets/thread_sort.html:18
 msgid "see answered questions"
 msgstr "zobrazit zodpovězené otázky"
 
-#: templates/node/snippets/thread_sort.html:22
+#: templates/node/snippets/thread_sort.html:21
 msgid "no accepted answer"
 msgstr "bez správné odpovědi"
 
-#: templates/node/snippets/thread_sort.html:28
+#: templates/node/snippets/thread_sort.html:26
 msgid "see discussion with no post"
 msgstr "zobrazit diskuze bez příspěvků"
 
-#: templates/node/snippets/thread_sort.html:28
+#: templates/node/snippets/thread_sort.html:26
 msgid "no posts"
 msgstr "bez příspěvků"
 
-#: templates/node/snippets/thread_sort.html:34
+#: templates/node/snippets/thread_sort.html:31
 #: templates/widgets/scope_nav.html:11
 msgid "see your followed questions"
 msgstr "zobrazit své sledované otázky"
 
-#: templates/node/snippets/thread_sort.html:34
+#: templates/node/snippets/thread_sort.html:31
 msgid "followed"
 msgstr "sledované"
 
-#: templates/node/snippets/thread_sort.html:42
+#: templates/node/snippets/thread_sort.html:39
 #: templates/snippets/user_list.html:15
 msgid "Sort by:"
 msgstr "Řadit dle:"
 
-#: templates/node/snippets/thread_sort.html:43
+#: templates/node/snippets/thread_sort.html:40
 msgid "created"
 msgstr "vytvořeno"
 
-#: templates/node/snippets/thread_sort.html:44
+#: templates/node/snippets/thread_sort.html:41
 msgid "last change"
 msgstr "poslední změna"
 
-#: templates/node/snippets/thread_sort.html:46
+#: templates/node/snippets/thread_sort.html:43
 msgid "number of answers"
 msgstr "počet odpovědí"
 
-#: templates/node/snippets/thread_sort.html:50
+#: templates/node/snippets/thread_sort.html:47
 msgid "number of posts"
 msgstr "počet příspěvků"
 
-#: templates/node/snippets/thread_sort.html:50
+#: templates/node/snippets/thread_sort.html:47
 msgid "click to see the least posted discussions"
 msgstr "klikněte pro zobrazení diskuzí s nejmenším počtem příspěvků"
 
-#: templates/node/snippets/thread_sort.html:50
+#: templates/node/snippets/thread_sort.html:47
 msgid "click to see the most posted discussions"
 msgstr "klikněte pro zobrazení diskuzí s nejvyšším počtem příspěvků"
 
@@ -7905,39 +7881,6 @@ msgstr "dle popularity"
 msgid "suggested"
 msgstr "navrženo"
 
-#: templates/user_profile/node_create_requests.html:4
-#: templates/user_profile/node_create_requests.html:8
-#: templates/user_profile/user.html:176
-msgid "Unresolved requests to create Node"
-msgstr "Nevyřešené žádosti o založení klubu"
-
-#: templates/user_profile/node_create_requests.html:18
-#, python-format
-msgid ""
-"%(user_name)s (%(user_email)s) wants to create a new node %(node_name)s. "
-"Here is a note regarding the request: %(note)s"
-msgstr ""
-"%(user_name)s (%(user_email)s) požaduje založení nového klubu %(node_name)s. "
-"Zde je poznámka k žádosti: %(note)s"
-
-#: templates/user_profile/node_create_requests.html:33
-#: templates/user_profile/node_join_requests.html:31
-#: templates/user_profile/organization_pending_memberships.html:31
-msgid "Approve"
-msgstr "Schválit"
-
-#: templates/user_profile/node_create_requests.html:50
-#: templates/user_profile/node_join_requests.html:47
-#: templates/user_profile/organization_pending_memberships.html:47
-msgid "Deny"
-msgstr "Odmítnout"
-
-#: templates/user_profile/node_create_requests.html:59
-#: templates/user_profile/node_join_requests.html:55
-#: templates/user_profile/organization_pending_memberships.html:55
-msgid "You have no unresolved requests."
-msgstr "Nemáte žádné nevyřešené žádosti."
-
 #: templates/user_profile/node_join_requests.html:4
 #: templates/user_profile/node_join_requests.html:8
 #: templates/user_profile/user.html:162
@@ -7953,9 +7896,24 @@ msgstr ""
 "<a href=\"%(user_url)s\">%(user)s</a> žádá o vstup do klubu <a href="
 "\"%(node_url)s\">%(node)s</a>"
 
+#: templates/user_profile/node_join_requests.html:31
+#: templates/user_profile/organization_pending_memberships.html:31
+msgid "Approve"
+msgstr "Schválit"
+
+#: templates/user_profile/node_join_requests.html:47
+#: templates/user_profile/organization_pending_memberships.html:47
+msgid "Deny"
+msgstr "Odmítnout"
+
+#: templates/user_profile/node_join_requests.html:55
+#: templates/user_profile/organization_pending_memberships.html:55
+msgid "You have no unresolved requests."
+msgstr "Nemáte žádné nevyřešené žádosti."
+
 #: templates/user_profile/organization_pending_memberships.html:4
 #: templates/user_profile/organization_pending_memberships.html:8
-#: templates/user_profile/user.html:190
+#: templates/user_profile/user.html:176
 msgid "Unresolved Organization join requests"
 msgstr "Nevyřešené žádosti o vstup do organizace"
 
@@ -8043,7 +8001,7 @@ msgstr "Uživatelský profil"
 msgid "Overview"
 msgstr "Přehled"
 
-#: templates/user_profile/user.html:72 views/users.py:955
+#: templates/user_profile/user.html:72 views/users.py:937
 msgid "email subscription settings"
 msgstr "nastavení přihlášení přes email"
 
@@ -8101,11 +8059,11 @@ msgstr "diskuze, které uživatel sleduje"
 msgid "Followed discussions"
 msgstr "Sledované diskuze"
 
-#: templates/user_profile/user.html:201
+#: templates/user_profile/user.html:187
 msgid "Unresolved Offensive flag reports"
 msgstr "Nevyřešená oznámení o nevhodných příspěvcích"
 
-#: templates/user_profile/user.html:212
+#: templates/user_profile/user.html:198
 #: templates/user_profile/user_overview_disabled.html:20
 msgid "Admin edit"
 msgstr "Upravit správcem systému"
@@ -8423,7 +8381,7 @@ msgstr[2] "Zobrazení"
 
 #: templates/widgets/thread_summary_question.html:15
 #: templates/widgets/thread_summary_question.html:37
-#: templates/widgets/thread_summary_question.html:60
+#: templates/widgets/thread_summary_question.html:52
 msgid "Show question"
 msgstr "Zobrazit otázku"
 
@@ -8685,59 +8643,59 @@ msgstr[0] "před %(min)d minutou"
 msgstr[1] "před %(min)d minutami"
 msgstr[2] "před %(min)d minutami"
 
-#: utils/notify_users.py:33
+#: utils/notify_users.py:32
 msgid "Comment"
 msgstr "Komentář"
 
-#: utils/notify_users.py:36
+#: utils/notify_users.py:35
 msgid "Answer"
 msgstr "Odpověď"
 
-#: utils/notify_users.py:38
+#: utils/notify_users.py:37
 msgid "Discussion post"
 msgstr "Diskuzní příspěvek"
 
-#: utils/notify_users.py:56
+#: utils/notify_users.py:55
 msgid "Updated question"
 msgstr "Upravená otázka"
 
-#: utils/notify_users.py:58
+#: utils/notify_users.py:57
 msgid "Updated document"
 msgstr "Upravený dokument"
 
-#: utils/notify_users.py:60
+#: utils/notify_users.py:59
 msgid "Updated comment"
 msgstr "Upravený komentář"
 
-#: utils/notify_users.py:63
+#: utils/notify_users.py:62
 msgid "Updated answer"
 msgstr "Upravená odpověď"
 
-#: utils/notify_users.py:65
+#: utils/notify_users.py:64
 msgid "Updated discussion post"
 msgstr "Upravený diskuzní příspěvek"
 
-#: utils/notify_users.py:69
+#: utils/notify_users.py:68
 msgid "New question"
 msgstr "Nová otázka"
 
-#: utils/notify_users.py:71
+#: utils/notify_users.py:70
 msgid "New document"
 msgstr "Nový dokument"
 
-#: utils/notify_users.py:73
+#: utils/notify_users.py:72
 msgid "New comment"
 msgstr "Nový komentář"
 
-#: utils/notify_users.py:76
+#: utils/notify_users.py:75
 msgid "New answer"
 msgstr "Nová odpověď"
 
-#: utils/notify_users.py:78
+#: utils/notify_users.py:77
 msgid "New discussion post"
 msgstr "Nový příspěvek do diskuze"
 
-#: utils/notify_users.py:110
+#: utils/notify_users.py:105
 msgid "Commented post"
 msgstr "Komentovaný příspěvek"
 
@@ -8844,15 +8802,7 @@ msgstr "Váš požadavek na vstup do klubu %(node)s byl schválen!"
 msgid "Sorry, your request to join Node %(node)s has been denied."
 msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut."
 
-#: views/commands.py:1360
-msgid "Your request to create node has been approved!"
-msgstr "Váš požadavek na vytvoření klubu byl schválen!"
-
-#: views/commands.py:1372
-msgid "Sorry, your request to create node has been denied."
-msgstr "Omlouváme se, váš požadavek na vytvoření klubu byl zamítnut."
-
-#: views/commands.py:1403
+#: views/commands.py:1370
 msgid "Sorry, only thread moderators can use this function"
 msgstr "Promiňte, pouze správci vlákna mohou využít tuto funkci."
 
@@ -8876,32 +8826,19 @@ msgstr "Těšíme se na vaši odezvu! Prosím, napište nám příště. :)"
 msgid "Suggested tags"
 msgstr "Napovězené štítky"
 
-#: views/node.py:95
+#: views/node.py:93
 msgid "Node annotation has been succesfully saved."
 msgstr "Anotace klubu byla úspěšně uložena."
 
-#: views/node.py:136
+#: views/node.py:134
 msgid "Node settings has been succesfully saved."
 msgstr "Nastavení klubu bylo úspěšně uloženo."
 
-#: views/node.py:284
+#: views/node.py:282
 msgid "Node perexes has been succesfully saved."
 msgstr "Perex klubu byl úspěšně uložen."
 
-#: views/node.py:361
-#, fuzzy, python-format
-msgid ""
-"%(user)s wants to create a new node %(node_name)s.\n"
-"                Here is a note regarding the request:  %(note)s"
-msgstr ""
-"%(user)s požaduje založení nové organizace %(organization_name)s.\n"
-"            Zde je poznámka k žádosti:  %(note)s"
-
-#: views/readers.py:132
-msgid "Authors"
-msgstr "Autoři"
-
-#: views/thread.py:113
+#: views/thread.py:112
 msgid ""
 "Sorry, the comment you are looking for has been deleted and is no longer "
 "accessible"
@@ -8939,71 +8876,63 @@ msgstr "žádosti o vstup do klubu"
 msgid "profile - node joins"
 msgstr "profil - žádosti o vstup do klubu"
 
-#: views/users.py:703
-msgid "requests to create nodes"
-msgstr "žádost o založení klubu"
-
-#: views/users.py:704
-msgid "profile - node requests"
-msgstr "profil - žádosti z klubu"
-
-#: views/users.py:784
+#: views/users.py:766
 msgid "comments and answers to others questions"
 msgstr "komentáře a odpovědi otázek od ostatních"
 
-#: views/users.py:785
+#: views/users.py:767
 msgid "profile - responses"
 msgstr "profil - odpovědi"
 
-#: views/users.py:822
+#: views/users.py:804
 msgid "user vote record"
 msgstr "záznam uživatelova hlasování"
 
-#: views/users.py:823
+#: views/users.py:805
 msgid "profile - votes"
 msgstr "profil - hlasy"
 
-#: views/users.py:849
+#: views/users.py:831
 msgid "users followed questions"
 msgstr "sledované otázky uživatele"
 
-#: views/users.py:850
+#: views/users.py:832
 msgid "profile - followed questions"
 msgstr "profil - sledované otázky"
 
-#: views/users.py:868
+#: views/users.py:850
 msgid "users followed discussions"
 msgstr "sledované diskuze uživatele"
 
-#: views/users.py:869
+#: views/users.py:851
 msgid "profile - followed discussions"
 msgstr "profil - sledované diskuze"
 
-#: views/users.py:885
+#: views/users.py:867
 msgid "users followed nodes"
 msgstr "sledované kluby uživatele"
 
-#: views/users.py:886
+#: views/users.py:868
 msgid "profile - followed nodes"
 msgstr "profil - sledované kluby"
 
-#: views/users.py:904
+#: views/users.py:886
 msgid "users managed nodes"
 msgstr "spravované kluby uživatele"
 
-#: views/users.py:905
+#: views/users.py:887
 msgid "profile - managed nodes"
 msgstr "profil - spravované kluby"
 
-#: views/users.py:925 views/users.py:929
+#: views/users.py:907 views/users.py:911
 msgid "changes saved"
 msgstr "Změny uloženy"
 
-#: views/users.py:935
+#: views/users.py:917
 msgid "email updates canceled"
 msgstr "emailová aktualizace zrušena"
 
-#: views/users.py:956
+#: views/users.py:938
 msgid "profile - email subscriptions"
 msgstr "profil - emailová oznámení"
 
@@ -9048,16 +8977,16 @@ msgstr "Otázka byla úspěšně uložena."
 msgid "Discussion has been successfully saved."
 msgstr "Diskuze byla úspěšně uložena."
 
-#: views/writers.py:719
+#: views/writers.py:713
 msgid "Comment is empty."
 msgstr "Komentář je prázdný."
 
-#: views/writers.py:725
+#: views/writers.py:719
 #, python-format
 msgid "Comment must be at least %d character long."
 msgstr "Komentář musí mít nejméně %d znaků."
 
-#: views/writers.py:732
+#: views/writers.py:726
 #, python-format
 msgid ""
 "Sorry, you appear to be logged out and cannot post comments. Please <a href="
@@ -9066,11 +8995,11 @@ msgstr ""
 "Promiňte, zdá se, že jste odhlášen a nemůžete odesílat komentáře. Prosím <a "
 "href=\"%(sign_in_url)s\">přihlašte se</a>. "
 
-#: views/writers.py:758
+#: views/writers.py:752
 msgid "Sorry, anonymous users cannot edit comments"
 msgstr "Promiňte, anonymní uživatelé nemohou upravovat komentáře"
 
-#: views/writers.py:811
+#: views/writers.py:805
 #, python-format
 msgid ""
 "Sorry, you appear to be logged out and cannot delete comments. Please <a "
@@ -9079,16 +9008,13 @@ msgstr ""
 "Promiňte, zdá se, že jste odhlášen a nemůžete mazat komentáře. Prosím <a "
 "href=\"%(sign_in_url)s\">přihlašte se</a>."
 
-#: views/writers.py:837
+#: views/writers.py:831
 msgid "sorry, we seem to have some technical difficulties"
 msgstr "Omlouváme se, zdá se, že máme nějaké technické potíže"
 
-#: views/writers.py:905
+#: views/writers.py:899
 msgid "the selected answer cannot be a comment"
 msgstr "Vybraná odpověď nemůže být komentář."
-
-#~ msgid "Repeat password"
-#~ msgstr "Nové heslo "
 
 #~ msgid "Answer XXX"
 #~ msgstr "Odpověď"
@@ -9281,6 +9207,9 @@ msgstr "Vybraná odpověď nemůže být komentář."
 
 #~ msgid "Views"
 #~ msgstr "Zobrazení"
+
+#~ msgid "Number of views"
+#~ msgstr "Počet zobrazení"
 
 #~ msgid "Force write"
 #~ msgstr "Vynutit zápis"
