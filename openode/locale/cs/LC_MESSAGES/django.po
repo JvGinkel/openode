@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 15:27+0200\n"
-"PO-Revision-Date: 2014-10-16 15:46+0100\n"
+"PO-Revision-Date: 2014-10-16 16:08+0100\n"
 "Last-Translator: Martin Kubát <martin.kubat@coex.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -4820,7 +4820,7 @@ msgstr "Přidat novou organizaci"
 
 #: templates/organization_list.html:32
 msgid "Request a new organization to be created"
-msgstr "Pořádat o vytvoření nové organizace"
+msgstr "Požádat o vytvoření nové organizace"
 
 #: templates/organization_list.html:48
 msgid "Show all organizations"
@@ -8040,18 +8040,17 @@ msgid "Unresolved requests to create organization"
 msgstr "Nevyřešené žádosti o vytvoření organizace"
 
 #: templates/user_profile/organization_requests.html:17
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "<a href=\"%(user_url)s\">%(user)s</a> wants to create organization: <b>"
 "%(org)s</b>"
 msgstr ""
-"<a href=\"%(user_url)s\">%(user)s</a> žádá o vstup do organizace <a href="
-"\"%(organization_url)s\">%(organization_title)s</a>"
+"<a href=\"%(user_url)s\">%(user)s</a> požaduje vytvoření organizace: <b>"
+"%(org)s</b>"
 
 #: templates/user_profile/organization_requests.html:25
-#, fuzzy
 msgid "View in admin"
-msgstr "Upravit ve správě systému"
+msgstr "Zobrazit v administraci"
 
 #: templates/user_profile/reject_post_dialog.html:4
 msgid "Reject the post(s)?"
@@ -8957,7 +8956,7 @@ msgstr "Omlouváme se, váš požadavek na vytvoření klubu %(node)s byl zamít
 
 #: views/commands.py:1396
 msgid "Your request to create organization has been approved!"
-msgstr "Váš požadavek na vytvoření organizace %(organization)s byl schválen!"
+msgstr "Váš požadavek na vytvoření organizace byl schválen!"
 
 #: views/commands.py:1402
 msgid "Sorry, your request to create organization has been denied."

@@ -211,8 +211,12 @@
                               <div class="messages-title">
                                     {% trans %}Requests{% endtrans %}
                                     {% set messages_count = 0 %}
+
                                     {% if user_has_perm_resolve_node_joining %}
                                         {% set messages_count = messages_count + node_join_requests_count %}
+                                    {% endif %}
+                                    {% if request.user.is_admin('openode.add_organization') %}
+                                        {% set messages_count = messages_count + organization_requests_count %}
                                     {% endif %}
                                     {% if request.user.has_perm('openode.resolve_organization_joining') %}
                                         {% set messages_count = messages_count + organization_pending_memberships_count %}
