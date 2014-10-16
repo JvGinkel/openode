@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 15:27+0200\n"
-"PO-Revision-Date: 2014-10-16 15:40+0100\n"
+"PO-Revision-Date: 2014-10-16 15:46+0100\n"
 "Last-Translator: Martin Kubát <martin.kubat@coex.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -4220,9 +4220,8 @@ msgid "Node creation requets"
 msgstr "Žádosti o vytvoření klubu"
 
 #: templates/base.html:255
-#, fuzzy
 msgid "organization requests"
-msgstr "žádosti o vstup do organizace"
+msgstr "žádosti organizací"
 
 #: templates/base.html:256
 msgid "Requests to create organization"
@@ -5173,9 +5172,8 @@ msgid "New password"
 msgstr "Změnit heslo"
 
 #: templates/authopenid/change_password.html:46
-#, fuzzy
 msgid "New password (repeat)"
-msgstr "Změnit heslo"
+msgstr "Nové heslo (ověření)"
 
 #: templates/authopenid/change_password.html:59
 #: templates/embed/widget_form.html:14 templates/node/base_thread_edit.html:69
@@ -6244,9 +6242,8 @@ msgstr ""
 "\">zde najdete jak</a> "
 
 #: templates/node/ask_to_create.html:15
-#, fuzzy
 msgid "Your request to create new node was sent."
-msgstr "Váš požadavek na vstup do klubu %(node)s byl schválen!"
+msgstr "Váš požadavek na vytvoření klubu %(node)s byl schválen!"
 
 #: templates/node/ask_to_create.html:17
 #, fuzzy
@@ -8190,9 +8187,8 @@ msgid "Followed discussions"
 msgstr "Sledované diskuze"
 
 #: templates/user_profile/user.html:198
-#, fuzzy
 msgid "organization create requests"
-msgstr "žádosti o vstup do organizace"
+msgstr "žádosti o vytvoření organizace"
 
 #: templates/user_profile/user.html:217
 msgid "Unresolved Offensive flag reports"
@@ -8952,25 +8948,21 @@ msgid "Sorry, your request to join Node %(node)s has been denied."
 msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut."
 
 #: views/commands.py:1360
-#, fuzzy
 msgid "Your request to create node has been approved!"
-msgstr "Váš požadavek na vstup do klubu %(node)s byl schválen!"
+msgstr "Váš požadavek na vytvoření klubu %(node)s byl schválen!"
 
 #: views/commands.py:1372
-#, fuzzy
 msgid "Sorry, your request to create node has been denied."
-msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut."
+msgstr "Omlouváme se, váš požadavek na vytvoření klubu %(node)s byl zamítnut."
 
 #: views/commands.py:1396
-#, fuzzy
 msgid "Your request to create organization has been approved!"
-msgstr "Váš požadavek na vstup do organizace %(organization)s byl schválen!"
+msgstr "Váš požadavek na vytvoření organizace %(organization)s byl schválen!"
 
 #: views/commands.py:1402
-#, fuzzy
 msgid "Sorry, your request to create organization has been denied."
 msgstr ""
-"Omlouváme se, váš požadavek na vstup do organizace %(organization)s byl "
+"Omlouváme se, váš požadavek na vytvoření organizace %(organization)s byl "
 "zamítnut."
 
 #: views/commands.py:1432
@@ -9024,13 +9016,13 @@ msgid ""
 msgstr ""
 
 #: views/node.py:415
-#, fuzzy, python-format
+#, python-format
 msgid "%(user)s wants to create a new organization %(organization_name)s"
-msgstr "moderátorství"
+msgstr "%(user)s pořaduje vytvoření organizace %(organization_name)s"
 
 #: views/readers.py:132
 msgid "Authors"
-msgstr ""
+msgstr "Autoři"
 
 #: views/thread.py:113
 msgid ""
