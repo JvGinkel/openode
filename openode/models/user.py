@@ -398,10 +398,10 @@ class Organization(models.Model):
         (CLOSED, 'closed'),
     )
 
-    approved = models.BooleanField(default=True, blank=True)
+    approved = models.BooleanField(default=True, blank=True, verbose_name=_("Approved"))
 
-    title = models.CharField(max_length=16)
-    long_title = models.CharField(max_length=300, default='', blank=True, null=True)
+    title = models.CharField(max_length=16, verbose_name=_("Title"))
+    long_title = models.CharField(max_length=300, default='', blank=True, null=True, verbose_name=_("Long title"))
 
     def upload_to_fx(self, original_name):
         return os.path.join(
@@ -421,15 +421,15 @@ class Organization(models.Model):
     )
 
     description = models.OneToOneField('Post',
-        related_name='described_organization', null=True, blank=True
+        related_name='described_organization', null=True, blank=True, verbose_name=_("Description")
         )
 
     openness = models.SmallIntegerField(default=CLOSED, choices=OPENNESS_CHOICES)
     #preapproved email addresses and domain names to auto-join organizations
     #trick - the field is padded with space and all tokens are space separated
-    preapproved_emails = models.TextField(null=True, blank=True, default='')
+    preapproved_emails = models.TextField(null=True, blank=True, default='', verbose_name=_("Preapproved emails"))
     #only domains - without the '@' or anything before them
-    preapproved_email_domains = models.TextField(null=True, blank=True, default='')
+    preapproved_email_domains = models.TextField(null=True, blank=True, default='', verbose_name=_("Preapproved email domains"))
 
 
     # objects = OrganizationManager()

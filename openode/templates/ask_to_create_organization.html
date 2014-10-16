@@ -14,7 +14,7 @@
         {% if form.is_valid() %}
             <h1>{% trans %}Your request to create new Organization was sent.{% endtrans %}</h1>
         {% else %}
-            <p>{% trans %}You may ask Node manager to create a new Node using form below.{% endtrans %}</p>
+            <p>{% trans %}You may ask Node manager to create a new Organization using form below.{% endtrans %}</p>
             <form action="{% url ask_to_create_org %}" method="post">
                 {% csrf_token %}
                 {{ form }}
