@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from django.db import connections
-from openode.document.models import Document
 
 
 def get_invalid_documents_qs():
     """
         return document QuerySet with no OCR bugs
     """
+    from openode.document.models import Document
+
     sql = """SELECT
             latest_revisions.document_id AS document_id
         FROM
