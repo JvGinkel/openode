@@ -36,6 +36,17 @@ def start():
 
 ################################################################################
 
+@task
+def dump_db():
+    ctx = env
+    ctx['timestamp'] = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+    ctx['tar_name'] = '%(user)s_db_dump_%(timestamp)s.tar' % ctx
+
+    with cd("~/dumps"):
+        run('pg_dump -U %(user)s -Ox -Ft -f %(tar_name)s %(user)s' % ctx)
+        run('gzip %(tar_name)s' % ctx)
+
+    return ctx
 
 @task
 def update_locale_db():
@@ -44,13 +55,8 @@ def update_locale_db():
     """
 
     ctx = env
-    ctx['timestamp'] = datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
-    ctx['tar_name'] = '%(user)s_db_dump_%(timestamp)s.tar' % ctx
+    ctx.update(dump_db())
     ctx['gz_name'] = '%(tar_name)s.gz' % ctx
-
-    with cd("~/dumps"):
-        run('pg_dump -U %(user)s -Ox -Ft -f %(tar_name)s %(user)s' % ctx)
-        run('gzip %(tar_name)s' % ctx)
 
     local("mkdir -p %(local_dumps_dir)s" % env)
     get("~/dumps/%(gz_name)s" % ctx, local_path=env.local_dumps_dir)
@@ -81,11 +87,11 @@ def deploy():
     """
         TODO: add all related commands
     """
-    # if confirm('Create tag for this release?', default=False):
-    #     create_tag()
+    if confirm('Create tag for this release?', default=False):
+        create_tag()
 
-    # if confirm('Backup DB?', default=False):
-    #     backup_db()
+    if confirm('Backup DB?', default=False):
+        dump_db()
 
     if confirm("Start deploying to remote server?"):
         with cd("cgi-bin"):
