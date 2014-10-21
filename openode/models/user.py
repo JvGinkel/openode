@@ -469,7 +469,6 @@ class Organization(models.Model):
                 crop="center" if crop else None
             ).url
         except (IOError, ThumbnailError), e:
-            print e
             logging.error(repr({
                 "error": e,
                 "method": "get_logo_url",
