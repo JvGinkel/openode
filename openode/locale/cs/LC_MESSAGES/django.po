@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 15:27+0200\n"
-"PO-Revision-Date: 2014-10-23 09:51+0100\n"
+"PO-Revision-Date: 2014-10-23 16:02+0100\n"
 "Last-Translator: Martin Kubát <martin.kubat@coex.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -6242,7 +6242,7 @@ msgstr ""
 
 #: templates/node/ask_to_create.html:15
 msgid "Your request to create new node was sent."
-msgstr "Váš požadavek na vytvoření klubu %(node)s byl schválen!"
+msgstr "Váš požadavek na vytvoření klubu byl odeslán!"
 
 #: templates/node/ask_to_create.html:17
 msgid "You may ask Node manager to create a new Node using form below."
@@ -7980,6 +7980,8 @@ msgid ""
 "%(user_name)s (%(user_email)s) wants to create a new node %(node_name)s. "
 "Here is a note regarding the request: %(note)s"
 msgstr ""
+"%(user_name)s (%(user_email)s) žádá o založení klubu %(node_name)s. Zde je "
+"poznámka k požadavku: %(note)s"
 
 #: templates/user_profile/node_create_requests.html:33
 #: templates/user_profile/node_join_requests.html:31
@@ -8947,7 +8949,7 @@ msgstr "Omlouváme se, váš požadavek na vstup do klubu %(node)s byl zamítnut
 
 #: views/commands.py:1360
 msgid "Your request to create node has been approved!"
-msgstr "Váš požadavek na vytvoření klubu %(node)s byl schválen!"
+msgstr "Váš požadavek na vytvoření klubu byl schválen!"
 
 #: views/commands.py:1372
 msgid "Sorry, your request to create node has been denied."
