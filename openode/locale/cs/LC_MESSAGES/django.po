@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 15:27+0200\n"
-"PO-Revision-Date: 2014-10-16 16:08+0100\n"
+"PO-Revision-Date: 2014-10-23 09:51+0100\n"
 "Last-Translator: Martin Kubát <martin.kubat@coex.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -4607,9 +4607,8 @@ msgstr "Přidat nový klub"
 
 #: templates/homepage.html:93 templates/node/ask_to_create.html:5
 #: templates/node/ask_to_create.html:8 templates/node/ask_to_create.html:29
-#, fuzzy
 msgid "Ask to create node"
-msgstr "Požádat vytvoření klubu"
+msgstr "Požádat o vytvoření klubu"
 
 #: templates/homepage.html:102 templates/organization_list.html:46
 #: templates/node/snippets/thread_sort.html:8
@@ -5169,7 +5168,7 @@ msgstr "Nelze odeslat, formulář obsahuje chyby."
 #: templates/authopenid/signin.html:141 templates/authopenid/signin.html:295
 #: templates/authopenid/widget_signin.html:130
 msgid "New password"
-msgstr "Změnit heslo"
+msgstr "Nové heslo"
 
 #: templates/authopenid/change_password.html:46
 msgid "New password (repeat)"
@@ -6246,29 +6245,29 @@ msgid "Your request to create new node was sent."
 msgstr "Váš požadavek na vytvoření klubu %(node)s byl schválen!"
 
 #: templates/node/ask_to_create.html:17
-#, fuzzy
 msgid "You may ask Node manager to create a new Node using form below."
-msgstr "Můžete požádat manažera klubu o povolení vstupu pomocí tlačítka níže."
+msgstr ""
+"Můžete požádat manažera klubu o vytvoření nového klubu pomocí tlačítka níže."
 
 #: templates/node/ask_to_create.html:23
 msgid "Point, where will be Node placed."
-msgstr ""
+msgstr "Místo, kde má být klub zařazen."
 
 #: templates/node/ask_to_create.html:24
 msgid "Public or private Node?"
-msgstr ""
+msgstr "Má být klub veřejný nebo soukromý?"
 
 #: templates/node/ask_to_create.html:25
 msgid "In the case of a private Node specify which users have access."
-msgstr ""
+msgstr "V případě soukromého klubu uveďte, kteří uživatelé mají mít přístup."
 
 #: templates/node/ask_to_create.html:26
 msgid "Which modules will included in Node (Q&A, Discussion, Documents)?"
-msgstr ""
+msgstr "Které moduly má klub obsahovat (otázky, diskuze, dokumenty)?"
 
 #: templates/node/ask_to_create.html:27
 msgid "Others..."
-msgstr ""
+msgstr "Ostatní..."
 
 #: templates/node/ask_to_join.html:5 templates/node/ask_to_join.html.py:9
 #: templates/node/ask_to_join.html:33
