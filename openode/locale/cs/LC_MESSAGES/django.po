@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 15:27+0200\n"
-"PO-Revision-Date: 2014-10-23 16:02+0100\n"
+"PO-Revision-Date: 2014-10-23 16:08+0100\n"
 "Last-Translator: Martin Kubát <martin.kubat@coex.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -8953,7 +8953,7 @@ msgstr "Váš požadavek na vytvoření klubu byl schválen!"
 
 #: views/commands.py:1372
 msgid "Sorry, your request to create node has been denied."
-msgstr "Omlouváme se, váš požadavek na vytvoření klubu %(node)s byl zamítnut."
+msgstr "Omlouváme se, váš požadavek na vytvoření klubu byl zamítnut."
 
 #: views/commands.py:1396
 msgid "Your request to create organization has been approved!"
