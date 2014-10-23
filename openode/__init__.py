@@ -12,7 +12,7 @@ import platform
 
 # from django.conf import settings
 
-VERSION = (1, 1, 1)
+VERSION = (1, 1, 2)
 
 #keys are module names used by python imports,
 #values - the package qualifier to use for pip
