@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: askbot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-16 15:27+0200\n"
-"PO-Revision-Date: 2014-10-23 16:08+0100\n"
+"PO-Revision-Date: 2014-10-31 09:37+0100\n"
 "Last-Translator: Martin Kubát <martin.kubat@coex.cz>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/"
 "askbot/language/cs_CZ/)\n"
@@ -9018,7 +9018,7 @@ msgstr ""
 #: views/node.py:415
 #, python-format
 msgid "%(user)s wants to create a new organization %(organization_name)s"
-msgstr "%(user)s pořaduje vytvoření organizace %(organization_name)s"
+msgstr "%(user)s požaduje vytvoření organizace %(organization_name)s"
 
 #: views/readers.py:132
 msgid "Authors"
