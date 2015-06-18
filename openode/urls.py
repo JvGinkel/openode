@@ -242,6 +242,11 @@ urlpatterns = patterns('',
     #     name='get_thread_shared_organizations'
     # ),
     url(
+        r'^resolve-node-join-request/',
+        views.commands.resolve_node_join_request,
+        name='resolve_node_join_request'
+    ),
+    url(
         r'^resolve-organization-join-request/',
         views.commands.resolve_organization_join_request,
         name='resolve_organization_join_request'
