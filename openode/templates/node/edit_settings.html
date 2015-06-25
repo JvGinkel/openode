@@ -47,41 +47,59 @@
                 {{ render_formfield_row(form.long_title, labeltext=_("Long title")) }}
                 {{ render_formfield_row(form.visibility, labeltext=_("Node visibility")) }}
 
+                {# ========================================================== #}
+
                 <div class="row">
                     <div class="columns twelve"><h2>{% trans %}Node modules{% endtrans %}</h2></div>
                 </div>
 
-{#                 {{ render_formfield_row(form.module_annotation, labeltext=_("Enable Annotation module")) }}
- #}
+                {# {{ render_formfield_row(form.module_annotation, labeltext=_("Enable Annotation module")) }} #}
+
                 {{ render_formfield_row(form.module_qa, labeltext=_("Enable module Questions")) }}
                 {{ render_formfield_row(form.module_qa_readonly, labeltext=_("Module Questions is readonly")) }}
+
                 <div class="row separator-01"></div>
+
                 {{ render_formfield_row(form.module_forum, labeltext=_("Enable module Discussions")) }}
                 {{ render_formfield_row(form.module_forum_readonly, labeltext=_("Module Discussions is readonly")) }}
+
                 <div class="row separator-01"></div>
+
                 {{ render_formfield_row(form.module_library, labeltext=_("Enable module Documents")) }}
                 {{ render_formfield_row(form.module_library_readonly, labeltext=_("Module Documents is readonly")) }}
+
                 <div class="row separator-01"></div>
 
                 {{ render_formfield_row(form.default_module, labeltext=_("Default module"), helptext=_("Default tab to show when visiting node. Please choose among enabled modules, otherwise built-in order will be used.")) }}
 
-
-{#                 <div class="row">
+                {#
+                <div class="row">
                     <div class="columns twelve"><h2>{% trans %}Read-only{% endtrans %}</h2></div>
                 </div>
- #}                {# has been merged with node.is_closed #}
+                #}
+                {# has been merged with node.is_closed #}
                 {# {{ render_formfield_row(form.readonly, labeltext=_("Node is readonly")) }}  #}
                 {# <div class="row separator-01"></div> #}
 
                 <div class="row separator-01"></div>
 
+                {# ========================================================== #}
+
+                <div class="row">
+                    <div class="columns twelve"><h2>{% trans %}Question flow{% endtrans %}</h2></div>
+                </div>
+                {{ render_formfield_row(form.is_question_flow_enabled, labeltext=_("Is question flow enabled"), helptext=_("Enable question flow for all question in this node.")) }}
+                <div class="row separator-01"></div>
+
+                {# ========================================================== #}
+
                 <div class="row">
                     <div class="columns twelve"><h2>{% trans %}Close Node{% endtrans %}</h2></div>
                 </div>
-
                 {{ render_formfield_row(form.closed, labeltext=_("Node is closed"), helptext=_("Node will not be displayed by default and will be read only, content is archived.")) }}
-
                 {{ render_formfield_row(form.close_reason, labeltext=_("Close reason"), helptext=_("If node is not closed, value will not be displayed.")) }}
+
+                {# ========================================================== #}
 
                 <div class="row">
                     <div class="three columns"></div>

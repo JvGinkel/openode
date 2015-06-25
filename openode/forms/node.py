@@ -48,7 +48,8 @@ class NodeSettingsForm(forms.ModelForm):
             'closed', 'close_reason',
             # 'module_annotation',
             'module_qa', 'module_forum', 'module_library', 'default_module',
-            'module_qa_readonly', 'module_forum_readonly', 'module_library_readonly'
+            'module_qa_readonly', 'module_forum_readonly', 'module_library_readonly',
+            "is_question_flow_enabled",
         )
         widgets = {
             'close_reason': forms.TextInput,

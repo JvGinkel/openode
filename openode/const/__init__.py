@@ -88,6 +88,24 @@ SELF_NOTIFY_EMAILED_POST_AUTHOR_WHEN_CHOICES = (
 #    )
 #)
 
+#######################################
+
+QUESTION_FLOW_STATE_NEW = "new"
+QUESTION_FLOW_STATE_TAKEN = "taken"
+QUESTION_FLOW_STATE_SUBMITTED = "submitted"
+QUESTION_FLOW_STATE_ANSWERED = "answered"
+QUESTION_FLOW_STATE_PUBLISHED = "published"
+
+QUESTION_FLOW_STATE = (
+    (QUESTION_FLOW_STATE_NEW, _("New")),
+    (QUESTION_FLOW_STATE_TAKEN, _("Taken")),
+    (QUESTION_FLOW_STATE_SUBMITTED, _("Submitted")),
+    (QUESTION_FLOW_STATE_ANSWERED, _("Answered")),
+    (QUESTION_FLOW_STATE_PUBLISHED, _("Published")),
+)
+
+#######################################
+
 REPLY_SEPARATOR_TEMPLATE = '==== %(user_action)s %(instruction)s -=-=='
 REPLY_WITH_COMMENT_TEMPLATE = _(
     'Note: to reply with a comment, '

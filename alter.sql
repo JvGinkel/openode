@@ -34,20 +34,31 @@
 -- COMMIT;
 
 
--- 2014-09-4
+-- -- 2014-09-4
 
+-- BEGIN;
+--      ALTER TABLE "activity" ALTER COLUMN "content_type_id" DROP NOT NULL;
+--      ALTER TABLE "activity" ALTER COLUMN "object_id" DROP NOT NULL;
+-- COMMIT;
+
+-- -- 2014-09-04
+-- BEGIN;
+--   ALTER TABLE "openode_organization" ADD COLUMN "approved" boolean;
+--   UPDATE "openode_organization" SET approved=TRUE;
+-- COMMIT;
+
+-- -- 2014-10-02
+-- BEGIN;
+--      ALTER TABLE "activity" ADD COLUMN "data" text;
+-- COMMIT;
+
+-- 2015-06-25 - Question flow fields
 BEGIN;
-     ALTER TABLE "activity" ALTER COLUMN "content_type_id" DROP NOT NULL;
-     ALTER TABLE "activity" ALTER COLUMN "object_id" DROP NOT NULL;
+    ALTER TABLE "openode_node" ADD COLUMN "is_question_flow_enabled" boolean DEFAULT false;
+    ALTER TABLE "openode_thread" ADD COLUMN "question_flow_state" varchar(255) DEFAULT 'new';
+    ALTER TABLE "openode_thread" ADD COLUMN "question_flow_responsible_user_id" integer REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED;
+    ALTER TABLE "openode_thread" ADD COLUMN "question_flow_interviewee_user_id" integer REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED;
+    CREATE INDEX "openode_thread_question_flow_responsible_user_id" ON "openode_thread" ("question_flow_responsible_user_id");
+    CREATE INDEX "openode_thread_question_flow_interviewee_user_id" ON "openode_thread" ("question_flow_interviewee_user_id");
 COMMIT;
 
--- 2014-09-04
-BEGIN;
-  ALTER TABLE "openode_organization" ADD COLUMN "approved" boolean;
-  UPDATE "openode_organization" SET approved=TRUE;
-COMMIT;
-
--- 2014-10-02
-BEGIN;
-     ALTER TABLE "activity" ADD COLUMN "data" text;
-COMMIT;

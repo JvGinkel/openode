@@ -130,6 +130,8 @@
 
                 <div class="row">
                     <div class="twelve columns t-right">
+
+                        {# ======== SEARCH ========= #}
                         <div class="search group left">
                             <form id="js-search-form" action="{% url search %}">
                                 <input type="text" class="input-search ui-autocomplete-input default f-left" placeholder="{% trans %}Search{% endtrans %}..." id="search" name="q" autocomplete="off" />
@@ -163,9 +165,15 @@
                     #}
                         {# ======== USER MENU RIGHT ========= #}
                         {%- if request.user.is_authenticated() -%}
+
+                            {# === ADMIN === #}
+
                             {% if request.user.is_admin() %}
                                 <a class="button button-menu" href="/admin">{% trans %}Admin{% endtrans %}</a>
                             {% endif %}
+
+                            {# === FOLLOWED === #}
+
                             <div href="#" class="button button-menu dropdown followed">
                                 <div class="followed-title">
                                     {% trans %}Followed{% endtrans %}
@@ -178,7 +186,9 @@
                                         <span class="unread-mark">{{ followed_count }}</span>
                                     {% endif %}
                                 </div>
+
                                 <span></span>
+
                                 <ul>
                                     <li>
                                         <a href="{% url user_profile request.user.id, 'followed_nodes' %}">
@@ -206,97 +216,155 @@
                                     </li>
                                 </ul>
                             </div>
+
+                            {# === REQUESTS === #}
+
                             {% if user_has_perm_resolve_node_joining or request.user.has_perm('openode.resolve_organization_joining') or (settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive')) %}
-                            <div href="#" class="button button-menu dropdown messages">
-                              <div class="messages-title">
-                                    {% trans %}Requests{% endtrans %}
-                                    {% set messages_count = 0 %}
+                                <div href="#" class="button button-menu dropdown messages">
+                                    <div class="messages-title">
+                                        {% trans %}Requests{% endtrans %}
+                                        {% set messages_count = 0 %}
 
-                                    {% if user_has_perm_resolve_node_joining %}
-                                        {% set messages_count = messages_count + node_join_requests_count %}
-                                    {% endif %}
-                                    {% if request.user.is_admin('openode.add_organization') %}
-                                        {% set messages_count = messages_count + organization_requests_count %}
-                                    {% endif %}
-                                    {% if request.user.has_perm('openode.resolve_organization_joining') %}
-                                        {% set messages_count = messages_count + organization_pending_memberships_count %}
-                                    {% endif %}
-                                    {% if user_has_perm_resolve_node_creating %}
-                                        {% set messages_count = messages_count + node_create_requests_count %}
-                                    {% endif %}
-                                    {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
-                                        {% set messages_count = messages_count + flags_count %}
-                                    {% endif %}
-                                    {% if messages_count %}
-                                        <span class="unread-mark">{{ messages_count }}</span>
-                                    {% endif %}
-                              </div>
-                              <span></span>
-                              <ul>
-                                {% if user_has_perm_resolve_node_joining %}
-                                <li>
-                                    <a href="{% url user_profile request.user.id, 'node_joins' %}" title="{% trans %}node joins requests{% endtrans %}">
-                                        {% trans %}Node joins{% endtrans %}
-                                        {% if node_join_requests_count %}
-                                            <span class="unread-mark">{{ node_join_requests_count }}</span>
+                                        {% if user_has_perm_resolve_node_joining %}
+                                            {% set messages_count = messages_count + node_join_requests_count %}
                                         {% endif %}
-                                    </a>
-                                </li>
-                                {% endif %}
-                                {% if user_has_perm_resolve_node_creating %}
-                                <li>
-                                    <a href="{% url user_profile request.user.id, 'node_create' %}" title="{% trans %}node create requests{% endtrans %}">
-                                        {% trans %}Node creation requets{% endtrans %}
-                                        {% if node_create_requests_count %}
-                                            <span class="unread-mark">{{ node_create_requests_count }}</span>
-                                        {% endif %}
-                                    </a>
-                                </li>
-                                {% endif %}
 
-                                {% if request.user.is_admin('openode.add_organization') %}
-                                <li>
-                                    <a href="{% url user_profile request.user.id, 'organization_requests' %}" title="{% trans %}organization requests{% endtrans %}">
-                                        {% trans %}Requests to create organization{% endtrans %}
-                                        {% if organization_requests_count %}
-                                            <span class="unread-mark">{{ organization_requests_count }}</span>
+                                        {% if request.user.is_admin('openode.add_organization') %}
+                                            {% set messages_count = messages_count + organization_requests_count %}
                                         {% endif %}
-                                    </a>
-                                </li>
-                                {% endif %}
 
-                                {% if request.user.has_perm('openode.resolve_organization_joining') %}
-                                <li>
-                                    <a href="{% url user_profile request.user.id, 'organization_joins' %}" title="{% trans %}organization joins requests{% endtrans %}">
-                                        {% trans %}Organization joins{% endtrans %}
-                                        {% if organization_pending_memberships_count %}
-                                            <span class="unread-mark">{{ organization_pending_memberships_count }}</span>
+                                        {% if request.user.has_perm('openode.resolve_organization_joining') %}
+                                            {% set messages_count = messages_count + organization_pending_memberships_count %}
                                         {% endif %}
-                                    </a>
-                                </li>
-                                {% endif %}
-                                {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
-                                <li>
-                                    <a href="{% url user_profile request.user.id, 'offensive_flags' %}" title="{% trans %}offensive flag reports{% endtrans %}">
-                                        {% trans %}Offensive flags{% endtrans %}</span>
-                                        {% if flags_count %}
-                                            <span class="unread-mark">{{ flags_count }}
+
+                                        {% if user_has_perm_resolve_node_creating %}
+                                            {% set messages_count = messages_count + node_create_requests_count %}
                                         {% endif %}
-                                    </a>
-                                </li>
-                                {% endif %}
-                              </ul>
-                            </div>
+
+                                        {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
+                                            {% set messages_count = messages_count + flags_count %}
+                                        {% endif %}
+
+                                        {% if messages_count %}
+                                            <span class="unread-mark">{{ messages_count }}</span>
+                                        {% endif %}
+
+                                    </div>
+                                    <span></span>
+                                    <ul>
+                                        {% if user_has_perm_resolve_node_joining %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'node_joins' %}" title="{% trans %}node joins requests{% endtrans %}">
+                                                    {% trans %}Node joins{% endtrans %}
+                                                    {% if node_join_requests_count %}
+                                                        <span class="unread-mark">{{ node_join_requests_count }}</span>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+
+                                        {% if user_has_perm_resolve_node_creating %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'node_create' %}" title="{% trans %}node create requests{% endtrans %}">
+                                                    {% trans %}Node creation requets{% endtrans %}
+                                                    {% if node_create_requests_count %}
+                                                        <span class="unread-mark">{{ node_create_requests_count }}</span>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+
+                                        {% if request.user.is_admin('openode.add_organization') %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'organization_requests' %}" title="{% trans %}organization requests{% endtrans %}">
+                                                    {% trans %}Requests to create organization{% endtrans %}
+                                                    {% if organization_requests_count %}
+                                                        <span class="unread-mark">{{ organization_requests_count }}</span>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+
+                                        {% if request.user.has_perm('openode.resolve_organization_joining') %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'organization_joins' %}" title="{% trans %}organization joins requests{% endtrans %}">
+                                                    {% trans %}Organization joins{% endtrans %}
+                                                    {% if organization_pending_memberships_count %}
+                                                        <span class="unread-mark">{{ organization_pending_memberships_count }}</span>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+
+                                        {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'offensive_flags' %}" title="{% trans %}offensive flag reports{% endtrans %}">
+                                                    {% trans %}Offensive flags{% endtrans %}</span>
+                                                    {% if flags_count %}
+                                                        <span class="unread-mark">{{ flags_count }}
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                        {% endif %}
+
+                                        {# === QUESTION FLOW === #}
+                                        <li>
+                                            <a href="TODO" title="">
+                                                {% trans %}Question flow - new{% endtrans %}</span>
+                                                <span class="unread-mark">{{ question_flow_to_taken.count() }}
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="TODO" title="">
+                                                {% trans %}Question flow - to answer/submit{% endtrans %}</span>
+                                                <span class="unread-mark">{{ question_flow_to_submit_or_answer.count() }}
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="TODO" title="">
+                                                {% trans %}Question flow - to answer{% endtrans %}</span>
+                                                <span class="unread-mark">{{ question_flow_to_answer.count() }}
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="TODO" title="">
+                                                {% trans %}Question flow - to publish{% endtrans %}</span>
+                                                <span class="unread-mark">{{ question_flow_to_check_answer_and_publish.count() }}
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
                             {% endif %}
+
+                            {# === PROFILE === #}
+
                             <div href="#" class="button button-menu dropdown split user">
-                                <a class="user-title" href="{{ request.user.get_absolute_url() }}"><div class="avatar-wrap">{{ render_gravatar(request.user, 20, False) }}</div>{{ request.user.screen_name|escape }}</a>
+                                <a class="user-title" href="{{ request.user.get_absolute_url() }}">
+                                    <div class="avatar-wrap">{{ render_gravatar(request.user, 20, False) }}</div>{{ request.user.screen_name|escape }}
+                                </a>
                                 <span></span>
                                 <ul>
-                                    <li><a href="{{ request.user.get_absolute_url() }}">{% trans %}Update profile{% endtrans %}</a></li>
-                                    <li><a href="{{ settings.LOGOUT_URL }}?next={{ settings.LOGOUT_REDIRECT_URL }}">{% trans %}Logout{% endtrans %}</a></li>
+                                    <li>
+                                        <a href="{{ request.user.get_absolute_url() }}">
+                                            {% trans %}Update profile{% endtrans %}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ settings.LOGOUT_URL }}?next={{ settings.LOGOUT_REDIRECT_URL }}">
+                                            {% trans %}Logout{% endtrans %}
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
+
                         {% else %}
+
+                            {# === NOT-LOGGED USER === #}
+
                             <form id="signin-form" class="login" method="post" action="{{ settings.LOGIN_URL }}">
                                 {% csrf_token %}
                                 <div class="inputs">
@@ -310,6 +378,7 @@
                                 </div>
                                 <button type="submit" class="small button login v-top">{% trans %}Log in{% endtrans %}</button>
                             </form>
+
                         {% endif %}
                     </div>
                 </div>

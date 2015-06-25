@@ -57,6 +57,8 @@ class Node(MPTTModel):
         help_text=_(u"Show node openen on homepage.")
         )
 
+    is_question_flow_enabled = models.BooleanField(default=False, verbose_name=_('Is question flow enabled'))
+
     users = models.ManyToManyField(User, through='NodeUser', related_name='nodes')
 
     followed_count = models.PositiveIntegerField(default=0, editable=False)
@@ -284,7 +286,7 @@ class Node(MPTTModel):
         children = self.get_children().filter(deleted=False)
         children_sum = sum([child.sum_of_all_views for child in children]) or 0
 
-        n_of_threads = self.threads.filter(is_deleted=False).aggregate(all_views=Sum('view_count'))['all_views'] or 0 
+        n_of_threads = self.threads.filter(is_deleted=False).aggregate(all_views=Sum('view_count'))['all_views'] or 0
         return n_of_threads + children_sum
 
     def is_category(self):

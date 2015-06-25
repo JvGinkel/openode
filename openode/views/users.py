@@ -1030,10 +1030,9 @@ def user_profile(request, id, tab_name=None):
         'view_user': profile_owner,
         'search_state': search_state,
         'user_follow_feature_on': ('followit' in django_settings.INSTALLED_APPS),
+        'tab_name': tab_name,
     }
-
-    context['tab_name'] = tab_name
-    context.update(view_context.get_for_user_profile(request.user))
+    # context.update(view_context.get_for_user_profile(request))
     return user_view_func(request, profile_owner, context)
 
 

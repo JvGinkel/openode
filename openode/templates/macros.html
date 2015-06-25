@@ -481,34 +481,38 @@ answer {% if answer.accepted() %}accepted-answer{% endif %} {% if answer.author_
     {% if helptext != "" %}<span class="helptext">{{ helptext }}</span>{% endif %}
 {% endmacro %}
 
+{# ################################# #}
+
 {% macro render_formfield_row(field, labeltext="", helptext="") -%}
-{% if field.field.widget.__class__.__name__ == 'CheckboxInput' %}
-    {% set is_checkbox=True %}
-{% else %}
-    {% set is_checkbox=False %}
-{% endif %}
-{% if field.field.widget.__class__.__name__ == 'Wysiwyg' %}
-    {% set is_wysiwyg=True %}
-{% else %}
-    {% set is_wysiwyg=False %}
-{% endif %}
-<div class="row">
-    <div class="three columns">
-        {% if not is_checkbox %}
-        <label class="label-tabular" for="id_{% if field.form.prefix %}{{ field.form.prefix }}-{% endif %}{{ field.name }}">{{ render_formfield_labeltext(field, labeltext=labeltext) }}</label>
-        {% endif %}
+    {% if field.field.widget.__class__.__name__ == 'CheckboxInput' %}
+        {% set is_checkbox=True %}
+    {% else %}
+        {% set is_checkbox=False %}
+    {% endif %}
+
+    {% if field.field.widget.__class__.__name__ == 'Wysiwyg' %}
+        {% set is_wysiwyg=True %}
+    {% else %}
+        {% set is_wysiwyg=False %}
+    {% endif %}
+
+    <div class="row">
+        <div class="three columns">
+            {% if not is_checkbox %}
+                <label class="label-tabular" for="id_{% if field.form.prefix %}{{ field.form.prefix }}-{% endif %}{{ field.name }}">{{ render_formfield_labeltext(field, labeltext=labeltext) }}</label>
+            {% endif %}
+        </div>
+        <div class="nine columns{% if is_wysiwyg and field.errors %} cke-error{% endif %}">
+            {% if is_checkbox %}
+                <label class="label-inline" for="id_{% if field.form.prefix %}{{ field.form.prefix }}-{% endif %}{{ field.name }}">{{ field }} {{ render_formfield_labeltext(field, labeltext=labeltext) }}</label>
+            {% else %}
+                {{ field }}
+            {% endif %}
+            {{ render_formfield_errors(field) }}
+            {{ render_formfield_helptext(field, helptext) }}
+            <div class="form-field-separator"></div>
+        </div>
     </div>
-    <div class="nine columns{% if is_wysiwyg and field.errors %} cke-error{% endif %}">
-        {% if is_checkbox %}
-        <label class="label-inline" for="id_{% if field.form.prefix %}{{ field.form.prefix }}-{% endif %}{{ field.name }}">{{ field }} {{ render_formfield_labeltext(field, labeltext=labeltext) }}</label>
-        {% else %}
-        {{ field }}
-        {% endif %}
-        {{ render_formfield_errors(field) }}
-        {{ render_formfield_helptext(field, helptext) }}
-        <div class="form-field-separator"></div>
-    </div>
-</div>
 {% endmacro %}
 
 {# ################################# #}
