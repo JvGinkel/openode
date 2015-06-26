@@ -33,9 +33,10 @@ from openode.const.perm_rules import RULES, MEMBERS_RULES
 from openode import const, forms, models  # , exceptions
 from openode.conf import settings as openode_settings
 from openode.forms.organization import OrganizationLogoForm
-from openode.forms.user import UserEmailForm, EditUserForm
+from openode.forms.user import UserEmailForm, EditUserForm, QuestionFlowNodeResponsibleUsers
 from openode.mail import send_mail
 from openode.models.tag import get_organizations
+from openode.models.thread import Thread
 from openode.skins.loaders import render_into_skin
 from openode.search.state_manager import SearchState
 from openode.skins.loaders import get_template
@@ -44,7 +45,7 @@ from openode.utils.html import bleach_html
 from openode.utils.http import render_forbidden
 from openode.utils.http import get_request_info
 from openode.utils.slug import slugify
-from openode.views import context as view_context
+# from openode.views import context as view_context
 
 ################################################################################
 
@@ -676,7 +677,13 @@ def user_organization_join_requests(request, user, context):
 @csrf.csrf_protect
 def user_node_join_requests(request, user, context):
     """show Unresolved Node join requests"""
-    if not context['user_has_perm_resolve_node_joining']:
+
+    user_has_perm_resolve_node_joining = models.NodeUser.objects.filter(
+        user=user,
+        role=const.NODE_USER_ROLE_MANAGER
+    ).exists()
+
+    if not user_has_perm_resolve_node_joining:
         raise Http404
 
     data = {
@@ -694,7 +701,8 @@ def user_node_join_requests(request, user, context):
 def user_node_create_requests(request, user, context):
     """show Unresolved Node create requests"""
 
-    if not context['user_has_perm_resolve_node_creating']:
+    # user has perm resolve node creating
+    if not (user.is_staff and user.has_perm('openode.add_node')):
         raise Http404
 
     data = {
@@ -1033,6 +1041,7 @@ def user_profile(request, id, tab_name=None):
         'tab_name': tab_name,
     }
     # context.update(view_context.get_for_user_profile(request))
+    print user_view_func
     return user_view_func(request, profile_owner, context)
 
 
@@ -1124,3 +1133,33 @@ def organization_membership(request, organization_id, organization_slug):
         membership.delete()
 
     return HttpResponseRedirect(reverse('organization_detail', kwargs={'organization_id': organization_id, 'organization_slug': organization_slug}))
+
+################################################################################
+
+
+def question_flow_new(request):
+
+    # TODO: check permission!
+
+    if request.method == "POST":
+        # raw_node = request.GET.get(node)
+        # if raw_node and str(raw_node).isdigit():
+
+        question_pk = request.POST.get("question")
+        if question_pk and question_pk.isdigit():
+            question = get_object_or_404(Thread, pk=int(question_pk))
+
+        form = QuestionFlowNodeResponsibleUsers(request.POST, question=question)
+
+        if form.is_valid():
+            question.question_flow_interviewee_user = form.cleaned_data["responsible_users"]
+            question.question_flow_responsible_user = request.user
+            question.question_flow_state = const.QUESTION_FLOW_STATE_SUBMITTED
+            question.save()
+            print "Save"
+
+    context = {
+        'view_user': request.user,
+        "get_qf_form": lambda question: QuestionFlowNodeResponsibleUsers(question=question),
+    }
+    return render_into_skin('user_profile/question_flow_new.html', context, request)

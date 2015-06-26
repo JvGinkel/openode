@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import logging
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+# from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.models import User
+
 from openode.forms import CleanCharField
 from openode.forms.widgets import Wysiwyg
 
@@ -77,3 +79,20 @@ class EditUserForm(forms.Form):
     #                     'please use another one')
     #                 )
     #     return self.cleaned_data['email']
+
+
+from openode.models.thread import Thread
+
+
+class QuestionFlowNodeResponsibleUsers(forms.Form):
+
+    responsible_users = forms.ModelChoiceField(queryset=User.objects.none())
+    question = forms.ModelChoiceField(queryset=Thread.objects.none())
+
+    def __init__(self, *args, **kwargs):
+        question = kwargs.pop("question", None)
+        super(QuestionFlowNodeResponsibleUsers, self).__init__(*args, **kwargs)
+        if question is not None:
+            self.fields["responsible_users"].queryset = question.node.get_responsible_persons()
+            self.fields["question"].queryset = Thread.objects.filter(pk=question.pk)
+            self.fields["question"].initial = question.pk

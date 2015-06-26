@@ -194,6 +194,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'openode.context_processors.menu_items',  # CMS menu items upper and lower
     'openode.context_processors.node_modules',  # constants for node module names
     'openode.context_processors.login_form',
+    'openode.context_processors.question_flow',
     'openode.context_processors.user_profile',
 )
 

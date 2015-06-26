@@ -225,6 +225,16 @@ urlpatterns = patterns('',
     ),
 
     ###################################
+    # question flow
+    ###################################
+
+    url(
+        r'^users/question-flow/new/$',
+        views.users.question_flow_new,
+        name='question_flow_new'
+    ),
+
+    ###################################
 
     url(
         r'^api/get_questions/',

@@ -1,0 +1,47 @@
+{% extends "user_profile/user.html" %}
+
+{% block profile_breadcrumbs %}
+    <li><span>{% trans %}Question flow - new  questions{% endtrans %}</span></li>
+{% endblock %}
+
+{% block profilesection %}
+    {% trans %}Question flow - new  questions{% endtrans %}
+{% endblock %}
+
+{% block usercontent %}
+
+    {% if question_flow_to_taken %}
+        <table>
+            {% for question in question_flow_to_taken %}
+                <tr>
+                    {# {% url user_profile node_join_request.user.pk as user_url %} #}
+                    {# {% url node node_id=node_join_request.content_object.pk, node_slug=node_join_request.content_object.slug as node_url %} #}
+                    <td style="width: 60%">
+                        {% trans %}
+                            <a href="#">{{ user }}</a> ask question
+                            <a href="{{ node }}">{{ node }}</a>
+                        {% endtrans %}
+                    </td>
+
+                    <td style="width: 40%">
+                        Převzít a předat
+                        {% set qf_form = get_qf_form(question) %}
+                        <form action="{{ request.path }}" method="post">{% csrf_token %}
+                            {{ qf_form.responsible_users }}
+                            {{ qf_form.question }}
+                            <input class="btn button" type="submit" value="{% trans %}Submit{% endtrans %}" />
+                        </form>
+                    </td>
+
+                </tr>
+            {% endfor %}
+        </table>
+
+    {% else %}
+
+        <p>{% trans %}TODO{% endtrans %}</p>
+
+    {% endif %}
+
+
+{% endblock %}
