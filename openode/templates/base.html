@@ -325,14 +325,14 @@
                                         #}
 
                                         <li>
-                                            <a href="TODO" title="">
+                                            <a href="{% url question_flow_to_answer %}" title="">
                                                 {% trans %}Question flow - to answer{% endtrans %}</span>
                                                 <span class="unread-mark">{{ question_flow_to_answer.count() }}
                                             </a>
                                         </li>
 
                                         <li>
-                                            <a href="TODO" title="">
+                                            <a href="{% url question_flow_to_publish %}" title="">
                                                 {% trans %}Question flow - to publish{% endtrans %}</span>
                                                 <span class="unread-mark">{{ question_flow_to_check_answer_and_publish.count() }}
                                             </a>

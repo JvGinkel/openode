@@ -1,0 +1,21 @@
+{% extends "user_profile/user.html" %}
+
+{% block profile_breadcrumbs %}
+    <li><span>{% trans %}Question flow - questions to check{% endtrans %}</span></li>
+{% endblock %}
+
+{% block profilesection %}
+    {% trans %}Question flow - questions to check{% endtrans %}
+{% endblock %}
+
+{% block usercontent %}
+    {% if question_flow_to_check_answer_and_publish %}
+        <table>
+            {% for question in question_flow_to_check_answer_and_publish %}
+                {{ question.get_summary_html(visitor=request.user) }}
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>{% trans %}No questions to answer{% endtrans %}</p>
+    {% endif %}
+{% endblock %}

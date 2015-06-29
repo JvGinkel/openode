@@ -539,9 +539,17 @@ class Thread(models.Model):
         choices=const.QUESTION_FLOW_STATE,
         default=const.QUESTION_FLOW_STATE_NEW,
         verbose_name=_("Question flow state")
-    )
-    question_flow_responsible_user = models.ForeignKey(User, related_name='question_flow_responsible_threads', on_delete=models.SET_NULL, null=True, default=None)
-    question_flow_interviewee_user = models.ForeignKey(User, related_name='question_flow_interviewee_threads', on_delete=models.SET_NULL, null=True, default=None)
+        )
+
+    question_flow_responsible_user = models.ForeignKey(User, null=True,
+        default=None, on_delete=models.SET_NULL,
+        related_name='question_flow_responsible_threads',
+        )
+
+    question_flow_interviewee_user = models.ForeignKey(User, null=True,
+        default=None, on_delete=models.SET_NULL,
+        related_name='question_flow_interviewee_threads',
+        )
 
     is_deleted = models.BooleanField(default=False, db_index=True)
 

@@ -1163,3 +1163,17 @@ def question_flow_new(request):
         "get_qf_form": lambda question: QuestionFlowNodeResponsibleUsers(question=question),
     }
     return render_into_skin('user_profile/question_flow_new.html', context, request)
+
+
+def question_flow_to_answer(request):
+    context = {
+        'view_user': request.user,
+    }
+    return render_into_skin('user_profile/question_flow_to_answer.html', context, request)
+
+
+def question_flow_to_publish(request):
+    context = {
+        'view_user': request.user,
+    }
+    return render_into_skin('user_profile/question_flow_to_check.html', context, request)

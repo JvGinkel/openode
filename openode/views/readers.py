@@ -328,7 +328,6 @@ NODE_MODULE_TEMPLATE_FILE = {
 
 
 def node_module_thread(request, node, module, **kwargs):
-
     redirect = False
     search_user_form = SearchUserForm(request.GET)
     if search_user_form.is_valid():
@@ -359,6 +358,7 @@ def node_module_thread(request, node, module, **kwargs):
         request_user=request.user,
         search_state=search_state
         )
+
     if meta_data['non_existing_tags']:
         search_state = search_state.remove_tags(meta_data['non_existing_tags'])
 

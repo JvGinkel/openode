@@ -234,6 +234,18 @@ urlpatterns = patterns('',
         name='question_flow_new'
     ),
 
+    url(
+        r'^users/question-flow/to-answer/$',
+        views.users.question_flow_to_answer,
+        name='question_flow_to_answer'
+    ),
+
+    url(
+        r'^users/question-flow/to-publish/$',
+        views.users.question_flow_to_publish,
+        name='question_flow_to_publish'
+    ),
+
     ###################################
 
     url(
@@ -641,17 +653,17 @@ urlpatterns = patterns('',
     url(r'^set_lang/$', views.readers.set_lang, name='set_lang'),
 
     url(
-        r'^%s%s(?P<thread_id>\d+)/(?P<thread_slug>[\w-]+)/$' % (node_module_url, 'thread/'),
+        r'^%sthread/(?P<thread_id>\d+)/(?P<thread_slug>[\w-]+)/$' % (node_module_url, ),
         views.thread.thread,
         name='thread'
     ),
     url(
-        r'^%s%s/(?P<thread_id>\d+)/(?P<thread_slug>[\w-]+)/followers/$' % (node_module_url, 'thread'),
+        r'^%sthread/(?P<thread_id>\d+)/(?P<thread_slug>[\w-]+)/followers/$' % (node_module_url, ),
         views.readers.thread_followers,
         name='thread_followers'
     ),
     url(
-        r'^%s%s/(?P<thread_id>\d+)/(?P<thread_slug>[\w-]+)/last-visit/$' % (node_module_url, 'thread'),
+        r'^%sthread/(?P<thread_id>\d+)/(?P<thread_slug>[\w-]+)/last-visit/$' % (node_module_url, ),
         views.readers.thread_last_visit,
         name='thread_last_visit'
     ),

@@ -59,6 +59,7 @@
     {% else %}
         <div class="group q-listing">
             {% for thread in threads.object_list %}
+                {{ thread.question_flow_state }}
                 {{ thread.get_summary_html(search_state=search_state, visitor=request.user) }}
             {% endfor %}
         </div>

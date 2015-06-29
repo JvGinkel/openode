@@ -165,37 +165,17 @@ class PostManager(BaseQuerySetManager):
 
     def create_new_description(self, post_type, text=None, author=None):
         return self.create_new(
-                            None,  # this post type is threadless
-                            author,
-                            datetime.datetime.now(),
-                            text,
-                            post_type=post_type
-        )
+            None,  # this post type is threadless
+            author, datetime.datetime.now(), text, post_type=post_type
+            )
 
-    def create_new(
-                self,
-                thread,
-                author,
-                added_at,
-                text,
-                parent=None,
-                email_notify=False,
-                post_type=None,
-                by_email=False
-            ):
+    def create_new(self, thread, author, added_at, text, parent=None, email_notify=False, post_type=None, by_email=False, is_published=True):
         # TODO: Some of this code will go to Post.objects.create_new
         assert(post_type in const.POST_TYPES)
 
-        post = Post(
-            post_type=post_type,
-            thread=thread,
-            parent=parent,
-            author=author,
-            added_at=added_at,
-            text=text,
-            #.html field is denormalized by the save() call
-        )
-
+        post = Post(post_type=post_type, thread=thread, parent=parent,
+            author=author, added_at=added_at, text=text
+            )
         # inbox and activity is replaced by follow
         parse_results = post.parse_and_save(author=author)
         # from openode.models import signals
@@ -209,45 +189,41 @@ class PostManager(BaseQuerySetManager):
         #     sender=post.__class__
         # )
 
-        post.add_revision(
-            author=author,
-            revised_at=added_at,
-            text=text,
-            comment=const.POST_STATUS['default_version'],
-            by_email=by_email
-        )
-
+        post.add_revision(author=author, revised_at=added_at, text=text,
+            comment=const.POST_STATUS['default_version'], by_email=by_email
+            )
         return post
 
     #todo: instead of this, have Thread.add_answer()
-    def create_new_answer(
-                        self,
-                        thread,
-                        author,
-                        added_at,
-                        text,
-                        email_notify=False,
-                        by_email=False
-                    ):
-        answer = self.create_new(
-                            thread,
-                            author,
-                            added_at,
-                            text,
-                            post_type='answer',
-                            by_email=by_email
-                        )
-        #set notification/delete
-        if email_notify:
-            author.subscribe_thread(thread)
-        else:
-            author.unsubscribe_thread(thread)
+    def create_new_answer(self, thread, author, added_at, text, email_notify=False, by_email=False):
 
-        #update thread data
-        #todo: this totally belongs to some `Thread` class method
-        thread.answer_count += 1
-        thread.save()
-        thread.set_last_activity(last_activity_at=added_at, last_activity_by=author)  # this should be here because it regenerates cached thread summary html
+        answer = self.create_new(thread, author, added_at, text,
+            post_type='answer', by_email=by_email,
+            is_published=not thread.node.is_question_flow_enabled,
+            )
+
+        # question flow - answer
+        if thread.node.is_question_flow_enabled:
+            if thread.question_flow_interviewee_user == author and \
+                thread.question_flow_state == const.QUESTION_FLOW_STATE_SUBMITTED:
+
+                thread.question_flow_state = const.QUESTION_FLOW_STATE_ANSWERED
+
+        else:
+            # set notification/delete
+            if email_notify:
+                author.subscribe_thread(thread)
+            else:
+                author.unsubscribe_thread(thread)
+
+            #update thread data
+            #todo: this totally belongs to some `Thread` class method
+            thread.answer_count += 1
+            thread.save()
+
+            # this should be here because it regenerates cached thread summary html
+            thread.set_last_activity(last_activity_at=added_at, last_activity_by=author)
+
         return answer
 
     def precache_comments(self, for_posts, visitor):
@@ -313,6 +289,8 @@ class Post(models.Model):
 
     # Denormalised data
     summary = models.TextField(null=True)
+
+    question_flow_is_published = models.BooleanField(default=True, db_index=True, verbose_name=_("Is post published?"))
 
     #note: anonymity here applies to question only, but
     #the field will still go to thread

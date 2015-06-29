@@ -10,6 +10,7 @@ from django.core import exceptions as django_exceptions
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator  # , EmptyPage, InvalidPage
 from django.core.urlresolvers import reverse
+from django.db.models import Q
 from django.http import Http404, HttpResponseRedirect
 from django.utils import translation
 from django.utils.html import strip_tags
@@ -27,12 +28,13 @@ from openode.models.thread import Thread
 from openode.skins.loaders import render_into_skin  # , get_template  # jinja2 template loading enviroment
 from openode.utils import count_visit, functions, url_utils
 from openode.utils.http import render_forbidden
-from openode.views import context
+from openode.views import context as views_context
 
 
 @csrf.csrf_protect
 #@cache_page(60 * 5)
-def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refactor - long subroutine. display question body, answers and comments
+def thread(request, node_id, node_slug, module, thread_id, thread_slug):
+    # TODO: refactor - long subroutine. display question body, answers and comments
     """view that displays body of the question and
     all answers to it
     """
@@ -62,9 +64,9 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
             'thread_slug': thread.slug
         }))
 
-    #process url parameters
-    #todo: fix inheritance of sort method from questions
-    #before = datetime.datetime.now()
+    # process url parameters
+    # todo: fix inheritance of sort method from questions
+    # before = datetime.datetime.now()
     default_sort_method = request.session.get('questions_sort_method', thread.get_default_sort_method())
     form = ShowQuestionForm(request.GET, default_sort_method)
     form.full_clean()  # always valid
@@ -80,7 +82,7 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
         request.user.message_set.create(message=unicode(error))
         return HttpResponseRedirect(reverse('index'))
 
-    #redirect if slug in the url is wrong
+    # redirect if slug in the url is wrong
     # if request.path.split('/')[-2] != question_post.slug:
     #     logging.debug('no slug match!')
     #     question_url = '?'.join((
@@ -89,23 +91,23 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
     #                     ))
     #     return HttpResponseRedirect(question_url)
 
-    #resolve comment and answer permalinks
-    #they go first because in theory both can be moved to another question
-    #this block "returns" show_post and assigns actual comment and answer
-    #to show_comment and show_answer variables
-    #in the case if the permalinked items or their parents are gone - redirect
-    #redirect also happens if id of the object's origin post != requested id
+    # resolve comment and answer permalinks
+    # they go first because in theory both can be moved to another question
+    # this block "returns" show_post and assigns actual comment and answer
+    # to show_comment and show_answer variables
+    # in the case if the permalinked items or their parents are gone - redirect
+    # redirect also happens if id of the object's origin post != requested id
     show_post = None  # used for permalinks
 
     if show_comment:
-        #if url calls for display of a specific comment,
-        #check that comment exists, that it belongs to
-        #the current question
-        #if it is an answer comment and the answer is hidden -
-        #redirect to the default view of the question
-        #if the question is hidden - redirect to the main page
-        #in addition - if url points to a comment and the comment
-        #is for the answer - we need the answer object
+        # if url calls for display of a specific comment,
+        # check that comment exists, that it belongs to
+        # the current question
+        # if it is an answer comment and the answer is hidden -
+        # redirect to the default view of the question
+        # if the question is hidden - redirect to the main page
+        # in addition - if url points to a comment and the comment
+        # is for the answer - we need the answer object
         try:
             show_comment = models.Post.objects.get_comments().get(id=show_comment)
         except models.Post.DoesNotExist:
@@ -131,10 +133,10 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
             return HttpResponseRedirect(reverse('index'))
 
     elif show_answer:
-        #if the url calls to view a particular answer to
-        #question - we must check whether the question exists
-        #whether answer is actually corresponding to the current question
-        #and that the visitor is allowed to see it
+        # if the url calls to view a particular answer to
+        # question - we must check whether the question exists
+        # whether answer is actually corresponding to the current question
+        # and that the visitor is allowed to see it
         show_post = get_object_or_404(models.Post, post_type='answer', id=show_answer)
         if str(show_post.thread.id) != str(thread_id):
             return HttpResponseRedirect(show_post.get_absolute_url())
@@ -147,8 +149,8 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
 
     # logging.debug('answer_sort_method=' + unicode(answer_sort_method))
 
-    #load answers and post id's->athor_id mapping
-    #posts are pre-stuffed with the correctly ordered comments
+    # load answers and post id's->athor_id mapping
+    # posts are pre-stuffed with the correctly ordered comments
 
     # authors = request.GET.get("authors", "")
     from openode.utils.text import extract_numbers
@@ -167,6 +169,15 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
             deleted=False
         )
 
+    # show only published answers
+    if node.is_question_flow_enabled:
+        qs = qs or thread.posts.all()
+        qs = qs.filter(
+            Q(question_flow_is_published=True)
+            | Q(thread__question_flow_responsible_user=request.user)
+            | Q(thread__question_flow_interviewee_user=request.user)
+        )
+
     updated_main_post, answers, post_to_author = thread.get_cached_post_data(
         sort_method=answer_sort_method,
         user=request.user,
@@ -178,11 +189,11 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
             updated_main_post.get_cached_comments()
         )
 
-    #Post.objects.precache_comments(for_posts=[question_post] + answers, visitor=request.user)
+    # Post.objects.precache_comments(for_posts=[question_post] + answers, visitor=request.user)
 
     user_votes = {}
     user_post_id_list = list()
-    #todo: cache this query set, but again takes only 3ms!
+    # TODO: cache this query set, but again takes only 3ms!
     if request.user.is_authenticated():
         user_votes = Vote.objects.filter(
             user=request.user,
@@ -192,13 +203,13 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
             'vote'
         )
         user_votes = dict(user_votes)
-        #we can avoid making this query by iterating through
-        #already loaded posts
+        # we can avoid making this query by iterating through
+        # already loaded posts
         user_post_id_list = [
             post_id for post_id in post_to_author if post_to_author[post_id] == request.user.id
         ]
 
-    #resolve page number and comment number for permalinks
+    # resolve page number and comment number for permalinks
     show_comment_position = None
     if show_comment:
         show_page = show_comment.get_page_number(answer_posts=answers)
@@ -252,9 +263,9 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
         'email_notify': thread.is_subscribed_by(request.user)
     }
 
-    #maybe load draft
+    # maybe load draft
     if request.user.is_authenticated():
-        #todo: refactor into methor on thread
+        # todo: refactor into methor on thread
         drafts = models.DraftAnswer.objects.filter(
             author=request.user,
             thread=thread
@@ -262,7 +273,7 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
         if drafts.count() > 0:
             initial['text'] = drafts[0].text
 
-    #answer form
+    # answer form
     if request.method == "POST":
 
         if not thread.has_response_perm(request.user):
@@ -330,7 +341,7 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
 
     # authors
 
-    data = {
+    context = {
         "search_user_form": search_user_form,
         "authors": authors,
 
@@ -374,16 +385,16 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):  # refa
     # print thread_view_last_visit
     # thread_view_last_visit = datetime.datetime(2000,1,1,15,00)
 
-    data.update({
+    context.update({
         "thread_view": thread_view,
         "thread_view_last_visit": thread_view_last_visit
     })
 
-    data.update(context.get_for_tag_editor())
+    context.update(views_context.get_for_tag_editor())
 
     thread.visit(request.user)
 
     # future functions
     template = 'node/%s/detail.html' % thread.thread_type
 
-    return render_into_skin(template, data, request)
+    return render_into_skin(template, context, request)

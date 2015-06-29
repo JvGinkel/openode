@@ -9,7 +9,7 @@ from openode.const import NODE_MODULE_ANNOTATION, NODE_MODULE_QA, NODE_MODULE_FO
 # from openode.views.context import get_for_user_profile
 from openode.conf import settings as openode_settings
 from openode import const, models
-from openode.models import Node, OrganizationMembership, Thread
+from openode.models import Node, OrganizationMembership, Post, Thread
 
 
 def menu_items(request):
@@ -85,9 +85,12 @@ def question_flow(request):
             ),
 
         "question_flow_to_answer": questions_qs.filter(
-            question_flow_state=const.QUESTION_FLOW_STATE_SUBMITTED,
-            question_flow_interviewee_user=user,
+                question_flow_state=const.QUESTION_FLOW_STATE_SUBMITTED,
+                question_flow_interviewee_user=user,
+            ).exclude(
+                posts__in=Post.objects.get_answers().filter(author=request.user)
             ),
+
 
         "question_flow_to_check_answer_and_publish": questions_qs.filter(
             question_flow_state=const.QUESTION_FLOW_STATE_ANSWERED,
