@@ -60,7 +60,8 @@ BEGIN;
     ALTER TABLE "openode_thread" ADD COLUMN "question_flow_interviewee_user_id" integer REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED;
     CREATE INDEX "openode_thread_question_flow_responsible_user_id" ON "openode_thread" ("question_flow_responsible_user_id");
     CREATE INDEX "openode_thread_question_flow_interviewee_user_id" ON "openode_thread" ("question_flow_interviewee_user_id");
-    ALTER TABLE "openode_post" ADD COLUMN "is_published" boolean DEFAULT true;
+
+    ALTER TABLE "openode_post" ADD COLUMN "question_flow_is_published" boolean DEFAULT true;
     CREATE INDEX "openode_post_is_published" ON "openode_post" ("is_published");
 COMMIT;
 

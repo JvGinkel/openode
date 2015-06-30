@@ -206,8 +206,6 @@
                 </li>
                 {% endif %}
 
-
-
                 {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
                 <li {% if tab_name=="offensive_flags" %}class="active"{% endif %}>
                     <a id="offensive_flags" {% if tab_name=="offensive_flags" %}class="on"{% endif %}
@@ -218,6 +216,53 @@
                     </a>
                 </li>
                 {% endif %}
+
+                {# === QUESTION FLOW === #}
+                {# TODO {% if request.user.is_admin('openode.add_organization') %} #}
+
+                {#
+                <li {% if tab_name=="organization_requests" %}class="active"{% endif %}>
+                    <a id="node_joins" {% if tab_name=="node_create" %}class="on"{% endif %}
+                        title="{% trans %}organization create requests{% endtrans %}"
+                        href="{% url user_profile view_user.id, 'organization_requests' %}"
+                        >
+                        {% if organization_requests_count %}
+                            <span class="f-right unread-mark">{{ organization_requests_count }}</span>
+                        {% endif %}
+                        <span>{% trans %}Unresolved requests to create organization{% endtrans %}</span>
+                    </a>
+                </li>
+                #}
+
+                <li>
+                    <a href="{% url question_flow_new %}" title="">
+                        {% trans %}Question flow - new{% endtrans %}</span>
+                        {% if question_flow_to_taken_count %}
+                            <span class="f-right unread-mark">{{ question_flow_to_taken_count }}
+                        {% endif %}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url question_flow_to_answer %}" title="">
+                        {% trans %}Question flow - to answer{% endtrans %}</span>
+                        {% if question_flow_to_answer_count %}
+                            <span class="f-right unread-mark">{{ question_flow_to_answer_count }}
+                        {% endif %}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url question_flow_to_publish %}" title="">
+                        {% trans %}Question flow - to publish{% endtrans %}</span>
+                        {% if question_flow_to_check_answer_and_publish_count %}
+                            <span class="f-right unread-mark">{{ question_flow_to_check_answer_and_publish_count }}
+                        {% endif %}
+                    </a>
+                </li>
+
+                {# {% endif %} #}
+
             </ul>
         {% endif %}
 

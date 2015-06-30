@@ -169,14 +169,14 @@ def thread(request, node_id, node_slug, module, thread_id, thread_slug):
             deleted=False
         )
 
-    # show only published answers
-    if node.is_question_flow_enabled:
-        qs = qs or thread.posts.all()
-        qs = qs.filter(
-            Q(question_flow_is_published=True)
-            | Q(thread__question_flow_responsible_user=request.user)
-            | Q(thread__question_flow_interviewee_user=request.user)
-        )
+    # # Question flow: show only published answers
+    # if node.is_question_flow_enabled:
+    #     qs = qs or thread.posts.all()
+    #     qs = qs.filter(
+    #         Q(question_flow_is_published=True)
+    #         | Q(thread__question_flow_responsible_user=request.user)
+    #         | Q(thread__question_flow_interviewee_user=request.user)
+    #     )
 
     updated_main_post, answers, post_to_author = thread.get_cached_post_data(
         sort_method=answer_sort_method,

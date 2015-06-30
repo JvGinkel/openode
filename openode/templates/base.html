@@ -299,9 +299,9 @@
                                         {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
                                             <li>
                                                 <a href="{% url user_profile request.user.id, 'offensive_flags' %}" title="{% trans %}offensive flag reports{% endtrans %}">
-                                                    {% trans %}Offensive flags{% endtrans %}</span>
+                                                    {% trans %}Offensive flags{% endtrans %}
                                                     {% if flags_count %}
-                                                        <span class="unread-mark">{{ flags_count }}
+                                                        <span class="unread-mark">{{ flags_count }}</span>
                                                     {% endif %}
                                                 </a>
                                             </li>
@@ -311,30 +311,27 @@
                                         <li>
                                             <a href="{% url question_flow_new %}" title="">
                                                 {% trans %}Question flow - new{% endtrans %}</span>
-                                                <span class="unread-mark">{{ question_flow_to_taken.count() }}
+                                                {% if question_flow_to_taken_count %}
+                                                    <span class="unread-mark">{{ question_flow_to_taken_count }}</span>
+                                                {% endif %}
                                             </a>
                                         </li>
-
-                                        {#
-                                        <li>
-                                            <a href="TODO" title="">
-                                                {% trans %}Question flow - to answer/submit{% endtrans %}</span>
-                                                <span class="unread-mark">{{ question_flow_to_submit_or_answer.count() }}
-                                            </a>
-                                        </li>
-                                        #}
 
                                         <li>
                                             <a href="{% url question_flow_to_answer %}" title="">
                                                 {% trans %}Question flow - to answer{% endtrans %}</span>
-                                                <span class="unread-mark">{{ question_flow_to_answer.count() }}
+                                                {% if question_flow_to_answer_count %}
+                                                    <span class="unread-mark">{{ question_flow_to_answer_count }}</span>
+                                                {% endif %}
                                             </a>
                                         </li>
 
                                         <li>
                                             <a href="{% url question_flow_to_publish %}" title="">
                                                 {% trans %}Question flow - to publish{% endtrans %}</span>
-                                                <span class="unread-mark">{{ question_flow_to_check_answer_and_publish.count() }}
+                                                {% if question_flow_to_check_answer_and_publish_count %}
+                                                    <span class="unread-mark">{{ question_flow_to_check_answer_and_publish_count }}</span>
+                                                {% endif %}
                                             </a>
                                         </li>
 

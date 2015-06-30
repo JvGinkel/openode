@@ -79,10 +79,10 @@ def question_flow(request):
             question_flow_state=const.QUESTION_FLOW_STATE_NEW
             ),
 
-        "question_flow_to_submit_or_answer": questions_qs.filter(
-            question_flow_state=const.QUESTION_FLOW_STATE_TAKEN,
-            question_flow_responsible_user=user,
-            ),
+        # "question_flow_to_submit_or_answer": questions_qs.filter(
+        #     question_flow_state=const.QUESTION_FLOW_STATE_TAKEN,
+        #     question_flow_responsible_user=user,
+        #     ),
 
         "question_flow_to_answer": questions_qs.filter(
                 question_flow_state=const.QUESTION_FLOW_STATE_SUBMITTED,
@@ -97,6 +97,16 @@ def question_flow(request):
             question_flow_responsible_user=user,
             ),
     })
+
+    context.update({
+        "question_flow_to_taken_count": context["question_flow_to_taken"].count(),
+        # "question_flow_to_submit_or_answer_count": context["question_flow_to_submit_or_answer"].count(),
+        "question_flow_to_answer_count": context["question_flow_to_answer"].count(),
+        "question_flow_to_check_answer_and_publish_count": context["question_flow_to_check_answer_and_publish"].count(),
+    })
+
+    for k, v in context.items():
+        print k, v
 
     return context
 
