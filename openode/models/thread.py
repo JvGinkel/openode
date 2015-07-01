@@ -869,11 +869,20 @@ class Thread(models.Model):
         else:
             return self.tagnames.split(u' ')
 
-    def get_tags(self):
+    def get_tags(self, user=None):
         """
             TODO: inject this method with loading from cache
         """
-        return self.tags.all()
+        tags = []
+        if user \
+            and self.node.is_question_flow_enabled \
+            and self.node.get_responsible_persons().filter(pk=user.pk).exists():
+
+            tags.append({
+                "name": "QF: %s" % self.get_question_flow_state_display()
+            })
+
+        return tags + list(self.tags.all())
 
     def get_title(self, style='plain'):
         # allowed styles are: 'html', 'plain'
@@ -1387,7 +1396,6 @@ class Thread(models.Model):
         html = self.get_cached_summary_html(visitor)
         if not html:
             html = self.update_summary_html(visitor, with_breadcrumbs=with_breadcrumbs, render_discussion_sample=render_discussion_sample)
-
         # todo: this work may be pushed onto javascript we post-process tag names
         # in the snippet so that tag urls match the search state
         # use `<<<` and `>>>` because they cannot be confused with user input
@@ -1504,7 +1512,8 @@ class Thread(models.Model):
             "NODE_MODULE_ANNOTATION": const.NODE_MODULE_ANNOTATION,
             "NODE_MODULE_QA": const.NODE_MODULE_QA,
             "NODE_MODULE_FORUM": const.NODE_MODULE_FORUM,
-            "NODE_MODULE_LIBRARY": const.NODE_MODULE_LIBRARY
+            "NODE_MODULE_LIBRARY": const.NODE_MODULE_LIBRARY,
+
         })
 
         if self.is_question():

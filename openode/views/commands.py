@@ -248,6 +248,7 @@ def vote(request, thread_id):
     }
 
     try:
+        print request.POST
         if request.is_ajax() and request.method == 'POST':
             vote_type = request.POST.get('type')
         else:

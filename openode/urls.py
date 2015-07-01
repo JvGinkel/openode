@@ -314,27 +314,27 @@ urlpatterns = patterns('',
         name='edit_thread'
     ),
     url(  # this url is both regular and ajax
-        r'^%s(?P<id>\d+)/%s$' % ('questions/', 'retag/'),
+        r'^questions/(?P<id>\d+)/retag/$',
         views.writers.retag_question,
         name='retag_question'
     ),
     url(
-        r'^%s(?P<thread_id>\d+)/%s$' % ('thread/', 'close/'),
+        r'^thread/(?P<thread_id>\d+)/close/$',
         views.commands.close,
         name='thread_close'
     ),
     url(
-        r'^%s(?P<thread_id>\d+)/%s$' % ('thread/', 'reopen/'),
+        r'^thread/(?P<thread_id>\d+)/reopen/$',
         views.commands.reopen,
         name='thread_reopen'
     ),
     url(  # ajax only
-        r'^%s(?P<thread_id>\d+)/%s$' % ('thread/', 'vote/'),
+        r'^thread/(?P<thread_id>\d+)/vote/$',
         views.commands.vote,
         name='vote'
     ),
     url(
-        r'^%s(?P<id>\d+)/%s$' % ('questions/', 'revisions/'),
+        r'^questions/(?P<id>\d+)/revisions/$',
         views.readers.revisions,
         kwargs={'post_type': 'question'},
         name='question_revisions'
