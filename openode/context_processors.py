@@ -71,12 +71,13 @@ def question_flow(request):
             is_question_flow_enabled=True,
             node_users__user=user,
             node_users__is_responsible=True
-        )
+        ),
+        accepted_answer__isnull=True,
     )
 
     context.update({
         "question_flow_to_taken": questions_qs.filter(
-            question_flow_state=const.QUESTION_FLOW_STATE_NEW
+            question_flow_state=const.QUESTION_FLOW_STATE_NEW,
             ),
 
         # "question_flow_to_submit_or_answer": questions_qs.filter(

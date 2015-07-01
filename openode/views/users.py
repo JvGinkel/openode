@@ -101,7 +101,6 @@ def show_perm_table(request):
     for rule, data in _map:
         rules.append([rule, data[rule]])
 
-
     to_tmpl = {
         "rules": rules,
         "permissions": permissions,
