@@ -228,23 +228,23 @@ urlpatterns = patterns('',
     # question flow
     ###################################
 
-    url(
-        r'^users/question-flow/new/$',
-        views.users.question_flow_new,
-        name='question_flow_new'
-    ),
+    # url(
+    #     r'^users/question-flow/new/$',
+    #     views.users.question_flow_new,
+    #     name='question_flow_new'
+    # ),
 
-    url(
-        r'^users/question-flow/to-answer/$',
-        views.users.question_flow_to_answer,
-        name='question_flow_to_answer'
-    ),
+    # url(
+    #     r'^users/question-flow/to-answer/$',
+    #     views.users.question_flow_to_answer,
+    #     name='question_flow_to_answer'
+    # ),
 
-    url(
-        r'^users/question-flow/to-publish/$',
-        views.users.question_flow_to_publish,
-        name='question_flow_to_publish'
-    ),
+    # url(
+    #     r'^users/question-flow/to-publish/$',
+    #     views.users.question_flow_to_publish,
+    #     name='question_flow_to_publish'
+    # ),
 
     ###################################
 
@@ -516,11 +516,13 @@ urlpatterns = patterns('',
         views.commands.subscribe_for_tags,
         name='subscribe_for_tags'
     ),
+
     url(
-        r'^%s$' % 'users/',
+        r'^users/$',
         views.users.show_users,
         name='users'
     ),
+
     url(
         r'^(?P<organization_id>\d+)/(?P<organization_slug>[^\/]+)/$',
         views.users.organization_detail,
@@ -538,12 +540,12 @@ urlpatterns = patterns('',
         name='edit_user'
     ),
     url(
-        r'^%s(?P<id>\d+)/$' % 'users/',
+        r'^users/(?P<id>\d+)/$',
         views.users.user_profile, {'tab_name': ''},
         name='user_profile'
     ),
     url(
-        r'^%s(?P<id>\d+)/(?P<tab_name>\w+)/$' % 'users/',
+        r'^users/(?P<id>\d+)/(?P<tab_name>\w+)/$',
         views.users.user_profile,
         name='user_profile'
     ),

@@ -218,8 +218,8 @@
                 {% endif %}
 
                 {# === QUESTION FLOW === #}
-                {# TODO {% if request.user.is_admin('openode.add_organization') %} #}
 
+                {# TODO {% if request.user.is_admin('openode.add_organization') %} #}
                 {#
                 <li {% if tab_name=="organization_requests" %}class="active"{% endif %}>
                     <a id="node_joins" {% if tab_name=="node_create" %}class="on"{% endif %}
@@ -235,7 +235,7 @@
                 #}
 
                 <li>
-                    <a href="{% url question_flow_new %}" title="">
+                    <a href="{% url user_profile request.user.pk, 'question_flow_new' %}" title="">
                         {% trans %}Question flow - new{% endtrans %}</span>
                         {% if question_flow_to_taken_count %}
                             <span class="f-right unread-mark">{{ question_flow_to_taken_count }}
@@ -244,7 +244,7 @@
                 </li>
 
                 <li>
-                    <a href="{% url question_flow_to_answer %}" title="">
+                    <a href="{% url user_profile request.user.pk, 'question_flow_to_answer' %}" title="">
                         {% trans %}Question flow - to answer{% endtrans %}</span>
                         {% if question_flow_to_answer_count %}
                             <span class="f-right unread-mark">{{ question_flow_to_answer_count }}
@@ -253,7 +253,7 @@
                 </li>
 
                 <li>
-                    <a href="{% url question_flow_to_publish %}" title="">
+                    <a href="{% url user_profile request.user.pk, 'question_flow_to_publish' %}" title="">
                         {% trans %}Question flow - to publish{% endtrans %}</span>
                         {% if question_flow_to_check_answer_and_publish_count %}
                             <span class="f-right unread-mark">{{ question_flow_to_check_answer_and_publish_count }}

@@ -988,6 +988,54 @@ def user_email_subscriptions(request, user, context):
         request
     )
 
+################################################################################
+
+def question_flow_new(request, profile_owner, context):
+
+    # TODO: check permission!
+
+    if request.method == "POST":
+        # raw_node = request.GET.get(node)
+        # if raw_node and str(raw_node).isdigit():
+
+        question_pk = request.POST.get("question")
+        if question_pk and question_pk.isdigit():
+            question = get_object_or_404(Thread, pk=int(question_pk))
+
+        form = QuestionFlowNodeResponsibleUsers(request.POST, question=question)
+
+        if form.is_valid():
+            question.question_flow_interviewee_user = form.cleaned_data["responsible_users"]
+            question.question_flow_responsible_user = request.user
+            question.question_flow_state = const.QUESTION_FLOW_STATE_SUBMITTED
+            question.save()
+            print "Save"
+
+    context.update({
+        'view_user': request.user,
+        "get_qf_form": lambda question: QuestionFlowNodeResponsibleUsers(question=question),
+        "page_title": _("question flow new"),
+    })
+    return render_into_skin('user_profile/question_flow_new.html', context, request)
+
+
+def question_flow_to_answer(request, profile_owner, context):
+    context.update({
+        'view_user': request.user,
+        "page_title": _("question flow new"),
+    })
+    return render_into_skin('user_profile/question_flow_to_answer.html', context, request)
+
+
+def question_flow_to_publish(request, profile_owner, context):
+    context.update({
+        'view_user': request.user,
+        "page_title": _("question flow new"),
+    })
+    return render_into_skin('user_profile/question_flow_to_check.html', context, request)
+
+################################################################################
+
 
 USER_VIEW_CALL_TABLE = {
     '': user_overview,
@@ -1007,6 +1055,10 @@ USER_VIEW_CALL_TABLE = {
     'votes': user_votes,
     'email_subscriptions': user_email_subscriptions,
     'logs': user_logs,
+
+    "question_flow_new": question_flow_new,
+    "question_flow_to_answer": question_flow_to_answer,
+    "question_flow_to_publish": question_flow_to_publish,
 }
 
 
@@ -1022,15 +1074,8 @@ def user_profile(request, id, tab_name=None):
     user_view_func = USER_VIEW_CALL_TABLE.get(tab_name, user_overview)
 
     search_state = SearchState(  # Non-default SearchState with user data set
-        scope=None,
-        sort=None,
-        # query=None,
-        tags=None,
-        author=profile_owner.id,
-        page=None,
-        user_logged_in=profile_owner.is_authenticated(),
-        node=None,
-        module='qa'
+        scope=None, sort=None, tags=None, author=profile_owner.id, page=None,
+        user_logged_in=profile_owner.is_authenticated(), node=None, module='qa'
     )
 
     context = {
@@ -1040,7 +1085,6 @@ def user_profile(request, id, tab_name=None):
         'tab_name': tab_name,
     }
     # context.update(view_context.get_for_user_profile(request))
-    print user_view_func
     return user_view_func(request, profile_owner, context)
 
 
@@ -1132,47 +1176,3 @@ def organization_membership(request, organization_id, organization_slug):
         membership.delete()
 
     return HttpResponseRedirect(reverse('organization_detail', kwargs={'organization_id': organization_id, 'organization_slug': organization_slug}))
-
-################################################################################
-
-
-def question_flow_new(request):
-
-    # TODO: check permission!
-
-    if request.method == "POST":
-        # raw_node = request.GET.get(node)
-        # if raw_node and str(raw_node).isdigit():
-
-        question_pk = request.POST.get("question")
-        if question_pk and question_pk.isdigit():
-            question = get_object_or_404(Thread, pk=int(question_pk))
-
-        form = QuestionFlowNodeResponsibleUsers(request.POST, question=question)
-
-        if form.is_valid():
-            question.question_flow_interviewee_user = form.cleaned_data["responsible_users"]
-            question.question_flow_responsible_user = request.user
-            question.question_flow_state = const.QUESTION_FLOW_STATE_SUBMITTED
-            question.save()
-            print "Save"
-
-    context = {
-        'view_user': request.user,
-        "get_qf_form": lambda question: QuestionFlowNodeResponsibleUsers(question=question),
-    }
-    return render_into_skin('user_profile/question_flow_new.html', context, request)
-
-
-def question_flow_to_answer(request):
-    context = {
-        'view_user': request.user,
-    }
-    return render_into_skin('user_profile/question_flow_to_answer.html', context, request)
-
-
-def question_flow_to_publish(request):
-    context = {
-        'view_user': request.user,
-    }
-    return render_into_skin('user_profile/question_flow_to_check.html', context, request)

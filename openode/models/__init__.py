@@ -1613,16 +1613,10 @@ def user_edit_post_reject_reason(
     )
 
 
-def user_post_answer(
-                    self,
-                    question=None,
-                    body_text=None,
-                    follow=False,
-                    timestamp=None,
-                    by_email=False
-                ):
+def user_post_answer(self, question=None, body_text=None, follow=False, timestamp=None, by_email=False):
 
-    #todo: move this to assertion - user_assert_can_post_answer
+    # todo: move this to assertion - user_assert_can_post_answer
+
     if self == question.author and not self.is_administrator():
 
         # check date and rep required to post answer to own question
@@ -1677,6 +1671,17 @@ def user_post_answer(
         email_notify=follow,
         by_email=by_email
     )
+
+    # print 40 * "-"
+    # print question.thread.is_question()
+    # print question.thread.node.is_question_flow_enabled
+    # print question.thread.question_flow_state
+
+    # if question.thread.is_question() \
+    #     and question.thread.node.is_question_flow_enabled:
+
+    #     question.thread.question_flow_state = const.QUESTION_FLOW_STATE_ANSWERED
+    #     question.thread.save()
 
     if question.thread.thread_type == const.THREAD_TYPE_QUESTION:
         self.log(answer_post, const.LOG_ACTION_ANSWER)

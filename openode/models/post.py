@@ -208,6 +208,7 @@ class PostManager(BaseQuerySetManager):
                 thread.question_flow_state == const.QUESTION_FLOW_STATE_SUBMITTED:
 
                 thread.question_flow_state = const.QUESTION_FLOW_STATE_ANSWERED
+                thread.save()
 
         else:
             # set notification/delete
@@ -216,8 +217,8 @@ class PostManager(BaseQuerySetManager):
             else:
                 author.unsubscribe_thread(thread)
 
-            #update thread data
-            #todo: this totally belongs to some `Thread` class method
+            # update thread data
+            # todo: this totally belongs to some `Thread` class method
             thread.answer_count += 1
             thread.save()
 
