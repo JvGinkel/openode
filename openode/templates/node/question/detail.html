@@ -101,7 +101,7 @@
         <h2>{% trans %}Question{% endtrans %}{% trans %}:{% endtrans %} {{ thread.get_title('html') }}</h2>
 
         {# main post tags #}
-        {{ tag_list(thread.get_tags()) }}
+        {{ tag_list(thread.get_tags(request.user)) }}
 
         {# === CREATOR/UPDATER INFOBOX === #}
         <div class="infobox-wrap">

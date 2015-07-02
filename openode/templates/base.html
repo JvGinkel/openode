@@ -245,6 +245,10 @@
                                             {% set messages_count = messages_count + flags_count %}
                                         {% endif %}
 
+                                        {% set messages_count = messages_count + question_flow_to_taken_count %}
+                                        {% set messages_count = messages_count + question_flow_to_answer_count %}
+                                        {% set messages_count = messages_count + question_flow_to_check_answer_and_publish_count %}
+
                                         {% if messages_count %}
                                             <span class="unread-mark">{{ messages_count }}</span>
                                         {% endif %}

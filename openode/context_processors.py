@@ -106,9 +106,6 @@ def question_flow(request):
         "question_flow_to_check_answer_and_publish_count": context["question_flow_to_check_answer_and_publish"].count(),
     })
 
-    for k, v in context.items():
-        print k, v
-
     return context
 
 ################################################################################
