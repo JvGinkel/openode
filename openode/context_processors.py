@@ -73,6 +73,7 @@ def question_flow(request):
             node_users__is_responsible=True
         ),
         accepted_answer__isnull=True,
+        is_deleted=False,
     )
 
     context.update({
@@ -88,15 +89,16 @@ def question_flow(request):
         "question_flow_to_answer": questions_qs.filter(
                 question_flow_state=const.QUESTION_FLOW_STATE_SUBMITTED,
                 question_flow_interviewee_user=user,
-            ).exclude(
-                posts__in=Post.objects.get_answers().filter(author=request.user)
             ),
 
 
         "question_flow_to_check_answer_and_publish": questions_qs.filter(
             question_flow_state=const.QUESTION_FLOW_STATE_ANSWERED,
             question_flow_responsible_user=user,
-            ),
+            )
+            # .exclude(
+            #     posts__in=Post.objects.get_answers().filter(author=request.user)
+            # ),
     })
 
     context.update({

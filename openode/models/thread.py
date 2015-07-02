@@ -665,7 +665,15 @@ class Thread(models.Model):
                 OR add new post to discussion
         """
         if self.thread_type == const.THREAD_TYPE_QUESTION:
-            return user.has_openode_perm("question_answer_create", self)
+
+            if not user.has_openode_perm("question_answer_create", self):
+                return False
+
+            if self.node.is_question_flow_enabled and (user not in self.node.get_responsible_persons()):
+                return False
+
+            return True
+
         elif self.thread_type == const.THREAD_TYPE_DISCUSSION:
             return user.has_openode_perm("discussion_post_create", self)
         else:
@@ -977,9 +985,7 @@ class Thread(models.Model):
         if user is None or user.is_anonymous():
             return self.posts.get_answers().filter(deleted=False)
         else:
-            return self.posts.get_answers(
-                                    user=user
-                                ).filter(deleted=False)
+            return self.posts.get_answers(user=user).filter(deleted=False)
             #    return self.posts.get_answers(user=user).filter(
             #                models.Q(deleted=False) \
             #                | models.Q(author=user) \
@@ -1048,6 +1054,7 @@ class Thread(models.Model):
         all (both posts and the comments sorted in the correct
         order)
         """
+
         if qs is None:
             thread_posts = self.posts.all()
         else:
