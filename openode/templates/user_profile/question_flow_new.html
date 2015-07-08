@@ -10,19 +10,22 @@
 
 {% block usercontent %}
     {% if question_flow_to_taken %}
-        <table>
-            {% for question in question_flow_to_taken %}
-                {{ question.get_summary_html(visitor=request.user) }}
-                {% set qf_form = get_qf_form(question) %}
-                <form action="{{ request.path }}" method="post">{% csrf_token %}
-                    {{ qf_form.responsible_users }}
-                    {{ qf_form.question }}
-                    <input class="btn button" type="submit" value="{% trans %}Submit{% endtrans %}" />
-                </form>
-                <hr />
-            {% endfor %}
-        </table>
+        {% for question in question_flow_to_taken %}
+            {% set qf_form = get_qf_form(question) %}
+            {{ question.get_summary_html(visitor=request.user) }}
+            <form action="{{ request.path }}" method="post">{% csrf_token %}
+                {{ qf_form.question }}
+                <table>
+                    <tr>
+                        <td>{{ qf_form.responsible_users.label_tag() }}</td>
+                        <td>{{ qf_form.responsible_users }}</td>
+                        <td><input class="btn button" type="submit" value="{% trans %}Submit{% endtrans %}" /></td>
+                    </tr>
+                </table>
+            </form>
+            <hr />
+        {% endfor %}
     {% else %}
-        <p>{% trans %}TODO{% endtrans %}</p>
+        <p>{% trans %}No question to solve.{% endtrans %}</p>
     {% endif %}
 {% endblock %}

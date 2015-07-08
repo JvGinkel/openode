@@ -990,9 +990,10 @@ def user_email_subscriptions(request, user, context):
 
 ################################################################################
 
-def question_flow_new(request, profile_owner, context):
 
-    # TODO: check permission!
+def question_flow_new(request, profile_owner, context):
+    if not request.user.has_perm('can_solve_question_flow', None):
+        return render_forbidden(request)
 
     if request.method == "POST":
         # raw_node = request.GET.get(node)
@@ -1009,7 +1010,7 @@ def question_flow_new(request, profile_owner, context):
             question.question_flow_responsible_user = request.user
             question.question_flow_state = const.QUESTION_FLOW_STATE_SUBMITTED
             question.save()
-            print "Save"
+            return HttpResponseRedirect(request.path)
 
     context.update({
         'view_user': request.user,
@@ -1020,6 +1021,9 @@ def question_flow_new(request, profile_owner, context):
 
 
 def question_flow_to_answer(request, profile_owner, context):
+    if not request.user.has_perm('can_solve_question_flow', None):
+        return render_forbidden(request)
+
     context.update({
         'view_user': request.user,
         "page_title": _("question flow new"),
@@ -1028,6 +1032,9 @@ def question_flow_to_answer(request, profile_owner, context):
 
 
 def question_flow_to_publish(request, profile_owner, context):
+    if not request.user.has_perm('can_solve_question_flow', None):
+        return render_forbidden(request)
+
     context.update({
         'view_user': request.user,
         "page_title": _("question flow new"),
@@ -1070,6 +1077,7 @@ def user_profile(request, id, tab_name=None):
     todo: decide what to do with slug - it is not used
     in the code in any way
     """
+
     profile_owner = get_object_or_404(models.User, id=id)
     user_view_func = USER_VIEW_CALL_TABLE.get(tab_name, user_overview)
 

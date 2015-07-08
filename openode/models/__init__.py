@@ -1439,6 +1439,9 @@ def user_has_perm(self, perm, obj=None):
     if perm == "openode.change_tag" and self.is_authenticated():
         return True
 
+    elif perm == "can_solve_question_flow":
+        return self.is_authenticated() and NodeUser.objects.filter(user=self, is_responsible=True).exists()
+
     return _user_has_perm(self, perm, obj=obj)
 
 
@@ -1456,12 +1459,8 @@ def user_edit_comment(
     todo: add timestamp
     """
     self.assert_can_edit_comment(comment_post)
-    comment_post.apply_edit(
-                        text=body_text,
-                        edited_at=timestamp,
-                        edited_by=self,
-                        by_email=by_email
-                    )
+    comment_post.apply_edit(text=body_text, edited_at=timestamp, edited_by=self,
+        by_email=by_email)
     comment_post.thread.invalidate_cached_data()
     immediately_notify_users(comment_post)
 
@@ -2665,13 +2664,15 @@ User.add_to_class('screen_name', user_get_screen_name)
 
 def user_has_user_perm(self, perm, user):
     if perm == 'can_see_followed_nodes':
-        return self.is_authenticated() and (self == user or user.privacy_show_followed or self.has_perm('openode.change_followed_node'))
+        return self.is_authenticated() \
+            and (self == user or user.privacy_show_followed or self.has_perm('openode.change_followed_node'))
 
     if perm == 'can_see_managed_nodes':
         return self.is_authenticated() and (self == user)
 
     elif perm == 'can_see_followed_threads':
-        return self.is_authenticated() and (self == user or user.privacy_show_followed or self.has_perm('openode.change_followed_thread'))
+        return self.is_authenticated() \
+            and (self == user or user.privacy_show_followed or self.has_perm('openode.change_followed_thread'))
 
     return False
 User.add_to_class('has_user_perm', user_has_user_perm)

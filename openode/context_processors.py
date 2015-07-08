@@ -1,15 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.contrib.contenttypes.models import ContentType
 
+from openode import const, models
+from openode.conf import settings as openode_settings
+from openode.const import NODE_MODULE_ANNOTATION, NODE_MODULE_QA, NODE_MODULE_FORUM, NODE_MODULE_LIBRARY
 from openode.deps.django_authopenid.forms import LoginForm
 from openode.forms import clean_login_url
-
+from openode.models import Node, OrganizationMembership, Thread
 from openode.models.cms import MenuItem, MENU_UPPER, MENU_FOOTER
-from openode.const import NODE_MODULE_ANNOTATION, NODE_MODULE_QA, NODE_MODULE_FORUM, NODE_MODULE_LIBRARY
-# from openode.views.context import get_for_user_profile
-from openode.conf import settings as openode_settings
-from openode import const, models
-from openode.models import Node, OrganizationMembership, Post, Thread
 
 
 def menu_items(request):
@@ -63,7 +61,7 @@ def question_flow(request):
     context = {}
     user = request.user
 
-    if user.is_anonymous():
+    if not user.has_perm('can_solve_question_flow'):
         return context
 
     questions_qs = Thread.objects.get_questions().filter(

@@ -96,3 +96,4 @@ class QuestionFlowNodeResponsibleUsers(forms.Form):
             self.fields["responsible_users"].queryset = question.node.get_responsible_persons()
             self.fields["question"].queryset = Thread.objects.filter(pk=question.pk)
             self.fields["question"].initial = question.pk
+            self.fields["question"].widget = forms.HiddenInput()
