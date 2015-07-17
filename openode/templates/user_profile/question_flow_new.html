@@ -14,12 +14,12 @@
             {% set qf_form = get_qf_form(question) %}
             {{ question.get_summary_html(visitor=request.user) }}
             <form action="{{ request.path }}" method="post">{% csrf_token %}
-                {{ qf_form.question }}
                 <table>
+                    {{ qf_form.as_table() }}
                     <tr>
-                        <td>{{ qf_form.responsible_users.label_tag() }}</td>
-                        <td>{{ qf_form.responsible_users }}</td>
+                        <td></td>
                         <td><input class="btn button" type="submit" value="{% trans %}Submit{% endtrans %}" /></td>
+                        <td></td>
                     </tr>
                 </table>
             </form>

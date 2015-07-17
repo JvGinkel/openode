@@ -33,7 +33,7 @@ from openode.const.perm_rules import RULES, MEMBERS_RULES
 from openode import const, forms, models  # , exceptions
 from openode.conf import settings as openode_settings
 from openode.forms.organization import OrganizationLogoForm
-from openode.forms.user import UserEmailForm, EditUserForm, QuestionFlowNodeResponsibleUsers
+from openode.forms.user import UserEmailForm, EditUserForm, QuestionFlowNodeResponsibleUsersForm
 from openode.mail import send_mail
 from openode.models.tag import get_organizations
 from openode.models.thread import Thread
@@ -1003,10 +1003,10 @@ def question_flow_new(request, profile_owner, context):
         if question_pk and question_pk.isdigit():
             question = get_object_or_404(Thread, pk=int(question_pk))
 
-        form = QuestionFlowNodeResponsibleUsers(request.POST, question=question)
+        form = QuestionFlowNodeResponsibleUsersForm(request.POST, question=question)
 
         if form.is_valid():
-            question.question_flow_interviewee_user = form.cleaned_data["responsible_users"]
+            question.question_flow_interviewee_user = form.cleaned_data[form._get_responsible_users_field_name()]
             question.question_flow_responsible_user = request.user
             question.question_flow_state = const.QUESTION_FLOW_STATE_SUBMITTED
             question.save()
@@ -1014,7 +1014,7 @@ def question_flow_new(request, profile_owner, context):
 
     context.update({
         'view_user': request.user,
-        "get_qf_form": lambda question: QuestionFlowNodeResponsibleUsers(question=question),
+        "get_qf_form": lambda question: QuestionFlowNodeResponsibleUsersForm(question=question),
         "page_title": _("question flow new"),
     })
     return render_into_skin('user_profile/question_flow_new.html', context, request)

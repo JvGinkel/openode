@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
-import logging
-from django import forms
-# from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.models import User
 
+import logging
+
+from django import forms
+from django.contrib.auth.models import User
+from django.utils.translation import ugettext as _
+
+from openode import const
 from openode.forms import CleanCharField
+# from openode.forms.node import NodeUserChoices
 from openode.forms.widgets import Wysiwyg
 
 
@@ -82,18 +86,58 @@ class EditUserForm(forms.Form):
 
 
 from openode.models.thread import Thread
+from django_select2 import AutoModelSelect2Field
 
 
-class QuestionFlowNodeResponsibleUsers(forms.Form):
+class UserChoicesField(AutoModelSelect2Field):
 
-    responsible_users = forms.ModelChoiceField(queryset=User.objects.none())
+    search_fields = [
+        'display_name__icontains',
+        'last_name__icontains',
+        'first_name__icontains',
+        'email__icontains'
+    ]
+
+
+class FilteredUserChoicesField(UserChoicesField):
+    '''http://django-select2.readthedocs.org/en/latest/ref_fields.html#class-diagram
+    This needs to be subclassed. The first instance of a class (sub-class) is
+    used to serve all incoming json query requests for that type (class).
+    '''
+    pass
+
+
+class QuestionFlowNodeResponsibleUsersForm(forms.Form):
+
     question = forms.ModelChoiceField(queryset=Thread.objects.none())
 
     def __init__(self, *args, **kwargs):
-        question = kwargs.pop("question", None)
-        super(QuestionFlowNodeResponsibleUsers, self).__init__(*args, **kwargs)
-        if question is not None:
-            self.fields["responsible_users"].queryset = question.node.get_responsible_persons()
-            self.fields["question"].queryset = Thread.objects.filter(pk=question.pk)
-            self.fields["question"].initial = question.pk
+
+        self.question = kwargs.pop("question", None)
+
+        super(QuestionFlowNodeResponsibleUsersForm, self).__init__(*args, **kwargs)
+
+        if self.question is not None:
+            if self.question.node.visibility in [const.NODE_VISIBILITY_SEMIPRIVATE, const.NODE_VISIBILITY_PRIVATE]:
+                self.fields[self._get_responsible_users_field_name()] = FilteredUserChoicesField(
+                    label=_("Responsible users"),
+                    queryset=self.question.node.get_responsible_persons()
+                )
+
+            else:
+                self.fields[self._get_responsible_users_field_name()] = UserChoicesField(
+                    label=_("Responsible users"),
+                    queryset=User.objects.filter(is_active=True)
+                )
+
+            self.fields["question"].queryset = Thread.objects.filter(pk=self.question.pk)
+            self.fields["question"].initial = self.question.pk
             self.fields["question"].widget = forms.HiddenInput()
+
+    def _get_responsible_users_field_name(self):
+        """Select2 must have unique html id on page.
+        """
+        if self.question.node.visibility in [const.NODE_VISIBILITY_SEMIPRIVATE, const.NODE_VISIBILITY_PRIVATE]:
+            return "responsible_users"
+        else:
+            return "responsible_users_%s" % self.question.pk
