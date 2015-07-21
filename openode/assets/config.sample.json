@@ -1,0 +1,12 @@
+{
+    "scssPath": "./scss",
+    "cssPath": "./css",
+    "jsPath": "./js",
+    "bowerComponentsPath": "./bower_components",
+    "browsersync": {
+        "baseDir": "../",
+        "host": "server.dev.0.0.0.0",
+        "proxy": "server.dev:8888",
+        "hostnameSuffix": ".xip.io"
+    }
+}
