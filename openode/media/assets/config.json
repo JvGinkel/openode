@@ -5,8 +5,6 @@
     "bowerComponentsPath": "./bower_components",
     "browsersync": {
         "baseDir": "../",
-        "host": "server.dev.0.0.0.0",
-        "proxy": "server.dev:8888",
-        "hostnameSuffix": ".xip.io"
+        "proxy": "192.168.23.53:8000"
     }
 }
