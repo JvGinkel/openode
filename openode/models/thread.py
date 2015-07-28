@@ -607,6 +607,9 @@ class Thread(models.Model):
     def is_document(self):
         return self.thread_type == const.THREAD_TYPE_DOCUMENT
 
+    def is_question_flow_published(self):
+        return self.question_flow_state == const.QUESTION_FLOW_STATE_PUBLISHED
+
     #property to support legacy themes in case there are.
     @property
     def score(self):

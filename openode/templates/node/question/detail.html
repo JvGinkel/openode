@@ -153,9 +153,11 @@
 {# ====================================================================== #}
 
 <div class="answers">
-    <h2>
-        {% trans counter=answer_count %}{{ counter }} Answer{% pluralize %}{{ counter }} Answers{% endtrans %}
-    </h2>
+    {% if not thread.node.is_question_flow_enabled or thread.is_question_flow_published() %}
+        <h2>
+            {% trans counter=answer_count %}{{ counter }} Answer{% pluralize %}{{ counter }} Answers{% endtrans %}
+        </h2>
+    {% endif %}
 
     {% for answer in answers %}
         <a name="{{ answer.id }}"></a>
