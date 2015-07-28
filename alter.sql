@@ -62,6 +62,6 @@ BEGIN;
     CREATE INDEX "openode_thread_question_flow_interviewee_user_id" ON "openode_thread" ("question_flow_interviewee_user_id");
 
     ALTER TABLE "openode_post" ADD COLUMN "question_flow_is_published" boolean DEFAULT true;
-    CREATE INDEX "openode_post_is_published" ON "openode_post" ("is_published");
+    -- CREATE INDEX "openode_post_is_published" ON "openode_post" ("is_published");
 COMMIT;
 
