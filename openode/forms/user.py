@@ -119,13 +119,13 @@ class QuestionFlowNodeResponsibleUsersForm(forms.Form):
 
         if self.question is not None:
             if self.question.node.visibility in [const.NODE_VISIBILITY_SEMIPRIVATE, const.NODE_VISIBILITY_PRIVATE]:
-                self.fields[self._get_responsible_users_field_name()] = FilteredUserChoicesField(
+                self.fields[self.get_responsible_users_field_name()] = FilteredUserChoicesField(
                     label=_("Responsible users"),
                     queryset=self.question.node.get_responsible_persons()
                 )
 
             else:
-                self.fields[self._get_responsible_users_field_name()] = UserChoicesField(
+                self.fields[self.get_responsible_users_field_name()] = UserChoicesField(
                     label=_("Responsible users"),
                     queryset=User.objects.filter(is_active=True)
                 )
@@ -134,7 +134,7 @@ class QuestionFlowNodeResponsibleUsersForm(forms.Form):
             self.fields["question"].initial = self.question.pk
             self.fields["question"].widget = forms.HiddenInput()
 
-    def _get_responsible_users_field_name(self):
+    def get_responsible_users_field_name(self):
         """Select2 must have unique html id on page.
         """
         if self.question.node.visibility in [const.NODE_VISIBILITY_SEMIPRIVATE, const.NODE_VISIBILITY_PRIVATE]:

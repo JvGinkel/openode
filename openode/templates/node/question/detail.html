@@ -185,7 +185,10 @@
                 </div>
 
                 {# === ANSWER ACCEPTED === #}
-                {% if request.user.is_authenticated() %}
+
+
+
+                {% if request.user.has_perm("can_accept_answer", answer) %}
                     {% if answer.accepted() %}
                         <div id="answer-img-accept-{{ answer.id }}" class="answer-img-accept answer-accept accepted" title="{% trans %}this answer has been selected as correct{% endtrans %}"></div>
                     {% else %}

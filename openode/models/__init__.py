@@ -1442,6 +1442,14 @@ def user_has_perm(self, perm, obj=None):
     elif perm == "can_solve_question_flow":
         return self.is_authenticated() and NodeUser.objects.filter(user=self, is_responsible=True).exists()
 
+    elif perm == "can_accept_answer":
+        answer = obj
+        return self.is_authenticated() and (
+            not answer.thread.node.is_question_flow_enabled
+            or
+            (answer.thread.node.is_question_flow_enabled and (self == answer.thread.question_flow_responsible_user))
+        )
+
     return _user_has_perm(self, perm, obj=obj)
 
 
