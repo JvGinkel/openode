@@ -254,15 +254,37 @@ def vote(request, thread_id):
             raise Exception(_('Sorry, something is not right here...'))
 
         if vote_type == '0':
+
             answer_id = request.POST.get('postId')
             answer = get_object_or_404(models.Post, post_type='answer', id=answer_id)
 
             if request.user.is_authenticated():
+
                 if answer.accepted():
                     request.user.unaccept_best_answer(answer)
                     response_data['status'] = 1  # cancelation
+
+                    # Unpublish question flow answer
+                    if answer.thread.node.is_question_flow_enabled:
+                        if request.user.has_perm('can_solve_question_flow'):
+                            answer.thread.question_flow_state = const.QUESTION_FLOW_STATE_ANSWERED
+                            answer.thread.save()
+                        else:
+                            response_data['success'] = 0
+                            response_data['message'] = _(u"You are not permitted to select best answer.")
+
                 else:
                     request.user.accept_best_answer(answer)
+
+                    # Publish answer in question flow
+                    if answer.thread.node.is_question_flow_enabled:
+                        if request.user.has_perm('can_solve_question_flow'):
+                            answer.thread.question_flow_state = const.QUESTION_FLOW_STATE_PUBLISHED
+                            answer.thread.save()
+                        else:
+                            response_data['success'] = 0
+                            response_data['message'] = _(u"You are not permitted to select best answer.")
+
             else:
                 response_data['success'] = 0
                 response_data['message'] = _(u"Anonymous user can't vote for best answer.")
