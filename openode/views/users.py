@@ -1006,7 +1006,7 @@ def question_flow_new(request, profile_owner, context):
         form = QuestionFlowNodeResponsibleUsersForm(request.POST, question=question)
 
         if form.is_valid():
-            question.question_flow_interviewee_user = form.cleaned_data[form._get_responsible_users_field_name()]
+            question.question_flow_interviewee_user = form.cleaned_data[form.get_responsible_users_field_name()]
             question.question_flow_responsible_user = request.user
             question.question_flow_state = const.QUESTION_FLOW_STATE_SUBMITTED
             question.save()
