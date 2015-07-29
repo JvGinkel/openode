@@ -62,6 +62,9 @@ def question_flow(request):
     context = {}
     user = request.user
 
+    if not user.is_authenticated():
+        return context
+
     questions_qs = Thread.objects.get_questions().filter(
         is_deleted=False,
         node__in=Node.objects.filter(
