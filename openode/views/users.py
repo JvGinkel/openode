@@ -71,8 +71,8 @@ def show_perm_table(request):
         return HttpResponseForbidden()
 
     rules = RULES.keys()
-    members_rules = MEMBERS_RULES.keys()
-    print members_rules
+    # members_rules = MEMBERS_RULES.keys()
+    # print members_rules
 
     permissions = sorted(set(
         RULES["node_visibility_public"].keys() + MEMBERS_RULES[const.NODE_USER_ROLE_MANAGER].keys()
@@ -1021,7 +1021,7 @@ def question_flow_new(request, profile_owner, context):
 
 
 def question_flow_to_answer(request, profile_owner, context):
-    if not request.user.has_perm('can_solve_question_flow', None):
+    if not request.user.has_perm('can_answer_in_question_flow', None):
         return render_forbidden(request)
 
     context.update({

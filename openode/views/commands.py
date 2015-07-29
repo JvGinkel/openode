@@ -280,6 +280,7 @@ def vote(request, thread_id):
                     if answer.thread.node.is_question_flow_enabled:
                         if request.user.has_perm('can_solve_question_flow'):
                             answer.thread.question_flow_state = const.QUESTION_FLOW_STATE_PUBLISHED
+                            answer.thread.question_flow_interviewee_user = None
                             answer.thread.save()
                         else:
                             response_data['success'] = 0

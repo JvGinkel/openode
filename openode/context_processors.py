@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.contrib.contenttypes.models import ContentType
+from django.db.models import Q
 
 from openode import const, models
 from openode.conf import settings as openode_settings
@@ -61,51 +62,56 @@ def question_flow(request):
     context = {}
     user = request.user
 
-    if not user.has_perm('can_solve_question_flow'):
-        return context
-
     questions_qs = Thread.objects.get_questions().filter(
-        node__in=Node.objects.filter(
-            is_question_flow_enabled=True,
-            node_users__user=user,
-            node_users__is_responsible=True
-        ),
-        accepted_answer__isnull=True,
         is_deleted=False,
+        node__in=Node.objects.filter(
+                is_question_flow_enabled=True
+            ).filter(
+                Q(visibility__in=[const.NODE_VISIBILITY_PUBLIC, const.NODE_VISIBILITY_REGISTRED_USERS])
+                |
+                Q(node_users__user=user)
+            ),
+        accepted_answer__isnull=True,
     )
 
-    context.update({
-        "question_flow_to_taken": questions_qs.filter(
-            question_flow_state=const.QUESTION_FLOW_STATE_NEW,
-            ),
-
-        # "question_flow_to_submit_or_answer": questions_qs.filter(
-        #     question_flow_state=const.QUESTION_FLOW_STATE_TAKEN,
-        #     question_flow_responsible_user=user,
-        #     ),
-
-        "question_flow_to_answer": questions_qs.filter(
+    if request.user.has_perm('can_answer_in_question_flow'):
+        context.update({
+            "question_flow_to_answer": questions_qs.filter(
                 question_flow_state=const.QUESTION_FLOW_STATE_SUBMITTED,
                 question_flow_interviewee_user=user,
             ),
+        })
 
+        context.update({
+            "question_flow_to_answer_count": context["question_flow_to_answer"].count(),
+        })
 
-        "question_flow_to_check_answer_and_publish": questions_qs.filter(
-            question_flow_state=const.QUESTION_FLOW_STATE_ANSWERED,
-            question_flow_responsible_user=user,
-            )
-            # .exclude(
-            #     posts__in=Post.objects.get_answers().filter(author=request.user)
-            # ),
-    })
+    if user.has_perm('can_solve_question_flow'):
 
-    context.update({
-        "question_flow_to_taken_count": context["question_flow_to_taken"].count(),
-        # "question_flow_to_submit_or_answer_count": context["question_flow_to_submit_or_answer"].count(),
-        "question_flow_to_answer_count": context["question_flow_to_answer"].count(),
-        "question_flow_to_check_answer_and_publish_count": context["question_flow_to_check_answer_and_publish"].count(),
-    })
+        context.update({
+            "question_flow_to_taken": questions_qs.filter(
+                question_flow_state=const.QUESTION_FLOW_STATE_NEW,
+                ),
 
+            # "question_flow_to_submit_or_answer": questions_qs.filter(
+            #     question_flow_state=const.QUESTION_FLOW_STATE_TAKEN,
+            #     question_flow_responsible_user=user,
+            #     ),
+
+            "question_flow_to_check_answer_and_publish": questions_qs.filter(
+                question_flow_state=const.QUESTION_FLOW_STATE_ANSWERED,
+                question_flow_responsible_user=user,
+                )
+                # .exclude(
+                #     posts__in=Post.objects.get_answers().filter(author=request.user)
+                # ),
+        })
+
+        context.update({
+            "question_flow_to_taken_count": context["question_flow_to_taken"].count(),
+            # "question_flow_to_submit_or_answer_count": context["question_flow_to_submit_or_answer"].count(),
+            "question_flow_to_check_answer_and_publish_count": context["question_flow_to_check_answer_and_publish"].count(),
+        })
     return context
 
 ################################################################################

@@ -401,9 +401,7 @@ def ask_to_create_org(request):
     """
         ask to create organization
     """
-    print 123, request.method
     if request.method == "POST":
-        print request.FILES
         form = OrganizationForm(request.POST, request.FILES)
         if form.is_valid():
             org = form.save(request)

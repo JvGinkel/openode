@@ -243,7 +243,9 @@
                             {% endif %}
                         </a>
                     </li>
+                {% endif %}
 
+                {% if request.user.has_perm('can_answer_in_question_flow') %}
                     <li>
                         <a href="{% url user_profile request.user.pk, 'question_flow_to_answer' %}" title="">
                             {% trans %}Question flow - to answer{% endtrans %}</span>
@@ -252,7 +254,9 @@
                             {% endif %}
                         </a>
                     </li>
+                {% endif %}
 
+                {% if request.user.has_perm('can_solve_question_flow') %}
                     <li>
                         <a href="{% url user_profile request.user.pk, 'question_flow_to_publish' %}" title="">
                             {% trans %}Question flow - to publish{% endtrans %}</span>

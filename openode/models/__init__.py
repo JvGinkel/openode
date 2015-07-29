@@ -23,7 +23,7 @@ from celery.task import task
 
 from django.core.urlresolvers import reverse, NoReverseMatch
 from django.contrib.auth.models import _user_has_perm
-from django.db.models import signals as django_signals
+from django.db.models import signals as django_signals, Q
 from django.template import Context
 from django.utils.translation import ugettext as _
 from django.utils.translation import ungettext
@@ -1439,8 +1439,38 @@ def user_has_perm(self, perm, obj=None):
     if perm == "openode.change_tag" and self.is_authenticated():
         return True
 
+    elif perm == "can_answer_in_question_flow":
+        if not self.is_authenticated():
+            return False
+
+        if self.has_perm('can_solve_question_flow'):
+            return True
+
+        if obj:
+            return self.question_flow_interviewee_threads.filter(pk=obj.pk).exists()
+        else:
+            return self.question_flow_interviewee_threads.exists()
+
     elif perm == "can_solve_question_flow":
-        return self.is_authenticated() and NodeUser.objects.filter(user=self, is_responsible=True).exists()
+        return self.is_authenticated() \
+            and NodeUser.objects.filter(
+                    user=self
+                ).filter(
+                    # Q(
+                    #     node__visibility__in=[
+                    #         const.NODE_VISIBILITY_PUBLIC,
+                    #         const.NODE_VISIBILITY_REGISTRED_USERS
+                    #     ],
+                    #     node__threads__question_flow_interviewee_user=self
+                    # )
+                    # |
+                    node__visibility__in=[const.NODE_VISIBILITY_SEMIPRIVATE,
+                                          const.NODE_VISIBILITY_PRIVATE],
+                    role__in=[const.NODE_USER_ROLE_MEMBER,
+                              const.NODE_USER_ROLE_MANAGER]
+
+
+                ).exists()
 
     elif perm == "can_accept_answer":
         answer = obj

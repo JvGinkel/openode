@@ -219,7 +219,7 @@
 
                             {# === REQUESTS === #}
 
-                            {% if user_has_perm_resolve_node_joining or request.user.has_perm('openode.resolve_organization_joining') or (settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive')) %}
+                            {% if user_has_perm_resolve_node_joining or request.user.has_perm('can_answer_in_question_flow') or request.user.has_perm('openode.resolve_organization_joining') or (settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive')) %}
                                 <div href="#" class="button button-menu dropdown messages">
                                     <div class="messages-title">
                                         {% trans %}Requests{% endtrans %}
@@ -247,7 +247,11 @@
 
                                         {% if request.user.has_perm('can_solve_question_flow') %}
                                             {% set messages_count = messages_count + question_flow_to_taken_count %}
+                                        {% endif %}
+                                        {% if request.user.has_perm('can_answer_in_question_flow') %}
                                             {% set messages_count = messages_count + question_flow_to_answer_count %}
+                                        {% endif %}
+                                        {% if request.user.has_perm('can_solve_question_flow') %}
                                             {% set messages_count = messages_count + question_flow_to_check_answer_and_publish_count %}
                                         {% endif %}
 
@@ -323,7 +327,9 @@
                                                     {% endif %}
                                                 </a>
                                             </li>
+                                        {% endif %}
 
+                                        {% if request.user.has_perm('can_answer_in_question_flow') %}
                                             <li>
                                                 <a href="{% url user_profile request.user.pk, 'question_flow_to_answer' %}" title="">
                                                     {% trans %}Question flow - to answer{% endtrans %}</span>
@@ -332,7 +338,9 @@
                                                     {% endif %}
                                                 </a>
                                             </li>
+                                        {% endif %}
 
+                                        {% if request.user.has_perm('can_solve_question_flow') %}
                                             <li>
                                                 <a href="{% url user_profile request.user.pk, 'question_flow_to_publish' %}" title="">
                                                     {% trans %}Question flow - to publish{% endtrans %}</span>

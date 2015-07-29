@@ -661,7 +661,7 @@ class Thread(models.Model):
         else:
             return user.has_openode_perm("%s_delete" % self.thread_type, self)
 
-    def has_response_perm(self, user):
+    def has_response_perm(self, user, obj=None):
         """
             used for checking perms when
                 create answer to question
@@ -672,7 +672,7 @@ class Thread(models.Model):
             if not user.has_openode_perm("question_answer_create", self):
                 return False
 
-            if self.node.is_question_flow_enabled and (user not in self.node.get_responsible_persons()):
+            if self.node.is_question_flow_enabled and not user.has_perm('can_answer_in_question_flow', obj):
                 return False
 
             return True

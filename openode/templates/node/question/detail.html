@@ -265,7 +265,7 @@
 </div>
 
 {# === FOOTER === #}
-{% if thread.has_response_perm(request.user) %}
+{% if thread.has_response_perm(request.user, thread) %}
     <div class="panel group">
         {% if user_already_gave_answer %}
             <a class="submit" href="{% url "edit_answer" previous_answer.id %}">{% trans %}Edit Your Previous Answer{% endtrans %}</a>

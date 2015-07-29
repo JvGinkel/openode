@@ -721,7 +721,7 @@ class Post(models.Model):
 
     def filter_authorized_users(self, candidates):
         """returns list of users who are allowed to see this post"""
-        print "TODO %s method: filter_authorized_users" % (__file__)
+        # print "TODO %s method: filter_authorized_users" % (__file__)
         # self.organizations doesn't exist
         return set()
 
