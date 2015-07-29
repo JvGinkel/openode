@@ -552,7 +552,7 @@ def node_module_forum(request, node_id, node_slug, module, **kwargs):
         thread_type=const.THREAD_TYPE_BY_NODE_MODULE[module]
     )[:1]
 
-    if not thread_qs.exists() and request.user.is_anonymous:
+    if not (thread_qs.exists() or request.user.is_authenticated()):
         raise Http404
 
     if thread_qs:
