@@ -66,13 +66,15 @@ module.exports = function(grunt) {
                 },
                 options: {
                     watchTask: true,
-                    server: {
-                        baseDir: '<%= config.browsersync.baseDir %>'
-                    }/*
-                    host: '<%= config.browsersync.host %>',
                     proxy: '<%= config.browsersync.proxy %>',
-                    hostnameSuffix: '<%= config.browsersync.hostnameSuffix %>'
-                    */
+                    // server: {
+                    //     baseDir: '<%= config.browsersync.baseDir %>',
+
+                    // }
+                    // host: '<%= config.browsersync.host %>',
+                    // proxy: '<%= config.browsersync.proxy %>',
+                    // hostnameSuffix: '<%= config.browsersync.hostnameSuffix %>'
+
                 }
             }
         },
