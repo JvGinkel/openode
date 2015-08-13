@@ -6,15 +6,21 @@
 // =global
 // ==========================================================================
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext);
+
 body {
     background: transparent;
-    //font: 14px/1.5 Georgia, Times, "Times New Roman", serif;
+    font-family: $primary-font;
     text-align: center;
     //color: #555555;
 }
 
 a {
     //color: #555555;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $primary-font;
 }
 
 h1 {
@@ -93,6 +99,11 @@ hr {
 
 }
 
+// ==========================================================================
+// =modules
+// ==========================================================================
+
+@import "../modules/_base-top-navbar.scss";
 
 // ==========================================================================
 // =misc

@@ -1,0 +1,29 @@
+.top-navbar {
+    background: $primary-color;
+    text-align: left;
+
+    a {
+        color: $base-color;
+    }
+}
+
+.logo-title {
+    display: inline-block;
+
+    .title, small {
+        display: inline-block;
+        position: relative;
+        top: rem-calc(4);
+    }
+
+    .title {
+        font-size: rem-calc(22);
+        font-weight: bold;
+    }
+
+    small {
+        font-size: rem-calc(13);
+        color: $icon-color;
+        opacity: 0.9;
+    }
+}

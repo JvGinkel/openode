@@ -61,12 +61,13 @@
             {# ================= #}
 
             {% block header %}
-            <div class="header">
+            <div class="header top-navbar">
                 <div class="row">
-                    <div class="column twelve">
-                        <div class="f-right t-right top-list">
+                    <div class="small-12 column">
+                        <div class="top-list">
+                            {{ "header"|custom_template(request) }}
                             {%- if not request.user.is_authenticated() -%}
-                            <ul class="inline-list inline v-centered">
+                            <ul class="inline-list">
                                 {% if settings.SIGNIN_OPENID_ENABLED %}
                                     <li><a class="social-login openid" href=""></a></li>
                                 {% endif %}
@@ -87,7 +88,6 @@
                             </ul>
                             {% endif %}
                         </div>
-                        {{ "header"|custom_template(request) }}
                         <ul class="inline-list top-menu">
                             {# <li class=""><a href="/">{% trans %}Home{% endtrans %}</a></li> #}
                             <li>

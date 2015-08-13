@@ -61,7 +61,8 @@ module.exports = function(grunt) {
                 bsFiles: {
                     src: [
                         '<%= config.cssPath %>/screen.css',
-                        '../*.html'
+                        '../../templates/*.html',
+                        '../../templates/meta/*.html'
                     ]
                 },
                 options: {
