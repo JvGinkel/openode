@@ -5260,29 +5260,61 @@ hr {
 
 /* line 1, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .top-navbar {
-  background: #084a8b;
-  text-align: left; }
-  /* line 5, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  background: #084a8b; }
+  /* line 4, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .top-navbar a {
     color: #fff; }
 
-/* line 10, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 9, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .logo-title {
   display: inline-block; }
-  /* line 13, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 12, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .logo-title .title, .logo-title small {
     display: inline-block;
     position: relative;
     top: 0.25rem; }
-  /* line 19, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 18, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .logo-title .title {
     font-size: 1.375rem;
     font-weight: bold; }
-  /* line 24, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 23, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .logo-title small {
     font-size: 0.8125rem;
     color: #5fbbf5;
     opacity: 0.9; }
+
+/* line 30, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+.top-navbar-items {
+  list-style: none;
+  display: inline-block;
+  margin: 0; }
+  /* line 35, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  .top-navbar-items li {
+    display: inline-block;
+    font-size: 0.8125rem;
+    text-transform: uppercase;
+    padding-right: 0.9375rem; }
+
+/* line 44, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+.top-navbar-langs {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0.3125rem 0; }
+  /* line 50, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  .top-navbar-langs li {
+    display: inline-block;
+    text-align: center; }
+  /* line 55, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  .top-navbar-langs a {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    height: 1.875rem;
+    width: 1.875rem;
+    display: inline-block;
+    border: 1px solid #5fbbf5;
+    border-radius: 50%;
+    line-height: 1.875rem; }
 
 /* line 112, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
 img.left {

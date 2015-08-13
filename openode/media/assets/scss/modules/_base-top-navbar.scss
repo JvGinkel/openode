@@ -1,6 +1,5 @@
 .top-navbar {
     background: $primary-color;
-    text-align: left;
 
     a {
         color: $base-color;
@@ -25,5 +24,42 @@
         font-size: rem-calc(13);
         color: $icon-color;
         opacity: 0.9;
+    }
+}
+
+.top-navbar-items {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+
+    li {
+        display: inline-block;
+        font-size: rem-calc(13);
+        text-transform: uppercase;
+        padding-right: rem-calc(15);
+
+    }
+}
+
+.top-navbar-langs {
+    list-style: none;
+    display: inline-block;
+    margin: 0;
+    padding: rem-calc(5) 0;
+
+    li {
+        display: inline-block;
+        text-align: center;
+    }
+
+    a {
+        font-size: rem-calc(12);
+        text-transform: uppercase;
+        height: rem-calc(30);
+        width: rem-calc(30);
+        display: inline-block;
+        border: 1px solid $icon-color;
+        border-radius: 50%;
+        line-height: rem-calc(30);
     }
 }
