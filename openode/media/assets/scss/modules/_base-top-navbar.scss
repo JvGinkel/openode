@@ -1,3 +1,31 @@
+.tab-bar {
+    background: $primary-color;
+
+    a {
+        color: $base-color;
+    }
+
+    .right-small {
+        border: none;
+    }
+
+    .logo-title {
+        position: relative;
+
+        .title, small {
+            top: 0;
+        }
+
+        .title {
+            font-size: rem-calc(14);
+        }
+
+        small {
+            font-size: rem-calc(10);
+        }
+    }
+}
+
 .top-navbar {
     background: $primary-color;
 

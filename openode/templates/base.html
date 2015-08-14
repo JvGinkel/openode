@@ -5,7 +5,7 @@
         <title>{% block title %}{% endblock %} | {{ settings.APP_TITLE|escape }}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="keywords" content="{%block keywords%}{%endblock%},{{ settings.APP_KEYWORDS|escape }}" />
-        <meta name="viewport" content="width=device-width" /><!-- Set the viewport width to device width for mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Set the viewport width to device width for mobile -->
 
         {% block meta_description %}
             <meta name="description" content="{{settings.APP_DESCRIPTION|escape}}" />
@@ -63,9 +63,11 @@
 
         <div class="off-canvas-wrap" data-offcanvas>
             <div class="inner-wrap">
-                <nav class="tab-bar">
-                    <section class="middle tab-bar-section">
-                        <h1 class="title">Openode</h1>
+                <nav class="tab-bar hide-for-medium-up">
+                    <section class="tab-bar-section">
+                        <h1 class="title">
+                            {{ "header"|custom_template(request) }}
+                        </h1>
                     </section>
 
                     <section class="right-small">
@@ -89,7 +91,7 @@
                     {# ================= #}
 
                     {% block header %}
-                    <div class="header top-navbar">
+                    <div class="header top-navbar show-for-medium-up">
                         <div class="row">
                             <div class="small-12 column">
                                 <div class="top-list">
