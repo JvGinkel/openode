@@ -75,11 +75,12 @@
                     </section>
                 </nav>
 
-                <aside class="right-off-canvas-menu">
-                    <ul class="off-canvas-list">
-                        <li><label>Users</label></li>
-                        <li><a href="#">Hari Seldon</a></li>
-                        <li><a href="#">...</a></li>
+                <aside class="mobile-navbar-list right-off-canvas-menu">
+                    <ul class="off-canvas-list t-left">
+                        <li><a href="#">{% trans %}Tags{% endtrans %}</a></li>
+                        <li><a href="#">{% trans %}People{% endtrans %}</a></li>
+                        <li><a href="#">{% trans %}Organizations{% endtrans %}</a></li>
+                        <li><a href="#">{% trans %}Live{% endtrans %}</a></li>
                     </ul>
                 </aside>
 
@@ -163,12 +164,16 @@
                         {# ======== USER MENU ========= #}
 
                         <div class="row">
-                            <div class="twelve columns t-right">
-                                <div class="search group left">
+                            <div class="small-12 columns">
+                                <div class="search group medium-5 columns">
                                     <form id="js-search-form" action="{% url search %}">
-                                        <input type="text" class="input-search ui-autocomplete-input default f-left" placeholder="{% trans %}Search{% endtrans %}..." id="search" name="q" autocomplete="off" />
+                                        <div class="search-input-wrapper small-9 columns">
+                                            <input type="text" class="input-search ui-autocomplete-input" placeholder="{% trans %}Search{% endtrans %}..." id="search" name="q" autocomplete="off" />
+                                        </div>
                                         <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-                                        <button class="button postfix button-search secondary f-left">{% trans %}Search{% endtrans %}</button>
+                                        <div class="search-button-wrapper small-3 columns">
+                                            <button class="button-search">{% trans %}Search{% endtrans %}</button>
+                                        </div>
                                     </form>
                                     {# <input type="text" name="search" placeholder="Search" class="v-centered eleven default input-search" /> #}
                                 </div>
@@ -331,19 +336,30 @@
                                         </ul>
                                     </div>
                                 {% else %}
+                                    <div class="medium-7 columns">
+
+
                                     <form id="signin-form" class="login" method="post" action="{{ settings.LOGIN_URL }}">
                                         {% csrf_token %}
-                                        <div class="inputs">
+                                        <div class="inputs t-left">
                                             {{ header_login_form.login_provider_name }}
                                             {{ header_login_form.next }}
                                             {{ header_login_form.password_action }}
-                                            <span>{% trans %}E-mail{% endtrans %}:</span>
-                                            {{ header_login_form.username }}
-                                            <span>{% trans %}Password{% endtrans %}:</span>
-                                            {{ header_login_form.password }}
+                                            <div class="signin-form-label-wrapper small-6 medium-4 columns">
+                                                <!-- <span class="signin-form-label">{% trans %}E-mail{% endtrans %}:</span> -->
+                                                {{ header_login_form.username }}
+                                            </div>
+                                            <div class="signin-form-label-wrapper small-6 medium-4 columns">
+                                                <!-- <span class="signin-form-label">{% trans %}Password{% endtrans %}:</span> -->
+                                                {{ header_login_form.password }}
+                                            </div>
+                                            <div class="signin-form-label-wrapper medium-4 columns">
+                                                <button type="submit" class="signin-form-btn">{% trans %}Log in{% endtrans %}</button>
+                                            </div>
                                         </div>
-                                        <button type="submit" class="small button login v-top">{% trans %}Log in{% endtrans %}</button>
                                     </form>
+
+                                    </div>
                                 {% endif %}
                             </div>
                         </div>
