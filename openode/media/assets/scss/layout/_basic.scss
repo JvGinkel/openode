@@ -9,7 +9,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext);
 
 body {
-    background: transparent;
+    background: $body-bg-color;
     font-family: $primary-font;
     text-align: center;
     //color: #555555;
@@ -73,30 +73,11 @@ hr {
 // =layout
 // ==========================================================================
 
-.container-wrap {
-
-}
-
-.header {
-
-}
-
-.nav {
-
-}
-
-.section {
-    .main {
-
-    }
-    .aside {
-
-    }
-}
-
-
-.footer {
-
+button.success, .button.success {
+    background: $primary-color;
+    border-color: none;
+    border-radius: 3px;
+    width: 100%;
 }
 
 // ==========================================================================
@@ -104,6 +85,8 @@ hr {
 // ==========================================================================
 
 @import "../modules/_base-top-navbar.scss";
+@import "../modules/_base-top-user-info.scss";
+@import "../modules/_hp-custom-content.scss";
 
 // ==========================================================================
 // =misc

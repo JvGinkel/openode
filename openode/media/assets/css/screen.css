@@ -5668,76 +5668,83 @@ th.hide-for-touch {
     display: table-cell !important; }
  }
 
-/* line 11, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 11, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 body {
-  background: transparent;
+  background: #f5f5f5;
   font-family: 'Open Sans', sans-serif;
   text-align: center; }
 
-/* line 22, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 22, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif; }
 
-/* line 28, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 28, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 h1.title {
   margin: 0 0 5px; }
 
-/* line 35, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 35, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 h2.title {
   margin: 0 0 15px; }
 
-/* line 42, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 42, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 h3.title {
   margin: 0 0 10px; }
 
-/* line 49, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 49, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 h4.title {
   margin: 0 0 10px; }
 
-/* line 54, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 54, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 strong {
   font-weight: bold; }
 
-/* line 58, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 58, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 em {
   font-style: italic; }
 
-/* line 62, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 62, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 hr {
   border: 0;
   border-top: 1px solid #e8edee; }
 
-/* line 67, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 67, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .text-normal {
   font-weight: normal; }
 
-/* line 1, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 76, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+button.success, .button.success {
+  background: #084a8b;
+  border-color: none;
+  border-radius: 3px;
+  width: 100%; }
+
+/* line 1, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .tab-bar {
   background: #084a8b; }
-  /* line 4, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 4, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .tab-bar a {
     color: #fff; }
-  /* line 8, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 8, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .tab-bar .right-small {
     border: none; }
-  /* line 12, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 12, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .tab-bar .logo-title {
     position: relative; }
-    /* line 15, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+    /* line 15, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
     .tab-bar .logo-title .title, .tab-bar .logo-title small {
       top: 0; }
-    /* line 19, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+    /* line 19, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
     .tab-bar .logo-title .title {
       font-size: 0.875rem; }
-    /* line 23, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+    /* line 23, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
     .tab-bar .logo-title small {
       font-size: 0.625rem; }
 
-/* line 29, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 29, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .mobile-navbar-list {
   background: #084a8b; }
 
-/* line 35, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 35, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 ul.off-canvas-list li a {
   color: #fff;
   text-transform: uppercase;
@@ -5745,54 +5752,54 @@ ul.off-canvas-list li a {
   border: none;
   padding: 0.625rem 1.25rem 0; }
 
-/* line 44, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 44, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .top-navbar {
   background: #084a8b; }
-  /* line 47, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 47, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .top-navbar a {
     color: #fff; }
 
-/* line 52, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 52, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .logo-title {
   display: inline-block; }
-  /* line 55, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 55, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .logo-title .title, .logo-title small {
     display: inline-block;
     position: relative;
     top: 0.25rem; }
-  /* line 61, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 61, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .logo-title .title {
     font-size: 1.375rem;
     font-weight: bold; }
-  /* line 66, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 66, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .logo-title small {
     font-size: 0.8125rem;
     color: #5fbbf5;
     opacity: 0.9; }
 
-/* line 73, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 73, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .top-navbar-items {
   list-style: none;
   display: inline-block;
   margin: 0; }
-  /* line 78, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 78, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .top-navbar-items li {
     display: inline-block;
     font-size: 0.8125rem;
     text-transform: uppercase;
     padding-right: 0.9375rem; }
 
-/* line 87, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 87, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .top-navbar-langs {
   list-style: none;
   display: inline-block;
   margin: 0;
   padding: 0.3125rem 0; }
-  /* line 93, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 93, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .top-navbar-langs li {
     display: inline-block;
     text-align: center; }
-  /* line 98, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 98, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .top-navbar-langs a {
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -5803,26 +5810,26 @@ ul.off-canvas-list li a {
     border-radius: 50%;
     line-height: 1.875rem; }
 
-/* line 112, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 112, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .user-info {
   background: #d7eefc;
   padding: 1.25rem 0; }
-  /* line 116, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 116, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .user-info .search {
     padding-bottom: 1.25rem; }
     @media only screen and (min-width:40.063em) {
       .user-info .search {
         padding-bottom: 0; } }
-  /* line 124, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 124, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .user-info .input-search {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: none; }
-    /* line 129, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+    /* line 129, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
     .user-info .input-search:hover, .user-info .input-search:focus {
       border-color: #b6c0cd;
       box-shadow: none; }
-  /* line 135, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 135, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .user-info .button-search {
     width: 100%;
     margin: 0;
@@ -5835,34 +5842,34 @@ ul.off-canvas-list li a {
     text-transform: uppercase;
     font-size: 0.75rem;
     font-weight: bold; }
-    /* line 148, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+    /* line 148, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
     .user-info .button-search:hover {
       background: #FF9300; }
 
-/* line 154, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 154, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .search-input-wrapper, .search-button-wrapper, .signin-form-label-wrapper {
   padding: 0; }
 
 @media only screen and (min-width:40.063em) {
   .signin-form-label-wrapper {
     position: relative; } }
-/* line 165, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 165, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .signin-form-label-wrapper #id_username {
   border-right: none;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
-  /* line 171, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 171, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .signin-form-label-wrapper #id_username:hover, .signin-form-label-wrapper #id_username:focus {
     border-color: #b6c0cd;
     box-shadow: none; }
-/* line 177, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 177, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .signin-form-label-wrapper #id_password {
   border-left: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0; }
-  /* line 183, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 183, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .signin-form-label-wrapper #id_password:hover, .signin-form-label-wrapper #id_password:focus {
     border-color: #b6c0cd;
     box-shadow: none; }
@@ -5870,7 +5877,7 @@ ul.off-canvas-list li a {
     .signin-form-label-wrapper #id_password {
       border-top-right-radius: 0; } }
 
-/* line 194, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+/* line 194, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .signin-form-btn {
   width: 100%;
   line-height: 0.3125rem;
@@ -5882,7 +5889,7 @@ ul.off-canvas-list li a {
   background: #5fbbf5;
   margin-bottom: 0.625rem;
   padding: 0; }
-  /* line 206, C:/projects/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
+  /* line 206, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
   .signin-form-btn:hover {
     background: #084a8b; }
   @media only screen and (min-width:40.063em) {
@@ -5891,42 +5898,140 @@ ul.off-canvas-list li a {
       border-bottom-left-radius: 0;
       border-top-left-radius: 0; } }
 
-/* line 112, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 1, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+.user-info {
+  background: #d7eefc;
+  padding: 1.25rem 0; }
+  /* line 5, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+  .user-info .search {
+    padding-bottom: 1.25rem; }
+    @media only screen and (min-width:40.063em) {
+      .user-info .search {
+        padding-bottom: 0; } }
+  /* line 13, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+  .user-info .input-search {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none; }
+    /* line 18, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+    .user-info .input-search:hover, .user-info .input-search:focus {
+      border-color: #b6c0cd;
+      box-shadow: none; }
+  /* line 24, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+  .user-info .button-search {
+    width: 100%;
+    margin: 0;
+    line-height: 0.3125rem;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 0;
+    background: #ffcc00;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: bold; }
+    /* line 37, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+    .user-info .button-search:hover {
+      background: #FF9300; }
+
+/* line 43, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+.search-input-wrapper, .search-button-wrapper, .signin-form-label-wrapper {
+  padding: 0; }
+
+@media only screen and (min-width:40.063em) {
+  .signin-form-label-wrapper {
+    position: relative; } }
+/* line 54, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+.signin-form-label-wrapper #id_username {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+  /* line 60, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+  .signin-form-label-wrapper #id_username:hover, .signin-form-label-wrapper #id_username:focus {
+    border-color: #b6c0cd;
+    box-shadow: none; }
+/* line 66, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+.signin-form-label-wrapper #id_password {
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
+  /* line 72, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+  .signin-form-label-wrapper #id_password:hover, .signin-form-label-wrapper #id_password:focus {
+    border-color: #b6c0cd;
+    box-shadow: none; }
+  @media only screen and (min-width:40.063em) {
+    .signin-form-label-wrapper #id_password {
+      border-top-right-radius: 0; } }
+
+/* line 83, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+.signin-form-btn {
+  width: 100%;
+  line-height: 0.3125rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: #5fbbf5;
+  margin-bottom: 0.625rem;
+  padding: 0; }
+  /* line 95, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
+  .signin-form-btn:hover {
+    background: #084a8b; }
+  @media only screen and (min-width:40.063em) {
+    .signin-form-btn {
+      margin: 0;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0; } }
+
+/* line 1, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-custom-content.scss */
+.hp-custom-content {
+  padding: 1.875rem 0;
+  font-size: 0.875rem; }
+
+/* line 6, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-custom-content.scss */
+.hp-custom-content-title {
+  font-size: 1.5rem;
+  padding: 0.625rem 0; }
+
+/* line 95, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 img.left {
   margin-top: 1em;
   margin-right: 10px;
   margin-bottom: 10px; }
 
-/* line 118, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 101, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 img.right {
   margin-top: 1em;
   margin-left: 10px;
   margin-bottom: 10px; }
 
-/* line 124, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 107, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .t-right {
   text-align: right; }
 
-/* line 128, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 111, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .t-left {
   text-align: left; }
 
-/* line 132, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 115, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .t-center {
   text-align: center; }
 
-/* line 136, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 119, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .hidden {
   display: none; }
 
-/* line 140, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 123, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .invisible {
   visibility: hidden; }
 
-/* line 144, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 127, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .centered-wrapper {
   text-align: center; }
-  /* line 147, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+  /* line 130, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
   .centered-wrapper:before {
     content: '';
     display: inline-block;
@@ -5935,7 +6040,7 @@ img.right {
     margin-right: -0.25em;
     /* Adjusts for spacing */ }
 
-/* line 156, C:/projects/codev/openode/openode/media/assets/scss/layout/basic */
+/* line 139, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .centered {
   display: inline-block;
   vertical-align: middle; }
@@ -5948,77 +6053,77 @@ img.right {
 .group:after {
   clear: both; }
 
-/* line 15, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 15, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 fieldset, .fieldset {
   padding: 15px 0 0;
   margin: 0 0 25px; }
 
-/* line 20, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 20, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 legend {
   padding: 5px 0 15px;
   width: 100%;
   font-size: 18px; }
 
-/* line 26, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 26, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 .legend {
   padding: 10px 0 0;
   margin: 0 0 15px; }
-  /* line 30, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+  /* line 30, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
   .legend .title {
     font-size: 18px; }
-  /* line 34, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+  /* line 34, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
   .legend label:after {
     content: ""; }
 
-/* line 41, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 41, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 label, .label {
   font-weight: bold;
   display: block;
   line-height: 25px; }
 
-/* line 50, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 50, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 label.required:after, .label.required:after, h3.required.required:after {
   color: red;
   content: " *"; }
 
-/* line 56, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 56, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 .input-text {
   margin-top: 8px;
   font-weight: normal; }
 
-/* line 65, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 65, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 .buttons {
   padding: 10px 0 10px;
   line-height: 30px; }
-  /* line 69, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+  /* line 69, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
   .buttons .btn, .buttons .btn-primary, .buttons .btn-danger, .buttons .btn-add, .buttons .btn-important {
     margin-left: 5px; }
-  /* line 72, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+  /* line 72, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
   .buttons.buttons-left .btn, .buttons.buttons-left .btn-primary, .buttons.buttons-left .btn-danger, .buttons.buttons-left .btn-add, .buttons.buttons-left .btn-important {
     margin-left: 0;
     margin-right: 5px; }
 
-/* line 78, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 78, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 .no-label {
   padding: 25px 0 0;
   line-height: 32px; }
 
-/* line 84, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 84, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 .label-inline label {
   display: inline; }
 
-/* line 90, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 90, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 .label-colon label:after {
   content: ":"; }
 
-/* line 95, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 95, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 .field {
   margin: 0 0 7px; }
-  /* line 99, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+  /* line 99, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
   .field ul li {
     list-style: none; }
 
-/* line 110, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 110, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 .btn, .btn-primary, .btn-danger, .btn-add, .btn-important {
   margin: 0;
   font-size: 12px;
@@ -6030,36 +6135,36 @@ label.required:after, .label.required:after, h3.required.required:after {
   zoom: 1;
   *display: inline;
   *vertical-align: auto; }
-  /* line 119, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+  /* line 119, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
   .btn:hover, .btn-primary:hover, .btn-danger:hover, .btn-add:hover, .btn-important:hover {
     cursor: pointer;
     text-decoration: underline; }
 
-/* line 126, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 126, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 input[type="submit"], button {
   height: 32px; }
 
-/* line 131, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 131, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 ::-moz-focus-inner {
   padding: 0;
   border: 0; }
 
-/* line 137, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 137, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 a.btn, a.btn-primary, a.btn-danger, a.btn-add, a.btn-important, span.btn, span.btn-primary, span.btn-danger, span.btn-add, span.btn-important {
   line-height: 20px;
   height: 20px; }
 
-/* line 142, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 142, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 .btn-inline {
   margin-left: 5px; }
 
-/* line 157, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 157, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 input[type="submit"].btn-sml, button.btn-sml, a.btn-sml, span.btn-sml, input[type="text"].sml {
   line-height: 22px;
   height: 24px;
   padding: 0 10px; }
 
-/* line 190, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 190, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 input[type="text"], input[type="password"], textarea {
   border: 1px solid #b6c0cd;
   line-height: 20px;
@@ -6069,28 +6174,28 @@ input[type="text"], input[type="password"], textarea {
   transition-property: box-shadow;
   transition-duration: 800ms;
   border-radius: 3px; }
-  /* line 201, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+  /* line 201, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
   input[type="text"]:hover, input[type="password"]:hover, textarea:hover {
     border-color: gray; }
-  /* line 205, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+  /* line 205, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
   input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
     outline: 0;
     border-color: gray;
     box-shadow: rgba(126, 181, 234, 0.8) 0px 0px 5px 0px; }
-  /* line 211, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+  /* line 211, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
   input[type="text"].sys-form-error, input[type="password"].sys-form-error, textarea.sys-form-error {
     border-color: #eda1a1; }
 
-/* line 217, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 217, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 input[type="text"], input[type="password"] {
   height: 32px; }
 
-/* line 223, C:/projects/codev/openode/openode/media/assets/scss/layout/forms */
+/* line 223, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/forms */
 input[type="text"][disabled="disabled"], input[type="password"][disabled="disabled"], textarea[disabled="disabled"] {
   border: 1px solid #CCCCCC;
   box-shadow: none; }
 
-/* line 10, C:/projects/codev/openode/openode/media/assets/scss/layout/tooltips */
+/* line 10, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/tooltips */
 .ui-tooltip .ui-tooltip-content {
   line-height: 1.5;
   font-size: 11px; }
