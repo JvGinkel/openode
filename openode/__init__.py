@@ -51,7 +51,7 @@ REQUIREMENTS = {
     'bleach': 'bleach==1.2.1',
     "magic": "python-magic==0.4.3",
     "sorl.thumbnail": "sorl-thumbnail==11.12",
-    "PIL": "Pillow==2.0.0",
+    #"PIL": "Pillow==2.0.0",
     "psycopg2": "psycopg2==2.5",
     "haystack": "django-haystack==2.0.0",
     "pyelasticsearch": "pyelasticsearch==0.5",
