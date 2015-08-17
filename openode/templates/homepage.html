@@ -46,11 +46,11 @@
 
     <div class="row">
 
-        <div class="nine columns">
+        <div class="large-9 columns">
             {% if latest_actuality %}
-                <div class="row hp-news">
-                    <div class="twelve columns">
-                        <div class="f-right section-header-control">
+                <div class="row hp-news t-left">
+                    <div class="small-12 columns">
+                        <div class="section-header-control">
                             {% if request.user.is_admin('openode.add_actuality') %}
                                 <a href="{% url admin:openode_actuality_add %}" class="control-link">{% trans %}Add news{% endtrans %}</a>
                             {% endif %}
@@ -78,7 +78,7 @@
             {% endif %}
 
             <div class="row">
-                <div class="twelve columns">
+                <div class="small-12 columns">
                     <div class="section-header no-top-margin">
 
                         <div class="f-right section-header-control">
@@ -144,7 +144,7 @@
             </div>
         </div>
 
-        <div class="column three aside">
+        <div class="large-3 aside">
             {% include "widgets/contributors.html" %}
 
             {# === tags === #}

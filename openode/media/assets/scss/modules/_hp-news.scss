@@ -1,0 +1,25 @@
+.hp-news {
+    position: relative;
+    padding: 0 rem-calc(20);
+}
+
+.section-header-control {
+    position: absolute;
+    right: 0;
+    top: rem-calc(3);
+
+    .control-link {
+        font-size: rem-calc(12);
+        padding-right: rem-calc(20);
+        text-decoration: underline;
+    }
+}
+
+.infobox-wrap {
+    background: rgba(95, 187, 245, 0.2);
+    color: $primary-color;
+    border-radius: 3px;
+    border-bottom: 2px solid $primary-color;
+    padding: rem-calc(5) rem-calc(10);
+    font-size: rem-calc(12);
+}

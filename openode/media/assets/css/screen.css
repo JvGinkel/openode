@@ -5712,6 +5712,11 @@ hr {
   font-weight: normal; }
 
 /* line 76, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+h2 {
+  font-size: 1.25rem;
+  font-weight: bold; }
+
+/* line 81, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 button.success, .button.success {
   background: #084a8b;
   border-color: none;
@@ -6002,42 +6007,67 @@ ul.off-canvas-list li a {
   padding: 0.625rem 0;
   font-weight: bold; }
 
-/* line 99, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 1, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+.hp-news {
+  position: relative;
+  padding: 0 1.25rem; }
+
+/* line 6, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+.section-header-control {
+  position: absolute;
+  right: 0;
+  top: 0.1875rem; }
+  /* line 11, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+  .section-header-control .control-link {
+    font-size: 0.75rem;
+    padding-right: 1.25rem;
+    text-decoration: underline; }
+
+/* line 18, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+.infobox-wrap {
+  background: rgba(95, 187, 245, 0.2);
+  color: #084a8b;
+  border-radius: 3px;
+  border-bottom: 2px solid #084a8b;
+  padding: 0.3125rem 0.625rem;
+  font-size: 0.75rem; }
+
+/* line 105, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 img.left {
   margin-top: 1em;
   margin-right: 10px;
   margin-bottom: 10px; }
 
-/* line 105, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 111, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 img.right {
   margin-top: 1em;
   margin-left: 10px;
   margin-bottom: 10px; }
 
-/* line 111, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 117, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .t-right {
   text-align: right; }
 
-/* line 115, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 121, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .t-left {
   text-align: left; }
 
-/* line 119, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 125, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .t-center {
   text-align: center; }
 
-/* line 123, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 129, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .hidden {
   display: none; }
 
-/* line 127, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 133, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .invisible {
   visibility: hidden; }
 
-/* line 131, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 137, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .centered-wrapper {
   text-align: center; }
-  /* line 134, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+  /* line 140, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
   .centered-wrapper:before {
     content: '';
     display: inline-block;
@@ -6046,7 +6076,7 @@ img.right {
     margin-right: -0.25em;
     /* Adjusts for spacing */ }
 
-/* line 143, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 149, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .centered {
   display: inline-block;
   vertical-align: middle; }

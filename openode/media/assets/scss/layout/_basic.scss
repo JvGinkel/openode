@@ -73,6 +73,11 @@ hr {
 // =layout
 // ==========================================================================
 
+h2 {
+    font-size: rem-calc(20);
+    font-weight: bold;
+}
+
 button.success, .button.success {
     background: $primary-color;
     border-color: none;
@@ -91,6 +96,7 @@ button.success, .button.success {
 @import "../modules/_base-top-navbar.scss";
 @import "../modules/_base-top-user-info.scss";
 @import "../modules/_hp-custom-content.scss";
+@import "../modules/_hp-news.scss";
 
 // ==========================================================================
 // =misc
