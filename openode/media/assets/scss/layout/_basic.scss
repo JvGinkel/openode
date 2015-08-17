@@ -78,6 +78,10 @@ button.success, .button.success {
     border-color: none;
     border-radius: 3px;
     width: 100%;
+
+    @media #{$medium-up} {
+        width: auto;
+    }
 }
 
 // ==========================================================================

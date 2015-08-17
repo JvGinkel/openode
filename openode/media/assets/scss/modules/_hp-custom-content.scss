@@ -1,9 +1,13 @@
 .hp-custom-content {
-    padding: rem-calc(30) 0;
-    font-size: rem-calc(14);
+    padding: rem-calc(30) rem-calc(20);
+
+    p, li {
+        font-size: rem-calc(14);
+    }
 }
 
 .hp-custom-content-title {
     font-size: rem-calc(24);
     padding: rem-calc(10) 0;
+    font-weight: bold;
 }

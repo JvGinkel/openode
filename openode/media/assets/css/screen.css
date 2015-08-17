@@ -5717,6 +5717,9 @@ button.success, .button.success {
   border-color: none;
   border-radius: 3px;
   width: 100%; }
+  @media only screen and (min-width:40.063em) {
+    button.success, .button.success {
+      width: auto; } }
 
 /* line 1, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
 .tab-bar {
@@ -5988,50 +5991,53 @@ ul.off-canvas-list li a {
 
 /* line 1, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-custom-content.scss */
 .hp-custom-content {
-  padding: 1.875rem 0;
-  font-size: 0.875rem; }
+  padding: 1.875rem 1.25rem; }
+  /* line 4, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-custom-content.scss */
+  .hp-custom-content p, .hp-custom-content li {
+    font-size: 0.875rem; }
 
-/* line 6, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-custom-content.scss */
+/* line 9, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-custom-content.scss */
 .hp-custom-content-title {
   font-size: 1.5rem;
-  padding: 0.625rem 0; }
+  padding: 0.625rem 0;
+  font-weight: bold; }
 
-/* line 95, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 99, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 img.left {
   margin-top: 1em;
   margin-right: 10px;
   margin-bottom: 10px; }
 
-/* line 101, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 105, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 img.right {
   margin-top: 1em;
   margin-left: 10px;
   margin-bottom: 10px; }
 
-/* line 107, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 111, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .t-right {
   text-align: right; }
 
-/* line 111, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 115, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .t-left {
   text-align: left; }
 
-/* line 115, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 119, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .t-center {
   text-align: center; }
 
-/* line 119, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 123, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .hidden {
   display: none; }
 
-/* line 123, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 127, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .invisible {
   visibility: hidden; }
 
-/* line 127, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 131, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .centered-wrapper {
   text-align: center; }
-  /* line 130, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+  /* line 134, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
   .centered-wrapper:before {
     content: '';
     display: inline-block;
@@ -6040,7 +6046,7 @@ img.right {
     margin-right: -0.25em;
     /* Adjusts for spacing */ }
 
-/* line 139, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
+/* line 143, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 .centered {
   display: inline-block;
   vertical-align: middle; }
