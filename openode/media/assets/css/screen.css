@@ -6030,7 +6030,33 @@ ul.off-canvas-list li a {
   border-radius: 3px;
   border-bottom: 2px solid #084a8b;
   padding: 0.3125rem 0.625rem;
-  font-size: 0.75rem; }
+  font-size: 0.75rem;
+  margin: 1.25rem 0; }
+
+/* line 30, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+.actuality p {
+  font-size: 0.875rem; }
+
+/* line 35, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+.infobox {
+  position: relative;
+  padding-bottom: 0.625rem; }
+  /* line 39, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+  .infobox .top {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+  /* line 45, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+  .infobox .avatar {
+    position: relative;
+    bottom: 0.75rem; }
+  /* line 50, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+  .infobox .text {
+    display: inline-block;
+    padding-left: 0.3125rem; }
+    /* line 54, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/modules/_hp-news.scss */
+    .infobox .text a {
+      display: block; }
 
 /* line 105, /Users/jakubkaspar/Projects/codev/projects/openode/openode/media/assets/scss/layout/basic */
 img.left {
