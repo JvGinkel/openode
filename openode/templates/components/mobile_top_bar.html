@@ -1,0 +1,25 @@
+<nav class="tab-bar hide-for-medium-up">
+    <section class="tab-bar-section">
+        <h1 class="title">
+            {{ "header"|custom_template(request) }}
+        </h1>
+    </section>
+    <section class="right-small">
+        <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+    </section>
+</nav>
+<aside class="mobile-navbar-list right-off-canvas-menu hide-for-medium-up">
+    <ul class="off-canvas-list t-left" tabindex="-1">
+        <li><a href="#">{% trans %}Tags{% endtrans %}</a></li>
+        <li><a href="#">{% trans %}People{% endtrans %}</a></li>
+        <li><a href="#">{% trans %}Organizations{% endtrans %}</a></li>
+        <li><a href="#">{% trans %}Live{% endtrans %}</a></li>
+        {% if settings.LANGUAGES|length > 1 %} 
+            {% for lang in settings.LANGUAGES %}
+            <li>
+                <a class="btn-language" href="{% url set_lang %}?language={{ lang.0 }}{% if not SUPPRESS_NEXT_LANG_SWITCH %}&amp;next={{ request.get_full_path()|clean_url }}{% endif %}">{{ lang.0 }}</a>
+            </li>
+            {% endfor %} 
+        {% endif %}
+    </ul>
+</aside>

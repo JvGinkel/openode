@@ -1,0 +1,17 @@
+// ==========================================================================
+// Title:        User Menu
+// ==========================================================================
+
+.user-menu {
+    position: relative;
+    @include reset-list;
+    @include inline-list;
+}
+
+.user-menu > li {
+    margin-left: rem-calc(4);
+
+    &:first-child {
+        margin: 0;
+    }
+}

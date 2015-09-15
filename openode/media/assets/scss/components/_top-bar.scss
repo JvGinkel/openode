@@ -1,0 +1,61 @@
+// ==========================================================================
+// Title:        Top Bar
+// ==========================================================================
+
+
+.top-bar {
+    ul {
+        @include reset-list;
+        display: inline-block;
+
+        li {
+            @include reset-styles;
+            display: inline-block;
+        }
+    }
+    
+}
+
+.top-bar-wrapper {
+    background: $topbar-bg;
+}
+
+.top-bar 
+.top-bar-section {
+    height: $topbar-height;
+
+    ul.top-bar-languages {
+        display: inline-block;
+        height: $topbar-height !important;
+        line-height: $topbar-height !important;
+    }
+
+    ul.top-bar-languages .btn-language {
+        @include circle-button(28);
+        position: relative;
+        top: -1px;
+
+        text-align: center;
+ 
+        display: inline-block;
+        font-size: rem-calc(12);
+        border: 1px solid $icon-color;
+        color: #fff;
+
+        
+    }
+
+    ul.top-bar-languages li {
+        &:active, 
+        &.active {
+            a {
+                background: $icon-color; 
+                color: $black;   
+            }
+        }
+
+        & + li {
+            margin-left: rem-calc(6);
+        }
+    }
+}

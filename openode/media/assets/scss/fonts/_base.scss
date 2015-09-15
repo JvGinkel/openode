@@ -1,5 +1,5 @@
 // ==========================================================================
-// Title:        Fonts
+// Title:        Base Fonts
 // ==========================================================================
 
 // Primary font - Open Sans
@@ -8,11 +8,11 @@
 // Icon fonts
 @font-face {
   font-family: "openode";
-  src:url("fonts/openode.eot");
-  src:url("fonts/openode.eot?#iefix") format("embedded-opentype"),
-    url("fonts/openode.woff") format("woff"),
-    url("fonts/openode.ttf") format("truetype"),
-    url("fonts/openode.svg#openode") format("svg");
+  src:url("./openode.eot");
+  src:url("./openode.eot?#iefix") format("embedded-opentype"),
+    url("./openode.woff") format("woff"),
+    url("./openode.ttf") format("truetype"),
+    url("./openode.svg#openode") format("svg");
   font-weight: normal;
   font-style: normal;
 
@@ -44,6 +44,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-convert-1:before {
+.icon-logo:before {
   content: "a";
 }

@@ -1,0 +1,16 @@
+// ==========================================================================
+// Title:        Circle button
+// ==========================================================================
+
+@mixin circle-button($size) {
+
+    width: rem-calc($size);
+    height: rem-calc($size);
+
+    line-height: rem-calc($size);
+
+    border-radius: 50%;
+
+    // Override base button component
+    padding: 0;
+}

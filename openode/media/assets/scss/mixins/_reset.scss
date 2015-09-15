@@ -1,0 +1,20 @@
+// ==========================================================================
+// Title:        Reset
+// ==========================================================================
+
+@mixin reset-list() {
+	list-style: none;
+}
+
+@mixin reset-styles() {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: initial;
+    height: initial;
+    background: initial;
+}
+
+@mixin reset-padding() {
+	padding: 0;
+}

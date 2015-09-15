@@ -1,0 +1,22 @@
+// ==========================================================================
+// Title:        Buttons
+// ==========================================================================
+
+.button {
+    @include button(
+        //$padding: rem-calc(10),
+        $radius: true
+    );
+}
+
+.button-submit {
+    @include button(
+        //$padding: rem-calc(10),
+        $bg: $yellow,
+        $radius: true
+    );
+
+    box-shadow: inset -1px -1px 0 0 #b28e00;
+    border: 1px solid #ffe67f;
+}
+

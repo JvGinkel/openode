@@ -61,7 +61,11 @@ $base-color2: #333;
 $primary-color: #084a8b;
 $icon-color: #5fbbf5;
 $icon-color2: #ffcc00;
-
+$black: #000000;
+$white: #ffffff;
+$grey: #cccccc;
+$yellow: #ffcc00;
+$blue: #5fbbf5;
 
 // a. Base
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -89,7 +93,7 @@ $icon-color2: #ffcc00;
 // $include-html-grid-classes: $include-html-classes;
 // $include-xl-html-grid-classes: false;
 
-// $row-width: rem-calc(1000);
+$row-width: rem-calc(1178);
 // $total-columns: 12;
 // $column-gutter: rem-calc(30);
 
@@ -107,9 +111,9 @@ $icon-color2: #ffcc00;
 // $font-weight-bold: bold !default;
 
 // We use these to control various global styles
-// $body-bg: $white;
-// $body-font-color: $jet;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-bg: $body-bg-color;
+$body-font-color: $black;
+$body-font-family: $primary-font;
 // $font-weight-normal:normal;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -152,7 +156,7 @@ $icon-color2: #ffcc00;
 // $black       : #000000;
 
 // We use these to make sure border radius matches unless we want it different.
-// $global-radius: 3px;
+$global-radius: 4px;
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
@@ -435,9 +439,10 @@ $icon-color2: #ffcc00;
 // $include-html-button-classes: $include-html-classes;
 
 // We use these to build padding for buttons.
+$button-base-size: rem-calc(7);
 // $button-tny: rem-calc(10);
 // $button-sml: rem-calc(14);
-// $button-med: rem-calc(16);
+$button-med: $button-base-size;
 // $button-lrg: rem-calc(18);
 
 // We use this to control the display property.
@@ -446,24 +451,24 @@ $icon-color2: #ffcc00;
 
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
-// $button-font-color: $white;
+$button-font-color: $black;
 // $button-font-color-alt: $oil;
 // $button-font-tny: rem-calc(11);
 // $button-font-sml: rem-calc(13);
-// $button-font-med: rem-calc(16);
+$button-font-med: rem-calc(13);
 // $button-font-lrg: rem-calc(20);
 // $button-font-weight: $font-weight-normal;
 // $button-font-align: center;
 
 // We use these to control various hover effects.
-// $button-function-factor: -20%;
+$button-function-factor: -5%;
 
 // We use these to control button border and hover styles.
-// $button-border-width: 0px;
-// $button-border-style: solid;
-// $button-bg-color: $primary-color;
-// $button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
-// $button-border-color: $button-bg-hover;
+$button-border-width: 1px;
+$button-border-style: solid;
+$button-bg-color: $white;
+$button-bg-hover: scale-color($button-bg-color, $lightness: $button-function-factor);
+$button-border-color: $grey;
 // $secondary-button-bg-hover: scale-color($secondary-color, $lightness: $button-function-factor);
 // $secondary-button-border-color: $secondary-button-bg-hover;
 // $success-button-bg-hover: scale-color($success-color, $lightness: $button-function-factor);
@@ -546,11 +551,11 @@ $icon-color2: #ffcc00;
 // We use this to set the border styles for dropdowns.
 // $f-dropdown-border-style: solid;
 // $f-dropdown-border-width: 1px;
-// $f-dropdown-border-color: scale-color($white, $lightness: -20%);
+$f-dropdown-border-color: scale-color($grey, $lightness: -20%);
 
 // We use these to style the triangle pip.
-// $f-dropdown-triangle-size: 6px;
-// $f-dropdown-triangle-color: $white;
+$f-dropdown-triangle-size: 0;
+// $f-dropdown-triangle-color: $black;
 // $f-dropdown-triangle-side-offset: 10px;
 
 // We use these to control styles for the list elements.
@@ -571,13 +576,13 @@ $icon-color2: #ffcc00;
 // $include-html-button-classes: $include-html-classes;
 
 // We use these to set the color of the pip in dropdown buttons
-// $dropdown-button-pip-color: $white;
-// $dropdown-button-pip-color-alt: $oil;
+$dropdown-button-pip-color: $black;
+$dropdown-button-pip-color-alt: $black;
 
 // $button-pip-tny: rem-calc(6);
 // $button-pip-sml: rem-calc(7);
-// $button-pip-med: rem-calc(9);
-// $button-pip-lrg: rem-calc(11);
+$button-pip-med: rem-calc(4);
+//$button-pip-lrg: rem-calc(4);
 
 // We use these to style tiny dropdown buttons
 // $dropdown-button-padding-tny: $button-pip-tny * 7;
@@ -592,10 +597,13 @@ $icon-color2: #ffcc00;
 // $dropdown-button-pip-top-sml: -$button-pip-sml / 2 + rem-calc(1);
 
 // We use these to style medium dropdown buttons
-// $dropdown-button-padding-med: $button-pip-med * 6 + rem-calc(3);
-// $dropdown-button-pip-size-med: $button-pip-med - rem-calc(3);
-// $dropdown-button-pip-opposite-med: $button-pip-med * 2.5;
-// $dropdown-button-pip-top-med: -$button-pip-med / 2 + rem-calc(2);
+//$dropdown-button-padding-med: $button-pip-med;
+$dropdown-button-padding-med: 28px;
+//$dropdown-button-pip-size-med: $button-pip-med;
+$dropdown-button-pip-size-med: $button-pip-med;
+//$dropdown-button-pip-opposite-med: $button-pip-med;
+$dropdown-button-pip-opposite-med: 12px;
+$dropdown-button-pip-top-med: -$button-border-width * 2;
 
 // We use these to style large dropdown buttons
 // $dropdown-button-padding-lrg: $button-pip-lrg * 5 + rem-calc(3);
@@ -622,7 +630,7 @@ $icon-color2: #ffcc00;
 // $include-html-form-classes: $include-html-classes;
 
 // We use this to set the base for lots of form spacing and positioning styles
-// $form-spacing: rem-calc(16);
+$form-spacing: rem-calc(15.34);
 
 // We use these to style the labels in different ways
 // $form-label-pointer: pointer;
@@ -634,14 +642,14 @@ $icon-color2: #ffcc00;
 // $form-label-bottom-margin: 0;
 // $input-font-family: inherit;
 // $input-font-color: rgba(0,0,0,0.75);
-// $input-font-size: rem-calc(14);
+$input-font-size: rem-calc(13);
 // $input-bg-color: $white;
 // $input-focus-bg-color: scale-color($white, $lightness: -2%);
-// $input-border-color: scale-color($white, $lightness: -20%);
+$input-border-color: $grey;
 // $input-focus-border-color: scale-color($white, $lightness: -40%);
-// $input-border-style: solid;
-// $input-border-width: 1px;
-// $input-border-radius: $global-radius;
+$input-border-style: solid;
+$input-border-width: 1px;
+$input-border-radius: $global-radius; 
 // $input-disabled-bg: $gainsboro;
 // $input-disabled-cursor: $cursor-default-value;
 // $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
@@ -1374,11 +1382,11 @@ $icon-color2: #ffcc00;
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
-// $topbar-bg: $topbar-bg-color;
+$topbar-bg-color: $primary-color;
+$topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: 45px;
+$topbar-height: 47px;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
@@ -1404,12 +1412,12 @@ $icon-color2: #ffcc00;
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
 // $topbar-link-bg-color-hover: $charcoal;
-// $topbar-link-bg-hover: #272727;
-// $topbar-link-bg-active: $primary-color;
+$topbar-link-bg-hover: lighten($topbar-bg, 10);
+$topbar-link-bg-active: $icon-color;
 // $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
-// $topbar-link-text-transform: none;
-// $topbar-link-padding: $topbar-height / 3;
+$topbar-link-text-transform: uppercase;
+$topbar-link-padding: 10px;
 
 // $topbar-button-font-size: 0.75rem;
 // $topbar-button-top: 7px;
@@ -1422,7 +1430,7 @@ $icon-color2: #ffcc00;
 
 // Top menu icon styles
 // $topbar-menu-link-transform: uppercase;
-// $topbar-menu-link-font-size: rem-calc(13);
+$topbar-menu-link-font-size: rem-calc(13);
 // $topbar-menu-link-weight: $font-weight-bold;
 // $topbar-menu-link-color: $white;
 // $topbar-menu-icon-color: $white;

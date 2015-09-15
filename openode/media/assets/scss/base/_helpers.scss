@@ -1,0 +1,28 @@
+// ==========================================================================
+// Title:        Helpers
+// ==========================================================================
+
+// Visibility helper
+.hidden {
+    display: none;
+}
+.hidden-important {
+    display: none !important;
+}
+.invisible {
+    visibility: hidden;
+}
+.invisible-important {
+    visibility: hidden !important;
+}
+
+// Text helper
+.t-uppercase {
+    text-transform: uppercase;
+}
+.t-uppercase-important {
+    text-transform: uppercase !important;
+}
+
+
+
