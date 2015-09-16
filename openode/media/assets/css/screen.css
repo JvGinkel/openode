@@ -1,4 +1,4 @@
- @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext);
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
@@ -10175,7 +10175,7 @@ button.success, .button.success {
     width: 1.75rem;
     height: 1.75rem;
     line-height: 1.75rem;
-    border-radius: 50%;
+    border-radius: 50px;
     padding: 0;
     position: relative;
     top: -1px;
@@ -10195,6 +10195,19 @@ button.success, .button.success {
 /* line 19, /Server/codev/openode/openode/media/assets/scss/components/forms */
 input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], input[type="color"], textarea {
   border-radius: 4px; }
+
+/* line 5, /Server/codev/openode/openode/media/assets/scss/components/unread-marks */
+.unread-mark {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #5fbbf5;
+  border-radius: 50px;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  line-height: 1.0625rem;
+  background: #ffffff;
+  font-weight: bold;
+  color: #5fbbf5; }
 
 /* line 5, /Server/codev/openode/openode/media/assets/scss/layout/user-menu */
 .user-menu {
@@ -10223,6 +10236,15 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   /* line 15, /Server/codev/openode/openode/media/assets/scss/layout/user-menu */
   .user-menu > li:first-child {
     margin: 0; }
+
+/* line 23, /Server/codev/openode/openode/media/assets/scss/layout/user-menu */
+.user-menu .f-dropdown > li {
+  position: relative; }
+/* line 27, /Server/codev/openode/openode/media/assets/scss/layout/user-menu */
+.user-menu .f-dropdown .unread-mark {
+  position: absolute;
+  top: 0;
+  right: 0; }
 
 /* line 5, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
 .user-info {

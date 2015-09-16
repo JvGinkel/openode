@@ -1,0 +1,11 @@
+// ==========================================================================
+// Title:        Unread Mark
+// ==========================================================================
+
+.unread-mark {
+    @include circle-button(16);  
+    display: inline-block;
+    padding: 0 rem-calc(4);
+
+    background: $quinary-color;
+}

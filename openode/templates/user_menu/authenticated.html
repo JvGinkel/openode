@@ -28,10 +28,6 @@
             {% set unread_followed_questions_count = request.user.get_unread_followed_questions_count() %} 
             {% set unread_followed_discussions_count = request.user.get_unread_followed_discussions_count() %} 
             {% set followed_count = unread_followed_nodes_count + unread_followed_questions_count + unread_followed_discussions_count %}            
-
-            {% if followed_count %}
-            <span class="unread-mark">{{ followed_count }}</span>
-            {% endif %}
         </button>
 
         <ul id="dropdown-followed" class="f-dropdown" data-dropdown-content aria-hidden="true">

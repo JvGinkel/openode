@@ -19,4 +19,13 @@
 
 .user-menu .f-dropdown {
 	@extend .f-dropdown;
+
+	& > li {
+		position: relative;
+	}
+
+	.unread-mark {
+		position: absolute;
+		top: 0; right: 0;
+	}
 }
