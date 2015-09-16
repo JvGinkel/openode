@@ -5,6 +5,6 @@
     "bowerComponentsPath": "./bower_components",
     "browsersync": {
         "baseDir": "../",
-        "proxy": "192.168.23.53:8000"
+        "proxy": "192.168.221.128:8000"
     }
-}
+}     

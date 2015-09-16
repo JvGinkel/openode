@@ -36,3 +36,6 @@ node_modules
 
 # Compiled CSS files
 css/*.css
+
+# Config.json
+config.json
