@@ -1,0 +1,31 @@
+// ==========================================================================
+// Title:        Dropdowns
+// ==========================================================================
+
+.f-dropdown {
+    display: none;
+
+    @extend .animate;
+    @extend .animate-fast;
+    @extend .flipInY;
+
+    &.open {
+        display: block;
+    }
+
+    padding: rem-calc(11);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: $global-radius;
+}
+
+.f-dropdown li {
+	& + li {
+		padding-top: rem-calc(8);
+	}
+
+	a {
+		&:hover, &:focus, &:active {
+			color: $tertiary-color;
+		}
+	}
+}

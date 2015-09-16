@@ -4,7 +4,7 @@
 
 .dropdown.button,
 button.dropdown {
-	&:after {
-		border-color: $dropdown-button-pip-color transparent transparent transparent;
-	}
+    &:after {
+        border-color: $dropdown-button-pip-color transparent transparent transparent;
+    }
 }

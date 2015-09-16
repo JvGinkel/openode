@@ -1,0 +1,394 @@
+<!DOCTYPE html>{% from "macros.html" import render_gravatar %}
+<html lang="{{ request.LANGUAGE_CODE }}">
+
+    <head>
+        <title>{% block title %}{% endblock %} | {{ settings.APP_TITLE|escape }}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="keywords" content="{%block keywords%}{%endblock%},{{ settings.APP_KEYWORDS|escape }}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Set the viewport width to device width for mobile -->
+
+        {% block meta_description %}
+            <meta name="description" content="{{settings.APP_DESCRIPTION|escape}}" />
+        {% endblock %}
+
+        {% if settings.GOOGLE_SITEMAP_CODE %}
+            <meta name="google-site-verification" content="{{ settings.GOOGLE_SITEMAP_CODE }}" />
+        {% endif %}
+
+        <link rel="shortcut icon" href="{{ settings.SITE_FAVICON|media }}" />
+
+        {% block before_css %}{% endblock %}
+        {% block forestyle %}{% endblock %}
+        {% include "meta/html_head_stylesheets.html" %}
+        {% include "meta/html_head_javascript.html" %}
+        {% block forejs %}{% endblock %}
+        {% if settings.USE_CUSTOM_HTML_HEAD %}
+            {{ settings.CUSTOM_HTML_HEAD }}
+        {% endif %}
+
+        <script type="text/javascript" src="{{"/assets/js/modernizr.js"|media }}"></script>
+        <script type="text/javascript" src="{{"/assets/js/jquery.js"|media }}"></script>
+        <script type='text/javascript' src="{{"/assets/js/foundation.js"|media }}"></script>
+        <script type='text/javascript' src="{{"/assets/js/foundation.offcanvas.js"|media }}"></script>
+
+        {% if settings.GOOGLE_ANALYTICS_KEY %}
+            <script type="text/javascript">
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', '{{ settings.GOOGLE_ANALYTICS_KEY }}']);
+              _gaq.push(['_trackPageview']);
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+            </script>
+        {% endif %}
+    </head>
+    <!--[if lt IE 8]>
+        <div style='border: 1px solid #F7941D; background: #FEEFDA; text-align: center; clear: both; height: 75px; position: relative;'>
+            <div style='width: 640px; margin: 0 auto; text-align: left; padding: 0; overflow: hidden; color: black;'>
+                <div style='width: 75px; float: left;'><img src='{{ '/style/i/old-ie-warning.jpg'|media }}' alt='Warning!'/>
+                </div>
+                <div style='width: 275px; float: left; font-family: Arial, sans-serif;'>
+                    <div style='font-size: 14px; font-weight: bold; margin-top: 12px;'>{% trans %}You are using an outdated browser{% endtrans %}
+                    </div>
+                    <div style='font-size: 12px; margin-top: 6px; line-height: 12px;'>{% trans %}For a better experience using this site, please upgrade to a modern web browser.{% endtrans %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    <![endif]-->
+    {# <body class="{% block body_class %}{% endblock %}{% if user_messages %} user-messages{% endif %}{% if page_class %} {{page_class}}{% endif %}{% if request.user.is_anonymous() %} anon{% endif %} lang-{{settings.LANGUAGE_CODE}}"> #}
+    <body class="one-col">
+
+        <div class="off-canvas-wrap" data-offcanvas>
+            <div class="inner-wrap">
+                {# === MOBILE TOP BAR === #}
+                
+                {% include "components/mobile_top_bar.html" %}
+                
+                {# === MAIN WRAPPER === #}
+                <section class="main-section">
+                    <div class="root">
+                        <header class="header">
+                        {% include "debug_header.html" %}
+                        {# ================= #}
+
+                        {# === TOP BAR === #}
+                        {% block header %}
+                            {% include "components/top_bar.html" %}
+                        {% endblock %}
+                        </header>
+
+                        {# === USER HEADER === #}
+
+                        {% block header_user %}
+                        <div class="user-info">
+
+                            {# ======== USER MENU ========= #}
+                            {% include "user_menu/user_menu_base.html" %}               
+
+                            {# ======== TEST ========= #}
+                            <div class="row hidden">
+                                <i class="icon icon-logo"></i>
+                            </div>
+
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    <div class="search group medium-5 columns">
+                                        <form id="js-search-form" action="{% url search %}">
+                                            <div class="search-input-wrapper small-9 columns">
+                                                <input type="text" class="input-search ui-autocomplete-input" placeholder="{% trans %}Search{% endtrans %}..." id="search" name="q" autocomplete="off" />
+                                            </div>
+                                            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+                                            <div class="search-button-wrapper small-3 columns">
+                                                <button class="button-search">{% trans %}Search{% endtrans %}</button>
+                                            </div>
+                                        </form>
+                                        {# <input type="text" name="search" placeholder="Search" class="v-centered eleven default input-search" /> #}
+                                    </div>
+
+                                {# ======== USER MENU LEFT ========= #}
+                                {#
+                                <div class="six columns">
+                                    <ul class="inline-list">
+                                        <li>
+                                            <a href="{% url user_profile request.user.id, 'followed_nodes' %}" class="button button-menu ico"><img src="{{ '/style/i/nodes.png'|media }}" />
+                                                {% trans %}My Nodes{% endtrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url user_profile request.user.id, 'followed_questions' %}" class="button button-menu ico"><img src="{{ '/style/i/questions.png'|media }}" />
+                                                {% trans %}My Questions{% endtrans %}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url user_profile request.user.id, 'followed_discussions' %}" class="button button-menu ico"><img src="{{ '/style/i/discussions.png'|media }}" />
+                                                {% trans %}My Discussions{% endtrans %}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                #}
+                                    {# ======== USER MENU RIGHT ========= #}
+                                    {%- if request.user.is_authenticated() -%}
+                                        {% if request.user.is_admin() %}
+                                            <a class="button button-menu" href="/admin">{% trans %}Admin{% endtrans %}</a>
+                                        {% endif %}
+
+                                        <div href="#" class="button button-menu dropdown followed">
+                                            <div class="followed-title">
+                                                {% trans %}Followed{% endtrans %}
+                                                {% set unread_followed_nodes_count = request.user.get_unread_followed_nodes_count() %}
+                                                {% set unread_followed_questions_count = request.user.get_unread_followed_questions_count() %}
+                                                {% set unread_followed_discussions_count = request.user.get_unread_followed_discussions_count() %}
+
+                                                {% set followed_count = unread_followed_nodes_count + unread_followed_questions_count + unread_followed_discussions_count %}
+                                                {% if followed_count %}
+                                                    <span class="unread-mark">{{ followed_count }}</span>
+                                                {% endif %}
+                                            </div>
+                                            <span></span>
+                                            <ul>
+                                                <li>
+                                                    <a href="{% url user_profile request.user.id, 'followed_nodes' %}">
+                                                        {% trans %}Followed Nodes{% endtrans %}
+                                                        {% if unread_followed_nodes_count %}
+                                                            <span class="unread-mark">{{ unread_followed_nodes_count }}</span>
+                                                        {% endif %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url user_profile request.user.id, 'followed_questions' %}">
+                                                        {% trans %}My Questions{% endtrans %}
+                                                        {% if unread_followed_questions_count %}
+                                                            <span class="unread-mark">{{ unread_followed_questions_count }}</span>
+                                                        {% endif %}
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{% url user_profile request.user.id, 'followed_discussions' %}">
+                                                        {% trans %}My Discussions{% endtrans %}
+                                                        {% if unread_followed_discussions_count %}
+                                                            <span class="unread-mark">{{ unread_followed_discussions_count }}</span>
+                                                        {% endif %}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        {% if user_has_perm_resolve_node_joining or request.user.has_perm('openode.resolve_organization_joining') or (settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive')) %}
+                                        <div href="#" class="button button-menu dropdown messages">
+                                          <div class="messages-title">
+                                                {% trans %}Requests{% endtrans %}
+                                                {% set messages_count = 0 %}
+
+                                                {% if user_has_perm_resolve_node_joining %}
+                                                    {% set messages_count = messages_count + node_join_requests_count %}
+                                                {% endif %}
+                                                {% if request.user.is_admin('openode.add_organization') %}
+                                                    {% set messages_count = messages_count + organization_requests_count %}
+                                                {% endif %}
+                                                {% if request.user.has_perm('openode.resolve_organization_joining') %}
+                                                    {% set messages_count = messages_count + organization_pending_memberships_count %}
+                                                {% endif %}
+                                                {% if user_has_perm_resolve_node_creating %}
+                                                    {% set messages_count = messages_count + node_create_requests_count %}
+                                                {% endif %}
+                                                {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
+                                                    {% set messages_count = messages_count + flags_count %}
+                                                {% endif %}
+                                                {% if messages_count %}
+                                                    <span class="unread-mark">{{ messages_count }}</span>
+                                                {% endif %}
+                                          </div>
+                                          <span></span>
+                                          <ul>
+                                            {% if user_has_perm_resolve_node_joining %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'node_joins' %}" title="{% trans %}node joins requests{% endtrans %}">
+                                                    {% trans %}Node joins{% endtrans %}
+                                                    {% if node_join_requests_count %}
+                                                        <span class="unread-mark">{{ node_join_requests_count }}</span>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                            {% if user_has_perm_resolve_node_creating %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'node_create' %}" title="{% trans %}node create requests{% endtrans %}">
+                                                    {% trans %}Node creation requets{% endtrans %}
+                                                    {% if node_create_requests_count %}
+                                                        <span class="unread-mark">{{ node_create_requests_count }}</span>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                            {% endif %}
+
+                                            {% if request.user.is_admin('openode.add_organization') %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'organization_requests' %}" title="{% trans %}organization requests{% endtrans %}">
+                                                    {% trans %}Requests to create organization{% endtrans %}
+                                                    {% if organization_requests_count %}
+                                                        <span class="unread-mark">{{ organization_requests_count }}</span>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                            {% endif %}
+
+                                            {% if request.user.has_perm('openode.resolve_organization_joining') %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'organization_joins' %}" title="{% trans %}organization joins requests{% endtrans %}">
+                                                    {% trans %}Organization joins{% endtrans %}
+                                                    {% if organization_pending_memberships_count %}
+                                                        <span class="unread-mark">{{ organization_pending_memberships_count }}</span>
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                            {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
+                                            <li>
+                                                <a href="{% url user_profile request.user.id, 'offensive_flags' %}" title="{% trans %}offensive flag reports{% endtrans %}">
+                                                    {% trans %}Offensive flags{% endtrans %}</span>
+                                                    {% if flags_count %}
+                                                        <span class="unread-mark">{{ flags_count }}
+                                                    {% endif %}
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                          </ul>
+                                        </div>
+                                        {% endif %}
+                                        <div href="#" class="button button-menu dropdown split user">
+                                            <a class="user-title" href="{{ request.user.get_absolute_url() }}"><div class="avatar-wrap">{{ render_gravatar(request.user, 20, False) }}</div>{{ request.user.screen_name|escape }}</a>
+                                            <span></span>
+                                            <ul>
+                                                <li><a href="{{ request.user.get_absolute_url() }}">{% trans %}Update profile{% endtrans %}</a></li>
+                                                <li><a href="{{ settings.LOGOUT_URL }}?next={{ settings.LOGOUT_REDIRECT_URL }}">{% trans %}Logout{% endtrans %}</a></li>
+                                            </ul>
+                                        </div>
+                                    {% else %}
+                                        <div class="medium-7 columns">
+
+
+                                        <form id="signin-form" class="login" method="post" action="{{ settings.LOGIN_URL }}">
+                                            {% csrf_token %}
+                                            <div class="inputs t-left">
+                                                {{ header_login_form.login_provider_name }}
+                                                {{ header_login_form.next }}
+                                                {{ header_login_form.password_action }}
+                                                <div class="signin-form-label-wrapper small-6 medium-4 columns">
+                                                    <!-- <span class="signin-form-label">{% trans %}E-mail{% endtrans %}:</span> -->
+                                                    {{ header_login_form.username }}
+                                                </div>
+                                                <div class="signin-form-label-wrapper small-6 medium-4 columns">
+                                                    <!-- <span class="signin-form-label">{% trans %}Password{% endtrans %}:</span> -->
+                                                    {{ header_login_form.password }}
+                                                </div>
+                                                <div class="signin-form-label-wrapper medium-4 columns">
+                                                    <button type="submit" class="signin-form-btn">{% trans %}Log in{% endtrans %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endblock %}
+                            {# === BREADCRUMBS === #}
+                            {% if not HOMEPAGE %}
+                                <div class="nav-container">
+                                    <div class="row">
+                                        <div class="twelve columns">
+                                            <ul class="breadcrumbs">
+                                                {# first breadcrumb element #}
+                                                <li><a href="/">{% trans %}Home{% endtrans %}</a></li>
+                                                {% block breadcrumbs %}{% endblock %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {# ================= #}
+
+                            {% include "custom_header.html" ignore missing %}
+
+                            {% if settings.CUSTOM_HEADER|trim != '' %}
+                                <div id="custom-header">
+                                    {{ settings.CUSTOM_HEADER }}
+                                </div>
+                            {% endif %}
+
+                            {# {% include "widgets/secondary_header.html" %} #}{# Scope selector, search input and ask button #}
+                            {% if settings.ENABLE_LEADING_SIDEBAR %}
+                                <div id="leading-sidebar">
+                                    {{ settings.LEADING_SIDEBAR }}
+                                </div>
+                            {% endif %}
+
+                            {% include "widgets/system_messages.html" %}
+
+                            {% if user.is_authenticated() and not user.get_organizations() %}
+                                {% include "widgets/enforce_organization.html" %}
+                            {% endif %}
+
+                            <div class="content-body {% block content_class %}{% endblock%}">
+                                {% block body %}{% endblock %}
+                            </div>
+                            <div class="root-footer"></div>
+                    </div>
+
+                    {# === FOOTER === #}
+                    <div class="footer">
+                        {% if menu_items_footer %}
+                        <div class="row">
+                            <div class="columns twelve">
+                                <ul class="footer-menu group">
+                                    {# footer menu - MenuItem #}
+                                    {% for menu_item in menu_items_footer %}
+                                        <li><a href="{{ menu_item.url }}">{{ menu_item.title }}</a></li>
+                                    {% endfor%}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {{ "footer"|custom_template(request) }}
+
+                        <div class="row">
+                            <div class="twelve columns">
+                                <p class="license">
+                                    <br />
+                                    <a href="http://www.openode.net" target="_blank">{% trans version=settings.OPENODE_VERSION %}Powered by OPENode {{ version }}{% endtrans %}</a>
+                                    |
+                                    {% trans coex_url="http://www.coex.cz", python_url="http://www.python.org", django_url="http://www.djangoproject.com" %}Open source written by <a href="{{coex_url}}">COEX</a> in <a href="{{python_url}}">Python</a> and <a href="{{django_url}}">Django</a>{% endtrans %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% include "meta/bottom_scripts.html" %}
+                    {% block endjs %}{% endblock %}
+
+                    <script type="text/javascript">
+                        for (url_name in openode['urls']){
+                            openode['urls'][url_name] = cleanUrl(openode['urls'][url_name]);
+                        }
+                    </script>
+
+                    <script>
+                        $(document).foundation();
+                    </script>
+
+                    {{ "before_body_end"|custom_template(request) }}
+                </section>
+
+            <a class="exit-off-canvas"></a>
+
+            </div>
+        </div>
+
+    </body>
+</html>

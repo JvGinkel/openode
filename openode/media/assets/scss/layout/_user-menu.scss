@@ -6,6 +6,7 @@
     position: relative;
     @include reset-list;
     @include inline-list;
+    overflow: visible;
 }
 
 .user-menu > li {
@@ -14,4 +15,8 @@
     &:first-child {
         margin: 0;
     }
+}
+
+.user-menu .f-dropdown {
+	@extend .f-dropdown;
 }

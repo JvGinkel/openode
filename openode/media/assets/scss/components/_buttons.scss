@@ -2,16 +2,41 @@
 // Title:        Buttons
 // ==========================================================================
 
+$button-avatar-size: rem-calc(25) !default; 
+$button-avatar-offset: rem-calc(4) !default;
+
 .button {
     @include button(
-        //$padding: rem-calc(10),
         $radius: true
     );
+
+    & > .icon {
+        position: relative;
+        top: rem-calc(3);
+        left: rem-calc(-6);
+
+        font-size: rem-calc(15);
+        line-height: rem-calc(15);
+        color: $secondary-color;     
+    }    
+}
+
+.button-avatar {
+    padding-left: $button-base-height;
+
+    & > img {
+        width: $button-avatar-size;
+        height: $button-avatar-size;
+
+        border-radius: 50%;
+        position: absolute;
+        top: $button-avatar-offset;
+        left: rem-calc(5);
+    }
 }
 
 .button-submit {
     @include button(
-        //$padding: rem-calc(10),
         $bg: $yellow,
         $radius: true
     );

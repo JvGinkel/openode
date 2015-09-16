@@ -1,0 +1,172 @@
+{# ======== AUTHENICATED ========= #}
+{% from "macros.html" import render_gravatar %}
+
+{# ======== USER MENU ITEMS ========= #}
+<ul class="user-menu right">
+
+    {# ======== ADMIN ========= #}
+    {% if request.user.is_admin() %}
+    <li>
+        <a href="/admin" class="button">
+            <i class="icon icon-settings"></i> 
+            {% trans %}Admin{% endtrans %}
+        </a>
+    </li>
+    {% endif %}
+
+
+    {# ======== FOLLOWED ========= #}
+
+    <li>
+        <button class="button dropdown" data-dropdown="dropdown-followed">
+            <i class="icon icon-star"></i> 
+            {% trans %}Followed{% endtrans %}
+
+            {# ======== SET UNREAD FOLLOWED NODES ========= #}
+
+            {% set unread_followed_nodes_count = request.user.get_unread_followed_nodes_count() %} 
+            {% set unread_followed_questions_count = request.user.get_unread_followed_questions_count() %} 
+            {% set unread_followed_discussions_count = request.user.get_unread_followed_discussions_count() %} 
+            {% set followed_count = unread_followed_nodes_count + unread_followed_questions_count + unread_followed_discussions_count %}            
+
+            {% if followed_count %}
+            <span class="unread-mark">{{ followed_count }}</span>
+            {% endif %}
+        </button>
+
+        <ul id="dropdown-followed" class="f-dropdown" data-dropdown-content aria-hidden="true">
+            <li>
+                <a href="{% url user_profile request.user.id, 'followed_nodes' %}">
+                    {% trans %}Followed Nodes{% endtrans %}
+                    {% if unread_followed_nodes_count %}
+                        <span class="unread-mark">{{ unread_followed_nodes_count }}</span>
+                    {% endif %}
+                </a>
+            </li>
+            <li>
+                <a href="{% url user_profile request.user.id, 'followed_questions' %}">
+                    {% trans %}My Questions{% endtrans %}
+                    {% if unread_followed_questions_count %}
+                        <span class="unread-mark">{{ unread_followed_questions_count }}</span>
+                    {% endif %}
+                </a>
+            </li>
+            <li>
+                <a href="{% url user_profile request.user.id, 'followed_discussions' %}">
+                    {% trans %}My Discussions{% endtrans %}
+                    {% if unread_followed_discussions_count %}
+                        <span class="unread-mark">{{ unread_followed_discussions_count }}</span>
+                    {% endif %}
+                </a>
+            </li>
+        </ul>        
+    </li>
+
+
+    {# ======== REQUESTS ========= #}
+    {% 
+        if user_has_perm_resolve_node_joining or request.user.has_perm('openode.resolve_organization_joining') or (settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive')) 
+    %}    
+
+    <li>
+        <button class="button dropdown" data-dropdown="dropdown-requests">
+            <i class="icon icon-mail"></i>
+            {% trans %}Requests{% endtrans %}
+
+            {# ======== SET MESSAGES COUNT ========= #}
+            {% set messages_count = 0 %}
+
+            {% if user_has_perm_resolve_node_joining %}
+                {% set messages_count = messages_count + node_join_requests_count %}
+            {% endif %}
+
+            {% if request.user.is_admin('openode.add_organization') %}
+                {% set messages_count = messages_count + organization_requests_count %}
+            {% endif %}
+
+            {% if request.user.has_perm('openode.resolve_organization_joining') %}
+                {% set messages_count = messages_count + organization_pending_memberships_count %}
+            {% endif %}
+
+            {% if user_has_perm_resolve_node_creating %}
+                {% set messages_count = messages_count + node_create_requests_count %}
+            {% endif %}
+            
+            {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
+                {% set messages_count = messages_count + flags_count %}
+            {% endif %}
+
+            {% if messages_count %}
+                <span class="unread-mark">{{ messages_count }}</span>
+            {% endif %}            
+        </button>
+
+        <ul id="dropdown-requests" class="f-dropdown" data-dropdown-content aria-hidden="true">
+            {% if user_has_perm_resolve_node_joining %}
+                <li>
+                    <a href="{% url user_profile request.user.id, 'node_joins' %}" title="{% trans %}node joins requests{% endtrans %}">
+                        {% trans %}Node joins{% endtrans %}
+                        {% if node_join_requests_count %}
+                            <span class="unread-mark">{{ node_join_requests_count }}</span>
+                        {% endif %}
+                    </a>
+                </li>
+            {% endif %}
+
+            {% if user_has_perm_resolve_node_creating %}
+                <li>
+                    <a href="{% url user_profile request.user.id, 'node_create' %}" title="{% trans %}node create requests{% endtrans %}">
+                        {% trans %}Node creation requets{% endtrans %}
+                        {% if node_create_requests_count %}
+                            <span class="unread-mark">{{ node_create_requests_count }}</span>
+                        {% endif %}
+                    </a>
+                </li>
+            {% endif %}
+
+            {% if request.user.is_admin('openode.add_organization') %}
+                <li>
+                    <a href="{% url user_profile request.user.id, 'organization_requests' %}" title="{% trans %}organization requests{% endtrans %}">
+                        {% trans %}Requests to create organization{% endtrans %}
+                        {% if organization_requests_count %}
+                            <span class="unread-mark">{{ organization_requests_count }}</span>
+                        {% endif %}
+                    </a>
+                </li>
+            {% endif %}
+
+            {% if request.user.has_perm('openode.resolve_organization_joining') %}
+                <li>
+                    <a href="{% url user_profile request.user.id, 'organization_joins' %}" title="{% trans %}organization joins requests{% endtrans %}">
+                        {% trans %}Organization joins{% endtrans %}
+                        {% if organization_pending_memberships_count %}
+                            <span class="unread-mark">{{ organization_pending_memberships_count }}</span>
+                        {% endif %}
+                    </a>
+                </li>
+            {% endif %}
+
+        </ul>        
+    </li>
+
+    {% endif %}
+
+
+    {# ======== USER ========= #}
+
+    <li>
+        <button class="button button-avatar dropdown text-limiter limit-210" data-dropdown="dropdown-user">
+            {{ render_gravatar(request.user, 25, False) }}
+            {{ request.user.screen_name|escape }}
+        </button>
+
+        <ul id="dropdown-user" class="f-dropdown" data-dropdown-content aria-hidden="true">
+            <li>
+                <a href="{{ request.user.get_absolute_url() }}">{% trans %}Update profile{% endtrans %}</a>
+            </li>
+            <li>
+                <a href="{{ settings.LOGOUT_URL }}?next={{ settings.LOGOUT_REDIRECT_URL }}">{% trans %}Logout{% endtrans %}</a>
+            </li>
+        </ul>        
+    </li>
+</ul>

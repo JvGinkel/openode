@@ -1,0 +1,22 @@
+{# ======== USER MENU ========= #}
+
+<div class="user-info">
+    <div class="row">
+        <div class="small-12 columns">
+            <div class="medium-6 columns">
+                <div class="row collapse">
+                    {% include "user_menu/search_form.html" %}                
+                </div>
+            </div>
+            <div class="medium-6 columns">
+                <div class="row collapse">
+                	{%- if request.user.is_authenticated() -%}
+                        {% include "user_menu/authenticated.html" %}
+                    {% else %}
+                        {% include "user_menu/unauthenticated.html" %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

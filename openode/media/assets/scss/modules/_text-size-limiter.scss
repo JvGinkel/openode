@@ -1,0 +1,37 @@
+// ==========================================================================
+// Title:        Text size limiter
+// ==========================================================================
+
+@mixin text-limiter-steps($class:'limit', $levels:30) {
+    @for $i from 1 through $levels {
+        &.#{$class}-#{$i*10} {
+            max-width: $i*10 + px !important;
+        }
+    }
+}
+
+@mixin text-limiter-base() {
+    display: inline-block;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    word-wrap: normal !important;
+}
+
+@mixin disable-text-limiter() {
+    max-width: initial !important;
+}
+
+@media #{$medium-up} {
+    .text-limiter {
+        @include text-limiter-base();
+        @include text-limiter-steps();
+    }
+
+    button,
+    .button {
+        &.text-limiter {
+            display: inline-block !important;
+        }
+    }
+}
