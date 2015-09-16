@@ -92,64 +92,9 @@ button.success, .button.success {
 // =modules
 // ==========================================================================
 
-@import "../modules/_base-top-navbar.scss";
+/*@import "../modules/_base-top-navbar.scss";
 @import "../modules/_base-top-user-info.scss";
 @import "../modules/_hp-custom-content.scss";
-@import "../modules/_hp-news.scss";
+@import "../modules/_hp-news.scss";*/
 
-// ==========================================================================
-// =misc
-// ==========================================================================
 
-img.left {
-    margin-top: 1em;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-img.right {
-    margin-top: 1em;
-    margin-left: 10px;
-    margin-bottom: 10px;
-}
-
-.t-right {
-    text-align: right;
-}
-
-.t-left {
-    text-align: left;
-}
-
-.t-center {
-    text-align: center;
-}
-
-.hidden {
-    display: none;
-}
-
-.invisible {
-    visibility: hidden;
-}
-
-.centered-wrapper {
-    text-align: center;
-
-    &:before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-        margin-right: -0.25em; /* Adjusts for spacing */
-    }
-}
-
-.centered {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.group {
-    @include clearfix();
-}

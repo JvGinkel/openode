@@ -12,7 +12,10 @@
 @import "modules/animation-kit";
 @import "modules/text-size-limiter";
 
-@import "base/helpers";
+//@import "modules/hp-custom-content";
+//@import "modules/hp-news";
+
+@import "base/helpers"; 
 @import "base/functions";
 //@import "base/fonts";
 @import "base/mixins";
@@ -31,5 +34,12 @@
 @import "components/forms";
 
 @import "layout/user-menu";
-@import "layout/header";
+@import "layout/header/header-base";
+@import "layout/header/user-info";
+@import "layout/footer";
+@import "layout/homepage/custom-content";
+@import "layout/homepage/news";
+@import "layout/widgets/side-widget";
+
+
 

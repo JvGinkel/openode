@@ -3485,7 +3485,7 @@ form .row input.column, form .row input.columns, form .row textarea.column, form
 /* Label Styles */
 /* line 386, ./bower_components/foundation/scss/foundation/components/forms */
 label {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: #4d4d4d;
   cursor: pointer;
   display: block;
@@ -3519,7 +3519,7 @@ label {
   border-style: solid;
   border-width: 1px;
   overflow: hidden;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   height: 2.188125rem;
   line-height: 2.188125rem; }
 
@@ -5759,7 +5759,7 @@ blockquote, blockquote p {
 /* line 291, ./bower_components/foundation/scss/foundation/components/offcanvas */
 .tab-bar {
   -webkit-backface-visibility: hidden;
-  background: #333333;
+  background: #084a8b;
   color: #ffffff;
   height: 2.8125rem;
   line-height: 2.8125rem;
@@ -5780,7 +5780,7 @@ blockquote, blockquote p {
   height: 2.8125rem;
   position: absolute;
   top: 0;
-  border-right: solid 1px #1a1a1a;
+  border-right: solid 1px #084a8b;
   left: 0; }
 
 /* line 294, ./bower_components/foundation/scss/foundation/components/offcanvas */
@@ -5789,7 +5789,7 @@ blockquote, blockquote p {
   height: 2.8125rem;
   position: absolute;
   top: 0;
-  border-left: solid 1px #1a1a1a;
+  border-left: solid 1px #084a8b;
   right: 0; }
 
 /* line 296, ./bower_components/foundation/scss/foundation/components/offcanvas */
@@ -5852,7 +5852,7 @@ blockquote, blockquote p {
   position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #333333;
+  background: #084a8b;
   z-index: 1001;
   box-sizing: content-box;
   transition: -webkit-transform 500ms ease 0s;
@@ -5877,7 +5877,7 @@ blockquote, blockquote p {
   position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #333333;
+  background: #084a8b;
   z-index: 1001;
   box-sizing: content-box;
   transition: -webkit-transform 500ms ease 0s;
@@ -5915,11 +5915,11 @@ ul.off-canvas-list {
     display: block;
     padding: 0.6666666667rem;
     color: rgba(255, 255, 255, 0.7);
-    border-bottom: 1px solid #262626;
+    border-bottom: 1px solid #063868;
     transition: background 300ms ease; }
     /* line 247, ./bower_components/foundation/scss/foundation/components/offcanvas */
     ul.off-canvas-list li a:hover {
-      background: #242424; }
+      background: #063461; }
 
 /* line 333, ./bower_components/foundation/scss/foundation/components/offcanvas */
 .move-right > .inner-wrap {
@@ -6079,7 +6079,7 @@ ul.off-canvas-list {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #333333;
+  background: #084a8b;
   z-index: 1002;
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch;
@@ -6130,7 +6130,7 @@ ul.off-canvas-list {
   margin: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  background: #333333;
+  background: #084a8b;
   z-index: 1002;
   box-sizing: content-box;
   -webkit-overflow-scrolling: touch;
@@ -9919,13 +9919,62 @@ th.hide-for-touch {
 .invisible-important {
   visibility: hidden !important; }
 
-/* line 20, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+/* line 21, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+.t-right {
+  text-align: right; }
+
+/* line 24, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+.t-left {
+  text-align: left; }
+
+/* line 27, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+.t-center {
+  text-align: center; }
+
+/* line 30, /Server/codev/openode/openode/media/assets/scss/base/helpers */
 .t-uppercase {
   text-transform: uppercase; }
 
-/* line 23, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+/* line 33, /Server/codev/openode/openode/media/assets/scss/base/helpers */
 .t-uppercase-important {
   text-transform: uppercase !important; }
+
+/* line 39, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+.centered-wrapper {
+  text-align: center; }
+  /* line 42, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+  .centered-wrapper:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+    /* Adjusts for spacing */ }
+
+/* line 50, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+.centered {
+  display: inline-block;
+  vertical-align: middle; }
+
+/* line 172, ./bower_components/foundation/scss/foundation/components/global */
+.group:before, .group:after {
+  content: " ";
+  display: table; }
+/* line 173, ./bower_components/foundation/scss/foundation/components/global */
+.group:after {
+  clear: both; }
+
+/* line 62, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+img.left {
+  margin-top: 1em;
+  margin-right: 10px;
+  margin-bottom: 10px; }
+
+/* line 67, /Server/codev/openode/openode/media/assets/scss/base/helpers */
+img.right {
+  margin-top: 1em;
+  margin-left: 10px;
+  margin-bottom: 10px; }
 
 /* line 21, /Server/codev/openode/openode/media/assets/scss/base/basic */
 h1, h2, h3, h4, h5, h6 {
@@ -9979,395 +10028,10 @@ button.success, .button.success {
     button.success, .button.success {
       width: auto; } }
 
-/* line 1, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.tab-bar {
-  background: #084a8b; }
-  /* line 4, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .tab-bar a {
-    color: #fff; }
-  /* line 8, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .tab-bar .right-small {
-    border: none; }
-  /* line 12, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .tab-bar .logo-title {
-    position: relative; }
-    /* line 15, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-    .tab-bar .logo-title .title, .tab-bar .logo-title small {
-      top: 0; }
-    /* line 19, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-    .tab-bar .logo-title .title {
-      font-size: 0.875rem; }
-    /* line 23, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-    .tab-bar .logo-title small {
-      font-size: 0.625rem; }
-
-/* line 29, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.mobile-navbar-list {
-  background: #084a8b; }
-
-/* line 35, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-ul.off-canvas-list li a {
-  color: #fff;
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  border: none;
-  padding: 0.625rem 1.25rem 0; }
-
-/* line 44, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.top-navbar {
-  background: #084a8b; }
-  /* line 47, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .top-navbar a {
-    color: #fff; }
-
-/* line 52, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.logo-title {
-  display: inline-block; }
-  /* line 55, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .logo-title .title, .logo-title small {
-    display: inline-block;
-    position: relative;
-    top: 0.25rem; }
-  /* line 61, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .logo-title .title {
-    font-size: 1.375rem;
-    font-weight: bold; }
-  /* line 66, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .logo-title small {
-    font-size: 0.8125rem;
-    color: #5fbbf5;
-    opacity: 0.9; }
-
-/* line 73, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.top-navbar-items {
-  list-style: none;
-  display: inline-block;
-  margin: 0; }
-  /* line 78, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .top-navbar-items li {
-    display: inline-block;
-    font-size: 0.8125rem;
-    text-transform: uppercase;
-    padding-right: 0.9375rem; }
-
-/* line 87, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.top-navbar-langs {
-  list-style: none;
-  display: inline-block;
-  margin: 0;
-  padding: 0.3125rem 0; }
-  /* line 93, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .top-navbar-langs li {
-    display: inline-block;
-    text-align: center; }
-  /* line 98, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .top-navbar-langs a {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    height: 1.875rem;
-    width: 1.875rem;
-    display: inline-block;
-    border: 1px solid #5fbbf5;
-    border-radius: 50%;
-    line-height: 1.875rem; }
-
-/* line 112, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.user-info {
-  background: #d7eefc;
-  padding: 1.25rem 0; }
-  /* line 116, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .user-info .search {
-    padding-bottom: 1.25rem; }
-    @media only screen and (min-width:40.063em) {
-      .user-info .search {
-        padding-bottom: 0; } }
-  /* line 124, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .user-info .input-search {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right: none; }
-    /* line 129, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-    .user-info .input-search:hover, .user-info .input-search:focus {
-      border-color: #b6c0cd;
-      box-shadow: none; }
-  /* line 135, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .user-info .button-search {
-    width: 100%;
-    margin: 0;
-    line-height: 0.3125rem;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    padding: 0;
-    background: #ffcc00;
-    color: #333;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    font-weight: bold; }
-    /* line 148, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-    .user-info .button-search:hover {
-      background: #FF9300; }
-
-/* line 154, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.search-input-wrapper, .search-button-wrapper, .signin-form-label-wrapper {
-  padding: 0; }
-
-@media only screen and (min-width:40.063em) {
-  .signin-form-label-wrapper {
-    position: relative; } }
-/* line 165, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.signin-form-label-wrapper #id_username {
-  border-right: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0; }
-  /* line 171, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .signin-form-label-wrapper #id_username:hover, .signin-form-label-wrapper #id_username:focus {
-    border-color: #b6c0cd;
-    box-shadow: none; }
-/* line 177, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.signin-form-label-wrapper #id_password {
-  border-left: none;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0; }
-  /* line 183, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .signin-form-label-wrapper #id_password:hover, .signin-form-label-wrapper #id_password:focus {
-    border-color: #b6c0cd;
-    box-shadow: none; }
-  @media only screen and (min-width:40.063em) {
-    .signin-form-label-wrapper #id_password {
-      border-top-right-radius: 0; } }
-
-/* line 194, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-.signin-form-btn {
-  width: 100%;
-  line-height: 0.3125rem;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  font-weight: bold;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  background: #5fbbf5;
-  margin-bottom: 0.625rem;
-  padding: 0; }
-  /* line 206, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-navbar.scss */
-  .signin-form-btn:hover {
-    background: #084a8b; }
-  @media only screen and (min-width:40.063em) {
-    .signin-form-btn {
-      margin: 0;
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0; } }
-
-/* line 1, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-.user-info {
-  background: #d7eefc;
-  padding: 1.25rem 0; }
-  /* line 5, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-  .user-info .search {
-    padding-bottom: 1.25rem; }
-    @media only screen and (min-width:40.063em) {
-      .user-info .search {
-        padding-bottom: 0; } }
-  /* line 13, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-  .user-info .input-search {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-right: none; }
-    /* line 18, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-    .user-info .input-search:hover, .user-info .input-search:focus {
-      border-color: #b6c0cd;
-      box-shadow: none; }
-  /* line 24, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-  .user-info .button-search {
-    width: 100%;
-    margin: 0;
-    line-height: 0.3125rem;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    padding: 0;
-    background: #ffcc00;
-    color: #333;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    font-weight: bold; }
-    /* line 37, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-    .user-info .button-search:hover {
-      background: #FF9300; }
-
-/* line 43, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-.search-input-wrapper, .search-button-wrapper, .signin-form-label-wrapper {
-  padding: 0; }
-
-@media only screen and (min-width:40.063em) {
-  .signin-form-label-wrapper {
-    position: relative; } }
-/* line 54, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-.signin-form-label-wrapper #id_username {
-  border-right: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0; }
-  /* line 60, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-  .signin-form-label-wrapper #id_username:hover, .signin-form-label-wrapper #id_username:focus {
-    border-color: #b6c0cd;
-    box-shadow: none; }
-/* line 66, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-.signin-form-label-wrapper #id_password {
-  border-left: none;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0; }
-  /* line 72, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-  .signin-form-label-wrapper #id_password:hover, .signin-form-label-wrapper #id_password:focus {
-    border-color: #b6c0cd;
-    box-shadow: none; }
-  @media only screen and (min-width:40.063em) {
-    .signin-form-label-wrapper #id_password {
-      border-top-right-radius: 0; } }
-
-/* line 83, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-.signin-form-btn {
-  width: 100%;
-  line-height: 0.3125rem;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  font-weight: bold;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  background: #5fbbf5;
-  margin-bottom: 0.625rem;
-  padding: 0; }
-  /* line 95, /Server/codev/openode/openode/media/assets/scss/modules/_base-top-user-info.scss */
-  .signin-form-btn:hover {
-    background: #084a8b; }
-  @media only screen and (min-width:40.063em) {
-    .signin-form-btn {
-      margin: 0;
-      border-bottom-left-radius: 0;
-      border-top-left-radius: 0; } }
-
-/* line 1, /Server/codev/openode/openode/media/assets/scss/modules/_hp-custom-content.scss */
-.hp-custom-content {
-  padding: 1.875rem 1.25rem; }
-  /* line 4, /Server/codev/openode/openode/media/assets/scss/modules/_hp-custom-content.scss */
-  .hp-custom-content p, .hp-custom-content li {
-    font-size: 0.875rem; }
-
-/* line 9, /Server/codev/openode/openode/media/assets/scss/modules/_hp-custom-content.scss */
-.hp-custom-content-title {
-  font-size: 1.5rem;
-  padding: 0.625rem 0;
-  font-weight: bold; }
-
-/* line 1, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-.hp-news {
-  position: relative;
-  padding: 0 1.25rem; }
-
-/* line 6, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-.section-header-control {
-  position: absolute;
-  right: 0;
-  top: 0.1875rem; }
-  /* line 11, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-  .section-header-control .control-link {
-    font-size: 0.75rem;
-    padding-right: 1.25rem;
-    text-decoration: underline; }
-
-/* line 18, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-.infobox-wrap {
-  background: rgba(95, 187, 245, 0.2);
-  color: #084a8b;
-  border-radius: 3px;
-  border-bottom: 2px solid #084a8b;
-  padding: 0.3125rem 0.625rem;
-  font-size: 0.75rem;
-  margin: 1.25rem 0; }
-
-/* line 30, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-.actuality p {
-  font-size: 0.875rem; }
-
-/* line 35, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-.infobox {
-  position: relative;
-  padding-bottom: 0.625rem; }
-  /* line 39, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-  .infobox .top {
-    position: absolute;
-    right: 0;
-    bottom: 0; }
-  /* line 45, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-  .infobox .avatar {
-    position: relative;
-    bottom: 0.75rem; }
-  /* line 50, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-  .infobox .text {
-    display: inline-block;
-    padding-left: 0.3125rem; }
-    /* line 54, /Server/codev/openode/openode/media/assets/scss/modules/_hp-news.scss */
-    .infobox .text a {
-      display: block; }
-
-/* line 104, /Server/codev/openode/openode/media/assets/scss/base/basic */
-img.left {
-  margin-top: 1em;
-  margin-right: 10px;
-  margin-bottom: 10px; }
-
-/* line 110, /Server/codev/openode/openode/media/assets/scss/base/basic */
-img.right {
-  margin-top: 1em;
-  margin-left: 10px;
-  margin-bottom: 10px; }
-
-/* line 116, /Server/codev/openode/openode/media/assets/scss/base/basic */
-.t-right {
-  text-align: right; }
-
-/* line 120, /Server/codev/openode/openode/media/assets/scss/base/basic */
-.t-left {
-  text-align: left; }
-
-/* line 124, /Server/codev/openode/openode/media/assets/scss/base/basic */
-.t-center {
-  text-align: center; }
-
-/* line 128, /Server/codev/openode/openode/media/assets/scss/base/basic */
-.hidden {
-  display: none; }
-
-/* line 132, /Server/codev/openode/openode/media/assets/scss/base/basic */
-.invisible {
-  visibility: hidden; }
-
-/* line 136, /Server/codev/openode/openode/media/assets/scss/base/basic */
-.centered-wrapper {
-  text-align: center; }
-  /* line 139, /Server/codev/openode/openode/media/assets/scss/base/basic */
-  .centered-wrapper:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-right: -0.25em;
-    /* Adjusts for spacing */ }
-
-/* line 148, /Server/codev/openode/openode/media/assets/scss/base/basic */
-.centered {
-  display: inline-block;
-  vertical-align: middle; }
-
-/* line 172, ./bower_components/foundation/scss/foundation/components/global */
-.group:before, .group:after {
-  content: " ";
-  display: table; }
-/* line 173, ./bower_components/foundation/scss/foundation/components/global */
-.group:after {
-  clear: both; }
-
+/*@import "../modules/_base-top-navbar.scss";
+@import "../modules/_base-top-user-info.scss";
+@import "../modules/_hp-custom-content.scss";
+@import "../modules/_hp-news.scss";*/
 /* line 10, /Server/codev/openode/openode/media/assets/scss/base/tooltips */
 .ui-tooltip .ui-tooltip-content {
   line-height: 1.5;
@@ -10559,4 +10223,251 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   /* line 15, /Server/codev/openode/openode/media/assets/scss/layout/user-menu */
   .user-menu > li:first-child {
     margin: 0; }
+
+/* line 5, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+.user-info {
+  background: #d7eefc;
+  padding: 1.25rem 0; }
+  /* line 9, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+  .user-info .search {
+    padding-bottom: 1.25rem; }
+    @media only screen and (min-width:40.063em) {
+      .user-info .search {
+        padding-bottom: 0; } }
+  /* line 17, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+  .user-info .input-search {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none; }
+    /* line 22, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+    .user-info .input-search:hover, .user-info .input-search:focus {
+      border-color: #b6c0cd;
+      box-shadow: none; }
+  /* line 28, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+  .user-info .button-search {
+    width: 100%;
+    margin: 0;
+    line-height: 0.3125rem;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 0;
+    background: #ffcc00;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: bold; }
+    /* line 41, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+    .user-info .button-search:hover {
+      background: #FF9300; }
+  @media only screen and (min-width:40.063em) {
+    /* line 49, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+    .user-info button, .user-info .button, .user-info input {
+      margin-bottom: 0; }
+ }
+
+/* line 55, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+.search-input-wrapper, .search-button-wrapper, .signin-form-label-wrapper {
+  padding: 0; }
+
+@media only screen and (min-width:40.063em) {
+  .signin-form-label-wrapper {
+    position: relative; } }
+/* line 66, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+.signin-form-label-wrapper #id_username {
+  border-right: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0; }
+  /* line 72, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+  .signin-form-label-wrapper #id_username:hover, .signin-form-label-wrapper #id_username:focus {
+    border-color: #b6c0cd;
+    box-shadow: none; }
+/* line 78, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+.signin-form-label-wrapper #id_password {
+  border-left: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0; }
+  /* line 84, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+  .signin-form-label-wrapper #id_password:hover, .signin-form-label-wrapper #id_password:focus {
+    border-color: #b6c0cd;
+    box-shadow: none; }
+  @media only screen and (min-width:40.063em) {
+    .signin-form-label-wrapper #id_password {
+      border-top-right-radius: 0; } }
+
+/* line 95, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+.signin-form-btn {
+  width: 100%;
+  line-height: 0.3125rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background: #5fbbf5;
+  margin-bottom: 0.625rem;
+  padding: 0; }
+  /* line 107, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
+  .signin-form-btn:hover {
+    background: #084a8b; }
+  @media only screen and (min-width:40.063em) {
+    .signin-form-btn {
+      margin: 0;
+      border-bottom-left-radius: 0;
+      border-top-left-radius: 0; } }
+
+/* line 6, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+.footer {
+  background: #516c8a;
+  text-align: left;
+  color: #fff;
+  padding: 1.25rem 0;
+  width: 100%; }
+  /* line 13, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+  .footer h2 {
+    color: #fff;
+    font-size: 1.375rem; }
+
+/* line 19, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+.footer-menu {
+  margin: 0 0 1.875rem; }
+  /* line 22, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+  .footer-menu li {
+    list-style: none; }
+  /* line 26, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+  .footer-menu li:before {
+    content: "• ";
+    color: #5fbbf5;
+    font-size: 2.5rem;
+    line-height: 0.5;
+    position: relative;
+    top: 0.625rem; }
+  /* line 35, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+  .footer-menu a {
+    color: #fff;
+    font-size: 0.8125rem;
+    text-decoration: underline; }
+
+/* line 42, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+.report-issue {
+  font-size: 0.8125rem;
+  padding: 0.625rem 0 0.625rem 2.5rem;
+  background: url('../img/ico-info.png') no-repeat left;
+  background-size: 1.875rem; }
+  /* line 48, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+  .report-issue a {
+    color: #fff;
+    text-decoration: underline; }
+
+/* line 54, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+.license {
+  font-size: 0.75rem; }
+  /* line 57, /Server/codev/openode/openode/media/assets/scss/layout/footer */
+  .license a {
+    color: #fff;
+    text-decoration: underline; }
+
+/* line 5, /Server/codev/openode/openode/media/assets/scss/layout/homepage/custom-content */
+.hp-custom-content {
+  padding: 1.875rem 1.25rem; }
+  /* line 8, /Server/codev/openode/openode/media/assets/scss/layout/homepage/custom-content */
+  .hp-custom-content p, .hp-custom-content li {
+    font-size: 0.875rem; }
+
+/* line 13, /Server/codev/openode/openode/media/assets/scss/layout/homepage/custom-content */
+.hp-custom-content-title {
+  font-size: 1.5rem;
+  padding: 0.625rem 0;
+  font-weight: bold; }
+
+/* line 5, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+.hp-news {
+  position: relative;
+  padding: 0 1.25rem; }
+
+/* line 10, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+.section-header-control {
+  position: absolute;
+  right: 0;
+  top: 0.1875rem; }
+  /* line 15, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+  .section-header-control .control-link {
+    font-size: 0.75rem;
+    padding-right: 1.25rem;
+    text-decoration: underline; }
+
+/* line 22, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+.infobox-wrap {
+  background: rgba(95, 187, 245, 0.2);
+  color: #084a8b;
+  border-radius: 3px;
+  border-bottom: 2px solid #084a8b;
+  padding: 0.3125rem 0.625rem;
+  font-size: 0.75rem;
+  margin: 1.25rem 0; }
+
+/* line 34, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+.actuality p {
+  font-size: 0.875rem; }
+
+/* line 39, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+.infobox {
+  position: relative;
+  padding-bottom: 0.625rem; }
+  /* line 43, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+  .infobox .top {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+  /* line 49, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+  .infobox .avatar {
+    position: relative;
+    bottom: 0.75rem; }
+  /* line 54, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+  .infobox .text {
+    display: inline-block;
+    padding-left: 0.3125rem; }
+    /* line 58, /Server/codev/openode/openode/media/assets/scss/layout/homepage/news */
+    .infobox .text a {
+      display: block; }
+
+/* line 5, /Server/codev/openode/openode/media/assets/scss/layout/widgets/side-widget */
+.widget-block {
+  text-align: left;
+  margin-bottom: 1.875rem; }
+  /* line 9, /Server/codev/openode/openode/media/assets/scss/layout/widgets/side-widget */
+  .widget-block .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.625rem; }
+  /* line 14, /Server/codev/openode/openode/media/assets/scss/layout/widgets/side-widget */
+  .widget-block .gravatar-link {
+    margin: 0 0.625rem 0.625rem 0;
+    display: inline-block; }
+    /* line 18, /Server/codev/openode/openode/media/assets/scss/layout/widgets/side-widget */
+    .widget-block .gravatar-link img {
+      border-radius: 50%; }
+  /* line 23, /Server/codev/openode/openode/media/assets/scss/layout/widgets/side-widget */
+  .widget-block .tags {
+    margin: 0; }
+    /* line 26, /Server/codev/openode/openode/media/assets/scss/layout/widgets/side-widget */
+    .widget-block .tags li {
+      list-style: none;
+      margin-bottom: 0.625rem;
+      display: inline-block; }
+      @media only screen and (min-width:64.063em) {
+        .widget-block .tags li {
+          display: block; } }
+  /* line 37, /Server/codev/openode/openode/media/assets/scss/layout/widgets/side-widget */
+  .widget-block .tag {
+    font-size: 0.75rem;
+    color: #084a8b;
+    text-transform: lowercase;
+    background: #d7eefc;
+    padding: 0.3125rem 0.625rem; }
+  /* line 45, /Server/codev/openode/openode/media/assets/scss/layout/widgets/side-widget */
+  .widget-block .tag-number {
+    font-size: 0.75rem;
+    color: #6e6e6e;
+    margin-left: 0.3125rem; }
 /*# sourceMappingURL=screen.css.map */

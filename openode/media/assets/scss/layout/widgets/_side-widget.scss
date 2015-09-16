@@ -1,0 +1,50 @@
+// ==========================================================================
+// Title:        Widgets/Side Widget
+// ==========================================================================
+
+.widget-block {
+    text-align: left;
+    margin-bottom: rem-calc(30);
+
+    .title {
+        font-size: rem-calc(24);
+        margin-bottom: rem-calc(10);
+    }
+
+    .gravatar-link {
+        margin: 0 rem-calc(10) rem-calc(10) 0;
+        display: inline-block;
+
+        img {
+            border-radius: 50%;
+        }
+    }
+
+    .tags {
+        margin: 0;
+
+        li {
+            list-style: none;
+            margin-bottom: rem-calc(10);
+            display: inline-block;
+
+            @media #{$large-up} {
+                display: block;
+            }
+        }
+    }
+
+    .tag {
+        font-size: rem-calc(12);
+        color: $primary-color;
+        text-transform: lowercase;
+        background: $tertiary-color;
+        padding: rem-calc(5) rem-calc(10);
+    }
+
+    .tag-number {
+        font-size: rem-calc(12);
+        color: #6e6e6e;
+        margin-left: rem-calc(5);
+    }
+}

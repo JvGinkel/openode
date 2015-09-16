@@ -55,10 +55,10 @@
 
 $primary-font: 'Open Sans', sans-serif;
 
-$primary-color: #084a8b;
+$primary-color: #084a8b; 
 $secondary-color: #5fbbf5;
-$tertiary-color: #5fbbf5;
-//$quaternary-color: transparent;
+$tertiary-color: #d7eefc;
+$quaternary-color: #516c8a;
 //$quinary: transparent; 
 //$senary: transparent; 
 //$septenary: transparent; 
@@ -655,7 +655,7 @@ $form-spacing: rem-calc(15.34);
 
 // We use these to style the labels in different ways
 // $form-label-pointer: pointer;
-// $form-label-font-size: rem-calc(14);
+$form-label-font-size: rem-calc(13);
 // $form-label-font-weight: $font-weight-normal;
 // $form-label-line-height: 1.5;
 // $form-label-font-color: scale-color($black, $lightness: 30%);
@@ -844,7 +844,7 @@ $input-border-radius: $global-radius;
 
 // $include-html-off-canvas-classes: $include-html-classes;
 
-// $tabbar-bg: $oil;
+$tabbar-bg: $primary-color;
 // $tabbar-height: rem-calc(45);
 // $tabbar-icon-width: $tabbar-height;
 // $tabbar-line-height: $tabbar-height;
@@ -852,8 +852,8 @@ $input-border-radius: $global-radius;
 // $tabbar-middle-padding: 0 rem-calc(10);
 
 // Off Canvas Divider Styles
-// $tabbar-right-section-border: solid 1px scale-color($tabbar-bg, $lightness: 13%);
-// $tabbar-left-section-border: solid 1px scale-color($tabbar-bg, $lightness: -50%);
+$tabbar-right-section-border: solid 1px $tabbar-bg;
+$tabbar-left-section-border: $tabbar-right-section-border;
 
 // Off Canvas Tab Bar Headers
 // $tabbar-header-color: $white;
@@ -863,7 +863,7 @@ $input-border-radius: $global-radius;
 
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
-// $off-canvas-bg: $oil;
+$off-canvas-bg: $tabbar-bg;
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);

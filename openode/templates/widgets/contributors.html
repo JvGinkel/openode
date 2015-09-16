@@ -1,8 +1,8 @@
 {% from "macros.html" import render_gravatar %}
 {# {% cache 600 "contributors" contributors search_tags scope sort query context.page language_code %} #}
-<div class="block">
+<div class="widget-block">
     <h3 class="title">{% trans %}Contributors{% endtrans %}</h3>
-        <div class="block-content group">
+        <div class="group">
         {% spaceless %}
         {% for person in contributors %}
             {{ render_gravatar(person, 48) }}

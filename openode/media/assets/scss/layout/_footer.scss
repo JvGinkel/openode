@@ -1,0 +1,61 @@
+// ==========================================================================
+// Title:        Footer
+// ==========================================================================
+
+
+.footer {
+    background: $quaternary-color;
+    text-align: left;
+    color: $base-color;
+    padding: rem-calc(20) 0;
+    width: 100%;
+
+    h2 {
+        color: $base-color;
+        font-size: rem-calc(22);
+    }
+}
+
+.footer-menu {
+    margin: 0 0 rem-calc(30);
+
+    li {
+        list-style: none;
+    }
+
+    li:before {
+        content: "• ";
+        color: $icon-color;
+        font-size: rem-calc(40);
+        line-height: 0.5;
+        position: relative;
+        top: rem-calc(10);
+    }
+
+    a {
+        color: $base-color;
+        font-size: rem-calc(13);
+        text-decoration: underline;
+    }
+}
+
+.report-issue {
+    font-size: rem-calc(13);
+    padding: rem-calc(10) 0 rem-calc(10) rem-calc(40);
+    background: url('../img/ico-info.png') no-repeat left;
+    background-size: rem-calc(30);
+
+    a {
+        color: $base-color;
+        text-decoration: underline;
+    }
+}
+
+.license {
+    font-size: rem-calc(12);
+
+    a {
+        color: $base-color;
+        text-decoration: underline;
+    }
+}

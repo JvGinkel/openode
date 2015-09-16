@@ -1,0 +1,116 @@
+// ==========================================================================
+// Title:        Header/User Info
+// ==========================================================================
+
+.user-info {
+    background: $tertiary-color;
+    padding: rem-calc(20) 0;
+
+    .search {
+        padding-bottom: rem-calc(20);
+
+        @media #{$medium-up} {
+            padding-bottom: 0;
+        }
+    }
+
+    .input-search {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+
+        &:hover, &:focus {
+            border-color: #b6c0cd;
+            box-shadow: none;
+        }
+    }
+
+    .button-search {
+        width: 100%;
+        margin: 0;
+        line-height: rem-calc(5);
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        padding: 0;
+        background: $icon-color2;
+        color: $base-color2;
+        text-transform: uppercase;
+        font-size: rem-calc(12);
+        font-weight: bold;
+
+        &:hover {
+            background: #FF9300;
+        }
+    }
+
+    @media #{$medium-up} {
+        button,
+        .button,
+        input {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.search-input-wrapper, .search-button-wrapper, .signin-form-label-wrapper {
+    padding: 0;
+}
+
+.signin-form-label-wrapper {
+
+    @media #{$medium-up} {
+        position: relative;
+
+    }
+
+    #id_username {
+        border-right:  none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+
+        &:hover, &:focus {
+            border-color: #b6c0cd;
+            box-shadow: none;
+        }
+    }
+
+    #id_password {
+        border-left:  none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        &:hover, &:focus {
+            border-color: #b6c0cd;
+            box-shadow: none;
+        }
+
+        @media #{$medium-up} {
+            border-top-right-radius: 0;
+        }
+    }
+}
+
+.signin-form-btn {
+    width: 100%;
+    line-height: rem-calc(5);
+    text-transform: uppercase;
+    font-size: rem-calc(12);
+    font-weight: bold;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    background: $icon-color;
+    margin-bottom: rem-calc(10);
+    padding: 0;
+
+    &:hover {
+        background: $primary-color;
+    }
+
+    @media #{$medium-up} {
+        margin: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+}

@@ -57,11 +57,13 @@
                             <a href="{% url archive %}" class="control-link">{% trans %}News archive{% endtrans %}</a>
                         </div>
                         <h2>{% trans %}News{% endtrans %}</h2>
-                        <div class="actuality">
-                            <div class="infobox-wrap">
+                        <div class="actuality row">
+                            <div class="infobox-wrap medium-4 columns medium-push-8">
                                 {{ render_user_infobox(latest_actuality.author, request.user, _('added'), latest_actuality.created) }}
                             </div>
-                            {{ latest_actuality.text }}
+                            <div class="news-text-wrap medium-8 columns medium-pull-4">
+                                {{ latest_actuality.text }}
+                            </div>
                             {% if request.user.is_admin('openode.change_actuality') %}
                                 <ul class="post-controls group">
                                     <li>
@@ -144,15 +146,15 @@
             </div>
         </div>
 
-        <div class="large-3 aside">
+        <div class="large-3 columns">
             {% include "widgets/contributors.html" %}
 
             {# === tags === #}
-            <div class="block">
+            <div class="widget-block">
                 <h3 class="title">{% trans %}Tags{% endtrans %}</h3>
                 <div class="block-content">
                     {{ tag_list(tags, show_numbers=True) }}
-                    <p class="t-right">
+                    <p>
                         <a href="{% url tags %}" class="control-link">{% trans %}All tags{% endtrans%}</a>
                     </p>
                 </div>

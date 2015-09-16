@@ -1,22 +1,29 @@
 {# ======== FOOTER ========= #}
 
 <div class="footer">
-    {% if menu_items_footer %}
     <div class="row">
-        <div class="columns twelve">
+        {% if menu_items_footer %}
+        <div class="medium-6 columns">
+            <h2>{% trans %}Informace{% endtrans %}</h2>
             <ul class="footer-menu group">
-                {# footer menu - MenuItem #} {% for menu_item in menu_items_footer %}
-                <li><a href="{{ menu_item.url }}">{{ menu_item.title }}</a></li>
+                {# footer menu - MenuItem #}
+                {% for menu_item in menu_items_footer %}
+                    <li><a href="{{ menu_item.url }}">{{ menu_item.title }}</a></li>
                 {% endfor%}
             </ul>
         </div>
-    </div>
-    {% endif %} {{ "footer"|custom_template(request) }}
-    <div class="row">
-        <div class="twelve columns">
+        {% endif %}
+
+        <div class="medium-6 columns">
+            {{ "footer"|custom_template(request) }}
+        </div>
+        <div class="small-12 columns">
+            <hr />
             <p class="license">
-                <br />
-                <a href="http://www.openode.net" target="_blank">{% trans version=settings.OPENODE_VERSION %}Powered by OPENode {{ version }}{% endtrans %}</a> | {% trans coex_url="http://www.coex.cz", python_url="http://www.python.org", django_url="http://www.djangoproject.com" %}Open source written by <a href="{{coex_url}}">COEX</a> in <a href="{{python_url}}">Python</a> and <a href="{{django_url}}">Django</a>{% endtrans %}
+                Powered by
+                <a href="http://www.openode.net" target="_blank">{% trans version=settings.OPENODE_VERSION %} OPENode {{ version }}{% endtrans %}</a>
+                |
+                {% trans coex_url="http://www.coex.cz", python_url="http://www.python.org", django_url="http://www.djangoproject.com" %}Open source written by <a href="{{coex_url}}">COEX</a> in <a href="{{python_url}}">Python</a> and <a href="{{django_url}}">Django</a>{% endtrans %}
             </p>
         </div>
     </div>
