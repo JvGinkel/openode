@@ -1,0 +1,67 @@
+// ==========================================================================
+// Title:        Node Section
+// ==========================================================================
+
+
+// Variables
+$content-panel-padding: rem-calc(17px) !default;
+$content-panel-bg-color: $white !default; 
+$content-panel-header-bg-color: $tertiary-color !default; 
+$content-panel-header-font-size: rem-calc(12px) !default; 
+
+
+.content-panel {
+    background: $content-panel-bg-color;
+    border: 1px solid $border-color;
+    border-radius: $global-radius;
+}
+
+.content-panel-header {
+    padding: $content-panel-padding;
+    background: $content-panel-header-bg-color;
+    
+    & > * {
+        font-size: $content-panel-header-font-size;
+    }
+
+    button,
+    .button {
+        margin: 0;
+    }  
+
+    .content-panel-dropdown {
+        padding: rem-calc(5px) rem-calc(15px);
+        max-width: rem-calc(140px);
+
+        li {
+            font-size: $content-panel-header-font-size;
+        }
+    }   
+}
+
+.content-panel-control {
+    &.content-inline {
+        @include clearfix();
+
+        & > * {
+            display: inline-block;
+        }
+    }
+}
+
+.content-panel-content {
+    padding: $content-panel-padding;
+}
+
+.content-panel-wrapper {
+    .title {
+        text-transform: uppercase;
+    }
+}
+
+.content-panel-dropdown {
+    text-align: left;
+}
+
+
+

@@ -76,13 +76,88 @@
                         </div>
                     </div>
                 </div>
-                <hr />
             {% endif %}
 
             <div class="row">
                 <div class="small-12 columns">
-                    <div class="section-header no-top-margin">
+                    <div class="content-panel-wrapper">
+                      
+                        <div class="content-panel-control content-inline">
+                            <h2 class="title left">{% trans %}Nodes{% endtrans %}</h2>
+                            <div class="control-area right">
+                                {% if request.user.is_admin('openode.add_node') or request.user.is_admin('openode.change_node')%}
+                                    {% if request.user.is_admin('openode.change_node') %}
+                                        <a href="{% url admin:openode_node_changelist %}" class="control-link">
+                                            <i class="icon icon-plus"></i>
+                                            {% trans %}Edit node list{% endtrans %}
+                                        </a>
+                                    {% endif %}
+                                    {% if request.user.is_admin('openode.add_node') %}
+                                        <a href="{% url admin:openode_node_add %}" class="control-link">
+                                            <i class="icon icon-list"></i>
+                                            {% trans %}Add new node{% endtrans %}
+                                        </a>
+                                    {% endif %}
+                                    <a href="{% url node_ask_to_create %}" class="control-link">
+                                        <i class="icon icon-check-mark"></i>
+                                        {% trans %}Ask to create node{% endtrans %}
+                                    </a>
+                                {% elif request.user.is_authenticated() %}
+                                    <a href="{% url node_ask_to_create %}" class="control-link">{% trans %}Ask to create node{% endtrans %}</a>
+                                {% endif %}  
+                            </div>                          
+                        </div>   
+                   
+                        <div class="content-panel">
+                            <div class="content-panel-header t-right">
+                                <span class="button-label">{% trans %}Show:{% endtrans %}</span>
+                                <div class="button dropdown" data-dropdown="node-display-mode">
+                                    {% if display_mode==DISPLAY_MODE_ACTIVE %}
+                                        {% trans %}active only{% endtrans %}
+                                    {% endif %}
 
+                                    {% if display_mode==DISPLAY_MODE_ACTIVE_AND_CLOSED %}
+                                        {% trans %}active and closed{% endtrans %}
+                                    {% endif %}
+                                </div>
+                                <ul id="node-display-mode" class="content-panel-dropdown f-dropdown" data-dropdown-content aria-hidden="true">
+                                    {% if display_mode==DISPLAY_MODE_ACTIVE %}
+                                    <li>
+                                        <a href="{{ request.path }}?dm={{ DISPLAY_MODE_ACTIVE_AND_CLOSED }}">{% trans %}active and closed{% endtrans %}</a>
+                                    </li>
+                                    {% endif %}
+
+                                    {% if display_mode==DISPLAY_MODE_ACTIVE_AND_CLOSED %}
+                                    <li>                                            
+                                        <a href="{{ request.path }}?dm={{ DISPLAY_MODE_ACTIVE }}">{% trans %}active only{% endtrans %}</a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                            <div class="content-panel-content">
+                                {% with nodes_of_user = request.user %}
+                                {% for node in nodes recursive %}
+                                    {% if request.user.has_openode_perm("node_show", node) %}
+                                        {% set NODE_TREE_DISPLAY = True %}
+                                        {% set USE_AJAX = True %}
+
+                                        {% include "node/snippets/node_box.html" %}
+                                        {% if not node.is_leaf_node_for_user(request.user, with_closed) %}
+                                            {{ loop(node.get_children_for_user(request.user, with_closed)) }}
+                                        {% endif %}
+                                     {% endif %}
+                                {% endfor %}
+                                {% endwith %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {# NODE #}
+            <div class="row hidden">
+                <div class="small-12 columns">
+                    <div class="section-header no-top-margin">
                         <div class="f-right section-header-control">
                             {% if request.user.is_admin('openode.add_node') or request.user.is_admin('openode.change_node')%}
                                 {% if request.user.is_admin('openode.change_node') %}

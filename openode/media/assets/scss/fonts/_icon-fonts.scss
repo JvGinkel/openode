@@ -40,12 +40,36 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-settings:before {
+.icon-logo:before {
+  content: "a";
+}
+.icon-info:before {
   content: "b";
 }
-.icon-star:before {
+.icon-settings:before {
   content: "c";
 }
 .icon-mail:before {
   content: "d";
+}
+.icon-star:before {
+  content: "e";
+}
+.icon-compass:before {
+  content: "f";
+}
+.icon-plus:before {
+  content: "g";
+}
+.icon-list:before {
+  content: "h";
+}
+.icon-left-arrow:before {
+  content: "k";
+}
+.icon-right-arrow:before {
+  content: "l";
+}
+.icon-check-mark:before {
+  content: "i";
 }
