@@ -67,11 +67,12 @@ $border-color: #cccccc;
 //$nonary-color: transparent;
 
 $text-color: #000000;
+$link-color: #000000;
 
 $body-bg-color: #f5f5f5;
 $base-color: #fff;
 $base-color2: #333;
-$icon-color: #5fbbf5;
+$icon-color: $secondary-color;
 $icon-color2: #ffcc00;
 $black: #000000;
 $white: #ffffff;

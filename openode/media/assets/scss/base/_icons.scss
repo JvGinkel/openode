@@ -1,3 +1,21 @@
 // ==========================================================================
 // Title:        Icons
 // ==========================================================================
+
+.icon {
+    &.round {
+        display: inline-block;
+        text-align: center;
+
+        border: 1px solid $icon-color;
+        border-radius: 50px; 
+
+        min-width: rem-calc(25px);
+        height: rem-calc(25px);
+        line-height: rem-calc(24px);
+
+        background: transparent;
+        font-weight: bold;
+        //color: $secondary-color;
+    }
+}

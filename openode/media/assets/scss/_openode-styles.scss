@@ -23,16 +23,18 @@
  
 @import "base/basic";
 //@import "base/forms";
-//@import "base/icons";
+@import "base/icons";
 @import "base/tooltips";
 @import "base/dialogs";
 
+@import "components/content-panel";
 @import "components/buttons";
 @import "components/dropdown-buttons";
 @import "components/dropdowns";
 @import "components/top-bar";
 @import "components/forms";
 @import "components/unread-marks";
+
 
 @import "layout/user-menu";
 @import "layout/header/header-base";
@@ -42,7 +44,7 @@
 @import "layout/homepage/news";
 @import "layout/widgets/side-widget";
 
-@import "layout/nodes/node-base";
+@import "layout/nodes/node-box";
 
 
 
