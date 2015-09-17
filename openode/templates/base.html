@@ -122,13 +122,17 @@
                         {% endif %}
 
                         <div class="content-body {% block content_class %}{% endblock%}">
-                            {% block body %}{% endblock %}
+                            <div class="row">
+                                <div class="small-12 columns">
+                                    {% block body %}{% endblock %}
+                                </div>
+                            </div>
                         </div>
                         <div class="root-footer"></div>
                     </div>
 
                     {# === FOOTER === #}
-                    {% include "components/footer.html" %}>
+                    {% include "components/footer.html" %}
 
                     {% include "meta/bottom_scripts.html" %}
                     {% block endjs %}{% endblock %}

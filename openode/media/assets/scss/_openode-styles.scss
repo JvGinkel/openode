@@ -7,6 +7,7 @@
 
 @import "mixins/reset";
 @import "mixins/circle-button";
+@import "mixins/content-levels";
 
 @import "modules/logo";
 @import "modules/animation-kit";
@@ -17,8 +18,6 @@
 
 @import "base/helpers"; 
 @import "base/functions";
-//@import "base/fonts";
-@import "base/mixins";
 @import "base/animations";
  
 @import "base/basic";
@@ -44,7 +43,10 @@
 @import "layout/homepage/news";
 @import "layout/widgets/side-widget";
 
+
+@import "layout/nodes/node-base";
 @import "layout/nodes/node-box";
+@import "layout/nodes/report-box";
 
 
 

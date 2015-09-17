@@ -14,7 +14,7 @@
                 {# REPORT BOXES #}
                 {% if NODE_TREE_DISPLAY and node.is_category() %}
                     {# NODE STYLE CATEGORY #}
-                    <div class="report-wrap hidden">
+                    <div class="report-wrap">
                         <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
                     </div>
                 {% else %}
@@ -40,10 +40,6 @@
                                         </span>
                                         <span class="title">{% trans cnt = threads_count_for_module %}Q&A {% pluralize %}Q&As {% endtrans %}</span>
                                     {% endwith %}
-                                    {# NODE STYLE CATEGORY #}
-                                    <div class="report-wrap">
-                                        <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                                    </div>
                                 </a>
                             </div>
                         {% endif %}
@@ -67,10 +63,6 @@
                                         <span class="title">{% trans cnt = threads_count_for_module %}Discus. {% pluralize %}Discus. {% endtrans %}</span>
                                     {% endwith %}
                                     {# <span class="title">{% trans %}Discu.{% endtrans %}</span> #}
-                                    {# NODE STYLE CATEGORY #}
-                                    <div class="report-wrap">
-                                        <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                                    </div>
                                 </a>
                             </div>
                         {% endif %}
@@ -94,10 +86,6 @@
                                     </span>
 
                                     <span class="title">{% trans %}Docs.{% endtrans %}</span>
-                                    {# NODE STYLE CATEGORY #}
-                                    <div class="report-wrap">
-                                        <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                                    </div>
                                 </a>
                             </div>
                         {% endif %}
@@ -113,23 +101,17 @@
                     <a class="no-outline js-expander js-closed {% if USE_AJAX %}js-use-ajax{% endif %}" href="{% url toggle_node %}?node_id={{ node.pk }}" data-element_id="{{ node.pk }}" data-close="▾" data-open="▸">
                         {% if not node.long_title %}
                             <h3 class="node-title no-longtitle">
-                                <span class="expander-sign">▸</span> 
-                                <span class="title">{{ node.title_with_status('html') }}</span>
+                                <span class="expander-sign">▸</span> <span class="title">{{ node.title_with_status('html') }}</span>
                             </h3>
                         {% else %}
                             <h3 class="node-title">
-                                <span class="expander-sign">▸</span> 
-                                <span class="title">{{ node.title_with_status('html') }}</span>
+                                <span class="expander-sign">▸</span> <span class="title">{{ node.title_with_status('html') }}</span>
                                 <span class="longtitle">
                                     <span class="title">- {{ node.long_title|truncate(100) }}</span>
                                 </span>
-                            </h3>                            
+                            </h3>
+                            
                         {% endif %}
-
-                        {# NODE STYLE CATEGORY #}
-                        <div class="report-wrap">
-                            <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                        </div>
                     </a>
                 {% else %}
 

@@ -49,9 +49,7 @@ $content-panel-header-font-size: rem-calc(12px) !default;
     }
 
     .control-link {
-        font-size: rem-calc(12px);
-        color: $link-color;
-        
+
         & + .control-link {
             padding-left: rem-calc(20px);
         }
@@ -76,6 +74,10 @@ $content-panel-header-font-size: rem-calc(12px) !default;
     .title {
         text-transform: uppercase;
         font-size: rem-calc(24px);
+    }
+    .control-link {        
+        font-size: rem-calc(12px);
+        color: $link-color;
     }
 }
 

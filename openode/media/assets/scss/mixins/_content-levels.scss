@@ -1,0 +1,13 @@
+// ==========================================================================
+// Title:        Content Levels
+// ==========================================================================
+
+@mixin content-levels($minLevel: 1, $maxLevels: 10, $step: 25, $levelSelector: '&.level', $contentSelector: '.node-box-content') {
+    @for $i from $minLevel through $maxLevels {
+        #{$levelSelector}-#{$i} {
+            #{$contentSelector} {
+                padding-left: $i * $step;
+            }
+        }
+    }
+}

@@ -10,14 +10,28 @@ $button-avatar-offset: rem-calc(4) !default;
         $radius: true
     );
 
-    & > .icon {
-        position: relative;
-        top: rem-calc(3);
-        left: rem-calc(-6);
+    /*height: $button-base-height;
+    line-height: $button-base-height;
 
-        font-size: rem-calc(15);
-        line-height: rem-calc(15);
-        color: $secondary-color;     
+    padding: 0 $button-base-size *2 0 $button-base-size *2;
+
+    &.dropdown {
+        padding: 0 $button-base-size *4 0 $button-base-size *2;
+    }*/
+
+    &.icon, & > .icon {
+        padding-top: $button-base-size - rem-calc(1px);
+        padding-bottom: $button-base-size + rem-calc(1px);
+
+        &:before {
+            position: relative;
+            top: rem-calc(3);
+            left: rem-calc(-6);
+
+            font-size: rem-calc(15);
+            line-height: rem-calc(15);
+            color: $secondary-color;     
+        }
     }    
 }
 

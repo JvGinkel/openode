@@ -7,6 +7,9 @@
     @include reset-list;
     @include inline-list;
     overflow: visible;
+
+    margin-bottom: 0;
+    margin-left: 0;
 }
 
 .user-menu > li {
@@ -16,6 +19,14 @@
         margin: 0;
     }
 }
+
+.user-menu {
+	@media #{$mobile-and-tables} {
+
+	}
+}
+
+
 
 .user-menu .f-dropdown {
 	@extend .f-dropdown;
@@ -29,3 +40,55 @@
 		top: 0; right: 0;
 	}
 }
+
+@mixin apply-input-rules() {	
+	input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="color"] { 
+		@content;
+    }
+}
+
+.search-form {
+	@include apply-input-rules {
+		display: inline-block;
+		
+
+		& + .button {
+			margin-left: rem-calc(10px);
+		}
+		
+		@media #{$medium-up} {
+			width: rem-calc(300px);
+		}
+
+		@media #{$mobile-and-tables} {
+			width: 100%;
+			margin-bottom: $global-spacing;
+
+			& + .button {
+				position: absolute;
+				right: 2.35px;
+				top: 2.35px;
+				font-size: 10px;
+			}
+		}
+
+		
+	}
+}
+
+
+
+

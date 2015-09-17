@@ -1,14 +1,13 @@
 {# ======== AUTHENICATED ========= #}
 {% from "macros.html" import render_gravatar %}
-
+<div class="small-12 columns">
 {# ======== USER MENU ITEMS ========= #}
 <ul class="user-menu right">
 
     {# ======== ADMIN ========= #}
     {% if request.user.is_admin() %}
     <li>
-        <a href="/admin" class="button">
-            <i class="icon icon-settings"></i> 
+        <a href="/admin" class="button icon icon-settings">
             {% trans %}Admin{% endtrans %}
         </a>
     </li>
@@ -18,8 +17,7 @@
     {# ======== FOLLOWED ========= #}
 
     <li>
-        <button class="button dropdown" data-dropdown="dropdown-followed">
-            <i class="icon icon-star"></i> 
+        <button class="button dropdown icon icon-star" data-dropdown="dropdown-followed">
             {% trans %}Followed{% endtrans %}
 
             {# ======== SET UNREAD FOLLOWED NODES ========= #}
@@ -65,8 +63,7 @@
     %}    
 
     <li>
-        <button class="button dropdown" data-dropdown="dropdown-requests">
-            <i class="icon icon-mail"></i>
+        <button class="button icon icon-mail dropdown" data-dropdown="dropdown-requests">
             {% trans %}Requests{% endtrans %}
 
             {# ======== SET MESSAGES COUNT ========= #}
@@ -166,3 +163,4 @@
         </ul>        
     </li>
 </ul>
+</div>

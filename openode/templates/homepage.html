@@ -27,13 +27,7 @@
 
 {% block forestyle %}
     {{ super() }}
-    <style type="text/css">
-        {% set step = 25 %}
-        {% set max_levels = 10 %}
-        {% for i in range(0, (max_levels * step) + step, step) %}
-            .level-{{ i // step }} .node-box-content {padding-left: {{ i }}px}
-        {% endfor %}
-    </style>
+
 {% endblock %}
 
 {# ========================================================================== #}

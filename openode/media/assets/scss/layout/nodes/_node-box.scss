@@ -1,3 +1,29 @@
 // ==========================================================================
 // Title:        Node Box
 // ==========================================================================
+
+// Variables
+$node-parent-bg: $primary-color !default;
+$node-item-margin-bottom: $global-spacing !default;
+
+.node-box {
+	&.category.level-0 {
+		background: $node-parent-bg;
+		margin-bottom: $node-item-margin-bottom;
+
+		a {
+			color: $white;
+		}
+	}
+
+	// Generate node levels
+	@include content-levels($minLevel: 1, $maxLevels: 10, $step: 25, $levelSelector: '&.level', $contentSelector: '.node-box-content');
+}
+
+.node-title {
+	color: $white;
+}
+
+.node-box-content {
+	padding: $global-spacing;
+}

@@ -2,74 +2,72 @@
 
 <div class="top-bar-wrapper">
     <nav class="top-bar row show-for-medium-up">
-        <div class="medium-12 column">
-            <div class="large-5 small-4 columns t-left">
-                {{ "header"|custom_template(request) }}
-            </div>
-            <div class="large-7 small-8 columns t-right">
-                <!-- {%- if not request.user.is_authenticated() -%}
-                <ul class="">
-                    {% if settings.SIGNIN_OPENID_ENABLED %}
-                        <li><a class="social-login openid" href=""></a></li>
+        <div class="large-5 small-4 columns t-left">
+            {{ "header"|custom_template(request) }}
+        </div>
+        <div class="large-7 small-8 columns t-right">
+            <!-- {%- if not request.user.is_authenticated() -%}
+            <ul class="">
+                {% if settings.SIGNIN_OPENID_ENABLED %}
+                    <li><a class="social-login openid" href=""></a></li>
+                {% endif %}
+                {% if settings.SIGNIN_GOOGLE_ENABLED %}
+                    <li><a class="social-login google" href=""></a></li>
+                {% endif %}
+                {% if settings.SIGNIN_FACEBOOK_ENABLED and settings.FACEBOOK_KEY and settings.FACEBOOK_SECRET %}
+                    <li><a class="social-login facebook" href=""></a></li>
+                {% endif %}
+                <li><a href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next={{ request.get_full_path()|clean_login_url }}" class="">{% trans %}Register now!{% endtrans %}</a></li>
+            </ul>
+            {% endif %} -->
+            <section class="top-bar-section">
+                <ul>
+                    {#
+                    <li class=""><a href="/">{% trans %}Home{% endtrans %}</a></li> #}
+                    <li>
+                        <a href="{% url tags %}">
+                            {% trans %}Tags{% endtrans %}
+                        </a>
+                    </li>
+                    {% if request.user.is_authenticated() %}
+                    <li>
+                        <a href="{% url users %}">
+                            {% trans %}Users{% endtrans %}
+                        </a>
+                    </li>
                     {% endif %}
-                    {% if settings.SIGNIN_GOOGLE_ENABLED %}
-                        <li><a class="social-login google" href=""></a></li>
-                    {% endif %}
-                    {% if settings.SIGNIN_FACEBOOK_ENABLED and settings.FACEBOOK_KEY and settings.FACEBOOK_SECRET %}
-                        <li><a class="social-login facebook" href=""></a></li>
-                    {% endif %}
-                    <li><a href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next={{ request.get_full_path()|clean_login_url }}" class="">{% trans %}Register now!{% endtrans %}</a></li>
+                    <li>
+                        <a href="{% url organization_list %}">
+                            {% trans %}Organizations{% endtrans %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url live %}">
+                            {% trans %}Live{% endtrans %}
+                        </a>
+                    </li>
+                    {% for menu_item in menu_items_upper %}
+                    <li>
+                        <a href="{{ menu_item.url }}">
+                            {{ menu_item.title }}
+                        </a>
+                        {% if not loop.last %}{% endif %}
+                    </li>
+                    {% endfor%}
                 </ul>
-                {% endif %} -->
-                <section class="top-bar-section">
-                    <ul>
-                        {#
-                        <li class=""><a href="/">{% trans %}Home{% endtrans %}</a></li> #}
-                        <li>
-                            <a href="{% url tags %}">
-                                {% trans %}Tags{% endtrans %}
-                            </a>
-                        </li>
-                        {% if request.user.is_authenticated() %}
-                        <li>
-                            <a href="{% url users %}">
-                                {% trans %}Users{% endtrans %}
-                            </a>
-                        </li>
-                        {% endif %}
-                        <li>
-                            <a href="{% url organization_list %}">
-                                {% trans %}Organizations{% endtrans %}
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{% url live %}">
-                                {% trans %}Live{% endtrans %}
-                            </a>
-                        </li>
-                        {% for menu_item in menu_items_upper %}
-                        <li>
-                            <a href="{{ menu_item.url }}">
-                                {{ menu_item.title }}
-                            </a>
-                            {% if not loop.last %}{% endif %}
-                        </li>
-                        {% endfor%}
-                    </ul>
-                    {% if settings.LANGUAGES|length > 1 %}
+                {% if settings.LANGUAGES|length > 1 %}
 
-                    <ul class="top-bar-languages">
-                        {% for lang in settings.LANGUAGES %}
-                        <li>
-                            <a class="btn-language" href="{% url set_lang %}?language={{ lang.0 }}{% if not SUPPRESS_NEXT_LANG_SWITCH %}&amp;next={{ request.get_full_path()|clean_url }}{% endif %}">{{ lang.0 }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    
-                    {% endif %}
-                    
-                </section>
-            </div>
+                <ul class="top-bar-languages">
+                    {% for lang in settings.LANGUAGES %}
+                    <li>
+                        <a class="btn-language" href="{% url set_lang %}?language={{ lang.0 }}{% if not SUPPRESS_NEXT_LANG_SWITCH %}&amp;next={{ request.get_full_path()|clean_url }}{% endif %}">{{ lang.0 }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                
+                {% endif %}
+                
+            </section>
         </div>
     </nav>    
 </div>
