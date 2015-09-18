@@ -59,7 +59,7 @@
         </div>
     <![endif]-->
     {# <body class="{% block body_class %}{% endblock %}{% if user_messages %} user-messages{% endif %}{% if page_class %} {{page_class}}{% endif %}{% if request.user.is_anonymous() %} anon{% endif %} lang-{{settings.LANGUAGE_CODE}}"> #}
-    <body class="one-col">
+    <body class="one-col {% block body_class %}{% endblock %}">
 
         <div class="off-canvas-wrap" data-offcanvas>
             <div class="inner-wrap">

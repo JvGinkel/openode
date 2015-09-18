@@ -2,6 +2,8 @@
 
 {% block title %}{% spaceless %}{{ page_title }}{% endspaceless %}{% endblock %}
 
+{% block body_class %}profile-edit{% endblock %}
+
 {% block breadcrumbs %}
 
     <li>
@@ -22,16 +24,17 @@
 
 
 {% block profile_menu %}
-    <a class="profile-gravatar-wrap" href="{{ view_user.get_absolute_url() }}">
-        <img style="width:{{190}}px; height:{{190}}px; overflow: hidden;"
-            width="{{190}}" height="{{190}}"
-            src="{{ view_user.get_avatar_url(190) }}"
-            title="{{view_user.screen_name|escape}}"
-            alt="{{view_user.screen_name|escape}}"
-        />
-    </a>
-    <div class="clearfix"></div>
-    <div>
+    <div class="aside-box gravatar-box">
+        <a class="profile-gravatar-wrap" href="{{ view_user.get_absolute_url() }}">
+            <img style="width:{{230}}px; height:{{230}}px; overflow: hidden;"
+                width="{{230}}" height="{{230}}"
+                src="{{ view_user.get_avatar_url(230) }}"
+                title="{{view_user.screen_name|escape}}"
+                alt="{{view_user.screen_name|escape}}"
+            />
+        </a>
+    </div>
+    <div class="aside-box">
         <ul class="nav-bar vertical">
 
             <li {% if tab_name=="" %}class="active"{% endif %}>
@@ -90,8 +93,10 @@
                 {% endif %}
             {% endif %}
         </ul>
+    </div>
 
-        {% if request.user.is_authenticated() %}
+    {% if request.user.is_authenticated() %}
+        <div class="aside-box">
             <ul class="nav-bar vertical">
                 {% if request.user.has_user_perm('can_see_managed_nodes', view_user) and view_user.get_managed_nodes_count %}
                 <li {% if tab_name=="managed_nodes" %}class="active"{% endif %}>
@@ -112,7 +117,7 @@
                         >
                         {% set unread_followed_nodes_count = view_user.get_unread_followed_nodes_count() %}
                         {% if unread_followed_nodes_count %}
-                            <span class="f-right unread-mark">{{ unread_followed_nodes_count }}</span>
+                            <span class="right unread-mark">{{ unread_followed_nodes_count }}</span>
                         {% endif %}
                         <span>{% trans %}Followed nodes{% endtrans %}</span>
                     </a>
@@ -127,7 +132,7 @@
                         >
                         {% set unread_followed_questions_count = view_user.get_unread_followed_questions_count() %}
                         {% if unread_followed_questions_count %}
-                            <span class="f-right unread-mark">{{ unread_followed_questions_count }}</span>
+                            <span class="right unread-mark">{{ unread_followed_questions_count }}</span>
                         {% endif %}
                         <span>{% trans %}Followed questions{% endtrans %}</span>
                     </a>
@@ -139,16 +144,18 @@
                         >
                         {% set unread_followed_discussions_count = view_user.get_unread_followed_discussions_count() %}
                         {% if unread_followed_discussions_count %}
-                            <span class="f-right unread-mark">{{ unread_followed_discussions_count }}</span>
+                            <span class="right unread-mark">{{ unread_followed_discussions_count }}</span>
                         {% endif %}
                         <span>{% trans %}Followed discussions{% endtrans %}</span>
                     </a>
                 </li>
                 {% endif %}
             </ul>
-        {% endif %}
+        </div>
+    {% endif %}
 
-        {% if request.user == view_user %}
+    {% if request.user == view_user %}
+        <div class="aside-box">
             <ul class="nav-bar vertical">
                 {% if user_has_perm_resolve_node_joining %}
                 <li {% if tab_name=="node_joins" %}class="active"{% endif %}>
@@ -157,7 +164,7 @@
                         href="{% url user_profile view_user.id, 'node_joins' %}"
                         >
                         {% if node_join_requests_count %}
-                            <span class="f-right unread-mark">{{ node_join_requests_count }}</span>
+                            <span class="right unread-mark">{{ node_join_requests_count }}</span>
                         {% endif %}
                         <span>{% trans %}Unresolved Node join requests{% endtrans %}</span>
                     </a>
@@ -171,7 +178,7 @@
                         href="{% url user_profile view_user.id, 'node_create' %}"
                         >
                         {% if node_create_requests_count %}
-                            <span class="f-right unread-mark">{{ node_create_requests_count }}</span>
+                            <span class="right unread-mark">{{ node_create_requests_count }}</span>
                         {% endif %}
                         <span>{% trans %}Unresolved requests to create Node{% endtrans %}</span>
                     </a>
@@ -185,7 +192,7 @@
                         href="{% url user_profile view_user.pk, 'organization_joins' %}"
                         >
                         {% if organization_pending_memberships_count %}
-                            <span class="f-right unread-mark">{{ organization_pending_memberships_count }}</span>
+                            <span class="right unread-mark">{{ organization_pending_memberships_count }}</span>
                         {% endif %}
                         <span>{% trans %}Unresolved Organization join requests{% endtrans %}</span>
                     </a>
@@ -199,7 +206,7 @@
                         href="{% url user_profile view_user.id, 'organization_requests' %}"
                         >
                         {% if organization_requests_count %}
-                            <span class="f-right unread-mark">{{ organization_requests_count }}</span>
+                            <span class="right unread-mark">{{ organization_requests_count }}</span>
                         {% endif %}
                         <span>{% trans %}Unresolved requests to create organization{% endtrans %}</span>
                     </a>
@@ -219,9 +226,8 @@
                 </li>
                 {% endif %}
             </ul>
-        {% endif %}
-
-    </div>
+        </div>
+    {% endif %}
 
     {% if request.user.is_admin('auth.change_proxyuser') %}
         <p>

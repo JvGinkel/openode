@@ -31,7 +31,7 @@ def start():
     """
     with virtualenv(env.virtualenv_path, local=True):
         with lcd("./openode/"):
-            local("python manage.py runserver")
+            local("python manage.py runserver 0.0.0.0:8000")
 
 
 ################################################################################
