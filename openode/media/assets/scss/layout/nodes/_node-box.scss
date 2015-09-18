@@ -3,27 +3,100 @@
 // ==========================================================================
 
 // Variables
+$node-spacing: $global-spacing !default;
+
 $node-parent-bg: $primary-color !default;
+$node-expand-control-bg: $white !default;
+$node-expand-control-color: $node-parent-bg !default;
 $node-item-margin-bottom: $global-spacing !default;
+$node-expand-control-size: rem-calc(30px) !default;
+$node-expand-control-font-size: rem-calc(18px) !default;
 
 .node-box {
-	&.category.level-0 {
-		background: $node-parent-bg;
-		margin-bottom: $node-item-margin-bottom;
+    &.category.level-0 {
+        background: $node-parent-bg;
+        margin-bottom: $node-item-margin-bottom;
 
-		a {
-			color: $white;
-		}
-	}
+        a {
+            color: $white;
+        }
+    }
 
-	// Generate node levels
-	@include content-levels($minLevel: 1, $maxLevels: 10, $step: 25, $levelSelector: '&.level', $contentSelector: '.node-box-content');
-}
-
-.node-title {
-	color: $white;
+    // Generate node levels
+    @include content-levels($minLevel: 1, $maxLevels: 10, $step: 25, $levelSelector: '&.level', $contentSelector: '.node-box-content');
 }
 
 .node-box-content {
-	padding: $global-spacing;
+    position: relative;
+    padding: $node-spacing ($node-expand-control-size + $node-spacing*2) $node-spacing $node-spacing;
 }
+
+.node-box-content {
+    .node-title {
+        position: relative;
+        margin: 0;
+
+        font-size: rem-calc(18px);
+
+        color: $white; 
+    }
+
+    .node-expand-area {
+        position: absolute;
+        top: rem-calc(22px);
+        right: rem-calc(20px);
+    }
+
+    .report-wrap {
+        line-height: 1;
+    }
+}
+
+.node-expand-control {
+    transition: all .2s;
+
+    display: inline-block;
+    width: $node-expand-control-size;
+    height: $node-expand-control-size;
+    line-height: $node-expand-control-size + rem-calc(2px);
+    text-align: center;
+
+    border-radius: 50%;
+    background: $node-expand-control-bg;
+
+    font: {
+        family: $icon-font;
+    }
+
+    &:before {
+        font-size: $node-expand-control-font-size;
+        color: $node-expand-control-color;
+    }
+
+
+    &:hover, &:focus, &:active {
+        transform: scale(1.2);
+    }
+}
+
+.node-title-wrapper {
+    &.open .node-expand-control:before {
+        content: 'j';        
+    }
+
+    &.closed .node-expand-control:before {
+        content: 'l';        
+    }
+}
+
+.js-subelement {
+    @extend .animate-fast;
+    @extend .fadeInUp;
+}
+
+
+
+
+
+
+

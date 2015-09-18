@@ -110,23 +110,26 @@
                 {# TITLE RENDER #}
                 {% if NODE_TREE_DISPLAY and not node.is_leaf_node_for_user(nodes_of_user, with_closed) %}
                     {# NODE IS TREE NODE - show/hide on click #}
-                    <a class="no-outline js-expander js-closed {% if USE_AJAX %}js-use-ajax{% endif %}" href="{% url toggle_node %}?node_id={{ node.pk }}" data-element_id="{{ node.pk }}" data-close="▾" data-open="▸">
+                    <a class="node-title-wrapper no-outline js-expander js-closed closed {% if USE_AJAX %}js-use-ajax{% endif %}" href="{% url toggle_node %}?node_id={{ node.pk }}" data-element_id="{{ node.pk }}" data-close="▾" data-open="▸">
                         {% if not node.long_title %}
                             <h3 class="node-title no-longtitle">
-                                <span class="expander-sign">▸</span> 
-                                <span class="title">{{ node.title_with_status('html') }}</span>
+                                {{ node.title_with_status('html') }}
                             </h3>
+                            <div class="node-expand-area">
+                                <div class="node-expand-control"></div>
+                            </div>
                         {% else %}
-                            <h3 class="node-title">
-                                <span class="expander-sign">▸</span> 
-                                <span class="title">{{ node.title_with_status('html') }}</span>
-
+                            <h3 class="node-title">                            
+                                {{ node.title_with_status('html') }}
                                 {#
                                 <span class="longtitle">
                                     <span class="title">- {{ node.long_title|truncate(100) }}</span>
                                 </span>
                                 #}
-                            </h3>                            
+                            </h3>    
+                            <div class="node-expand-area">
+                                <div class="node-expand-control"></div>
+                            </div>                        
                         {% endif %}
 
                         {# NODE STYLE CATEGORY #}

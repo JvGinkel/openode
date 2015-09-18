@@ -8,14 +8,15 @@ function close_element(expander, url){
     }
 
     jQuery(".js-subelement-of-" + expander.data("element_id")).each(function(i, e){
-        jQuery(e).slideUp();
+        jQuery(e).hide();
         var expander = jQuery(e).find(".js-expander.js-open").first();
         if (expander.length > 0){
             close_element(expander);
         }
+
     });
-    expander.removeClass("js-open");
-    expander.addClass("js-closed");
+    expander.removeClass("js-open open");
+    expander.addClass("js-closed closed");
     jQuery(expander).find(".expander-sign").first().html(expander.data("open"));
 }
 
@@ -37,9 +38,10 @@ function open_element(expander, url, animate){
     else {
         jQuery(".js-subelement-of-" + element_id).show();
     }
-    expander.removeClass("js-closed");
-    expander.addClass("js-open");
-    jQuery(expander).find(".expander-sign").first().html(expander.data("close"));
+    expander.removeClass("js-closed closed");
+    expander.addClass("js-open open");
+
+    //jQuery(expander).find(".expander-sign").first().html(expander.data("close"));
 }
 
 /*

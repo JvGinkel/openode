@@ -6672,11 +6672,11 @@ th.hide-for-touch {
   content: "g"; }
 
 /* line 64, /Server/codev/openode/openode/media/assets/scss/fonts/icon-fonts */
-.icon-left-arrow:before {
+.icon-arrow-left:before {
   content: "k"; }
 
 /* line 67, /Server/codev/openode/openode/media/assets/scss/fonts/icon-fonts */
-.icon-right-arrow:before {
+.icon-arrow-right:before {
   content: "l"; }
 
 /* line 70, /Server/codev/openode/openode/media/assets/scss/fonts/icon-fonts */
@@ -6686,6 +6686,14 @@ th.hide-for-touch {
 /* line 73, /Server/codev/openode/openode/media/assets/scss/fonts/icon-fonts */
 .icon-check:before {
   content: "i"; }
+
+/* line 76, /Server/codev/openode/openode/media/assets/scss/fonts/icon-fonts */
+.icon-arrow-down:before {
+  content: "j"; }
+
+/* line 79, /Server/codev/openode/openode/media/assets/scss/fonts/icon-fonts */
+.icon-arrow-up:before {
+  content: "m"; }
 
 /* line 8, /Server/codev/openode/openode/media/assets/scss/modules/logo */
 .logo-area .logo {
@@ -6723,7 +6731,7 @@ th.hide-for-touch {
   animation-fill-mode: both; }
 
 /* line 12, /Server/codev/openode/openode/media/assets/scss/modules/animation-kit */
-.animate-fast, .f-dropdown, .user-menu .f-dropdown {
+.animate-fast, .f-dropdown, .user-menu .f-dropdown, .js-subelement {
   -webkit-animation-duration: 0.3s;
           animation-duration: 0.3s; }
 
@@ -8057,7 +8065,7 @@ th.hide-for-touch {
     transform: none; } }
 
 /* line 1344, /Server/codev/openode/openode/media/assets/scss/modules/animation-kit */
-.fadeInUp {
+.fadeInUp, .js-subelement {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp; }
 
@@ -10403,13 +10411,21 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   @media only screen and (min-width:0em) and (max-width:64em) {
     .search-form input[type="text"], .search-form input[type="password"], .search-form input[type="date"], .search-form input[type="datetime"], .search-form input[type="datetime-local"], .search-form input[type="month"], .search-form input[type="week"], .search-form input[type="email"], .search-form input[type="number"], .search-form input[type="search"], .search-form input[type="tel"], .search-form input[type="time"], .search-form input[type="url"], .search-form input[type="color"] {
       width: 100%;
-      margin-bottom: 1.0625rem; }
-      /* line 80, /Server/codev/openode/openode/media/assets/scss/layout/user-menu */
+      margin-bottom: 1.0625rem;
+      padding-right: 5.3125rem; }
+      /* line 81, /Server/codev/openode/openode/media/assets/scss/layout/user-menu */
       .search-form input[type="text"] + .button, .search-form input[type="password"] + .button, .search-form input[type="date"] + .button, .search-form input[type="datetime"] + .button, .search-form input[type="datetime-local"] + .button, .search-form input[type="month"] + .button, .search-form input[type="week"] + .button, .search-form input[type="email"] + .button, .search-form input[type="number"] + .button, .search-form input[type="search"] + .button, .search-form input[type="tel"] + .button, .search-form input[type="time"] + .button, .search-form input[type="url"] + .button, .search-form input[type="color"] + .button {
         position: absolute;
-        right: 2.35px;
-        top: 2.35px;
-        font-size: 10px; } }
+        right: 0;
+        top: 0;
+        font-size: 0.8125rem;
+        border-width: 0;
+        box-shadow: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        height: 33px;
+        margin-top: 0.0625rem;
+        margin-right: 0.0625rem; } }
 
 /* line 5, /Server/codev/openode/openode/media/assets/scss/layout/header/user-info */
 .user-info {
@@ -10705,11 +10721,11 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 .content-panel-dropdown {
   text-align: left; }
 
-/* line 10, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+/* line 16, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
 .node-box.category.level-0 {
   background: #516c8a;
   margin-bottom: 1.0625rem; }
-  /* line 14, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+  /* line 20, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
   .node-box.category.level-0 a {
     color: #ffffff; }
 /* line 8, /Server/codev/openode/openode/media/assets/scss/mixins/content-levels */
@@ -10743,11 +10759,51 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
 .node-box.level-10 .node-box-content {
   padding-left: 250; }
 
-/* line 23, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
-.node-title {
-  color: #ffffff; }
-
-/* line 27, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+/* line 29, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
 .node-box-content {
-  padding: 1.0625rem; }
+  position: relative;
+  padding: 1.0625rem 4rem 1.0625rem 1.0625rem; }
+
+/* line 35, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+.node-box-content .node-title {
+  position: relative;
+  margin: 0;
+  font-size: 1.125rem;
+  color: #ffffff; }
+/* line 44, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+.node-box-content .node-expand-area {
+  position: absolute;
+  top: 1.375rem;
+  right: 1.25rem; }
+/* line 50, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+.node-box-content .report-wrap {
+  line-height: 1; }
+
+/* line 55, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+.node-expand-control {
+  transition: all 0.2s;
+  display: inline-block;
+  width: 1.875rem;
+  height: 1.875rem;
+  line-height: 2rem;
+  text-align: center;
+  border-radius: 50%;
+  background: #ffffff;
+  font-family:   'openode'; }
+  /* line 71, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+  .node-expand-control:before {
+    font-size: 1.125rem;
+    color: #516c8a; }
+  /* line 77, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+  .node-expand-control:hover, .node-expand-control:focus, .node-expand-control:active {
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2); }
+
+/* line 83, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+.node-title-wrapper.open .node-expand-control:before {
+  content: 'j'; }
+/* line 87, /Server/codev/openode/openode/media/assets/scss/layout/nodes/node-box */
+.node-title-wrapper.closed .node-expand-control:before {
+  content: 'l'; }
 /*# sourceMappingURL=screen.css.map */

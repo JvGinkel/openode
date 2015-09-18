@@ -21,28 +21,28 @@
 }
 
 .user-menu {
-	@media #{$mobile-and-tables} {
+    @media #{$mobile-and-tables} {
 
-	}
+    }
 }
 
 
 
 .user-menu .f-dropdown {
-	@extend .f-dropdown;
+    @extend .f-dropdown;
 
-	& > li {
-		position: relative;
-	}
+    & > li {
+        position: relative;
+    }
 
-	.unread-mark {
-		position: absolute;
-		top: 0; right: 0;
-	}
+    .unread-mark {
+        position: absolute;
+        top: 0; right: 0;
+    }
 }
 
-@mixin apply-input-rules() {	
-	input[type="text"],
+@mixin apply-input-rules() {    
+    input[type="text"],
     input[type="password"],
     input[type="date"],
     input[type="datetime"],
@@ -56,37 +56,45 @@
     input[type="time"],
     input[type="url"],
     input[type="color"] { 
-		@content;
+        @content;
     }
 }
 
 .search-form {
-	@include apply-input-rules {
-		display: inline-block;
-		
+    @include apply-input-rules {
+        display: inline-block;
+        
 
-		& + .button {
-			margin-left: rem-calc(10px);
-		}
-		
-		@media #{$medium-up} {
-			width: rem-calc(300px);
-		}
+        & + .button {
+            margin-left: rem-calc(10px);
+        }
+        
+        @media #{$medium-up} {
+            width: rem-calc(300px);
+        }
 
-		@media #{$mobile-and-tables} {
-			width: 100%;
-			margin-bottom: $global-spacing;
+        @media #{$mobile-and-tables} {
+            width: 100%;
+            margin-bottom: $global-spacing;
+            padding-right: rem-calc(85px);
 
-			& + .button {
-				position: absolute;
-				right: 2.35px;
-				top: 2.35px;
-				font-size: 10px;
-			}
-		}
+            & + .button {
+                position: absolute;
+                right: 0;
+                top: 0;
+                font-size: rem-calc(13px);
+                border-width: 0;
+                box-shadow: none;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+                height: 33px;
+                margin-top: rem-calc($input-border-width);
+                margin-right: rem-calc($input-border-width);
+            }
+        }
 
-		
-	}
+        
+    }
 }
 
 

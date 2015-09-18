@@ -61,10 +61,10 @@
 .icon-plus:before {
   content: "g";
 }
-.icon-left-arrow:before {
+.icon-arrow-left:before {
   content: "k";
 }
-.icon-right-arrow:before {
+.icon-arrow-right:before {
   content: "l";
 }
 .icon-list:before {
@@ -72,5 +72,11 @@
 }
 .icon-check:before {
   content: "i";
+}
+.icon-arrow-down:before {
+  content: "j";
+}
+.icon-arrow-up:before {
+  content: "m";
 }
 
