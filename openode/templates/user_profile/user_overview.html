@@ -9,7 +9,7 @@
 
 {% block userheader %}
     <div class="row profile-title">
-        <div class="twelve columns">
+        <div class="large-12 columns">
             <h1>{{ view_user.screen_name|escape }}</h1>
             {% if request.user.is_authenticated() %}
                 {% for organization in view_user.get_organizations() %}
@@ -32,14 +32,14 @@
 
 {% block usercontent %}
 <div class="group user-profile">
-    <div class="twelve columns">
+    <div class="large-12 columns">
 
         {% if request.user.is_authenticated() %}
 
             {# === LOGGED USER === #}
 
             <div class="row">
-                <div class="twelve columns">
+                <div class="large-12 columns">
                     <table>
                         <tr>
                             <th class="t-left">{% trans %}First name{% endtrans %}:</th>
@@ -88,7 +88,7 @@
 
            {% if view_user.description and view_user.description.text|striptags|trim %}
                 <div class="row">
-                    <div class="twelve columns">
+                    <div class="large-12 columns">
                         <h2>{% trans %}Description{% endtrans %}</h2>
                         <div class="group rtc">
                             {{ view_user.description.text }}
@@ -99,25 +99,25 @@
 
             {% if view_user.privacy_show_followed %}
                 <div class="row">
-                    <div class="twelve columns">
+                    <div class="large-12 columns">
                         <h2>{% trans %}Following items{% endtrans %}</h2>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="four columns">
+                    <div class="large-4 columns">
                         {% if request.user.has_user_perm('can_see_followed_nodes', view_user) %}<a class="follow-box" href="{% url user_profile view_user.id, 'followed_nodes' %}" title="{% trans %}nodes that user is following{% endtrans %}">{% endif %}
                         <span class="count">{{ view_user.followed_nodes.count() }}</span>
                         <span class="follow-box-title">{% trans %}Nodes{% endtrans %}</span>
                         {% if request.user.has_user_perm('can_see_followed_nodes', view_user) %}</a>{% endif %}
                     </div>
-                    <div class="four columns">
+                    <div class="large-4 columns">
                         {% if request.user.has_user_perm('can_see_followed_threads', view_user) %}<a class="follow-box" href="{% url user_profile view_user.id, 'followed_questions' %}" title="{% trans %}questions that user is following{% endtrans %}">{% endif %}
                         <span class="count">{{ view_user.followed_threads.filter(thread_type=THREAD_TYPE_QUESTION).count() }}</span>
                         <span class="follow-box-title">{% trans %}Questions{% endtrans %}</span>
                         {% if request.user.has_user_perm('can_see_followed_threads', view_user) %}</a>{% endif %}
                     </div>
-                    <div class="four columns">
+                    <div class="large-4 columns">
                         {% if request.user.has_user_perm('can_see_followed_threads', view_user) %}<a class="follow-box" href="{% url user_profile view_user.id, 'followed_discussions' %}" title="{% trans %}discussions that user is following{% endtrans %}">{% endif %}
                         <span class="count">{{ view_user.followed_threads.filter(thread_type=THREAD_TYPE_DISCUSSION).count() }}</span>
                         <span class="follow-box-title">{% trans %}Discussions{% endtrans %}</span>
@@ -129,7 +129,7 @@
             {% if request.user != view_user and view_user.privacy_email_form %}
                 <div class="row separator-01"></div>
                 <div class="row">
-                    <div class="twelve columns">
+                    <div class="large-12 columns">
                         <div class="group">
                             <h2 class="section-title">
                                 {% trans %}Send email to this user{% endtrans %}
@@ -139,7 +139,7 @@
                                 <p>{% trans %}Please note, that you don't have enabled receiving such messages in your profile, so this user won't be able to respond you back.{% endtrans %} <a href="{% url edit_user request.user.id %}">{% trans %}Update your profile{% endtrans %}</a></p>
                             {% endif %}
 
-                            <div class="twelve columns tabular-form">
+                            <div class="large-12 columns tabular-form">
                                 {% if email_form.errors %}
                                     <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
                                 {% endif %}
@@ -164,7 +164,7 @@
             {# === ANONYMOUS === #}
 
             <div class="row">
-                <div class="twelve columns">
+                <div class="large-12 columns">
                     <table>
                         <tr>
                             <th class="t-left">{% trans %}First name{% endtrans %}:</th>
@@ -178,7 +178,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="twelve columns">
+                <div class="large-12 columns">
                     <p>{% trans %}Do you want to see more?{% endtrans %}</p>
                     <a href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next={{ request.get_full_path()|clean_login_url }}" class="button success">{% trans %}Register now!{% endtrans %}</a>
                 </div>

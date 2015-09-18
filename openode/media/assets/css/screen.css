@@ -10842,13 +10842,30 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
       font-size: 0.875rem;
       color: #000;
       padding: 0.5rem 1.5rem; }
-  /* line 33, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
+      /* line 31, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
+      .profile-edit .aside-box ul li a:hover {
+        background-color: #d7eefc; }
+  /* line 37, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
   .profile-edit .aside-box.gravatar-box {
-    padding: 1.5rem; }
-    /* line 36, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
+    padding: 2.5rem; }
+    /* line 40, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
     .profile-edit .aside-box.gravatar-box .profile-gravatar-wrap {
       display: block; }
-      /* line 39, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
+      /* line 43, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
       .profile-edit .aside-box.gravatar-box .profile-gravatar-wrap img {
         display: block; }
+
+/* line 55, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
+.unread-mark {
+  display: inline-block;
+  text-align: center;
+  border: none;
+  border-radius: 50px;
+  font-weight: bold;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  background: #ffcc00;
+  font-size: 0.75rem;
+  color: #000; }
 /*# sourceMappingURL=screen.css.map */
