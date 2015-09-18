@@ -137,7 +137,7 @@ class QuestionFlowNodeResponsibleUsersForm(forms.Form):
     def get_responsible_users_field_name(self):
         """Select2 must have unique html id on page.
         """
-        if self.question.node.visibility in [const.NODE_VISIBILITY_SEMIPRIVATE, const.NODE_VISIBILITY_PRIVATE]:
-            return "responsible_users"
-        else:
-            return "responsible_users_%s" % self.question.pk
+        # if self.question.node.visibility in [const.NODE_VISIBILITY_SEMIPRIVATE, const.NODE_VISIBILITY_PRIVATE]:
+        #     return "responsible_users"
+        # else:
+        return "responsible_users_%s" % self.question.pk
