@@ -2167,17 +2167,17 @@ select {
   margin-left: 0;
   list-style: none;
   border-style: solid;
-  border-width: 1px;
-  background-color: #b7e0fb;
-  border-color: #8ecff8;
+  border-width: 0;
+  background-color: none;
+  border-color: none;
   border-radius: 4px; }
   /* line 122, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
   .breadcrumbs > * {
     margin: 0;
     float: left;
-    font-size: 0.6875rem;
-    line-height: 0.6875rem;
-    text-transform: uppercase;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    text-transform: none;
     color: #084a8b; }
     /* line 68, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
     .breadcrumbs > *:hover a, .breadcrumbs > *:focus a {
@@ -2188,30 +2188,30 @@ select {
     /* line 75, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
     .breadcrumbs > *.current {
       cursor: default;
-      color: #333333; }
+      color: #000000; }
       /* line 78, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
       .breadcrumbs > *.current a {
         cursor: default;
-        color: #333333; }
+        color: #000000; }
       /* line 84, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
       .breadcrumbs > *.current:hover, .breadcrumbs > *.current:hover a, .breadcrumbs > *.current:focus, .breadcrumbs > *.current:focus a {
         text-decoration: none; }
     /* line 88, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
     .breadcrumbs > *.unavailable {
-      color: #999999; }
+      color: #000000; }
       /* line 90, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
       .breadcrumbs > *.unavailable a {
-        color: #999999; }
+        color: #000000; }
       /* line 95, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
       .breadcrumbs > *.unavailable:hover, .breadcrumbs > *.unavailable:hover a, .breadcrumbs > *.unavailable:focus, .breadcrumbs > *.unavailable a:focus {
         text-decoration: none;
-        color: #999999;
+        color: #000000;
         cursor: default; }
     /* line 102, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
     .breadcrumbs > *:before {
-      content: "/";
-      color: #AAAAAA;
-      margin: 0 0.75rem;
+      content: ">";
+      color: #000000;
+      margin: 0 0.1875rem;
       position: relative;
       top: 1px; }
     /* line 110, ./bower_components/foundation/scss/foundation/components/breadcrumbs */
@@ -10130,16 +10130,19 @@ button.success, .button.success {
 .content-panel-content {
   padding: 1.0625rem; }
 
-/* line 74, /Server/codev/openode/openode/media/assets/scss/components/content-panel */
-.content-panel-wrapper .title {
-  text-transform: uppercase;
-  font-size: 1.5rem; }
-/* line 78, /Server/codev/openode/openode/media/assets/scss/components/content-panel */
-.content-panel-wrapper .control-link {
-  font-size: 0.75rem;
-  color: #000000; }
+/* line 73, /Server/codev/openode/openode/media/assets/scss/components/content-panel */
+.content-panel-wrapper {
+  margin-bottom: 1.25rem; }
+  /* line 76, /Server/codev/openode/openode/media/assets/scss/components/content-panel */
+  .content-panel-wrapper .title {
+    text-transform: uppercase;
+    font-size: 1.5rem; }
+  /* line 80, /Server/codev/openode/openode/media/assets/scss/components/content-panel */
+  .content-panel-wrapper .control-link {
+    font-size: 0.75rem;
+    color: #000000; }
 
-/* line 84, /Server/codev/openode/openode/media/assets/scss/components/content-panel */
+/* line 86, /Server/codev/openode/openode/media/assets/scss/components/content-panel */
 .content-panel-dropdown {
   text-align: left; }
 
@@ -10326,6 +10329,28 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   background: #ffffff;
   font-weight: bold;
   color: #5fbbf5; }
+
+/* line 6, /Server/codev/openode/openode/media/assets/scss/components/breadcrumbs */
+.breadcrumbs {
+  padding: 0.0625rem; }
+
+/* line 14, /Server/codev/openode/openode/media/assets/scss/components/breadcrumbs */
+.breadcrumbs li a {
+  text-decoration: underline;
+  color: #000000; }
+  /* line 18, /Server/codev/openode/openode/media/assets/scss/components/breadcrumbs */
+  .breadcrumbs li a:hover, .breadcrumbs li a:focus, .breadcrumbs li a:active {
+    text-decoration: none; }
+  /* line 22, /Server/codev/openode/openode/media/assets/scss/components/breadcrumbs */
+  .breadcrumbs li a.current {
+    text-decoration: none; }
+/* line 27, /Server/codev/openode/openode/media/assets/scss/components/breadcrumbs */
+.breadcrumbs li.current a {
+  text-decoration: none; }
+
+/* line 7, /Server/codev/openode/openode/media/assets/scss/layout/content-body */
+.content-body {
+  padding: 1.25rem 0; }
 
 /* line 5, /Server/codev/openode/openode/media/assets/scss/layout/user-menu */
 .user-menu {

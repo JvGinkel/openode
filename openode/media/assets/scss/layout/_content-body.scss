@@ -1,0 +1,9 @@
+// ==========================================================================
+// Title:        Content Body
+// ==========================================================================
+
+$content-body-spacing: rem-calc(20px) 0 !default;
+
+.content-body {
+	padding: $content-body-spacing; 
+}

@@ -1,0 +1,31 @@
+// ==========================================================================
+// Title:        Breadcrumbs
+// ==========================================================================
+
+
+.breadcrumbs {
+	padding: rem-calc(1px);
+
+	
+}
+
+.breadcrumbs li {
+
+	a {
+		text-decoration: underline;
+		color: $link-color;
+
+		&:hover, &:focus, &:active {
+			text-decoration: none;
+		}
+
+		&.current {
+			text-decoration: none;
+		}
+	}
+
+	&.current a {
+		text-decoration: none;
+	}
+}
+

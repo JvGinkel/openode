@@ -71,6 +71,8 @@ $content-panel-header-font-size: rem-calc(12px) !default;
 }
 
 .content-panel-wrapper {
+    margin-bottom: rem-calc(20px);
+    
     .title {
         text-transform: uppercase;
         font-size: rem-calc(24px);

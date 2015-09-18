@@ -3,22 +3,6 @@
     <div class="inputs t-left">
         {{ header_login_form.login_provider_name }} {{ header_login_form.next }} {{ header_login_form.password_action }}
 
-
-
-        <div class="hidden">
-            <div class="signin-form-label-wrapper small-6 medium-4 columns">
-                <!-- <span class="signin-form-label">{% trans %}E-mail{% endtrans %}:</span> -->
-                {{ header_login_form.username }}
-            </div>
-            <div class="signin-form-label-wrapper small-6 medium-4 columns">
-                <!-- <span class="signin-form-label">{% trans %}Password{% endtrans %}:</span> -->
-                {{ header_login_form.password }}
-            </div>
-            <div class="signin-form-label-wrapper medium-4 columns">
-                <button type="submit" class="signin-form-btn">{% trans %}Log in{% endtrans %}</button>
-            </div>
-        </div>
-
         <div class="row collapse">
             <div class="medium-9 columns">
                 <div class="row">
@@ -45,7 +29,7 @@
                 </div>
             </div>
             <div class="medium-3 columns">
-                <a href="#" class="button expand">{% trans %}Log in{% endtrans %}</a>
+                <button type="submit" class="button expand">{% trans %}Log in{% endtrans %}</button>
             </div>
         </div>
 
