@@ -35,7 +35,7 @@
     <h1 class="section-title">
         {{ request.user.screen_name|escape }} - {% trans %}edit profile{% endtrans %}
     </h1>
-    <div class="twelve columns tabular-form">
+    <div class="large-12 columns tabular-form">
         {% if form.errors %}
             <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
         {% endif %}
@@ -61,7 +61,7 @@
                 </div>
             </div>#}
             <div class="row">
-                <div class="columns twelve">
+                <div class="columns large-12">
                     <h2>{% trans %}Required information{% endtrans %}</h2>
                 </div>
             </div>
@@ -70,12 +70,12 @@
 
             <div class="row separator-01"></div>
             <div class="row">
-                        <div class="columns twelve">
+                        <div class="columns large-12">
                             <h2>{% trans %}Optional information{% endtrans %}</h2>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="columns twelve">
+                        <div class="columns large-12">
                             <p>{% trans %}If you want do change your sigature to something else than first name and last name, please fill up the Screen name.{% endtrans %}</p>
                         </div>
                     </div>
@@ -83,14 +83,14 @@
             {{ render_formfield_row(form.user_description, labeltext=_('Description')) }}
             <div class="row separator-01"></div>
             <div class="row">
-                <div class="columns twelve">
+                <div class="columns large-12">
                     <h2>{% trans %}Profile picture{% endtrans %}</h2>
                     <p>{% trans gravatar_link = '<a href="http://www.gravatar.com/" title="Globally Recognized Avatar">www.gravatar.com</a>' %}Your profile picture (avatar) may be changed using Globally Recognized Avatar service ({{ gravatar_link }}). Just remember to use same email address for your identification.{% endtrans %}</p>
                 </div>
             </div>
             <div class="row separator-01"></div>
             <div class="row">
-                <div class="columns twelve">
+                <div class="columns large-12">
                     <h2>{% trans %}Privacy settings{% endtrans %}</h2>
                 </div>
             </div>
