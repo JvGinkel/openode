@@ -10825,37 +10825,52 @@ input[type="text"], input[type="password"], input[type="date"], input[type="date
   content: 'l'; }
 
 /* line 11, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
-.profile-edit .aside-box {
+.profile .aside-box {
   border: 1px solid #d2d2d2;
-  margin: 0 0 1rem 0;
   border-radius: 3px;
+  margin: 0 0 1rem 0;
   background-color: #ffffff;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem; }
   /* line 19, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
-  .profile-edit .aside-box ul {
+  .profile .aside-box ul {
     list-style: none;
     margin: 0; }
     /* line 25, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
-    .profile-edit .aside-box ul li a {
+    .profile .aside-box ul li a {
       display: block;
       font-size: 0.875rem;
       color: #000;
       padding: 0.5rem 1.5rem; }
       /* line 31, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
-      .profile-edit .aside-box ul li a:hover {
+      .profile .aside-box ul li a:hover {
         background-color: #d7eefc; }
   /* line 37, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
-  .profile-edit .aside-box.gravatar-box {
+  .profile .aside-box.gravatar-box {
     padding: 2.5rem; }
     /* line 40, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
-    .profile-edit .aside-box.gravatar-box .profile-gravatar-wrap {
+    .profile .aside-box.gravatar-box .profile-gravatar-wrap {
       display: block; }
       /* line 43, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
-      .profile-edit .aside-box.gravatar-box .profile-gravatar-wrap img {
+      .profile .aside-box.gravatar-box .profile-gravatar-wrap img {
         display: block; }
+/* line 49, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
+.profile .profile-title {
+  margin-top: -0.5rem; }
+  /* line 52, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
+  .profile .profile-title h1 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.25em;
+    margin-bottom: 1.25rem; }
+/* line 59, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
+.profile .user-content-wrap {
+  background-color: #fff;
+  border: 1px solid #d2d2d2;
+  border-radius: 3px;
+  padding: 1.25rem; }
 
-/* line 55, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
+/* line 71, /Users/zatamoko/Projects/openode/openode/media/assets/scss/zatamoko */
 .unread-mark {
   display: inline-block;
   text-align: center;

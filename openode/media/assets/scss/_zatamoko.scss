@@ -7,11 +7,11 @@
 // ==========	EDIT PROFILE STYLES
 // ==========================================================================
 
-.profile-edit {
+.profile {
 	.aside-box {
 		border: 1px solid #d2d2d2;
-		margin: 0 0 1rem 0;
 		border-radius: 3px;
+		margin: 0 0 1rem 0;
 		background-color: #ffffff;
 		padding-top: 0.5rem;
 		padding-bottom: 0.5rem;
@@ -45,6 +45,22 @@
 				}
 			}	
 		}
+	}
+	.profile-title {
+		margin-top: -0.5rem;
+
+		h1 {;
+			font-weight: 700;
+			font-size: 1.5rem;
+			line-height: 1.25em;
+			margin-bottom: 1.25rem;
+		}
+	}
+	.user-content-wrap {
+		background-color: #fff;
+		border: 1px solid #d2d2d2;
+		border-radius: 3px;
+		padding: 1.25rem;
 	}
 }
 

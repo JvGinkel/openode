@@ -1,10 +1,12 @@
-{% extends "two_column_body.html" %}
+{% extends "user_profile/user.html" %}
 {% from "macros.html" import render_gravatar, render_formfield_row, sidebar_back_button, sidebar_help %}
 {% block forejs %}
     {{ form.media }}
 {% endblock %}
 
 {% block title %}{% spaceless %}{% trans %}Edit user profile{% endtrans %}{% endspaceless %}{% endblock %}
+
+{% block body_class %}profile{% endblock %}
 
 {% block sidebar %}
     {% call sidebar_back_button(_('Back to Profile')) -%} {# spaceless is neccessary because content is included into href #}
@@ -29,12 +31,20 @@
 
 {% endblock %}
 
+{% block profile_menu %}
+{% include "user_profile/user_aside.html" %}
+{% endblock %}
 
-{% block content %}
-<div class="group">
+
+{% block userheader %}
+<div class="profile-title">
     <h1 class="section-title">
         {{ request.user.screen_name|escape }} - {% trans %}edit profile{% endtrans %}
     </h1>
+</div>
+{% endblock %}
+
+{% block usercontent %}
     <div class="large-12 columns tabular-form">
         {% if form.errors %}
             <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
@@ -106,6 +116,7 @@
     </div>
 </div>
 {% endblock %}
+
 {% block endjs %}
         <script type="text/javascript">
             $().ready(function(){

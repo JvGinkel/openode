@@ -1,0 +1,214 @@
+<div class="aside-box gravatar-box">
+    <a class="profile-gravatar-wrap" href="{{ view_user.get_absolute_url() }}">
+        <img style="width:{{190}}px; height:{{190}}px; overflow: hidden;"
+            width="{{190}}" height="{{190}}"
+            src="{{ view_user.get_avatar_url(190) }}"
+            title="{{view_user.screen_name|escape}}"
+            alt="{{view_user.screen_name|escape}}"
+        />
+    </a>
+</div>
+<div class="aside-box">
+    <ul class="nav-bar vertical">
+
+        <li {% if tab_name=="" %}class="active"{% endif %}>
+            <a id="overview" {% if tab_name=="" %}class="active first"{%else%}class="first"{% endif %}
+                title="{% trans %}User profile{% endtrans %}"
+                href="{% url user_profile view_user.id %}"
+                >
+                <span>{% trans %}Overview{% endtrans %}</span>
+            </a>
+        </li>
+
+        {% if request.user.is_authenticated() %}
+            {% if request.user == view_user %}
+            <li {% if tab_name=="update_profile" %}class="active"{% endif %}>
+                <a id="update_profile" {% if tab_name=="update_profile" %}class="active first"{%else%}class="first"{% endif %}
+                    title="{% trans %}User profile{% endtrans %}"
+                    href="{% url edit_user view_user.id %}"
+                    >
+                    <span>{% trans %}Update profile{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if request.user == view_user and settings.ALLOW_ADD_REMOVE_LOGIN_METHODS %}
+            <li {% if tab_name=="change_pasword" %}class="active"{% endif %}>
+                <a id="change_pasword" {% if tab_name=="change_pasword" %}class="active first"{%else%}class="first"{% endif %}
+                    title="{% trans %}User profile{% endtrans %}"
+                    href="{{ settings.LOGIN_URL }}?next={{ settings.LOGIN_URL }}"
+                    >
+                    <span>{% trans %}Change password{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if request.user == view_user %}
+            <li {% if tab_name=="email_subscriptions" %}class="active"{% endif %}>
+                <a id="email_subscriptions" {% if tab_name=="email_subscriptions" %}class="on"{% endif %}
+                    title="{% trans %}email subscription settings{% endtrans %}"
+                    href="{% url user_profile view_user.id, 'email_subscriptions' %}"
+                    >
+                    <span>{% trans %}Email subscriptions{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+
+
+            {% if request.user == view_user or request.user.has_perm('openode.view_other_user_log') %}
+            <li {% if tab_name=="logs" %}class="active"{% endif %}>
+                <a id="logs" {% if tab_name=="logs" %}class="on"{% endif %}
+                    title="{% trans %}user logs record{% endtrans %}"
+                    href="{% url user_profile view_user.id, 'logs' %}"
+                    >
+                    <span>{% trans %}Action history{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+        {% endif %}
+    </ul>
+</div>
+
+{% if request.user.is_authenticated() %}
+    <div class="aside-box">
+        <ul class="nav-bar vertical">
+            {% if request.user.has_user_perm('can_see_managed_nodes', view_user) and view_user.get_managed_nodes_count %}
+            <li {% if tab_name=="managed_nodes" %}class="active"{% endif %}>
+                <a id="followed_nodes" {% if tab_name=="followed_nodes" %}class="on"{% endif %}
+                    title="{% trans %}questions that user is following{% endtrans %}"
+                    href="{% url user_profile view_user.id, 'managed_nodes' %}"
+                    >
+                    <span>{% trans %}Managed nodes{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if request.user.has_user_perm('can_see_followed_nodes', view_user) %}
+            <li {% if tab_name=="followed_nodes" %}class="active"{% endif %}>
+                <a id="followed_nodes" {% if tab_name=="followed_nodes" %}class="on"{% endif %}
+                    title="{% trans %}nodes that user is following{% endtrans %}"
+                    href="{% url user_profile view_user.id, 'followed_nodes' %}"
+                    >
+                    {% set unread_followed_nodes_count = view_user.get_unread_followed_nodes_count() %}
+                    {% if unread_followed_nodes_count %}
+                        <span class="right unread-mark">{{ unread_followed_nodes_count }}</span>
+                    {% endif %}
+                    <span>{% trans %}Followed nodes{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if request.user.has_user_perm('can_see_followed_threads', view_user) %}
+            <li {% if tab_name=="followed_questions" %}class="active"{% endif %}>
+                <a id="followed_questions" {% if tab_name=="followed_questions" %}class="on"{% endif %}
+                    title="{% trans %}questions that user is following{% endtrans %}"
+                    href="{% url user_profile view_user.id,'followed_questions' %}"
+                    >
+                    {% set unread_followed_questions_count = view_user.get_unread_followed_questions_count() %}
+                    {% if unread_followed_questions_count %}
+                        <span class="right unread-mark">{{ unread_followed_questions_count }}</span>
+                    {% endif %}
+                    <span>{% trans %}Followed questions{% endtrans %}</span>
+                </a>
+            </li>
+            <li {% if tab_name=="followed_discussions" %}class="active"{% endif %}>
+                <a id="followed_discussions" {% if tab_name=="followed_discussions" %}class="on"{% endif %}
+                    title="{% trans %}discussions that user is following{% endtrans %}"
+                    href="{% url user_profile view_user.id, 'followed_discussions' %}"
+                    >
+                    {% set unread_followed_discussions_count = view_user.get_unread_followed_discussions_count() %}
+                    {% if unread_followed_discussions_count %}
+                        <span class="right unread-mark">{{ unread_followed_discussions_count }}</span>
+                    {% endif %}
+                    <span>{% trans %}Followed discussions{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}
+
+{% if request.user == view_user %}
+    <div class="aside-box">
+        <ul class="nav-bar vertical">
+            {% if user_has_perm_resolve_node_joining %}
+            <li {% if tab_name=="node_joins" %}class="active"{% endif %}>
+                <a id="node_joins" {% if tab_name=="node_joins" %}class="on"{% endif %}
+                    title="{% trans %}node joins requests{% endtrans %}"
+                    href="{% url user_profile view_user.id, 'node_joins' %}"
+                    >
+                    {% if node_join_requests_count %}
+                        <span class="right unread-mark">{{ node_join_requests_count }}</span>
+                    {% endif %}
+                    <span>{% trans %}Unresolved Node join requests{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if user_has_perm_resolve_node_creating %}
+            <li {% if tab_name=="node_create" %}class="active"{% endif %}>
+                <a id="node_joins" {% if tab_name=="node_create" %}class="on"{% endif %}
+                    title="{% trans %}node create requests{% endtrans %}"
+                    href="{% url user_profile view_user.id, 'node_create' %}"
+                    >
+                    {% if node_create_requests_count %}
+                        <span class="right unread-mark">{{ node_create_requests_count }}</span>
+                    {% endif %}
+                    <span>{% trans %}Unresolved requests to create Node{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if request.user.has_perm('openode.resolve_organization_joining') %}
+            <li {% if tab_name=="organization_joins" %}class="active"{% endif %}>
+                <a id="organization_joins" {% if tab_name=="organization_joins" %}class="on"{% endif %}
+                    title="{% trans %}organization joins requests{% endtrans %}"
+                    href="{% url user_profile view_user.pk, 'organization_joins' %}"
+                    >
+                    {% if organization_pending_memberships_count %}
+                        <span class="right unread-mark">{{ organization_pending_memberships_count }}</span>
+                    {% endif %}
+                    <span>{% trans %}Unresolved Organization join requests{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if request.user.is_admin('openode.add_organization') %}
+            <li {% if tab_name=="organization_requests" %}class="active"{% endif %}>
+                <a id="node_joins" {% if tab_name=="node_create" %}class="on"{% endif %}
+                    title="{% trans %}organization create requests{% endtrans %}"
+                    href="{% url user_profile view_user.id, 'organization_requests' %}"
+                    >
+                    {% if organization_requests_count %}
+                        <span class="right unread-mark">{{ organization_requests_count }}</span>
+                    {% endif %}
+                    <span>{% trans %}Unresolved requests to create organization{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+
+
+
+            {% if settings.ENABLE_MARK_OFFENSIVE_FLAGS and request.user.has_perm('openode.resolve_flag_offensive') %}
+            <li {% if tab_name=="offensive_flags" %}class="active"{% endif %}>
+                <a id="offensive_flags" {% if tab_name=="offensive_flags" %}class="on"{% endif %}
+                    title="{% trans %}offensive flag reports{% endtrans %}"
+                    href="{% url user_profile view_user.pk, 'offensive_flags' %}"
+                    >
+                    <span>{% trans %}Unresolved Offensive flag reports{% endtrans %}</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}
+
+{% if request.user.is_admin('auth.change_proxyuser') %}
+    <div class="aside-box">
+        <ul>
+            <li>
+                <a class="" href="{% url admin:auth_proxyuser_change view_user.pk %}">{% trans %}Admin edit{% endtrans %}</a>
+            </li>
+        </ul>
+    </div>
+{% endif %}

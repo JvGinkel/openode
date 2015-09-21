@@ -1,7 +1,7 @@
 {% extends "user_profile/user.html" %}
 {% from "macros.html" import render_formfield_row %}
 
-
+{% block body_class %}profile{% endblock %}
 
 {% block profile_breadcrumbs_base %}
     <li><span>{{ view_user.screen_name|escape }}</span></li>
@@ -32,8 +32,6 @@
 
 {% block usercontent %}
 <div class="group user-profile">
-    <div class="large-12 columns">
-
         {% if request.user.is_authenticated() %}
 
             {# === LOGGED USER === #}
@@ -185,8 +183,6 @@
             </div>
 
         {% endif %}
-
-    </div>
 </div>
 {% endblock %}
 
