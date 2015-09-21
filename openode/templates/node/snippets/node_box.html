@@ -26,6 +26,7 @@
                         {% if node.module_qa %}
                             {% url node_module node.pk, node.slug, NODE_MODULE_QA as url %}
                             {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_QA) %}
+
                             <div class="report-box{% if unread > 0 %} unread-background{% endif %}">
                                 <a href="{{ url }}" title="{% trans %}Open Node's questions{% endtrans %}">
                                     <div class="group unread-mark-container">
@@ -52,6 +53,9 @@
                         {% if node.module_forum %}
                             {% url node_module node.pk, node.slug, NODE_MODULE_FORUM as url %}
                             {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_FORUM) %}
+                            <hr>
+                            <h1>NODE FORUM</h1>                            
+                            <hr>
                             <div class="report-box{% if unread > 0 %} unread-background{% endif %}">
                                 <a href="{{ url }}" title="{% trans %}Open Node's discussion{% endtrans %}">
                                     <div class="group unread-mark-container">
@@ -79,6 +83,9 @@
                         {% if node.module_library %}
                             {% url node_module node.pk, node.slug, NODE_MODULE_LIBRARY as url %}
                             {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_LIBRARY) %}
+                            <hr>
+                            <h1>NODE library</h1>                            
+                            <hr>
                             <div class="report-box{% if unread > 0 %} unread-background{% endif %}">
                                 <a href="{{ url }}" title="{% trans %}Open Node's documents{% endtrans %}">
                                     <div class="group unread-mark-container">
@@ -121,6 +128,7 @@
                         {% else %}
                             <h3 class="node-title">                            
                                 {{ node.title_with_status('html') }}
+                                {{ node.status }}
                                 {#
                                 <span class="longtitle">
                                     <span class="title">- {{ node.long_title|truncate(100) }}</span>

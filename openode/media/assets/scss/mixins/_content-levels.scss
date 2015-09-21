@@ -6,7 +6,7 @@
     @for $i from $minLevel through $maxLevels {
         #{$levelSelector}-#{$i} {
             #{$contentSelector} {
-                padding-left: $i * $step;
+                padding-left: $i * $step + px;
             }
         }
     }

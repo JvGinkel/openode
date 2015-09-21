@@ -13,6 +13,7 @@ $node-expand-control-size: rem-calc(30px) !default;
 $node-expand-control-font-size: rem-calc(18px) !default;
 
 .node-box {
+
     &.category.level-0 {
         background: $node-parent-bg;
         margin-bottom: $node-item-margin-bottom;
@@ -22,8 +23,15 @@ $node-expand-control-font-size: rem-calc(18px) !default;
         }
     }
 
+    //@incli
+
     // Generate node levels
-    @include content-levels($minLevel: 1, $maxLevels: 10, $step: 25, $levelSelector: '&.level', $contentSelector: '.node-box-content');
+    @include content-levels($minLevel: 1, 
+        $maxLevels: 10, 
+        $step: 25, 
+        $levelSelector: '&.level', 
+        $contentSelector: '.node-box-content'
+    );
 }
 
 .node-box-content {
@@ -72,7 +80,6 @@ $node-expand-control-font-size: rem-calc(18px) !default;
         font-size: $node-expand-control-font-size;
         color: $node-expand-control-color;
     }
-
 
     &:hover, &:focus, &:active {
         transform: scale(1.2);
