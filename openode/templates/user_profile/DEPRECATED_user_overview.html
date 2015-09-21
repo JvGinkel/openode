@@ -8,14 +8,30 @@
 {% endblock %}
 
 {% block userheader %}
-<div class="content-panel-control content-inline">
-    <h2 class="title">{{ view_user.screen_name|escape }}</h2>                        
-</div>     
+    <div class="row profile-title">
+        <div class="large-12 columns">
+            <h1>{{ view_user.screen_name|escape }}</h1>
+            {% if request.user.is_authenticated() %}
+                {% for organization in view_user.get_organizations() %}
+                    <a class="organization-logo" href="{{ organization.get_absolute_url() }}" title="{% trans %}Organization{% endtrans %}: {{ organization.full_title|escape }}">
+                        {% if organization.logo %}
+                            <img src="{{ organization.get_logo_url(48, crop=True) }}" alt="{{ organization.title|escape }}" />{#  {{ organization.title|escape }} #}
+                        {% else %}
+                            {% trans %}Organization{% endtrans %}: {{ organization.title|escape }}
+                        {% endif %}
+                    </a>
+                {% else %}
+                    {% if request.user == view_user %}
+                        <a class="organization-add" href="{% url organization_list %}" title="{% trans %}Choose an organization and join in{% endtrans %}">{% trans %}Choose organization{% endtrans %}</a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
 
 {% block usercontent %}
-<div class="content-panel">
-    <div class="content-panel-content">
+<div class="group user-profile">
         {% if request.user.is_authenticated() %}
 
             {# === LOGGED USER === #}
@@ -170,7 +186,6 @@
             </div>
 
         {% endif %}
-    </div>
 </div>
 {% endblock %}
 

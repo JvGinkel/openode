@@ -27,17 +27,19 @@
 {% endblock %}
 
 {% block content %}
-    {% block userheader %}
-        <div class="row profile-title">
-            <div class="large-12 columns">
-                <h1 class="section-title">{{ view_user.screen_name|escape }} &ndash; {% block profilesection %}{% endblock %}</h1>
+    <div class="content-panel-wrapper">
+        {% block userheader %}
+            <div class="row profile-title">
+                <div class="large-12 columns">
+                    <h1 class="section-title">{{ view_user.screen_name|escape }} &ndash; {% block profilesection %}{% endblock %}</h1>
+                </div>
             </div>
-        </div>
-    {% endblock %}
-
-    <div class="group user-content-wrap">
-        {% block usercontent %}
         {% endblock %}
+
+        <div class="user-overview">
+            {% block usercontent %}
+            {% endblock %}
+        </div>
     </div>
 {% endblock %}
 

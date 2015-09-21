@@ -47,7 +47,7 @@ $content-panel-header-font-size: rem-calc(12px) !default;
             display: inline-block;
         }
     }
-
+ 
     .control-link {
 
         & + .control-link {
@@ -71,11 +71,15 @@ $content-panel-header-font-size: rem-calc(12px) !default;
 }
 
 .content-panel-wrapper {
+    position: relative;    
+    top: rem-calc(-5px); // for adjust horizontal line with other boxes
     margin-bottom: rem-calc(20px);
     
     .title {
         text-transform: uppercase;
         font-size: rem-calc(24px);
+        line-height: rem-calc(28px);
+        margin-bottom: rem-calc(16px);
     }
     .control-link {        
         font-size: rem-calc(12px);
