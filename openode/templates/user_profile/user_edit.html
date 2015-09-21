@@ -116,9 +116,9 @@
             {{ render_formfield_row(form.privacy_show_followed, labeltext=_('Publish your followed'), helptext=_('Other registered users will be able to see your followed content including your unread posts.')) }}
             {{ render_formfield_row(form.privacy_email_form, labeltext=_('Allow form for sending email messages'), helptext=_('Other registered users will be able to send you messages through the form in your profile. Your email address will not be compromised.')) }}
             <div class="row">
-                <div class="three columns"></div>
-                <div class="nine columns t-left">
-                    <button class="large button success" type="submit" name="post">{% trans %}Save{% endtrans %}</button>
+                <div class="large-3 columns"></div>
+                <div class="large-9 columns t-right">
+                    <button class="button button-submit" type="submit" name="post">{% trans %}Save{% endtrans %}</button>
                 </div>
             </div>
         </form>
