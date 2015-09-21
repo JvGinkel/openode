@@ -54,8 +54,9 @@
                             </tr>
                         {% endif %}
 
-{#                         <tr>
-                            <th class="t-left">{% trans %}Organizations{% endtrans %}:</th>
+                        {#
+                        <tr>
+                        <th class="t-left">{% trans %}Organizations{% endtrans %}:</th>
                             <td>
                                 <dl style="margin:0">
                                 {% for organization in view_user.get_organizations() %}
@@ -72,7 +73,9 @@
                                 </dl>
                             </td>
                         </tr>
- #}                        <tr>
+                        #}
+
+                        <tr>
                             <th class="t-left">{% trans %}Member since{% endtrans %}:</th>
                             <td>{{ view_user.date_joined|humanize_datetime }}</td>
                         </tr>

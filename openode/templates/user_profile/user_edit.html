@@ -39,18 +39,25 @@
 {% block userheader %}
 <div class="profile-title">
     <h1 class="section-title">
-        {{ request.user.screen_name|escape }} - {% trans %}edit profile{% endtrans %}
+        {{ request.user.screen_name|escape }}
     </h1>
 </div>
 {% endblock %}
 
 {% block usercontent %}
     <div class="large-12 columns tabular-form">
+        <div class="section-subtitle">
+            {% trans %}Edit profile{% endtrans %}
+        </div>
+
         {% if form.errors %}
             <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
         {% endif %}
+        
         <form name="" action="{% url edit_user request.user.id %}" method="post">{% csrf_token %}
-            {#<div class="row">
+
+            {#
+            <div class="row">
                 <div class="three columns">
                     {{ render_gravatar(view_user, 128) }}
                 </div>
@@ -69,7 +76,9 @@
                         {% endif %}
                     {% endif %}
                 </div>
-            </div>#}
+            </div>
+            #}
+
             <div class="row">
                 <div class="columns large-12">
                     <h2>{% trans %}Required information{% endtrans %}</h2>
