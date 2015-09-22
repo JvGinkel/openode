@@ -3,18 +3,18 @@
 // ==========================================================================
 
 .unread-mark {
-	display: inline-block;
-	text-align: center;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
 
-	border: 1px solid $secondary-color;
-	border-radius: 50px; 
-
-	min-width: rem-calc(18px);
-	height: rem-calc(18px);
-	line-height: rem-calc(17px);
-
-	background: $white;
-	font-weight: bold;
-	color: $secondary-color;
-	
+    // modified
+    min-width: rem-calc(24px);
+    height: rem-calc(24px);
+    line-height: rem-calc(24px);
+    background: #ffcc00;
+    font-size: rem-calc(12px);
+    color: #000;    
+    padding: 0 rem-calc(7.15px) 0 rem-calc(7.15px);
 }

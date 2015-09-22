@@ -1,18 +1,31 @@
-// Foundation by ZURB
-// foundation.zurb.com
-// Licensed under MIT Open Source
-
-//
+// #########################################################################################################
+// =========================================================================================================
+// Title:        Project & Components SETTINGS
+// Desc: 		 Main configuration file for set easily properties for every component or module
+// =========================================================================================================
 
 // Table of Contents
-// Foundation Settings
 //
-// *. Custom variables
+//
+// ########################
+// A. Project Settings
+//
 // a. Base
 // b. Grid
 // c. Global
 // d. Media Query Ranges
 // e. Typography
+//
+//
+// ########################
+// B. Project Components
+//
+// f. Nodes
+//
+//
+// ########################
+// C. Foundation Compoments
+//
 // 01. Accordion
 // 02. Alert Boxes
 // 03. Block Grid
@@ -50,9 +63,14 @@
 // 36. Visibility Classes
 
 
-// *. Custom variables
+// =========================================================================================================
+// Title:        A. PROJECT SETTINGS
+// =========================================================================================================
+
+// a. Base
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+// Fonts
 $primary-font: 'Open Sans', sans-serif;
 $icon-font: 'openode';
 
@@ -76,9 +94,10 @@ $quinary-color: #ffcc00;
 //$octonary-color: transparent; 
 //$nonary-color: transparent;
 
-
-
-$border-color: #cccccc;
+$global-spacing: rem-calc(17px);
+$global-border-width: rem-calc(1px);
+$global-border-style: solid;
+$global-border-color: #cccccc;
 
 
 $text-color: #000000;
@@ -89,17 +108,6 @@ $base-color: #fff;
 $base-color2: #333;
 $icon-color: $secondary-color;
 $icon-color2: #ffcc00;
-
-
-// Spacing - User for paddings, margins
-$global-spacing: rem-calc(17px);
-
-// Nodes
-$node-parent-bg: $navy-blue;
-
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-// - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
 // a. Base
@@ -367,6 +375,40 @@ $mobile-and-tables: "#{$screen} and (min-width:#{lower-bound($small-range)}) and
 // We use this to control abbr font styles
 // $microformat-abbr-font-weight: $font-weight-bold;
 // $microformat-abbr-font-decoration: none;
+
+
+// =========================================================================================================
+// Title:        B. PROJECT COMPONENTS SETTINGS
+// =========================================================================================================
+
+// f. Node
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Variables for spacing of 'Node Box'
+$node-box-spacing: $global-spacing;
+
+// Variables for spacing of 'Top Level Node'
+$node-box-top-level-bg: $navy-blue;
+$node-box-top-level-border-width: none;
+$node-box-top-level-border-style: none;
+$node-box-top-level-border-color: none;
+
+// Variables for spacing of 'Sub Level Node'
+$node-box-sub-level-bg: $white !default;
+$node-box-sub-level-border-width: $global-border-width;
+$node-box-sub-level-border-style: $global-border-style;
+$node-box-sub-level-border-color: $global-border-color;
+
+// Variables for 'Expand Control Button'
+$node-box-expand-control-bg: $white;
+$node-box-expand-control-color: $node-box-top-level-bg;
+$node-box-expand-control-size: rem-calc(30px);
+$node-box-expand-control-font-size: rem-calc(18px);
+
+
+// =========================================================================================================
+// Title:        C. FOUNDATION COMPONENTS SETTINGS
+// =========================================================================================================
 
 
 // 01. Accordion

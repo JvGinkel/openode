@@ -3,10 +3,6 @@
 
 {% block body_class %}profile{% endblock %}
 
-{% block profile_breadcrumbs_base %}
-    <li><span>{{ view_user.screen_name|escape }}</span></li>
-{% endblock %}
-
 {% block userheader %}
 <div class="content-panel-control content-inline">
     <h2 class="title">{{ view_user.screen_name|escape }}</h2>                        
@@ -15,6 +11,13 @@
 
 {% block usercontent %}
 <div class="content-panel">
+    <div class="content-panel-header">
+        {% block profile_breadcrumbs_base %}            
+            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                <li role="menuitem">{{ view_user.screen_name|escape }}</li>
+            </nav>
+        {% endblock %}
+    </div>
     <div class="content-panel-content">
         {% if request.user.is_authenticated() %}
 

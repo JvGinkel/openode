@@ -1,23 +1,9 @@
-<div class="hidden">
-	<form action="{% url search %}" id="form-group js-search-input">
-	    <div class="row collapse">
-	        <div class="medium-7 columns">
-	            <input type="search" class="ui-autocomplete-input" placeholder="{% trans %}Search{% endtrans %}..." id="search" name="q" autocomplete="off">
-	            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
-	        </div>
-	        <div class="medium-5 columns">
-	            <a href="#" class="button button-submit t-uppercase">{% trans %}Search{% endtrans %}</a>
-	        </div>
-	    </div>
-	</form>
-</div>
-
 <form action="{% url search %}" id="form-group js-search-input">
     <div class="row collapse">
         <div class="medium-12 columns">
         	<div class="search-form">
 	            <input type="search" class="ui-autocomplete-input" placeholder="{% trans %}Search{% endtrans %}..." id="search" name="q" autocomplete="off">
-	            <a href="#" class="button button-submit t-uppercase">{% trans %}Search{% endtrans %}</a>
+	            <button type="submit" href="#" class="button button-submit t-uppercase">{% trans %}Search{% endtrans %}</button>
 	            <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
             </div>
         </div>

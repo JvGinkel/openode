@@ -7,6 +7,7 @@
         #{$levelSelector}-#{$i} {
             #{$contentSelector} {
                 padding-left: $i * $step + px;
+                @content;
             }
         }
     }

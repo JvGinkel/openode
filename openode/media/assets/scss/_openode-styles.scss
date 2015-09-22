@@ -2,6 +2,9 @@
 // Title:        Openode Styles
 // ==========================================================================
 
+
+@import "functions/basic";
+
 @import "fonts/base-fonts";
 @import "fonts/icon-fonts";
 
@@ -47,8 +50,9 @@
 
 
 @import "layout/nodes/node-base";
+@import "layout/nodes/node-box-areas";
 @import "layout/nodes/node-box";
-@import "layout/nodes/report-box";
+@import "layout/nodes/node-box-content";
 
 
 ////// @TODO @REFACTOR - TEMPORARY STYLES

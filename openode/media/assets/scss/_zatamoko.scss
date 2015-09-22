@@ -3,7 +3,6 @@
 // ==========================================================================
 
 
-
 // ==========	EDIT PROFILE STYLES
 // ==========================================================================
 
@@ -95,18 +94,3 @@
 // ==========	MISC
 // ==========================================================================
 
-.unread-mark {
-    display: inline-block;
-    text-align: center;
-    border: none;
-    border-radius: 50px;
-    font-weight: bold;
-
-    // modified
-    min-width: 1.5rem;
-    height: 1.5rem;
-    line-height: 1.5rem;
-    background: #ffcc00;
-    font-size: 0.75rem;
-    color: #000;
-}

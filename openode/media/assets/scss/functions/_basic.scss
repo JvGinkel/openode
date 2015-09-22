@@ -1,0 +1,45 @@
+// ==========================================================================
+// Title:        Parse Integer
+// @param {Number} $n - Number to parse
+// @return {Number} - Parsed number
+// ==========================================================================
+
+
+@function parseInt($n) {
+    @return $n / ($n * 0 + 1); /* 2 */
+}
+
+
+// ==========================================================================
+// Title:        Strip Unit
+// Desc: 	     Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+// ==========================================================================
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+
+// ==========================================================================
+// Title:        REM to PX
+// Desc: 	     Converts REM to PX units
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Number in PX units
+// ==========================================================================
+@function rem-to-px($number) {
+  @if (type-of($number) == "number") and ($number != 0) {
+    $unit : unit($number);   
+    $val  : parseInt($number); 
+    
+    @if ($unit == 'rem') {
+      @return $val * $rem-base;
+    }
+  }
+
+  @return $number;
+}

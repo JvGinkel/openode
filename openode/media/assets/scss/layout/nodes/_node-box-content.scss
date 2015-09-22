@@ -1,0 +1,31 @@
+// ==========================================================================
+// Title:        Node Box Content
+// ==========================================================================
+
+.node-box-content {
+    position: relative;
+    padding: $node-box-spacing ($node-box-expand-control-size + $node-box-spacing*2) $node-box-spacing $node-box-spacing;
+}
+
+.node-box-content {
+    .node-title {
+        position: relative;
+        margin: 0;
+
+        font-size: rem-calc(18px);
+
+        color: $text-color; 
+    }
+
+    .node-expand-area {
+        position: absolute;
+        top: rem-calc(22px);
+        right: rem-calc(20px);
+    }
+
+    .report-meta-area {
+        @extend %report-meta-area;
+
+        display: inline-block;
+    }
+}

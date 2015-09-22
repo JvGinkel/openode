@@ -36,8 +36,9 @@
     }
 
     .unread-mark {
-        position: absolute;
-        top: 0; right: 0;
+        position: absolute; 
+        top: rem-calc(-3px); right: 0;
+        z-index: 1;
     }
 }
 
