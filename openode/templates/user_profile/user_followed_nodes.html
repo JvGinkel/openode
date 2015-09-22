@@ -12,17 +12,28 @@
 
 
 {% block usercontent %}
-    <div class="q-listing">
-        {% with nodes_of_user = view_user %}
-            {% for f_node in followed_nodes %}
-                {% set node = f_node.node %}
-                {% include "node/snippets/node_box.html" %}
-            {% else %}
-                <p>{% trans %}No records.{% endtrans %}</p>
-            {% endfor %}
-        {% endwith %}
+<div class="content-panel">
+    <div class="content-panel-header">
+        {% block profile_breadcrumbs_base %}            
+            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                <li><span>{% trans %}Followed nodes{% endtrans %}</span></li>
+            </nav>
+        {% endblock %}
     </div>
-    {% if view_user == request.user and request.user.get_unread_followed_nodes_count() %}
-        <p class="t-right"><a href="{% url "node_mark_read" "node" %}">{% trans %}Mark all followed node read{% endtrans %}</a></p>
-    {% endif %}
+    <div class="content-panel-content">
+        <div class="q-listing">
+            {% with nodes_of_user = view_user %}
+                {% for f_node in followed_nodes %}
+                    {% set node = f_node.node %}
+                    {% include "node/snippets/node_box.html" %}
+                {% else %}
+                    <p>{% trans %}No records.{% endtrans %}</p>
+                {% endfor %}
+            {% endwith %}
+        </div>
+        {% if view_user == request.user and request.user.get_unread_followed_nodes_count() %}
+            <p class="t-right"><a href="{% url "node_mark_read" "node" %}">{% trans %}Mark all followed node read{% endtrans %}</a></p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

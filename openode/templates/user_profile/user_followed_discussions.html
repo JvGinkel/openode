@@ -9,24 +9,35 @@
 {% endblock %}
 
 {% block usercontent %}
-    <div class="q-listing">
-        {% for main_post in discussions %}
-            {% with %}
-                {% set thread = main_post.thread %}
-                {% set extra_class = 'narrow' %}
-                {% set search_state = search_state %}
-                {% set visitor = request.user %}
-                {% set thread_header = True %}
-                {% set thread_view = thread.get_thread_view(view_user) %}
-                {% set has_unread_posts = thread.has_unread_posts(thread_view, view_user) %}
-                {% include "widgets/thread_summary_discussion.html" %}
-            {% endwith %}
-        {% else %}
-            <p>{% trans %}No records.{% endtrans %}</p>
-        {% endfor %}
+<div class="content-panel">
+    <div class="content-panel-header">
+        {% block profile_breadcrumbs_base %}            
+            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                <li><span>{% trans %}Followed discussions{% endtrans %}</span></li>
+            </nav>
+        {% endblock %}
     </div>
+    <div class="content-panel-content">
+        <div class="q-listing">
+            {% for main_post in discussions %}
+                {% with %}
+                    {% set thread = main_post.thread %}
+                    {% set extra_class = 'narrow' %}
+                    {% set search_state = search_state %}
+                    {% set visitor = request.user %}
+                    {% set thread_header = True %}
+                    {% set thread_view = thread.get_thread_view(view_user) %}
+                    {% set has_unread_posts = thread.has_unread_posts(thread_view, view_user) %}
+                    {% include "widgets/thread_summary_discussion.html" %}
+                {% endwith %}
+            {% else %}
+                <p>{% trans %}No records.{% endtrans %}</p>
+            {% endfor %}
+        </div>
 
-    {% if view_user == request.user and request.user.get_unread_followed_discussions_count() %}
-        <p class="t-right"><a href="{% url "node_mark_read" "discussion" %}">{% trans %}Mark all read{% endtrans %}</a></p>
-    {% endif %}
+        {% if view_user == request.user and request.user.get_unread_followed_discussions_count() %}
+            <p class="t-right"><a href="{% url "node_mark_read" "discussion" %}">{% trans %}Mark all read{% endtrans %}</a></p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
