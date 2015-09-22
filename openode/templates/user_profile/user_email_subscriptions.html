@@ -9,106 +9,117 @@
 {% endblock %}
 
 {% block usercontent %}
-<div class="group">
-    <div class="twelve columns tabular-form">
+<div class="content-panel">
+    <div class="content-panel-header">
+        {% block profile_breadcrumbs_base %}            
+            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                <li><span>{% trans %}Email subscriptions{% endtrans %}</span></li>
+            </nav>
+        {% endblock %}
+    </div>
+    <div class="content-panel-content">
         <div class="row">
-            <div class="twelve columns">
-                {# <h2>{% trans %}Email subscription settings{% endtrans %}</h2> #}
-                <p class="message">
-                    {% trans %}
-                        <span class='big strong'>Adjust frequency of email updates.</span>
-                        Receive updates on interesting questions by email,<br/>
-                        <strong>help the community</strong> by answering questions of your colleagues. If you do not wish to receive emails - select 'no email' on all items below.<br/>
-                        Updates are only sent when there is any new activity on selected items.
-                    {% endtrans %}
-                </p>
+            <div class="large-12 columns tabular-form">
+                <div class="row">
+                    <div class="large-12 columns">
+                        {# <h2>{% trans %}Email subscription settings{% endtrans %}</h2> #}
+                        <p class="message">
+                            {% trans %}
+                                <span class='big strong'>Adjust frequency of email updates.</span>
+                                Receive updates on interesting questions by email,<br/>
+                                <strong>help the community</strong> by answering questions of your colleagues. If you do not wish to receive emails - select 'no email' on all items below.<br/>
+                                Updates are only sent when there is any new activity on selected items.
+                            {% endtrans %}
+                        </p>
+                    </div>
+                </div>
+
+                <form method="post" action="">{% csrf_token %}
+
+                    {# TODO #}
+                    <div style="display: none">
+                        <div class="row">
+                            <div class="large-3 columns">
+                                {{ email_feeds_form.asked_by_me.label_tag() }}
+                            </div>
+                            <div class="large-9 columns">
+                                {{ email_feeds_form.asked_by_me }}
+                                {{ email_feeds_form.asked_by_me.errors }}
+                                <div class="form-field-separator"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns">
+                                {{ email_feeds_form.answered_by_me.label_tag() }}
+                            </div>
+                            <div class="large-9 columns">
+                                {{ email_feeds_form.answered_by_me }}
+                                {{ email_feeds_form.answered_by_me.errors }}
+                                <div class="form-field-separator"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="large-3 columns">
+                            {{ email_feeds_form.individually_selected.label_tag() }}
+                        </div>
+                        <div class="large-9 columns">
+                            {{ email_feeds_form.individually_selected }}
+                            {{ email_feeds_form.individually_selected.errors }}
+                            <div class="form-field-separator"></div>
+                        </div>
+                    </div>
+
+                    {# TODO #}
+                    <div style="display: none">
+                        <div class="row">
+                            <div class="large-3 columns">
+                                {{ email_feeds_form.all_questions.label_tag() }}
+                            </div>
+                            <div class="large-9 columns">
+                                {{ email_feeds_form.all_questions }}
+                                {{ email_feeds_form.all_questions.errors }}
+                                <div class="form-field-separator"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns">
+                                {{ email_feeds_form.mentions_and_comments.label_tag() }}
+                            </div>
+                            <div class="large-9 columns">
+                                {{ email_feeds_form.mentions_and_comments }}
+                                {{ email_feeds_form.mentions_and_comments.errors }}
+                                <div class="form-field-separator"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="large-3 columns">
+                                {{ tag_filter_selection_form.email_tag_filter_strategy.label_tag() }}
+                            </div>
+                            <div class="large-9 columns">
+                                {{ tag_filter_selection_form.email_tag_filter_strategy }}
+                                {{ tag_filter_selection_form.email_tag_filter_strategy.errors }}
+                                <div class="form-field-separator"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="large-3 columns">
+                        </div>
+                        <div class="large-9 columns">
+                            <button type="submit" class="button button-submit" name="save">{% trans %}Save{% endtrans %}</button>
+                            <button style="display: none" type="submit" class="button button-submit" name="stop_email">{% trans %}Stop Email{% endtrans %}</button>
+                            <div class="form-field-separator"></div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
         </div>
-
-        <form method="post" action="">{% csrf_token %}
-
-            {# TODO #}
-            <div style="display: none">
-                <div class="row">
-                    <div class="three columns">
-                        {{ email_feeds_form.asked_by_me.label_tag() }}
-                    </div>
-                    <div class="nine columns">
-                        {{ email_feeds_form.asked_by_me }}
-                        {{ email_feeds_form.asked_by_me.errors }}
-                        <div class="form-field-separator"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="three columns">
-                        {{ email_feeds_form.answered_by_me.label_tag() }}
-                    </div>
-                    <div class="nine columns">
-                        {{ email_feeds_form.answered_by_me }}
-                        {{ email_feeds_form.answered_by_me.errors }}
-                        <div class="form-field-separator"></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="three columns">
-                    {{ email_feeds_form.individually_selected.label_tag() }}
-                </div>
-                <div class="nine columns">
-                    {{ email_feeds_form.individually_selected }}
-                    {{ email_feeds_form.individually_selected.errors }}
-                    <div class="form-field-separator"></div>
-                </div>
-            </div>
-
-            {# TODO #}
-            <div style="display: none">
-                <div class="row">
-                    <div class="three columns">
-                        {{ email_feeds_form.all_questions.label_tag() }}
-                    </div>
-                    <div class="nine columns">
-                        {{ email_feeds_form.all_questions }}
-                        {{ email_feeds_form.all_questions.errors }}
-                        <div class="form-field-separator"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="three columns">
-                        {{ email_feeds_form.mentions_and_comments.label_tag() }}
-                    </div>
-                    <div class="nine columns">
-                        {{ email_feeds_form.mentions_and_comments }}
-                        {{ email_feeds_form.mentions_and_comments.errors }}
-                        <div class="form-field-separator"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="three columns">
-                        {{ tag_filter_selection_form.email_tag_filter_strategy.label_tag() }}
-                    </div>
-                    <div class="nine columns">
-                        {{ tag_filter_selection_form.email_tag_filter_strategy }}
-                        {{ tag_filter_selection_form.email_tag_filter_strategy.errors }}
-                        <div class="form-field-separator"></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="three columns">
-                </div>
-                <div class="nine columns">
-                    <button type="submit" class="large button success" name="save">{% trans %}Save{% endtrans %}</button>
-                    <button style="display: none" type="submit" class="large button alert" name="stop_email">{% trans %}Stop Email{% endtrans %}</button>
-                    <div class="form-field-separator"></div>
-                </div>
-            </div>
-
-        </form>
     </div>
 </div>
 {% endblock %}

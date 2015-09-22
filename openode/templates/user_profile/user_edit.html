@@ -18,7 +18,6 @@
 {% endblock %}
 
 {% block breadcrumbs %}
-
     <li>
         {% if request.user.is_authenticated %}
             <a href="{% url users %}">{% trans %}Users{% endtrans %}</a>
@@ -28,7 +27,6 @@
     </li>
     <li><a href="{% url user_profile view_user.id %}">{{ view_user.screen_name|escape }}</a></li>
     <li><span>{% trans %}Update Profile{% endtrans %}</span></li>
-
 {% endblock %}
 
 {% block profile_menu %}
@@ -37,91 +35,109 @@
 
 
 {% block userheader %}
-<div class="profile-title">
-    <h1 class="section-title">
-        {{ request.user.screen_name|escape }}
-    </h1>
+<div class="content-panel-control content-inline">
+    <h2 class="title">{{ request.user.screen_name|escape }}</h2>                        
 </div>
 {% endblock %}
 
 {% block usercontent %}
-    <div class="large-12 columns tabular-form">
-        <div class="section-subtitle">
-            {% trans %}Edit profile{% endtrans %}
-        </div>
-
-        {% if form.errors %}
-            <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
-        {% endif %}
-        
-        <form name="" action="{% url edit_user request.user.id %}" method="post">{% csrf_token %}
-
-            {#
-            <div class="row">
-                <div class="three columns">
-                    {{ render_gravatar(view_user, 128) }}
-                </div>
-                <div class="nine columns">
-                    {% if request.user == view_user %}
-                        <p><a
-                            {% if support_custom_avatars %}
-                                href="{% url avatar_change %}"
-                            {% endif %}
-                        >{% trans %}change picture{% endtrans %}</a></p>
-                        {% if support_custom_avatars %}
-                        <p><a
-                            href="{% url avatar_delete %}"
-                            >{% trans %}remove{% endtrans %}</a>
-                        </p>
-                        {% endif %}
+<div class="content-panel">
+    <div class="content-panel-header">
+        {% block profile_breadcrumbs_base %}            
+            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                <li>
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url users %}">{% trans %}Users{% endtrans %}</a>
+                    {% else %}
+                        <span>{% trans %}Users{% endtrans %}</span>
                     {% endif %}
+                </li>
+                <li><a href="{% url user_profile view_user.id %}">{{ view_user.screen_name|escape }}</a></li>
+                <li><span>{% trans %}Update Profile{% endtrans %}</span></li>
+            </nav>
+        {% endblock %}
+    </div>
+    <div class="content-panel-content">
+        <div class="row">
+            <div class="large-12 columns tabular-form">
+                <div class="section-subtitle">
+                    {% trans %}Edit profile{% endtrans %}
                 </div>
-            </div>
-            #}
 
-            <div class="row">
-                <div class="columns large-12">
-                    <h2>{% trans %}Required information{% endtrans %}</h2>
-                </div>
-            </div>
-            {{ render_formfield_row(form.first_name, labeltext=_('First name')) }}
-            {{ render_formfield_row(form.last_name, labeltext=_('Last name')) }}
+                {% if form.errors %}
+                    <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
+                {% endif %}
+                
+                <form name="" action="{% url edit_user request.user.id %}" method="post">{% csrf_token %}
 
-            <div class="row separator-01"></div>
-            <div class="row">
-                        <div class="columns large-12">
-                            <h2>{% trans %}Optional information{% endtrans %}</h2>
+                    {#
+                    <div class="row">
+                        <div class="three columns">
+                            {{ render_gravatar(view_user, 128) }}
+                        </div>
+                        <div class="nine columns">
+                            {% if request.user == view_user %}
+                                <p><a
+                                    {% if support_custom_avatars %}
+                                        href="{% url avatar_change %}"
+                                    {% endif %}
+                                >{% trans %}change picture{% endtrans %}</a></p>
+                                {% if support_custom_avatars %}
+                                <p><a
+                                    href="{% url avatar_delete %}"
+                                    >{% trans %}remove{% endtrans %}</a>
+                                </p>
+                                {% endif %}
+                            {% endif %}
                         </div>
                     </div>
+                    #}
+
                     <div class="row">
                         <div class="columns large-12">
-                            <p>{% trans %}If you want do change your sigature to something else than first name and last name, please fill up the Screen name.{% endtrans %}</p>
+                            <h2>{% trans %}Required information{% endtrans %}</h2>
                         </div>
                     </div>
-            {{ render_formfield_row(form.display_name, labeltext=_('Screen name')) }}
-            {{ render_formfield_row(form.user_description, labeltext=_('Description')) }}
-            <div class="row separator-01"></div>
-            <div class="row">
-                <div class="columns large-12">
-                    <h2>{% trans %}Profile picture{% endtrans %}</h2>
-                    <p>{% trans gravatar_link = '<a href="http://www.gravatar.com/" title="Globally Recognized Avatar">www.gravatar.com</a>' %}Your profile picture (avatar) may be changed using Globally Recognized Avatar service ({{ gravatar_link }}). Just remember to use same email address for your identification.{% endtrans %}</p>
-                </div>
+                    {{ render_formfield_row(form.first_name, labeltext=_('First name')) }}
+                    {{ render_formfield_row(form.last_name, labeltext=_('Last name')) }}
+
+                    <div class="row separator-01"></div>
+                    <div class="row">
+                                <div class="columns large-12">
+                                    <h2>{% trans %}Optional information{% endtrans %}</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="columns large-12">
+                                    <p>{% trans %}If you want do change your sigature to something else than first name and last name, please fill up the Screen name.{% endtrans %}</p>
+                                </div>
+                            </div>
+                    {{ render_formfield_row(form.display_name, labeltext=_('Screen name')) }}
+                    {{ render_formfield_row(form.user_description, labeltext=_('Description')) }}
+                    <div class="row separator-01"></div>
+                    <div class="row">
+                        <div class="columns large-12">
+                            <h2>{% trans %}Profile picture{% endtrans %}</h2>
+                            <p>{% trans gravatar_link = '<a href="http://www.gravatar.com/" title="Globally Recognized Avatar">www.gravatar.com</a>' %}Your profile picture (avatar) may be changed using Globally Recognized Avatar service ({{ gravatar_link }}). Just remember to use same email address for your identification.{% endtrans %}</p>
+                        </div>
+                    </div>
+                    <div class="row separator-01"></div>
+                    <div class="row">
+                        <div class="columns large-12">
+                            <h2>{% trans %}Privacy settings{% endtrans %}</h2>
+                        </div>
+                    </div>
+                    {{ render_formfield_row(form.privacy_show_followed, labeltext=_('Publish your followed'), helptext=_('Other registered users will be able to see your followed content including your unread posts.')) }}
+                    {{ render_formfield_row(form.privacy_email_form, labeltext=_('Allow form for sending email messages'), helptext=_('Other registered users will be able to send you messages through the form in your profile. Your email address will not be compromised.')) }}
+                    <div class="row">
+                        <div class="large-3 columns"></div>
+                        <div class="large-9 columns t-right">
+                            <button class="button button-submit" type="submit" name="post">{% trans %}Save{% endtrans %}</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="row separator-01"></div>
-            <div class="row">
-                <div class="columns large-12">
-                    <h2>{% trans %}Privacy settings{% endtrans %}</h2>
-                </div>
-            </div>
-            {{ render_formfield_row(form.privacy_show_followed, labeltext=_('Publish your followed'), helptext=_('Other registered users will be able to see your followed content including your unread posts.')) }}
-            {{ render_formfield_row(form.privacy_email_form, labeltext=_('Allow form for sending email messages'), helptext=_('Other registered users will be able to send you messages through the form in your profile. Your email address will not be compromised.')) }}
-            <div class="row">
-                <div class="large-3 columns"></div>
-                <div class="large-9 columns t-right">
-                    <button class="button button-submit" type="submit" name="post">{% trans %}Save{% endtrans %}</button>
-                </div>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 {% endblock %}
