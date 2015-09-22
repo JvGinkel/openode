@@ -11,24 +11,39 @@
 {% endblock %}
 
 {% block usercontent %}
-<table>
-    <thead>
-        <tr>
-            <th>{% trans %}Date and time{% endtrans %}</th>
-            <th>{% trans %}Action{% endtrans %}</th>
-            <th>{% trans %}Objekt{% endtrans %}</th>
-            <th>{% trans %}Detail{% endtrans %}</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for log in logs %}
-        <tr>
-            <td>{{ log.action_time|humanize_datetime }}</td>
-            <td>{{ log.get_action_display() }}</td>
-            <td>{{ log.object_repr }}</td>
-            <td>{% if log.get_object() %}{% if log.get_object().get_absolute_url %}<a href="{{ log.get_object().get_absolute_url() }}">{% trans %}Odkaz{% endtrans %}</a>{% endif %}{% endif %}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div class="content-panel">
+    <div class="content-panel-header">
+        {% block profile_breadcrumbs_base %}            
+            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                <li><span>{% trans %}Action history{% endtrans %}</span></li>
+            </nav>
+        {% endblock %}
+    </div>
+    <div class="content-panel-content">
+        <div class="row">
+            <div class="large-12 columns tabular-form">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{% trans %}Date and time{% endtrans %}</th>
+                            <th>{% trans %}Action{% endtrans %}</th>
+                            <th>{% trans %}Objekt{% endtrans %}</th>
+                            <th>{% trans %}Detail{% endtrans %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for log in logs %}
+                        <tr>
+                            <td>{{ log.action_time|humanize_datetime }}</td>
+                            <td>{{ log.get_action_display() }}</td>
+                            <td>{{ log.object_repr }}</td>
+                            <td>{% if log.get_object() %}{% if log.get_object().get_absolute_url %}<a href="{{ log.get_object().get_absolute_url() }}">{% trans %}Odkaz{% endtrans %}</a>{% endif %}{% endif %}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
