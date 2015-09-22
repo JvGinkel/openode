@@ -4,10 +4,15 @@
 
 .node-box-content {
     position: relative;
-    padding: $node-box-spacing ($node-box-expand-control-size + $node-box-spacing*2) $node-box-spacing $node-box-spacing;
+    padding: $node-box-spacing;
 }
 
 .node-box-content {
+
+    &.has-expand-control .inner {
+        padding-right: $node-box-expand-control-size + $node-box-spacing;
+    }
+
     .node-title {
         position: relative;
         margin: 0;
@@ -15,6 +20,14 @@
         font-size: rem-calc(18px);
 
         color: $text-color; 
+    }
+
+    .node-long-title {
+        &, & > a {
+            font-size: rem-calc(14px);
+            font-weight: 300;
+            color: #999999;
+        }
     }
 
     .node-expand-area {

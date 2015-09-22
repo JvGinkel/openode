@@ -18,12 +18,6 @@ $node-box-sub-level-border-width: $global-border-width !default;
 $node-box-sub-level-border-style: $global-border-style !default;
 $node-box-sub-level-border-color: $global-border-color !default;
 
-// Variables for 'Expand Control Button'
-$node-box-expand-control-bg: $white !default;
-$node-box-expand-control-color: $node-box-parent-bg !default;
-$node-box-expand-control-size: rem-calc(30px) !default;
-$node-box-expand-control-font-size: rem-calc(18px) !default;
-
 
 .node.top-level {
 
@@ -51,8 +45,10 @@ $node-box-expand-control-font-size: rem-calc(18px) !default;
         @extend .zoomInY;
     }
 
-    .node-box-content {
-        color: $white;
+    .node-box-content .inner {
+        @include border-width(null null $node-box-sub-level-border-width null);
+        @include border-style(null null $node-box-sub-level-border-style null);
+        @include border-color(null null $node-box-sub-level-border-color null);
     }
 }
 
@@ -81,37 +77,6 @@ $node-box-expand-control-font-size: rem-calc(18px) !default;
         .node-expand-control {
             border: 1px solid $icon-color;
         }
-    }
-}
-
-.node-expand-control {
-    transition: all .2s;
-
-    display: inline-block;
-    width: $node-box-expand-control-size;
-    height: $node-box-expand-control-size;
-    line-height: $node-box-expand-control-size + rem-calc(1px);
-    text-align: center;
-
-    background: $node-box-expand-control-bg;
-    border-radius: 50%;
-    border: 1px solid $node-box-expand-control-bg;
-
-    font: {
-        family: $icon-font;
-    }
-
-    &:before {
-        font-size: $node-box-expand-control-font-size;
-        color: $node-box-expand-control-color;
-    }
-
-    &:hover, &:focus, &:active {
-        transform: scale(1.2);
-    }
-
-    &:active {
-        transform: scale(1);   
     }
 }
 

@@ -8,10 +8,7 @@
 
 
 body {
-    //background: $body-bg-color;
-    //font-family: $primary-font;
-    //text-align: center;
-    //color: #555555;
+    transform: translateZ(0); // Safari fix
 }
 
 a {
