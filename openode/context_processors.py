@@ -78,6 +78,8 @@ def question_flow(request):
     )
 
     if request.user.has_perm('can_answer_in_question_flow'):
+
+        # state SUBMITTED
         context.update({
             "question_flow_to_answer": questions_qs.filter(
                 question_flow_state=const.QUESTION_FLOW_STATE_SUBMITTED,
@@ -91,16 +93,8 @@ def question_flow(request):
 
     if user.has_perm('can_solve_question_flow'):
 
+        # state ANSWERED
         context.update({
-            "question_flow_to_taken": questions_qs.filter(
-                question_flow_state=const.QUESTION_FLOW_STATE_NEW,
-                ),
-
-            # "question_flow_to_submit_or_answer": questions_qs.filter(
-            #     question_flow_state=const.QUESTION_FLOW_STATE_TAKEN,
-            #     question_flow_responsible_user=user,
-            #     ),
-
             "question_flow_to_check_answer_and_publish": questions_qs.filter(
                 question_flow_state=const.QUESTION_FLOW_STATE_ANSWERED,
                 question_flow_responsible_user=user,
@@ -108,6 +102,25 @@ def question_flow(request):
                 # .exclude(
                 #     posts__in=Post.objects.get_answers().filter(author=request.user)
                 # ),
+        })
+
+        # state NEW
+        context.update({
+            "question_flow_to_taken": Thread.objects.get_questions().filter(
+                is_deleted=False,
+                question_flow_state=const.QUESTION_FLOW_STATE_NEW,
+                node__in=Node.objects.filter(
+                        is_question_flow_enabled=True,
+                    ).filter(
+                        Q(node_users__is_responsible=True)
+                        & (
+                            Q(visibility__in=[const.NODE_VISIBILITY_PUBLIC, const.NODE_VISIBILITY_REGISTRED_USERS])
+                            |
+                            Q(node_users__user=user)
+                        )
+                    ),
+                accepted_answer__isnull=True,
+            )
         })
 
         context.update({

@@ -1452,8 +1452,10 @@ def user_has_perm(self, perm, obj=None):
             return self.question_flow_interviewee_threads.exists()
 
     elif perm == "can_solve_question_flow":
-        return self.is_authenticated() \
-            and NodeUser.objects.filter(
+        return bool(
+            self.is_authenticated()
+            and
+            NodeUser.objects.filter(
                     user=self
                 ).filter(
                     node__visibility__in=[
@@ -1465,9 +1467,11 @@ def user_has_perm(self, perm, obj=None):
                         const.NODE_USER_ROLE_MANAGER
                         ]
                 ).exists()
+        )
 
     elif perm == "can_accept_answer":
         answer = obj
+
         return bool(
             self.is_authenticated()
             and

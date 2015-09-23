@@ -225,28 +225,6 @@ urlpatterns = patterns('',
     ),
 
     ###################################
-    # question flow
-    ###################################
-
-    # url(
-    #     r'^users/question-flow/new/$',
-    #     views.users.question_flow_new,
-    #     name='question_flow_new'
-    # ),
-
-    # url(
-    #     r'^users/question-flow/to-answer/$',
-    #     views.users.question_flow_to_answer,
-    #     name='question_flow_to_answer'
-    # ),
-
-    # url(
-    #     r'^users/question-flow/to-publish/$',
-    #     views.users.question_flow_to_publish,
-    #     name='question_flow_to_publish'
-    # ),
-
-    ###################################
 
     url(
         r'^api/get_questions/',
