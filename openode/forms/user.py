@@ -121,9 +121,14 @@ class QuestionFlowNodeResponsibleUsersForm(forms.Form):
             if self.question.node.visibility in [const.NODE_VISIBILITY_SEMIPRIVATE, const.NODE_VISIBILITY_PRIVATE]:
                 self.fields[self.get_responsible_users_field_name()] = FilteredUserChoicesField(
                     label=_("Responsible users"),
-                    queryset=self.question.node.get_responsible_persons()
+                    queryset=self.question.node.users.filter(
+                        is_active=True,
+                        nodeuser__role__in=[
+                            const.NODE_USER_ROLE_MEMBER,
+                            const.NODE_USER_ROLE_MANAGER
+                        ]
+                    )
                 )
-
             else:
                 self.fields[self.get_responsible_users_field_name()] = UserChoicesField(
                     label=_("Responsible users"),

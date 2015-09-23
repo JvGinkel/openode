@@ -1456,28 +1456,26 @@ def user_has_perm(self, perm, obj=None):
             and NodeUser.objects.filter(
                     user=self
                 ).filter(
-                    # Q(
-                    #     node__visibility__in=[
-                    #         const.NODE_VISIBILITY_PUBLIC,
-                    #         const.NODE_VISIBILITY_REGISTRED_USERS
-                    #     ],
-                    #     node__threads__question_flow_interviewee_user=self
-                    # )
-                    # |
-                    node__visibility__in=[const.NODE_VISIBILITY_SEMIPRIVATE,
-                                          const.NODE_VISIBILITY_PRIVATE],
-                    role__in=[const.NODE_USER_ROLE_MEMBER,
-                              const.NODE_USER_ROLE_MANAGER]
-
-
+                    node__visibility__in=[
+                        const.NODE_VISIBILITY_SEMIPRIVATE,
+                        const.NODE_VISIBILITY_PRIVATE
+                        ],
+                    role__in=[
+                        const.NODE_USER_ROLE_MEMBER,
+                        const.NODE_USER_ROLE_MANAGER
+                        ]
                 ).exists()
 
     elif perm == "can_accept_answer":
         answer = obj
-        return self.is_authenticated() and (
-            not answer.thread.node.is_question_flow_enabled
-            or
-            (answer.thread.node.is_question_flow_enabled and (self == answer.thread.question_flow_responsible_user))
+        return bool(
+            self.is_authenticated()
+            and
+            (
+                not answer.thread.node.is_question_flow_enabled
+                or
+                answer.thread.node.node_users.filter(role=const.NODE_USER_ROLE_MANAGER, user=self).exists()
+            )
         )
 
     return _user_has_perm(self, perm, obj=obj)
