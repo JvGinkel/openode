@@ -1475,6 +1475,8 @@ def user_has_perm(self, perm, obj=None):
                 not answer.thread.node.is_question_flow_enabled
                 or
                 answer.thread.node.node_users.filter(role=const.NODE_USER_ROLE_MANAGER, user=self).exists()
+                or
+                answer.thread.node.node_users.filter(is_responsible=True, user=self).exists()
             )
         )
 
