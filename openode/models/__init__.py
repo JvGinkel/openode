@@ -1439,6 +1439,8 @@ def user_has_perm(self, perm, obj=None):
     if perm == "openode.change_tag" and self.is_authenticated():
         return True
 
+    ###################################
+
     elif perm == "can_answer_in_question_flow":
         if not self.is_authenticated():
             return False
@@ -1451,23 +1453,23 @@ def user_has_perm(self, perm, obj=None):
         else:
             return self.question_flow_interviewee_threads.exists()
 
+    ###################################
+
     elif perm == "can_solve_question_flow":
         return bool(
             self.is_authenticated()
             and
             NodeUser.objects.filter(
-                    user=self
+                    user=self,
+                    node__is_question_flow_enabled=True,
                 ).filter(
-                    node__visibility__in=[
-                        const.NODE_VISIBILITY_SEMIPRIVATE,
-                        const.NODE_VISIBILITY_PRIVATE
-                        ],
-                    role__in=[
-                        const.NODE_USER_ROLE_MEMBER,
-                        const.NODE_USER_ROLE_MANAGER
-                        ]
+                    Q(role__in=[const.NODE_USER_ROLE_MEMBER, const.NODE_USER_ROLE_MANAGER])
+                    |
+                    Q(is_responsible=True)
                 ).exists()
         )
+
+    ###################################
 
     elif perm == "can_accept_answer":
         answer = obj
@@ -1563,7 +1565,7 @@ def user_edit_thread(
                 revision_comment=None,
                 tags=None,
                 timestamp=None,
-                force=False, # if True - bypass the assert
+                force=False,  # if True - bypass the assert
                 by_email=False
             ):
     if force == False:

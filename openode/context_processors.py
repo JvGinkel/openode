@@ -91,41 +91,34 @@ def question_flow(request):
             "question_flow_to_answer_count": context["question_flow_to_answer"].count(),
         })
 
-    if user.has_perm('can_solve_question_flow'):
+    ##############################################################
 
-        # state ANSWERED
-        context.update({
-            "question_flow_to_check_answer_and_publish": questions_qs.filter(
-                question_flow_state=const.QUESTION_FLOW_STATE_ANSWERED,
-                question_flow_responsible_user=user,
-                )
-                # .exclude(
-                #     posts__in=Post.objects.get_answers().filter(author=request.user)
-                # ),
-        })
+    if user.has_perm('can_solve_question_flow'):
 
         # state NEW
         context.update({
             "question_flow_to_taken": Thread.objects.get_questions().filter(
                 is_deleted=False,
                 question_flow_state=const.QUESTION_FLOW_STATE_NEW,
-                node__in=Node.objects.filter(
-                        is_question_flow_enabled=True,
-                    ).filter(
-                        Q(node_users__is_responsible=True)
-                        & (
-                            Q(visibility__in=[const.NODE_VISIBILITY_PUBLIC, const.NODE_VISIBILITY_REGISTRED_USERS])
-                            |
-                            Q(node_users__user=user)
-                        )
-                    ),
                 accepted_answer__isnull=True,
+                node__in=Node.objects.filter(
+                    is_question_flow_enabled=True,
+                    node_users__is_responsible=True,
+                    node_users__user=user
+                ),
+            )
+        })
+
+        # state ANSWERED
+        context.update({
+            "question_flow_to_check_answer_and_publish": questions_qs.filter(
+                question_flow_state=const.QUESTION_FLOW_STATE_ANSWERED,
+                question_flow_responsible_user=user,
             )
         })
 
         context.update({
             "question_flow_to_taken_count": context["question_flow_to_taken"].count(),
-            # "question_flow_to_submit_or_answer_count": context["question_flow_to_submit_or_answer"].count(),
             "question_flow_to_check_answer_and_publish_count": context["question_flow_to_check_answer_and_publish"].count(),
         })
     return context

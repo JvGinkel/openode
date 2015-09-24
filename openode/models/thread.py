@@ -721,7 +721,14 @@ class Thread(models.Model):
         """returns answer count depending on who the user is.
         When user groups are enabled and some answers are hidden,
         the answer count to show must be reflected accordingly"""
-        return self.get_answers(user).count()
+        if self.node.is_question_flow_enabled:
+            if (self.question_flow_state == const.QUESTION_FLOW_STATE_PUBLISHED) \
+                    or (user and user.is_authenticated() and user.has_perm("can_solve_question_flow")):
+                return self.get_answers(user).count()
+            else:
+                return 0
+        else:
+            return self.get_answers(user).count()
 
     def get_sharing_info(self, visitor=None):
         """returns a dictionary with abbreviated thread sharing info:
@@ -885,13 +892,24 @@ class Thread(models.Model):
             TODO: inject this method with loading from cache
         """
         tags = []
+
         if user \
-            and self.node.is_question_flow_enabled \
-            and self.node.get_responsible_persons().filter(pk=user.pk).exists():
+                and user.is_authenticated() \
+                and self.node.is_question_flow_enabled \
+                and self.node.get_responsible_persons().filter(pk=user.pk).exists():
 
             tags.append({
                 "name": "QF: %s" % self.get_question_flow_state_display()
             })
+
+            tags.append({
+                "name": "QF: responsible: %s" % self.question_flow_responsible_user
+            })
+
+            if self.question_flow_interviewee_user:
+                tags.append({
+                    "name": "QF: interviewee: %s" % self.question_flow_interviewee_user
+                })
 
         return tags + list(self.tags.all())
 
