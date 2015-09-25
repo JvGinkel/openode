@@ -1,0 +1,22 @@
+// ==========================================================================
+// Title:        Control link
+// ==========================================================================
+
+.control-link {
+    font-size: rem-calc(12px);
+    color: $link-color;
+
+    & + .control-link {
+        padding-left: rem-calc(20px);
+    }
+
+}
+
+.control-link-icon {
+    position: relative;
+    top: rem-calc(4px);
+    right: rem-calc(4px);
+
+    font-size: rem-calc(18px);
+    line-height: rem-calc(26px);
+}
