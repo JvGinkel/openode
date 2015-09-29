@@ -32,4 +32,10 @@
 .control-link-content {
     position: relative;
     top: rem-calc(-3px);
+
+    text-decoration: underline;
+
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+    }
 }

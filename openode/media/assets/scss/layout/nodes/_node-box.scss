@@ -24,14 +24,19 @@ $node-box-sub-level-border-color: $global-border-color !default;
     // Anim expanding top-levels
     transform: translateZ(0); // Safari fix
 
-    .category .node-box-content {
+    .node-box-content {
         .node-title {
             color: $white;
+        }
+        .report-meta-item {
+            &, & > a {
+                color: $white;
+            }
         }
     }
 
     // Private Node
-    &.is-private {
+    /*&.is-private {
         .node-box {
             border: 1px solid $node-box-top-level-bg;
         }
@@ -39,7 +44,7 @@ $node-box-sub-level-border-color: $global-border-color !default;
         .node-expand-control {
             border-color: $node-box-top-level-bg;
         }
-    }
+    }*/
 }
 
 
@@ -61,19 +66,30 @@ $node-box-sub-level-border-color: $global-border-color !default;
         @include border-style(null null $node-box-sub-level-border-style null);
         @include border-color(null null $node-box-sub-level-border-color null);
     }
+
+    .node-box-content .node-title {
+        color: $primary-color;
+        font-weight: $font-weight-lighter;
+    }
 }
 
 
 // NODE is category
 .node-box {
 
-    &.category.level-0 {
+    /*&.category.level-0 {
         background: $node-box-top-level-bg;        
 
         a {
             color: $white;
         }
-    }
+    }*/
+
+    background: $node-box-top-level-bg;        
+
+        a {
+            color: $white;
+        }
 
     // Generate styles Sub Levels
     @include content-levels($minLevel: 1, 

@@ -22,13 +22,14 @@
         margin: 0;
 
         font-size: rem-calc(18px);
+        line-height: rem-calc(24px);
 
         color: $text-color; 
     }
 
     .node-long-title {
         display: none;
-        
+
         &, & > a {
             font-size: rem-calc(14px);
             font-weight: 300;
@@ -42,13 +43,33 @@
         right: rem-calc(20px);
     }
 
+    .node-meta-area {
+        line-height: 1;
+
+        &.modules {
+            margin-bottom: rem-calc(9px);
+        }
+    }
+
     .report-meta-area {
         @extend %report-meta-area;
 
         display: inline-block;
     }
 
+    .report-meta-item {
+        @extend %report-meta-item;
+    }
+
     .unread-mark {
         padding: 0;
     }
 }
+
+.node-box-content {
+    .node-title-link {
+        display: inline-block;
+        margin-bottom: rem-calc(9px);
+    }
+}
+

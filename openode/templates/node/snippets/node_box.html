@@ -15,20 +15,18 @@
 
                 {# TITLE RENDER #}
                 {% if NODE_TREE_DISPLAY and not node.is_leaf_node_for_user(nodes_of_user, with_closed) %}
-
                     {# NODE IS TREE NODE - show/hide on click #}
                     <a class="node-title-wrapper no-outline has-expand-control js-expander js-closed closed {% if USE_AJAX %}js-use-ajax{% endif %}" href="{% url toggle_node %}?node_id={{ node.pk }}" data-element_id="{{ node.pk }}" data-close="▾" data-open="▸">
                         {% if not node.long_title %}
                             <h3 class="node-title">
-                                {{ node.title_with_status('html') }}
+                                {{ node.title }}
                             </h3>
                             <div class="node-expand-area">
                                 <div class="node-expand-control"></div>
                             </div>
                         {% else %}
                             <h3 class="node-title">                            
-                                {{ node.title_with_status('html') }}
-                                {{ node.status }}
+                                {{ node.title }}
                             </h3>   
                             <h4 class="node-long-title">
                                 {{ node.long_title|truncate(200) }}
@@ -36,32 +34,26 @@
                             <div class="node-expand-area">
                                 <div class="node-expand-control"></div>
                             </div>                        
-                        {% endif %}
-
-                        {# NODE STYLE CATEGORY #}
-                        <div class="report-meta-area">
-                            <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                        </div>
+                        {% endif %}                        
                     </a>
                 {% else %}
 
                     {% if NODE_TREE_DISPLAY and node.is_category() %}
+
                         {# NODE IS CATEGORY AND LEAF will not be clickable - use about button #}
                         <h3 class="node-title">
-                            {{ node.title_with_status('html') }}
+                            {{ node.title }}
                         </h3>
                         <h4 class="node-long-title">
                             {{ node.long_title|truncate(200) }}
                         </h4>
-                        <div class="report-meta-area">
-                            <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                        </div>
 
                     {% else %}
+
                         {# NODE IS REGULAR LEAF #}
-                        <a href="{% url node node_id=node.pk, node_slug=node.slug %}">
+                        <a href="{% url node node_id=node.pk, node_slug=node.slug %}" class="node-title-link">
                             <h3 class="node-title">
-                                {{ node.title_with_status('html') }}
+                                {{ node.title }}
                             </h3>
                         </a>
                         <h4 class="node-long-title">
@@ -70,7 +62,7 @@
                             </a>
                         </h4>
 
-                        <div class="node-report-area">
+                        <div class="node-meta-area modules">
                             {# NODE STYLE REGULAR #}
                             {% if node.module_qa %}
                                 {% url node_module node.pk, node.slug, NODE_MODULE_QA as url %}
@@ -134,13 +126,22 @@
                                 </a>
                             {% endif %}
                         </div>
+
                     {% endif %}
                 {% endif %}
 
-                {# render last changed footer #}
-                {% if not (NODE_TREE_DISPLAY and node.is_category()) %}
-                    {{ render_last_changed(node.get_last_activity_by(), node.get_last_activity_at())}}
-                {% endif %}
+                <div class="node-meta-area">
+                    {% if not (NODE_TREE_DISPLAY and node.is_category()) %}
+                        {{ render_last_changed(node.get_last_activity_by(), node.get_last_activity_at())}}
+                    {% endif %}
+                    <span class="report-meta-item">
+                        {{ node.title_status('plain')|title }}  
+                    </span>
+                    <span class="report-meta-item">
+                        <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
+                    </span>
+                </div>
+
             </div>
         </div>
     </div>

@@ -152,8 +152,9 @@ $row-width: $page-width + $column-gutter;
 // Global
 
 // We use these to define default font weights
-// $font-weight-normal: normal !default;
-// $font-weight-bold: bold !default;
+$font-weight-lighter: lighter !default;
+$font-weight-normal: normal !default;
+$font-weight-bold: bold !default;
 
 // We use these to control various global styles
 $body-bg: $body-bg-color;
@@ -404,6 +405,9 @@ $node-box-expand-control-bg: $white;
 $node-box-expand-control-color: $node-box-top-level-bg;
 $node-box-expand-control-size: rem-calc(30px);
 $node-box-expand-control-font-size: rem-calc(18px);
+
+// Variables for 'Node Box Report Area'
+$node-box-report-item-color: #505050;
 
 
 // =========================================================================================================

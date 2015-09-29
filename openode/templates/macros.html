@@ -514,18 +514,31 @@ answer {% if answer.accepted() %}accepted-answer{% endif %} {% if answer.author_
 {# ################################# #}
 
 {% macro render_last_changed(in_user, in_datetime, created_user=None, created_datetime=None) -%}
-<div class="group">
+{% if not created_user == None or not in_user == None %}
+<span class="report-meta-item">
     {% if created_user %}
-    <div class="createdate f-left">
-        {% trans user=created_user.screen_name|escape, datetime=created_datetime|humanize_datetime %}{{ datetime }} created by <strong>{{ user }}</strong>{% endtrans %}
-    </div>
+        {% trans user=created_user.screen_name|escape, datetime=created_datetime|humanize_datetime %}
+            <span class="meta-time">
+                {{ datetime }}
+            </span>
+            <span class="meta-user">
+                {{ user }}
+            </span>
+        {% endtrans %}
     {% endif %}
+
     {% if in_user %}
-    <div class="changedate f-right">
-        {% trans user=in_user.screen_name|escape, datetime=in_datetime|humanize_datetime %}{{ datetime }} changed by <strong>{{ user }}</strong>{% endtrans %}
-    </div>
+        {% trans user=in_user.screen_name|escape, datetime=in_datetime|humanize_datetime %}
+            <span class="meta-time">
+                {{ datetime }}
+            </span>
+            <span class="meta-user">
+                {{ user }}
+            </span>
+        {% endtrans %}
     {% endif %}
-</div>
+</span>   
+{% endif %} 
 {%- endmacro %}
 
 {% macro render_closed_by_at(in_user, in_datetime) -%}

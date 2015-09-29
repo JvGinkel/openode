@@ -2,6 +2,31 @@
 // Title:        Node Box Report Area
 // ==========================================================================
 
+$node-box-report-item-color: #505050 !default;
+
 %report-meta-area {
 	line-height: 1;
+}
+
+%report-meta-item {
+	font-size: rem-calc(12px);
+	
+	&, & > a {
+		color: $node-box-report-item-color;
+	}
+
+	// separator between items
+	& + & {
+		&:before {
+			content: '|';
+		}
+	}
+
+	& > a {
+		text-decoration: underline;
+
+		&:hover, &:focus, &:active {
+            text-decoration: none;
+        }
+	}
 }

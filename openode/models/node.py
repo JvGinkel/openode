@@ -146,7 +146,7 @@ class Node(MPTTModel):
         if not style in ('html', 'plain'):
             raise ValueError('Unknown style, valid values are \'plain\' (default) and \'html\'.')
 
-        TXT_TPL = u'[%s]'
+        TXT_TPL = u'%s'
         HTML_TPL = u'<span class="status">%s</span>'
 
         DELETED_STR = _('DELETED')
