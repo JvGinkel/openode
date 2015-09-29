@@ -4,7 +4,11 @@
 
 .node-box-content {
     position: relative;
-    padding: $node-box-spacing;
+    padding: 0 $node-box-spacing;
+
+    .inner {
+        padding: $node-box-spacing 0;        
+    }
 }
 
 .node-box-content {
@@ -23,6 +27,8 @@
     }
 
     .node-long-title {
+        display: none;
+        
         &, & > a {
             font-size: rem-calc(14px);
             font-weight: 300;
@@ -40,5 +46,9 @@
         @extend %report-meta-area;
 
         display: inline-block;
+    }
+
+    .unread-mark {
+        padding: 0;
     }
 }

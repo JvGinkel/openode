@@ -24,9 +24,20 @@ $node-box-sub-level-border-color: $global-border-color !default;
     // Anim expanding top-levels
     transform: translateZ(0); // Safari fix
 
-    .node-box-content {
+    .category .node-box-content {
         .node-title {
             color: $white;
+        }
+    }
+
+    // Private Node
+    &.is-private {
+        .node-box {
+            border: 1px solid $node-box-top-level-bg;
+        }
+
+        .node-expand-control {
+            border-color: $node-box-top-level-bg;
         }
     }
 }
@@ -52,6 +63,8 @@ $node-box-sub-level-border-color: $global-border-color !default;
     }
 }
 
+
+// NODE is category
 .node-box {
 
     &.category.level-0 {
@@ -70,25 +83,14 @@ $node-box-sub-level-border-color: $global-border-color !default;
         $contentSelector: '.node-box-content'
     ) {
         background: $node-box-sub-level-bg;
-        @include border-width(null null $node-box-sub-level-border-width null);
+        /*@include border-width(null null $node-box-sub-level-border-width null);
         @include border-style(null null $node-box-sub-level-border-style null);
-        @include border-color(null null $node-box-sub-level-border-color null);
+        @include border-color(null null $node-box-sub-level-border-color null);*/
 
         .node-expand-control {
             border: 1px solid $icon-color;
         }
     }
 }
-
-.node-title-wrapper {
-    &.open .node-expand-control:before {
-        content: 'j';        
-    }
-
-    &.closed .node-expand-control:before {
-        content: 'l';        
-    }
-}
-
 
 

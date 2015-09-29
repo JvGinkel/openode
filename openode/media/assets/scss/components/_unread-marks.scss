@@ -17,4 +17,12 @@
     font-size: rem-calc(12px);
     color: #000;    
     padding: 0 rem-calc(7.15px) 0 rem-calc(7.15px);
+
+    &.small {
+        min-width: rem-calc(15px);
+        height: rem-calc(15px);
+        line-height: rem-calc(15px);
+        font-size: rem-calc(10px);
+        padding: 0 rem-calc(4px);
+    }
 }

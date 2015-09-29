@@ -1,6 +1,6 @@
 // ==========================================================================
 // Title:        Control link
-// ==========================================================================
+// ========================================================================== 
 
 .control-link {
     position: relative;
@@ -14,14 +14,22 @@
 
 .control-link-icon {
     position: relative;
-    top: rem-calc(4px);
-    right: rem-calc(4px);
+    // top: rem-calc(4px);
+    // left: 0;
+    margin-right: rem-calc(4px);
+    //right: rem-calc(4px);
 
     font-size: rem-calc(18px);
     line-height: rem-calc(26px);
 
     .unread-mark {
         position: absolute;
-        top: 0;
+        top: rem-calc(-6px);
+        right: rem-calc(-6px);
     }
+}
+
+.control-link-content {
+    position: relative;
+    top: rem-calc(-3px);
 }

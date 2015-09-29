@@ -1,6 +1,8 @@
 {% from "macros.html" import render_last_changed %}
-<div class="node {% if node.parent_id %}sub-level js-subelement js-subelement-of-{{ node.parent_id }}{% else %}top-level js-top-node{% endif %} {% if root_id==node.parent_id %}js-force-open{% endif %}" id="element-{{ node.pk }}">
-    <div class="node-box{% if NODE_TREE_DISPLAY and node.is_category() %} category{% endif %} level-{{ node.level }}">
+{% set PRIVATE_NODE = NODE_TREE_DISPLAY and not node.is_leaf_node_for_user(nodes_of_user, with_closed) and not node.is_category() %}
+
+<div id="element-{{ node.pk }}" class="node {% if node.parent_id %}sub-level js-subelement js-subelement-of-{{ node.parent_id }}{% else %}top-level js-top-node{% endif %} {% if root_id==node.parent_id %}js-force-open{% endif %} {% if PRIVATE_NODE %} is-private{% endif %}">
+    <div class="node-box {% if NODE_TREE_DISPLAY and node.is_category() %} category{% endif %} level-{{ node.level }}">
 
         {% if node.is_leaf_node_for_user(nodes_of_user, with_closed) %}
             {% if not (NODE_TREE_DISPLAY and node.is_category()) %}
@@ -10,102 +12,10 @@
 
         <div class="node-box-content {% if NODE_TREE_DISPLAY and not node.is_leaf_node_for_user(nodes_of_user, with_closed) %} has-expand-control {% endif %}">
             <div class="inner">
-                {# REPORT BOXES #}
-                <div class="report-area-wrapper hidden">
-                    {% if NODE_TREE_DISPLAY and node.is_category() %}
-                        {# NODE STYLE CATEGORY #}
-                        <div class="report-meta-area">
-                            <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                        </div>
-                    {% else %}
-                        {# NODE STYLE REGULAR #}
-                            {% if node.module_qa %}
-                                {% url node_module node.pk, node.slug, NODE_MODULE_QA as url %}
-                                {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_QA) %}
-
-                                <div class="report-area-box">
-                                    <a href="{{ url }}" title="{% trans %}Open Node's questions{% endtrans %}">
-                                        <div class="group unread-mark-container">
-                                        {% if unread > 0 %}
-                                            <span class="unread-mark">{{ unread }}</span>
-                                        {% endif %}
-                                        </div>
-
-                                        {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_QA)  %}
-                                            <span class="count">
-                                                {{ threads_count_for_module }}
-                                            </span>
-                                            <span class="title">{% trans cnt = threads_count_for_module %}Q&A {% pluralize %}Q&As {% endtrans %}</span>
-                                        {% endwith %}
-                                        {# NODE STYLE CATEGORY #}
-                                        <div class="report-meta-area hidden">
-                                            <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                                        </div>
-                                    </a>
-                                </div>
-                            {% endif %}
-
-
-                            {% if node.module_forum %}
-                                {% url node_module node.pk, node.slug, NODE_MODULE_FORUM as url %}
-                                {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_FORUM) %}
-
-                                <div class="report-area-box">
-                                    <a href="{{ url }}" title="{% trans %}Open Node's discussion{% endtrans %}">
-                                        <div class="group unread-mark-container">
-                                        {% if unread > 0 %}
-                                            <span class="unread-mark">{{ unread }}</span>
-                                        {% endif %}
-                                        </div>
-
-                                        {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_FORUM)  %}
-                                            <span class="count">
-                                                {{ threads_count_for_module }}
-                                            </span>
-                                            <span class="title">{% trans cnt = threads_count_for_module %}Discus. {% pluralize %}Discus. {% endtrans %}</span>
-                                        {% endwith %}
-                                        {# <span class="title">{% trans %}Discu.{% endtrans %}</span> #}
-                                        {# NODE STYLE CATEGORY #}
-                                        <div class="report-meta-area hidden">
-                                            <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                                        </div>
-                                    </a>                            
-                                </div>
-                                </hr>
-                            {% endif %}
-
-
-                            {% if node.module_library %}
-                                {% url node_module node.pk, node.slug, NODE_MODULE_LIBRARY as url %}
-                                {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_LIBRARY) %}
-
-                                <div class="report-area-box">
-                                    <a href="{{ url }}" title="{% trans %}Open Node's documents{% endtrans %}">
-                                        <div class="group unread-mark-container">
-                                        {% if unread > 0 %}
-                                            <span class="unread-mark">{{ unread }}</span>
-                                        {% endif %}
-                                        </div>
-
-                                        <span class="count">
-                                        {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_LIBRARY)  %}
-                                            {{ threads_count_for_module }}
-                                        {% endwith %}
-                                        </span>
-
-                                        <span class="title">{% trans %}Docs.{% endtrans %}</span>
-                                        {# NODE STYLE CATEGORY #}
-                                        <div class="report-meta-area hidden">
-                                            <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                                        </div>
-                                    </a>
-                                </div>
-                            {% endif %}
-                    {% endif %}
-                </div>
 
                 {# TITLE RENDER #}
                 {% if NODE_TREE_DISPLAY and not node.is_leaf_node_for_user(nodes_of_user, with_closed) %}
+
                     {# NODE IS TREE NODE - show/hide on click #}
                     <a class="node-title-wrapper no-outline has-expand-control js-expander js-closed closed {% if USE_AJAX %}js-use-ajax{% endif %}" href="{% url toggle_node %}?node_id={{ node.pk }}" data-element_id="{{ node.pk }}" data-close="▾" data-open="▸">
                         {% if not node.long_title %}
@@ -119,12 +29,10 @@
                             <h3 class="node-title">                            
                                 {{ node.title_with_status('html') }}
                                 {{ node.status }}
-                                {#
-                                <span class="longtitle">
-                                    <span class="title">- {{ node.long_title|truncate(100) }}</span>
-                                </span>
-                                #}
-                            </h3>    
+                            </h3>   
+                            <h4 class="node-long-title">
+                                {{ node.long_title|truncate(200) }}
+                            </h4> 
                             <div class="node-expand-area">
                                 <div class="node-expand-control"></div>
                             </div>                        
@@ -161,114 +69,71 @@
                                 {{ node.long_title|truncate(200) }}
                             </a>
                         </h4>
-                        {# NODE STYLE REGULAR #}
-                        {% if node.module_qa %}
-                            {% url node_module node.pk, node.slug, NODE_MODULE_QA as url %}
-                            {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_QA) %}
 
-                            <a href="{{ url }}" title="{% trans %}Open Node's questions{% endtrans %}" class="control-link">
-                                <span class="control-link-icon icon icon-plus round">
-                                    {% if unread == 0 %}
-                                        <span class="unread-mark">{{ unread }}</span>
-                                    {% endif %}
-                                </span>
+                        <div class="node-report-area">
+                            {# NODE STYLE REGULAR #}
+                            {% if node.module_qa %}
+                                {% url node_module node.pk, node.slug, NODE_MODULE_QA as url %}
+                                {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_QA) %}
                                 
-                                {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_QA)  %}
-                                    {% trans cnt = threads_count_for_module %}Q&A {% pluralize %}Q&As {% endtrans %}{{ threads_count_for_module }}
-                                {% endwith %}
-                            </a>
-
-                            {# NODE STYLE CATEGORY #}
-                            <div class="report-meta-area hidden">
-                                <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                            </div>
-
-                            <div class="report-stats-area hidden">
-                                <a href="{{ url }}" title="{% trans %}Open Node's questions{% endtrans %}">
-                                    <div class="group unread-mark-container">
-                                    {% if unread > 0 %}
-                                        <span class="unread-mark">{{ unread }}</span>
-                                    {% endif %}
-                                    </div>
-
-                                    {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_QA)  %}
-                                        <span class="count">
+                                <a href="{{ url }}" title="{% trans %}Open Node's questions{% endtrans %}" class="control-link">
+                                    <span class="control-link-icon icon icon-plus round">
+                                        {% if unread > 0 %}
+                                            <span class="unread-mark small">{{ unread }}</span>
+                                        {% endif %}
+                                    </span>
+                                    
+                                    <span class="control-link-content">
+                                        {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_QA)  %}
+                                            {% trans cnt = threads_count_for_module %}Q&A {% pluralize %}Q&As {% endtrans %}
                                             {{ threads_count_for_module }}
-                                        </span>
-                                        <span class="title">{% trans cnt = threads_count_for_module %}Q&A {% pluralize %}Q&As {% endtrans %}</span>
-                                    {% endwith %}
-                                    {# NODE STYLE CATEGORY #}
-                                    <div class="report-meta-area">
-                                        <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                                    </div>
+                                        {% endwith %}
+                                    </span>
                                 </a>
-                            </div>
-                        {% endif %}
+                            {% endif %}
 
 
-                        {% if node.module_forum %}
-                            {% url node_module node.pk, node.slug, NODE_MODULE_FORUM as url %}
-                            {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_FORUM) %}
+                            {% if node.module_forum %}
+                                {% url node_module node.pk, node.slug, NODE_MODULE_FORUM as url %}
+                                {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_FORUM) %}
 
-                            <a href="{% url admin:openode_node_changelist %}" class="control-link">
-                                <i class="control-link-icon icon icon-plus round"></i>
-                                {% trans %}Discus{% endtrans %}
-                            </a>
-
-                            <div class="report-stats-area hidden">
-                                <a href="{{ url }}" title="{% trans %}Open Node's discussion{% endtrans %}">
-                                    <div class="group unread-mark-container">
-                                    {% if unread > 0 %}
-                                        <span class="unread-mark">{{ unread }}</span>
-                                    {% endif %}
-                                    </div>
-
-                                    {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_FORUM)  %}
-                                        <span class="count">
+                                <a href="{{ url }}" title="{% trans %}Open Node's discussion{% endtrans %}" class="control-link">
+                                    <span class="control-link-icon icon icon-plus round">
+                                        {% if unread > 0 %}
+                                            <span class="unread-mark small">{{ unread }}</span>
+                                        {% endif %}
+                                    </span>
+                                    
+                                    <span class="control-link-content">
+                                        {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_FORUM)  %}
+                                            {% trans cnt = threads_count_for_module %}Discus. {% pluralize %}Discus. {% endtrans %}
                                             {{ threads_count_for_module }}
-                                        </span>
-                                        <span class="title">{% trans cnt = threads_count_for_module %}Discus. {% pluralize %}Discus. {% endtrans %}</span>
-                                    {% endwith %}
-                                    {# <span class="title">{% trans %}Discu.{% endtrans %}</span> #}
-                                    {# NODE STYLE CATEGORY #}
-                                    <div class="report-meta-area">
-                                        <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                                    </div>
-                                </a>                            
-                            </div>
-                        {% endif %}
+                                        {% endwith %}
+                                    </span>
+                                </a>
+                            {% endif %}
 
 
-                        {% if node.module_library %}
-                            {% url node_module node.pk, node.slug, NODE_MODULE_LIBRARY as url %}
-                            {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_LIBRARY) %}
-                            <a href="{% url admin:openode_node_changelist %}" class="control-link">
-                                <i class="control-link-icon icon icon-plus round"></i>
-                                {% trans %}Docs{% endtrans %}
-                            </a>
+                            {% if node.module_library %}
+                                {% url node_module node.pk, node.slug, NODE_MODULE_LIBRARY as url %}
+                                {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_LIBRARY) %}
 
-                            <div class="report-stats-area">
-                                <a href="{{ url }}" title="{% trans %}Open Node's documents{% endtrans %}">
-                                    <div class="group unread-mark-container">
-                                    {% if unread > 0 %}
-                                        <span class="unread-mark">{{ unread }}</span>
-                                    {% endif %}
-                                    </div>
-
-                                    <span class="count">
-                                    {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_LIBRARY)  %}
-                                        {{ threads_count_for_module }}
-                                    {% endwith %}
+                                <a href="{{ url }}" title="{% trans %}Open Node's documents{% endtrans %}" class="control-link">
+                                    <span class="control-link-icon icon icon-plus round">
+                                        {% if unread > 0 %}
+                                            <span class="unread-mark small">{{ unread }}</span>
+                                        {% endif %}
                                     </span>
 
-                                    <span class="title">{% trans %}Docs.{% endtrans %}</span>
-                                    {# NODE STYLE CATEGORY #}
-                                    <div class="report-meta-area">
-                                        <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
-                                    </div>
+                                    <span class="control-link-content">
+                                        {% trans %}Docs.{% endtrans %}
+                                        {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_LIBRARY)  %}
+                                            {{ threads_count_for_module }}
+                                        {% endwith %}
+                                    </span>
                                 </a>
-                            </div>
-                        {% endif %}
+                            {% endif %}
+                        </div>
                     {% endif %}
                 {% endif %}
 

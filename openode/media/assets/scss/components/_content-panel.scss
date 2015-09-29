@@ -47,22 +47,14 @@ $content-panel-header-font-size: rem-calc(12px) !default;
             display: inline-block;
         }
     }
- 
-    .control-link {
-
-        & + .control-link {
-            padding-left: rem-calc(20px);
-        }
-
-    }
 
     .control-link-icon {
-        position: relative;
+        /*position: relative;
         top: rem-calc(4px);
-        right: rem-calc(4px);
+        right: rem-calc(4px);*/
 
-        font-size: rem-calc(18px);
-        line-height: rem-calc(28px);
+        /*font-size: rem-calc(18px);
+        line-height: rem-calc(28px);*/
     }
 }
 
