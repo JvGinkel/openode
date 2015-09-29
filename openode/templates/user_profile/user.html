@@ -29,10 +29,8 @@
 {% block content %}
     <div class="content-panel-wrapper">
         {% block userheader %}
-            <div class="row profile-title">
-                <div class="large-12 columns">
-                    <h1 class="section-title">{{ view_user.screen_name|escape }} &ndash; {% block profilesection %}{% endblock %}</h1>
-                </div>
+            <div class="content-panel-control content-inline">
+                <h2 class="title">{{ view_user.screen_name|escape }} &ndash; {% block profilesection %}{% endblock %}</h2>
             </div>
         {% endblock %}
 
