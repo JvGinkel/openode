@@ -60,6 +60,12 @@ $content-panel-header-font-size: rem-calc(12px) !default;
 
 .content-panel-content {
     padding: $content-panel-padding;
+
+    .node-title {
+        font-size: rem-calc(30px);
+        line-height: rem-calc(36px);
+        color: $primary-color;
+    }
 }
 
 .content-panel-wrapper {

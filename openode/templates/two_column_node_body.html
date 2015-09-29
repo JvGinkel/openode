@@ -10,6 +10,67 @@
 {% endblock %}
 
 {% block body %}
+    <div class="row">
+        <div class="medium-9 columns">
+            <div class="content-panel-wrapper">
+              
+                <div class="content-panel-control content-inline">
+                    <h2 class="title left">{% trans %}Node{% endtrans %}</h2>
+                    <div class="control-area right">
+                        {% if request.user.is_admin('openode.add_node') or request.user.is_admin('openode.change_node')%}
+                            {% if request.user.is_admin('openode.change_node') %}
+                                <a href="{% url admin:openode_node_changelist %}" class="control-link">
+                                    <i class="control-link-icon icon icon-plus round"></i>
+                                    <span class="control-link-content">
+                                        {% trans %}Edit node list{% endtrans %}
+                                    </span>
+                                </a>
+                            {% endif %}
+                            {% if request.user.is_admin('openode.add_node') %}
+                                <a href="{% url admin:openode_node_add %}" class="control-link">
+                                    <i class="control-link-icon icon icon-list round"></i>
+                                    <span class="control-link-content">
+                                        {% trans %}Add new node{% endtrans %}
+                                    </span>
+                                </a>
+                            {% endif %}
+                            <a href="{% url node_ask_to_create %}" class="control-link">
+                                <i class="control-link-icon icon icon-check round"></i>
+                                <span class="control-link-content">
+                                    {% trans %}Ask to create node{% endtrans %}
+                                </span>
+                            </a>
+                        {% elif request.user.is_authenticated() %}
+                            <a href="{% url node_ask_to_create %}" class="control-link">{% trans %}Ask to create node{% endtrans %}</a>
+                        {% endif %}  
+                    </div>                          
+                </div>   
+           
+                <div class="content-panel">
+                    <div class="content-panel-header">
+                        <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                            <li role="menuitem"><a href="#">Home</a></li>
+                            <li role="menuitem"><a href="#">Features</a></li>
+                            <li role="menuitem" role="button" aria-disabled="true"><a href="#">Gene Splicing</a></li>
+                            <li role="menuitem" class="current"><a href="#">Cloning</a></li>
+                        </nav>
+                        {{ node_breadcrumb(node) }}
+    {% if module %}
+        {{ node_module_breadcrumb_last(node, module) }}
+    {% endif %}
+                    </div>
+                    <div class="content-panel-content">
+                        <h3 class="node-title">
+                            {{ node.full_title() }}
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="medium-3 columns">
+            <h2>Contributors</h2>
+        </div>
+    </div>
 
     <h1 class="node">{% block h1 %}{{ node.full_title() }}{% endblock %}</h1>
 
@@ -175,6 +236,7 @@
     </div>
 
     <div class="row tab-content">
+        <h1>tab content</h1>
         <div class="nine columns">
             {# === CONTENT === #}
             {% block content %}{% endblock %}
