@@ -43,19 +43,19 @@
 {% block usercontent %}
 <div class="content-panel">
     <div class="content-panel-header">
-        {% block profile_breadcrumbs_base %}            
-            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-                <li>
-                    {% if request.user.is_authenticated %}
-                        <a href="{% url users %}">{% trans %}Users{% endtrans %}</a>
-                    {% else %}
-                        <span>{% trans %}Users{% endtrans %}</span>
-                    {% endif %}
-                </li>
-                <li><a href="{% url user_profile view_user.id %}">{{ view_user.screen_name|escape }}</a></li>
-                <li><span>{% trans %}Update Profile{% endtrans %}</span></li>
-            </nav>
-        {% endblock %}
+        <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+            {# first breadcrumb element #}
+            <li><a href="/">{% trans %}Home{% endtrans %}</a></li>
+            <li>
+                {% if request.user.is_authenticated() %}
+                    <a href="{% url users %}">{% trans %}Users{% endtrans %}</a>
+                {% else %}
+                    <span>{% trans %}Users{% endtrans %}</span>
+                {% endif %}
+            </li>
+            <li><a href="{% url user_profile view_user.id %}">{{ view_user.screen_name|escape }}</a></li>
+            <li><span>{% trans %}Update Profile{% endtrans %}</span></li>
+        </nav>
     </div>
     <div class="content-panel-content">
         <div class="row">
