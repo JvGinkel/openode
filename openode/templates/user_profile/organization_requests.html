@@ -9,6 +9,15 @@
 {% endblock %}
 
 {% block usercontent %}
+<div class="content-panel">
+    <div class="content-panel-header">
+        {% block profile_breadcrumbs_base %}            
+            <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
+                <li><span>{% trans %}Unresolved requests to create organization{% endtrans %}</span></li>
+            </nav>
+        {% endblock %}
+    </div>
+    <div class="content-panel-content">
     {% if organization_requests %}
         <table>
         {% for org_request in organization_requests %}
@@ -58,4 +67,6 @@
     {% else %}
         <p>{% trans %}You have no unresolved requests.{% endtrans %}</p>
     {% endif %}
+    </div>
+</div>
 {% endblock %}

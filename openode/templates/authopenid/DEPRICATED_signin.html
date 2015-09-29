@@ -1,0 +1,405 @@
+{% extends "two_column_body.html" %}
+{% import "authopenid/authopenid_macros.html" as login_macros %}
+{% from "macros.html" import sidebar_back_button, sidebar_help %}
+<!-- signin.html -->
+{% block title %}{% spaceless %}{% trans %}User login{% endtrans %}{% endspaceless %}{% endblock %}
+{% block forestyle %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{{"/jquery-openid/openid.css"|media}}"/>
+{% endblock %}
+
+
+{% block sidebar %}
+    {% if user.is_anonymous() %}
+        {% call sidebar_back_button(_('Back to Homepage')) -%} {# spaceless is neccessary because content is included into href #}
+            {% url 'index' %}
+        {%- endcall %}
+        {{ sidebar_help(_('Login page'), _('help_login_page_short'), _('More help'), _('help_login_page_html'), 'help_login_page_html') }}
+    {% else %}
+        {% call sidebar_back_button(_('Back to Profile')) -%} {# spaceless is neccessary because content is included into href #}
+            {{ request.user.get_absolute_url() }}
+        {%- endcall %}
+        {{ sidebar_help(_('Change password page'), _('help_change_password_page_short'), _('More help'), _('help_change_password_page_html'), 'help_change_password_page_html') }}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+{#
+    {% if answer %}
+        <div class="message">
+        {% trans title=answer.question.title|escape, summary=answer.summary|escape %}
+        Your answer to {{title}} {{summary}} will be posted once you log in
+        {% endtrans %}
+        </div>
+    {% endif %}
+    {% if question %}
+        <div class="message">
+        {% trans title=question.title|escape, summary=question.summary|escape %}Your question
+        {{title}} {{summary}} will be posted once you log in
+        {% endtrans %}
+        </div>
+    {% endif %}
+#}
+
+<form id="signin-form" method="post" action="{{ settings.LOGIN_URL }}">
+    {% csrf_token %}
+    {{ login_form.login_provider_name }}
+    {{ login_form.next }}
+    {{ login_form.password_action }}
+    <div class="row">
+        <div class="twelve columns">
+            {% if user.is_anonymous() %}
+            <div class="group">
+                <div class="twelve columns tabular-form">
+                    <div class="row">
+                        <div class="twelve columns">
+                            <h1>{% trans %}Sign in{% endtrans %}</h1>
+                        </div>
+                    </div>
+                    {% if login_form.password_login_failed %}
+                        <div class="alert-box alert">{% if login_form.password_login_failed_msg %}{{ login_form.password_login_failed_msg }}{% else %}{% trans %}Login failed, please try again{% endtrans %}{% endif %}</div>
+                    {% endif %}
+
+                    <div class="row">
+                        <div class="three columns">
+                            <label class="label-tabular" for="id_username">{% trans %}Email{% endtrans %}</label>
+                        </div>
+                        <div class="nine columns">
+                            {{ login_form.username }}
+                            <div class="form-field-separator"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="three columns">
+                            <label class="label-tabular" for="id_password">{% trans %}Password{% endtrans %}</label>
+                        </div>
+                        <div class="nine columns">
+                            {{login_form.password}}
+                            <div class="form-field-separator"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="three columns"></div>
+                        <div class="nine columns">
+                            <button class="button large success" type="submit" name="login_with_password" value="1">{% trans %}Sign in{% endtrans %}</button>
+                            <a class="button large f-right" href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next=/" >{% trans %}Create new user account{% endtrans %}</a>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="three columns"></div>
+                        <div class="nine columns">
+                            <a href="{% url lost_password %}" class="right">{% trans %}Lost password{% endtrans %}</a>
+                        </div>
+                    </div>
+
+{#                     <div class="row separator-01">
+                    </div>
+                    <div class="row">
+                        <div class="three columns">
+                        </div>
+                        <div class="nine columns separated-buttons">
+                            <p>{% trans %}You don't have user account yet?{% endtrans %} <a href="{{ settings.USER_REGISTRATION_URL }}?login_provider=local&amp;next=/" class="">{% trans %}Create new user account{% endtrans %}</a></p>
+                        </div>
+                    </div> #}
+                    {#
+                    <div class="row">
+                        <div class="three columns">
+                        </div>
+                        <div class="nine columns">
+                            <a class="create-password-account" style="vertical-align:middle" href="{% url user_signup_with_password %}?login_provider=local">{% trans %}Create a password-protected account{% endtrans %}</a>
+                            <div class="form-field-separator"></div>
+                        </div>
+
+                        <div class="nine columns">
+                            <a class="create-password-account" style="vertical-align:middle" href="{% url user_account_recover %}">{% trans %}I have forgotten my password.{% endtrans %}</a>
+                            <div class="form-field-separator"></div>
+
+                        </div>
+
+                    </div>
+                    #}
+                </div>
+            </div>
+            {% else %}
+             <div class="twelve columns tabular-form">
+                <div class="row">
+                    <div class="twelve columns">
+                        <h1>{% trans %}Change your password{% endtrans %}</h1>
+                    </div>
+                </div>
+                {% if login_form.errors %}
+                    <div class="alert-box alert">{% trans %}Cannot submit, form has errors.{% endtrans %}</div>
+                {% endif %}
+                <div class="row">
+                    <div class="three columns">
+                        <label class="label-tabular" for="id_new_password">{% trans %}New password{% endtrans %}</label>
+                    </div>
+                    <div class="nine columns">
+                        {{ login_form.new_password }}
+                         {% if login_form.new_password.errors %} <small class="error">{% for error in login_form.new_password.errors %}{{ error }}{% if not loop.last %}, {% endif %}{% endfor %}</small>{% endif %}
+                        <div class="form-field-separator"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="three columns">
+                        <label class="label-tabular" for="id_new_password_retyped">{% trans %}Please, retype{% endtrans %}</label>
+                    </div>
+                    <div class="nine columns">
+                        {{ login_form.new_password_retyped }}
+                        {% if login_form.new_password_retyped.errors %} <small class="error">{% for error in login_form.new_password_retyped.errors %}{{ error }}{% if not loop.last %}, {% endif %}{% endfor %}</small>{% endif %}
+                        <div class="form-field-separator"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="three columns">
+                    </div>
+                    <div class="nine columns">
+                        <button class="large button" type="submit" name="change_password" value="1">{% trans %}Change password{% endtrans %}</button>
+                        <div class="form-field-separator"></div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</form>
+
+
+{#
+
+<div class="row">
+    <div class="nine columns">
+        <div class="group">
+        <div class="">
+
+        {% if have_buttons or view_subtype == 'email_sent' %}
+            <h5 class="section-title">{{page_title}}</h5>
+        {% endif %}
+        {% if not (view_subtype == 'default' and have_buttons) %}
+        <p id='login-intro'>
+            {% if view_subtype == 'add_openid' and have_buttons %}
+                {% if existing_login_methods %}
+                    {% trans %}It's a good idea to make sure that your existing login methods still work, or add a new one. Please click any of the icons below to check/change or add new login methods.{% endtrans %}
+                {% else %}
+                    {% trans %}Please add a more permanent login method by clicking one of the icons below, to avoid logging in via email each time.{% endtrans %}
+                {% endif %}
+            {% elif view_subtype == 'change_openid' and have_buttons %}
+                {% if existing_login_methods %}
+                    {% trans %}Click on one of the icons below to add a new login method or re-validate an existing one.{% endtrans %}
+                {% else %}
+                    {% trans %}You don't have a method to log in right now, please add one or more by clicking any of the icons below.{% endtrans %}
+                {% endif %}
+            {% elif view_subtype == 'email_sent' %}
+                {% trans %}Please check your email and visit the enclosed link to re-connect to your account{% endtrans %}
+            {% endif %}
+        </p>
+        {% endif %}
+        {% if openid_error_message %}
+            <p class="warning">{{ openid_error_message }}</p>
+        {% endif %}
+
+        {% if view_subtype != 'email_sent' and view_subtype != 'bad_key' %}
+        <form id="signin-form" method="post" action="{{ settings.LOGIN_URL }}">{% csrf_token %}
+            {{ login_form.login_provider_name }}
+            {{ login_form.next }}
+            {{
+                login_macros.provider_buttons(
+                    login_form = login_form,
+                    major_login_providers = major_login_providers,
+                    minor_login_providers = minor_login_providers,
+                    hide_local_login = settings.SIGNIN_ALWAYS_SHOW_LOCAL_LOGIN,
+                    settings = settings,
+                    logged_in = user.is_authenticated(),
+                    show_buttons = have_buttons
+                )
+            }}
+            </div>
+
+
+
+            {% if use_password_login == True %}
+            <div>
+            <fieldset
+                id="password-fs"
+                {% if user.is_anonymous() %}
+                    {% if not login_form.username.errors and not login_form.password_login_failed %}
+                        {% if not settings.SIGNIN_ALWAYS_SHOW_LOCAL_LOGIN %}
+                            style="display:none;"
+                        {%endif%}
+                  {% endif %}
+                {% else %}
+                    {% if not login_form.new_password.errors and not login_form.new_password_retyped.errors %}
+                        {% if not settings.SIGNIN_ALWAYS_SHOW_LOCAL_LOGIN %}
+                            style="display:none;"
+                        {% endif%}
+                    {% endif %}
+                {% endif %}
+            >
+                {{login_form.password_action}}
+                {% if user.is_anonymous() %}
+                    {% if have_buttons %}
+                        <h5 id="password-heading">
+                            {% trans %}or enter your <span>user name and password</span>, then sign in{% endtrans %}
+                        </h5>
+                    {% else %}
+                        <h1 class="section-title">
+                            {% trans %}Please, sign in{% endtrans %}
+                        </h1>
+                    {% endif %}
+                    {% if have_buttons %}
+                        <p class="hint">{% trans %}(or select another login method above){% endtrans %}</p>
+                    {% endif %}
+
+
+                    <table class="login ten">
+                        {% if login_form.password_login_failed %}
+                        <tr>
+                            <td colspan="2">
+                                <p class="error">{% trans %}Login failed, please try again{% endtrans %}</p>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                            <td><label for="id_username">{% trans %}Email{% endtrans %}</label></td>
+                            <td>{{login_form.username}}</td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_password">{% trans %}Password{% endtrans %}</label></td>
+                            <td>{{login_form.password}}</td>
+                        </tr>
+                    </table>
+
+                    <p id="local_login_buttons">
+                        <div class="row">
+                            <div class="columns three">
+                                <input class="submit-b button" name="login_with_password" type="submit" value="{% trans %}Sign in{% endtrans %}" />
+                            </div>
+                            <div class="columns nine">
+                                <a class="create-password-account" style="vertical-align:middle" href="{% url user_signup_with_password %}?login_provider=local">{% trans %}Create a password-protected account{% endtrans %}</a>
+                            </div>
+                    </p>
+
+
+                {% else %}
+                    <h2 id="password-heading">
+                        {% trans %}To change your password - please enter the new one twice, then submit{% endtrans %}
+                    </h2>
+                    <table class="login">
+                        <tr>
+                            <td><label for="id_new_password">{% trans %}New password{% endtrans %}</label></td>
+                            <td>
+                                {{login_form.new_password}}
+                            </td>
+                            <td>
+                                <span class="error">{{login_form.new_password.errors[0]}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="id_new_password_retyped">{% trans %}Please, retype{% endtrans %}</label></td>
+                            <td>
+                                {{login_form.new_password_retyped}}
+                            </td>
+                            <td>
+                                <span class="error">{{login_form.new_password_retyped.errors[0]}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <p id="local_login_buttons">
+                        <input class="submit-b" name="change_password" type="submit" value="{% trans %}Change password{% endtrans %}" />
+                    </p>
+                {% endif %}
+            </fieldset>
+            </div>
+            {% endif %}
+        </form>
+        </div>
+        {% if user.is_authenticated() and existing_login_methods and settings.ALLOW_ADD_REMOVE_LOGIN_METHODS %}
+        <div
+            id='existing-login-methods'
+            {% if login_form.password_change_failed %}
+                style="display:none";
+            {% endif %}
+        >
+            <h2 id='ab-show-login-methods'>
+                {% trans %}Here are your current login methods{% endtrans %}
+            </h2>
+            <table id='ab-existing-login-methods'>
+                <tr>
+                    <th>{% trans %}provider{% endtrans %}</th>
+                    <th>{% trans %}last used{% endtrans %}</th>
+                    <th>{% trans %}delete, if you like{% endtrans %}</th>
+                </tr>
+                {% for login_method in existing_login_methods %}
+                <tr class="ab-provider-row">
+                    <td class="ab-provider-name">
+                        {{login_method.provider_name}}
+                    </td>
+                    <td>
+                        {% if login_method.last_used_timestamp %}
+                            {{ login_method.last_used_timestamp|humanize_datetime }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if login_method.is_deletable %}
+                            <button>{% trans %}delete{% endtrans %}</button>
+                        {% else %}
+                            {% trans %}cannot be deleted{% endtrans %}
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+        {% endif %}
+        {% if view_subtype != 'email_sent' or view_subtype == 'bad_key' %}
+            {% if user.is_anonymous() and settings.ALLOW_ACCOUNT_RECOVERY_BY_EMAIL %}
+            <form id="account-recovery-form" action="{% url user_account_recover %}" method="post">{% csrf_token %}
+                {% if view_subtype != 'bad_key' %}
+                    <h2 id='account-recovery-heading'>{% trans %}Still have trouble signing in?{% endtrans %}</h2>
+                {% endif %}
+                <p class="hint">
+                    <span class="text">
+                    {% if view_subtype == 'bad_key' %}
+                        {% trans %}Please, enter your email address below and obtain a new key{% endtrans %}
+                    {% else %}
+                        {% trans %}Please, enter your email address below to recover your account{% endtrans %}
+                    {% endif %}
+                    </span>
+                    <span style="display:none" class="link"> - <a href="#">{% trans %}recover your account via email{% endtrans %}</a></span>
+                </p>
+                <fieldset id='email-input-fs'>
+                    {% if account_recovery_form.email.errors %}
+                    <p class="error">{{account_recovery_form.email.errors[0]}}</p>
+                    {% endif %}
+                    {{ account_recovery_form.email }}
+                    <input
+                        class="submit-b"
+                        type="submit"
+                        {% if view_subtype == 'bad_key' %}
+                        value="{% trans %}Send a new recovery key{% endtrans %}"
+                        {% else %}
+                        value="{% trans %}Recover your account via email{% endtrans %}"
+                        {% endif %}
+                    />
+                </fieldset>
+            </form>
+            {% endif %}
+        {% endif %}
+    {% endblock %}
+    {% block endjs %}
+    {% include "authopenid/providers_javascript.html" %}
+    </div>
+    <div class="three columns"></div>
+</div>
+
+#}
+
+{% endblock %}
+<!-- end signin.html -->
