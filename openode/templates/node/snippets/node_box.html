@@ -166,7 +166,24 @@
                             {% url node_module node.pk, node.slug, NODE_MODULE_QA as url %}
                             {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_QA) %}
 
-                            <div class="report-stats-area">
+                            <a href="{{ url }}" title="{% trans %}Open Node's questions{% endtrans %}" class="control-link">
+                                <span class="control-link-icon icon icon-plus round">
+                                    {% if unread == 0 %}
+                                        <span class="unread-mark">{{ unread }}</span>
+                                    {% endif %}
+                                </span>
+                                
+                                {% with threads_count_for_module=node.get_threads_count_for_module(NODE_MODULE_QA)  %}
+                                    {% trans cnt = threads_count_for_module %}Q&A {% pluralize %}Q&As {% endtrans %}{{ threads_count_for_module }}
+                                {% endwith %}
+                            </a>
+
+                            {# NODE STYLE CATEGORY #}
+                            <div class="report-meta-area hidden">
+                                <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
+                            </div>
+
+                            <div class="report-stats-area hidden">
                                 <a href="{{ url }}" title="{% trans %}Open Node's questions{% endtrans %}">
                                     <div class="group unread-mark-container">
                                     {% if unread > 0 %}
@@ -181,7 +198,7 @@
                                         <span class="title">{% trans cnt = threads_count_for_module %}Q&A {% pluralize %}Q&As {% endtrans %}</span>
                                     {% endwith %}
                                     {# NODE STYLE CATEGORY #}
-                                    <div class="report-meta-area hidden">
+                                    <div class="report-meta-area">
                                         <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
                                     </div>
                                 </a>
@@ -193,7 +210,12 @@
                             {% url node_module node.pk, node.slug, NODE_MODULE_FORUM as url %}
                             {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_FORUM) %}
 
-                            <div class="report-stats-area">
+                            <a href="{% url admin:openode_node_changelist %}" class="control-link">
+                                <i class="control-link-icon icon icon-plus round"></i>
+                                {% trans %}Discus{% endtrans %}
+                            </a>
+
+                            <div class="report-stats-area hidden">
                                 <a href="{{ url }}" title="{% trans %}Open Node's discussion{% endtrans %}">
                                     <div class="group unread-mark-container">
                                     {% if unread > 0 %}
@@ -209,7 +231,7 @@
                                     {% endwith %}
                                     {# <span class="title">{% trans %}Discu.{% endtrans %}</span> #}
                                     {# NODE STYLE CATEGORY #}
-                                    <div class="report-meta-area hidden">
+                                    <div class="report-meta-area">
                                         <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
                                     </div>
                                 </a>                            
@@ -220,6 +242,10 @@
                         {% if node.module_library %}
                             {% url node_module node.pk, node.slug, NODE_MODULE_LIBRARY as url %}
                             {% set unread=node.get_unread_count(nodes_of_user, NODE_MODULE_LIBRARY) %}
+                            <a href="{% url admin:openode_node_changelist %}" class="control-link">
+                                <i class="control-link-icon icon icon-plus round"></i>
+                                {% trans %}Docs{% endtrans %}
+                            </a>
 
                             <div class="report-stats-area">
                                 <a href="{{ url }}" title="{% trans %}Open Node's documents{% endtrans %}">
@@ -237,7 +263,7 @@
 
                                     <span class="title">{% trans %}Docs.{% endtrans %}</span>
                                     {# NODE STYLE CATEGORY #}
-                                    <div class="report-meta-area hidden">
+                                    <div class="report-meta-area">
                                         <a class="control-link" href="{% url node node_id=node.pk, node_slug=node.slug %}">{% trans %}about node{% endtrans %}</a>
                                     </div>
                                 </a>
