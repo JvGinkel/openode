@@ -1,0 +1,89 @@
+// ==========================================================================
+// Title:        Tabs 
+// ==========================================================================
+
+
+.tabs-wrapper {
+    @include reset-list();
+    @include clearfix();
+    display: inline-block;
+
+    @include border-width($global-border-width $global-border-width 0 $global-border-width);
+    @include border-style($global-border-style $global-border-style null $global-border-style);
+    @include border-color($global-border-color $global-border-color null $global-border-color);
+
+    @include border-top-radius($global-radius);
+
+    & > li {
+        position: relative;
+        width: rem-calc(180px);
+        height: rem-calc(56px);
+        float: left;   
+
+        background: $light-grey;
+        text-align: center;  
+
+        border-bottom: $global-border-width $global-border-style $global-border-color;
+
+        & + li {
+            border-left: $global-border-width $global-border-style $global-border-color;
+        }      
+
+        &:first-child {
+			border-top-left-radius: $global-radius;
+        }
+
+        &:last-child {
+			border-top-right-radius: $global-radius;
+        }
+    }
+
+    & > li.active {
+        background: $white;
+        border-bottom: none;
+
+        .tab-title {
+            color: $primary-color;
+        }
+    }
+
+    .tab-inner {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .tab-title {
+        font-size: rem-calc(14px);
+        color: $dark-grey;
+        text-transform: uppercase;
+    }
+
+    .tab-subtitle {
+        font-size: rem-calc(12px);
+        color: $dark-grey;
+    }
+
+    .tab-unread-mark {
+        @extend .unread-mark;
+
+        position: absolute;
+        top: 50%;
+        right: rem-calc(10px);
+        transform: translateY(-50%);
+
+        width: rem-calc(24px);
+        height: rem-calc(24);
+        padding: 0;
+    }
+
+    .tab-title, .tab-subtitle {
+        font-weight: $font-weight-lighter;
+    }
+}
+
+
+

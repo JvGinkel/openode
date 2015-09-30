@@ -39,32 +39,8 @@ $content-panel-header-font-size: rem-calc(12px) !default;
     }   
 }
 
-.content-panel-filter {
+.content-panel-action-area {
     @extend .content-panel-header;
-
-    & > .form-label {
-        font-size: $content-panel-header-font-size;
-    }
-
-    // @TODO refactor
-    .select2-container {
-        width: 140px !important;
-        height: 34px;
-
-        .select2-choices {
-            height: 34px!important;
-            border-radius: $global-radius;
-        }
-
-
-    }
-    .select2-results {
-        font-size: 10px!important;
-    }
-
-    .select2-results .select2-no-results, .select2-results .select2-searching, .select2-results .select2-selection-limit {
-        font-size: 10px!important;
-    }
 }
 
 .content-panel-control {
@@ -94,6 +70,12 @@ $content-panel-header-font-size: rem-calc(12px) !default;
         line-height: rem-calc(36px);
         color: $primary-color;
     }
+}
+
+.content-panel-tabs {
+    padding: 0 $content-panel-padding;
+    height: rem-calc(57px);
+    border-bottom: $global-border-width $global-border-style $global-border-color;
 }
 
 

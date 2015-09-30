@@ -39,6 +39,7 @@
 @import "components/forms";
 @import "components/unread-marks";
 @import "components/breadcrumbs";
+@import "components/tabs";
 
 
 @import "layout/content-body";
@@ -51,6 +52,7 @@
 @import "layout/widgets/side-widget"; 
 
 
+@import "layout/content-panel";
 @import "layout/nodes/node-base";
 @import "layout/nodes/node-box-areas";
 @import "layout/nodes/node-expand-control";

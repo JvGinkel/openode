@@ -8,47 +8,6 @@
 
 {% block module_content %}
 
-    {# === filter by author === #}
-    <div class="row">
-        <div class="six column">
-            <h2>{% trans %}Questions{% endtrans %}</h2>
-        </div>
-        <div class="six column">
-            <div class="group filter">
-                <form action="{{ request.path }}" method="get" class="js-filter-users">
-                    <dl class="sub-nav f-right">
-                        <dt>
-                            {{ search_user_form.authors.label }}:
-                        </dt>
-                        <dd>
-                            {{ search_user_form.authors }}
-                        </dd>
-                    </dl>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <script type="text/javascript">
-        load_selected = function(element, callback) {
-            var data = [];
-            {% for author in authors %}
-                data.push({
-                    id: {{ author.pk }},
-                    text: '{{ author.screen_name }}'
-                });
-            {% endfor %}
-            callback(data);
-        }
-
-        jQuery(document).ready(function(){
-            var form = jQuery(".js-filter-users");
-            form.on("change", "#id_authors", function(e){
-                jQuery("#id_authors").prop('readonly', true);
-                window.location.href = "?authors=" + jQuery("#id_authors").select2("val").join(",");
-            })
-        });
-    </script>
 
     {# ###################################################################### #}
 

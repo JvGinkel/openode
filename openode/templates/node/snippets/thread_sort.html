@@ -1,6 +1,82 @@
 {% import "macros.html" as macros %}
 {% load extra_filters_jinja %}
 {% cache 0 "scope_sort_tabs" search_tags request.user author_name scope sort query context.page language_code %}
+
+<div class="content-panel-filter">
+    {% if request.user.has_openode_perm("node_qa_create", node) %}
+        <a href="{% url thread_add node_id=node.pk, node_slug=node.slug, module='qa' %}" class="button button-submit t-uppercase">
+            {% trans %}Add a question{% endtrans %}
+        </a>
+    {% endif %}
+    <span class="form-label">{{ search_user_form.authors.label }}:</span>
+    {{ search_user_form.authors }}
+
+
+    <span class="form-label">
+        {% trans %}Sort by:{% endtrans %}
+    </span>
+    <div class="button dropdown" data-dropdown="filter-sort">
+        dawdwa
+    </div>
+    <ul id="filter-sort" class="content-panel-dropdown f-dropdown" data-dropdown-content aria-hidden="true">
+        <li>dawdwa</li>
+        <li>dawdwa</li>
+    </ul>
+
+    <span class="form-label">
+        {% trans %}Show:{% endtrans %}
+    </span>
+    <div class="button dropdown" data-dropdown="filter-show">
+        dawdwa
+    </div>
+    <ul id="filter-show" class="content-panel-dropdown f-dropdown" data-dropdown-content aria-hidden="true">
+        <li>dawdwa</li>
+        <li>dawdwa</li>
+    </ul>
+</div>
+
+{# === filter by author === #}
+<div class="row">
+    <div class="six column">
+        <h2>{% trans %}Questions{% endtrans %}</h2>
+    </div>
+    <div class="six column">
+        <div class="group filter">
+            <form action="{{ request.path }}" method="get" class="js-filter-users">
+                <dl class="sub-nav f-right">
+                    <dt>
+                        {{ search_user_form.authors.label }}:
+                    </dt>
+                    <dd>
+                        {{ search_user_form.authors }}
+                    </dd>
+                </dl>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    load_selected = function(element, callback) {
+        var data = [];
+        {% for author in authors %}
+            data.push({
+                id: {{ author.pk }},
+                text: '{{ author.screen_name }}'
+            });
+        {% endfor %}
+        callback(data);
+    }
+
+    jQuery(document).ready(function(){
+        var form = jQuery(".js-filter-users");
+        form.on("change", "#id_authors", function(e){
+            jQuery("#id_authors").prop('readonly', true);
+            window.location.href = "?authors=" + jQuery("#id_authors").select2("val").join(",");
+        })
+    });
+</script>
+
 <div class="row">
     <div class="twelve column">
         <div class="sort group">
