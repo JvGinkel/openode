@@ -4,13 +4,14 @@
 
 
 // Variables for spacing of 'Node Box'
-$node-box-spacing: $global-spacing !default;
+$node-box-spacing: rem-calc(15px) !default;
+$node-box-meta-spacing: rem-calc(5px) !default;
 
 // Variables for spacing of 'Top Level Node'
 $node-box-top-level-bg: $navy-blue !default;
-$node-box-top-level-border-width: none !default;
-$node-box-top-level-border-style: none !default;
-$node-box-top-level-border-color: none !default;
+$node-box-top-level-border-width: $global-border-width*2 !default;
+$node-box-top-level-border-style: $global-border-style !default;
+$node-box-top-level-border-color: $node-box-top-level-bg !default;
 
 // Variables for spacing of 'Sub Level Node'
 $node-box-sub-level-bg: $white !default;
@@ -19,7 +20,49 @@ $node-box-sub-level-border-style: $global-border-style !default;
 $node-box-sub-level-border-color: $global-border-color !default;
 
 
+.node-box {
+
+    /*&.category.level-0 {
+        background: $node-box-top-level-bg;        
+
+        a {
+            color: $white;
+        }
+    }*/
+
+    background: $node-box-top-level-bg;        
+
+        a {
+            color: $white;
+        }
+
+    // Generate styles Sub Levels
+    @include content-levels($minLevel: 0, 
+        $maxLevels: 10, 
+        $startFromLevel: 1,
+        $step: strip-unit(rem-to-px($node-box-spacing)), 
+        $levelSelector: '&.level', 
+        $contentSelector: '.node-box-content'
+    ) {
+        background: $node-box-sub-level-bg;
+        /*@include border-width(null null $node-box-sub-level-border-width null);
+        @include border-style(null null $node-box-sub-level-border-style null);
+        @include border-color(null null $node-box-sub-level-border-color null);*/
+
+        .node-expand-control {
+            border: 1px solid $icon-color;
+        }
+    }
+}
+
+
 .node.top-level {
+
+    border: $node-box-top-level-border-width $node-box-top-level-border-style $node-box-top-level-border-color; 
+
+    .node-expand-control {
+        border-color: $white !important;
+    }
 
     // Anim expanding top-levels
     transform: translateZ(0); // Safari fix
@@ -35,6 +78,11 @@ $node-box-sub-level-border-color: $global-border-color !default;
         }
     }
 
+    .level-0 .node-box-content {
+        background: $node-box-top-level-bg;
+        padding-left: $node-box-spacing;
+    }
+
     // Private Node
     /*&.is-private {
         .node-box {
@@ -47,8 +95,7 @@ $node-box-sub-level-border-color: $global-border-color !default;
     }*/
 }
 
-
-.node.sub-level {
+%node-sub-style {
     @include border-width(null $node-box-sub-level-border-width null $node-box-sub-level-border-width);
     @include border-style(null $node-box-sub-level-border-style null $node-box-sub-level-border-style);
     @include border-color(null $node-box-sub-level-border-color null $node-box-sub-level-border-color);
@@ -74,39 +121,35 @@ $node-box-sub-level-border-color: $global-border-color !default;
 }
 
 
-// NODE is category
-.node-box {
+.node.sub-level {
+    /*@include border-width(null $node-box-sub-level-border-width null $node-box-sub-level-border-width);
+    @include border-style(null $node-box-sub-level-border-style null $node-box-sub-level-border-style);
+    @include border-color(null $node-box-sub-level-border-color null $node-box-sub-level-border-color);
 
-    /*&.category.level-0 {
-        background: $node-box-top-level-bg;        
+    // Anim expanding sub-levels
+    transform: translateZ(0); // Safari fix
+    
+    .node-box {
+        @extend .animate-fast;
+        @extend .zoomInY;
+    }
 
-        a {
-            color: $white;
-        }
+    .node-box-content .inner {
+        @include border-width(null null $node-box-sub-level-border-width null);
+        @include border-style(null null $node-box-sub-level-border-style null);
+        @include border-color(null null $node-box-sub-level-border-color null);
+    }
+
+    .node-box-content .node-title {
+        color: $primary-color;
+        font-weight: $font-weight-lighter;
     }*/
 
-    background: $node-box-top-level-bg;        
-
-        a {
-            color: $white;
-        }
-
-    // Generate styles Sub Levels
-    @include content-levels($minLevel: 1, 
-        $maxLevels: 10, 
-        $step: strip-unit(rem-to-px($node-box-spacing)), 
-        $levelSelector: '&.level', 
-        $contentSelector: '.node-box-content'
-    ) {
-        background: $node-box-sub-level-bg;
-        /*@include border-width(null null $node-box-sub-level-border-width null);
-        @include border-style(null null $node-box-sub-level-border-style null);
-        @include border-color(null null $node-box-sub-level-border-color null);*/
-
-        .node-expand-control {
-            border: 1px solid $icon-color;
-        }
-    }
+    @extend %node-sub-style;
 }
+
+
+// NODE is category
+
 
 

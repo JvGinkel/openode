@@ -13,7 +13,7 @@
         border: none; 
 
         .level-1 .node-box-content {
-            padding: 0;
+            //padding: 0;
         }
     }
 
@@ -43,4 +43,15 @@
             border: none;
         }
     }
+}
+
+// Regenerate levels
+.node-listing .node-box {
+    @include content-levels($minLevel: 0, 
+        $maxLevels: 10, 
+        $startFromLevel: 2,
+        $step: strip-unit(rem-to-px($node-box-spacing)), 
+        $levelSelector: '&.level', 
+        $contentSelector: '.node-box-content'
+    )
 }

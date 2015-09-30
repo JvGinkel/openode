@@ -388,13 +388,14 @@ $mobile-and-tables: "#{$screen} and (min-width:#{lower-bound($small-range)}) and
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Variables for spacing of 'Node Box'
-$node-box-spacing: $global-spacing;
+$node-box-spacing: rem-calc(15px);
+$node-box-meta-spacing: rem-calc(5px);
 
 // Variables for spacing of 'Top Level Node'
 $node-box-top-level-bg: $navy-blue;
-$node-box-top-level-border-width: none;
-$node-box-top-level-border-style: none;
-$node-box-top-level-border-color: none;
+$node-box-top-level-border-width: $global-border-width*2;
+$node-box-top-level-border-style: $global-border-style;
+$node-box-top-level-border-color: $node-box-top-level-bg;
 
 // Variables for spacing of 'Sub Level Node'
 $node-box-sub-level-bg: $white !default;

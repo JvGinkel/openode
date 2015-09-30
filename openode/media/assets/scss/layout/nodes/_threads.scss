@@ -6,23 +6,32 @@ $node-thread-divider: $node-box-sub-level-border-width $node-box-sub-level-borde
 
 
 .node-thread {
-	.node-box {
-		background: $white;
-	}
+    @extend %node-sub-style;
+    border: none;
 
-	.node-box-content {
-		padding: 0;
-	}
+    .node-box {
+        background: $white;
+    }
 
-	.node-box-content .inner {
-		border-bottom: $node-thread-divider;
-	}
+    &:last-child .node-box-content .inner{
+        border: none;
+    }
 
-	&:last-child .node-box-content .inner{
-		border: none;
-	}
+    .control-link {
+        display: inline-block;
+    }
+}
 
-	.control-link {
-		display: inline-block;
-	}
+
+.node-thread .node-box-content {
+    padding: 0;
+
+    .inner {
+        border-bottom: $node-thread-divider;
+    }
+
+    .node-meta-area {
+        margin-bottom: $node-box-meta-spacing;
+    }
+
 }

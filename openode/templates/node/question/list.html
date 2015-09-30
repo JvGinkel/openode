@@ -16,7 +16,7 @@
     {% if threads.object_list|length == 0 %}
         <p>{% trans %}There are no questions in this Node.{% endtrans %}</p>
     {% else %}
-        <div class="group q-listing thread-listing">
+        <div class="thread-listing">
             {% for thread in threads.object_list %}
                 {{ thread.get_summary_html(search_state=search_state, visitor=request.user) }}
             {% endfor %}

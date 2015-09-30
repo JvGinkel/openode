@@ -2,12 +2,21 @@
 // Title:        Content Levels
 // ==========================================================================
 
-@mixin content-levels($minLevel: 1, $maxLevels: 10, $step: 25, $levelSelector: '&.level', $contentSelector: '.node-box-content') {
+@mixin content-levels($minLevel: 0, $maxLevels: 10, $startFromLevel: 0, $step: 25, $levelSelector: '&.level', $contentSelector: '.node-box-content') {
+    $level: null;
+    $levelIterator: 0;
+    
     @for $i from $minLevel through $maxLevels {
+          @if $startFromLevel > $i {
+            $level: 0;
+          } @else {
+            $levelIterator: $levelIterator + 1;
+            $level: $step * $levelIterator;
+          }
         #{$levelSelector}-#{$i} {
             #{$contentSelector} {
-                padding-left: $i * $step + px;
-                @content;
+                padding-left: $level + px;
+                @content;  
             }
         }
     }
