@@ -46,10 +46,26 @@ $content-panel-header-font-size: rem-calc(12px) !default;
         font-size: $content-panel-header-font-size;
     }
 
+    .content-panel-dropdown {
+        max-width: rem-calc(180px) !important;
+    }
+
+    .filter-item {
+        display: inline-block;
+        margin-left: rem-calc(24px);
+
+        .filter {
+            //min-width: rem-calc(153px);
+            text-align: left;
+        }
+    }
+
     // @TODO refactor
     .select2-container {
         width: 140px !important;
         height: 34px;
+        position: relative;
+        top: -8px;
 
         .select2-choices {
             height: 34px!important;

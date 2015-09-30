@@ -1,0 +1,28 @@
+// ==========================================================================
+// Title:        Node Threads
+// ==========================================================================
+
+$node-thread-divider: $node-box-sub-level-border-width $node-box-sub-level-border-style $node-box-sub-level-border-color !default;
+
+
+.node-thread {
+	.node-box {
+		background: $white;
+	}
+
+	.node-box-content {
+		padding: 0;
+	}
+
+	.node-box-content .inner {
+		border-bottom: $node-thread-divider;
+	}
+
+	&:last-child .node-box-content .inner{
+		border: none;
+	}
+
+	.control-link {
+		display: inline-block;
+	}
+}

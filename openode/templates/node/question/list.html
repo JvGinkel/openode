@@ -12,11 +12,11 @@
     {# ###################################################################### #}
 
     {% include "node/snippets/thread_sort.html" %}{# sorting #}
-    {% include "node/snippets/paginator.html" %}
+
     {% if threads.object_list|length == 0 %}
         <p>{% trans %}There are no questions in this Node.{% endtrans %}</p>
     {% else %}
-        <div class="group q-listing">
+        <div class="group q-listing thread-listing">
             {% for thread in threads.object_list %}
                 {{ thread.get_summary_html(search_state=search_state, visitor=request.user) }}
             {% endfor %}
@@ -24,14 +24,6 @@
     {% endif %}
 
     {% include "node/snippets/paginator.html" %}
-
-    {% if request.user.has_openode_perm("node_qa_create", node) %}
-        <div class="group">
-            <a class="button large success t-left" title="" href="{% url thread_add node_id=node.pk, node_slug=node.slug, module='qa' %}">
-                {% trans %}Ask your question{% endtrans %}
-            </a>
-        </div>
-    {% endif %}
 
 {% endblock %}
 

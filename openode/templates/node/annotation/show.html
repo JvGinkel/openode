@@ -57,6 +57,8 @@
 {# ========================================================================== #}
 
 {% block module_content %}
+
+    {# @TODO @ASANA #1
     <div class="row">
         <div class="twelve columns">
             <h2>{% trans %}Annotation{% endtrans %}</h2>
@@ -76,34 +78,34 @@
             </div>
         </div>
     </div>
+    #}
 
-    <div class="row separator-01"></div>
-
-    <div class="row">
-        <div class="twelve columns">
-            {# === SUBNODES === #}
-            {% with subnodes=node.get_children(), root_id=node.pk %}
-                {% if subnodes %}
-                    <h2>{% trans %}Sub-Nodes{% endtrans %}</h2>
-                    {% with nodes_of_user = request.user %}
-                    {% for node in subnodes recursive %}
-                        {% if request.user.has_openode_perm("node_show", node) %}
-                            {% set NODE_TREE_DISPLAY = True %}
-                            {% set USE_AJAX = False %}
-                            {% include "node/snippets/node_box.html" %}
-                            {% if not node.is_leaf_node_for_user(request.user, with_closed) %}
-                                {{ loop(node.get_children_for_user(request.user, with_closed)) }}
-                            {% endif %}
-                         {% endif %}
-                    {% endfor %}
-                    {% endwith %}
-                {% endif %}
-            {% endwith %}
-        </div>
+    <div class="node-listing only-subnodes">
+        {# === SUBNODES === #}
+        {% with subnodes=node.get_children(), root_id=node.pk %}
+            {% if subnodes %}
+                {# @TODO @ASANA #2
+                <h2>{% trans %}Sub-Nodes{% endtrans %}</h2>
+                #}
+                {% with nodes_of_user = request.user %}
+                {% for node in subnodes recursive %}
+                    {% if request.user.has_openode_perm("node_show", node) %}
+                        {% set NODE_TREE_DISPLAY = True %}
+                        {% set USE_AJAX = False %}
+                        
+                        {% include "node/snippets/node_box.html" %}
+                        
+                        {% if not node.is_leaf_node_for_user(request.user, with_closed) %}
+                            {{ loop(node.get_children_for_user(request.user, with_closed)) }}
+                        {% endif %}
+                     {% endif %}
+                {% endfor %}
+                {% endwith %}
+            {% endif %}
+        {% endwith %}
     </div>
 
-    <div class="row separator-01"></div>
-
+    {# @TODO @ASANA #3
     <div class="row">
         <div class="twelve columns">
             <h2>{% trans %}Live{% endtrans %}</h2>
@@ -119,6 +121,7 @@
             </div>
         </div>
     </div>
+    #}
 
 {% endblock %}
 

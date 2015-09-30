@@ -1,0 +1,46 @@
+// ==========================================================================
+// Title:        Node listing
+// ==========================================================================
+
+
+// ==========================================================================
+// =only-subnodes
+// ==========================================================================
+
+%only-subnodes {
+
+    .sub-level {
+        border: none; 
+
+        .level-1 .node-box-content {
+            padding: 0;
+        }
+    }
+
+    .sub-level:first-child {
+        //border-top: $node-box-sub-level-border-width $node-box-sub-level-border-style $node-box-sub-level-border-color;
+    }
+
+
+    .sub-level:last-child {
+        //border-bottom: $node-box-sub-level-border-width $node-box-sub-level-border-style $node-box-sub-level-border-color;
+
+        .inner {
+            border: none;
+        }
+    }
+}
+
+.node-listing {
+    & {
+        @extend %only-subnodes;
+    }
+}
+
+.thread-listing .node-thread {
+    &:last-child {
+        .node-box-content .inner {
+            border: none;
+        }
+    }
+}

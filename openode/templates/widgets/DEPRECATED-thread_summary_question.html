@@ -1,52 +1,6 @@
 {% from "macros.html" import render_last_changed, tag_list %}
-{% set answer_count = thread.get_answer_count(visitor) %}
 
-<div class="node-thread">
-    <div class="node-box {% if has_unread_main_post %} unread-background{% endif %}">
-
-        <a href="{{ thread.get_absolute_url() }}" class="node-link-wrap">
-
-            <div class="node-box-content">
-                <div class="inner">
-                    {% if thread_header %}
-                    <h3 class="node-title">                        
-                        {{ thread.node.title }}
-                    </h3>
-                    {% endif %}
-                    <div class="node-meta-area">
-                        <div class="control-link">
-                            
-                            <span class="control-link-icon icon icon-plus round" title="{% trans %}Unread posts{% endtrans %}">
-                                {% if thread_view and thread_view.not_view_sum_count() %}
-                                <span class="unread-mark small">{{ thread_view.view_sum_count()|default("") }}</span>
-                                {% endif %} 
-                            </span>
-                            <span class="control-link-content">
-                                {% trans cnt = answer_count %}Answer {% pluralize %}Answers {% endtrans %}: {{ answer_count }}
-                            </span>
-                                                       
-                        </div>
-                        <div class="control-link">
-                            <span class="control-link-icon icon icon-plus round">
-                            </span>
-                            <span class="control-link-content">
-                                {% trans cnt = thread.view_count %}View{% pluralize %}Views {% endtrans %}: {{ thread.view_count }}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="node-meta-area">
-                        <span class="report-meta-item">
-                            31. 9. 2015 Duke Nukem
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </div>
-</div>
-
-
-<div class="node-box{% if has_unread_main_post %} unread-background{% endif %} hidden-important">
+<div class="node-box{% if has_unread_main_post %} unread-background{% endif %}">
 
     <a href="{{ thread.get_absolute_url() }}" class="node-link-wrap"></a>
 
@@ -59,6 +13,7 @@
 
                 <div class="report-box{% if thread_view and thread_view.not_view_sum_count() %} unread-background{% endif %}">
                     <a title="{% trans %}Show question{% endtrans %}" href="{{ thread.get_absolute_url() }}">
+                        {# <span>&nbsp;</span> #}
 
                         <div class="group unread-mark-container">
                         {% if thread_view and thread_view.not_view_sum_count() %}
